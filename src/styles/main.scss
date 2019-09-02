@@ -1,7 +1,138 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "header";
 
-body {
-  background: $c-gray;
+$lightcolor: #56ccf2;
+$darkcolor: #253757;
+$buttoncolor: #2f80ed;
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+.box {
+  @include transform(rotate(30deg));
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  font-style: normal;
+  color: $darkcolor;
+}
+
+.content {
+  &__square {
+    width: 100%;
+    height: 50vh;
+    background: $lightcolor;
+    position: relative;
+    z-index: -1;
+    padding-top: 50px;
+
+  }
+
+  &__diagonal {
+    width: 100%;
+    height: 50vh;
+    background: $lightcolor;
+    position: relative;
+    z-index: -1;
+    display: none;
+  }
+
+  &__slider img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__main-heading {
+    font-weight: 900;
+    font-size: 39px;
+    line-height: 150%;
+    color: white;
+    text-align: center;
+  }
+
+  &__main-text {
+    color: white;
+    width: 77%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__button-learn {
+    position: absolute;
+    width: 187px;
+    height: 50px;
+    outline: none;
+    transform: translateX(47%);
+    border: none;
+    left: 0;
+    top: 271px;
+    background: #fff;
+    border-radius: 64px;
+    letter-spacing: 1px;
+    color: rgba(37, 55, 87, 0.75);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  &__slider_button {
+    width: 100px;
+    height: 44px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+     rgba(255, 255, 255, 0) 100%), #fcc304;
+  }
+  &__twobuttons {
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 48px;
+    left: 35px;
+  }
+
+  &__twobuttons svg {
+    height: 15px;
+  }
+
+  &__slider_button-left {
+    border-radius: 50px 0 0 50px;
+    padding-left: 20px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+
+  &__slider_button-right {
+    border-radius: 0 50px 50px 0;
+    padding-left: 14px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+  &__slider-text {
+    position: absolute;
+    bottom: 210px;
+    left: 12px;
+    color: white;
+    font-weight: 900;
+    font-size: 13.6px;
+    line-height: 130%;
+  }
+
+  &__slider-text-intro {
+    color: $lightcolor;
+    text-transform: uppercase;
+  }
+
 }
