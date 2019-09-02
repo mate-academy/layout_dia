@@ -1,0 +1,69 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "description": "Frontend boilerplate based on gulp",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp default --silent",
+    "build": "gulp build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "stylelint src/**/*.scss && eslint src/**/*.js && htmllint --rc ./node_modules/@mate-academy/htmllint-config/.htmllintrc src/*.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mate academy",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@mate-academy/eslint-config": "*",
+    "@mate-academy/htmllint-config": "*",
+    "@mate-academy/stylelint-config": "*",
+    "browser-sync": "^2.26.3",
+    "colors": "^1.3.3",
+    "eslint": "^5.9.0",
+    "eslint-plugin-node": "^9.0.1",
+    "gh-pages": "2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-htmllint": "0.0.16",
+    "gulp-replace-path": "^0.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^9.0.0",
+    "htmllint": "^0.8.0",
+    "htmllint-cli": "0.0.7",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended-scss": "^3.3.0",
+    "stylelint-scss": "^3.6.1"
+  },
+  "dependencies": {},
+  "lint-staged": {
+    "linters": {
+      "*.scss": [
+        "stylelint",
+        "git add"
+      ],
+      "*.js": [
+        "eslint",
+        "git add"
+      ],
+      "*.html": [
+        "htmllint --rc  ./node_modules/@mate-academy/htmllint-config/.htmllintrc",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/dist/**",
+      "**/lib/**"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "lint-staged"
+    }
+  }
+}
