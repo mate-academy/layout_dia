@@ -1,4 +1,4 @@
-# Dia lending page
+# Dia landing page
 
 ## Task
 
