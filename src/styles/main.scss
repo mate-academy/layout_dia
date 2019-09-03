@@ -1,5 +1,5 @@
 @import "utils";
-@import "fonts";
+@import "adaptive";
 @import "general";
 
 .header-section {
@@ -63,6 +63,9 @@
   &__title {
     font-weight: 900;
     font-size: 64px;
+    & br {
+      display: none;
+    }
   }
   &__text {
     font-size: 24px;
@@ -275,13 +278,16 @@
 
 .process {
   box-sizing: border-box;
-  display: flex;
-  height: 816px;
-  max-width: 1472px;
-  margin: 0 auto;
-  padding: 160px 163px 0 222px;
   background-color: $c-grey;
 
+  &__wrapper {
+    box-sizing: border-box;
+    display: flex;
+    height: 816px;
+    width: 1146px;
+    margin: 0 auto;
+    padding: 160px 0 0;
+  }
   &__main-title {
     margin-bottom: 64px;
   }
@@ -379,16 +385,16 @@
 }
 
 .features {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
   background-color: $c-blue-main;
   height: 976px;
-  padding-left: 227px;
+  position: relative;
 
   &__left-container {
     padding-top: 198px;
-    max-width: 410px;
+    width: 1146px;
+    z-index: 1;
+    margin: 0 auto;
+    flex-basis: 1;
   }
   &__title {
     padding: 0;
@@ -416,19 +422,23 @@
   &__main-title {
     margin-bottom: 60px;
   }
+
   &__right-img {
     height: 976px;
-    width: 950px;
+    width: 800px;
     background-image: url(../images/features-img.jpeg);
-    background-size: 1850px 1200px;
-    background-position: 0 -70px;
-    clip-path: polygon(100% 0, 100% 27%, 79% 75%, 68% 100%, 5% 100%, 49% 0);
+    background-size: 1750px 1200px;
+    background-position: -100px 0;
+    clip-path: polygon(100% 0, 100% 27%, 79% 75%, 68% 100%, 0 100%, 45% 0);
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
 
 .features-item {
   margin-bottom: 64px;
-  width: 400px;
+  width: 450px;
   display: flex;
   align-items: center;
 
