@@ -1,21 +1,39 @@
 .container--what-we-do {
   display: grid;
-  grid-gap: 110px;
+  grid-gap: 60px;
   grid-template-rows: auto;
-  grid-template-columns: repeat(3, 1fr) 10px;
+  grid-template-columns: 1fr;
+
+  @include for-tablet {
+    grid-template-columns: repeat(3, 1fr) 10px;
+    grid-gap: 110px;
+  }
 }
 
 .what-we-do {
+
+  @include for-phone {
+    &__subtitle {
+      margin-bottom: 50px;
+    }
+  }
+
   &__item {
-    margin-top: 136px;
+    @include for-tablet {
+      margin-top: 136px;
+    }
     text-align: left;
   }
 
   &__title {
-    margin: 84px 0 32px;
+    margin: 32px 0;
     font-weight: 900;
     font-size: 19.6px;
     line-height: 140%;
+
+    @include for-desktop {
+      margin: 84px 0 32px;
+    }
   }
 
   &__text {
