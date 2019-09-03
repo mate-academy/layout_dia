@@ -1,3 +1,4 @@
 'use strict';
 
-console.log('hello mate academy!');
+// console.log('hello mate academy!');
+
