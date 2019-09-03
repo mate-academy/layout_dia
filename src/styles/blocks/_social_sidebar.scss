@@ -1,0 +1,49 @@
+.sidebar {
+  display: none;
+
+  @include for-tablet {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    position: absolute;
+    right: -22%;
+    top: 50%;
+    transform-origin: center;
+    transform: rotate(90deg);
+
+    &__link {
+      position: relative;
+      font-weight: 800;
+      font-size: 12.6px;
+      line-height: 150%;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $color-text;
+      padding-bottom: 6px;
+
+      &:last-of-type {
+        margin-right: unset;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 4px;
+        background-color: #fcc304;
+        border-radius: 32px;
+        animation: zoom-out;
+        animation-duration: $hover-duration;
+        animation-fill-mode: both;
+      }
+
+      &:hover {
+        &::after {
+          animation-name: zoom-in;
+        }
+      }
+    }
+  }
+}
