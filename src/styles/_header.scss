@@ -1,8 +1,9 @@
 .hero {
-  background: linear-gradient(-65.1deg, transparent 20%, $c-picton-blue 0);
+  background: linear-gradient(-65.1deg, transparent 22%, $c-picton-blue 0);
 }
 
 .header {
+  position: relative;
   height: 848px;
   max-width: 1146px;
   margin: 0 auto;
@@ -27,6 +28,20 @@
       color: $c-white;
       margin-bottom: 42px;
     }
+  }
+
+  &__intro {
+    position: absolute;
+    background-image: linear-gradient(0deg,
+    rgba(37, 55, 87, 0.1),
+    rgba(37, 55, 87, 0.1)),
+      url("../images/intro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 640px;
+    bottom: -320px;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -60,4 +75,71 @@
   font-size: 16px;
   line-height: 150%;
   color: $c-white;
+}
+
+.slides {
+  position: absolute;
+  top: 287px;
+  left: -81px;
+  display: flex;
+  width: 162px;
+  height: 64px;
+  background-color: $c-white;
+  border-radius: 50px;
+  &__prev {
+    &-link {
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      &::after {
+        border-left: 2px solid $c-white;
+        border-bottom: 2px solid $c-white;
+      }
+    }
+  }
+
+  &__next {
+    &-link {
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      &::after {
+        border-top: 2px solid $c-white;
+        border-right: 2px solid $c-white;
+      }
+    }
+  }
+
+  &__prev,
+  &__next {
+    &-link {
+      height: 64px;
+      width: 81px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        $c-amber;
+      transition: 0.3s;
+    }
+
+    &-link:hover {
+      opacity: 0.8;
+    }
+
+    &-link::after {
+      content: "";
+      display: inline-block;
+      transform: rotate(45deg);
+      transform-origin: center center;
+      width: 24px;
+      height: 24px;
+      transition: 0.3s;
+    }
+
+    &-link:hover::after {
+      border-color: $c-azure;
+      border-width: 3px;
+    }
+  }
 }
