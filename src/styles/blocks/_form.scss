@@ -1,61 +1,76 @@
 .button {
   cursor: pointer;
+  outline: none;
   width: 226px;
-  height: 56px;
+  height: $input-heigth;
   border-radius: 64px;
-  font-weight: bold;
-  font-size: 16px;
+  font: {
+    weight: bold;
+    size: 16px;
+  }
   line-height: 150%;
   letter-spacing: 1px;
   border: none;
   box-shadow: none;
 
+  &:visited {
+    background-color: red;
+  }
+
+  &:active {
+    background-color: green;
+  }
+
   &--blue {
-    background: $color-button;
     color: #fff;
+    background: $color-button;
+
+    &:focus {
+      background-color: #3c8ea9;
+    }
+
+    @include transition-hover($hover-duration, "background-color") {
+      background-color: #3c8ea9;
+    }
   }
 
   &--white {
     background: #fff;
     color: $color-text;
+
+    &:focus {
+      color: #3c8ea9;
+    }
+
+    @include transition-hover($hover-duration, "background-color, color") {
+      color: #fff;
+      background-color: #3c8ea9;
+    }
   }
 }
 
 .form {
-  &__textarea,
   &__input {
     width: 100%;
     height: $input-heigth;
-    background: #eee;
+    outline: none;
     border: none;
-    font: {
-      family: "Ubuntu", sans-serif;
-      weight: 500;
-      size: 14px;
-    }
-    line-height: 36px;
     padding: 0 20px;
+    border-bottom: 1px solid #e1e1e1;
+
+    &:focus {
+      border-bottom: 1px solid $color-main-blue;
+    }
 
     &::placeholder {
-      text-transform: uppercase;
-      font: {
-        family: "Ubuntu", sans-serif;
-        weight: 500;
-        size: 14px;
-      }
-      line-height: 36px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      color: #393939;
+      font-weight: bold;
+      font-size: 14.4px;
+      line-height: 150%;
+      color: #152032;
     }
-  }
-
-  &__textarea {
-    height: auto;
   }
 
   &__field {
-    padding-bottom: 8px;
+    padding-bottom: 50px;
   }
 }
