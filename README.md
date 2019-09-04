@@ -11,4 +11,4 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Ti
 
 **Result**
 
-- [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+- [UPDATE DEMO LINK](https://kosbelozyorov.github.io/layout_dia/)

@@ -1,0 +1,252 @@
+.header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $main-accent-color;
+}
+
+.container {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.header__logo {
+  a {
+    display: block;
+    margin-bottom: 30px;
+    color: $main-light-color;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1em;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.menu {
+  display: none;
+}
+
+.menu__list {
+  @extend %list;
+
+  &-item {
+    position: relative;
+
+    a {
+      position: relative;
+      text-decoration: none;
+
+      &:after {
+        content: "";
+        width: 0;
+        height: 4px;
+        background-color: $main-menu-accent-color;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        border-radius: 32px;
+      }
+
+      &:hover:after {
+        width: 100%;
+        transition: width 0.4s;
+      }
+    }
+  }
+}
+
+.drop-menu__list {
+  @extend %list;
+  display: none;
+  width: 100px;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 33px;
+  left: 0;
+  background-color: $main-accent-color;
+  border: 2px solid $main-light-color;
+  border-radius: 10px;
+  border-top: none;
+}
+
+.drop-menu__list-item {
+  a {
+    line-height: 2em;
+    color: $main-light-color;
+    text-decoration: none;
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 4px;
+      background-color: $main-menu-accent-color;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 32px;
+    }
+
+    &:hover:after {
+      width: 100%;
+      transition: width 0.4s;
+    }
+  }
+}
+
+.drop-menu {
+  position: relative;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: center;
+  color: $main-light-color;
+  cursor: pointer;
+
+  &:hover .drop-menu__list {
+    display: block;
+  }
+}
+
+.menu-drop__main {
+  display: block;
+  width: 100px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  padding: 5px 0 8px;
+  color: $main-light-color;
+  line-height: 22px;
+  position: relative;
+
+  &:hover {
+    stroke: $main-light-color;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  svg rect {
+    fill: none;
+    stroke: $main-light-color;
+    stroke-width: 2;
+    stroke-dasharray: 400, 0;
+    transition: 0.8s ease-in-out;
+  }
+  &:hover svg rect {
+    stroke-width: 3;
+    stroke-dasharray: 35, 148;
+    stroke-dashoffset: 38;
+    transition: 0.8s ease-in-out;
+  }
+}
+
+.section__header {
+  padding-bottom: 80px;
+}
+
+.header__title {
+  text-align: center;
+  color: $main-light-color;
+  font-size: 64px;
+  line-height: 1.5em;
+  margin-bottom: 22px;
+}
+
+.header__description {
+  margin-bottom: 42px;
+  color: $main-light-color;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.slide {
+  min-width: 263px;
+  position: relative;
+}
+
+.slide__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.photo__description {
+  color: $main-light-color;
+  font-size: 19.6px;
+  font-weight: 900;
+  line-height: 1.4em;
+  position: relative;
+  top: -21px;
+  left: 5px;
+
+  span {
+    display: block;
+    color: $main-accent-color;
+    font-size: 12.6px;
+    font-weight: 800;
+    line-height: 1.5em;
+    text-transform: uppercase;
+  }
+}
+
+.slider__nav-bar {
+  display: flex;
+  justify-content: center;
+  height: 64px;
+  margin-bottom: 25px;
+
+  a {
+    display: block;
+    width: 80px;
+    padding: 20px 0 20px 34px;
+    box-sizing: border-box;
+    background-color: $main-menu-accent-color;
+    transition: 0.4s;
+
+    &:hover {
+      background-color: $main-accent-color;
+    }
+
+    svg {
+      width: 12px;
+      height: 24px;
+    }
+  }
+
+  .prev__slide {
+    margin-right: -1px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+
+  .next__slide {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+}
+
+.socials__list {
+  @extend %list;
+  display: flex;
+  justify-content: center;
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    a {
+      color: $main-text-color;
+      text-decoration: none;
+      transition: 0.4s;
+
+      &:hover {
+        color: $main-light-color;
+      }
+    }
+  }
+}
