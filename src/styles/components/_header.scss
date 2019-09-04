@@ -11,6 +11,7 @@
 
 .header__logo {
   a {
+    display: block;
     margin-bottom: 30px;
     color: $main-light-color;
     font-size: 32px;
@@ -58,15 +59,37 @@
   @extend %list;
   display: none;
   width: 100px;
+  padding-bottom: 10px;
   position: absolute;
-  top: 30px;
+  top: 33px;
   left: 0;
+  background-color: $main-accent-color;
+  border: 2px solid $main-light-color;
+  border-radius: 10px;
+  border-top: none;
+}
 
-  &-item {
-    a {
-      line-height: 1.7em;
-      color: $main-light-color;
-      text-decoration: none;
+.drop-menu__list-item {
+  a {
+    line-height: 2em;
+    color: $main-light-color;
+    text-decoration: none;
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 4px;
+      background-color: $main-menu-accent-color;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 32px;
+    }
+
+    &:hover:after {
+      width: 100%;
+      transition: width 0.4s;
     }
   }
 }
@@ -75,7 +98,7 @@
   position: relative;
   width: 100px;
   margin: 0 auto;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   text-align: center;
   color: $main-light-color;
   cursor: pointer;
@@ -141,7 +164,7 @@
 }
 
 .slide {
-  width: 280px;
+  min-width: 263px;
   position: relative;
 }
 
@@ -157,7 +180,8 @@
   font-weight: 900;
   line-height: 1.4em;
   position: relative;
-  top: -25px;
+  top: -21px;
+  left: 5px;
 
   span {
     display: block;
