@@ -55,4 +55,31 @@
     text-transform: uppercase;
     color: $color-main-blue;
   }
+
+  &__link {
+    position: relative;
+    padding-bottom: 8px;
+
+    @include for-tablet {
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 4px;
+        background-color: #fcc304;
+        border-radius: 32px;
+        animation: zoom-out;
+        animation-duration: $hover-duration;
+        animation-fill-mode: both;
+      }
+
+      &:hover {
+        &::after {
+          animation-name: zoom-in;
+        }
+      }
+    }
+  }
 }
