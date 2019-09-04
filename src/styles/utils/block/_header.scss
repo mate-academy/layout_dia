@@ -13,18 +13,18 @@
     padding-bottom: 85px;
   }
 
-   &__logo {
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 100%;
-    color: #fff;
-   }
-
-   &__hire-us {
+  &__hire-us {
     justify-self: flex-end;
     font-weight: bold;
     font-size: 16px;
     line-height: 150%;
+    color: #fff;
+  }
+
+   &__logo {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 100%;
     color: #fff;
    }
 
@@ -39,15 +39,15 @@
   }
 
   &__photo {
-    background-size: cover;
+    background: url(../images/Photo.jpg) no-repeat 50%;
+    background-size: contain;
     height: 640px;
     width: 100%;
     margin-top: 80px;
     position: relative;
-    background: url(../images/header-photo.png) no-repeat 50%;
 
     &-transparent {
-      height: 360px;
+      height: 300px;
       visibility: hidden;
     }
 
@@ -147,5 +147,81 @@
 
   &--white {
     color: #fff;
+  }
+}
+
+
+.header__photo {
+
+  & .photo {
+    &__slider {
+      position: absolute;
+      display: flex;
+      width: 162px;
+      height: 64px;
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%),
+        #fcc304;
+      border-radius: 50px;
+
+      & .slider-part {
+        font-size: 26px;
+        color: #fff;
+      }
+
+      &--left,
+      &--right {
+        width: 81px;
+        height: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background, 0.4s;
+        position: relative;
+
+        &:hover {
+          background: linear-gradient(180deg, #fec75d 0%, #fbb80b 90.48%), #fdcc29;
+          cursor: pointer;
+        }
+      }
+
+      &--left {
+        border-radius: 50px 0 0 50px;
+        transition: transform, 0.4s;
+
+        &::before {
+          background: url(../images/Vectorleft.png);
+          position: absolute;
+          content: "";
+          width: 24px;
+          height: 12px;
+          border: 2px solid #FFFFFF;
+          transform: matrix(0, 1, 1, 0, 0, 0);
+        }
+
+        &:active {
+          transform: translateX(-2px);
+        }
+      }
+
+      &--right {
+        border-radius: 0 50px 50px 0;
+        transition: transform, 0.4s;
+
+        &::before {
+          background: url(../images/Vectorright.png);
+          position: absolute;
+          content: "";
+          width: 24px;
+          height: 12px;
+          border: 2px solid #FFFFFF;
+          transform: matrix(0, 1, 1, 0, 0, 0);
+        }
+
+        &:active {
+          transform: translateX(2px);
+        }
+      }
+    }
   }
 }
