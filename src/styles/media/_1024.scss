@@ -6,13 +6,17 @@
     right: 0;
     height: 750px;
   }
+  .slider-wrap {
+    padding: 15px;
+  }
   .intro {
-    padding: 80px 0;
+    padding: 80px 15px;
   }
   .service {
     padding: 80px 0;
   }
-  .process-wrap {
+  .process-wrap,
+  .features-wrap {
     padding: 80px 64px;
   }
   .process__steps {
@@ -27,7 +31,14 @@
     margin: 15px;
   }
   .reviews-wrap {
-    padding-top: 80px;
+    padding: 80px 64px 0;
+  }
+  .reviews {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .review {
+    max-width: calc(50% - 20px);
   }
   .apply {
     padding: 240px 15px 100px;
@@ -35,9 +46,6 @@
   .feedback,
   .contacts {
     width: 50%;
-  }
-  .header-nav {
-    display: none;
   }
   .bars {
     display: block;
@@ -55,5 +63,44 @@
   }
   .copyright {
     margin-top: 25px;
+  }
+  .header-nav {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: -300px;
+    padding: 30px;
+    width: 300px;
+    height: 100%;
+    max-width: 303px;
+    background: #fff;
+    z-index: 3;
+    transition: left 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .header-nav.open {
+    transition: left 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    left: 0;
+  }
+  .nav {
+    flex-direction: column;
+
+    &__close {
+      display: block;
+    }
+  }
+  .nav__item,
+  .nav__item:last-child {
+    margin: 0;
+  }
+  .nav__link {
+    color: $text-secondary;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 15px 0;
+  }
+  .nav__link.active:after {
+    height: 2px;
+    bottom: -1px;
   }
 }
