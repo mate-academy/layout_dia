@@ -1,0 +1,81 @@
+.slider-img {
+  width: 100%;
+}
+
+.control {
+  background-color: $warning;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+  &-prev {
+    left: -45px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+    &:after {
+      content: url("../../images/arrow-left.svg");
+    }
+  }
+
+  &-next {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    &:after {
+      content: url("../../images/arrow-right.svg");
+      transform: rotateZ(180deg);
+    }
+  }
+
+  @include hover(background-color, darken($warning, 10%));
+}
+
+.slider-wrap {
+  position: relative;
+}
+
+.slider__links {
+  position: absolute;
+  right: -300px;
+  top: 50%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.slider__links a {
+  padding: 0 40px;
+  color: $text-secondary;
+  text-decoration: none;
+
+  @include hover(color, lighten($text-secondary, 25%));
+}
+
+.slider__item {
+  position: relative;
+}
+
+.slider-info {
+  position: absolute;
+  bottom: 90px;
+  left: 90px;
+}
+
+.slider-info__title {
+  color: $primary;
+  font-size: $fz-xs;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.slider-info__text {
+  color: #fff;
+  font-weight: 500;
+  font-size: $fz-md;
+  max-width: 265px;
+}
