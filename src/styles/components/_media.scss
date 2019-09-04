@@ -3,10 +3,6 @@
     width: 600px;
   }
 
-  /*
-  ****Header
-  */
-
   .header {
     padding-bottom: 0;
     background: #fcfcfd linear-gradient(116deg, #56ccf2 0%, #56ccf2 77.5%, #fcfcfd 77.6%, #fcfcfd 100%) 0 0/100% 848px no-repeat;
@@ -53,9 +49,20 @@
     top: -30px;
   }
 
-  /*
-  ****Section Intro
-  */
+  .copyright {
+    a {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .socials__list-item {
+    a {
+      &:hover {
+        color: $main-accent-color;
+      }
+    }
+  }
 
   .section__intro {
     padding-top: 50px;
@@ -165,12 +172,12 @@
     }
   }
 
-  .copyright {
-    a {
-      display: flex;
-      justify-content: center;
-    }
-  }
+  // .copyright {
+  //   a {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
+  // }
 }
 
 @media (min-width: 800px) {
@@ -195,6 +202,7 @@
   .section__features {
     background: #fcfcfd linear-gradient(116deg, #56ccf2 0%, #56ccf2 77.5%, #fcfcfd 77.6%, #fcfcfd 100%) 0 0/100% 848px no-repeat;
   }
+  
 }
 
 @media (min-width: 1024px) {
@@ -287,6 +295,7 @@
   .steps-list__item {
     position: absolute;
     margin: 0;
+    z-index: 3;
 
     &:not(:last-child) {
       margin-bottom: 0;
@@ -317,6 +326,22 @@
     background: $main-accent-color;
     padding-top: 200px;
     padding-bottom: 160px;
+    position: relative;
+    overflow: hidden;
+
+    .features__photo {
+      content: "";
+      background-image: url(../images/features-bg.jpg);
+      -webkit-clip-path: polygon(30% 0, 60% 0, 40% 90%, 10% 90%);
+      clip-path: polygon(30% 0, 60% 0, 40% 90%, 10% 90%);
+      position: absolute;
+      top: 0;
+      right: -50%;
+      background-position: cover;
+      background-repeat: no-repeat;
+      height: 112%;
+      width: 100%;
+    }
 
     .section__sub-title {
       width: 362px;
@@ -337,6 +362,14 @@
   .section__cta {
     padding-top: 160px;
     padding-bottom: 160px;
+
+    .cta__description {
+      width: 754px;
+    }
+
+    .bg__icons {
+      display: block;
+    }
   }
 
   // .slider__nav-bar {
@@ -398,6 +431,10 @@
     width: calc(100% - 462px);
   }
 
+  .cta__description {
+    width: 754px;
+  }
+
   .footer-menu__container {
     display: flex;
     flex-direction: row-reverse;
@@ -410,10 +447,6 @@
 
   .menu--footer {
     padding: 0;
-    
-    .menu__list-item:last-child {
-      margin: 0;
-    }
   }
 
   .contact-us__container .form {
@@ -469,6 +502,21 @@
   
     .right__block {
       width: 32%;
+    }
+  }
+
+  .cta__description {
+    width: 754px;
+  }
+
+  .footer {
+    padding-top: 96px;
+    padding-bottom: 83px;
+
+    .form {
+      .button {
+        margin-top: 57px;
+      }
     }
   }
 }
