@@ -12,6 +12,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   background: linear-gradient(115deg, #56ccf2 0%, #56ccf2 78%, #fcfcfd 68%, #fcfcfd 100%);
   padding: 50px 0 400px;
   margin-bottom: 435px;
@@ -21,6 +22,7 @@ body {
   max-width: 1024px;
   margin: 0 auto;
   position: relative;
+  padding: 0 20px;
 }
 
 .dia {
@@ -31,6 +33,14 @@ body {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
+  @media screen and(min-width: 360px) {
+    flex-direction: column;
+  }
+
+  @media screen and(min-width: 620px) {
+    flex-direction: row;
+  }
+
   &__logo {
     font-size: 32px;
   }
@@ -38,8 +48,19 @@ body {
   &__navigation {
     display: flex;
     justify-content: space-between;
-    flex-basis: 50%;
+    padding: 0;
     list-style: none;
+    @media screen and(min-width: 360px) {
+      width: 100%;
+    }
+
+    @media screen and(min-width: 620px) {
+      width: 70%;
+    }
+
+    @media screen and(min-width: 760px) {
+      width: 50%;
+    }
   }
 
   a {
@@ -49,13 +70,19 @@ body {
 }
 
 .digital-agency {
-  padding-left: 75px;
   color: #fff;
+  @media screen and(min-width: 680px){
+    padding-left: 75px;
+  }
+
   &__heading {
     font-style: normal;
     font-weight: 900;
-    font-size: 64px;
+    font-size: 52px;
     line-height: 150%;
+    @media screen and(min-width: 680px){
+      font-size: 64px;
+    }
   }
 
   &__textual {
@@ -88,7 +115,7 @@ body {
       background-color: #e3e1e1;
     }
 
-    &:active {
+    &:focus {
       background-color: #e3e1e1;
     }
   }
@@ -102,7 +129,7 @@ body {
       background-color: #253757;
     }
 
-    &:active {
+    &:focus {
       background-color: #253757;
     }
   }
@@ -113,7 +140,7 @@ body {
   width: 1146px;
   height: 640px;
   position: absolute;
-  top: 500px;
+  top: 432px;
   left: 50%;
   transform: translate(-50%);
   background: linear-gradient(0deg, rgba(37, 55, 87, 0.1), rgba(37, 55, 87, 0.1));
@@ -145,16 +172,15 @@ body {
   display: flex;
   position: absolute;
   top: 50%;
-  left: -14%;
-  transform: translate(50%,-25%);
-  border-radius: 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #FCC304;
+  left: -160px;
+  transform: translate(50%);
   .context_button {
     height: 64px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #FCC304;
     border: none;
     outline: none;
     width: 80px;
+    border-radius: 64px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     cursor: pointer;
@@ -164,7 +190,7 @@ body {
       background-color:darkgoldenrod;
     }
 
-    &:active {
+    &:focus {
       background-color: darkgoldenrod;
     }
 
@@ -202,7 +228,7 @@ body {
 
 .welcome {
   margin: 0 auto;
-  width: max-content;
+  width: 90%;
   &__header {
     font-weight: 800;
     font-size: 16px;
@@ -244,9 +270,18 @@ body {
 
 .product-group {
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-gap: 40px;
+  // grid-template-columns: repeat(3, minmax(100px, 1fr));
   justify-items: center;
   margin-top: 136px;
+
+  @media screen and(min-width: 680px) {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  @media screen and(min-width: 960px) {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+  }
 }
 
 .product {
@@ -299,7 +334,14 @@ body {
 .testimonials,
 .contact-form,
 .contact-info {
-  max-width: 370px;
+  @media screen and(min-width: 360px) {
+    max-width: max-content;
+  }
+
+  @media screen and(min-width: 960px) {
+    max-width: 370px;
+  }
+
   &__header-short_info {
     font-weight: 900;
     font-size: 32px;
@@ -357,6 +399,7 @@ body {
   flex-direction: column;
   text-align: center;
   min-height: 256px;
+  max-width: max-content;
   transition: transform 0.5s;
 
   &__text {
@@ -448,33 +491,49 @@ body {
 }
 
 .group-card {
-  position: absolute;
-  left: 60%;
-  top: 50px;
-  transform: translate(-50%);
+  display: grid;
+  justify-content: center;
+  grid-gap: 40px;
+  @media screen and(min-width: 360px) {
+    grid-template-columns: 220px;
+  }
+
+  @media screen and(min-width: 620px) {
+    grid-template-columns: 220px 220px;
+  }
+
+  @media screen and(min-width: 960px) {
+    display: block;
+    position: absolute;
+    left: 60%;
+    top: 50px;
+    transform: translate(-50%);
+  }
 }
 
 .card {
   padding: 0 20px 0;
-  &:nth-of-type(1) {
-    position: relative;
-    left: 0;
-    top: 128px;
-  }
-  &:nth-of-type(2) {
-    position: relative;
-    left: 300px;
-    top: -256px;
-  }
-  &:nth-of-type(3) {
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-  &:nth-of-type(4) {
-    position: relative;
-    left: 300px;
-    top: -376px;
+  @media screen and(min-width: 960px) {
+    &:nth-of-type(1) {
+      position: relative;
+      left: 0;
+      top: 128px;
+    }
+    &:nth-of-type(2) {
+      position: relative;
+      left: 300px;
+      top: -256px;
+    }
+    &:nth-of-type(3) {
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+    &:nth-of-type(4) {
+      position: relative;
+      left: 300px;
+      top: -376px;
+    }
   }
 }
 
@@ -483,7 +542,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  padding: 198px 0 100px;
+  @media screen and(min-width: 360px) {
+    padding: 55px 0 55px;
+  }
+
+  @media screen and(min-width: 960px) {
+    padding: 198px 0 100px;
+  }
 }
 
 .features {
@@ -529,6 +594,27 @@ body {
   justify-items: center;
   margin-top: 86px;
   margin-bottom: 86px;
+
+  @media screen and(min-width: 360px) {
+    grid-template-columns: repeat(1, minmax(100px, 320px));
+    justify-content: center;
+  }
+
+  @media screen and(min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(100px, 320px));
+    justify-content: center;
+  }
+
+  @media screen and(min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    justify-content: center;
+    grid-gap: 40px;
+  }
+
+  @media screen and(min-width: 1100px) {
+    justify-content: center;
+    grid-gap: 80px;
+  }
 }
 
 .testis__person {
@@ -810,6 +896,7 @@ body {
   font-weight: 700;
   box-sizing: border-box;
   padding: 18px 10px;
+  transition: border-bottom 0.3s;
 
   &:focus {
     border-bottom: 1px solid #56CCF2;
@@ -949,3 +1036,28 @@ a {
   }
 }
 
+.ovals {
+  transition: background-color, transform;
+  transition-duration: 1.5s;
+  cursor: grab;
+  &:hover {
+    animation: pulsing 1.5s infinite;
+  }
+}
+
+@keyframes pulsing {
+  0% {
+    transform: scale(1) rotate(-65.1deg);;
+    box-shadow: 0 0 0 0 rgba(0, 206, 209, 0.4);
+  }
+  50% {
+    transform: scale(1.1, 1.1) rotate(-65.1deg);;
+    box-shadow: 0 0 0 10px rgba(0, 206, 209, 0);
+    background-color: #108ee9;
+  }
+  100% {
+    transform: scale(1, 1) rotate(-65.1deg);;
+    box-shadow: 0 0 0 0 rgba(0, 206, 209, 0);
+    background-color: #1cabec;
+  }
+}
