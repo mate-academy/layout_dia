@@ -768,8 +768,23 @@ body {
 .contact-form-wrapper {
   .container {
     display: grid;
-    grid-gap: 128px;
+    justify-items: center;
     grid-template-columns: 2fr 1.4fr;
+    @media screen and(min-width: 360px) {
+      grid-template-columns: minmax(100px,1fr);
+      width: 70%;
+    }
+
+    @media screen and(min-width: 680px) {
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      grid-gap: 80px;
+    }
+
+    @media screen and(min-width: 760px) {
+      grid-template-columns: 2fr 1.4fr;
+      grid-gap: 128px;
+    }
   }
 }
 
@@ -861,11 +876,28 @@ a {
   line-height: 150%;
   padding: 110px 0 83px;
 
+  @media screen and(min-width: 360px) {
+    flex-direction: column;
+  }
+
+  @media screen and(min-width: 720px) {
+    flex-direction: row;
+  }
+
   &__navigation {
-    flex-basis: 50%;
+    // flex-basis: 50%;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     list-style: none;
+    padding: 0;
+    @media screen and(min-width: 360px) {
+      width: 80%;
+    }
+
+    @media screen and(min-width: 720px) {
+      width: 50%;
+    }
   }
 
   &__link {
