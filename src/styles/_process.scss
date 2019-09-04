@@ -28,22 +28,41 @@
 
   &__right {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 240px 240px;
+    grid-template-rows: 256px 256px;
     grid-row-gap: 128px;
     grid-column-gap: 58px;
     width: 540px;
+    &:first-child {
+      position: relative;
+      top: 176px;
+    }
   }
 }
 
 .block {
   box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.02);
+  height: 256px;
   width: 240px;
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 84px;
   background-color: $c-white;
   z-index: 1;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:nth-child(odd) {
+    position: relative;
+    top: 176px;
+  }
+
+  &:nth-child(even) {
+    position: relative;
+    top: 64px;
+  }
 
   &__number {
     text-align: center;
@@ -90,7 +109,6 @@
       &::after {
         background-color: rgba($c-malachite, 0.1);
       }
-
     }
 
     &--c-fourth {
