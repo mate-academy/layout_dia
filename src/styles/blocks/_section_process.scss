@@ -1,0 +1,107 @@
+.container--process {
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  @include for-tablet {
+    grid-gap: 58px;
+    grid-template-columns: 2.2fr repeat(2, 1fr);
+    padding-right: 90px;
+  }
+}
+
+.process {
+  margin-bottom: 0 !important;
+
+  @include for-tablet {
+    &__description {
+      padding-right: 128px;
+      grid-row: span 2;
+    }
+  }
+
+  &__item {
+    padding: 48px 32px;
+    box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.02);
+    text-align: center;
+    background-color: #fff;
+
+    @include for-tablet {
+      &--1 {
+        position: relative;
+        top: 70px;
+      }
+      &--3 {
+        position: relative;
+        top: 150px;
+      }
+      &--4 {
+        position: relative;
+        top: 45px;
+      }
+    }
+  }
+
+  &__number {
+    position: relative;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 150%;
+    padding-bottom: 5px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      left: 50%;
+      top: -14px;
+      transform: translateX(-50%);
+      opacity: 0.1;
+    }
+
+    &--blue {
+      color: #56ccf2;
+
+      &::before {
+        background: linear-gradient(180deg, $lgs 0%, $lgf 100%),
+          linear-gradient(0deg, $cmb, $cmb),
+          #c4c4c4;
+      }
+    }
+
+    &--yellow {
+      color: $color-yellow;
+
+      &::before {
+        background: linear-gradient(180deg, $lgs 0%, $lgf 100%), $color-yellow;
+      }
+    }
+
+    &--green {
+      color: $color-green;
+
+      &::before {
+        background: linear-gradient(180deg, $lgs 0%, $lgf 100%),
+          linear-gradient(0deg, $color-green, $color-green),
+          #c4c4c4;
+      }
+    }
+
+    &--red {
+      color: $color-red;
+
+      &::before {
+        background: linear-gradient(180deg, $lgs 0%, $lgf 100%), $color-red;
+      }
+    }
+
+    &__text {
+      font-weight: normal;
+      font-size: 12.6px;
+      line-height: 150%;
+      text-align: center;
+    }
+  }
+}

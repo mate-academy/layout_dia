@@ -1,0 +1,85 @@
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include for-tablet {
+    flex-wrap: nowrap;
+  }
+
+  @include for-desktop {
+    justify-content: flex-start;
+  }
+
+  &__item {
+    margin: 30px 30px 0;
+    cursor: pointer;
+
+    @include for-tablet {
+      margin: 0 63px 0 0;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    padding-bottom: 8px;
+
+    @include for-tablet {
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 4px;
+        background-color: #fcc304;
+        border-radius: 32px;
+        animation: zoom-out;
+        animation-duration: $hover-duration;
+        animation-fill-mode: both;
+      }
+
+      &:hover {
+        &::after {
+          animation-name: zoom-in;
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
