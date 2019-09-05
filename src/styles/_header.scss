@@ -47,9 +47,18 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #253757;
+      transition: color 300ms;
 
       &:not(:last-child) {
         margin-right: 85px;
+      }
+
+      &:hover {
+        color: #56ccf2;
+      }
+
+      &:active {
+        color: #253757;
       }
     }
   }
@@ -59,6 +68,21 @@
     border: none;
     width: 50%;
     height: 100%;
+    cursor: pointer;
+    transition: background-color 300ms, transform 400ms;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      background-color: darken(#fcc304, 10%);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: darken(#fcc304, 10%);
+    }
 
     &--left {
       border-radius: 50px 0 0 50px;
@@ -76,7 +100,7 @@
 
   &__logo-link {
     display: block;
-    width: 55px;
+    width: 53px;
     height: 32px;
     font-weight: bold;
     font-size: 32px;
@@ -96,11 +120,34 @@
       width: 747px;
     }
 
+    &__item {
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+        border-radius: 32px;
+        opacity: 0;
+        transition: opacity 500ms;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+
     &__link {
       font-weight: bold;
       font-size: 16px;
       line-height: 150%;
       color: #fff;
+      display: block;
+      transition: color 300ms;
+
+      &:active {
+        color: lighten(#fcc304, 25%);
+      }
     }
   }
 
