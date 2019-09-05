@@ -1,0 +1,79 @@
+.menu {
+  display: flex;
+  align-items: center;
+
+  &.js-show-menu {
+    transform: translate(0);
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    transform: translate(-100%, 0);
+    z-index: 10;
+  }
+
+  &__li {
+    margin-right: 3.8vw;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 0;
+      margin-bottom: 3rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    &:nth-last-child(2) {
+      margin-right: 8.43vw;
+
+      @media screen and (max-width: 768px) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: $bold;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    color: $color-txt-white;
+    transition: color ease-in-out 0.2s;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 0;
+      font-size: $base-font-size * 2.5;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &:before {
+      transition: width 0.35s ease;
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background-color: #fcc304;
+    }
+
+    &:hover {
+      color: darken($color: $color-txt-white, $amount: 7);
+    }
+  }
+}
