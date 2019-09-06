@@ -8,6 +8,11 @@ body {
   font-family: Muli, sans-serif;
   font-style: normal;
   color: #253757;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -26,10 +31,12 @@ p {
 .container {
   margin: 0 auto;
   max-width: 1150px;
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
+  padding: 0 20px;
+  @media (max-width: 1000px) {
+    max-width: 800px;
+  }
+  @media (max-width: 800px) {
+    max-width: 600px;
   }
 }
 
@@ -42,11 +49,23 @@ p {
   background: #fff;
   border-radius: 65px;
   border: none;
+  transition: 0.5s;
   &:focus {
     outline: none;
+    border: 2px solid #253757;
+  }
+  &:hover {
+    background: #fff;
+    border: 3px solid #253757;
+    color: #253757;
+    cursor: pointer;
   }
   &-blue {
     background: #2f80ed;
     color: #fff;
+  }
+  @media (max-width: 500px) {
+    width: 175px;
+    height: 40px;
   }
 }
