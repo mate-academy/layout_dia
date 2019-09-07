@@ -3,7 +3,7 @@
   height: auto;
   padding: 150px 0;
   &:nth-child(1) {
-    padding-top: 320px;
+    padding-top: 330px;
   }
   &:nth-child(odd) {
     background: #f8f8f8;
@@ -31,11 +31,14 @@
 
 .features {
   background: #56ccf2 url("../images/features_bg.png") right no-repeat;
-  background-size: cover;
+  background-size: contain;
+  @media (max-width: 1200px) {
+    background-size: 90% 100%;
+  }
 }
 
 .what_we_do {
-  h1 {
+  &-title {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -68,7 +71,7 @@ h2 {
   display: flex;
   height: 21px;
   margin-bottom: 20px;
-  h4 {
+  h3 {
     font-weight: 800;
     font-size: 16px;
     color: #56ccf2;
@@ -142,13 +145,16 @@ h2 {
   z-index: 2;
   margin: 2%;
   transition: 1s;
-  h1 {
+  .step-number {
     margin-top: 15px;
     font-size: 40px;
   }
-  p {
+  .step-text {
     position: absolute;
     top: 128px;
+    font-size: 12.6px;
+    line-height: 150%;
+    margin: 0 30px;
   }
   &:hover {
     transform: translateY(-30px);
@@ -169,7 +175,7 @@ h2 {
 
 .step-first {
   margin: 100px 0 0;
-  h1 {
+  .step-number {
     color: #56ccf2;
   }
   .step-ellipse {
@@ -184,7 +190,7 @@ h2 {
 
 .step-second {
   margin-left: 100px;
-  h1 {
+  .step-number {
     color: #fcc304;
   }
   .step-ellipse {
@@ -199,7 +205,7 @@ h2 {
 
 .step-third {
   margin-top: 150px;
-  h1 {
+  .step-number {
     color: #03d542;
   }
   .step-ellipse {
@@ -214,7 +220,7 @@ h2 {
 
 .step-fourth {
   margin: 70px 0 0 100px;
-  h1 {
+  .step-number {
     color: #f25656;
   }
   .step-ellipse {
@@ -228,7 +234,7 @@ h2 {
 }
 
 .features_text {
-  h4 {
+  h3 {
     color: #fff;
   }
 }
@@ -244,11 +250,18 @@ h2 {
   align-items: center;
   margin-bottom: 65px;
   &_icon {
+    position: relative;
     width: 64px;
     height: 64px;
-    background: #fff center no-repeat;
+    background: #fff;
     border-radius: 50%;
     margin-right: 30px;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   p {
     color: #fff;
@@ -379,6 +392,9 @@ h2 {
   text-align: center;
   position: relative;
   z-index: 3;
+  h1 {
+    font-size: 48px;
+  }
   p {
     font-weight: 600;
     font-size: 24px;
@@ -415,7 +431,6 @@ h2 {
   border: none;
   border-bottom: 1px solid #e1e1e1;
   transition: 0.3s;
-  cursor: pointer;
   &::placeholder {
     font-weight: bold;
     font-size: 14.4px;
@@ -464,6 +479,12 @@ h2 {
 }
 
 .contact_media {
+  a {
+    text-decoration: none;
+    &:focus {
+      outline: none;
+    }
+  }
   img {
     margin-right: 12%;
     transition: 0.5s;
@@ -578,18 +599,15 @@ h2 {
   }
 }
 
-@media (max-width: 1050px) {
-  .features {
-    background: #56ccf2;
-  }
-}
-
 @media (max-width: 1000px) {
   .process {
     max-height: none;
     &_block {
       flex-direction: column;
     }
+  }
+  .features {
+    background: #56ccf2;
   }
 }
 
