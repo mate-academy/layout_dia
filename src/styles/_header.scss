@@ -28,18 +28,14 @@
   color: #fff;
 
   a {
+    display: inline-block;
     text-decoration: none;
     color: white;
-    transition: 300ms;
-  }
-
-  a:hover {
-    color: #fcc304;
+    transition: all 300ms;
   }
 
   a:hover::after {
-    display: block;
-    transition: 300ms;
+    width: 120%;
   }
 
   & strong {
@@ -110,6 +106,10 @@
   .button:hover {
     background: #f5e9c4;
   }
+
+  .button:active {
+    transform: translateY(5px);
+  }
 }
 
 .nav {
@@ -120,10 +120,12 @@
 
 .underline {
   position: relative;
+  transition: 300ms;
 }
 
 .underline::after {
-  display: none;
+  display: block;
+  opacity: 1;
   position: absolute;
   content: "";
   height: 4px;
@@ -131,10 +133,10 @@
   margin: 0 auto;
   left: -5px;
   right: -5px;
-  width: 120%;
+  width: 0;
   border-radius: 4px;
   background: #fcc304;
-  transition: 300ms;
+  transition: all 300ms;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -171,12 +173,21 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .head {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+
   .header__navigation {
     padding-right: 20px;
     justify-content: space-between;
+    flex-direction: column;
 
     p:first-of-type {
+      position: absolute;
       flex-basis: 60px;
+      left: 20px;
+      top: 20px;
     }
 
     p:last-of-type {
@@ -185,12 +196,10 @@
     }
   }
 
-  .head {
-    text-align: center;
-  }
-
   .nav {
     text-align: center;
+    display: flex;
+    flex-direction: column;
     li {
       display: inline-block;
       padding: 10px 0;
@@ -203,31 +212,36 @@
     line-height: 40px;
   }
 
-  .header .short-info {
-    padding-top: 10px;
-  }
-
-  .header .short-info p {
-    font-size: 20px;
-    line-height: 110%;
-  }
-
-  .header-wrapper {
-    position: relative;
-    padding-right: 20px;
-    max-width: 1600px;
-    height: 800px;
-  }
-
   .header {
     margin: -800px auto 0;
+
+    &-wrapper {
+      position: relative;
+      padding-right: 20px;
+      max-width: 1600px;
+      height: 800px;
+    }
+
+    & .button {
+      display: block;
+      margin: 0 auto;
+    }
+
+    & .short-info {
+      padding-top: 10px;
+
+      p {
+        font-size: 20px;
+        line-height: 110%;
+      }
+    }
   }
 
   .intro {
     min-height: 200px;
-  }
 
-  .intro__button {
-    transform: translate(0, 0);
+    &__button {
+      transform: translate(0, 0);
+    }
   }
 }
