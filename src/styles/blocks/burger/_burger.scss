@@ -1,0 +1,65 @@
+.burger {
+  height: 56px;
+  width: 100px;
+  position: absolute;
+  top: 5rem;
+  right: 25px;
+  cursor: pointer;
+  z-index: 100;
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: initial;
+  }
+
+  &__bar {
+    height: 10px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50px;
+    background-color: $color-txt-primary;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: all ease 0.5s;
+
+    &.js-open {
+      transform: translate(-50%, -50%) rotate(135deg);
+      background-color: $color-secondary;
+
+      &::before {
+        top: 0;
+        transform: translateX(100%) rotate(-90deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: translateX(-100%) rotate(-90deg);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: inherit;
+      border-radius: inherit;
+      background-color: inherit;
+      margin: auto;
+      width: 50%;
+      transition: all ease 0.5s;
+    }
+
+    &::before {
+      top: -20px;
+      left: 0;
+      transform-origin: left;
+    }
+
+    &::after {
+      bottom: -20px;
+      right: 0;
+      transform-origin: right;
+    }
+  }
+}

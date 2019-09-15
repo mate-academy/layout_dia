@@ -1,0 +1,138 @@
+@import "../../utils/vars";
+@import "../menu/menu.scss";
+@import "../slider/slider";
+
+.header {
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: $bg-color-primary;
+    height: 73.4%; // аля 848px при ширине 1600px
+    clip-path: $header-clip-path;
+
+    @media screen and (max-width: 768px) {
+      clip-path: initial;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    margin-bottom: 8.4rem;
+  }
+
+  &__logo {
+    margin-right: 8.93vw;
+  }
+
+  &__logo-link {
+    font-weight: $bold;
+    font-size: $logo-font-size;
+    line-height: 1;
+    color: $color-txt-white;
+    transition: color ease-in-out 0.2s;
+
+    &:hover {
+      color: darken($color: $color-txt-white, $amount: 7);
+    }
+  }
+
+  &__title {
+    font-weight: $black;
+    font-size: $title-font-size;
+    color: $color-txt-white;
+    margin-left: 6.25vw;
+    margin-bottom: 2.2rem;
+    max-width: 854px;
+
+    @media screen and (max-width: 1280px) {
+      max-width: 600px;
+      font-size: $title-font-size / 1.4;
+    }
+  }
+
+  &__subtitle {
+    font-size: $medium-font-size;
+    max-width: 754px;
+    margin-left: 6.25vw;
+    color: $color-txt-white;
+    margin-bottom: 4.2rem;
+
+    @media screen and (max-width: 1280px) {
+      max-width: 600px;
+      font-size: $medium-font-size / 1.1;
+    }
+  }
+
+  &__button {
+    color: $color-txt-primary;
+    margin-left: 6.25vw;
+    background-color: $bg-color-white;
+    font-weight: $bold;
+    padding: 1.6rem 6.5rem;
+    margin-bottom: 8rem;
+
+    &:hover {
+      background-color: darken($color: $bg-color-white, $amount: 7);
+    }
+  }
+
+  &__socials {
+    position: absolute;
+    right: -64px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+
+    @media screen and (max-width: 1120px) {
+      right: 1.5rem;
+      height: 91%;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 87%;
+    }
+
+    @media screen and (max-width: 576px) {
+      height: 84%;
+    }
+
+    @media screen and (max-width: 460px) {
+      height: 80%;
+    }
+  }
+
+  &__social {
+    color: $color-txt-primary;
+    font-weight: $extra-bold;
+    font-size: $header-social-fz;
+    transform: rotate(90deg);
+    display: inline-block;
+    transition: color 0.3s;
+
+    @media screen and (max-width: 560px) {
+      font-size: $header-social-fz - 0.5;
+    }
+
+    @media screen and (max-width: 1120px) {
+      color: $color-txt-white;
+    }
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
