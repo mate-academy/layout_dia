@@ -1,15 +1,36 @@
 .slider {
-  height: 100vh;
   position: relative;
   transform: translate(0, -20%);
+  margin-bottom: -70px;
 
   &__photo {
     @include position;
     justify-content: space-between;
 
-    img {
+    .photo__block {
+      position: relative;
+    }
+
+    .slide {
       height: 500px;
       width: 1000px;
+    }
+
+    .photo__text {
+      position: absolute;
+      bottom: 40px;
+      left: 70px;
+      width: 260px;
+      font-weight: 900;
+      font-size: 19px;
+      line-height: 140%;
+      color: #fff;
+
+      .photo__title {
+        display: block;
+        @include text-format;
+        font-size: 12px;
+      }
     }
 
     .slider__network {
@@ -30,7 +51,7 @@
     }
   }
 
-  .slider__description {
+  &__description {
     margin: auto;
     margin-top: 160px;
     width: 740px;
@@ -71,10 +92,31 @@
 @media screen and (max-width: $tablet-screen-breakpoint) {
   .slider {
     transform: translate(0, 0);
+    margin-bottom: 0;
 
     .slider__description {
       width: 100%;
       margin-top: 50px;
+    }
+
+    &__photo {
+      .photo__text {
+        font-size: 12px;
+        bottom: 10px;
+        left: 10px;
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen-breakpoint) {
+  .slider {
+    &__photo {
+      .photo__text {
+        font-size: 10px;
+        width: 150px;
+      }
     }
   }
 }
