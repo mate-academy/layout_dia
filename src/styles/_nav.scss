@@ -1,0 +1,66 @@
+@import "vars";
+
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  font-weight: 700;
+  height: 100%;
+  white-space: nowrap;
+
+  &__item {
+    margin-left: 63px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &_hire {
+      margin-left: 135px;
+      position: relative;
+
+      &::after {
+        content: "";
+        background: $color2;
+        height: 4px;
+        width: 64px;
+        left: -5px;
+        bottom: -15px;
+        border-radius: 2px;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    transition: color $hoverDuration;
+
+    &:hover {
+      color: $color2;
+    }
+
+    &:focus {
+      outline: $outline;
+    }
+  }
+}
+
+@media (max-width: $mediumScreenBP) {
+  .nav {
+    flex-direction: column;
+
+    &__item {
+      margin: 0 0 10px;
+
+      &_hire {
+        &::after {
+          left: 7px;
+        }
+      }
+    }
+  }
+}
