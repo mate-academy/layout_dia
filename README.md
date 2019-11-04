@@ -9,10 +9,10 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Ti
 1. Implement `Feature` block
 1. Implement `Testimonials` block
 1. Implement `Vision, Passion, Results` block
-  - Background use one reusable oval block many times.
-  - Use mixin
-  - The color is set with --modifier
-  - The size is limited by parent container
+    - Background use one reusable oval block many times.
+    - Use mixin
+    - The color is set with --modifier
+    - The size is limited by parent container
 1. Implement `Send us  a message`
 1. Implement `Contact us`
 1. Implement the footer
