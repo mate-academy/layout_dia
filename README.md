@@ -1,6 +1,6 @@
 # Dia landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/TiG0XgRHTyKpqwweVly9gx/Dia-Copy?node-id=8%3A292)
-    
+
 ## Instructions
 1. **Fork** the repo.
 2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
@@ -14,8 +14,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/Ti
 10. `git add . && git commit -m 'solution'` to save your chages
 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the 
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/)
+13. Replace `<your_account>` with your Github username in the
+  npm run deploy
 14. Copy `DEMO LINK` to the PR description
 
 > To update you PR repeat steps 7-11
