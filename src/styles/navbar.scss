@@ -1,0 +1,63 @@
+@import "utils";
+
+.nav {
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1 1 auto;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  &__item {
+    margin-right: 40px;
+  }
+
+  &__item :hover {
+    @include hover(color, $c-orange);
+  }
+
+  &__item_active::after {
+    content: "";
+    display: block;
+    position: relative;
+    right: 4px;
+    width: 64px;
+    height: 4px;
+    background: $c-orange;
+    border-radius: 2px;
+  }
+
+  &__item:first-child {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1;
+    margin-right: 50px;
+  }
+  &__item:last-child {
+    margin-left: 40px;
+  }
+
+  @media(max-width: 1000px) {
+    & {
+      &__item {
+        margin-right: 10px;
+      }
+      &__item:first-child {
+        margin-right: 10px;
+      }
+      &__item:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+  @media(max-width:570px) {
+    & {
+      &__list {
+        flex-flow: column;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,98 @@
+@import "utils";
+
+.client {
+  position: relative;
+  padding-top: 240px;
+  padding-bottom: 58px;
+  padding-right: 32px;
+  padding-left: 32px;
+  text-align: center;
+  background-color: #fefefe;
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.05);
+
+  &__decor {
+    $widthDecor: 160px;
+    $heightDecore: 64px;
+    position: absolute;
+    width: $widthDecor;
+    height: $heightDecore;
+    border-radius: $heightDecore / 2;
+    transform: rotate(-65deg);
+    left: calc(50% - #{$widthDecor / 2});
+    top: 93px;
+    background: $c-blue;
+  }
+
+  &__photo {
+    $widthPhoto: 64px;
+    $heightPhoto: 124px;
+    position: absolute;
+    width: $widthPhoto;
+    height: $heightPhoto;
+    border-radius: $widthPhoto / 2;
+    left: calc(50% - #{$widthPhoto / 2});
+    top: 102px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__feedback {
+    font-style: italic;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  &__info {
+    font-size: 13px;
+  }
+
+  &__info::before {
+    content: "";
+    display: block;
+    margin: 31px auto;
+    width: 64px;
+    height: 2px;
+    background: $c-blue;
+  }
+  &__name {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__position {
+    font-weight: 800;
+    margin: 0;
+    color: $c-blue;
+  }
+
+  &_second &__decor {
+    background: $c-orange;
+  }
+  &_second &__info::before {
+    background: $c-orange;
+  }
+  &_second &__position {
+    color: $c-orange;
+  }
+
+  &_third &__decor {
+    background: $c-red;
+  }
+  &_third &__info::before {
+    background: $c-red;
+  }
+  &_third &__position {
+    color: $c-red;
+  }
+  @media(max-width:1000px) {
+    & {
+      margin-bottom: 30px;
+    }
+  }
+}
