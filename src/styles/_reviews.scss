@@ -1,0 +1,153 @@
+.reviews {
+  &__title {
+    @include title;
+    width: 410px;
+    margin-bottom: 80px;
+  }
+
+  &__cards {
+    @include position;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .review__card {
+    width: 315px;
+    text-align: center;
+    padding: 80px 32px 60px;
+    background: #fafafa;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.05);
+    position: relative;
+    margin-bottom: 30px;
+
+    &::after {
+      content: "";
+      width: 64px;
+      height: 160px;
+      position: absolute;
+      top: 20px;
+      left: calc(50% - 32px);
+      transform: rotate(20deg);
+      border-radius: 50px;
+    }
+  }
+
+  .review__photo {
+    width: 64px;
+    height: 123px;
+    border-radius: 50px;
+    position: relative;
+    transform: rotate(-20deg);
+    overflow: hidden;
+    margin: auto;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 200%;
+      height: 100%;
+      position: absolute;
+      left: -40px;
+      transform: rotate(20deg) scale(-1, 1);
+    }
+  }
+
+  .review__text {
+    font-size: 14px;
+    line-height: 150%;
+    font-style: italic;
+    padding-bottom: 30px;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 2px;
+      width: 64px;
+      background-repeat: 5px;
+      background-color: $general-color;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 64px / 2);
+    }
+  }
+
+  .review__name {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    color: #152032;
+    margin: 0;
+    margin-top: 30px;
+  }
+
+  .review__position {
+    font-weight: 800;
+    font-size: 12.6px;
+    line-height: 150%;
+  }
+
+  .review__card:nth-child(1) {
+    .review__photo::before {
+      top: -10px;
+      height: 150%;
+    }
+
+    &::after,
+    .review__text::after {
+      background-color: nth($list-color, 1);
+    }
+
+    .review__position {
+      color: nth($list-color, 1);
+    }
+  }
+
+  .review__card:nth-child(2) {
+    .review__photo::before {
+      left: -15px;
+      top: 5px;
+    }
+
+    &::after,
+    .review__text::after {
+      background-color: nth($list-color, 2);
+    }
+
+    .review__position {
+      color: nth($list-color, 2);
+    }
+  }
+
+  .review__card:nth-child(3) {
+    .review__photo::before {
+      left: -15px;
+      top: 10px;
+      width: 220%;
+    }
+
+    &::after,
+    .review__text::after {
+      background-color: nth($list-color, 3);
+    }
+
+    .review__position {
+      color: nth($list-color, 3);
+    }
+  }
+
+  @for $i from 1 through 3 {
+    .review__card:nth-child(#{$i}) .review__photo::before {
+      background-image: url("../images/feedback/testimonial-ava-#{$i}.jpg");
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen-breakpoint) {
+  .reviews {
+    &__title {
+      width: 100%;
+    }
+  }
+}
