@@ -1,34 +1,20 @@
 @import "utils";
-$widthSlider: 163px;
-$heightSlider: 64px;
 
 .gallery {
   position: relative;
   display: flex;
-  &__slider {
-    opacity: 0.6;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: $widthSlider;
-    height: $heightSlider;
-    background-color: $c-orange;
-    border-radius: 32px;
-    top: calc(50% - #{$widthSlider / 2} );
-    left: -$widthSlider / 2;
-    @include hover(background-color, $c-darkBlueFont);
-    cursor: pointer;
-  }
-  &__photo_img {
-    width: 90%;
-    margin: auto;
-    flex: 0 1 auto;
+  margin: 0 auto;
+  width: 1146px;
+  &__photo {
+    width: 100%;
+    height: 640px;
+    background-image: url(../images/header/header-photo.png);
+    background-size: cover;
   }
   &__tag {
     position: absolute;
     top: 70%;
-    left: 20%;
+    left: 240px;
   }
 
   &__info {
@@ -40,28 +26,53 @@ $heightSlider: 64px;
     line-height: 1.4;
     color: $c-white;
     top: 80%;
-    left: 20%;
+    left: 240px;
   }
   &__sm {
     position: absolute;
+    top: 112px;
+    right: -103px;
     display: flex;
     justify-content: center;
-    top: 15%;
-    right: 2%;
     font-weight: 800;
     font-size: 13px;
     line-height: 1.5;
     color: $c-darkBlueFont;
     flex-flow: column;
-    z-index: 1;
   }
-  @media(max-width: 700px) {
+
+  @media(max-width: 1360px) {
     & {
+      max-width: 800px;
+    }
+    &__photo {
+      height: 446px;
+    }
+    &__sm {
+      top: 0;
+    }
+  }
+
+  @media(max-width: 1000px) {
+    & {
+      max-width: 600px;
       &__info {
         font-size: 12px;
       }
       &__sm {
         display: none;
+      }
+      &_photo {
+        height: 335px;
+      }
+    }
+  }
+
+  @media(max-width: 640px) {
+    & {
+      max-width: 200px;
+      &__photo {
+        height: 112px;
       }
     }
   }

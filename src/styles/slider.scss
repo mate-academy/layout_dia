@@ -1,0 +1,36 @@
+@import "utils";
+$widthSlider: 162px;
+$heightSlider: 64px;
+
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $widthSlider;
+  height: $heightSlider;
+  background-color: $c-orange;
+  border-radius: 32px;
+  top: calc(50% - #{$heightSlider / 2 + 10px});
+  left: -$widthSlider / 2;
+  cursor: pointer;
+  &__trigger_left,
+  &__trigger_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: $widthSlider / 2;
+    height: $heightSlider;
+    background-color: $c-orange;
+    border-radius: 32px;
+    @include hover(background-color, $c-darkBlueFont);
+  }
+
+  @media(max-width: 1000px) {
+    & {
+      top: -$heightSlider;
+      left: calc(50% - #{$widthSlider / 2});
+    }
+  }
+}
