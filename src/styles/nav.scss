@@ -4,6 +4,9 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  width: 948px;
+  position: relative;
+  left: 10%;
 
   &__list {
     margin: 0;
@@ -31,6 +34,10 @@
       background-color: #fcc304;
       transition: 0.5s;
       animation: nav_decor;
+    }
+
+    &:last-child::after {
+      height: 4px;
     }
 
     &:nth-child(6) {
@@ -76,20 +83,11 @@
   }
 }
 
-@media screen and (max-width: 999px) {
-  .nav__item {
-    &:nth-child(6) {
-      margin-right: $margin_nav_item;
-    }
-
-    &:first-child {
-      margin-right: $margin_nav_item;
-    }
-  }
-}
-
 @media screen and (max-width: 899px) {
   .nav {
+    position: static;
+    width: 100%;
+
     &__list {
       flex-direction: column;
       justify-content: center;
@@ -99,6 +97,12 @@
     &__item {
       font-size: 30px;
       line-height: 1.25;
+      margin: 0;
+
+      &:first-child,
+      &:nth-child(6) {
+        margin-right: 0;
+      }
     }
 
     &__item:first-child {
