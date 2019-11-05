@@ -1,0 +1,166 @@
+@import "vars";
+@import "mixins";
+
+.process {
+  height: 200px;
+
+  &__title {
+    @include section-title;
+    margin-top: 160px;
+  }
+
+  &__container {
+    display: flex;
+  }
+}
+
+.definition {
+  width: 362px;
+  flex-shrink: 0;
+  margin-right: 187px;
+
+  &__name {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 45px;
+    color: $heavy-blue;
+    margin-bottom: 64px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    color: $heavy-blue-definition;
+  }
+}
+
+.points {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 240px;
+    height: 256px;
+    background: #fff;
+    box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.02);
+    margin-right: 58px;
+    margin-bottom: 128px;
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+
+    &:first-child {
+      margin-top: 112px;
+    }
+    &:last-child {
+      margin-top: -112px;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+
+  &__number {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 4px;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      position: absolute;
+      top: -14px;
+      left: calc(240px / 2 - 57px);
+      opacity: 0.1;
+    }
+
+    &--blue {
+      color: #56ccf2;
+      &:before {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          linear-gradient(0deg, #56ccf2, #56ccf2),
+          #c4c4c4;
+      }
+    }
+
+    &--yellow {
+      color: #fcc304;
+      &:before {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #fcc304;
+      }
+    }
+
+    &--green {
+      color: #03d542;
+      &:before {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          linear-gradient(0deg, #03d542, #03d542),
+          #c4c4c4;
+      }
+    }
+
+    &--red {
+      color: #f25656;
+      &:before {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #f25656;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 19px;
+    color: $heavy-blue;
+  }
+}
+
+@media (max-width: 1099px) {
+  .process__container {
+    flex-wrap: wrap;
+  }
+
+  .definition {
+    width: 100vw;
+    margin-bottom: 120px;
+  }
+
+  .points__block {
+    margin-right: 0;
+
+    &:first-child,
+    &:last-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 999px) {
+  .points {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 499px) {
+  .points__block {
+    margin-right: 0;
+  }
+}
