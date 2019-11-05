@@ -1,0 +1,96 @@
+@import "utils/vars";
+@import "utils/mixins";
+
+.header {
+  height: 848px;
+  background-image: url("../images/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+
+  &__top {
+    width: 950px;
+    padding: 48px 0 0 14%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 32px;
+    color: $c-white;
+    @include hover(color, $c-active);
+  }
+
+  &__hire-us {
+    color: $c-white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+    @include hover(color, $c-active);
+
+    //noinspection Stylelint
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      width: 64px;
+      height: 4px;
+      /* stylelint-disable */
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+      /* stylelint-enable */
+      border-radius: 32px;
+    }
+  }
+
+  &__bottom {
+    padding: 76px 0 0 20%;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1.5;
+    color: $c-white;
+    margin-bottom: 22px;
+  }
+
+  &__paragraph {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.5;
+    color: $c-white;
+    margin-bottom: 42px;
+  }
+
+  &__button {
+    width: 226px;
+    height: 56px;
+    background-color: $c-white;
+    border-radius: 64px;
+    border: 0;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #253757;
+
+    transition: color $transitionTime, background-color $transitionTime;
+
+    &:hover {
+      color: $c-white;
+      background-color: $c-active;
+    }
+  }
+}
