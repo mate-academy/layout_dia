@@ -1,28 +1,13 @@
 .header {
   position: relative;
+  max-width: 2048px;
+  margin: auto;
   padding: 1px 0;
-  background-color: #fcfcfc;
-
-  &__bg {
-    position: absolute;
-    top: 0;
-    width: 70%;
-    height: 773px;
-    background-color: $blue;
-
-    &--rotated {
-      right: 4%;
-      transform-origin: right top;
-      transform: rotate(25deg);
-      width: 40%;
-      background-color: $blue;
-    }
-  }
 
   &__home {
     position: absolute;
     top: 48px;
-    left: 8%;
+    left: 0;
     font-size: 32px;
     font-weight: bold;
     line-height: 1;
@@ -39,7 +24,7 @@
     position: relative;
     max-width: 750px;
     margin-top: 85px;
-    padding-left: calc(50% - 430px);
+    padding-left: 98px;
     color: white;
   }
 
@@ -65,10 +50,10 @@
 
   &__picture {
     position: relative;
-    width: 70%;
-    max-width: 2000px;
-    height: 450px;
-    margin: 80px auto 0;
+    width: 100%;
+    height: 56vw;
+    max-height: 640px;
+    margin-top: 80px;
     background: url("../images/slider/slide-img-1.jpg") no-repeat center;
     background-size: cover;
   }
@@ -80,10 +65,10 @@
   }
 
   &__soc {
-    position: relative;
-    top: 2%;
-    left: 105%;
-    transform-origin: left;
+    position: absolute;
+    top: calc(50% - 197px);
+    left: 107%;
+    transform-origin: left top;
     transform: rotate(90deg);
     display: flex;
     font-size: 12.6px;
@@ -92,14 +77,19 @@
   }
 
   &__link {
-    margin-right: 65px;
     padding: 10px;
     color: #253757;
+
+    &:not(:last-child) {
+      margin-right: 65px;
+    }
 
     &:hover::after {
       content: "";
       display: block;
+      width: 110%;
       height: 4px;
+      margin-left: -5%;
       margin-bottom: -4px;
       background-color: #fcc304;
       border-radius: 1px;
@@ -143,16 +133,12 @@
   }
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 1150px) {
   .header {
-
-    &__bg {
-      height: 954px;
-    }
 
     &__top {
       padding-left: 15%;
-      padding-right: 35%;
+      padding-right: 40%;
     }
 
     &__title {
@@ -162,11 +148,6 @@
 
     &__top_p {
       font-size: 16px;
-    }
-
-    &__bottom {
-      margin-left: 50px;
-      margin-right: 40px;
     }
   }
 }
