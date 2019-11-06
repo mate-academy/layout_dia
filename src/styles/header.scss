@@ -9,12 +9,11 @@
 .header {
   padding-top: 48px;
   height: 800px;
-  background: linear-gradient(115deg,  $main-color 75%, rgb(252, 252, 253) 25%);
+  background: linear-gradient(115deg,  $mainColor 75%, rgb(252, 252, 253) 25%);
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
+  @include flex-between;
   align-items: center;
   margin: 0 20% 0 15%;
 
@@ -25,8 +24,7 @@
 
   &__list {
     width: 65%;
-    display: flex;
-    justify-content: space-between;
+    @include flex-between;
     align-items: center;
     list-style-type: none;
   }
@@ -36,6 +34,7 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 1s;
 
     &:hover {
       color: #fcc304;
@@ -52,7 +51,7 @@
 }
 
 .header__text-box {
-  margin: 85px auto 80px 290px;
+  margin: 85px auto 80px calc( 15% + 98px);
   max-width: 754px;
 
   &__heading {
@@ -74,6 +73,12 @@
   border-radius: 25px;
   background-color: white;
   border: none;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #fcc304;
+    cursor: pointer;
+  }
 
   &__link {
     display: inline-block;
@@ -85,8 +90,30 @@
 
 @media screen and (max-width: 999px) {
   .header {
-    background: #56ccf2;
+    background: $mainColor;
+
+    &__text-box {
+      margin: 20px auto 0;
+
+      &__heading,
+      &__text {
+        text-align: center;
+      }
+
+      &__heading {
+        font-size: 30px;
+      }
+
+      &__text {
+        font-size: 20px;
+      }
+    }
   }
+
+  .button {
+    margin-left: calc(50% - 226px / 2);
+  }
+
   .nav {
     margin: 0 auto;
     flex-direction: column;
@@ -103,18 +130,6 @@
 
     &__link--active {
       line-height: 20px;
-    }
-  }
-
-  .header__text-box {
-    margin: 20px auto 0;
-
-    &__heading {
-      font-size: 30px;
-    }
-
-    &__text {
-      font-size: 20px;
     }
   }
 }

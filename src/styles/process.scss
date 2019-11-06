@@ -1,11 +1,10 @@
 @import "vars";
 
 .process {
-  margin: 0 24px;
+  margin: 0;
   background-color: rgb(252, 252, 253);
-  display: flex;
-  justify-content: space-between;
-  padding: 163px;
+  @include flex-between;
+  padding: 15%;
 }
 
 .process__text-box {
@@ -28,20 +27,18 @@
 }
 
 .process__items {
-  display: flex;
+  @include flex-between;
   margin-left: 150px;
   width: 538px;
-  justify-content: space-between;
   position: relative;
 
 }
 
 .card-box {
-  display: flex;
+  @include flex-between;
   flex-direction: column;
   width: 240px;
   height: 640px;
-  justify-content: space-between;
   position: absolute;
   z-index: 1;
 
@@ -93,7 +90,7 @@
     font-weight: 900;
     font-size: 40px;
     line-height: 150%;
-    color: #56ccf2;
+    color: $mainColor;
     top: 16px;
     left: 12px;
 
@@ -107,6 +104,25 @@
 
     &--red {
       color: rgb(243, 95, 95);
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .process__items {
+    margin-left: 125px;
+  }
+
+  .process__card {
+    padding: 48px 24px;
+  }
+
+  .card-box {
+    width: 200px;
+
+    &--right {
+      top: 65px;
+      left: 240px;
     }
   }
 }
@@ -145,17 +161,17 @@
   }
 }
 
-@media screen and (max-width: 556px) {
+@media screen and (max-width: 500px) {
   .process__text-box {
     margin-bottom: 100px;
   }
 
   .card-box {
     margin-top: -74px;
+    width: 200px;
   }
   .process__card {
     width: 150px;
-    padding: 5px;
   }
 
   .card-box--right {
