@@ -1,4 +1,4 @@
-.header {
+.page-header {
   position: relative;
   background-color: $c-text-blue;
   width: 100%;
@@ -44,6 +44,7 @@
     font-size: 16px;
     line-height: 150%;
     color: $c-text-white;
+    transition: all 0.2s ease-in-out;
 
     &::before {
       content: "";
@@ -53,6 +54,14 @@
       right: 0;
       height: 3px;
       background-color: #ffc304;
+      transform-origin: bottom right;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    &:hover::before {
+      transform-origin: bottom left;
+      transform: scaleX(1);
     }
   }
 
@@ -61,7 +70,6 @@
       display: flex;
       list-style: none;
     }
-
     &__link {
       position: relative;
       text-decoration: none;
@@ -80,6 +88,14 @@
         right: 0;
         height: 3px;
         background-color: #ffc304;
+        transform-origin: bottom right;
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      &:hover::before {
+        transform-origin: bottom left;
+        transform: scaleX(1);
       }
     }
   }
@@ -126,6 +142,9 @@
       height: 1.1em;
       border-radius: 50%;
       background-color: #ffc304;
+      transform-origin: center;
+      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+      transition: transform 0.45s ease-in-out;
     }
 
     &:hover::before {
