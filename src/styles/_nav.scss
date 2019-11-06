@@ -1,5 +1,4 @@
 .nav {
-  @include flex-column-center;
 
   &__hide {
     background-image: url(../images/nav/menu.svg);
@@ -70,32 +69,28 @@
 
 @media (min-width: 768px) {
   .nav {
-    width: 100%;
-    padding: 15px 30px 0;
-    box-sizing: border-box;
+    max-width: 708px;
 
     &__hide {
       display: none;
     }
 
     &__toggler {
-      display: none;
 
       &:checked ~ .nav {
-        display: flex;
+        display: block;
       }
     }
 
     &__list {
-      width: 100%;
       flex-direction: row;
-      align-items: baseline;
+      align-items: center;
       justify-content: flex-start;
     }
 
-    $navPadGor: 10px;
     &__list-item {
       margin: 0;
+      margin-right: 7px;
 
       &:first-of-type {
         margin: 0;
@@ -104,48 +99,57 @@
         right: $navPadGor;
       }
 
+      &:nth-of-type(6) {
+        margin-right: 0;
+      }
+
       &:last-of-type {
         margin: 0;
         margin-left: 3em;
         position: relative;
         left: $navPadGor;
+        top: 2px;
       }
     }
 
     &__link {
-      padding: 4px $navPadGor;
+      padding: $navPadVert $navPadGor;
       border-radius: 20px;
       font-weight: 400;
     }
   }
 }
 
-@media (min-width: 1024px) {
-  .nav {
-    padding: 15px $sliderButtonSizeBig * 4  0;
-
-    &__list-item {
-      margin: 0 10px;
-    }
-  }
-}
-
 @media (min-width: 1440px) {
   .nav {
-    padding: 15px $sliderButtonSizeBig * 11  0;
+    max-width: 1146px;
 
     &__list-item {
-      margin: 0 20px;
+      margin-right: 63px - $navPadGor * 2;
 
       &:first-of-type {
         margin: 0;
-        margin-right: 7em;
+        margin-right: 143px - $navPadGor * 2;
+      }
+
+      &:nth-of-type(6) {
+        margin-right: 0;
       }
 
       &:last-of-type {
         margin: 0;
-        margin-left: 7em;
+        margin-left: 135px;
       }
+    }
+
+    &__link {
+      font-size: $mainFontBig;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    &__title {
+      font-size: $titleFontBig;
     }
   }
 }
