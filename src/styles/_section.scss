@@ -1,3 +1,7 @@
+section {
+  max-width: 1600px;
+}
+
 .welcome {
   background-color: #f8fcfb;
   &__box {
@@ -131,7 +135,6 @@
     color: #253757;
   }
 
-  $item-title-color: #68d1f3, #fccc29, #13d84e, #f47676;
   @for $i from 1 through length($item-title-color) {
     .color--#{$i} {
       color: nth($item-title-color, $i);
@@ -178,6 +181,32 @@
   padding-top: 198px;
   background-color: $main-bg-color;
   transform: translate(0, -17%);
+  overflow: hidden;
+
+  &__bg-img {
+    position: absolute;
+    width: 450px;
+    height: 150%;
+    top: -50%;
+    right: 0;
+    transform: rotate(20deg);
+    overflow: hidden;
+    background-image: url("../images/features/features-bg.jpg");
+    background-repeat: no-repeat;
+
+    &::before {
+      content: "";
+      background-image: url("../images/features/features-bg.jpg");
+      background-repeat: no-repeat;
+      width: 300%;
+      height: 100%;
+      position: absolute;
+      top: -10px;
+      left: -200px;
+      transform: rotate(-25deg);
+    }
+  }
+
   &__article {
     width: 362px;
   }
@@ -217,7 +246,6 @@
       }
     }
   }
-
   @for $i from 1 through 3 {
     .features__item:nth-of-type(#{$i}) {
       .features__item-text::before {
