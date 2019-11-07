@@ -7,6 +7,5 @@ module.exports = {
     "stylelint-scss"
   ],
   rules: {
-    "declaration-colon-space-after": null
   }
 };
