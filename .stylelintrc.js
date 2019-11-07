@@ -6,5 +6,7 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {}
+  rules: {
+    "declaration-colon-space-after": null
+  }
 };
