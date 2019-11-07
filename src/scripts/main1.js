@@ -1,29 +1,32 @@
 'use strict';
 
 (() => {
-  const id = setInterval(function() {
-    step = step === 4 ? 1 : step = step + 1;
-    sliderContainer.style.cssText
-      = `background: url("https://banduraweb.github.io/layout_dia/images/slider/slide-img-${step}.jpg");`; // eslint-disable-line no-use-before-define
-  }, 3000);
-
+  const sliderInner = document.querySelector('.slider__inner');
   const buttonPrev = document.getElementById('next');
   const buttonNext = document.getElementById('prev');
-  const sliderContainer = document.querySelector('.header__slider');
 
-  let step = 1;
+  let step = 0;
+  const imgWidth = 1146;
+  const maxWidth = 4584;
+
+  const id = setInterval(function() {
+    step = step - imgWidth;
+    if (step === -maxWidth) {
+      step = 0;
+    }
+    sliderInner.style.cssText = `left:${step}px`;
+  }, 4000);
 
   buttonNext.onclick = function() {
     clearInterval(id);
-    step = step === 4 ? 1 : step = step + 1;
-    sliderContainer.style.cssText
-      = `background: url("https://banduraweb.github.io/layout_dia/images/slider/slide-img-${step}.jpg");`;
+    step = step === -(maxWidth - imgWidth) ? step = 0 : step = step - imgWidth;
+    sliderInner.style.cssText = `left:${step}px`;
   };
 
   buttonPrev.onclick = function() {
     clearInterval(id);
-    step = step === 1 ? step = 4 : step = step - 1;
-    sliderContainer.style.cssText
-      = `background: url("https://banduraweb.github.io/layout_dia/images/slider/slide-img-${step}.jpg");`;
+    step = step === 0 ? step = -(maxWidth - imgWidth) : step = step + imgWidth;
+    sliderInner.style.cssText = `left:${step}px`;
   };
+
 })();
