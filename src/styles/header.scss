@@ -1,0 +1,136 @@
+@import "vars";
+
+.container {
+  background-color: rgb(252, 252, 253);
+  height: 1170px;
+  color: white;
+}
+
+.header {
+  padding-top: 48px;
+  height: 800px;
+  background: linear-gradient(115deg,  $mainColor 75%, rgb(252, 252, 253) 25%);
+}
+
+.nav {
+  @include flex-between;
+  align-items: center;
+  margin: 0 20% 0 15%;
+
+  &__name {
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+  &__list {
+    width: 65%;
+    @include flex-between;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 1s;
+
+    &:hover {
+      color: #fcc304;
+    }
+
+    &--active {
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 4px solid #fcc304;
+    }
+  }
+}
+
+.header__text-box {
+  margin: 85px auto 80px calc( 15% + 98px);
+  max-width: 754px;
+
+  &__heading {
+    font-weight: 900;
+    font-size: 64px;
+    margin-bottom: 22px;
+  }
+
+  &__text {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 42px;
+  }
+}
+
+.button {
+  width: 226px;
+  height: 56px;
+  border-radius: 25px;
+  background-color: white;
+  border: none;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #fcc304;
+    cursor: pointer;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #253757;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .header {
+    background: $mainColor;
+
+    &__text-box {
+      margin: 20px auto 0;
+
+      &__heading,
+      &__text {
+        text-align: center;
+      }
+
+      &__heading {
+        font-size: 30px;
+      }
+
+      &__text {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .button {
+    margin-left: calc(50% - 226px / 2);
+  }
+
+  .nav {
+    margin: 0 auto;
+    flex-direction: column;
+
+    &__item {
+      flex-direction: column;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+
+    &__list {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__link--active {
+      line-height: 20px;
+    }
+  }
+}

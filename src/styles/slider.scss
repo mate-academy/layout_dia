@@ -1,0 +1,105 @@
+@import "vars";
+
+.picture {
+  background: linear-gradient(0deg, rgba(37, 55, 87, 0.1),
+  rgba(37, 55, 87, 0.1)),
+    url(../images/slider/slide-img-1.jpg);
+  background-blend-mode: multiply, normal;
+  background-size: cover;
+  width: 70%;
+  height: $pictureHeight;
+  position: absolute;
+  top: 528px;
+  left: 15%;
+  z-index: 1;
+
+  &__text-box {
+    position: absolute;
+    top: 500px;
+    left: 98px;
+    width: 264px;
+
+    &__heading {
+      color: #56ccf2;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      font-size: 20px;
+      font-weight: 900;
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: $sliderWidth;
+  height: $sliderHeight;
+  background-color: #fcc304;
+  top: calc(#{$pictureHeight / 2} - #{$sliderHeight / 2});
+  left: calc(-#{$sliderWidth / 2});
+  border-radius: calc(#{$sliderHeight / 2});
+
+  &__arrow {
+    width: 50%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #fcc304;
+    position: absolute;
+    transition-duration: 0.5s;
+
+    &:hover {
+      background-color: rgb(202, 157, 2);
+      cursor: pointer;
+    }
+
+    &--left {
+      left: 0;
+      top: 0;
+      border-top-left-radius: calc(#{$sliderHeight / 2});
+      border-bottom-left-radius: calc(#{$sliderHeight / 2});
+    }
+
+    &--right {
+      top: 0;
+      right: 0;
+      border-top-right-radius: calc(#{$sliderHeight / 2});
+      border-bottom-right-radius: calc(#{$sliderHeight / 2});
+    }
+  }
+}
+
+.networks {
+  @include flex-between;
+  position: absolute;
+  width: 410px;
+  top: 320px;
+  right: -280px;
+  color: #253757;
+  transform: rotate(90deg);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 800;
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: #253757;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 999px) {
+
+  .networks {
+    right: -240px;
+  }
+}
