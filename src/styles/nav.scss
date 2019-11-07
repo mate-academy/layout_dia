@@ -11,6 +11,7 @@
   &__item {
     margin-left: 63px;
     font-weight: 700;
+    animation: navbar 2s;
 
     &:last-child {
       margin-left: 135px;
@@ -29,11 +30,19 @@
       outline-color: rgba($color: #fff, $alpha: 0.3);
       color: white;
       margin-left: 4px;
+      transition: color 0.7s;
+
+      &:hover {
+        color: #fcc304;
+      }
 
       &::after {
         content: "";
         height: 4px;
         width: 64px;
+        opacity: 1;
+        animation: after 2s;
+        animation-delay: 2s;
         display: block;
         background-color: #fcc304;
         border-radius: 2px;
@@ -49,7 +58,6 @@
       &:last-child {
         margin-left: 65px;
       }
-
     }
   }
 }
@@ -62,7 +70,7 @@
       flex-direction: column;
     }
     &__item {
-      margin: auto;
+      margin: 0 auto 20px;
 
       &:last-child {
         margin: auto;
@@ -70,4 +78,26 @@
     }
   }
 
+}
+
+@keyframes navbar {
+  from {
+    margin-top: 100px;
+  }
+
+  to {
+    margin-top: 0;
+  }
+}
+
+@keyframes after {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 64px;
+    opacity: 1;
+  }
 }
