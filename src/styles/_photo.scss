@@ -1,27 +1,28 @@
 .photo {
-  margin-left: 227px;
-  margin-top: 528px;
- 
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin: calc(640px / -2) auto 0;
+  max-width: 1146px;
+  &__container {
+    display: flex;
+    position: relative;
+    flex-direction: column-reverse;
+  }
   &__img {
     height: 640px;
-    box-sizing: border-box;
-  }
-  &__block {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    margin-left: 98px;
-    bottom: -190px;
   }
 
   &__title {
+    position: absolute;
     font-weight: 800;
     font-size: 13px;
     line-height: 150%;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #56ccf2;
-
+    left: 98px;
+    bottom: 144px;
   }
   &__text {
     font-style: normal;
@@ -29,7 +30,9 @@
     font-size: 20px;
     line-height: 140%;
     color: $main-color;
-
+    position: absolute;
+    left: 98px;
+    bottom: 80px;
   }
   &__button {
     position: relative;
@@ -37,8 +40,6 @@
     height: 64px;
     background-color: #fcc304;
     border: none;
-    bottom: 357px;
-    left: -80px;
     border-radius: 50px 0 0 50px;
     cursor: pointer;
     &:hover {
@@ -62,14 +63,11 @@
     height: 64px;
     background-color: #fcc304;
     border: none;
-    bottom: 357px;
-    left: -80px;
     border-radius: 0 50px 50px 0;
     cursor: pointer;
     &:hover {
       background-color: #dfae0d;
     }
-
     &::after {
       content: "";
       color: $main-color;
@@ -82,17 +80,23 @@
       background: url(../images/gt.svg) no-repeat;
     }
   }
-
   &__networks {
-    position: relative;
-    left: calc(50% + 65px );
-    bottom: 200px;
+    position: absolute;
+    top: 230px;
+    left: calc(80% + 50px);
   }
+}
+
+.button {
+  position: absolute;
+  bottom: calc(50% - 33px);
+  left: -80px;
 }
 
 .networks {
   display: flex;
   transform: rotate(90deg);
+
   &__soc {
     font-weight: 800;
     font-size: 13px;
@@ -103,5 +107,20 @@
     &:hover {
       color: #a1bdf1;
     }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .photo {
+    margin-top: 0;
+  }
+  .photo__img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .button {
+    top: calc(50% + 66px);
+    left: 80px;
   }
 }
