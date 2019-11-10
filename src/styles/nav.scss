@@ -1,93 +1,57 @@
-@import "vars";
-
 .nav {
-  margin-left: 143px;
+  width: 558px;
 
   &__list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     list-style: none;
-  }
 
-  &__item {
-    margin-right: 63px;
-
-    &:nth-child(5) {
-      margin-right: 135px;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   &__link {
-    color: white;
-    font-weight: bold;
     text-decoration: none;
-    transition: color $hover_duration;
+    color: white;
 
     &:hover {
-      color: sienna;
+      color: #fcc304;
     }
 
-    &--active {
-      position: relative;
-
-      &::after {
-        content: "";
-        height: 4px;
-        width: 120%;
-        background-color: #fcc304;
-        border-radius: 32px;
-        position: absolute;
-        bottom: - 10px;
-        left: -10%;
-      }
+    &--dark {
+      color: #253757;
     }
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1130px) {
   .nav {
-    margin-left: 20px;
+    &__list {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .nav {
+    &__item {
+      margin-bottom: 20px;
+    }
+
+    &__list {
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .nav {
+    width: 100%;
 
     &__list {
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-    }
-
-    &__item {
-      text-transform: uppercase;
-      margin-bottom: 10px;
-
-      &:nth-child(5) {
-        margin-right: 63px;
-      }
-
-      &:last-child {
-        margin-right: 63px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .nav {
-    margin-left: 20px;
-
-    &__list {
-      flex-direction: column;
-    }
-
-    &__item {
-      text-transform: uppercase;
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
   }
 }
