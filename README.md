@@ -1,5 +1,12 @@
 # Dia landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/TiG0XgRHTyKpqwweVly9gx/Dia-Copy?node-id=8%3A292)
+Implement landing page according to [Figma design](https://www.figma.com/file/TiG0XgRHTyKpqwweVly9gx/Dia-Copy?node-id=8%3A292) - Use BEM and SCSS
+- Large screens 2560px
+- Full HD 1920px
+- The design 1600px
+- Notebook 1280px
+- Tablet 1024
+- Mobile (> 320px)
+
 1. Implement the header with `nav`
 1. Implement `Global digital agency` block
 1. Implement slider
