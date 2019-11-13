@@ -1,0 +1,83 @@
+.slider {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: calc(50% - #{$sliderButtonSize * 3});
+  top: #{-$sliderButtonSize};
+
+  &__button {
+    @include button-reset;
+    padding: #{$sliderButtonSize / 2} $sliderButtonSize;
+    background: linear-gradient(180deg, #ffffff40 0%, #fff0 100%), $decorColor2;
+    transition: linear-gradient $transTime1;
+
+    &:hover {
+      background: linear-gradient(180deg, #fff6 0%, #fff0 100%), $decorColor2;
+    }
+    &--prev {
+      border-radius: $sliderButtonSize 0 0 $sliderButtonSize;
+    }
+    &--next {
+      border-radius: 0 $sliderButtonSize $sliderButtonSize 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    height: $sliderButtonSize;
+    width: $sliderButtonSize;
+  }
+}
+
+@media (min-width: 768px) {
+  .slider {
+    left: calc(50% - 366px);
+    top: #{-$sliderButtonSizeBig};
+    z-index: 2;
+
+    &__button {
+      padding: #{$sliderButtonSizeBig / 2} $sliderButtonSizeBig;
+
+      &--prev {
+        border-radius: $sliderButtonSizeBig 0 0 $sliderButtonSizeBig;
+      }
+      &--next {
+        border-radius: 0 $sliderButtonSizeBig $sliderButtonSizeBig 0;
+      }
+    }
+
+    &__icon {
+      height: $sliderButtonSizeBig;
+      width: $sliderButtonSizeBig;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .slider {
+    justify-items: center;
+    position: absolute;
+    width: 162px;
+    left: calc(50% - 573px - 81px);
+    top: -32px;
+
+    &__button {
+      width: 81px;
+      height: 64px;
+
+      &--prev {
+        border-radius: 32px 0 0 32px;
+      }
+      &--next {
+        border-radius: 0 32px 32px 0;
+      }
+    }
+
+    &__icon {
+      margin: 0 auto;
+      display: block;
+      height: $sliderButtonSizeBiggest * 2;
+      width: $sliderButtonSizeBiggest;
+    }
+  }
+}

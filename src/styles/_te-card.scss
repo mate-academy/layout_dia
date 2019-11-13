@@ -1,0 +1,102 @@
+.te-card {
+  width: 280px;
+  height: 414px;
+  @include flex-column-center;
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.05);
+  background-color: $bgColor2;
+  z-index: 1;
+
+  &__background {
+    position: relative;
+    top: 90px;
+  }
+
+  &__img {
+    position: relative;
+    top: 40px;
+    z-index: 2;
+  }
+
+  &__text {
+    margin-top: 60px;
+    width: 210px;
+    font-size: $mainFont / 1.1;
+    line-height: 1.5;
+    color: $textColor2;
+    font-style: italic;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 64px;
+      border-radius: 1px;
+      background: linear-gradient(180deg, #ffffff40 0%, #fff0 100%),
+        $decorColor1;
+      position: relative;
+      top: 31px;
+      left: calc(50% - 32px);
+    }
+
+    &--bgcolor2 {
+      &::after {
+        background: linear-gradient(180deg, #ffffff40 0%, #fff0 100%),
+          $decorColor2;
+      }
+    }
+
+    &--bgcolor3 {
+      &::after {
+        background: linear-gradient(180deg, #ffffff40 0%, #fff0 100%),
+          $decorColor4;
+      }
+    }
+  }
+
+  &__name {
+    margin-top: 64px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+
+  &__position {
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: $decorColor1;
+
+    &--color2 {
+      color: $decorColor2;
+    }
+
+    &--color3 {
+      color: $decorColor4;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .te-card {
+    width: 314px;
+    height: 464px;
+    @include flex-column-center;
+  
+    &__background {
+      top: 90px;
+    }
+  
+    &__img {
+      top: 40px;
+    }
+  
+    &__text {
+      margin-top: 50px;
+      width: 250px;
+      font-size: $mainFontBig / 1.1;
+    }
+  
+    &__name {
+      margin-top: 64px;
+    }
+  }
+}
