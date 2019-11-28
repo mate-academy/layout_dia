@@ -1,0 +1,212 @@
+@import "utils/vars";
+@import "utils/mixins";
+
+.header {
+  height: 848px;
+  max-width: $max-width-bg;
+  box-sizing: border-box;
+
+  margin: 0 auto;
+
+  background-image: url("../images/header/Bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+
+  &__top {
+    padding: 48px 26% 0 $side-padding;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 32px;
+    color: $c-white;
+    @include hover(color, $c-active);
+  }
+
+  &__hire-us {
+    color: $c-white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+    @include hover(color, $c-active);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      width: 64px;
+      height: 4px;
+      /* stylelint-disable */
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+      /* stylelint-enable */
+      border-radius: 32px;
+
+      transition: background-color $transitionTime;
+    }
+
+    &:hover::after {
+      background-color: $c-dark-blue;
+    }
+  }
+
+  &__bottom {
+    padding: 76px 20% 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1.5;
+    color: $c-white;
+    margin-bottom: 22px;
+  }
+
+  &__paragraph {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.5;
+    color: $c-white;
+    margin-bottom: 42px;
+    white-space: nowrap;
+  }
+
+  &__button {
+    width: 226px;
+    height: 56px;
+    background-color: $c-white;
+    border-radius: 64px;
+    border: 0;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 1px;
+    color: $c-blue;
+
+    @include button-hover(color, $c-white, background-color, $c-active);
+  }
+}
+
+@media (min-width: 1921px) {
+  .header {
+    &__top {
+      padding: 48px $side-padding-big-res 0;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .header {
+    &__title {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: $tablet-view) {
+  .header {
+    &__top {
+      padding: 48px $side-padding 0;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-big) {
+  .header {
+    &__title {
+      white-space: nowrap;
+    }
+
+    &__paragraph {
+      width: 90%;
+      white-space: normal;
+    }
+
+    &__bottom {
+      padding-top: 39px;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-mid) {
+  .header {
+    &__top {
+      flex-direction: column;
+    }
+
+    &__logo {
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      font-size: 32px;
+      color: $c-blue;
+    }
+
+    &__paragraph {
+      color: $c-blue;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-small) {
+  .header {
+    background-color: $c-sky;
+
+    &__paragraph {
+      font-size: 20px;
+    }
+
+    &__button {
+      background-color: $c-blue;
+      color: $c-white;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-extra-small) {
+  .header {
+    &__title {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-critical) {
+  .header {
+    &__title {
+      white-space: normal;
+    }
+  }
+}
+
+@media (max-width: $mobile-view-360p) {
+  .header {
+    height: 888px;
+
+    &__title {
+      width: min-content;
+      margin: 0 auto 20px;
+    }
+
+    &__button {
+      margin: 0 auto;
+      width: 163px;
+    }
+  }
+}

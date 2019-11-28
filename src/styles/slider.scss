@@ -1,0 +1,69 @@
+@import "utils/mixins";
+
+.slider {
+  width: 162px;
+  height: 64px;
+  position: absolute;
+  /* stylelint-disable */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+  /* stylelint-enable */
+  border-radius: 50px;
+  @include vertical-center-transform;
+
+  &__item {
+    border: 0;
+
+    width: 12px;
+    height: 24px;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+
+    cursor: pointer;
+
+    $distance: 40px;
+
+    &--left {
+      background-image: url("../images/slider/arrow-left.svg");
+      left: $distance;
+      transform: translate(-50%, -50%);
+
+      transition: background $transitionTime;
+
+      &:hover {
+        border-radius: 5px;
+        /* stylelint-disable */
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(86,204,242, 0.5)), url("../images/slider/arrow-left.svg");
+        /* stylelint-enable */
+      }
+    }
+
+    &--right {
+      background-image: url("../images/slider/arrow-right.svg");
+      right: $distance;
+      transform: translate(50%, -50%);
+
+      transition: background $transitionTime;
+
+      &:hover {
+        border-radius: 5px;
+        /* stylelint-disable */
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(86,204,242, 0.5)), url("../images/slider/arrow-right.svg");
+        /* stylelint-enable */
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-view-big) {
+  .slider {
+    top: 100%;
+    left: 50%;
+
+  }
+}
