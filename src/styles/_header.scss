@@ -11,6 +11,7 @@
   color: #fff;
 
   &__top {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,6 +51,36 @@
 }
 
 .nav {
+
+  &__toggler,
+  &__toggler-label {
+    display: none;
+  }
+
+  &__toggler-label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    padding-top: 15%;
+    right: 5%;
+    top: 5%;
+    width: 20px;
+    height: 20px;
+    background: url(../images/menu.png) no-repeat center;
+  }
+
+  &__toggler:checked ~ .nav__toggler-label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    background: url(../images/cross.png) no-repeat center;
+  }
+
   &__list {
     list-style: none;
     display: flex;
@@ -87,6 +118,62 @@
   .header {
     &__top {
       max-width: 800px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    padding-top: 0;
+    height: 100vh;
+
+    &__top {
+      width: 100%;
+      align-items: center;
+      padding-top: 5%;
+    }
+
+    &__content {
+      max-width: 300px;
+      text-align: center;
+    }
+
+    &__title {
+      margin-bottom: 80px;
+    }
+
+    &__button {
+      margin: 0 auto;
+    }
+  }
+
+  .nav {
+
+    &__list {
+      flex-direction: column;
+      position: absolute;
+      background-color: $light-blue;
+      right: -20px;
+      left: -20px;
+      top: -20px;
+      height: 100vh;
+      padding-left: 50px;
+      padding-top: 40px;
+      
+    }
+
+    &__link--active {
+      display: none;
+    }
+
+    &__toggler-label {
+      display: block;
+    }
+
+    &__toggler:not(:checked) ~ .nav__list {
+      display: none;
     }
   }
 }
