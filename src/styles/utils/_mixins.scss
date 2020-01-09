@@ -1,6 +1,62 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin button {
+  padding: 0 73px;
+
+  border: none;
+  border-radius: $border-radius-md;
+  color: white;
+  background-color: $accent-color-pink;
+
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+
+  transition: background-color $animation-short;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color-pink-active;
+  }
+}
+
+@mixin section-wraper {
+  margin: 0 auto;
+  max-width: $content-width;
+}
+
+@mixin subsection-title {
+  font-weight: 600;
+  font-size: 32px;
+  color: $text-color-darken;
+}
+
+@mixin section-title {
+  font-weight: 600;
+  font-size: 52px;
+  color: $text-color-darken;
+}
+
+@mixin link-hover {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+
+    height: 2px;
+    width: 100%;
+    background-color: $accent-color-pink;
+    opacity: 0;
+
+    transition: bottom $animation-short,
+      opacity $animation-short;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    bottom: -8px;
+    opacity: 1;
   }
 }
