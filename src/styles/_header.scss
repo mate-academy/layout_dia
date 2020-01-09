@@ -6,6 +6,11 @@
   margin: auto;
   color: #fff;
 
+  &__container {
+    position: relative;
+    overflow: hidden;
+  }
+
   &__logo {
     margin: 0 32px 0 64px;
     width: 60px;
@@ -20,6 +25,7 @@
 
   &__nav-ul {
     display: flex;
+    height: 28px;
   }
 
   &__nav-li {
@@ -61,6 +67,113 @@
     margin-top: 4px;
   }
 
+  @media (max-width:1024px) {
+    .header {
+      &__nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-15px);
+        // Что бы nav и DIA и Hire us были по центру красиво
+      }
+
+      &__logo {
+        margin: 0;
+        margin-bottom: 30px;
+      }
+
+      &__nav-ul {
+        display: flex;
+        justify-content: space-evenly;
+        height: 28px;
+        width: 100%;
+        transform: translateX(15px);
+        // Что бы nav и DIA и Hire us были по центру красиво
+        max-width: 850px;
+      }
+
+      &__nav-li {
+        margin: 0;
+      }
+
+      &__hire-us-link {
+        margin: 0;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 550px) {
+
+    .header {
+
+      &__logo {
+        margin: auto;
+        z-index: 3;
+      }
+
+      &__nav {
+        align-items: flex-start;
+        transform: translateX(0);
+      }
+
+      &__nav-ul {
+        justify-content: center;
+        flex-direction: column;
+        transform: translateX(103%);
+        transition: transform 1s ease-in-out;
+        position: absolute;
+        top: -49px;
+        height: 93vh; // постмотреть потом на телефоне
+        min-height: 480px; // постмотреть потом на телефоне
+        background-color: #008aff;
+        border-bottom-left-radius: 29%;
+        box-shadow: -3px 1px 10px black;
+      }
+
+      &__nav-li {
+        margin: 5px 20px;
+      }
+
+      &__nav-link {
+        font-size: 23px;
+        font-weight: 600;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &__nav-link--is-active {
+        color: $orange;
+        font-weight: 800;
+        font-size: 30px;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &__hire-us-link {
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 1s ease-in-out;
+        position: absolute;
+        bottom: -310px;
+      }
+
+    }
+
+    .move-ul {
+      transform: translateX(15px);
+    }
+
+    .move-hire-us {
+      transform: translateX(0);
+    }
+
+  }
+
   // DESCRIPTION PART
 
   &__main {
@@ -96,13 +209,92 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 50%; // поменял с 687px, что бы красивее выбло
+    width: 48%; // поменял с 687px, что бы красивее выбло
     max-width: 687px;
     height: 680px;
     border-top-left-radius: 200px;
     background-image: url("../images/slider/slide-img-1.jpg");
   }
 
+  @media (max-width: 1024px) {
+    .header {
+      &__main {
+        flex-direction: column;
+      }
+
+      &__description {
+        align-self: flex-start;
+        margin: 0;
+      }
+
+      &__slider {
+        align-self: flex-end;
+      }
+
+    }
+
+  }
+
+  @media (max-width: 550px) {
+    .header {
+      &__slider {
+        display: none;
+      }
+
+      &__description {
+        display: block;
+        text-align: center;
+        margin: auto;
+        padding-bottom: 30px; // потом возможно убрать
+      }
+
+      &__description-about {
+        margin-bottom: 30px;
+      }
+
+      &__btn-rectangle {
+        margin: auto;
+      }
+    }
+  }
+
+}
+
+.burger-menu {
+  position: absolute;
+  right: 10px;
+  display: none;
+  z-index: 2;
+
+  &__item-1,
+  &__item-2,
+  &__item-3 {
+    width: 35px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+}
+
+.opend-menu .burger-menu__item-1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.opend-menu .burger-menu__item-2 {
+  opacity: 0;
+}
+
+.opend-menu .burger-menu__item-3 {
+  transform: rotate(45deg) translate(-7px, -6px);
+}
+
+@media (max-width:550px) {
+  .burger-menu {
+    display: block;
+  }
 }
 
 .intro {
