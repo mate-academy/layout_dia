@@ -1,0 +1,181 @@
+@import "utils";
+
+.slider {
+  position: relative;
+
+  &__controls {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 40px;
+    bottom: 20px;
+    left: 50%;
+  }
+
+  &__controls-item {
+    display: inline-block;
+    position: relative;
+    width: 8px;
+    height: 8px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: 20px;
+    bottom: 66px;
+    color: $white-color;
+  }
+
+  &__title {
+    @extend %poppins;
+    font-weight: $font-weight-bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    @extend %open-sans;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  &__switcher {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 72px;
+    @extend %flex-space-between;
+  }
+
+  &__button {
+    position: relative;
+    background-color: $white-color;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+
+    &::before {
+      @extend %pseudo-element;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: 50% 50%;
+      width: 7px;
+      height: 7px;
+      border-top: 2px solid $titles-color;
+      border-right: 2px solid $titles-color;
+    }
+
+    &--left {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__item {
+    display: none;
+    width: 100vw;
+    height: 680px;
+    @extend %image-centered;
+
+    &--1 {
+      background-image: url(../images/slider/1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/3.png);
+    }
+  }
+
+  #slide-1:checked ~ &__list &__item--1 {
+    display: block;
+  }
+
+  #slide-2:checked ~ &__list &__item--2 {
+    display: block;
+  }
+
+  #slide-3:checked ~ &__list &__item--3 {
+    display: block;
+  }
+
+  #slide-1:checked ~ &__controls &__controls-item:nth-child(1)::before,
+  #slide-2:checked ~ &__controls &__controls-item:nth-child(2)::before,
+  #slide-3:checked ~ &__controls &__controls-item:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+
+    width: 6px;
+    height: 6px;
+    background-color: $button-color;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 640px) {
+  .slider {
+    &__item {
+      border-top-left-radius: 150px;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    &__item {
+      display: none;
+      width: 50vw;
+    }
+
+    &__text {
+      position: absolute;
+      left: 144px;
+      bottom: 48px;
+      color: $white-color;
+    }
+
+    &__switcher {
+      left: 48px;
+      bottom: 66px;
+    }
+  }
+}
+
+@media (min-width: $notebook-breakpoint) {
+  .slider {
+    &__item {
+      border-top-left-radius: 200px;
+    }
+  }
+}
