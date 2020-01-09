@@ -1,0 +1,136 @@
+$oval-w-big: 56px;
+$oval-h-big: 143px;
+$oval-w-medium: 33px;
+$oval-h-medium: 85px;
+$oval-w-small: 26px;
+$oval-h-small: 67px;
+$oval-w-tiny: 18px;
+$oval-h-tiny: 45px;
+
+$green-from: rgba(148, 229, 173, 0.4);
+$green-to: rgba(148, 229, 173, 1);
+$purple-from: rgba(220, 141, 247, 0.4);
+$purple-to: rgba(220, 141, 247, 1);
+$yellow-from: rgba(249, 227, 154, 0.4);
+$yellow-to: rgba(249, 227, 154, 1);
+$blue-from: rgba(177, 227, 244, 0.4);
+$blue-to: rgba(177, 227, 244, 1);
+$orange-from: rgba(240, 183, 184, 0.4);
+$orange-to: rgba(240, 183, 184, 1);
+
+@mixin oval-size($width, $height) {
+  width: $width;
+  height: $height;
+
+  &::after {
+    width: #{$width - 10px};
+    height: #{$height - 10px};
+  }
+}
+
+.oval {
+  position: absolute;
+  transform: rotate(20deg);
+  border-radius: 50% / 20%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 50% / 20%;
+    background-color: #fcfcfc;
+  }
+
+  &--green {
+    background-image: linear-gradient(to right top, $green-from, $green-to);
+  }
+
+  &--purple {
+    background-image: linear-gradient(to right top, $purple-from, $purple-to);
+  }
+
+  &--yellow {
+    background-image: linear-gradient(to right top, $yellow-from, $yellow-to);
+  }
+
+  &--blue {
+    background-image: linear-gradient(to right top, $blue-from, $blue-to);
+  }
+
+  &--orange {
+    background-image: linear-gradient(to right top, $orange-from, $orange-to);
+  }
+
+  &--1 {
+    top: 54%;
+    left: 16%;
+    @include oval-size($oval-w-big, $oval-h-big);
+  }
+
+  &--2 {
+    top: 34%;
+    right: 14%;
+    @include oval-size($oval-w-big, $oval-h-big);
+  }
+
+  &--3 {
+    top: 47%;
+    right: 4%;
+    @include oval-size($oval-w-medium, $oval-h-medium);
+  }
+
+  &--4 {
+    top: 69%;
+    left: 32%;
+    @include oval-size($oval-w-tiny, $oval-h-tiny);
+  }
+
+  &--5 {
+    top: 25%;
+    left: 29%;
+    @include oval-size($oval-w-tiny, $oval-h-tiny);
+  }
+
+  &--6 {
+    top: 85%;
+    left: 11%;
+    @include oval-size($oval-w-medium, $oval-h-medium);
+  }
+
+  &--7 {
+    top: 24%;
+    right: 6%;
+    @include oval-size($oval-w-tiny, $oval-h-tiny);
+  }
+
+  &--8 {
+    top: 80%;
+    right: 37%;
+    @include oval-size($oval-w-tiny, $oval-h-tiny);
+  }
+
+  &--9 {
+    top: 64%;
+    right: 25%;
+    @include oval-size($oval-w-medium, $oval-h-medium);
+  }
+
+  &--10 {
+    top: 26%;
+    left: 18%;
+    @include oval-size($oval-w-medium, $oval-h-medium);
+  }
+
+  &--11 {
+    top: 64%;
+    left: 5%;
+    @include oval-size($oval-w-small, $oval-h-small);
+  }
+
+  &--12 {
+    top: 78%;
+    right: 14%;
+    @include oval-size($oval-w-big, $oval-h-big);
+  }
+}
