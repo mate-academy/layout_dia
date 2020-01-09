@@ -1,0 +1,51 @@
+@import "utils";
+
+.header {
+  position: relative;
+  background-color: $blue-color;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  &__link {
+    position: relative;
+    display: block;
+    @extend %poppins;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-13;
+    line-height: 1.5;
+    color: $white-color;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color $transition-duration $ease-function;
+
+    &:hover {
+      color: $button-color;
+    }
+
+    &::after {
+      @extend %pseudo-element;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $button-color;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .header {
+    justify-content: flex-start;
+
+    &__link {
+      margin-left: auto;
+    }
+  }
+}
+
+// @media (min-width: $notebook-breakpoint) {
+
+// }
