@@ -1,0 +1,64 @@
+@import "./utils";
+
+.nav-bar {
+  @include flex(space-between, flex-start, nowrap);
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    height: calc(100vh - 70px);
+    background: $light-accent;
+    padding: 40px;
+    transition: opacity 0.3s ease;
+    border-top-right-radius: 200px;
+  }
+
+  &__link {
+    display: block;
+    @include title-style;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 28px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-light;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 64px;
+      @include hover(color, 0.2s);
+
+      @media (max-width: 1024px) {
+        margin-right: 16px;
+      }
+    }
+
+    &:hover .nav-bar__link {
+      color: $light-accent;
+
+      @media (max-width: 768px) {
+        color: $accent;
+      }
+    }
+  }
+}
+
+.menu--open .nav-bar {
+  opacity: 1;
+  z-index: 2;
+}
