@@ -1,0 +1,134 @@
+@import "variables";
+@import "mixin";
+
+.nav {
+  &__list {
+    @include flex-space-between;
+    width: $subNavWidth;
+
+    &--rotare {
+      transform: rotate(90deg);
+      position: absolute;
+      bottom: 310px;
+      right: -275px;
+      width: 415px;
+    }
+  }
+
+  &__link {
+    color: $whiteColor;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+
+    &--dark {
+      color: #253757;
+      margin-left: 30px;
+    }
+
+    &--slider-link {
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 150%;
+      align-items: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #253757;
+    }
+
+    &--action {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        height: 4px;
+        border-radius: 32px;
+        width: 54px;
+        position: absolute;
+        bottom: -5px;
+        /* stylelint-disable */
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+        /* stylelint-enable */
+        transition: width 0.3s;
+      }
+    }
+
+    &--is-active {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        height: 4px;
+        border-radius: 32px;
+        width: 0;
+        position: absolute;
+        bottom: -5px;
+        /* stylelint-disable */
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+        /* stylelint-enable */
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1180px) {
+  .nav {
+    &__link {
+      &--top {
+        font-size: 20px;
+      }
+    }
+
+    &__list {
+      //z-index: -10;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 65px;
+      background-color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1599px) {
+  .nav {
+    &__link {
+      &--slider-link {
+        color: $whiteColor;
+      }
+    }
+
+    &__list {
+      &--rotare {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        transform: rotate(0deg);
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $whiteColor;
+      }
+    }
+  }
+}
+
+@media screen and  (min-width: 1181px) {
+  .nav {
+    &__list {
+      display: flex;
+    }
+  }
+}
