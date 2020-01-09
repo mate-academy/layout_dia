@@ -1,0 +1,129 @@
+@import "./utils";
+
+.about {
+  
+  padding-bottom: 160px;
+
+  &__content {
+    max-width: 742px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include article_title;
+  }
+
+  &__info {
+    font-weight: 600;
+    font-size: 24px;
+    color: $text-color;
+  }
+}
+
+.socials {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $text-color;
+  font-weight: 800;
+  font-size: 12.6px;
+
+  &__item {
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__link {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+}
+
+.slider {
+
+  &__photo {
+    margin: 0;
+    height: 400px;
+  }
+
+  &__item {
+    list-style: none;
+    position: relative;
+    top: -200px;
+    left: 50%;
+    transform: translate(-50%);
+    background: url(../images/slider/slider-1.png) no-repeat center;
+    background-size: cover;
+    max-width: 1000px;
+    height: 600px;
+  }
+
+  &__button {
+    background-color: $decor-yellow;
+    border: none;
+    width: 80px;
+    height: 64px;
+    position: absolute;
+    top: 165px;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    cursor: pointer;
+
+    &--prev {
+      background-image: url(../images/slider/arrow-left.svg);
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      transform: translateX(-100%);
+    }
+
+    &--next {
+      background-image: url(../images/slider/arrow-right.svg);
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+    &:hover,
+    &:focus {
+      -webkit-box-shadow: 5px 5px 15px -9px #69640f;
+      box-shadow: 5px 5px 15px -9px #69640f;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 0;
+    width: 284px;
+    margin: 86px 98px;
+  }
+
+  &__title {
+    @include title;
+    font-size: 13px;
+  }
+
+  &__text {
+    color: #fff;
+    font-weight: 900;
+    font-size: 19.6px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  .slider {
+    &__item {
+      max-width: 800px;
+      background-size: contain;
+    }
+  }
+}
