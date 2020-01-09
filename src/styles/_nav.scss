@@ -1,0 +1,63 @@
+@import "utils";
+@import "utils/vars";
+
+.nav-part {
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+  max-width: 760px;
+
+  &__logo {
+    height: 28px;
+  }
+}
+
+.nav {
+  display: flex;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 61px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include reset-link;
+    @include nav_link;
+    padding-bottom: 8px;
+    position: relative;
+
+    &:after {
+      @include link-after;
+      width: 0;
+      transition: width 0.1s linear;
+    }
+
+    &:hover:after {
+      width: 100%;
+      left: 0;
+    }
+
+    &_activ:after {
+      @include link-after;
+      width: 100%;
+    }
+  }
+}
+
+.nav-container {
+  width: 760px;
+}
