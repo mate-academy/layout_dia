@@ -1,14 +1,21 @@
-
 .header {
   background-color: #008aff;
   border-bottom-left-radius: 200px;
   position: relative;
+  z-index: 1;
   margin: auto;
   color: #fff;
+
+  &__overlay {
+    background-color: #f2f9ff;
+  }
 
   &__container {
     position: relative;
     overflow: hidden;
+    background: #008aff;
+    border-bottom-left-radius: 200px;
+    min-height: 480px; // Для адаптива
   }
 
   &__logo {
@@ -23,12 +30,12 @@
     padding-top: 48px;
   }
 
-  &__nav-ul {
+  &__nav-list {
     display: flex;
     height: 28px;
   }
 
-  &__nav-li {
+  &__nav-item {
     margin: 0 32px;
     box-sizing: border-box;
   }
@@ -82,7 +89,7 @@
         margin-bottom: 30px;
       }
 
-      &__nav-ul {
+      &__nav-list {
         display: flex;
         justify-content: space-evenly;
         height: 28px;
@@ -92,7 +99,7 @@
         max-width: 850px;
       }
 
-      &__nav-li {
+      &__nav-item {
         margin: 0;
       }
 
@@ -104,9 +111,7 @@
   }
 
   @media (max-width: 550px) {
-
     .header {
-
       &__logo {
         margin: auto;
         z-index: 3;
@@ -117,21 +122,20 @@
         transform: translateX(0);
       }
 
-      &__nav-ul {
+      &__nav-list {
         justify-content: center;
         flex-direction: column;
         transform: translateX(103%);
         transition: transform 1s ease-in-out;
         position: absolute;
         top: -49px;
-        height: 93vh; // постмотреть потом на телефоне
-        min-height: 480px; // постмотреть потом на телефоне
+        min-height: 480px;
         background-color: #008aff;
         border-bottom-left-radius: 29%;
         box-shadow: -3px 1px 10px black;
       }
 
-      &__nav-li {
+      &__nav-item {
         margin: 5px 20px;
       }
 
@@ -189,10 +193,11 @@
     max-width: 490px;
   }
 
-  &__description-about {
+  &__description-about { // Не соответствует макету!
     font-family: Open Sans, serif ;
     font-size: 18px;
     margin-bottom: 56px;
+    max-width: 460px;
   }
 
   &__btn-rectangle {
@@ -319,8 +324,8 @@
 
     &:hover {
       cursor: pointer;
-      background-color: #008aff;
-      box-shadow: 1px 1px 5px white;
+      background-color: pink;
+      box-shadow: 1px 1px 3px rgba(0,0,0, 0.5);
     }
 
     &::before {
@@ -351,5 +356,37 @@
     font-size: 14px;
     margin: 0 0 0 8px;
 
+  }
+}
+
+// WELCOME SECTION
+
+.welcome-overlay {
+  background: #f2f9ff;
+  padding-top: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  transform: translateY(-210px);
+}
+
+.welcome {
+  max-width: 754px;
+  margin: auto;
+  margin-top: 148px;
+
+  &__title {
+    font-size: 32px;
+    color: #253757;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+
+  &__text {
+    font-size: 24px;
+    font-family: "Open Sans", serif;
+    font-weight: 600;
+    color: #6c788b;
+    margin: 0;
   }
 }
