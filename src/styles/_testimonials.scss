@@ -1,5 +1,5 @@
 .testimonials {
-  padding: 148px 0;
+  padding: 148px 20px;
 
   &__subtitle {
     margin-bottom: 16px;
@@ -18,6 +18,7 @@
   &__list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__item {
@@ -28,6 +29,8 @@
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: $border-radius-sm;
     text-align: center;
+
+    cursor: pointer;
   }
 
   &__img-wrapper {
@@ -44,20 +47,61 @@
     border-radius: 50%;
   }
 
-  &__img-wrapper::before,
-  &__img-wrapper::after {
-    content: "";
+  &__img-capsule {
     position: absolute;
     top: 50%;
 
     width: 139px;
     height: 56px;
 
-    background-color: red;
     border-radius: $border-radius-lg;
     transform: rotate(-60deg);
 
-    z-index: 5;
+    z-index: -1;
+    transition: $animation-short;
+  }
+
+  &__img-capsule:first-child {
+    top: 80px;
+    left: 0;
+  }
+
+  &__img-capsule:last-child {
+    top: 160px;
+    right: 0;
+  }
+
+  &__item:nth-child(1) .testimonials__img-capsule {
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #56ccf2;
+  }
+
+  &__item:nth-child(2) .testimonials__img-capsule {
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #fcc304;
+  }
+
+  &__item:nth-child(3) .testimonials__img-capsule {
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #f25656;
+  }
+
+  &__item:hover {
+    .testimonials__img-capsule:first-child {
+      top: 70px;
+      left: -10px;
+    }
+  
+    .testimonials__img-capsule:last-child {
+      top: 170px;
+      right: -10px;
+    }
   }
 
   &__quotes {
