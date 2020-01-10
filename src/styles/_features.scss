@@ -27,8 +27,14 @@
   }
 
   &__item {
+    position: relative;
     display: flex;
     align-items: center;
+
+    width: fit-content;
+
+    cursor: pointer;
+    transition: $animation-short;
   }
 
   &__item:not(:last-child) {
@@ -44,6 +50,30 @@
 
     background-color: #fff;
     border-radius: $border-radius-md;
+  }
+
+  &__item::after {
+    position: absolute;
+    content: "";
+
+    width: 0;
+    height: 0;
+
+    background-color: #fff;
+    border-radius: $border-radius-md;
+
+    transition: width $animation-short,
+      height $animation-short;
+    z-index: -1;
+  }
+
+  &__item:hover::after {
+    width: 105%;
+    height: 150%;
+  }
+
+  &__item:hover {
+    color: $accent-color-pink;
   }
 
   &__icon {
