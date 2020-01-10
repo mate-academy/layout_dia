@@ -1,0 +1,164 @@
+@mixin person-background {
+  position: absolute;
+  top: 95px;
+  right: 105px;
+  width: 162px;
+  height: 64px;
+  border-radius: 32px;
+  transform: rotate(-65deg);
+}
+
+@mixin info-before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 31px auto;
+}
+
+@mixin person-position {
+  font-weight: 800;
+  font-size: 12.6px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.testimonials-blocks {
+  display: flex;
+  background-color: #fcfcfd;
+  margin-left: 30px;
+
+  &__card {
+    width: 314px;
+    height: 464px;
+    margin-right: 78px;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.05);
+  }
+
+  &__person {
+    position: relative;
+    text-align: center;
+    background-color: #fefefe;
+    padding: 240px 32px 50px;
+
+    &-background--blue {
+      @include person-background;
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #56ccf2;
+    }
+
+    &-background--yellow {
+      @include person-background;
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #fcc304;
+    }
+
+    &-background--red {
+      @include person-background;
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #f25656;
+    }
+
+    &-photo {
+      position: absolute;
+      top: 100px;
+      width: 260px;
+      border-radius: 32px;
+    }
+
+    &-image {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      transition: 0.3s ease-in;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &-text {
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &-info {
+
+      &--first::before {
+        @include info-before;
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #56ccf2;
+      }
+
+      &--second::before {
+        @include info-before;
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #fcc304;
+      }
+
+      &--third::before {
+        @include info-before;
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #f25656;
+      }
+    }
+
+    &-name {
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 150%;
+      text-align: center;
+      color: #152032;
+    }
+
+    &-position--first {
+      @include person-position;
+      color: #56ccf2;
+    }
+
+    &-position--second {
+      @include person-position;
+      color: #fcc304;
+    }
+
+    &-position--third {
+      @include person-position;
+      color: #f25656;
+    }
+  }
+}
+
+@media (max-width: $medium-screen) {
+  .testimonials-blocks {
+    flex-direction: column;
+    margin: auto;
+    background-color: #fff;
+
+    &__card {
+      margin: 20px 0;
+    }
+  }
+}
+
+@media (max-width: $small-screen) {
+  .testimonials-blocks__card {
+    width: 50%;
+  }
+}
