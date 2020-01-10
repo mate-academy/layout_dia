@@ -1,0 +1,117 @@
+.contact {
+  @include position;
+  justify-content: space-between;
+  margin-top: 100px;
+  align-items: flex-start;
+
+  &__message {
+    width: 650px;
+  }
+
+  &__form {
+    margin-top: 100px;
+
+    .form__input {
+      width: 90%;
+      border: none;
+      border-bottom: 1px solid #e1e1e1;
+      padding: 15px 0;
+      margin-bottom: 45px;
+      background-color: transparent;
+
+      &::placeholder {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 150%;
+        color: #152032;
+      }
+
+      &:focus {
+        outline: none;
+        border: 2px solid #2f80ed;
+        border-radius: 20px;
+        padding-left: 10px;
+      }
+    }
+
+    .form__button {
+      @include button;
+      margin-top: 50px;
+    }
+  }
+
+  &__info {
+    font-style: normal;
+    width: 380px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__phone {
+    margin: 40px 0;
+  }
+
+  &__phone,
+  &__address {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 150%;
+    color: $subtext-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .phone,
+  .address {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 150%;
+    color: $general-color;
+    display: block;
+  }
+
+  .phone {
+    text-decoration: none;
+  }
+
+  &__network {
+    width: 190px;
+    @include position;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .network-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+  }
+
+  @for $i from 1 through 3 {
+    .network-icon--#{$i} {
+      background-image: url("../images/contact_us/icon-#{$i}.png");
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-screen-breakpoint) {
+  .contact {
+    flex-direction: column;
+
+    &__message {
+      text-align: center;
+      margin: auto;
+      width: 90%;
+    }
+
+    &__info {
+      margin: auto;
+      margin-top: 50px;
+      width: 90%;
+    }
+  }
+}
