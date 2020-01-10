@@ -1,0 +1,56 @@
+.nav {
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-left: 32px;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color-white;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background-color: $color-salmon;
+      border-radius: 4px;
+
+      transition: width 0.2s ease-in-out;
+
+    }
+
+    &:visited {
+      color: $color-gray;
+    }
+
+    &:hover::after,
+    &:active::after {
+      width: 100%;
+    }
+
+    &--is-active::after {
+      width: 100%;
+    }
+  }
+}
