@@ -1,0 +1,49 @@
+.nav {
+  width: 100%;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin: 0 3%;
+
+    &:first-child {
+      margin-left: 4%;
+    }
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include font-poppins(bold, 13px, 150%);
+    color: $c-white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease, text-shadow 0.1s ease;
+
+    &:hover {
+      color: $c-pink;
+    }
+
+    &:active {
+      text-shadow: 4px 4px 8px $c-active;
+    }
+
+    &:hover::after,
+    &--active::after {
+      content: "";
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      border-radius: 4px;
+      background: $c-pink;
+    }
+  }
+}
