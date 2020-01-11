@@ -73,6 +73,15 @@
     letter-spacing: -2px;
     font-weight: 900;
     line-height: 68px;
+
+    transform: translateX(-700px);
+    animation: titleAppearence $animation-long ease-in-out forwards;
+  }
+
+  @keyframes titleAppearence {
+    to {
+      transform: translateX(0);
+    }
   }
 
   &__text {
@@ -81,6 +90,19 @@
     font-family: "OpenSans-Light", sans-serif;
     font-size: 18px;
     line-height: 150%;
+  }
+
+  &__text,
+  &__button {
+    transform: translateY(700px);
+
+    animation: textAppearence $animation-long ease-in-out forwards;
+  }
+
+  @keyframes textAppearence {
+    to {
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: $break-point-lg) {
@@ -226,6 +248,10 @@
       &__content {
         top: 0;
       }
+
+      &__item {
+        bottom: 50px;
+      }
     }
   }
 
@@ -268,8 +294,21 @@
   width: 50vw;
   height: 80vh;
 
+  transform: translateX(600px);
+  opacity: 0;
+  animation: sliderAppearence $animation-long ease-in-out forwards;
+  overflow-x: hidden;
+
+  @keyframes sliderAppearence {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   &__list {
     position: relative;
+    display: flex;
 
     height: 100%;
   }
@@ -281,6 +320,8 @@
   }
 
   &__item {
+    position: relative;
+
     height: 100%;
   }
 
@@ -316,9 +357,7 @@
   }
 
   &__photo {
-    position: relative;
-
-    width: 100%;
+    width: 50vw;
     height: 100%;
     border-top-left-radius: $border-radius-lg;
 
