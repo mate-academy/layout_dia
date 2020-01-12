@@ -1,0 +1,51 @@
+@mixin img-wrapper ($gradient) {
+  position: relative;
+  margin-bottom: 82px;
+  &::before {
+    content: "";
+    position: absolute;
+
+    width: 139px;
+    height: 56px;
+    border-radius: 500px;
+
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      $gradient;
+
+    transform: rotate(-60deg) translate(-20px, -45px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+
+    width: 139px;
+    height: 56px;
+    border-radius: 500px;
+
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      $gradient;
+
+    transform: rotate(-60deg) translate(75px, 10px);
+  }
+}
+
+@mixin OpenSans-text ($font-size) {
+  color: $main-text-color;
+  font-family: "Open Sans", sans-serif;
+  font-size: $font-size;
+  line-height: 150%;
+}
+
+@mixin rectangle ($width, $height, $color, $border-width) {
+  position: absolute;
+  border-radius: 500px;
+  opacity: 0.5;
+  transform: rotate(30deg);
+  height: $width;
+  width: $height;
+  border: $border-width solid $color;
+}
