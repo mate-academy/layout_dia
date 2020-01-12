@@ -1,0 +1,61 @@
+.nav {
+  text-transform: uppercase;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 64px;
+    position: absolute;
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    color: $third-main-color;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+    margin-right: 64px;
+
+    @include hover (color, $hover-color);
+  }
+
+  &__toggler-label {
+    display: none;
+    position: relative;
+  }
+
+  &__toggler-label::before {
+    content: url("../images/menu/menu-white.png");
+    position: absolute;
+    top: -13px;
+    left: 30px;
+  }
+
+  &__toggler:checked ~ &__toggler-label::before {
+    content: url("../images/menu/menu-close.png");
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  @media (max-width: $break-point-menu) {
+    &__toggler-label {
+      display: inline-block;
+    }
+
+    &__list {
+      flex-direction: column;
+      margin: 10px 0 0 20px;
+    }
+
+    &__toggler:not(:checked) ~ .nav__list {
+      display: none;
+    }
+  }
+}
