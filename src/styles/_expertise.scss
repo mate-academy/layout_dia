@@ -1,10 +1,11 @@
 .expertise {
-  background-color: #fff;
-  padding: 128px 12% 155px;
+  min-height: 770px;
+  padding-top: 100px;
+  background-color: $c-white;
 
   &__title {
     @include font-poppins(600, 52px, 150%);
-    color: #253757;
+    color: $c-text-heading;
     text-align: center;
     margin-bottom: 64px;
   }
@@ -12,13 +13,12 @@
   &__content {
     display: grid;
     grid-template-columns: repeat(3, 265px);
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 0 5%;
   }
 }
 
 .card__front {
-  width: 265px;
-  height: 338px;
   border-radius: 20px;
   overflow: hidden;
   backface-visibility: hidden;
@@ -29,8 +29,8 @@
 
   &__image {
     object-fit: cover;
-    height: 100%;
-    width: 100%;
+    width: 265px;
+    height: 338px;
   }
 }
 
@@ -51,12 +51,12 @@
   &__name {
     @include font-poppins(600, 20px, 140%);
     margin-bottom: 16px;
-    color: #253757;
+    color: $c-text-heading;
   }
 
   &__text {
     @include font-open_sans(normal, 14px, 150%);
-    color: #6c788b;
+    color: $c-text;
   }
 }
 
@@ -69,13 +69,23 @@
 }
 
 @media screen and (max-width: 999px) {
-  .expertise__content {
-    grid-template-columns: repeat(1, 265px);
-    justify-content: center;
-    grid-gap: 80px;
+  .expertise {
+    min-height: 1450px;
+
+    &__content {
+      grid-template-columns: repeat(1, 265px);
+      justify-content: center;
+      grid-gap: 120px;
+    }
+
+    &__title {
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
   }
 
-  .expertise__title {
-    font-size: 35px;
+  .card__front {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
