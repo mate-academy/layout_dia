@@ -1,0 +1,49 @@
+.switcher {
+  padding: 10px;
+  height: 53px;
+  width: 53px;
+
+  &__div {
+    width: 60%;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    top: 25%;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    bottom: 25%;
+  }
+}
+
+.switcher.switcher--close .switcher__div {
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+
+.switcher.switcher--close::before {
+  transform: rotate(45deg);
+  top: 50%;
+}
+
+.switcher.switcher--close::after {
+  display: none;
+}
