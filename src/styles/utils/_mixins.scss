@@ -1,6 +1,39 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hover-after ($_property, $_toValue) {
+  &:after {
+    transition: #{$_property} $transition-duration;
+  }
+
+  &:hover:after {
+    #{$_property}: $_toValue;
+    @media (max-width: $break-point-menu) {
+      display: none;
+    }
+  }
+}
+
+@mixin content-after {
+  content: "";
+  background-color: $second-main-color;
+  border-radius: 4px;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  opacity: 0;
+}
+
+@mixin outline-border ($_toValue) {
+  &:focus {
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px $_toValue;
   }
 }
