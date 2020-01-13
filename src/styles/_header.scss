@@ -1,7 +1,49 @@
 .header {
   position: relative;
-  height: 100vh;
+  height: 800px;
+  padding-top: 52px;
 
   background-color: $blue-color;
   border-radius: 0 0 0 200px;
+  &__btn {
+    display: none;
+    position: relative;
+
+    width: 20px;
+    height: 2px;
+    background-color: red;
+
+    margin-bottom: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: red;
+      bottom: 5px;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: red;
+      top: 5px;
+      left: 0;
+    }
+    &--active {
+      background-color: transparent;
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+        transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: 0;
+        transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+      }
+    }
+  }
 }
