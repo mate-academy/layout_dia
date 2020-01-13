@@ -1,9 +1,9 @@
 .services {
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.5fr;
+  display: flex;
   justify-content: space-between;
-  padding: 0 14%;
-  margin-bottom: 188px;
+  padding: 0 227px;
+  max-width: 1600px;
+  margin: 0 auto 188px;
 
   &__description {
     margin-top: 230px;
@@ -33,22 +33,44 @@
     line-height: 150%;
   }
 
+  &__cards {
+    display: grid;
+    margin-top: 148px;
+    gap: 30px;
+    grid-template-areas: ". yellow" 
+      "blue yellow"
+      "blue red"
+      "green red"
+      "green .";
+  }
+
   &__cards .box:first-child {
-    margin-bottom: 30px;
+    grid-area: blue;
+  }
+
+  &__cards .box:nth-child(2) {
+    grid-area: yellow;
   }
 
   &__cards .box:nth-child(3) {
-    margin-bottom: 30px;
+    grid-area: green;
   }
 
-  &__cards-left {
-    transform: translateY(280px);
-    justify-self: right;
-    margin-right: 30px;
+  &__cards .box:nth-child(4) {
+    grid-area: red;
   }
+}
 
-  &__cards-right {
-    transform: translateY(148px);
-    justify-self: right;
+@media screen and (max-width: $laptop) {
+  .services {
+    padding: 0 10%;
+
+    &__description {
+      width: 280px;
+    }
+
+    &__heading {
+      font-size: 24px;
+    }
   }
 }
