@@ -3,7 +3,7 @@
 .header {
   box-sizing: border-box;
   width: 100%;
-  height: 135vh;
+  height: 100vh;
   padding: 50px 20px;
   background-color: $theme-color;
   -webkit-clip-path: polygon(0 0, 98% 0, 80% 100%, 0% 100%);
@@ -17,10 +17,6 @@
     align-items: center;
     max-width: 1000px;
     margin: 0 auto 80px;
-  }
-
-  &__logo {
-    margin: 0;
   }
 
   &__logo-link {
@@ -143,6 +139,11 @@
       padding-top: 5%;
     }
 
+    &__logo-link {
+      position: relative;
+      z-index: 5;
+    }
+
     &__content {
       max-width: 300px;
       text-align: center;
@@ -160,20 +161,49 @@
 
   .nav {
 
+    &__item {
+      width: 100%;
+      margin: 0;
+    }
+
     &__list {
       flex-direction: column;
       position: absolute;
+      text-align: center;
       background-color: $light-blue;
       right: -20px;
       left: -20px;
       top: -20px;
       height: 100vh;
-      padding-left: 50px;
-      padding-top: 40px;
-      
+      padding-top: 160px;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 370px;
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3px;
+        background-color: #fff;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 130px;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 3px;
+        background-color: #fff;
+      }
     }
 
     &__link {
+      font-size: 25px;
       outline: none;
 
       &:hover,
