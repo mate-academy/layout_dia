@@ -37,8 +37,8 @@
 
   &__text {
     position: absolute;
-    left: 20px;
-    bottom: 66px;
+    left: 100px;
+    bottom: 48px;
     color: $white-color;
   }
 
@@ -61,7 +61,7 @@
   &__switcher {
     position: absolute;
     left: 20px;
-    bottom: 20px;
+    bottom: 66px;
     width: 72px;
     @extend %flex-space-between;
   }
@@ -73,6 +73,8 @@
     height: 32px;
     border: none;
     border-radius: 50%;
+    outline: none;
+    cursor: pointer;
 
     &::before {
       @extend %pseudo-element;
@@ -93,8 +95,9 @@
 
   &__item {
     display: none;
-    width: 100vw;
-    height: 680px;
+    width: 100%;
+    height: calc(100vh - 304px);
+    border-radius: 30px 0;
     @extend %image-centered;
 
     &--1 {
@@ -141,41 +144,43 @@
 
 @media (min-width: 640px) {
   .slider {
+    &__text {
+      left: 144px;
+    }
+
+    &__switcher {
+      left: 48px;
+    }
+
     &__item {
-      border-top-left-radius: 150px;
+      height: calc(100vh - 389px);
     }
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: $tablet-breakpoint) {
   .slider {
     position: absolute;
     right: 0;
     bottom: 0;
 
     &__item {
-      display: none;
+      height: calc(100vh - 120px);
       width: 50vw;
-    }
-
-    &__text {
-      position: absolute;
-      left: 144px;
-      bottom: 48px;
-      color: $white-color;
-    }
-
-    &__switcher {
-      left: 48px;
-      bottom: 66px;
     }
   }
 }
 
-@media (min-width: $notebook-breakpoint) {
+@media (min-width: $design-breakpoint) {
   .slider {
     &__item {
-      border-top-left-radius: 200px;
+      width: 687px;
     }
+  }
+}
+
+@media (min-width: $full-breakpoint) {
+  .slider {
+    right: calc((100vw - 1600px) / 2);
   }
 }
