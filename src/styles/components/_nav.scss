@@ -1,0 +1,30 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 120px;
+  }
+
+  &__item {
+    margin-right: 32px;
+  }
+
+  &__link {
+    position: relative;
+    @extend %link;
+
+    &::after {
+      @include nav-link-after-element;
+    }
+
+    &:visited {
+      color: $color-gray;
+    }
+
+    &:hover::after,
+    &:active::after {
+      transform: scale(1);
+    }
+  }
+}

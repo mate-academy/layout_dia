@@ -1,35 +1,75 @@
 .header {
-  position: relative;
-  height: 100vh;
-  padding-left: 227px;
-  background-color: $color-blue;
-  border-bottom-left-radius: 20%;
-  border-width: 40px;
+  background-color: $color-graphite;
+  border-bottom-left-radius: 30px;
+  margin: 0 auto;
 
-  // &__logo {
-  //   display: block;
-  //   position: absolute;
-  //   top: 48px;
-  //   left: 200px;
-  // }
+  &__wraper {
+    position: relative;
+    height: 100vh;
+    max-width: 1146px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    border-width: 40px;
+
+  }
+
+  &__top {
+
+    position: relative;
+    display: flex;
+    align-content: center;
+    max-width: 1146px;
+    margin: 50px 0 10px;
+
+    @media screen and (max-width: 1200px) {
+      margin: 50px 20px 10px;
+    }
+  }
+
+  &__logo {
+    margin-right: 78px;
+  }
 
   &__nav {
     position: relative;
-    padding-top: 52px;
+
   }
 
-  &__wraper {
-    position: absolute;
-    height: 680px;
-    width: 100%;
-    bottom: 0;
+  &__link {
+    @extend %link;
+    position: relative;
+    margin-left: 450px;
 
-    display: grid;
-    grid-template-columns: minmax(400px, 490px) minmax(687px, 900px);
+    @media screen and (max-width: 1650px) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    &::after {
+      @include nav-link-after-element;
+    }
+
+    &--is-active::after {
+      transform: scale(1);
+    }
+  }
+
+  &__info {
+
+    display: flex;
+    align-items: center;
+    height: calc(100% - 120px);
+    max-width: 1150px;
   }
 
   &__name {
     max-width: 800px;
+    @media screen and (max-width: 1200px) {
+      margin-left: 20px;
+    }
   }
 
   &__title {
@@ -39,21 +79,18 @@
     font-size: 64px;
     line-height: 68px;
     letter-spacing: -2px;
+    color: $color-white;
   }
 
   &__text {
     font-size: 18px;
-    margin-bottom: 56px;
+    margin-bottom: 83px;
+    color: $color-white;
   }
 
   &__slider {
-    width: 100%;
     position: absolute;
     right: 0;
     bottom: 0;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
   }
 }
