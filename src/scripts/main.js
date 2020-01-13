@@ -15,6 +15,9 @@ window.onload = function() {
   }
 
   activeHire.addEventListener('click', function() {
+    for (let j = 0; j < activeLink.length; j++) {
+      activeLink[j].classList.remove('nav__link_activ');
+    }
     activeHire.classList.toggle('hire__link--activ');
   });
 };
