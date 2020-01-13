@@ -10,10 +10,14 @@
 
     @media (max-width: $break-point-menu) {
       flex-direction: column;
-      align-items: center;
+      top: 0;
+      width: 100%;
       margin: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      padding: 50px 60px 110px 0;
+      z-index: 1;
+      background-color: $first-main-color;
+      transform: translate(-100%, 0);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1);
     }
   }
 
@@ -32,7 +36,6 @@
     font-weight: bold;
     letter-spacing: 3px;
     text-decoration: none;
-
     @include hover-after (opacity, 1);
   }
 
@@ -40,33 +43,53 @@
     @include content-after;
   }
 
-  &__toggler-label {
+  &__toggler {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 32px;
+    margin: 0;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  &__hamburger {
     display: none;
     position: relative;
+    top: -25px;
+    width: 33px;
+    height: 4px;
+    margin: 5px auto;
+    background-color: $second-background-color;
+    border-radius: 3px;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1),
+      opacity 0.55s ease;
 
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
     @media (max-width: $break-point-menu) {
-      display: inline-block;
+      display: block;
     }
   }
 
-  &__toggler-label::before {
-    content: url("../images/menu/menu-white.png");
-    position: absolute;
-    top: 4px;
-    left: 30px;
+  &__toggler:checked ~ .nav__hamburger {
+    transform: rotate(45deg) translate(-2px, -1px);
   }
 
-  &__toggler:checked ~ &__toggler-label::before {
-    content: url("../images/menu/menu-close.png");
+  &__toggler:checked ~ .nav__hamburger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
   }
 
-  &__toggler {
-    display: none;
+  &__toggler:checked ~ .nav__hamburger:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
   }
 
-  @media (max-width: $break-point-menu) {
-    &__toggler:not(:checked) ~ .nav__list {
-      display: none;
-    }
+  &__toggler:checked ~ .nav__list {
+    transform: none;
   }
 }

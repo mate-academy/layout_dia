@@ -64,6 +64,13 @@ a {
   justify-content: space-between;
   line-height: 28px;
 }
+@media (max-width: 1023px) {
+  .header__nav {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+}
 
 .logo {
   width: 45px;
@@ -83,10 +90,14 @@ a {
 @media (max-width: 1023px) {
   .nav__list {
     flex-direction: column;
-    align-items: center;
+    top: 0;
+    width: 100%;
     margin: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: 50px 60px 110px 0;
+    z-index: 1;
+    background-color: #008aff;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 }
 .nav__item {
@@ -127,37 +138,61 @@ a {
   bottom: -8px;
   opacity: 0;
 }
-.nav__toggler-label {
+.nav__toggler {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 32px;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+}
+.nav__hamburger {
   display: none;
   position: relative;
+  top: -25px;
+  width: 33px;
+  height: 4px;
+  margin: 5px auto;
+  background-color: #fff;
+  border-radius: 3px;
+  transform-origin: 4px 0;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.nav__hamburger:nth-last-child(2) {
+  transform-origin: 0% 100%;
 }
 @media (max-width: 1023px) {
-  .nav__toggler-label {
-    display: inline-block;
+  .nav__hamburger {
+    display: block;
   }
 }
-.nav__toggler-label::before {
-  content: url("../images/menu/menu-white.png");
-  position: absolute;
-  top: 4px;
-  left: 30px;
+.nav__toggler:checked ~ .nav__hamburger {
+  transform: rotate(45deg) translate(-2px, -1px);
 }
-.nav__toggler:checked ~ .nav__toggler-label::before {
-  content: url("../images/menu/menu-close.png");
+.nav__toggler:checked ~ .nav__hamburger:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
 }
-.nav__toggler {
-  display: none;
+.nav__toggler:checked ~ .nav__hamburger:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
 }
-@media (max-width: 1023px) {
-  .nav__toggler:not(:checked) ~ .nav__list {
-    display: none;
-  }
+.nav__toggler:checked ~ .nav__list {
+  transform: none;
 }
 
 .hire {
   text-transform: uppercase;
   margin-bottom: 48px;
   line-height: 28px;
+}
+@media (max-width: 1023px) {
+  .hire {
+    position: absolute;
+    right: 20px;
+  }
 }
 .hire__link {
   position: relative;
@@ -233,6 +268,7 @@ a {
 .slider {
   position: absolute;
   right: 0;
+  bottom: 0;
   width: 45%;
   height: 680px;
 }
