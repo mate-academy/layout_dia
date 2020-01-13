@@ -1,19 +1,20 @@
 'use strict';
 
 window.onload = function() {
-  const activLink = document.getElementsByClassName('nav__link');
-  const activHire = document.getElementsByClassName('hire__link')[0];
+  const activeLink = document.getElementsByClassName('nav__link');
+  const activeHire = document.getElementsByClassName('hire__link')[0];
 
-  for (let i = 0; i < activLink.length; i++) {
-    activLink[i].addEventListener('click', function() {
-      for (let c = 0; c < activLink.length; c++) {
-        activLink[c].classList.remove('nav__link_activ');
+  for (let i = 0; i < activeLink.length; i++) {
+    activeLink[i].addEventListener('click', function() {
+      for (let j = 0; j < activeLink.length; j++) {
+        activeLink[j].classList.remove('nav__link_activ');
       }
+      activeHire.classList.remove('hire__link--activ');
       this.classList.toggle('nav__link_activ');
     });
   }
 
-  activHire.addEventListener('click', function() {
-    activHire.classList.toggle('hire__link--activ');
+  activeHire.addEventListener('click', function() {
+    activeHire.classList.toggle('hire__link--activ');
   });
 };
