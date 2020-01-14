@@ -1,0 +1,106 @@
+.slider {
+  color: $white;
+
+  &__wrapper {
+    min-height: 680px;
+    min-width: 687px;
+    position: relative;
+  }
+
+  &__slides {
+    background-color: $black;
+    overflow: hidden;
+    position: relative;
+    border-radius: 30px 0;
+    min-height: 680px;
+    min-width: 687px;
+  }
+
+  &__slide-1_text {
+    position: absolute;
+    left: 200px;
+    bottom: 48px;
+  }
+
+  &__slide-intro {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__slide-info {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__slide {
+    height: inherit;
+    position: absolute;
+    width: inherit;
+    min-height: 680px;
+    min-width: 687px;
+  }
+
+  &__slide-1 {
+    background-image: url(../images/slider/Photo1.jpg);
+  }
+
+  &__slide-2 {
+    background-image: url(../images/slider/Photo2.jpg);
+  }
+
+  &__slide-3 {
+    background-image: url(../images/slider/Photo3.jpg);
+  }
+
+  &__controls {
+    left: 48px;
+    bottom: 66px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__label {
+    cursor: pointer;
+    display: inline-block;
+    height: 8px;
+    margin: 0 12px 0 16px;
+    position: relative;
+    width: 8px;
+    border-radius: 50%;
+    transition: background ease-in-out 0.5s;
+  }
+  &__label:after {
+    border: 2px solid $white;
+    content: " ";
+    display: block;
+    height: 12px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    border-radius: 50%;
+  }
+  &__label:hover,
+  #slide1:checked ~ .controls label:nth-of-type(1),
+  #slide2:checked ~ .controls label:nth-of-type(2),
+  #slide3:checked ~ .controls label:nth-of-type(3) {
+    background: $orange;
+  }
+}
+
+#slide1:checked ~ .slider__slides > .slider__slide-1,
+#slide2:checked ~ .slider__slides > .slider__slide-2,
+#slide3:checked ~ .slider__slides > .slider__slide-3 {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1);
+}
