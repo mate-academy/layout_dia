@@ -1,61 +1,127 @@
 .item {
-  position: absolute;
+  position: relative;
+
   height: 264px;
   width: 264px;
-  background: #fff;
+  padding: 0 32px;
+
+  background: $font-color;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 24px;
-  padding: 32px;
+
+  &__number {
+    display: inline-block ;
+    width: 46px;
+    height: 24px;
+
+    margin: 32px 0 24px;
+
+    font-family: $font-poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 2;
+    text-transform: uppercase;
+    text-align: center;
+
+    border-radius: 23px;
+
+    &--yellow {
+      background-color: rgba(252, 201, 29, 0.1);
+      color: #fcc91d;
+    }
+
+    &--blue {
+      background-color: rgba(86, 204, 242, 0.1);
+      color: #56ccf2;
+    }
+
+    &--green {
+      background-color: rgba(21, 216, 80, 0.1);
+      color: #15d850;
+    }
+
+    &--red {
+      background-color: rgba(243, 99, 99, 0.1);
+      color: #f36363;
+    }
+  }
 
   &__text {
-    margin-top: 80px;
-    font-family: "Open Sans", sans-serif;
+    font-family: $font-opens;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
-    color: #6c788b;
+    color: $main-text;
   }
 
   &__button {
+    position: relative;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     margin-top: 32px;
-    background: blue;
+
+    border-radius: 50%;
     outline: none;
     border: none;
+    cursor: pointer;
+
+    &--yellow {
+      background: #fcc91d;
+    }
+
+    &--blue {
+      background: #56ccf2;
+    }
+
+    &--green {
+      background: #15d850;
+    }
+
+    &--red {
+      background: #f36363;
+    }
 
     &::after {
-      background-image: url("../images/features/Vector.svg");
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate( 50%, -50%);
+
       height: 16px;
       width: 16px;
-      line-height: 16px;
 
+      @extend %position-center;
+      background-image: url("../images/features/Vector.svg");
+      background-size: cover;
     }
+
+    &::before {
+      content: "Learn more";
+      position: absolute;
+
+      bottom: 50%;
+      left: 50%;
+      transform: translate(50%, 50%);
+
+      white-space: nowrap;
+      font-family: $font-poppins;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+
+      text-align: center;
+
+      color: #334563;
+    }
+
   }
 
-  &--1 {
-    position: absolute;
-    top: 132px;
-    left: 0;
+  &:nth-child(1),
+  &:nth-child(3) {
+    transform: translateY(132px);
   }
 
-  &--2 {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  &--3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
-  &--4 {
-    position: absolute;
-    bottom: 134px;
-    right: 0;
-  }
 }
