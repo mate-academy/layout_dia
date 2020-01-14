@@ -1,5 +1,5 @@
 .footer {
-  height: 867px;
+  height: 867;
   background-color: $c-dark;
   border-radius: 30px 30px 0 0;
   padding: 180px 0 80px;
@@ -11,9 +11,14 @@
   }
 
   &__content {
-    display: grid;
-    grid-template-columns: repeat(2, 460px);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  &__block {
+    flex-basis: 460px;
+    flex-shrink: 1;
   }
 
   &__heading {
@@ -82,7 +87,7 @@
 
       &:hover {
         filter: invert(80%) sepia(54%) saturate(6204%) hue-rotate(221deg)
-          git brightness(85%) contrast(92%);
+          brightness(85%) contrast(92%);
       }
     }
   }
@@ -123,5 +128,73 @@
 
   &__link {
     @include nav;
+  }
+}
+
+.socials {
+  &__link:hover .socials__link_fb {
+    fill: $c-blue;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .footer {
+    height: 100%;
+
+    &__content {
+      justify-content: center;
+    }
+
+    &__block {
+      margin: 30px;
+    }
+
+    &__button {
+      margin: 20px 0 0;
+    }
+
+    &__heading {
+      font-size: 26px;
+    }
+
+    &-form__input {
+      padding: 12px 0;
+      margin-bottom: 20px;
+    }
+
+    &__contact {
+      font-size: 10px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .footer {
+    position: relative;
+    padding-top: 50px;
+
+    &__logo {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__nav {
+      flex-direction: column;
+    }
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+
+    &__item {
+      margin: 0;
+    }
   }
 }

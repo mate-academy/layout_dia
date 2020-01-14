@@ -16,24 +16,36 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 38px;
   }
 
   &__nav {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     animation: appear-v 1s linear;
   }
 
-  &__link_hire {
+  &__logo {
+    padding: 5px;
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
+
+    }
+  }
+
+  &__hire {
     @include nav;
     padding: 10px 0;
     position: relative;
 
     &::before {
       @include focus-link;
+    }
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
     }
   }
 
@@ -83,10 +95,6 @@
     line-height: 22px;
     text-decoration: none;
     cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__slider {
@@ -99,6 +107,10 @@
     background: url(../images/slider/air-slider-1.png);
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
   }
 }
 
@@ -117,14 +129,14 @@
     &:hover::before {
       @include focus-link;
     }
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__link {
     @include nav;
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
+    }
   }
 }
 
@@ -155,4 +167,33 @@
   }
 }
 
-// @media screen and (max-width: 1000px) {}
+.burger {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .header__top {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    &__item {
+      height: 2px;
+      width: 100%;
+      background-color: $c-white;
+
+      
+    }
+  }
+}
