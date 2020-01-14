@@ -10,8 +10,6 @@ const gallerySlider = () => {
   let counter = 1;
   const size = images[0].clientWidth;
 
-  slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
-
   prev.addEventListener('click', () => {
     if (counter <= 0) {
       return;
