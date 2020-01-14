@@ -7,23 +7,41 @@
   }
 
   &__buttons-list {
+    height: 64px;
+    width: 162px;
+    display: flex;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
     border-radius: 50px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
     rgba(255, 255, 255, 0) 100%),
-      #fcc304;
+      $c-yellow;
+
+    @media screen and (max-width: 1020px) {
+      & {
+        transform: translate(-50%,-50%) scale(0.5);
+      }
+    }
   }
 
   &__button {
-    height: 64px;
-    width: 81px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 50%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     border-width: 0;
     background-color: transparent;
     background-image: url("../images/slider/arrow-left.svg");
     background-repeat: no-repeat;
     background-position: center;
+
+    transition: background-color $t-transition;
+  }
+
+  &__button:hover {
+    background-color: #fc9904;
   }
 
   &__button--reverse {
