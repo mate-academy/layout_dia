@@ -7,10 +7,14 @@
   border-bottom-left-radius: $border-radius-xl;
   border-bottom-right-radius: $border-radius-xl;
   background-color: $accent-color-dark;
-  color: $text-color-light;
+  color: #fff;
 
   transition: border-radius $animation-short;
   overflow: hidden;
+
+  &__wrapper {
+    height: 100%;
+  }
   
   &__menu {
     display: flex;
@@ -33,6 +37,7 @@
     position: relative;
 
     font-size: $font-size-xs;
+    font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -61,7 +66,8 @@
 
   &__content {
     position: relative;
-    top: 200px;
+    top: 50%;
+    transform: translateY(-70%);
 
     width: 39%;
 
@@ -73,7 +79,7 @@
 
     font-size: $font-size-xl;
     letter-spacing: -2px;
-    font-weight: 900;
+    font-weight: 600;
     line-height: 68px;
 
     transform: translateX(-700px);
@@ -167,6 +173,7 @@
     @include link-hover;
 
     font-size: $font-size-xs;
+    font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -305,7 +312,6 @@
 
   transform: translateX(600px);
   opacity: 0;
-  color: #fff;
   animation: sliderAppearence $animation-long ease-in-out forwards;
   overflow-x: hidden;
 
@@ -331,11 +337,8 @@
 
   &__item {
     position: relative;
-
-    height: 100%;
   }
 
-  &__toggler,
   &__toggler {
     position: absolute;
     bottom: 66px;
@@ -347,26 +350,32 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    transition: scale $animation-short;
+    transition: transform $animation-short
+      border $animation-short;
     cursor: pointer;
-    z-index: 2;
-  }
+    z-index: 1;
 
-  &__toggler:first-child {
-    background-image: url("../images/slider/slider-arrow-left.svg");
-    left: 48px;
-  }
+    &:hover {
+      border: 1px solid $accent-color-blue;
+    }
 
-  &__toggler:nth-child(2) {
-    background-image: url("../images/slider/slider-arrow-right.svg");
-    left: 88px;
-  }
-
-  &__toggler:active {
-    transform: scale(0.9);
+    &:first-child {
+      background-image: url("../images/slider/slider-arrow-left.svg");
+      left: 48px;
+    }
+  
+    &:nth-child(2) {
+      background-image: url("../images/slider/slider-arrow-right.svg");
+      left: 88px;
+    }
+  
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   &__photo {
+    position: relative;
     width: 50vw;
     height: 100%;
     border-top-left-radius: $border-radius-xl;
@@ -381,6 +390,10 @@
     left: 145px;
 
     width: 265px;
+  }
+
+  &__desc-wrapper {
+    position: relative;
   }
 
   &__title {
