@@ -136,7 +136,8 @@
     &__top {
       width: 100%;
       align-items: center;
-      padding-top: 5%;
+      box-sizing: border-box;
+      padding: 5% 30px 0;
     }
 
     &__logo-link {
@@ -152,6 +153,10 @@
     &__title {
       margin-bottom: 80px;
       font-size: 40px;
+    }
+
+    &__info {
+      margin-bottom: 150px;
     }
 
     &__button {
@@ -175,25 +180,21 @@
       left: -20px;
       top: -20px;
       height: 100vh;
-      padding-top: 160px;
-
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 370px;
-        width: 80%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 3px;
-        background-color: #fff;
+      padding-top: 280px;
+      clip-path: circle(100px at 90% -20%);
+      -webkit-clip-path: circle(100px at 90% -20%);
+      transition: clip-path 1s ease-in-out;
+      
+      &.open {
+        clip-path: circle(2000px at 90% -20%);
+        -webkit-clip-path: circle(2000px at 90% -20%);
       }
 
       &::after {
         content: "";
         display: block;
         position: absolute;
-        top: 130px;
+        top: 230px;
         width: 50%;
         left: 50%;
         transform: translateX(-50%);
@@ -203,7 +204,7 @@
     }
 
     &__link {
-      font-size: 25px;
+      font-size: 45px;
       outline: none;
 
       &:hover,
@@ -220,8 +221,25 @@
       display: block;
     }
 
-    &__toggler:not(:checked) ~ .nav__list {
+    /*&__toggler:not(:checked) ~ .nav__list {
       display: none;
+    }*/
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav {
+   
+    &__list {
+      padding-top: 230px;
+
+      &::after {
+        top: 200px;
+      }
+    }
+
+    &__link {
+      font-size: 25px;
     }
   }
 }
@@ -235,6 +253,7 @@
 
     &__info {
       font-size: 18px;
+      margin-bottom: 80px;
     }
   }
 }
