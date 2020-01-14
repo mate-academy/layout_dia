@@ -8,8 +8,8 @@
     display: flex;
     justify-content: space-between;
     width: 40px;
-    bottom: 20px;
-    left: 50%;
+    bottom: 15px;
+    left: 20px;
   }
 
   &__controls-item {
@@ -35,11 +35,19 @@
     }
   }
 
-  &__text {
+  &__info {
     position: absolute;
-    left: 100px;
-    bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    bottom: 25px;
+    left: 20px;
+  }
+
+  &__text {
     color: $white-color;
+    width: 184px;
   }
 
   &__title {
@@ -59,9 +67,6 @@
   }
 
   &__switcher {
-    position: absolute;
-    left: 20px;
-    bottom: 66px;
     width: 72px;
     @extend %flex-space-between;
   }
@@ -73,29 +78,20 @@
     height: 32px;
     border: none;
     border-radius: 50%;
+    background-image: url(../images/slider/arrow-left.svg);
+    background-position: center;
+    background-repeat: no-repeat;
     outline: none;
     cursor: pointer;
 
-    &::before {
-      @extend %pseudo-element;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg);
-      transform-origin: 50% 50%;
-      width: 7px;
-      height: 7px;
-      border-top: 2px solid $titles-color;
-      border-right: 2px solid $titles-color;
-    }
-
-    &--left {
-      transform: rotate(-180deg);
+    &--right {
+      background-image: url(../images/slider/arrow-right.svg);
     }
   }
 
   &__item {
     display: none;
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 304px);
     border-radius: 30px 0;
     @extend %image-centered;
@@ -144,12 +140,21 @@
 
 @media (min-width: 640px) {
   .slider {
-    &__text {
-      left: 144px;
+
+    &__controls {
+      bottom: 25px;
+      left: 48px;
     }
 
-    &__switcher {
+    &__info {
+      justify-content: space-between;
+      width: 360px;
+      bottom: 48px;
       left: 48px;
+    }
+
+    &__text {
+      width: 264px;
     }
 
     &__item {
