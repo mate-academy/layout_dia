@@ -1,6 +1,58 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin section-heading {
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: $heading-color-dark;
+  text-align: center;
+}
+
+@mixin subsection-heading {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: $heading-color-dark;
+}
+
+@mixin count-button($color, $color-rgba) {
+  .card-list__count {
+    color: $color;
+    background-color: $color-rgba;
+  }
+
+  .card-list__link {
+    background-color: $color;
+  }
+}
+
+@mixin bg-items($width, $border-width, $border-color) {
+  position: absolute;
+
+  width: $width;
+  height: $width / 3;
+
+  transform: rotate(-65deg);
+  border-radius: 500px;
+  border: $border-width solid $border-color;
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+@mixin form-input {
+  padding-bottom: 16px;
+
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 15px;
+  color: #fff;
+
+  outline: none;
+  transition: border-bottom;
+
+  &::placeholder {
+    color: rgba(255,255,255, 0.7);
+  }
+
+  &:active,
+  &:focus {
+    border-bottom-width: 2px;
   }
 }
