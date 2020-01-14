@@ -8,22 +8,22 @@ Implement landing page according to [Figma design](https://www.figma.com/file/vh
 - Mobile (> 320px)
 
 1. Implement the header with `nav`
-1. Implement `Global digital agency` block
-1. Implement slider
-1. Implement `Welcome` block
-1. Implement `What we do` block with the card reused 3 times
-1. Implement `Process` block with 4 process cards
-1. Implement `Feature` block
-1. Implement `Testimonials` block
-1. Implement `Vision, Passion, Results` block
+2. Implement `Global digital agency` block
+3. Implement slider
+4. Implement `Welcome` block
+5. Implement `What we do` block with the card reused 3 times
+6. Implement `Process` block with 4 process cards
+7. Implement `Feature` block
+8. Implement `Testimonials` block
+9. Implement `Vision, Passion, Results` block
     - Background use one reusable oval block many times.
     - Use mixin
     - The color is set with --modifier
     - The size is limited by parent container
-1. Implement `Send us  a message`
-1. Implement `Contact us`
-1. Implement the footer
-1. Adopt the page to mobile screens
+10. Implement `Send us  a message`
+11. Implement `Contact us`
+12. Implement the footer
+13. Adopt the page to mobile screens
 
 ## Instructions
 1. **Fork** the repo.
