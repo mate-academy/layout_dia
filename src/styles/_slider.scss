@@ -1,3 +1,5 @@
+@import "_mixin";
+
 .slider {
   position: relative;
   background: url(../images/slider/slide-img-4.png) no-repeat center;
@@ -14,9 +16,14 @@
     border-radius: 50%;
     border: none;
     background-color: #fff;
+    @include transition-hover;
+
+    &:active {
+      @include button-active;
+    }
 
     &:hover {
-      cursor: pointer;
+      @include button-hover;
     }
   }
 
@@ -41,7 +48,7 @@
 
   &__text {
     position: absolute;
-    font-family: "Open", sans-serif;
+    font-family: Open, sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
@@ -52,8 +59,7 @@
 }
 
 @media (max-width: $small-screen-breakpoint) {
-  .slider__heading,
-  .slider__text {
+  .slider {
     display: none;
   }
 }
