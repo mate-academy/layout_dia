@@ -2,7 +2,7 @@
   position: relative;
 
   padding: 204px;
-  margin-left: 121px;
+  margin-left: 10%;
   transform: translateY(-40px);
 
   background-color: $accent-color-pink;
@@ -21,6 +21,7 @@
 
   &__title {
     margin-bottom: 32px;
+    max-width: 362px;
 
     font-size: $font-size-md;
     line-height: 150%;
@@ -49,7 +50,7 @@
     margin-right: 34px;
 
     background-color: #fff;
-    border-radius: $border-radius-md;
+    border-radius: $border-radius-lg;
   }
 
   &__item::after {
@@ -60,7 +61,7 @@
     height: 0;
 
     background-color: #fff;
-    border-radius: $border-radius-md;
+    border-radius: $border-radius-lg;
 
     transition: width $animation-short,
       height $animation-short;
@@ -102,7 +103,18 @@
     width: 45%;
     height: 70%;
 
-    border-top-left-radius: $border-radius-lg;
+    object-fit: cover;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    border-top-right-radius: $border-radius-lg;
+  }
+
+  @media (min-width: 2500px) {
+    &__wrapper {
+      position: relative;
+      left: calc(50% - 750px);
+
+      width: fit-content;
+    }
   }
 
   @media (max-width: $break-point-xl) {
@@ -135,9 +147,6 @@
   @media (max-width: $break-point-xs) {
     & {
       padding: 80px 20px;
-
-      border-top-left-radius: $border-radius-sm;
-      border-bottom-left-radius: $border-radius-sm;
     }
 
     &__title {

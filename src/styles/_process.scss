@@ -7,7 +7,7 @@
   }
 
   &__desc {
-    flex-basis: 36%;
+    flex-basis: 30%;
   }
 
   &__subtitle {
@@ -40,8 +40,16 @@
   }
 
   @media (max-width: $break-point-lg) {
+    & {
+      padding: 150px 20px;
+    }
+
     &__wrapper {
       flex-direction: column;
+    }
+
+    &__desc {
+      text-align: center;
     }
   }
 }
@@ -52,16 +60,26 @@
   justify-content: flex-end;
 
   &__item {
+    @include count-features($accent-color-blue, $text-color-blue-rgba);
+    
     width: 265px;
 
     margin: 15px;
     padding: 32px;
 
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-xs;
     background-color: #fff;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
 
     z-index: 5;
+
+    &__text:not(:last-of-type) {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 600;
+      line-height: 150%;
+      font-size: $font-size-mobile-sm;
+      color: $text-color-dark;
+    }
   }
 
   &__item:nth-child(odd) {
@@ -72,19 +90,35 @@
     transform: translateY(-80px);
   }
 
+  &__item:nth-child(1) {
+    @include count-features($text-color-blue, $text-color-blue-rgba);
+  }
+  
+  &__item:nth-child(2) {
+    @include count-features($text-color-yellow, $text-color-yellow-rgba);
+  }
+  
+  &__item:nth-child(3) {
+    @include count-features($text-color-green, $text-color-green-rgba);
+  }
+  
+  &__item:nth-child(4) {
+    @include count-features($text-color-red, $text-color-red-rgba);
+  }
+
   &__count {
     padding: 0 8px;
     width: fit-content;
     margin-bottom: 24px;
 
-    border-radius: $border-radius-sm;
+    border-radius: $border-radius-lg;
 
     font-size: $font-size-xs;
     font-weight: bold;
     line-height: 19px;
   }
 
-  &__text {
+  &__desc {
     margin-bottom: 32px;
 
     color: $text-color-dark;
@@ -101,7 +135,7 @@
     width: 40px;
     height: 40px;
 
-    border-radius: $border-radius-md;
+    border-radius: $border-radius-lg;
     background-image: url("../images/icons/common-icons/features-arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -137,22 +171,6 @@
   &__link:hover::after,
   &__link:focus::after {
     color: #fff;
-  }
-
-  &__item:nth-child(1) {
-    @include count-features($text-color-blue, $text-color-blue-rgba);
-  }
-
-  &__item:nth-child(2) {
-    @include count-features($text-color-yellow, $text-color-yellow-rgba);
-  }
-
-  &__item:nth-child(3) {
-    @include count-features($text-color-green, $text-color-green-rgba);
-  }
-
-  &__item:nth-child(4) {
-    @include count-features($text-color-red, $text-color-red-rgba);
   }
 
   @media (max-width: $break-point-lg) {

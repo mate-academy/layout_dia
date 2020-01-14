@@ -7,7 +7,7 @@ const menuSlide = () => {
   burger.addEventListener('click', () => {
     header.classList.toggle('header--opened');
     header.classList.toggle('header--closed');
-    burger.classList.toggle('toogle');
+    burger.classList.toggle('mobile-nav--opened');
   });
 };
 

@@ -9,6 +9,11 @@
   color: #fff;
 
   transition: border-radius $animation-short;
+  overflow: hidden;
+
+  &__wrapper {
+    height: 100%;
+  }
   
   &__menu {
     display: flex;
@@ -31,6 +36,7 @@
     position: relative;
 
     font-size: $font-size-xs;
+    font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -59,7 +65,8 @@
 
   &__content {
     position: relative;
-    top: 200px;
+    top: 50%;
+    transform: translateY(-70%);
 
     width: 39%;
 
@@ -71,7 +78,7 @@
 
     font-size: $font-size-xl;
     letter-spacing: -2px;
-    font-weight: 900;
+    font-weight: 600;
     line-height: 68px;
 
     transform: translateX(-700px);
@@ -132,20 +139,28 @@
       &__item:not(:last-child) {
         margin-bottom: 3px;
       }
+
+      &--opened {
+        .mobile-nav__item:first-child {
+          transform: rotate(45deg) translateY(-2px);
+        }
+
+        .mobile-nav__item:nth-child(2) {
+          opacity: 0;
+        }
+
+        .mobile-nav__item:last-child {
+          transform: rotate(-45deg) translateY(2px);
+        }
+      }
     }
   }
-}
 
-.toogle .mobile-nav__item:first-child {
-  transform: rotate(45deg) translateY(-2px);
-}
-
-.toogle .mobile-nav__item:nth-child(2) {
-  opacity: 0;
-}
-
-.toogle .mobile-nav__item:last-child {
-  transform: rotate(-45deg) translateY(2px);
+  @media (max-width: $break-point-xs) {
+    &__title {
+      font-size: $font-size-mobile-xl;
+    }
+  }
 }
 
 .navigation {
@@ -163,6 +178,7 @@
     @include link-hover;
 
     font-size: $font-size-xs;
+    font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -178,10 +194,9 @@
   .header {
     .navigation {
       position: absolute;
-      left: 20px;
       top: 150px;
 
-      transition: transform $animation-long;
+      transition: left $animation-long;
 
       &__list {
         justify-content: flex-start;
@@ -206,12 +221,11 @@
     }
 
     &__content {
-      top: 20%;
-      
       margin: 0 auto;
       width: 90%;
 
       text-align: center;
+      transition: right $animation-long;
     }
 
     &__item {
@@ -221,7 +235,7 @@
 
       font-size: $font-size-mobile-lg;
 
-      transition: transform $animation-long;
+      transition: left $animation-long;
 
       &:hover::after,
       &:focus::after {
@@ -245,10 +259,6 @@
 
   @media (max-height: 700px) {
     .header {
-      &__content {
-        top: 0;
-      }
-
       &__item {
         bottom: 50px;
       }
@@ -257,11 +267,15 @@
 
   .header--closed {
     .navigation {
-      transform: translateX(-500px);
+      left: -600px;
     }
 
     .header__item {
-      transform: translateX(-300px);
+      left: -500px;
+    }
+
+    .header__content {
+      right: 0;
     }
   }
 
@@ -269,15 +283,15 @@
     border-bottom-left-radius: $border-radius-md;
 
     .navigation {
-      transform: translateX(0);
+      left: 20px;
     }
 
     .header__item {
-      transform: translateX(0);
+      left: 20px;
     }
 
     .header__content {
-      transform: translateX(800px);
+      right: -800px;
     }
   }
 
@@ -322,10 +336,21 @@
   &__item {
     position: relative;
 
-    height: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg,
+      rgba(243, 99, 99, 0.6) 10%,
+      rgba(0, 0, 0, 0) 50%);
+      z-index: 1;
+    }
   }
 
-  &__toggler,
   &__toggler {
     position: absolute;
     bottom: 66px;
@@ -337,26 +362,32 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    transition: scale $animation-short;
+    transition: transform $animation-short
+      border $animation-short;
     cursor: pointer;
     z-index: 2;
-  }
 
-  &__toggler:first-child {
-    background-image: url("../images/slider/slider-arrow-left.svg");
-    left: 48px;
-  }
+    &:hover {
+      border: 1px solid $accent-color-pink;
+    }
 
-  &__toggler:nth-child(2) {
-    background-image: url("../images/slider/slider-arrow-right.svg");
-    left: 88px;
-  }
-
-  &__toggler:active {
-    transform: scale(0.9);
+    &:first-child {
+      background-image: url("../images/slider/slider-arrow-left.svg");
+      left: 48px;
+    }
+  
+    &:nth-child(2) {
+      background-image: url("../images/slider/slider-arrow-right.svg");
+      left: 88px;
+    }
+  
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   &__photo {
+    position: relative;
     width: 50vw;
     height: 100%;
     border-top-left-radius: $border-radius-lg;
@@ -370,6 +401,11 @@
     left: 145px;
 
     width: 265px;
+    z-index: 2;
+  }
+
+  &__desc-wrapper {
+    position: relative;
   }
 
   &__title {
