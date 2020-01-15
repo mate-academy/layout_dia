@@ -1,5 +1,5 @@
-$blueNumberBg: #56ccf2;
-$blueNumber: #eefafe;
+$blueNumber: #56ccf2;
+$blueNumberBg: #eefafe;
 
 $yellowNumberBg: #fffae8;
 $yellowNumber: #fcc91d;
@@ -84,10 +84,10 @@ $redNumber: #f36363;
     }
 
     &--1 {
-      background-color: $blueNumber;
+      background-color: $blueNumberBg;
       &::before {
         content: "001";
-        color: $blueNumberBg;
+        color: $blueNumber;
       }
     }
     &--2 {
@@ -123,6 +123,16 @@ $redNumber: #f36363;
     width: 200px;
   }
 
+  &-arrow {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: top 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+
   &-button {
     width: 40px;
     height: 40px;
@@ -131,6 +141,8 @@ $redNumber: #f36363;
     display: block;
     background-color: #56ccf2;
     position: relative;
+
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out;
 
     &::after {
       content: "Learn more";
@@ -143,16 +155,38 @@ $redNumber: #f36363;
       text-align: center;
       color: #334563;
       width: 87px;
+      transition: color 0.4s ease-in-out;
     }
-  }
 
-  &-arrow {
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    &:hover {
+      width: 100%;
+      border-radius: 22px;
+
+      &::after {
+        color: white;
+      }
+
+      .service__card-arrow {
+        transform: rotate(-90deg);
+        top: 12px;
+      }
+    }
+
+    &--1 {
+      background-color: $blueNumber;
+    }
+
+    &--2 {
+      background-color: $yellowNumber;
+    }
+
+    &--3 {
+      background-color: $greenNumber;
+    }
+
+    &--4 {
+      background-color: $redNumber;
+    }
   }
 }
 
