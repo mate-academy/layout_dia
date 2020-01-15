@@ -3,6 +3,8 @@
 $(function() {
 
   $('.slider__list').slick({
+    autoplay: true,
+    fade: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,

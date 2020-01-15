@@ -1,0 +1,68 @@
+@import "./utils";
+
+.approach {
+  position: relative;
+  z-index: 0;
+  margin-top: -130px;
+  overflow: hidden;
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 204px 25px;
+    @include flex(space-between, center, nowrap);
+    background: $light-accent;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 100%;
+      background: $light-accent;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    &::before {
+      width: 200px;
+      right: 99%;
+      border-bottom-left-radius: 200px;
+      border-top-left-radius: 200px;
+    }
+
+    &::after {
+      width: 100%;
+      left: 99%;
+    }
+  }
+
+  &__info {
+    max-width: 35%;
+    text-align: left;
+    align-self: stretch;
+    @include flex(center, flex-start, wrap);
+    flex-direction: column;
+  }
+
+  &__item {
+    @include flex(space-between, center, nowrap);
+
+    &:not(:last-child) {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: $main-light;
+    margin-left: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+}
