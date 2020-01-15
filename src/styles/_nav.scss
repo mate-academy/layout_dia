@@ -1,4 +1,9 @@
 .nav {
+  --color-text: #fff;
+
+  &--black {
+    --color-text: #253757;
+  }
 
   &__list {
     display: flex;
@@ -13,20 +18,25 @@
     }
   }
 
-  &__link {
+  &__link,
+  &__link:visited {
     font-weight: bold;
     line-height: 150%;
     transition: color $t-transition;
+    color: var(--color-text);
+  }
 
+  &__link:hover {
+    color: $c-hover-white;
+  }
+
+  &--burger &__link,
+  &--burger &__link:visited {
     @media screen and (max-width: 1020px) {
       & {
         font-size: 36px;
       }
     }
-  }
-
-  &__link:hover {
-    color: $c-hover-white;
   }
 
   &__link--is-active:after {
@@ -51,10 +61,14 @@
   }
 
   @media screen and (max-width: 1020px) {
-    & {
+    &--burger {
       display: none;
       background-color: rgba(47, 128, 237, 1);
     }
+  }
+
+  &--short &__element:last-of-type {
+    display: none;
   }
 }
 
