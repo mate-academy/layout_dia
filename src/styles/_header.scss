@@ -3,7 +3,60 @@
   background-color: $blue-color;
   display: flex;
   align-items: center;
-  padding-left: 14%;
-  padding-right: 14%;
+  padding: 0 14%;
   margin: 0;
+
+  &__nav-toggler-label {
+    display: none;
+    padding: 20px;
+    color: #fff;
+    font-size: 30px;
+    line-height: 18px;
+    font-weight: bold;
+  }
+
+  &__nav-toggler-label::before {
+    content: "\2630";
+  }
+
+  &__nav-toggler:checked ~ &__nav-toggler-label::before {
+    content: "x";
+  }
+  &__nav-toggler:checked .header {
+    width: 100px;
+  }
+  &__nav-toggler {
+    display: none;
+  }
+}
+
+@media (max-width: 1070px) {
+  .header {
+    padding: 0 7%;
+  }
+}
+
+@media (max-width: 890px) {
+  .header {
+    padding: 35px 6%;
+
+    &__logo {
+      display: inline-block;
+      position: absolute;
+    }
+
+    &__nav-toggler-label {
+      display: inline-block;
+      position: absolute;
+      right: 23px;
+      padding: 0;
+      top: 52px;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    &__nav-toggler:not(:checked) ~ .nav {
+      display: none;
+    }
+  }
 }
