@@ -1,0 +1,71 @@
+@import "utils/vars";
+
+.nav {
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-right: 27%;
+
+    .nav__item:last-of-type {
+      margin-left: 8%;
+    }
+
+    .nav__link {
+      text-decoration: none;
+      white-space: nowrap;
+      color: $c-white;
+      transition: all 0.5s;
+
+      &:hover {
+        padding-bottom: 5px;
+        position: relative;
+        color: $c-yellow;
+
+        &::after {
+          content: "";
+          width: 100%;
+          height: 4px;
+          border-radius: 32px;
+          background-color: $c-yellow;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      &--isactive {
+        position: relative;
+        padding-bottom: 5px;
+        margin-left: 8.5%;
+      }
+
+      &--isactive::after {
+        content: "";
+        width: 100%;
+        height: 4px;
+        border-radius: 32px;
+        background-color: $c-yellow;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  @media (max-width: 999px) {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+    }
+    .nav__item:last-of-type {
+      margin-left: 0;
+    }
+
+    .nav__link {
+      margin: 0;
+    }
+  }
+}
