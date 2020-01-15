@@ -17,7 +17,7 @@ const mainMenuButton = document.querySelector('.header__hamburger');
 const handlerToddleMenu = (e) => {
   e.preventDefault();
 
-  const header = document.querySelector('.header__nav');
+  const header = document.querySelector('.header');
 
   if (!header.classList.contains('menu--open')) {
     header.classList.add('menu--open');

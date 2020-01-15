@@ -6,8 +6,12 @@
   position: relative;
   z-index: 1;
 
+  @media (max-width: 1024px) {
+    padding-top: 60px;
+  }
+
   &__container {
-    @include flex(space-between, center, nowrap);
+    @include flex(space-between, center, wrap);
   }
 
   &__info {
@@ -16,6 +20,10 @@
     align-self: stretch;
     @include flex(center, flex-start, wrap);
     flex-direction: column;
+
+    @media (max-width: 1024px) {
+      max-width: initial;
+    }
   }
 
   &__text {
@@ -27,7 +35,7 @@
     margin-bottom: 32px;
 
     @media (max-width: 768px) {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 
@@ -44,6 +52,13 @@
       "c d "
       "c . ";
 
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      display: block;
+    }
   }
 
   &__card {
@@ -52,6 +67,12 @@
     border-radius: 24px;
     padding: 80px 32px 32px;
     position: relative;
+
+    @media (max-width: 600px) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
 
     &:nth-child(1) {
       grid-area: a;
