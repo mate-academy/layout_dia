@@ -31,18 +31,27 @@
     padding: 16px 0;
     background-color: $c-dark;
     width: 100%;
-    outline: none;
     border: none;
     border-bottom: 1px solid $c-white;
     margin-bottom: 30px;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+    color: $c-white;
 
     &:focus {
+      outline: 4px outset $c-blue-add;
       color: $c-white;
       border-bottom-color: $c-blue-hover;
+    }
+
+    &::placeholder {
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 
@@ -57,6 +66,14 @@
     &:active {
       @include button-active-dark-shadow;
     }
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
+    }
+  }
+
+  &__logo:focus {
+    outline: 4px outset $c-blue-add;
   }
 
   &__contact {
@@ -70,32 +87,24 @@
     margin-bottom: 8px;
   }
 
+  &__contact:nth-of-type(2) {
+    margin-top: 48px;
+  }
+
   &__text {
     font-weight: 600;
     font-size: 24px;
     line-height: 150%;
     color: $c-white;
     margin-bottom: 48px;
-  }
 
-  &__socials {
-    display: inline-block;
+    &_link {
+      text-decoration: none;
 
-    &_img {
-      margin-right: 45px;
-      margin-top: 20px;
-
-      &:hover {
-        filter: invert(80%) sepia(54%) saturate(6204%) hue-rotate(221deg)
-          brightness(85%) contrast(92%);
+      &:focus {
+        outline: 4px outset $c-blue-add;
       }
     }
-  }
-
-  &__link {
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
   }
 
   &__nav {
@@ -103,6 +112,32 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+
+  &__img {
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      filter: invert(80%) sepia(54%) saturate(6204%) hue-rotate(221deg)
+        brightness(85%) contrast(92%);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
+    }
   }
 }
 
@@ -120,20 +155,14 @@
     &:hover::before {
       @include focus-link;
     }
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__link {
     @include nav;
-  }
-}
 
-.socials {
-  &__link:hover .socials__link_fb {
-    fill: $c-blue;
+    &:focus {
+      outline: 4px outset $c-blue-add;
+    }
   }
 }
 
