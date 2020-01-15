@@ -19,7 +19,13 @@
 
   &__block-text {
     max-width: 362px;
-    max-height: 568px;
+    // max-height: 568px;
+    margin-left: 0;
+  }
+
+  &__decor-text {
+    @extend %decor-text;
+    color: $font-color;
   }
 
   &__subtitle {
@@ -30,15 +36,37 @@
     line-height: 48px;
   }
 
-  &___paragraph {
+  &__paragraph {
+    position: relative;
+    width: 264px;
+
+    margin-left: 98px;
+
     font-family: $font-opens;
     font-weight: normal;
     font-size: 15px;
     line-height: 22px;
+
+    &--1::before {
+      @include pseudo-svg("../images/features/icon-1.svg");
+    }
+
+    &--2::before {
+      @include pseudo-svg("../images/features/icon-2.svg");
+    }
+
+    &--3:before {
+      @include pseudo-svg("../images/features/icon-3.svg");
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
   }
 
   &__image {
-    position: absolute;
+    @extend %pseudo-absolute;
     bottom: 0;
     right: 0;
     width: 45%;
