@@ -1,10 +1,12 @@
 @import "utils";
 
 .approach {
-  background-color: $dark-color;
-  min-width: 320px;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  &__container {
+    background-color: $dark-color;
+    min-width: 320px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
 
   &__text {
     padding: 50px 20px;
@@ -12,6 +14,7 @@
 
   &__title {
     margin-bottom: 16px;
+
     @extend %poppins;
     font-weight: 700;
     color: $white-color;
@@ -22,14 +25,24 @@
   }
 
   &__subtitle {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     @extend %poppins;
     color: $white-color;
     font-size: 26px;
     line-height: 1.3;
   }
 
+  &__item {
+    margin-bottom: 30px;
+  }
+
+  &__item:last-child {
+    margin-bottom: 0;
+  }
+
   &__icon {
+    margin: auto;
+    margin-bottom: 15px;
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -42,10 +55,13 @@
     &--2 {
       background-image: url(../images/features-item-icon-2.svg);
     }
-
+    &--3 {
+      background-image: url(../images/features-item-icon-3.svg);
+    }
   }
 
   &__description {
+    width: 264px;
     color: $white-color;
     font-size: 15px;
     line-height: 1.5;
@@ -53,16 +69,82 @@
 
   &__image {
     display: block;
-    width: 100vw;
-    max-width: 687px;
+    width: 100%;
     border-bottom-left-radius: 30px;
   }
 }
 
-@media (min-width) {
+@media (min-width: 480px) {
   .approach {
-    &__sibtitle {
+
+    &__text {
+      padding: 100px 30px 50px;
+    }
+
+    &__subtitle {
       font-size: 32px;
+      width: 362px;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &__icon {
+      margin: 0;
+      margin-right: 34px;
+    }
+  }
+}
+
+@media (min-width: 780px) {
+  .approach {
+    position: relative;
+
+    &__image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 450px;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .approach {
+    position: relative;
+    padding-left: 120px;
+
+    &__text {
+      padding-top: 204px;
+    }
+  }
+}
+
+@media (min-width: $notebook-breakpoint) {
+  .approach {
+
+    &__text {
+      padding: 204px 0 204px 204px;
+    }
+
+    &__image {
+      width: 550px;
+      height: 550px;
+    }
+  }
+}
+
+@media (min-width: $design-breakpoint) {
+  .approach {
+    margin: auto;
+    width: 1600px;
+
+    &__image {
+      width: 687px;
+      height: 480px;
     }
   }
 }
