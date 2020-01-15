@@ -1,87 +1,12 @@
 @import "utils";
 
-@keyframes menu {
-  from {
-    margin-left: -100%;
-  }
-
-  to {
-    margin-left: 0%;
-  }
-}
-
 .nav {
-  &__toggle {
-    position: relative;
-    width: 28px;
-    height: 28px;
-    background-color: $dark-color;
-    border: none;
-    cursor: pointer;
-    outline: none;
-
-    &:focus {
-      border: 1px solid #4a9fcf;
-    }
-  }
-
-  &--closed &__list {
-    display: none;
-  }
-
-  &--closed &__toggle::before,
-  &--closed &__toggle::after {
-    @extend %pseudo-element;
-    top: 0;
-    right: 0;
-    width: 28px;
-    height: 2px;
-    background-color: $white-color;
-    box-shadow: 0 12px 0 0 $white-color, 0 24px 0 0 $white-color;
-  }
-
-  &--opened &__list {
-    display: block;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: $dark-color;
-    width: 100vw;
-    height: 244px;
-    animation: menu $animation-duration $ease-function;
-  }
-
-  &--opened &__toggle {
-    &::before,
-    &::after {
-      @extend %pseudo-element;
-      top: 12px;
-      left: -5px;
-
-      width: 35px;
-      height: 2px;
-      background-color: $white-color;
-      transition: transform $transition-duration $ease-function;
-    }
-
-    &::before {
-      transform: rotate(45deg);
-      box-shadow: none;
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-    }
-  }
-
   &__link {
     display: block;
     @extend %poppins;
     font-weight: $font-weight-bold;
     @include text($font-size-13, 25px, $white-color);
     padding: 10px 20px;
-    border-bottom: 1px solid #426ab4;
-    border-top: 1px solid #3363bb;
     letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
@@ -89,50 +14,6 @@
 
     &:hover {
       color: $button-color;
-    }
-  }
-}
-
-@media (min-width: 640px) {
-  .nav {
-    &--opened &__toggle,
-    &--closed &__toggle {
-      display: none;
-    }
-
-    &--opened &__list,
-    &--closed &__list {
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      top: 60px;
-      left: 0;
-      background-color: $dark-color;
-      width: 100vw;
-      animation: none;
-      border-bottom: 1px solid #426ab4;
-      border-top: 1px solid #3363bb;
-      z-index: 1;
-    }
-
-    &__link {
-      border: none;
-    }
-  }
-}
-
-@media (min-width: 960px) {
-  .nav {
-    margin-left: 64px;
-
-    &--opened &__list,
-    &--closed &__list {
-      position: static;
-      display: flex;
-      background-color: $dark-color;
-      width: 637px;
-      animation: none;
-      border: none;
     }
   }
 }

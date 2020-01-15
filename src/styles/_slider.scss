@@ -3,38 +3,6 @@
 .slider {
   position: relative;
 
-  &__controls {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 40px;
-    bottom: 15px;
-    left: 20px;
-  }
-
-  &__controls-item {
-    display: inline-block;
-    position: relative;
-    width: 8px;
-    height: 8px;
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      width: 10px;
-      height: 10px;
-      background: #fff;
-      border-radius: 50%;
-    }
-  }
-
   &__info {
     position: absolute;
     display: flex;
@@ -89,7 +57,7 @@
 
   &__item {
     display: none;
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 304px);
     border-radius: 30px 0;
     @extend %image-centered;
@@ -118,26 +86,11 @@
   #slide-3:checked ~ &__list &__item--3 {
     display: block;
   }
-
-  #slide-1:checked ~ &__controls &__controls-item:nth-child(1)::before,
-  #slide-2:checked ~ &__controls &__controls-item:nth-child(2)::before,
-  #slide-3:checked ~ &__controls &__controls-item:nth-child(3)::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-
-    width: 6px;
-    height: 6px;
-    background-color: $button-color;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
 }
 
 @media (min-width: 640px) {
   .slider {
+    display: none;
 
     &__controls {
       bottom: 25px;
@@ -154,10 +107,6 @@
     &__text {
       width: 264px;
     }
-
-    &__item {
-      height: calc(100vh - 389px);
-    }
   }
 }
 
@@ -166,6 +115,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
+
+    display: block;
 
     &__item {
       height: calc(100vh - 120px);
