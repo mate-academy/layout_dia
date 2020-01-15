@@ -3,47 +3,33 @@
 @import "typography";
 @import "header";
 @import "variables";
+@import "process";
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: Poppins, sans-serif;
-  font-size: 13px;
-  line-height: 21px;
-  background: #fff;
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
-.container {
-  width: 1600px;
-  margin: 0 auto;
-  padding-top: 30px;
+body {
+  font-family: $font-family-primary;
+  font-size: 13px;
+  line-height: 21px;
+  background: $base-color;
+  margin: 0;
 }
 
 .button {
-  background-color: #ff9c8e;
+  background-color: $accent-color;
   border-radius: 64px;
   border: none;
-
-  &__link {
-    text-decoration: none;
-    color: #fff;
-    font-size: 15px;
-    line-height: 22px;
-    transition: color $hover-duration;
-    cursor: pointer;
-  }
 }
 
-.link {
+.link,
+.button {
   cursor: pointer;
-
-  &:hover {
-    color: #ffa796;
-  }
 }
 
 .welcome {
@@ -58,11 +44,11 @@ body {
       font-weight: 600;
       font-size: 32px;
       line-height: 48px;
-      color: #253757;
+      color: $title-color;
     }
 
     &_description {
-      font-family: Open-sans, sans-serif;
+      font-family: $font-family-secondary;
       font-weight: 600;
       font-size: 24px;
       line-height: 36px;
@@ -71,12 +57,12 @@ body {
   }
 }
 
-.about-us {
+.expertise {
   &__heading {
     font-weight: 600;
     font-size: 52px;
     line-height: 78px;
-    color: #253757;
+    color: $title-color;
     padding-top: 80px;
     text-align: center;
   }
@@ -90,19 +76,32 @@ body {
     .what-we-do {
       text-align: center;
 
+      &__photo {
+        border-radius: 20%;
+      }
+
       &__title {
         font-weight: 600;
         font-size: 20px;
         line-height: 28px;
-        color: #253757;
+        color: $title-color;
       }
 
       &__text {
-        font-family: Open-sans, sans-serif;
+        font-family: $font-family-secondary;
         font-size: 14px;
         line-height: 21px;
         color: #6c788b;
       }
     }
+  }
+}
+@media (max-width: 800px) {
+  .welcome__content {
+    width: 100%;
+  }
+
+  .about-us__info {
+    grid-template-columns: repeat(2, 240px);
   }
 }

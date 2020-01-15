@@ -14,7 +14,7 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.slider__item > img')
+      .querySelector('.slider__item_photo')
       .setAttribute('src', 'images/slider/' + currentImage);
   },
   prev: function(el) {
@@ -29,7 +29,7 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.slider__item > img')
+      .querySelector('.slider__item_photo')
       .setAttribute('src', 'images/slider/' + currentImage);
   },
 };
