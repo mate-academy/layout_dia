@@ -12,9 +12,7 @@
     display: inline-block;
     padding: 2px 11px;
     margin-bottom: 24px;
-    font-size: 13px;
-    line-height: 22px;
-    color: $button-color;
+    @include text($font-size-13, 22px, $button-color);
     background-color: rgba(32, 96, 246, 0.1);
     border-radius: 12px;
   }
@@ -25,9 +23,7 @@
 
   &__item {
     font-weight: 600;
-    color: $main-text-color;
-    font-size: 13px;
-    line-height: 20px;
+    @include text(13px, 20px, $main-text-color);
   }
 
   &__extra {
@@ -36,25 +32,39 @@
     align-items: center;
   }
 
+  .process__icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: fill $transition-duration $ease-function;
+  }
+
   &__button {
+    position: relative;
     width: 40px;
     height: 40px;
     background-color: $button-color;
-    border: none;
+    border: 1px solid $button-color;
     border-radius: 50%;
-    background-image: url(../images/arrow.svg);
     background-position: center;
     background-repeat: no-repeat;
+    transition: background-color $transition-duration $ease-function;
     outline: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: $white-color;
+
+      .process__icon {
+        fill: $button-color;
+      }
+    }
   }
 
   &__more {
     margin-left: 16px;
     @extend %poppins;
-    font-size: 15px;
-    line-height: 22px;
-    color: #334563;
-
+    @include text($font-size-15, 22px, #334563);
   }
 }
