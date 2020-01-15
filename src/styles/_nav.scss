@@ -1,16 +1,17 @@
 .nav {
   max-width: 1146px;
+  height: 28px;
+
   position: relative;
   display: flex;
   align-items: center;
-  height: 28px;
+
   margin: 0 auto 44px;
 
   &__list-wraper {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
   }
 
   &__list {
@@ -26,34 +27,43 @@
   }
 
   &__link {
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: bold;
+    position: relative;
+    @include slider-button-focus;
+
+    @include header-nav-link-style;
     font-size: 13px;
-    line-height: 150%;
+    line-height: 1.5;
+    font-weight: 700;
 
-    text-align: center;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    transition: 0.3s ease-in-out;
+    &::after {
+      @include nav-link-bottom-line;
+      transition: 0.3s ease-in-out;
+      opacity: 0;
+    }
 
-    &:hover {
-      color: $accent-color;
+    &:hover::after {
+      opacity: 0.6;
+      transition: 0.3s ease-in-out;
     }
   }
 
-  &__active {
+  &__item--active {
     position: relative;
 
     &::after {
-      content: "";
-      height: 2px;
-      width: 100%;
-      position: absolute;
-      top: 25px;
-      left: 0;
-      background-color: $accent-color;
-      border-radius: 4px;
+      @include nav-link-bottom-line;
+    }
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .nav {
+    transition: all 0.4s ease-in-out;
+    padding: 0 20px;
+    margin-bottom: 50px;
+
+    &__list-wraper {
+      display: none;
     }
   }
 }

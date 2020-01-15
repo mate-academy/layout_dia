@@ -1,0 +1,55 @@
+.nav-responsive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
+
+  z-index: $z-index-nav-responsive;
+
+  &__list {
+    position: absolute;
+    top: 100px;
+    height: 88%;
+    left: 0;
+    width: 100%;
+
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+    border-radius: 0 25px 25px 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    @include header-nav-link-style;
+    font-size: 32px;
+    line-height: 1.5;
+
+    &--active {
+      position: relative;
+
+      &::after {
+        @include nav-link-bottom-line;
+        top: 50px;
+      }
+    }
+  }
+}
+
+.nav__mobile {
+  display: none;
+}
+
+.nav__mobile--active {
+  display: block;
+}
