@@ -7,5 +7,6 @@ $(document).ready(function() {
   $('.header__mob-icon').on('click', function() {
     $('.nav').toggleClass('open');
     $('.info__title-name').toggleClass('open');
+    $('.header').toggleClass('open');
   });
 });
