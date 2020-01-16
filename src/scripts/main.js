@@ -18,7 +18,7 @@ const SliderItem = document.body.querySelector('.slider__item');
 document.body.addEventListener('click', (e) => {
   const target = e.target;
 
-  if (target.classList.contains('intro__arrows-item--left')) {
+  if (target.classList.contains('slider__navigation__arrows-item--left')) {
     const position = parseInt(getComputedStyle(SliderItem).left);
 
     if ((position + 687) > 0) {
@@ -27,7 +27,9 @@ document.body.addEventListener('click', (e) => {
       return;
     }
     SliderItem.style.left = (position + 687) + 'px';
-  } else if (target.classList.contains('intro__arrows-item--right')) {
+  } else if (
+    target.classList.contains('slider__navigation__arrows-item--right')
+  ) {
     const position = parseInt(getComputedStyle(SliderItem).left);
 
     if ((position - 687) < (-(SliderImg.length - 1) * 687)) {
