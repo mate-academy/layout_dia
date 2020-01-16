@@ -1,0 +1,102 @@
+.person {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 315px;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 87px 32px 32px;
+  margin-right: 100px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__photo {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 110px;
+    z-index: 1;
+  }
+
+  &_first::before {
+    @include photo-decor-before;
+    background: $photo-decor-color-1;
+  }
+
+  &_first::after {
+    @include photo-decor-after;
+    background: $photo-decor-color-1;
+  }
+
+  &_second::before {
+    @include photo-decor-before;
+    background: $photo-decor-color-2;
+  }
+
+  &_second::after {
+    @include photo-decor-after;
+    background: $photo-decor-color-2;
+  }
+
+  &_third::before {
+    @include photo-decor-before;
+    background: $photo-decor-color-3;
+  }
+
+  &_third::after {
+    @include photo-decor-after;
+    background: $photo-decor-color-3;
+  }
+
+  &__text {
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    color: $regular-text-color;
+    margin-bottom: 16px;
+
+    &_first::before {
+      @include text-quote;
+      background: url(../images/testimonials/testimonial-quotes-1.svg) no-repeat;
+    }
+
+    &_second::before {
+      @include text-quote;
+      background: url(../images/testimonials/testimonial-quotes-2.svg) no-repeat;
+    }
+
+    &_third::before {
+      @include text-quote;
+      background: url(../images/testimonials/testimonial-quotes-3.svg) no-repeat;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    text-align: center;
+    color: #253757;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    display: block;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+}
+
+@media (max-width: $small-screen-breakpoint) {
+  .person {
+    margin: 0 auto 60px;
+
+    &:last-child {
+      margin-left: 0;
+    }
+  }
+}
