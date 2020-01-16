@@ -40,14 +40,14 @@
 .heading {
 
   &__name {
-    @include font-poppins(bold, 13px, 19px);
+    @include font-style(bold, 13px, 19px);
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #c0cdd7;
   }
 
   &__title {
-    @include font-poppins(600, 32px, 130%);
+    @include font-style(600, 32px, 130%);
     color: $c-text-heading;
     margin: 24px 0;
   }
@@ -69,9 +69,10 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   box-sizing: border-box;
   padding: 32px;
+  cursor: pointer;
 
   &__span {
-    @include font-poppins(600, 13px, 19px);
+    @include font-style(600, 13px, 19px);
     width: 46px;
     height: 24px;
     border-radius: 23px;
@@ -113,7 +114,7 @@
     align-items: center;
   }
 
-  &__button {
+  &__icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -121,6 +122,7 @@
     background-position: center;
     background-repeat: no-repeat;
     margin-right: 16px;
+    transition: 0.5s linear;
 
     &--blue {
       background-color: $c-blue;
@@ -143,9 +145,47 @@
     }
   }
 
-  &__link {
-    @include font-poppins(600, 15px, 22px);
+  &__button {
+    width: 120px;
+    height: 50px;
+    border-radius: 64px;
+    border: 2px solid $c-white;
+    @include font-style(600, 15px, 22px);
     color: #334563;
+    background: $c-white;
+    cursor: pointer;
+    transition: background-color 0.5s 0.5s linear, box-shadow transform 0.3s;
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &:focus {
+      box-shadow: 5px 5px 10px $c-active;
+      border: 2px solid $c-pink;
+    }
+  }
+
+  &:hover &__icon {
+    transform: translateX(30px);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover &__button--blue {
+    background-color: $c-blue;
+  }
+
+  &:hover &__button--yellow {
+    background-color: $c-yellow;
+  }
+
+  &:hover &__button--green {
+    background-color: $c-green;
+  }
+
+  &:hover &__button--red {
+    background-color: $c-red;
   }
 }
 

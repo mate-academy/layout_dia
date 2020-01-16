@@ -2,7 +2,7 @@
   padding: 130px 10% 148px;
 
   &__name {
-    @include font-poppins(bold, 13px, 19px);
+    @include font-style(bold, 13px, 19px);
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #c0cdd7;
@@ -10,7 +10,7 @@
   }
 
   &__title {
-    @include font-poppins(600, 32px, 150%);
+    @include font-style(600, 32px, 150%);
     color: $c-text-heading;
     margin-bottom: 85px;
   }
@@ -33,41 +33,84 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  cursor: pointer;
 
-  &::before,
   &::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    right: -5px;
+    left: -5px;
+    background: $c-white;
+    border-radius: 24px;
+    transform: skew(2deg, 2deg);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.3s 0.4s linear;
+  }
+
+  &--one::after {
+    background: linear-gradient(315deg, #00bcd4, #5d02ff);
+  }
+
+  &--two::after {
+    background: linear-gradient(315deg, #dff706, #fdc826);
+  }
+
+  &--three::after {
+    background: linear-gradient(315deg, #fc6295, #e61957);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &__ellipse {
     content: "";
     width: 139px;
     height: 56px;
     border-radius: 500px;
     transform: rotate(-60deg);
     position: absolute;
+    transition: 0.5s linear;
+
+    &--one {
+      top: 20%;
+      left: 10%;
+    }
+
+    &--two {
+      top: 35%;
+      right: 10%;
+      transform: rotate(120deg);
+    }
+
+    &--blue {
+      background: linear-gradient(180deg, #096888, #77d7f7);
+    }
+
+    &--yellow {
+      background: linear-gradient(180deg, #fcc304, #f7e094);
+    }
+
+    &--red {
+      background: linear-gradient(180deg, #f74b4b, #f59d9d);
+    }
   }
 
-  &::before {
-    top: 20%;
-    left: 10%;
-  }
+  &:hover > &__ellipse {
+    opacity: 0;
 
-  &::after {
-    top: 35%;
-    right: 10%;
-    transform: rotate(120deg);
-  }
+    &--one {
+      top: 10%;
+      left: 5%;
+    }
 
-  &--one::before,
-  &--one::after {
-    background: linear-gradient(180deg,  #096888 0%, #77d7f7 100%);
-  }
-
-  &--two::before,
-  &--two::after {
-    background: linear-gradient(180deg, #fcc304 0%, #f7e094 100%);
-  }
-
-  &--three::before,
-  &--three::after {
-    background: linear-gradient(180deg, #be0f0f 0%, #f18080 100%);
+    &--two {
+      top: 45%;
+      right: 5%;
+    }
   }
 
   &__image {
@@ -80,11 +123,12 @@
   }
 
   &__quotes {
-    margin-bottom: 2px;
+    margin-bottom: 10px;
   }
 
   &__text {
     @include font-open_sans(600, 13px, 150%);
+    text-align: center;
     color: $c-text;
     margin-bottom: 16px;
   }
@@ -96,7 +140,7 @@
   }
 
   &__position {
-    @include font-poppins(bold, 13px, 19px);
+    @include font-style(bold, 13px, 19px);
     color: #c0cdd7;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -104,6 +148,7 @@
 }
 
 @media screen and (max-width: 1199px) {
+
   .testimonials__name,
   .testimonials__title {
     text-align: center;
