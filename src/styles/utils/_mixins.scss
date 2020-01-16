@@ -1,6 +1,120 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin button {
+  display: inline-block;
+  width: 226px;
+
+  border: none;
+  border-radius: $border-radius-sm;
+  color: white;
+  background-color: $accent-color-blue;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 50px;
+  outline: none;
+  text-align: center;
+
+  transition: background-color $animation-short;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color-blue-active;
+  }
+}
+
+@mixin section-wraper {
+  margin: 0 auto;
+  max-width: $content-width;
+}
+
+@mixin subsection-title {
+  font-weight: 600;
+  font-size: 32px;
+  color: $text-color-darken;
+}
+
+@mixin section-title {
+  font-weight: 600;
+  font-size: $font-size-lg;
+  color: $text-color-darken;
+  text-align: center;
+
+  @media (max-width: $break-point-sm) {
+    & {
+      font-size: $font-size-mobile-lg;
+    }
+  }
+}
+
+@mixin link-hover {
+  position: relative;
+  outline: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+
+    height: 2px;
+    width: 100%;
+    background-color: $accent-color-blue;
+    opacity: 0;
+
+    transition: bottom $animation-short,
+      opacity $animation-short;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    bottom: -8px;
+    opacity: 1;
+  }
+}
+
+@mixin count-features($color, $color-rgba) {
+  .step-list__count {
+    color: $color;
+    background-color: $color-rgba;
+  }
+
+  .step-list__link {
+    background-color: $color;
+  }
+}
+
+@mixin bg-items($width, $border-width, $border-color) {
+  position: absolute;
+
+  width: $width;
+  height: $width / 3;
+
+  transform: rotate(-65deg);
+  border-radius: $border-radius-sm;
+  border: $border-width solid $border-color;
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+@mixin form-input {
+  padding-bottom: 16px;
+
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 15px;
+  color: #fff;
+
+  outline: none;
+  transition: border-bottom;
+
+  &::placeholder {
+    color: rgba(255,255,255, 0.7);
+  }
+
+  &:active,
+  &:focus {
+    border-bottom-width: 2px;
+    border-bottom-color: $accent-color-blue-active;
   }
 }
