@@ -114,10 +114,6 @@
     background: url(../images/slider/air-slider-1.png);
     background-repeat: no-repeat;
     background-size: cover;
-
-    @media screen and (max-width: 900px) {
-      display: none;
-    }
   }
 }
 
@@ -200,21 +196,35 @@
   display: none;
 
   &__list {
+    display: none;
+    height: 100%;
     position: absolute;
     top: 0;
-    height: 100%;
     left: 0;
     right: 0;
-    display: none;
+    padding-top: 50px;
   }
 
   &__item {
-    list-style: none;
     padding: 20px 50px;
+    list-style: none;
+    text-align: center;
   }
 
   &__link {
+    padding: 10px;
     @include nav;
+    transition: letter-spacing 0.4s, background-color 0.8s;
+
+    &:focus {
+      outline: 4px outset $c-blue-add;
+    }
+
+    &:hover {
+      letter-spacing: 6px;
+      background: $c-button-shadow;
+      border-radius: 4px;
+    }
   }
 }
 
@@ -222,7 +232,10 @@
   .menu__list {
     display: block;
     z-index: 1;
-    background: $c-dark;
+    background: radial-gradient(50% 30% ellipse at center top,
+    #201e40 0%, rgba(0,0,0,0) 100%),
+      radial-gradient(60% 50% ellipse at
+    center bottom, #261226 0%, #100a1c 100%);
     border-radius: 0 0 30px 30px;
   }
 }
