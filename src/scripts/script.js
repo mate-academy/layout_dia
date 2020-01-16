@@ -1,20 +1,13 @@
 'use strict';
 
-document
-  .querySelector('.header__burger')
+const burger = document.querySelector('.header__burger');
+
+burger
   .addEventListener('click', function() {
-    document
-      .querySelector('.header__nav-menu')
-      .classList
-      .toggle('active');
+    const menuList = document.querySelector('.header__nav-menu_list');
+    const description = document.querySelector('.header__intro-description');
 
-    document
-      .querySelector('.header__burger')
-      .classList
-      .toggle('active');
-
-    document
-      .querySelector('.header__intro')
-      .classList
-      .toggle('active');
+    menuList.classList.toggle('active');
+    description.classList.toggle('hide');
+    burger.classList.toggle('active');
   });

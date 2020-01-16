@@ -14,8 +14,9 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.slider__item_photo')
-      .setAttribute('src', 'images/slider/' + currentImage);
+      .querySelector('.header__slider')
+      .style
+      .backgroundImage = `url('../images/slider/${currentImage}')`;
   },
   prev: function(el) {
     el.preventDefault();
@@ -29,7 +30,8 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.slider__item_photo')
-      .setAttribute('src', 'images/slider/' + currentImage);
+      .querySelector('.header__slider')
+      .style
+      .backgroundImage = `url('../images/slider/${currentImage}')`;
   },
 };
