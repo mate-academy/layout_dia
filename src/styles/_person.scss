@@ -8,38 +8,51 @@
   border-radius: 24px;
   position: relative;
 
-  &__decor {
-    width: 139px;
-    height: 56px;
-    border-radius: 500px;
-    position: absolute;
-    transform: rotate(-60deg);
+  &__photo-wrapper {
+    position: relative;
+    width: 100%;
 
-    &--left {
-      top: 17%;
+    &::before {
+      content: "";
+      width: 139px;
+      height: 56px;
+      position: absolute;
+      background-color: black;
+      transform: rotate(-60deg);
+      border-radius: 500px;
+      top: 85px;
       left: 40px;
     }
 
-    &--right {
-      top: 34%;
+    &::after {
+      content: "";
+      width: 139px;
+      height: 56px;
+      position: absolute;
+      background-color: black;
+      transform: rotate(-60deg);
+      border-radius: 500px;
+      bottom: 117px;
       right: 40px;
     }
-
-    &--blue {
+    &--blue::before,
+    &--blue::after {
       background: linear-gradient(180deg,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0) 100%),
         #56ccf2;
     }
 
-    &--yellow {
+    &--yellow::before,
+    &--yellow::after {
       background: linear-gradient(180deg,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0) 100%),
         #fcc304;
     }
 
-    &--red {
+    &--red::before,
+    &--red::after {
       background: linear-gradient(180deg,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0) 100%),
@@ -53,7 +66,10 @@
     border-radius: 50%;
     margin-top: 85px;
     margin-bottom: 111px;
+    position: relative;
     z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__text {
