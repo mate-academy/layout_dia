@@ -1,7 +1,5 @@
 'use strict';
 
-// console.log('hello mate academy!');
-
 function initMenu() {
   const burger = document.querySelector('.switcher');
   const switcher = document.querySelector('.header__main-nav');
