@@ -1,31 +1,31 @@
 .card {
   position: relative;
   width: 264px;
-  height: 264px;
-
   background: #fff;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
-
   padding: 32px;
-
   &:nth-child(odd) {
     transform: translateY(150px);
   }
 
+  &:nth-child(3) {
+    z-index: $z-index-feature-card;
+  }
+
   &__num {
-    width: 22px;
-    height: 20px;
+    display: block;
+    width: 46px;
+    height: 24px;
 
     font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 13px;
-    line-height: 19px;
+    line-height: 24px;
     text-align: center;
     text-transform: uppercase;
-    color: #2060f6;
 
-    padding: 2px 12px;
+    color: #2060f6;
     background-color: rgba(32, 96, 246, 0.1);
     border-radius: 23px;
     margin-bottom: 26px;
@@ -33,56 +33,57 @@
 
   &__text {
     width: 200px;
-    height: 80px;
-
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
     color: #6c788b;
-    
-    margin: 26px 0 32px;
+
+    &:nth-child(5) {
+      margin-bottom: 32px;
+    }
   }
 
-  &__button-wrapper {
-    display: flex;
-    align-items: center;
-  }
+  &__link {
+    position: relative;
+    display: inline-block;
 
-  &__button-arrow {
     width: 40px;
     height: 40px;
 
     background-image: url(../images/process/process-arrow.svg);
     background-color: #2060f6;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
 
-    border: none;
     border-radius: 50%;
-
     cursor: pointer;
-    transition: transform 0.4s ease-in-out;
 
-    margin-right: 16px;
+    &::after {
+      content: "Learn more";
+      position: absolute;
+      top: -1px;
+      left: -1px;
 
-    &:focus {
-      outline: none;
+      min-width: 143px;
+      padding: 0 25px;
+
+      @include button-typography;
+      color: #334563;
+      line-height: 40px;
+      text-align: center;
+
+      border: 1px solid rgba(32, 96, 246, 0.1);
+      border-radius: 25px;
+      transition: box-shadow 0.4s ease-in-out,
+        color 0.4s ease-in-out,
+        background-color 0.4s ease-in-out;
     }
 
-    &:hover {
-      transform: scale(1.1);
+    &:hover::after {
+      width: 100%;
+      background-color: rgba(32, 96, 246, 0.1);
     }
-  }
 
-  &__button-text {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-
-    text-align: center;
-
-    color: #334563;
   }
 }
 
