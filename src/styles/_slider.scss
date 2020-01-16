@@ -1,11 +1,15 @@
 .slider {
   color: $white;
   animation: pop-out-right 0.5s ease-in-out forwards;
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
+  display: flex;
 
   &__wrapper {
     min-height: 680px;
     min-width: 687px;
-    position: relative;
   }
 
   &__slides {
@@ -70,7 +74,7 @@
   }
 
   &__label {
-    cursor: pointer;
+    cursor: slideer;
     display: inline-block;
     height: 8px;
     margin: 0 12px 0 16px;
@@ -92,10 +96,13 @@
   }
 }
 
-label:hover,
-#slide1:checked ~ label:nth-of-type(1),
-#slide2:checked ~ label:nth-of-type(2),
-#slide3:checked ~ label:nth-of-type(3) {
+label:hover {
+  background: $white;
+}
+
+#slide1:checked ~ .slider__controls label:nth-of-type(1),
+#slide2:checked ~ .slider__controls label:nth-of-type(2),
+#slide3:checked ~ .slider__controls label:nth-of-type(3) {
   background: $orange;
 }
 
