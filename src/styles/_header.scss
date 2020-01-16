@@ -4,10 +4,12 @@
   border-bottom-left-radius: 300px;
   color: #fff;
   @include Open-Sans;
+  overflow-x: hidden;
 
   &__wrapper {
     max-width: 1146px;
     margin: 0 auto;
+    padding: 20px;
   }
 }
 
@@ -15,6 +17,7 @@
   display: flex;
   align-items: center;
   @include Poppins-Semibold;
+  transition: transform 0.6s ease-in-out;
 }
 
 .header-introduction {
@@ -34,7 +37,7 @@
     @include Open-Sans;
     font-size: 18px;
     line-height: 150%;
-    width: 460px;
+    max-width: 460px;
     margin: 0 0 56px;
   }
 
@@ -64,10 +67,11 @@
   display: flex;
   align-items: flex-end;
   width: 40vw;
-  height: 85vh;
+  height: 80vh;
   position: absolute;
   bottom: 0;
   right: 0;
+  border-top-left-radius: 250px;
 
   &__arrows {
     display: flex;
@@ -82,6 +86,8 @@
 .slider-list {
 
   &__image {
+    border-top-left-radius: 250px;
+    object-fit: cover;
     width: 40vw;
     height: 85vh;
     position: absolute;
@@ -107,7 +113,7 @@
     z-index: 1;
     bottom: 48px;
     left: 144px;
-    width: 264px;
+    max-width: 264px;
     @include Open-Sans;
     font-size: 14px;
     margin: 0;
@@ -176,5 +182,38 @@
     font-size: 14px;
     width: 264px;
     margin: 0;
+  }
+}
+
+@media (max-width: $break-point-lg) {
+  .header {
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width: $break-point-md) {
+  .header--opened {
+    .header-block {
+      transform: translateX(700px);
+    }
+  }
+}
+
+@media (max-width: $break-point-xs) {
+  .header-introduction {
+    &__title {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 34px;
+      margin: 0 0 42px;
+    }
+
+    &__motto {
+      @include Open-Sans;
+      font-size: 18px;
+      line-height: 150%;
+      max-width: 460px;
+      margin: 0 0 56px;
+    }
   }
 }

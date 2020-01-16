@@ -1,19 +1,19 @@
 .process {
-  height: 750px;
   padding-top: 148px;
   display: flex;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
     width: 1146px;
+    padding: 40px 20px;
   }
 }
 
 .process-box {
   max-width: 362px;
-  margin-top: 100px;
 
   &__process {
     @include Poppins-bold;
@@ -43,7 +43,6 @@
   max-width: 560px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 264px);
-  grid-template-rows: repeat(auto-fill, 264px);
   grid-gap: 30px;
 
   &__offers {
@@ -139,4 +138,50 @@
       background: #f36363;
     }
   }
+}
+
+@media (max-width: $break-point-lg) {
+  .process {
+    padding-top: 0;
+    &__wrapper {
+      flex-direction: column;
+      padding-bottom: 50px;
+    }
+  }
+
+  .process-box {
+    margin-bottom: 50px;
+  }
+
+  .offer-box {
+    &__offers:nth-child(1),
+    &__offers:nth-child(3) {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: $break-point-md) {
+  .offer-box {
+    grid-template-columns: repeat(1, 264px);
+  }
+
+  .process-box {
+    &__process,
+    &__title,
+    &__text {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: $break-point-sm) {
+  .process-box {
+    margin-bottom: 50px;
+
+    &__title {
+      font-size: 26px;
+    }
+  }
+
 }
