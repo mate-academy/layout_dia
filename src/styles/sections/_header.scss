@@ -23,17 +23,7 @@
     }
 
     &__link {
-      font-weight: bold;
-      font-size: 13px;
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-
-      &:hover {
-        color: $c-pinky;
-      }
-
+      @include nav;
       @include focus-outline;
 
       &--active {
@@ -41,18 +31,19 @@
 
         &::after {
           content: "";
-          display: block;
-          width: 100%;
+          width: 0;
           position: absolute;
           height: 2px;
-          margin-top: 8px;
+          top: 27px;
+          left: 0;
           border-radius: 4px;
           background-color: $c-pinky;
-          transition: opacity 1s ease-out;
+          transition: width 0.1s cubic-bezier(0, 0, 1, 1);
         }
 
         &:hover::after {
-          opacity: 0;
+          width: 100%;
+          transition: width 0.1s cubic-bezier(0, 0, 1, 1) 100ms;
         }
       }
     }
