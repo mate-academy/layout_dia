@@ -64,11 +64,27 @@
     margin-right: 45.34px;
     &:hover {
       filter: drop-shadow(0 -5px 9px aqua);
+      opacity: 0.7;
     }
   }
   &__link {
     text-decoration: none;
     color: inherit;
+    &:focus,
+    &:hover {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+
+        height: 2px;
+        margin-top: 8px;
+        width: 100%;
+
+        background-color: $carrot-color;
+      }
+    }
   }
 }
 @media screen and (max-width: 960px) {
@@ -101,6 +117,7 @@
     }
     &__text {
       text-align: center;
+      font-size: 18px;
     }
   }
 }
