@@ -12,13 +12,8 @@
   // Что бы при маленьких разрешениях картинка скывалась в approach
 
   &__description {
-    max-width: 362px;
+    max-width: 410px;
     margin: 0 auto;
-  }
-
-  &__description-text-wrapper {
-    display: flex;
-    align-items: center;
   }
 
   &__description-icon {
@@ -28,6 +23,7 @@
     border-radius: 50%;
     background-color: white;
     margin-right: 34px;
+    transition: background-color 0.2s ease-in-out;
 
     &::before {
       content: "";
@@ -51,12 +47,29 @@
     }
   }
 
+  &__description-text-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #c0cdd7;
+
+      .approach__description-icon {
+        background-color: rgba(0,0,0,0.85);
+      }
+    }
+  }
+
   &__description-text {
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
     font-size: 15px;
     line-height: 22px;
     mix-blend-mode: normal;
+    padding: 0 25px;
   }
 }
 
@@ -73,6 +86,21 @@
 @media (max-width: 1220px) {
   .approach {
     flex-direction: column;
+
+    &__description-text-wrapper {
+      padding: 0;
+      &:hover {
+        background: none;
+
+        .approach__description-icon {
+          background: white;
+        }
+      }
+    }
+
+    &__description-text {
+      padding: 0;
+    }
 
     &__description {
       max-width: 362px;
@@ -104,6 +132,14 @@
 
     &__description {
       margin: 0 auto;
+    }
+
+    &__description-text {
+      text-align: center;
+    }
+
+    &__description-icon {
+      margin-right: 0;
     }
   }
 
