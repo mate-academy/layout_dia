@@ -23,3 +23,49 @@ const menuShow = () => {
 };
 
 menuShow();
+
+let isScrolling = false;
+
+window.addEventListener('scroll', throttleScroll, false);
+
+function throttleScroll(e) {
+  if (isScrolling === false) {
+    window.requestAnimationFrame(function() {
+      scrolling(e);
+      isScrolling = false;
+    });
+  }
+  isScrolling = true;
+}
+
+document.addEventListener('DOMContentLoaded', scrolling, false);
+
+const firstBox = document.querySelector('#animateRight');
+const secondBox = document.querySelector('#animateTop');
+const thirdBox = document.querySelector('#animateLeft');
+const animateRight = document.querySelector('.animateRight');
+const animateTop = document.querySelector('.animateTop');
+const animateLeft = document.querySelector('.animateLeft');
+
+function scrolling(e) {
+  if (isPartiallyVisible(animateRight && animateTop && animateLeft)) {
+    animateRight.classList.add('wowRight');
+    animateTop.classList.add('wowTop');
+    animateLeft.classList.add('wowLeft');
+  }
+
+  if (isPartiallyVisible(firstBox && secondBox && thirdBox)) {
+    firstBox.classList.add('wowRight');
+    secondBox.classList.add('wowTop');
+    thirdBox.classList.add('wowLeft');
+  }
+}
+
+function isPartiallyVisible(el) {
+  const elementBoundary = el.getBoundingClientRect();
+  const topTo = elementBoundary.top;
+  const bottom = elementBoundary.bottom;
+  const height = elementBoundary.height;
+
+  return ((topTo + height >= 0) && (height + window.innerHeight >= bottom));
+}
