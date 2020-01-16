@@ -16,7 +16,7 @@ const slider = {
     document
       .querySelector('.header__slider')
       .style
-      .backgroundImage = `url('/images/slider/${currentImage}')`;
+      .backgroundImage = `url('./images/slider/${currentImage}')`;
   },
   prev: function(el) {
     el.preventDefault();
@@ -32,6 +32,6 @@ const slider = {
     document
       .querySelector('.header__slider')
       .style
-      .backgroundImage = `url('/images/slider/${currentImage}')`;
+      .backgroundImage = `url('./images/slider/${currentImage}')`;
   },
 };
