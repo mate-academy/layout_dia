@@ -14,7 +14,7 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.header__slider')
+      .querySelector('.header-slider')
       .style
       .backgroundImage = `url('./images/slider/${currentImage}')`;
   },
@@ -30,7 +30,7 @@ const slider = {
     const currentImage = slider.photos[slider.currentItem];
 
     document
-      .querySelector('.header__slider')
+      .querySelector('.header-slider')
       .style
       .backgroundImage = `url('./images/slider/${currentImage}')`;
   },

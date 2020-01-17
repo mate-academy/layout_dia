@@ -1,18 +1,18 @@
 @import "variables";
 
 .process {
-  background: #f2f9ff;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  background: $background-color;
+  padding: 230px 0;
 
   &-inner {
     width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
     .process-description {
-      width: 330px;
-      padding: 250px 0;
+      width: 362px;
+      margin-top: 55px;
 
       &__name {
         font-weight: bold;
@@ -27,7 +27,7 @@
         font-weight: 600;
         font-size: 32px;
         line-height: 42px;
-        color: #253757;
+        color: $title-color;
       }
 
       &__text {
@@ -37,96 +37,174 @@
         color: #6c788b;
       }
     }
+
+    .process-services {
+      width: 640px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .process-card {
+      background: $base-color;
+      border-radius: 24px;
+      height: 264px;
+      width: 264px;
+      padding: 32px;
+      margin: 0 30px 30px 0;
+
+      &:nth-child(odd) {
+        transform: translateY(120px);
+      }
+
+      &__count {
+        border-radius: 23px;
+        padding: 2px 12px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 19px;
+      }
+
+      &__list {
+        padding: 24px 0 32px;
+        margin: 0;
+      }
+
+      &__item {
+        text-decoration: none;
+        list-style-type: none;
+        font-family: $font-family-secondary;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 19px;
+        color: #6c788b;
+      }
+
+      &.first,
+      &.second,
+      &.third,
+      &.fourth {
+        .process-sources {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+
+          &__text {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 22px;
+            color: $title-color;
+            text-decoration: none;
+          }
+
+          &__arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            background: url("../images/arrow.png") no-repeat center;
+            transition: 0.3s ease-in-out;
+            margin-right: 16px;
+          }
+        }
+      }
+
+      &.first {
+        .process-sources__arrow {
+          background-color: #008aff;
+        }
+
+        .process-card__count {
+          color: #56ccf2;
+          background: #edfaff;
+        }
+      }
+
+      &.second {
+        .process-card__count {
+          color: #f0c940;
+          background: #fffaea;
+        }
+
+        .process-sources__arrow {
+          background-color: #fcc91d;
+        }
+      }
+
+      &.third {
+        .process-card {
+          z-index: 1;
+        }
+
+        .process-card__count {
+          color: #3bc063;
+          background: #e5feeb;
+        }
+
+        .process-sources__arrow {
+          background-color: #15d850;
+        }
+      }
+
+      &.fourth {
+        .process-card__count {
+          color: #f36d6c;
+          background: #fef0f0;
+        }
+
+        .process-sources__arrow {
+          background-color: #f36363;
+        }
+      }
+
+      .process-sources__arrow:hover {
+        transform: scale(1.2);
+        transition: 0.3s ease-in-out;
+      }
+    }
   }
+}
 
-  .process-services {
-    background: #fff;
-    border-radius: 24px;
-    height: 264px;
-    width: 264px;
-    position: absolute;
-    padding: 32px;
+@media (max-width: 1220px) {
+  .process-inner {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+  }
+}
 
-    &__count {
-      border-radius: 23px;
-      padding: 2px 12px;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 19px;
+@media (max-width: 980px) {
+  .process-inner {
+    width: 640px;
+    margin: 0 auto;
+    flex-direction: column;
+
+    .process-description {
+      margin: 0 auto;
     }
 
-    &__sources {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      align-items: center;
+    .process-services {
+      margin-top: 20px;
     }
 
-    &__img {
-      position: relative;
-      background: #008aff;
-      width: 40px;
-      height: 40px;
-      border-radius: 50px;
+    .process-card:nth-child(odd) {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .process-inner {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+
+    .process-card {
+      margin-right: 0;
     }
 
-    &__img img {
-      position: absolute;
-      top: calc(50% - 7px);
-      left: calc(50% - 7px);
-    }
-
-    &.first {
-      top: 280px;
-      right: 490px;
-
-      .process-services__count {
-        color: #56ccf2;
-        background: #edfaff;
-      }
-    }
-
-    &.second {
-      top: 170px;
-      right: 200px;
-
-      .process-services__count {
-        color: #f0c940;
-        background: #fffaea;
-      }
-    }
-
-    &.third {
-      top: 570px;
-      right: 490px;
-
-      .process-services__count {
-        color: #3bc063;
-        background: #e5feeb;
-      }
-    }
-
-    &.fourth {
-      top: 460px;
-      right: 200px;
-
-      .process-services__count {
-        color: #f36d6c;
-        background: #fef0f0;
-      }
-    }
-
-    &__list {
-      padding-left: 0;
-    }
-
-    &__item {
-      text-decoration: none;
-      list-style-type: none;
-      font-family: $font-family-secondary;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 19px;
-      color: #6c788b;
+    .process-services {
+      width: 264px;
+      margin: 20px auto;
     }
   }
 }
