@@ -7,6 +7,7 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__logo {
@@ -20,26 +21,14 @@
 
   &__item {
     font-family: $main-font;
-    position: relative;
     font-size: 13px;
     text-align: center;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: bold;
     white-space: nowrap;
-    margin-top: 52px;
+    margin-top: 37px;
     margin-right: 227px;
-
-    &::after {
-      content: "";
-      background: $accent-color;
-      border-radius: 4px;
-      width: 67px;
-      height: 2px;
-      display: block;
-      position: absolute;
-      bottom: 8px;
-    }
   }
 
   &__container {
@@ -56,7 +45,7 @@
     line-height: 68px;
     letter-spacing: -2px;
     color: $main-color;
-    max-width: 490px;
+    width: 490px;
   }
 
   &__text {
@@ -79,27 +68,87 @@
   }
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: $large-screen-breakpoint) {
   .header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+
+    &__slider {
+      display: none;
+    }
 
     &__wrapper {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     &__container {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      width: 300px;
+      margin: auto;
+    }
+
+    &__title {
+      margin-top: -150px;
     }
 
     &__heading {
-      font-size: 42px;
-      width: 400px;
-      padding-top: 10px;
+      width: 500px;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    &__text {
+      width: 500px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    &__item {
+      display: none;
+    }
+
+    &__button {
+      display: block;
+      margin: 0 30px auto;
+    }
+  }
+}
+
+@media screen and (max-width: $medium-screen-breakpoint) {
+  .header {
+    &__heading {
+      width: 300px;
+      font-size: 32px;
+      text-align: center;
     }
 
     &__text {
       width: 300px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen-breakpoint) {
+  .header {
+    &__heading {
+      font-size: 24px;
+      width: 250px;
+    }
+
+    &__text {
+      font-size: 13px;
+      width: 250px;
+      text-align: center;
     }
   }
 }
