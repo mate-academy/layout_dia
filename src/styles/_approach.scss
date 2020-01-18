@@ -2,30 +2,21 @@
   background-color: $c-dark;
   color: $c-white;
   border-radius: 30px 0 0 30px;
-  right: 0;
   margin: -88px 0 0 8%;
   position: relative;
-
-  &__wrapper {
-    width: 90%;
-    max-width: 1280px;
-    padding: 204px;
-  }
-
-  &__block {
-    width: 364px;
-  }
+  padding: 204px;
 
   &__picture {
     background-image: url(../images/approach-photo.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
     border-radius: 30px 0 0;
-    width: 42%;
+    width: 45%;
     height: 680px;
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 1;
   }
 
   &__subheading {
@@ -35,6 +26,7 @@
   &__heading {
     @include heading;
     margin-bottom: 32px;
+    width: 362px;
   }
 }
 
@@ -42,9 +34,8 @@
   &__item {
     list-style: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    width: fit-content;
   }
 
   &__item:not(:last-child) {
@@ -75,43 +66,43 @@
   }
 }
 
-@media screen and (max-width: 1150px) {
-  .approach__wrapper {
+@media screen and (max-width: 1200px) {
+  .approach {
     padding: 204px 100px 100px;
+    margin-left: 0;
+  }
+
+  .features__text {
+    width: 265px;
   }
 }
 
 @media screen and (max-width: 1060px) {
   .approach {
     margin: 0;
-
-    &__wrapper {
-      padding: 50px;
-    }
-
-    &__block {
-      width: 60%;
-    }
+    padding: 100px;
   }
 
   .features__item {
     justify-content: center;
     margin-bottom: 30px;
   }
+}
 
-  .features__text {
-    width: 90%;
-  }
-
-  .features__picture {
-    margin: 20px 0;
+@media screen and (min-width: 1500px) {
+  .approach__picture {
+    background: url(../images/features-bg.jfif);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    border-radius: 0 30px;
   }
 }
 
 @media screen and (min-width: 1900px) {
   .approach__wrapper {
-    margin: 0 auto;
+    width: fit-content;
+    left: calc(50% - 750px);
     position: relative;
+    background-position-y: center;
   }
 }
 
@@ -120,24 +111,28 @@
     width: 100%;
   }
 
-  .approach__block {
+  .approach__heading {
+    text-align: center;
     width: 100%;
   }
+
+  .approach__subheading {
+    text-align: center;
+  }
+
   .approach__picture {
     display: none;
   }
 
   .features__text {
-    width: 100%;
+    width: 80%;
     text-align: center;
   }
 }
 
 @media screen and (max-width: 850px) {
   .approach {
-    &__wrapper {
-      padding: 5%;
-    }
+    padding: 5%;
 
     &__heading {
       font-size: 28px;
@@ -151,23 +146,25 @@
 
 @media screen and (max-width: 700px) {
   .approach {
-
     width: 100%;
     border-radius: 30px;
 
     &__heading {
       font-size: 20px;
-      text-align: center;
-    }
-
-    &__subheading {
-      text-align: center;
     }
   }
 
-  .features__item:nth-child(n) {
+  .features__item {
+    flex-wrap: wrap;
     text-align: center;
-    margin: 0;
-    align-content: flex-start;
+    align-content: center;
+  }
+
+  .features__text {
+    width: 100%;
+  }
+
+  .features__picture {
+    margin-bottom: 20px;
   }
 }
