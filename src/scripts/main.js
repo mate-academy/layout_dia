@@ -17,26 +17,27 @@ const SliderItem = document.body.querySelector('.slider__item');
 
 document.body.addEventListener('click', (e) => {
   const target = e.target;
+  const width = parseInt(getComputedStyle(SliderItem).width);
 
   if (target.classList.contains('slider__navigation__arrows-item--left')) {
     const position = parseInt(getComputedStyle(SliderItem).left);
 
-    if ((position + 687) > 0) {
-      SliderItem.style.left = -(SliderImg.length - 1) * 687 + 'px';
+    if ((position + width) > 0) {
+      SliderItem.style.left = -(SliderImg.length - 1) * width + 'px';
 
       return;
     }
-    SliderItem.style.left = (position + 687) + 'px';
+    SliderItem.style.left = (position + width) + 'px';
   } else if (
     target.classList.contains('slider__navigation__arrows-item--right')
   ) {
     const position = parseInt(getComputedStyle(SliderItem).left);
 
-    if ((position - 687) < (-(SliderImg.length - 1) * 687)) {
+    if ((position - width) < (-(SliderImg.length - 1) * width)) {
       SliderItem.style.left = 0 + 'px';
 
       return;
     }
-    SliderItem.style.left = (position - 687) + 'px';
+    SliderItem.style.left = (position - width) + 'px';
   }
 });
