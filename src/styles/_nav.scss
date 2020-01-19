@@ -8,11 +8,16 @@
 
   &__logo {
     height: 28px;
+    outline: none;
   }
 }
 
 .nav {
   display: flex;
+
+  @media screen and (max-width: 920px) {
+    display: none;
+  }
 
   &__list {
     padding: 0;
@@ -39,10 +44,6 @@
     padding-bottom: 8px;
     position: relative;
 
-    &:focus {
-      box-shadow: 4px -5px 11px 3px rgba(255,156,142,0.4);
-    }
-
     &:after {
       @include link-after;
       width: 0;
@@ -53,18 +54,28 @@
       width: 100%;
       left: 0;
     }
+
+    &:focus:after {
+      width: 100%;
+      left: 0;
+    }
   }
 
-  .nav__link_activ {
-    position: relative;
+}
 
-    &:after {
-      @include link-after;
-      width: 100%;
-    }
+.nav__link_activ {
+  position: relative;
+
+  &:after {
+    @include link-after;
+    width: 100%;
   }
 }
 
 .nav-container {
   width: 760px;
+
+  @media screen and (max-width: 920px) {
+    width: 100%;
+  }
 }
