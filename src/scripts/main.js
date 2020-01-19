@@ -13,3 +13,14 @@ $(document).ready(function() {
     $('body,html').animate({ scrollTop: top }, 1500);
   });
 });
+
+$(document).ready(function() {
+  $('#footer-nav').on('click', 'a', function(event) {
+    event.preventDefault();
+
+    const id = $(this).attr('href');
+    const top = $(id).offset().top;
+
+    $('body,html').animate({ scrollTop: top }, 1500);
+  });
+});
