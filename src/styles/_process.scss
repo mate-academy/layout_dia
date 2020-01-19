@@ -100,6 +100,8 @@
     height: 40px;
     border-radius: 50%;
     position: relative;
+    transition: 0.5s;
+    transition-property: width, border-radius;
 
     &::before {
       content: "";
@@ -120,6 +122,20 @@
       top: 50%;
       left: 56px;
       transform: translateY(-50%);
+      color: #334563;
+    }
+
+    &:hover {
+      width: 100%;
+      border-radius: 20px;
+
+      &::before {
+        background-image: none;
+      }
+
+      &::after {
+        color: #fff;
+      }
     }
 
     &--1 {
@@ -150,6 +166,7 @@
   }
 
   .process-box {
+    max-width: 100%;
     margin-bottom: 50px;
   }
 
@@ -162,10 +179,6 @@
 }
 
 @media (max-width: $break-point-md) {
-  .offer-box {
-    grid-template-columns: repeat(1, 264px);
-  }
-
   .process-box {
     &__process,
     &__title,
@@ -175,12 +188,18 @@
   }
 }
 
+@media (max-width: 720px) {
+  .offer-box {
+    grid-template-columns: repeat(1, 264px);
+  }
+}
+
 @media (max-width: $break-point-sm) {
   .process-box {
     margin-bottom: 50px;
 
     &__title {
-      font-size: 26px;
+      font-size: $mobile-title-size;
     }
   }
 
