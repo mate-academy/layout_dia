@@ -9,6 +9,14 @@
   border-bottom-left-radius: 200px;
   background-color: $active-color;
 
+  @include mQ(1000px) {
+    height: 600px;
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+  }
+
   &__logo {
     width: 60px;
     height: 28px;
@@ -17,19 +25,22 @@
   }
 
   &__nav {
-    max-width: 1024px;
     margin: 0 auto 42px;
   }
 
   &__container {
     display: flex;
 
-    max-width: 1024px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
-  &__description {
+  &__block-text {
     margin-top: 120px;
+
+    @include mQ(1000px) {
+      margin-top: 0;
+    }
   }
 
   &__title {
@@ -68,5 +79,44 @@
     background-size: cover;
 
     @extend %position-center;
+
+    @include mQ(1000px) {
+      height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+
+    &__container {
+      max-width: 100%;
+      max-height: 80vh;
+    }
+
+    &__block-text {
+      margin-top: 4vh;
+      max-height: 80vh;
+    }
+
+    &__title {
+      font-size: $font-mobile-title;
+      max-width: 300px;
+      white-space: wrap;
+    }
+
+    &__text {
+      display: inline-block;
+      max-width: calc(100vw - 20px);
+      font-size: $font-mobile-text;
+      white-space: normal;
+    }
+
+    &__slider {
+      visibility: hidden;
+    }
   }
 }
