@@ -1,8 +1,12 @@
 .footer {
-  background-color: $c-blue_sky;
-  border-top-right-radius: 200px;
-  padding: 130px 10% 85px;
-  color: $c-white;
+  background-color: $c-white;
+
+  &__wrapper {
+    background-color: $c-blue_sky;
+    border-top-right-radius: 200px;
+    padding: 130px 10% 85px;
+    color: $c-white;
+  }
 
   &__content {
     display: grid;
@@ -45,13 +49,14 @@
 
 .form {
   margin-bottom: 120px;
+  max-width: 460px;
 
   &__name {
     @include font-style(600, 32px, 150%);
   }
 
   &__input {
-    width: 450px;
+    width: 100%;
     height: 40px;
     margin: 20px 0;
     background: $c-blue_sky;
@@ -60,6 +65,10 @@
     @include font-style(600, 15px, 22px);
     color: $c-white;
     opacity: 0.7;
+
+    &::placeholder {
+      color: $c-white;
+    }
 
     &:hover {
       border-color: $c-pink;
@@ -95,6 +104,7 @@
 
   &__text {
     @include font-open_sans(600, 24px, 150%);
+    color: $c-white;
     margin-bottom: 48px;
   }
 }
@@ -188,7 +198,7 @@
   .footer__content {
     grid-template-columns: repeat(1, 1fr);
     justify-items: flex-start;
-    padding: 0 25%;
+    padding: 0 15%;
   }
 
   .footer__contacts {
@@ -197,10 +207,6 @@
 
   .form__name {
     text-align: center;
-  }
-
-  .form__input {
-    width: 100%;
   }
 
   .form__button {
@@ -213,5 +219,11 @@
 @media screen and (max-width: 499px) {
   .footer__content {
     padding: 0;
+  }
+}
+
+@media screen and (min-width: 1699px) {
+  .footer__wrapper {
+    padding: 130px 20% 85px;
   }
 }
