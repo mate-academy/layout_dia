@@ -18,13 +18,46 @@
       @include nav-link-after-element;
     }
 
+    &:focus {
+      outline: none;
+    }
+
     &:visited {
       color: $color-gray;
     }
 
     &:hover::after,
-    &:active::after {
+    &:active::after,
+    &:focus::after {
       transform: scale(1);
     }
+  }
+
+  &-mobile {
+    display: none;
+  }
+
+  &__toggler-label {
+    position: absolute;
+    top: 42px;
+    right: 40px;
+    display: none;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__toggler-label::before {
+    top: 0;
+    left: 0;
+    height: 12px;
+    background-image: url("../../images/action.svg");
+  }
+
+  &__toggler:checked ~ .nav__toggler-label::before {
+    height: 18px;
+    background-image: url("../../images/close.svg");
+    z-index: 5;
   }
 }
