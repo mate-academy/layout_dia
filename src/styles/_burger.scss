@@ -1,0 +1,52 @@
+
+.burger {
+  display: flex;
+
+  &__toggle {
+    opacity: 0;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__item,
+  &__item::before,
+  &__item::after {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #273757;
+  }
+
+  &__item::before {
+    content: "";
+    top: -8px;
+  }
+
+  &__item::after {
+    content: "";
+    top: 8px;
+  }
+
+  &__toggle:checked ~ .nav__list {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 850px) {
+  .burger__item,
+  .burger__item::before,
+  .burger__item::after {
+    display: block;
+  }
+}
