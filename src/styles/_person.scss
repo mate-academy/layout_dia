@@ -1,0 +1,143 @@
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 314px;
+  height: 494px;
+  border-radius: 24px;
+  position: relative;
+
+  &__photo-wrapper {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: "";
+      width: 139px;
+      height: 56px;
+      position: absolute;
+      background-color: black;
+      transform: rotate(-60deg);
+      border-radius: 500px;
+      top: 85px;
+      left: 40px;
+    }
+
+    &::after {
+      content: "";
+      width: 139px;
+      height: 56px;
+      position: absolute;
+      background-color: black;
+      transform: rotate(-60deg);
+      border-radius: 500px;
+      bottom: 117px;
+      right: 40px;
+    }
+    &--blue::before,
+    &--blue::after {
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #56ccf2;
+    }
+
+    &--yellow::before,
+    &--yellow::after {
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #fcc304;
+    }
+
+    &--red::before,
+    &--red::after {
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #f25656;
+    }
+  }
+
+  &__photo {
+    display: block;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    margin-top: 85px;
+    margin-bottom: 111px;
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 32px;
+    position: relative;
+
+    &--blue::before,
+    &--yellow::before,
+    &--red::before {
+      content: "";
+      display: block;
+      width: 21px;
+      height: 19px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -30px;
+    }
+
+    &--blue::before {
+      background-image: url(../images/testimonials/blue-quotes.svg);
+    }
+
+    &--yellow::before {
+      background-image: url(../images/testimonials/yellow-quotes.svg);
+    }
+
+    &--red::before {
+      background-image: url(../images/testimonials/red-quotes.svg);
+    }
+  }
+
+  &__description {
+    font-family: $descriptions-font;
+    color: $descriptions-color;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    font-family: $descriptions-font;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+}
+
+@media (max-width: 1100px) {
+  .person {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 320px) {
+  .person {
+    width: 260px;
+  }
+}
