@@ -55,15 +55,17 @@ window.addEventListener('resize', function() {
 const carousel = document.querySelector('.slider');
 const list = carousel.querySelector('.slider__images');
 const listElems = carousel.querySelectorAll('.slider__images-item');
+const buttonLeft = carousel.querySelector('.slider__button-left');
+const buttonRight = carousel.querySelector('.slider__button-right');
 
 let position = 0;
 
-carousel.querySelector('.slider__button-left').onclick = function() {
+buttonLeft.onclick = function() {
   position = Math.min(position + width, 0);
   list.style.marginLeft = position + 'vw';
 };
 
-carousel.querySelector('.slider__button-right').onclick = function() {
+buttonRight.onclick = function() {
   position = Math.max(position - width, -width * (listElems.length - 1));
   list.style.marginLeft = position + 'vw';
 };
