@@ -1,16 +1,16 @@
 'use strict';
 
 const menu = () => {
-  const BURGER = document.querySelector('.header__button');
-  const MOBILENAV = document.querySelector('.nav');
+  const burger = document.querySelector('.header__button');
+  const mobilenav = document.querySelector('.nav');
 
-  BURGER.addEventListener('click', () => {
-    BURGER.classList.toggle('header__button--active');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('header__button--active');
 
-    if (BURGER.classList.contains('header__button--active')) {
-      MOBILENAV.style.display = 'flex';
+    if (burger.classList.contains('header__button--active')) {
+      mobilenav.style.display = 'flex';
     } else {
-      MOBILENAV.removeAttribute('style');
+      mobilenav.removeAttribute('style');
     }
   });
 };
