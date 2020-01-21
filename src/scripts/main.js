@@ -17,7 +17,7 @@ const SliderItem = document.body.querySelector('.slider__item');
 
 document.body.addEventListener('click', (e) => {
   const target = e.target;
-  const width = parseInt(getComputedStyle(SliderItem).width);
+  const width = parseInt(getComputedStyle(SliderImg[0]).width);
 
   if (target.classList.contains('slider__navigation__arrows-item--left')) {
     const position = parseInt(getComputedStyle(SliderItem).left);
