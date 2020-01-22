@@ -1,0 +1,221 @@
+@import "variables";
+
+.footer {
+  background: $base-color;
+  &-inner {
+    background: $color-blue;
+    border-top-right-radius: 150px;
+  }
+
+  &-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 180px 0 80px;
+    color: $base-color;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-contacts {
+    width: 24vw;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 48px;
+      margin-bottom: 56px;
+    }
+  }
+  &-links {
+    margin-right: 9vw;
+    &__title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 48px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &-form {
+    .report {
+      resize: none;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .email,
+    .name,
+    .report {
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
+      color: $base-color;
+      border-bottom: 1px solid $base-color;
+      background: transparent;
+      padding-bottom: 17px;
+      margin-bottom: 48px;
+      outline: none;
+      font-family: $font-family-primary;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+
+      &:focus {
+        border-bottom: 2px solid $base-color;
+        padding-bottom: 16px;
+      }
+
+      &::placeholder {
+        font-family: $font-family-primary;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 22px;
+        color: $base-color;
+        opacity: 0.7;
+        box-sizing: border-box;
+      }
+    }
+
+    .button {
+      background: #ff9c8e;
+      padding: 15px 90px;
+      border-radius: 40px;
+      transition: 0.3s;
+      text-align: center;
+      margin-top: 40px;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background: darken($accent-color, 10%);
+        transition: 0.2s ease-in-out;
+      }
+      &__link {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 22px;
+        color: $base-color;
+      }
+    }
+  }
+
+  &-item {
+    margin-bottom: 48px;
+    &__subtitle {
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 16px;
+    }
+    &__link,
+    &__text {
+      font-family: $font-family-secondary;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 36px;
+      color: $base-color;
+    }
+  }
+  .media {
+    &__icon {
+      margin-right: 45px;
+    }
+  }
+
+  &-nav {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      display: inline;
+      margin-right: 4vw;
+      text-transform: uppercase;
+      list-style-type: none;
+      font-size: 13px;
+      line-height: 19px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &__link {
+      color: $base-color;
+      position: relative;
+
+      &::after {
+        background-color: $accent-color;
+        display: block;
+        content: "";
+        height: 2px;
+        width: 0%;
+        top: 25px;
+        left: 50%;
+        position: absolute;
+        transition: width 0.3s ease-in-out;
+        transform: translateX(-50%);
+      }
+
+      &:hover::after,
+      &:focus::after {
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 1260px) {
+  .footer-container {
+    width: 100%;
+  }
+
+  .footer-contacts {
+    margin: 0 auto;
+  }
+
+  .footer-nav {
+    margin: 100px 2vw 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    width: 100%;
+  }
+
+  .footer-contacts {
+    width: 63vw;
+    margin: 0 auto;
+  }
+
+  .footer-contacts,
+  .footer-nav {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    width: 63vw;
+    margin: 50px auto;
+  }
+
+  .footer-nav {
+    width: 63vw;
+    margin: 0 auto;
+  }
+
+  .footer-nav__list {
+    padding-left: 0;
+
+    .footer-nav__item {
+      line-height: 40px;
+      display: list-item;
+    }
+  }
+}
