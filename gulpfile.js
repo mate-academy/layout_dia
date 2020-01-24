@@ -22,17 +22,17 @@ const jsBlob = 'src/scripts/**';
 
 const { series, parallel } = gulp;
 
-gulp.task('cleanDist', function() {
+gulp.task('cleanDist', function () {
   return gulp.src(distDirectory, { read: false, allowEmpty: true })
     .pipe(clean());
 });
 
-gulp.task('processHtml', function() {
+gulp.task('processHtml', function () {
   return gulp.src(htmlBlob)
     .pipe(gulpHtmllint({
       config: './node_modules/@mate-academy/htmllint-config/.htmllintrc',
-    }, function(filepath, issues) {
-      issues.forEach(function(issue) {
+    }, function (filepath, issues) {
+      issues.forEach(function (issue) {
         const { line, column, code, msg } = issue;
         console.log(
           ` ❌   ${colors.red('htmllint error')}
@@ -43,17 +43,17 @@ gulp.task('processHtml', function() {
     .pipe(gulp.dest(distDirectory));
 });
 
-gulp.task('processImages', function() {
+gulp.task('processImages', function () {
   return gulp.src(imagesBlob)
     .pipe(gulp.dest(`${distDirectory}/images/`));
 });
 
-gulp.task('processFonts', function() {
+gulp.task('processFonts', function () {
   return gulp.src(fontsBlob)
     .pipe(gulp.dest(`${distDirectory}/fonts/`));
 });
 
-gulp.task('lintCss', function() {
+gulp.task('lintCss', function () {
   return gulp
     .src(stylesBlob)
     .pipe(gulpStylelint({
@@ -65,20 +65,20 @@ gulp.task('lintCss', function() {
     }));
 });
 
-gulp.task('processStyles', series('lintCss', function() {
+gulp.task('processStyles', series('lintCss', function () {
   return gulp.src(stylesBlob)
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(gulpReplacePath(/(?:\.\.\/){2,}images/g, '../images'))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      //sbrowsers: ['last 2 versions'],
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${distDirectory}/styles`))
     .pipe(browserSync.reload({ stream: true }));
 }));
 
-gulp.task('processJs', function() {
+gulp.task('processJs', function () {
   return gulp.src(jsBlob)
     .pipe(gulpEslint())
     .pipe(gulpEslint.format())
@@ -96,7 +96,7 @@ gulp.task('build', series(
   )
 ));
 
-gulp.task('serve', function() {
+gulp.task('serve', function () {
   browserSync.init({
     server: {
       baseDir: distDirectory,
