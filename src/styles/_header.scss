@@ -7,6 +7,7 @@
   &__top {
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     max-width: 1460px;
     height: 120px;
@@ -21,10 +22,30 @@
     height: 28px;
   }
 
+  &__hire-link {
+    position: relative;
+    display: block;
+    width: 70px;
+    letter-spacing: 3px;
+  }
+
+  &__hire-link:hover::after,
+  &__hire-link:focus::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 22px;
+    background: #ff9c8e;
+    border-radius: 4px;
+  }
+
   &__bottom {
     height: 680px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
     padding-left: 140px;
     margin: auto;
   }
@@ -39,5 +60,11 @@
   .header__bottom {
     padding-left: 50px;
     display: block;
+  }
+}
+
+@media (min-width: $large-screen-breakpoint) {
+  .header__bottom {
+    padding-left: 15%;
   }
 }
