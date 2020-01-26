@@ -20,7 +20,4 @@ slider.querySelector('.slider__button_right').onclick = function() {
   position -= width;
   position = Math.max(position, -width * (listElems.length - 1));
   list.style.marginLeft = position + 'px';
-  if (position === -width * 3) {
-    position = width;
-  }
 };
