@@ -8,11 +8,11 @@
 
   &__intro {
     position: absolute;
-    left: 92px;
-    bottom: 82px;
+    left: 98px;
+    bottom: 86px;
 
     &_heading {
-      color: $special-color;
+      color: $background-color-blue;
       text-transform: uppercase;
       font-weight: 800;
       font-size: 12.6px;
@@ -32,39 +32,19 @@
     left: -80px;
     top: calc(50% - 31px);
     display: flex;
+    width: 160px;
 
     &_left {
-      background-color: #fcc304;
-      background-image: url(./../images/slider/Vector_left.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 64px;
-      width: 81px;
+      @include sliderButton(url(./../images/slider/Vector_left.svg));
       border-top-left-radius: 64px;
       border-bottom-left-radius: 64px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: black;
-      }
-
     }
 
     &_right {
-      background-color: #fcc304;
-      background-image: url(./../images/slider/Vector_right.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 64px;
-      width: 81px;
+      @include sliderButton(url(./../images/slider/Vector_right.svg));
       border-top-right-radius: 64px;
       border-bottom-right-radius: 64px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: black;
-      }
-
+      transform: translateX(-1px);
     }
   }
 }
@@ -76,4 +56,24 @@
   margin-block-end: 0;
   display: flex;
   transform: translateX();
+}
+
+.container {
+  width: 1146px;
+  height: 640px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1366px) {
+  .slider {
+    &__image {
+      width: 917px;
+      height: 533px;
+    }
+  }
+
+  .container {
+    width: 917px;
+    height: 533px;
+  }
 }

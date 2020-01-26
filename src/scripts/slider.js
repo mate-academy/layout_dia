@@ -1,6 +1,8 @@
 'use strict';
 
-const width = 1146;
+const container = document.querySelector('.container');
+const style = window.getComputedStyle(container, null);
+const width = parseInt(style.width);
 
 const slider = document.getElementById('slider');
 const list = slider.querySelector('ul');
@@ -18,4 +20,7 @@ slider.querySelector('.slider__button_right').onclick = function() {
   position -= width;
   position = Math.max(position, -width * (listElems.length - 1));
   list.style.marginLeft = position + 'px';
+  if (position === -width * 3) {
+    position = width;
+  }
 };
