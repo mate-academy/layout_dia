@@ -12,12 +12,27 @@ let position = 0;
 
 slider.querySelector('.slider__button_left').onclick = function() {
   position += width;
-  position = Math.min(position, 0);
+  if (position > 0) {
+    position = -width * (listElems.length - 1);
+  } else {
+    position = Math.min(position, 0);
+  }
   list.style.marginLeft = position + 'px';
 };
 
 slider.querySelector('.slider__button_right').onclick = function() {
   position -= width;
-  position = Math.max(position, -width * (listElems.length - 1));
+  if (position < -width * (listElems.length - 1)) {
+    position = 0;
+  } else {
+    position = Math.max(position, -width * (listElems.length - 1));
+  }
   list.style.marginLeft = position + 'px';
 };
+
+setInterval(
+  slider
+    .querySelector('.slider__button_right')
+    .onclick,
+  4000
+);
