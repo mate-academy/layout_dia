@@ -1,0 +1,33 @@
+.logo {
+  position: relative;
+  display: block;
+  margin-right: 78px;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    transform: scale(0);
+    background-color: $color-blue;
+    border-radius: 4px;
+    z-index: 5;
+
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:focus,
+  &__img:focus {
+    outline: none;
+    transform: scale(1.2);
+  }
+
+  &:hover::after,
+  &:active::after,
+  &:focus::after {
+    transform: scale(1);
+  }
+}

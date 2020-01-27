@@ -1,9 +1,11 @@
 .nav {
+
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     max-height: 120px;
+    z-index: 4;
   }
 
   &__item {
@@ -35,6 +37,37 @@
 
   &-mobile {
     display: none;
+    position: absolute;
+    height: 400px;
+    width: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+
+    background-color: $color-graphite;
+
+    &__list {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $color-white;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+    }
+
+    &__link {
+      @extend %link;
+    }
+  }
+
+  &__toggler {
+    display: none;
   }
 
   &__toggler-label {
@@ -42,22 +75,24 @@
     top: 42px;
     right: 40px;
     display: none;
-  }
-
-  &__toggler {
-    display: none;
-  }
-
-  &__toggler-label::before {
-    top: 0;
-    left: 0;
-    height: 12px;
-    background-image: url("../../images/action.svg");
-  }
-
-  &__toggler:checked ~ .nav__toggler-label::before {
     height: 18px;
-    background-image: url("../../images/close.svg");
-    z-index: 5;
+    width: 18px;
+    background-image: url("../../images/icons/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (max-width: 960px) {
+      display: block;
+    }
+  }
+
+  &__toggler:checked ~ .nav__toggler-label {
+    height: 18px;
+    background-image: url("../../images/icons/close.svg");
+    z-index: 3;
+  }
+
+  &__toggler:checked ~ .nav-mobile {
+    display: flex;
   }
 }
