@@ -1,0 +1,144 @@
+.service {
+  // position: relative;
+
+  height: 264px;
+  width: 264px;
+  padding: 0 32px;
+
+  background: $font-color;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__number {
+    display: inline-block ;
+    width: 46px;
+    height: 24px;
+
+    margin: 32px 0 24px;
+
+    font-family: $font-poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 2;
+    text-transform: uppercase;
+    text-align: center;
+
+    border-radius: 23px;
+
+    &--yellow {
+      background-color: rgba(252, 201, 29, 0.1);
+      color: #fcc91d;
+    }
+
+    &--blue {
+      background-color: rgba(86, 204, 242, 0.1);
+      color: #56ccf2;
+    }
+
+    &--green {
+      background-color: rgba(21, 216, 80, 0.1);
+      color: #15d850;
+    }
+
+    &--red {
+      background-color: rgba(243, 99, 99, 0.1);
+      color: #f36363;
+    }
+  }
+
+  &__list {
+    font-family: $font-opens;
+    font-size: 13px;
+    @extend %font-weight-ln;
+
+    color: $main-text;
+
+    white-space: nowrap;
+  }
+
+  &__button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 32px;
+
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    transition: scale 1s ease-in-out;
+
+    &--yellow {
+      background: #fcc91d;
+    }
+
+    &--blue {
+      background: #56ccf2;
+    }
+
+    &--green {
+      background: #15d850;
+    }
+
+    &--red {
+      background: #f36363;
+    }
+
+    &::after {
+      @extend %pseudo-absolute;
+
+      top: 50%;
+      right: 50%;
+      transform: translate( 50%, -50%);
+
+      height: 16px;
+      width: 16px;
+
+      @extend %position-center;
+      background-image: url("../images/features/Vector.svg");
+      background-size: cover;
+    }
+
+    &::before {
+      content: "Learn more";
+      position: absolute;
+
+      bottom: 50%;
+      left: 50%;
+      transform: translate(50%, 50%);
+
+      white-space: nowrap;
+      font-family: $font-poppins;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+
+      text-align: center;
+
+      color: #334563;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
+
+  }
+
+  &:nth-child(odd) {
+    transform: translateY(132px);
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+  .service {
+    margin: 15px auto;
+
+    &:nth-child(odd) {
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,169 @@
+.header {
+  position: relative;
+
+  height: 800px;
+  padding: 48px 20px 0;
+
+  color: $font-color;
+
+  border-bottom-left-radius: 200px;
+  background-color: $active-color;
+
+  @include mQ(1000px) {
+    height: 600px;
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+  }
+
+  &__logo {
+    width: 60px;
+    height: 28px;
+
+    margin-right: 64px;
+  }
+
+  &__nav {
+    margin: 0 auto 42px;
+  }
+
+  &__container {
+    display: flex;
+
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__block-text {
+    margin-top: 120px;
+
+    @include mQ(1000px) {
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    width: 490px;
+    height: 136px;
+    margin-bottom: 32px;
+
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+  }
+
+  &__text {
+    width: 460px;
+    height: 81px;
+    margin-bottom: 56px;
+
+    font-family: $font-opens;
+    font-size: 18px;
+    line-height: 150%;
+
+    @include mQ(980px) {
+      width: 360px;
+    }
+  }
+
+  &__button {
+    display: block;
+  }
+
+  &__slider {
+    @extend %pseudo-absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 43%;
+    min-width: 500px;
+    height: 680px;
+    border-top-left-radius: 200px;
+
+    background-image: url(../images/slider/slider_1.png);
+    background-size: cover;
+
+    @extend %position-center;
+
+    @include mQ(1000px) {
+      height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+
+    &__container {
+      width: 100%;
+    }
+
+    &__block-text {
+      margin-top: 4vh;
+      max-height: 80vh;
+      max-width: 90vw;
+
+      text-align: center;
+    }
+
+    &__title {
+      max-width: 300px;
+      display: inline-block;
+
+      font-size: $font-mobile-title;
+      white-space: wrap;
+    }
+
+    &__text {
+      display: inline-block;
+      max-width: calc(100vw - 20px);
+      font-size: $font-mobile-text;
+      white-space: normal;
+    }
+
+    &__button {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &__slider {
+      visibility: hidden;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) and (min-height: 900px) {
+  .header {
+
+    &__container {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__block-text {
+      max-width: 450px;
+      display: block;
+      margin: 10vh auto;
+    }
+
+    &__title {
+      max-width: 450px;
+      width: 100%;
+      font-size: 64px;
+    }
+
+    &__text {
+      width: 450px;
+      height: 150px;
+
+      font-size: 24px;
+      text-align: justify;
+    }
+  }
+}

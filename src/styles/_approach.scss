@@ -1,0 +1,167 @@
+.approach {
+  width: 90%;
+  height: 976px;
+
+  @include mQ(768px) {
+    height: 100%;
+    width: 100vw;
+  }
+
+  @include mQ(1024px) {
+    height: 100%;
+    width: 100vw;
+  }
+
+  margin: 0 auto;
+  margin-right: 0;
+
+  border-bottom-left-radius: 200px;
+  border-top-left-radius: 200px;
+  background-color: $hover-color;
+
+  position: relative;
+
+  // @include mQ(1000px) {
+  //   width: 100%;
+  //   height: 800px;
+  // }
+
+  &__wrapper {
+    margin: 0 auto;
+    padding-top: 200px;
+
+    @include mQ(768px) {
+      padding: 10vh 2vw;
+    }
+
+    @include mQ(1024px) {
+      padding: 10vh 2vw;
+    }
+  }
+
+  &__block-text {
+    display: inline-block;
+    max-width: 362px;
+
+    margin-left: 10vw;
+
+    @include mQ(800px) {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  &__decor-text {
+    @extend %decor-text;
+    color: $font-color;
+  }
+
+  &__subtitle {
+    margin-bottom: 32px;
+
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  &__paragraph {
+    position: relative;
+    width: 264px;
+
+    margin-left: 98px;
+
+    font-family: $font-opens;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+
+    &--1::before {
+      @include pseudo-svg("../images/features/icon-1.svg");
+    }
+
+    &--2::before {
+      @include pseudo-svg("../images/features/icon-2.svg");
+    }
+
+    &--3:before {
+      @include pseudo-svg("../images/features/icon-3.svg");
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
+  }
+
+  &__image {
+    @extend %pseudo-absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 65%;
+    border-top-left-radius: 200px;
+    background-image: url("../images/features/features-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include mQ(800px) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .approach {
+    height: 100%;
+
+    &__wrapper {
+      padding: 5vh 2vw;
+    }
+
+    &__block-text {
+      width: 100%;
+
+      margin-top: 7vh;
+    }
+
+    &__paragraph {
+      width: 200px;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .approach {
+    width: 100vw;
+    height: 100%;
+    margin: 0 auto;
+
+    position: static;
+
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+
+    &__wrapper {
+      padding: 10vh 2vw;
+    }
+
+    &__block-text {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &__paragraph {
+      max-width: 100%;
+
+      margin-left: 100px;
+    }
+
+    &__image {
+      display: none;
+    }
+  }
+}

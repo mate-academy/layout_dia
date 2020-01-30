@@ -4,3 +4,86 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin button-focus-hover {
+  @include hover(background-color, $font-color);
+  @include hover(color, $active-color);
+  @include hover(box-shadow, inset 0 0 5px $hover-color);
+}
+
+@mixin pseudo-svg($_img-src) {
+  @extend %pseudo-absolute;
+  top: 14px;
+  left: -96px;
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+  background-color: $font-color;
+  background-image: url("#{$_img-src}");
+  @extend %position-center;
+  background-size: cover;
+}
+
+@mixin pseudo-quotes($_img) {
+  @extend %pseudo-absolute;
+  right: 113px;
+  top: -20px;
+
+  width: 19px;
+  height: 20px;
+  background-image: url($_img);
+  @extend %position-center;
+  background-size: contain;
+}
+
+@mixin before-img($_bg-param) {
+  @extend %pseudo-absolute;
+  width: 139px;
+  height: 56px;
+
+  top: 0;
+  left: -50px;
+
+  background: $_bg-param;
+  border-radius: 500px;
+  transform: rotate(-60deg);
+
+  z-index: 1;
+}
+
+@mixin after-img($_bg-param) {
+  @extend %pseudo-absolute;
+  width: 139px;
+  height: 56px;
+
+  bottom: 0;
+  right: -50px;
+
+  background: $_bg-param;
+  border-radius: 500px;
+  transform: rotate(-60deg);
+
+  z-index: 1;
+}
+
+@mixin decor-box($_width, $_height, $_top, $_left, $_border) {
+  @extend %pseudo-absolute;
+  left: $_left;
+  top: $_top;
+
+  width: $_width;
+  height: $_height;
+
+  border: $_border;
+  border-radius: 500px;
+  opacity: 0.5;
+  transform: rotate(-65.1deg);
+}
+
+@mixin mQ($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+
+}
