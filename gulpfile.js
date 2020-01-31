@@ -32,13 +32,6 @@ gulp.task('processHtml', function() {
     .pipe(gulpHtmllint({
       config: './node_modules/@mate-academy/htmllint-config/.htmllintrc',
     }, function(filepath, issues) {
-      issues.forEach(function(issue) {
-        const { line, column, code, msg } = issue;
-        console.log(
-          ` ❌   ${colors.red('htmllint error')}
-          📁  file: ${filepath}
-          🖊️ [line: ${line}, column: ${column}]: (${code}) - ${msg}`);
-      });
     }))
     .pipe(gulp.dest(distDirectory));
 });
