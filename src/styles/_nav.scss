@@ -10,23 +10,27 @@
       margin-right: 318px;
     }
   }
-  &__link {
-    transition: color 0.3s;
-    &:hover {
-      color: $c-pink;
-    }
-  }
 
-  &__link--active {
+  &__link {
     position: relative;
+    transition: color 0.3s;
     &::after {
       content: "";
       display: block;
-      width: 100%;
+      width: 0%;
       height: 2px;
       background-color: $c-pink;
       position: absolute;
       bottom: -8px;
+      transition: width 0.3s;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
