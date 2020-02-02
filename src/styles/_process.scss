@@ -1,17 +1,35 @@
 .process {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
+  max-width: 1150px;
+  margin: auto;
 
+  @media (max-width: 910px) {
+    align-items: center;
+    flex-direction: column;
+  }
+  
   &__cards {
     display: grid;
     grid-template-columns: repeat(2, 264px);
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+
+    @media (max-width: 670px) {
+      grid-template-columns: 264px
+    }
   }
 }
 
 .info {
   max-width: 362px;
+  margin-bottom: 20px;
+
+  @media (max-width: 910px) {
+    max-width: 600px;
+  }
 
   &__title {
     font-family: Poppins;
@@ -56,6 +74,10 @@
   &:nth-child(1),
   &:nth-child(3) {
     transform: translateY(140px);
+
+    @media (max-width: 910px) {
+      transform: translateY(0);
+    }
   }
 
   &__number {
@@ -79,14 +101,17 @@
     }
   }
 
-  &__text {
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    list-style-type: none;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
-
-    margin-bottom: 32px;
   }
 
   &__button-box {
