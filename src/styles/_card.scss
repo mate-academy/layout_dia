@@ -58,6 +58,10 @@
     border-radius: 50%;
     cursor: pointer;
 
+    &:focus {
+      outline: 0;
+    }
+
     &::after {
       content: "Learn more";
       position: absolute;
@@ -76,11 +80,15 @@
       transition: box-shadow 0.4s ease-in-out,
         color 0.4s ease-in-out,
         background-color 0.4s ease-in-out;
+
     }
 
     &:hover::after {
-      width: 100%;
-      background-color: rgba(32, 96, 246, 0.1);
+      @include card-hover-focus;
+    }
+
+    &:focus::after {
+      @include card-hover-focus;
     }
 
   }
