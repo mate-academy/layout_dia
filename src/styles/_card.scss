@@ -1,0 +1,103 @@
+.card {
+  position: relative;
+  width: 264px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  padding: 32px;
+  &:nth-child(odd) {
+    transform: translateY(150px);
+  }
+
+  &:nth-child(3) {
+    z-index: $z-index-feature-card;
+  }
+
+  &__num {
+    display: block;
+    width: 46px;
+    height: 24px;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #2060f6;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+    margin-bottom: 26px;
+  }
+
+  &__text {
+    width: 200px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+
+    &:nth-child(5) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+
+    width: 40px;
+    height: 40px;
+
+    background-image: url(../images/process/process-arrow.svg);
+    background-color: #2060f6;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &::after {
+      content: "Learn more";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      min-width: 143px;
+      padding: 0 25px;
+
+      @include button-typography;
+      color: #334563;
+      line-height: 40px;
+      text-align: center;
+
+      border-radius: 25px;
+      transition: box-shadow 0.4s ease-in-out,
+        color 0.4s ease-in-out,
+        background-color 0.4s ease-in-out;
+
+    }
+
+    &:hover::after {
+      @include card-hover-focus;
+    }
+
+    &:focus::after {
+      @include card-hover-focus;
+    }
+
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .card {
+    &:nth-child(odd) {
+      transform: translateY(0);
+    }
+  }
+}
