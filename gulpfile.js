@@ -34,6 +34,7 @@ gulp.task('processHtml', function() {
     }, function(filepath, issues) {
       issues.forEach(function(issue) {
         const { line, column, code, msg } = issue;
+        // eslint-disable-next-line no-console
         console.log(
           ` ❌   ${colors.red('htmllint error')}
           📁  file: ${filepath}
@@ -71,7 +72,7 @@ gulp.task('processStyles', series('lintCss', function() {
     .pipe(sass())
     .pipe(gulpReplacePath(/(?:\.\.\/){2,}images/g, '../images'))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      overrideBrowserslist: ['last 2 versions'],
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${distDirectory}/styles`))
