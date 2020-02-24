@@ -1,0 +1,104 @@
+.advantage-card {
+  background-color: $c-bg-white;
+  box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.02);
+  position: relative;
+  z-index: 1;
+
+  &:nth-of-type(2n) {
+    top: 48px;
+  }
+
+  &:nth-of-type(2n+1) {
+    top: 160px;
+  }
+
+  @media screen and (max-width: 750px) {
+    & {
+      &:nth-of-type(n) {
+        top: 160px;
+      }
+    }
+  }
+
+  &__rank {
+    position: absolute;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 150%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4px;
+    top: 64px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: black;
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    left: 50%;
+    top: 48px;
+    transform: translate(-50%);
+  }
+
+  &--blue::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      linear-gradient(0deg, #56ccf2, #56ccf2),
+      #c4c4c4;
+    opacity: 0.1;
+  }
+
+  &--blue .advantage-card__rank {
+    color: #56ccf2;
+  }
+
+  &--yellow::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #fcc304;
+    opacity: 0.1;
+  }
+
+  &--yellow .advantage-card__rank {
+    color: #fcc304;
+  }
+
+  &--green::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      linear-gradient(0deg, #03d542, #03d542),
+      #c4c4c4;
+    opacity: 0.1;
+  }
+
+  &--green .advantage-card__rank {
+    color: #03d542;
+  }
+
+  &--red::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #f25656;
+    opacity: 0.1;
+  }
+
+  &--red .advantage-card__rank {
+    color: #f25656;
+  }
+
+  &__description {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 150%;
+    color: $c-text-black;
+    text-align: center;
+    margin: 130px 32px 50px;
+  }
+}
