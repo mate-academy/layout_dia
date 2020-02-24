@@ -1,0 +1,98 @@
+.nav {
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 120px;
+    z-index: 4;
+  }
+
+  &__item {
+    margin-right: 32px;
+  }
+
+  &__link,
+  &-mobile__link {
+    position: relative;
+    @extend %link;
+
+    &::after {
+      @include nav-link-after-element;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:visited {
+      color: $color-gray;
+    }
+
+    &:hover::after,
+    &:active::after,
+    &:focus::after {
+      transform: scale(1);
+    }
+  }
+
+  &-mobile {
+    display: none;
+    position: absolute;
+    height: 400px;
+    width: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+
+    background-color: $color-graphite;
+
+    &__list {
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $color-white;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__toggler-label {
+    position: absolute;
+    top: 42px;
+    right: 40px;
+    display: none;
+    height: 18px;
+    width: 18px;
+    background-image: url("../../images/icons/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (max-width: 770px) {
+      display: block;
+    }
+  }
+
+  &__toggler:checked ~ .nav__toggler-label {
+    height: 18px;
+    background-image: url("../../images/icons/close.svg");
+    z-index: 3;
+  }
+
+  &__toggler:checked ~ .nav-mobile {
+    display: flex;
+    height: 400px;
+    background-color: $color-graphite;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,127 @@
+.process {
+  margin: 0 auto;
+  max-width: 1600px;
+
+  &__wraper {
+    max-width: 1146px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 558px));
+    grid-gap: 30px;
+    background-color: $color-gray-blue;
+
+    @media screen and (max-width: 1200px) {
+      padding: 40px;
+      justify-content: center;
+    }
+  }
+
+  &__info {
+    min-width: 270px;
+    width: 100%;
+    align-self: center;
+  }
+
+  &__title-link {
+    color: $color-gray-metal;
+  }
+
+  &__title {
+    max-width: 350px;
+    margin-bottom: 24px;
+    color: $color-text-dark;
+    @extend %title-h3-lower;
+  }
+
+  &__text {
+    max-width: 360px;
+    margin-bottom: 16px;
+    @extend %text;
+  }
+
+  &__cards {
+    padding: 148px 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 264px);
+    grid-template-rows: repeat(auto-fill, 264px);
+    grid-gap: 30px;
+
+    @media screen and (max-width: 1200px) {
+      padding: 0;
+    }
+
+    @media screen and (max-width: 640px) {
+      justify-content: center;
+    }
+  }
+
+  &__card {
+    padding: 32px;
+    border-radius: 16px;
+    background-color: $color-white;
+    z-index: 1;
+
+    &--lower {
+      transform: translateY(50%);
+
+      @media screen and (max-width: 1200px) {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &-card__number {
+    margin-bottom: 24px;
+    padding: 2px 12px;
+    display: inline-block;
+    border-radius: 23px;
+    color: $color-blue;
+    background-color: rgba($color-blue, 0.1);
+    @extend %title-h6;
+  }
+
+  &-card__list {
+    margin-bottom: 32px;
+  }
+
+  &-card__list-item {
+    @extend %text-small;
+  }
+
+  &-card__btn {
+    position: relative;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: $color-text-darker;
+    outline: none;
+    @extend %text-btn;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      height: 32px;
+      width: 32px;
+      background-color: $color-blue;
+      border-radius: 50%;
+      background-image: url("../../images/arrow.svg");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      &::before {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
