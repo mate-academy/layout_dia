@@ -1,0 +1,139 @@
+@import "./utils";
+
+.testimonials {
+  position: relative;
+  padding: 148px 0 168px;
+
+  @media (max-width: 1024px) {
+    padding: 228px 0 68px;
+  }
+
+  @media (max-width: 998px) {
+    padding-top: 100px;
+  }
+
+  &__container {
+    @include flex (space-between, center, wrap);
+    padding-top: 85px;
+
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    margin: 0 auto 18px;
+    max-width: 768px;
+    color: $text-dark;
+    position: relative;
+
+    &::before {
+      content: "\201F";
+      font-size: 70px;
+      transform: rotate(180deg)  scale(-1, 1) translateX(-50%);
+      position: absolute;
+      top: -45px;
+      left: 50%;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  &__card {
+    flex-basis: 314px;
+    padding: 32px;
+    padding-top: 60px;
+    background: $main-light;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+    text-align: center;
+
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__img-box {
+    position: relative;
+    margin-bottom: 56px;
+    padding: 46px 36px;
+    display: inline-block;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: 56px;
+      height: 140px;
+      border-radius: 28px;
+      transform: rotate(30deg);
+    }
+
+    &::before {
+      top: 0;
+      left: 25px;
+
+    }
+
+    &::after {
+      bottom: 0;
+      right: 25px;
+
+    }
+
+  }
+
+  &__card:nth-child(1) &__img-box::before,
+  &__card:nth-child(1) &__img-box::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #56ccf2;
+  }
+
+  &__card:nth-child(2) &__img-box::before,
+  &__card:nth-child(2) &__img-box::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #fcc304;
+  }
+
+  &__card:nth-child(3) &__img-box::before,
+  &__card:nth-child(3) &__img-box::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      #f25656;
+  }
+
+  &__card:nth-child(1) &__text::before {
+    color: #56ccf2;
+  }
+
+  &__card:nth-child(2) &__text::before {
+    color: #fcc304;
+  }
+
+  &__card:nth-child(3) &__text::before {
+    color: #f25656;
+  }
+
+  &__img {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+}

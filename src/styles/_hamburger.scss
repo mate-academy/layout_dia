@@ -1,0 +1,63 @@
+@import "./utils";
+
+.header__hamburger {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  margin-left: -15px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.hamburger {
+  width: 30px;
+  height: 4px;
+  display: block;
+  background: $main-light;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+
+  &::after,
+  &::before {
+    content: "";
+    width: 30px;
+    height: 4px;
+    background: $main-light;
+    border-radius: 2px;
+    position: absolute;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  &::before {
+    top: -8px;
+  }
+
+  &::after {
+    top: 8px;
+  }
+}
+
+.menu--open .hamburger {
+  background: transparent;
+
+  &::before {
+    transform: rotate(45deg) translate(-50%, -50%);
+    transform-origin: -8px 24px;
+    width: 40px;
+  }
+
+  &::after {
+    transform: rotate(-45deg) translate(-50%, -50%);
+    transform-origin: 4px -18px;
+    width: 40px;
+  }
+}

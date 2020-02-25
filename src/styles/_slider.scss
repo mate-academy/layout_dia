@@ -1,0 +1,163 @@
+@import "./utils";
+
+.slider {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 686px;
+  overflow: hidden;
+  border-top-left-radius: 200px;
+
+  @media (min-width: 2000px) {
+    width: 46%;
+  }
+
+  @media (max-width: 1200px) {
+    width: 606px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 506px;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 100%;
+    height: 400px;
+    border-top-left-radius: 0;
+  }
+
+  @media (max-width: 400px) {
+    display: none;
+  }
+
+  &__info {
+    @include text-style;
+    position: absolute;
+    bottom: 48px;
+    left: 144px;
+    z-index: 1;
+    max-width: 264px;
+
+    @media (max-width: 768px) {
+      left: 40px;
+      bottom: 58px;
+      max-width: 180px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 8px;
+    @include title-style;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: calc( 800px - 114px);
+    object-fit: cover;
+
+    @media (min-width: 2000px) {
+      height: 70vh;
+    }
+
+    @media (max-height: 800px) {
+      height: calc( 100vh - 114px);
+    }
+
+    @media (max-width: 1024px) {
+      height: calc( 800px - 280px);
+    }
+
+    @media (max-width: 1024px) and (max-height: 800px) {
+      height: calc( 100vh - 280px);
+    }
+
+    @media (max-width: 1024px) and (max-height: 450px) {
+      height: calc( 600px - 280px);
+    }
+
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+  }
+}
+
+.slick-arrow {
+  background: $main-light;
+  border: none;
+  position: absolute;
+  bottom: 66px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 0;
+  z-index: 1;
+  background-position: center center;
+  -webkit-background-size: auto;
+  background-size: auto;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 0 $text-dark;
+  @include hover(box-shadow, 0.3s);
+
+  @media (max-width: 768px) {
+    bottom: auto;
+    top: 30px;
+  }
+
+  &:hover {
+    background-color: $light-accent;
+  }
+
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: 0 5px 0 0 $text-dark;
+  }
+}
+
+.slick-prev {
+  background-image: url(../images/slider/arrow-right.svg);
+  left: 48px;
+}
+
+.slick-next {
+  background-image: url(../images/slider/arrow-right.svg);
+  transform: rotate(180deg);
+  left: 88px;
+
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: 0 -5px 0 0 $text-dark;
+  }
+
+}

@@ -1,0 +1,180 @@
+@import "./utils";
+
+.process {
+  padding-top: 128px;
+  padding-bottom: 44px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    padding-top: 60px;
+  }
+
+  &__container {
+    @include flex(space-between, center, wrap);
+  }
+
+  &__info {
+    max-width: 30%;
+    text-align: left;
+    align-self: stretch;
+    @include flex(center, flex-start, wrap);
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      max-width: initial;
+    }
+  }
+
+  &__text {
+    max-width: 75%;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    color: $text-dark;
+    margin-bottom: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+    @media (max-width: 450px) {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__grid {
+    max-width: 558px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 30px;
+
+    grid-template-areas: ". b "
+      "a b "
+      "a d "
+      "c d "
+      "c . ";
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      width: 100%;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-areas: "a b "
+        "a b "
+        "c d "
+        "c d ";
+    }
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+  }
+
+  &__card {
+    background: $main-light;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+    padding: 80px 32px 32px;
+    position: relative;
+
+    @media (max-width: 600px) {
+      max-width: 300px;
+      margin: auto;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:nth-child(1) {
+      grid-area: a;
+    }
+
+    &:nth-child(2) {
+      grid-area: b;
+    }
+
+    &:nth-child(3) {
+      grid-area: c;
+    }
+
+    &:nth-child(4) {
+      grid-area: d;
+    }
+
+    &::before {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      border-radius: 12px;
+      padding: 0 12px;
+      line-height: 24px;
+
+    }
+
+    @each $color in $colors {
+      $i: index($colors, $color);
+      &:nth-child(#{$i})::before {
+        content: "#{'00'+$i}";
+        color: $color;
+      }
+    }
+
+    @each $color in $transparent-colors {
+      $i: index($transparent-colors, $color);
+      &:nth-child(#{$i})::before {
+        background-color: $color;
+      }
+    }
+
+    @each $color in $colors {
+      $i: index($colors, $color);
+      &:nth-child(#{$i}) .process__btn::before {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    border: none;
+    position: relative;
+    @include title-style;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: left;
+    color: $main-dark;
+    background: transparent;
+    padding: 0 20px 0 56px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: block;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      @include bg-contain(url(../images/icons/arrow-right.svg));
+      background-size: auto;
+      @include hover(transform, 0.3s);
+    }
+
+    &:hover::before {
+      transform: scale(1.2);
+      background-size: 36%;
+    }
+  }
+
+  @each $color in $transparent-colors {
+    $i: index($transparent-colors, $color);
+    &__card:nth-child(#{$i}) &__btn:active ,
+    &__card:nth-child(#{$i}) &__btn:focus {
+      background-color: $color;
+    }
+  }
+}

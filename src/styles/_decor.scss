@@ -1,0 +1,72 @@
+@import "./utils";
+
+.decor {
+  background: $main-light;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  @media (max-width: 998px) {
+    display: none;
+  }
+
+  &__item {
+    display: block;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
+    transform: rotate(25deg);
+    width: 30px;
+    height: 80px;
+    border-radius: 15px;
+    animation: scale-up-center 1.3s
+      cubic-bezier(0.6, -0.28, 0.73, 0.04) infinite  backwards;
+
+    @each $color in $colors {
+      $i: index($colors, $color);
+
+      &:nth-child(#{$i+8}),
+      &:nth-child(#{$i+4}),
+      &:nth-child(#{$i}) {
+        border-color: $color;
+      }
+    }
+
+    @each $top in $top-position {
+      $i: index($top-position, $top);
+      &:nth-child(#{$i}) {
+        top: $top;
+        animation-delay: calc(0.5s * (#{$i}));
+      }
+    }
+
+    @each $left in $left-position {
+      $i: index($left-position, $left);
+      &:nth-child(#{$i}) {
+        left: $left;
+      }
+    }
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5) rotate(22deg);
+    transform: scale(0.5) rotate(22deg);
+  }
+
+  50% {
+    -webkit-transform: scale(1) rotate(25deg);
+    transform: scale(1) rotate(25deg);
+  }
+
+  100% {
+    -webkit-transform: scale(0.5) rotate(22deg);
+    transform: scale(0.5) rotate(22deg);
+  }
+}
