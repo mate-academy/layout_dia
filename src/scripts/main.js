@@ -1,9 +1,11 @@
 'use strict';
 
+const menu = document.getElementById('menu');
+
+menu.addEventListener('click', onClickMenu);
+
 function onClickMenu() {
-  document.getElementById('menu').classList.toggle('change');
+  menu.classList.toggle('change');
   document.getElementById('nav').classList.toggle('change');
   document.getElementById('menu-bg').classList.toggle('change-bg');
 }
-
-onClickMenu();
