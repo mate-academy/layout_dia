@@ -1,0 +1,95 @@
+.expertise {
+  padding: 130px 0;
+  background-color: $c-white;
+
+  &__title {
+    @include font-style(600, 52px, 150%);
+    color: $c-text-heading;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 265px);
+    justify-content: space-around;
+    padding: 0 5%;
+  }
+}
+
+.card__front {
+  border-radius: 20px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transform: perspective(600px) rotateY(0deg);
+  transition: transform 0.6s linear;
+  cursor: pointer;
+
+  &__image {
+    object-fit: cover;
+    width: 265px;
+    height: 338px;
+  }
+}
+
+.card__back {
+  text-align: center;
+  backface-visibility: hidden;
+  transform: perspective(600px) rotateY(180deg);
+  transition: transform 0.6s linear;
+  cursor: pointer;
+
+  &__image {
+    width: 166px;
+    height: 166px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+  }
+
+  &__name {
+    @include font-style(600, 20px, 140%);
+    margin-bottom: 16px;
+    color: $c-text-heading;
+  }
+
+  &__text {
+    @include font-open_sans(normal, 14px, 150%);
+    color: $c-text;
+  }
+}
+
+.cards:hover > .card__front {
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.cards:hover > .card__back {
+  transform: perspective(600px) rotateY(0deg);
+}
+
+@media screen and (max-width: 999px) {
+  .expertise {
+
+    &__content {
+      grid-template-columns: repeat(1, 265px);
+      justify-content: center;
+      grid-gap: 120px;
+    }
+
+    &__title {
+      font-size: 35px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .card__front {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (min-width: 1699px) {
+  .expertise {
+    padding: 100px 15%;
+  }
+}
