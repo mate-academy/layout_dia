@@ -22,9 +22,9 @@ const next = document.querySelector('.slider__button--right');
 const previous = document.querySelector('.slider__button--left');
 
 const slides = [
-  'url(../images/slider/slide-img-1.png)',
-  'url(../images/slider/slide-img-2.png)',
-  'url(../images/slider/slide-img-3.png)',
+  'url(../images/slider/slide-img-1.jpg)',
+  'url(../images/slider/slide-img-2.jpg)',
+  'url(../images/slider/slide-img-3.jpg)',
 ];
 
 let currentSlide = 0;
