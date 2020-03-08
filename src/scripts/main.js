@@ -16,3 +16,38 @@ const menu = () => {
 };
 
 menu();
+
+const slider = document.querySelector('.slider');
+const next = document.querySelector('.slider__button--right');
+const previous = document.querySelector('.slider__button--left');
+
+const slides = [
+  `url('../images/slider/slide-img-1.png')`,
+  `url('../images/slider/slide-img-2.png')`,
+  `url('../images/slider/slide-img-3.png')`,
+];
+
+let currentSlide = 0;
+
+slider.style.backgroundImage = slides[currentSlide];
+
+function goToSlide(n) {
+  slider.style.backgroundImage = slides[currentSlide];
+  currentSlide = (n + slides.length) % slides.length;
+};
+
+// function nextSlide() {
+//   goToSlide(currentSlide + 1);
+// }
+
+// function previousSlide() {
+//   goToSlide(currentSlide - 1);
+// }
+
+next.onclick = () => {
+  goToSlide(currentSlide + 1);
+};
+
+previous.onclick = () => {
+  goToSlide(currentSlide - 1);
+};
