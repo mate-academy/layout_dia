@@ -32,22 +32,22 @@ let currentSlide = 0;
 slider.style.backgroundImage = slides[currentSlide];
 
 function goToSlide(n) {
-  slider.style.backgroundImage = slides[currentSlide];
   currentSlide = (n + slides.length) % slides.length;
+  slider.style.backgroundImage = slides[currentSlide];
 };
 
-// function nextSlide() {
-//   goToSlide(currentSlide + 1);
-// }
+function nextSlide() {
+  goToSlide(currentSlide + 1);
+}
 
-// function previousSlide() {
-//   goToSlide(currentSlide - 1);
-// }
+function previousSlide() {
+  goToSlide(currentSlide - 1);
+}
 
 next.onclick = () => {
-  goToSlide(currentSlide + 1);
+  nextSlide();
 };
 
 previous.onclick = () => {
-  goToSlide(currentSlide - 1);
+  previousSlide();
 };
