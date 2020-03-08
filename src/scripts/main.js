@@ -29,7 +29,7 @@ const slides = [
 
 let currentSlide = 0;
 
-slider.style.backgroundImage = slides[currentSlide];
+// slider.style.backgroundImage = slides[currentSlide];
 
 function goToSlide(n) {
   currentSlide = (n + slides.length) % slides.length;
