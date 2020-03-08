@@ -17,24 +17,8 @@ const menu = () => {
 
 menu();
 
-const slider = document.querySelector('.slider');
-const next = document.querySelector('.slider__button--right');
-const previous = document.querySelector('.slider__button--left');
-
-const slides = [
-  'url(../)',
-  'url(../images/slider/slide-img-2.jpg)',
-  'url(../images/slider/slide-img-3.jpg)',
-];
-
+const slider = document.querySelectorAll('.slider__list .slider__slide');
 let currentSlide = 0;
-
-// slider.style.backgroundImage = slides[currentSlide];
-
-function goToSlide(n) {
-  currentSlide = (n + slides.length) % slides.length;
-  slider.style.backgroundImage = slides[currentSlide];
-};
 
 function nextSlide() {
   goToSlide(currentSlide + 1);
@@ -44,10 +28,19 @@ function previousSlide() {
   goToSlide(currentSlide - 1);
 }
 
-next.onclick = () => {
+function goToSlide(n) {
+  slider[currentSlide].className = 'slider__slide';
+  currentSlide = (n + slider.length) % slider.length;
+  slider[currentSlide].className = 'slider__slide showing';
+}
+
+const next = document.querySelector('.slider__button--left');
+const previous = document.querySelector('.slider__button--right');
+
+next.onclick = function() {
   nextSlide();
 };
 
-previous.onclick = () => {
+previous.onclick = function() {
   previousSlide();
 };
