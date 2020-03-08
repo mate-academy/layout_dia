@@ -1,0 +1,68 @@
+.header {
+  position: relative;
+  height: 100vh;
+  padding-top: 52px;
+
+  background-color: $blue-color;
+  border-radius: 0 0 0 200px;
+  &__nav {
+    display: flex;
+  }
+  &__link {
+    margin-right: 64px;
+  }
+  &__button {
+    display: none;
+    position: relative;
+
+    width: 20px;
+    height: 2px;
+    background-color: $carrot-color;
+
+    margin-bottom: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: $carrot-color;
+      bottom: 5px;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: $carrot-color;
+      top: 5px;
+      left: 0;
+    }
+    &--active {
+      background-color: transparent;
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+        transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: 0;
+        transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+      }
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .header {
+    &__button {
+      position: absolute;
+      top: 50px;
+      display: block;
+      z-index: 2;
+    }
+    &__link {
+      display: none;
+    }
+  }
+}
