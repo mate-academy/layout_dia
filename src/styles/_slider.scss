@@ -7,9 +7,6 @@
   bottom: 0;
   width: 42vw;
   height: 680px;
-  background-image: url(../images/slider/slider-img.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   border-top-left-radius: 200px;
   color: $color-white;
 
@@ -18,6 +15,47 @@
     height: 200px;
     border-radius: 10px;
     bottom: -40px;
+  }
+
+  &__img {
+    border-top-left-radius: 200px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    transition: opacity 300ms linear;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (max-width: 980px) {
+      width: 100vw;
+      height: 200px;
+      border-radius: 10px;
+      bottom: -40px;
+    }
+  }
+
+  &__img-0 {
+    background-image: url(../images/slider/slider-img.jpg);
+  }
+
+  &__img-1 {
+    background-image: url(../images/slider/slider-img1.png);
+  }
+
+  &__img-2 {
+    background-image: url(../images/slider/slider-img2.png);
+  }
+
+  &__img-acive {
+    opacity: 1;
+  }
+
+  &__img-hidden {
+    opacity: 0;
   }
 
   &__wrapper {
@@ -33,7 +71,7 @@
       bottom: 8px;
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
       width: 300px;
     }
 
@@ -44,27 +82,24 @@
 
   &__arrows {
     height: 32px;
-  }
-
-  &__left-arrow {
-    @include slider-arrow;
-    background-image: url(../images/slider/left-arrow.png);
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 8px;
     transition: border 300ms linear;
+  }
+
+  &__arrows-left {
+    @include slider-arrow;
+    background-image: url(../images/slider/left-arrow.png);
+    margin-right: 8px;
 
     &:hover {
       border: rgba(37,55,87,0.7) solid 1px;
     }
   }
 
-  &__right-arrow {
+  &__arrows-right {
     @include slider-arrow;
     background-image: url(../images/slider/right-arrow.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: border 300ms linear;
 
     &:hover {
       border: rgba(37,55,87,0.7) solid 1px;
