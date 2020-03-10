@@ -4,11 +4,31 @@ const burgerButton = document.querySelector('.header__burger');
 const menuCross = document.querySelector('.mobile-menu__cross');
 const mobileMenu = document.querySelector('.mobile-menu');
 const navBar = document.querySelector('.header__nav-bar');
-
+const learnMoreButton = document.querySelector('.header__button');
 const links = document.querySelectorAll('.mobile-menu__link');
+const applyButton = document.querySelector('.vision__button');
+const form = document.querySelector('.footer__form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
 
 burgerButton.addEventListener('click', () => {
   mobileMenu.classList.toggle('mobile-menu--open');
+});
+
+applyButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 6500,
+    behavior: 'smooth',
+  });
+});
+
+learnMoreButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 800,
+    behavior: 'smooth',
+  });
 });
 
 menuCross.addEventListener('click', () => {
