@@ -1,0 +1,130 @@
+.nav {
+  width: 100%;
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    cursor: pointer;
+    margin: 0 3%;
+    @include text-prop;
+    @include hover (opacity, 0.8);
+
+    &-active {
+      position: relative;
+      transition: width 2s;
+
+      &::after {
+        @include active-link;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      opacity: 0.8;
+    }
+
+    &:active {
+      position: relative;
+
+      &::after {
+        @include active-link;
+      }
+    }
+  }
+
+  & .nav__item:first-child {
+    margin-left: 6%;
+  }
+
+  & .nav__item:last-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  &__link {
+    @include text-prop;
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus::after {
+      @include active-link;
+    }
+  }
+}
+
+@media (max-width: 890px) {
+  .nav {
+
+    &__item {
+      height: 50px;
+      margin: 0;
+      font-size: 22px;
+      padding-left: 6%;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #fff;
+      transition: background-color 0.2s 0.2s;
+      &-active::after {
+        display: none;
+      }
+
+      &:active::after {
+        display: none;
+      }
+    }
+
+    &__link {
+      font-size: 22px;
+    }
+
+    & .nav__item:first-child {
+      margin-left: 0;
+      padding-bottom: 0;
+      padding-top: 20px;
+      height: 70px;
+      border-top: 1px solid #fff;
+    }
+
+    & .nav__item:last-child {
+      height: 50px;
+      margin-left: 0;
+    }
+
+    &__list {
+      position: absolute;
+      left: 0;
+      top: -115px;
+      z-index: 2;
+      width: 100vw;
+      height: 390px;
+      flex-direction: column;
+      align-items: space-between;
+      justify-content: space-between;
+      background: rgb(0, 123, 231);
+      animation: toggle 0.2s ease-in-out forwards;
+    }
+  }
+}
+
+@media (min-width: 2900px) {
+  .header {
+    padding: 0 30%;
+  }
+}
+
+@keyframes toggle {
+  from {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(55%);
+  }
+}
