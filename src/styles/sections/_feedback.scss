@@ -1,0 +1,138 @@
+.feedback {
+  margin-top: 148px;
+
+  &__wrapper {
+    max-width: 1146px;
+    margin: auto;
+  }
+
+  &__caption {
+    @include caption($c-gray);
+  }
+
+  &__title {
+    margin: 16px 0 85px;
+    @include title($c-dark-blue, 150%);
+  }
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+
+    &-photo {
+      position: relative;
+      border-radius: 50%;
+      transform: scale(1);
+      transition: transform 0.5s ease;
+    }
+
+    &-article {
+      width: 314px;
+      background: #fff;
+      box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+      border-radius: 24px;
+      padding: 87px 32px 32px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+
+      &:hover .feedback__section-photo {
+        transform: scale(1.2);
+        transition: transform 0.5s ease;
+        box-shadow: 4px 3px 13px #253757;
+      }
+    }
+
+    &-rect {
+      width: 139px;
+      height: 56px;
+      border-radius: 500px;
+      transform: rotate(-60deg);
+      position: absolute;
+
+      &--blue {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #56ccf2;
+      }
+
+      &--yellow {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #fcc304;
+      }
+
+      &--red {
+        background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          #f25656;
+      }
+
+      &--right {
+        position: absolute;
+        right: 30px;
+        top: 175px;
+      }
+    }
+
+    &-quote {
+      display: block;
+      margin: 82px auto 11px;
+    }
+
+    &-text {
+      @include content(inherit, 13px, $c-dark);
+    }
+
+    &-name {
+      @include content(inherit, 13px, $c-dark-blue);
+      margin: 16px 0 4px;
+    }
+
+    &-caption {
+      @include caption($c-gray);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .feedback {
+    &__wrapper {
+      margin: 0 30px;
+    }
+
+    &__section {
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      &-article:not(:last-of-type) {
+        margin-right: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1043px) {
+  .feedback {
+    margin-top: 90px;
+
+    &__section {
+      &-article {
+        margin-bottom: 45px;
+      }
+    }
+  }
+}
+
+@media (max-width: 999px) {
+  .feedback {
+    &__section {
+      &-article:not(:last-of-type) {
+        margin-right: 0;
+      }
+    }
+  }
+}
