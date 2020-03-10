@@ -1,0 +1,79 @@
+@import "utils";
+@import "utils/vars";
+
+.approach-card {
+  max-width: 362px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 64px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #fff;
+    border-radius: 30px;
+    z-index: -1;
+    transition: width 300ms linear, height 300ms linear;
+  }
+
+  &__text {
+    max-width: 264px;
+    font-family: $font-family-text;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fff;
+    transition: color 200ms linear;
+
+    @media screen and (max-width: 500px) {
+      text-align: center;
+    }
+  }
+
+  &:hover .approach-card__text {
+    color: $content-button-after-background;
+  }
+
+  &:hover::after {
+    width: 115%;
+    height: 115%;
+  }
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 30px;
+    position: relative;
+
+    @media screen and (max-width: 500px) {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__icon-img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+}

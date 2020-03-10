@@ -1,0 +1,129 @@
+@import "utils";
+@import "utils/vars";
+
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 42vw;
+  height: 680px;
+  border-top-left-radius: 200px;
+  color: $color-white;
+
+  @media screen and (max-width: 980px) {
+    width: 100vw;
+    height: 200px;
+    border-radius: 10px;
+    bottom: -40px;
+  }
+
+  &__img {
+    border-top-left-radius: 200px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    transition: opacity 300ms linear;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media screen and (max-width: 980px) {
+      width: 100vw;
+      height: 200px;
+      border-radius: 10px;
+      bottom: -40px;
+    }
+  }
+
+  &__img-0 {
+    background-image: url(../images/slider/slider-img.jpg);
+  }
+
+  &__img-1 {
+    background-image: url(../images/slider/slider-img1.png);
+  }
+
+  &__img-2 {
+    background-image: url(../images/slider/slider-img2.png);
+  }
+
+  &__img-acive {
+    opacity: 1;
+  }
+
+  &__img-hidden {
+    opacity: 0;
+  }
+
+  &__wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 364px;
+    left: 48px;
+    bottom: 66px;
+
+    @media screen and (max-width: 980px) {
+      bottom: 8px;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 300px;
+    }
+
+    @media screen and (max-width: 340px) {
+      left: 20px;
+    }
+  }
+
+  &__arrows {
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: border 300ms linear;
+  }
+
+  &__arrows-left {
+    @include slider-arrow;
+    background-image: url(../images/slider/left-arrow.png);
+    margin-right: 8px;
+
+    &:hover {
+      border: rgba(37,55,87,0.7) solid 1px;
+    }
+  }
+
+  &__arrows-right {
+    @include slider-arrow;
+    background-image: url(../images/slider/right-arrow.png);
+
+    &:hover {
+      border: rgba(37,55,87,0.7) solid 1px;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-links-heading;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-family: $font-family-text;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    width: 264px;
+
+    @media screen and (max-width: 500px) {
+      width: 200px;
+    }
+  }
+}
