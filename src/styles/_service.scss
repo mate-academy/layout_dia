@@ -1,0 +1,98 @@
+@import "./utils";
+
+.service {
+  background-color: #fff;
+  color: $text-color;
+  padding: 40px 0 100px;
+
+  &__header {
+    margin-bottom: 80px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 48px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    max-width: 264px;
+    text-align: center;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 120px;
+    }
+  }
+
+  &__name {
+    margin: 64px 0 32px;
+    font-weight: 900;
+    font-size: 20px;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: normal;
+    font-size: 16px;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &__photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .service {
+    &__cards {
+      max-width: 700px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+        margin-right: 0;
+      }
+
+      &:first-child {
+        margin-right: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .service {
+    &__cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 80px;
+        margin-right: 0;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@import "./utils";
+
+.process {
+  
+  background-color: #fff;
+  margin-bottom: -150px;
+
+  &__wrapper {
+    background-color: $c-gray;
+    margin: 0 auto;
+    padding: 160px 40px 0;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    color: $text-color;
+  }
+
+  &__info {
+    max-width: 362px;
+  }
+
+  &__title {
+    @include article_title;
+  }
+
+  &__header {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 140%;
+  }
+
+  &__text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 240px 240px;
+    grid-template-rows: repeat(2, 360px);
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+    max-width: 500px;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    padding: 60px 32px 40px;
+    width: 240px;
+    height: 256px;
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:nth-child(2n+1) {
+      margin-right: 20px;
+      align-self: flex-end;
+    }
+  }
+
+  &__number {
+    display: block;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 150%;
+    position: relative;
+
+    &--one {
+      @include number_before($theme-color);
+      color: $theme-color;
+    }
+
+    &--two {
+      @include number_before(#fcc304);
+      color: #fcc304;
+    }
+
+    &--three {
+      @include number_before(#06ff6e);
+      color: #06ff6e;
+    }
+
+    &--four {
+      @include number_before(#fc048c);
+      color: #fc048c;
+    }
+  }
+
+  &__descr {
+    width: 176px;
+    font-size: 12.6px;
+    line-height: 150%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .process {
+    margin-bottom: 0;
+
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .process {
+    &__wrapper {
+      padding: 100px 30px;
+    }
+
+    &__cards {
+      grid-template-columns: 240px;
+      grid-template-rows: repeat(4, 256px);
+      grid-column-gap: 0;
+      grid-row-gap: 20px;
+      padding-top: 60px;
+    }
+  }
+}
