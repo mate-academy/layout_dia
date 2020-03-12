@@ -1,2 +1,2 @@
 # Air landing page
-[DEMO LINK](https://Valeriy-Sorochynskyi.github.io/layout_dia/)
+[DEMO LINK](https://valeriy-sorochynskyi.github.io/layout_air/)
