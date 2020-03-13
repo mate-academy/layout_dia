@@ -1,0 +1,263 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 800px;
+  background-color: $c-blue;
+  border-radius: 0 0 0 200px;
+  padding: 0 10px;
+  justify-content: space-between;
+  
+  &__logo {
+    margin-right: 78px;
+    @media (max-width: 960px) {
+      margin-left: 20px;
+    }
+  }
+
+  &__top {
+    width: 100%;
+    margin-top: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 920px;
+  }
+
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+
+  &-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item-mobile {
+    display: block;
+    margin-bottom: 30px;
+    margin-right: 0 !important;
+  }
+
+  &__link-mobile {
+    @include addScaleOnHover();
+    display: block;
+    font-size: 30px !important;
+  }
+  
+  &__item {
+    margin-right: 64px;
+  }
+
+  &__link {
+    @include addScaleOnHover();
+    display: block;
+    position: relative;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &--active {
+      @media (max-width: 960px) {
+        display: none;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        height: 2px;
+        background-color: $c-pink;
+        width: 100%;
+        bottom: -6px;
+      }
+    }
+  }
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 905px;
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 490px;
+
+    @media (max-width: 960px) {
+      margin: auto;
+      max-width: 1150px;
+      align-items: center;
+    }
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  &__heading {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: $c-white;
+
+    margin-bottom: 32px;
+
+    @media (max-width:960px) {
+      text-align: center;
+    }
+  }
+
+  &__description {
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: $c-white;
+    max-width: 362px;
+
+    margin-bottom: 83px;
+  }
+
+  &__button {
+    @include addScaleOnHover();
+    width: 226px;
+    height: 50px;
+    background-color: $c-pink;
+    border-radius: 64px;
+  }
+
+  &__link {
+    display: block;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 50px;
+    text-decoration: none;
+    color: $c-white;
+  }
+}
+
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 680px;
+  width: 43%;
+  border-radius: 200px 0 0;
+  background-image: url("../images/slider/slide-1.png");
+  background-position: center;
+  background-size: cover;
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+
+  &__menu {
+    display: flex;
+    position: absolute;
+    left: 48px;
+    bottom: 48px;
+  }
+
+  &__arrows-box {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+  }
+
+  &__arrow-box {
+    @include addScaleOnHover();
+    height: 32px;
+    width: 32px;
+    background-color: $c-white;
+    border-radius: 50%;
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  &__name {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+  }
+
+  &__description {
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: $c-white;
+  }
+}
+
+.mobile-menu {
+  margin: auto;
+  display: none;
+  
+}
+
+.hamburger {
+  display: none !important;
+  cursor: pointer;
+  margin-right: 20px;
+
+  @media (max-width: 960px) {
+    display: block !important;
+  }
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: $c-white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}

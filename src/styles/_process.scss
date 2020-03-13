@@ -1,0 +1,167 @@
+.process {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  max-width: 1150px;
+  margin: auto;
+
+  @media (max-width: 910px) {
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 264px);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+
+    @media (max-width: 670px) {
+      grid-template-columns: 264px;
+    }
+  }
+}
+
+.info {
+  max-width: 362px;
+  margin-bottom: 20px;
+
+  @media (max-width: 910px) {
+    max-width: 600px;
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white-blue;
+
+    margin-bottom: 16px;
+  }
+
+  &__heading {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $c-dark-blue;
+
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: $c-light-blue;
+  }
+}
+
+.card {
+  background-color: $c-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  padding: 32px;
+
+  &:nth-child(1),
+  &:nth-child(3) {
+    transform: translateY(140px);
+
+    @media (max-width: 910px) {
+      transform: translateY(0);
+    }
+  }
+
+  &__number {
+    position: relative;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+
+    margin-bottom: 24px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: Poppins, sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 19px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    list-style-type: none;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__button-box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    @include addScaleOnHover();
+    width: 40px;
+    height: 40px;
+    background-color: $c-blue;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin-right: 16px;
+  }
+
+  &__arrow {
+    width: 16px;
+    height: 16px;
+    object-position: center;
+  }
+
+  &__link {
+    @include addScaleOnHover();
+    display: block;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-dark-blue;
+  }
+}
+
+@for $i from 1 through 4 {
+  .card__number--#{$i} {
+    background-color: #{nth($l-number-background, $i)};
+
+    &::after {
+      content: "00#{$i}";
+      color: #{nth($l-number-color, $i)};
+    }
+  }
+
+  .card__button--#{$i} {
+    @include addScaleOnHover();
+    background-color: #{nth($l-number-color, $i)};
+  }
+}
