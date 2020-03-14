@@ -1,0 +1,102 @@
+.testimonial {
+  @include card;
+  position: relative;
+  text-align: center;
+  transition: 0.5s;
+
+  &__image {
+    position: relative;
+    border-radius: 50%;
+    margin: 55px 0 90px;
+    z-index: 4;
+  }
+
+  &__figure {
+    position: absolute;
+    width: 139px;
+    height: 56px;
+    border-radius: 500px;
+    transform: rotate(-60deg);
+  }
+
+  &__figure--first {
+    left: 40px;
+    top: 90px;
+  }
+
+  &__figure--second {
+    right: 40px;
+    top: 170px;
+  }
+
+  &__figure--blue {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+      $card-color-blue;
+  }
+
+  &__figure--yellow {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+      $card-color-yellow;
+  }
+
+  &__figure--red {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+      $card-color-red;
+  }
+
+  &__description {
+    @include testimonial-font;
+    color: $secont-text-color;
+    margin: 0;
+  }
+
+  &__description::before {
+    content: "“";
+    font-family: $main-font;
+    display: block;
+    font-size: 500%;
+    height: 0;
+    margin-bottom: 10px;
+  }
+
+  &__description--blue::before {
+    color: $card-color-blue;
+  }
+
+  &__description--yellow::before {
+    color: $card-color-yellow;
+  }
+
+  &__description--red::before {
+    color: $card-color-red;
+  }
+
+  &__name {
+    @include testimonial-font;
+    color: $main-text-color;
+    margin: 16px 0 4px;
+  }
+
+  &__career {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $before-title-color;
+    margin: 0;
+  }
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+}

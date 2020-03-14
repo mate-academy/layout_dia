@@ -1,0 +1,100 @@
+.nav {
+  text-transform: uppercase;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    left: 110px;
+
+    @media (max-width: $break-point-menu) {
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 40px 40px 100px;
+      box-sizing: border-box;
+      z-index: 1;
+      background-color: $first-main-color;
+      transform: translate(-100%, 0);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1);
+    }
+
+    &--header {
+      position: absolute;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 64px;
+    position: relative;
+
+    @media (max-width: $break-point-menu) {
+      margin: 0 auto;
+    }
+  }
+
+  &__link {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+    @include hover-after (opacity, 1);
+  }
+
+  &__link:after {
+    @include content-after;
+  }
+
+  &__toggler {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 32px;
+    margin: 0;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  &__hamburger {
+    display: none;
+    position: relative;
+    width: 33px;
+    height: 4px;
+    margin: 5px auto;
+    background-color: $second-background-color;
+    border-radius: 3px;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1),
+      opacity 0.55s ease;
+
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+    @media (max-width: $break-point-menu) {
+      display: block;
+    }
+  }
+
+  &__toggler:checked ~ .nav__hamburger {
+    transform: rotate(45deg) translate(-2px, -1px);
+  }
+
+  &__toggler:checked ~ .nav__hamburger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  &__toggler:checked ~ .nav__hamburger:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  &__toggler:checked ~ .nav__list {
+    transform: none;
+  }
+}
