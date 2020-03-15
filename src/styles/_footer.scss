@@ -1,0 +1,250 @@
+.footer {
+  height: 867;
+  background-color: $c-dark;
+  border-radius: 30px 30px 0 0;
+  padding: 180px 0 80px;
+
+  &__wrapper {
+    max-width: 1145px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__block {
+    flex-basis: 460px;
+    flex-shrink: 1;
+  }
+
+  &__heading {
+    @include heading;
+    color: $c-white;
+    margin-bottom: 56px;
+  }
+
+  &-form__input {
+    padding: 16px 0;
+    background-color: $c-dark;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $c-white;
+    margin-bottom: 30px;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+    color: $c-white;
+
+    &:focus {
+      outline: none;
+      color: $c-white;
+      border-bottom-color: $c-blue-hover;
+    }
+
+    &::placeholder {
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &__button {
+    @include button;
+    margin: 80px 0 124px;
+
+    &_link {
+      text-decoration: none;
+      color: $c-white;
+    }
+
+    &:hover {
+      background-color: $c-blue-hover;
+    }
+
+    &:active {
+      @include button-active-dark-shadow;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(59,168,157,1);
+    }
+  }
+
+  &__logo:focus {
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(59,168,157,1);
+  }
+
+  &__contact {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+  }
+
+  &__contact:nth-of-type(2) {
+    margin-top: 48px;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $c-white;
+    margin-bottom: 48px;
+    padding: 0 10px;
+    border-radius: 10px;
+
+    &_link {
+      text-decoration: none;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 5px 2px rgba(59,168,157,1);
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+
+  &__img {
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      filter: invert(80%) sepia(54%) saturate(6204%) hue-rotate(221deg)
+        brightness(85%) contrast(92%);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 6px 5px 3px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(59,168,157,1);
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  &__item {
+    list-style: none;
+    margin-left: 64px;
+    padding: 10px 0;
+    position: relative;
+
+    &:hover::before {
+      @include focus-link;
+    }
+  }
+
+  &__link {
+    @include nav;
+    padding: 10px;
+    border-radius: 10px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(59,168,157,1);
+    }
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .footer {
+    height: 100%;
+    position: relative;
+    padding-top: 30px;
+
+    &__logo {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__heading {
+      text-align: center;
+      margin-bottom: 30px;
+
+      &_contact {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__content {
+      justify-content: center;
+    }
+
+    &__block {
+      margin: 30px;
+
+      &_contact {
+        text-align: center;
+      }
+    }
+
+    &__button {
+      margin: 20px auto 0;
+    }
+
+    &-form__input {
+      padding: 12px 0;
+      margin-bottom: 20px;
+    }
+
+    &__contact {
+      font-size: 10px;
+    }
+
+    &__contact:nth-of-type(2) {
+      margin-top: 20px;
+    }
+
+    &__text {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .socials {
+    margin: 0 auto;
+  }
+
+  .navigation {
+    display: none;
+  }
+}
