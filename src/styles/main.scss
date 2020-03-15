@@ -1,7 +1,159 @@
 @import "utils";
 @import "fonts";
-@import "typography";
+@import "header";
+@import "nav";
+@import "slider";
+@import "about-us";
+@import "expertise";
+@import "process";
+@import "approach";
+@import "testimonials";
+@import "service";
+@import "contact-us";
+@import "footer";
+@import "animate";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: $c-gray;
+  overflow-x: hidden;
+  font-family: $mainFonts;
+}
+
+a,
+input,
+button:focus {
+  outline: none;
+}
+
+.wrapper {
+  width: $wrapWidth;
+  padding: 0 10px;
+  margin: 0 auto;
+
+  @media (max-width: 1146px) {
+    width: 100%;
+    padding: 0 50px;
+  }
+  @media (max-width: 400px) {
+    padding: 0 20px;
+  }
+}
+
+.logo {
+  display: block;
+  width: 45px;
+  height: 26px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  background-color: $btnBackground;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  border: 2px solid $btnBackground;
+  cursor: pointer;
+}
+
+.common-title {
+  font-family: $titleFonts;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 150%;
+  text-align: center;
+  color: #253757;
+
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+}
+
+.section-title {
+  font-family: $titleFonts;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-family: $titleFonts;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+}
+
+.form {
+  width: 460px;
+
+  &__item {
+    display: block;
+    &:not(:last-of-type) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: inherit;
+    outline: none;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fff;
+    padding-bottom: 17px;
+    transition: 0.5s;
+
+    &:focus {
+      border-bottom: 1px solid #144ed4;
+    }
+  }
+
+  &__btn {
+    padding: 17px 93px;
+    margin-top: 80px;
+    transition: box-shadow 0.5s;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px rgba(225,225,225,0.5);
+    }
+  }
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: #fff;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
 }
