@@ -1,0 +1,89 @@
+@import "utils";
+
+.person {
+  position: relative;
+  width: 314px;
+  background-color: $white-color;
+  border-radius: 16px;
+  text-align: center;
+  padding: 87px 32px 32px;
+  transition: transform $transition-duration $ease-function,
+    box-shadow $transition-duration $ease-function;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 8px grey;
+  }
+
+  &__photo {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: $button-color;
+      transform: rotate(-60deg) scale(1);
+    }
+
+    &::before {
+      top: 0;
+      left: 10px;
+    }
+
+    &::after {
+      top: 85px;
+      left: 105px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    margin-bottom: 111px;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    position: relative;
+    margin-bottom: 16px;
+
+    @include text($font-size-13, 1.5, $main-text-color);
+    font-weight: 600;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 21px;
+      height: 19px;
+      background-image: url(../images/quotes.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+
+    font-weight: 600;
+    @include text($font-size-13, 1.5, $titles-color);
+  }
+
+  &__job {
+    @extend %poppins;
+    @include text($font-size-13, 19px, $lightgrey-color);
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+}

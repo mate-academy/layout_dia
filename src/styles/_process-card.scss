@@ -1,0 +1,84 @@
+@import "utils";
+
+.process-card {
+  width: 264px;
+  padding: 32px;
+  background-color: $white-color;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  &__number {
+    @extend %poppins;
+    display: inline-block;
+    padding: 2px 11px;
+    margin-bottom: 24px;
+    @include text($font-size-13, 22px, $button-color);
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 12px;
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    font-weight: 600;
+    @include text(13px, 20px, $main-text-color);
+  }
+
+  &__icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: fill $transition-duration $ease-function;
+  }
+
+  &__button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: $button-color;
+    border: 1px solid $button-color;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color $transition-duration $ease-function;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: 0 0 5px  $button-color;
+    }
+
+    &:hover {
+      background-color: $white-color;
+
+      .process-card__icon {
+        fill: $button-color;
+      }
+    }
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:hover {
+      .process-card__button {
+        background-color: $white-color;
+      }
+
+      .process-card__icon {
+        fill: $button-color;
+      }
+    }
+  }
+
+  &__more {
+    margin-left: 16px;
+    @extend %poppins;
+    @include text($font-size-15, 22px, #334563);
+  }
+}

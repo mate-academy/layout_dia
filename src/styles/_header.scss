@@ -1,0 +1,57 @@
+@import "utils";
+
+.header {
+  background-color: $dark-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    min-width: 320px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    @extend %poppins;
+    font-weight: $font-weight-bold;
+    @include text($font-size-13, 1.5, $white-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color $transition-duration $ease-function;
+
+    &:hover {
+      color: $button-color;
+    }
+
+    &:focus {
+      text-shadow: 1px 1px 1px $button-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $button-color;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .header {
+
+    &__container {
+      height: 120px;
+      justify-content: flex-start;
+    }
+
+    &__link {
+      margin-left: auto;
+    }
+  }
+}

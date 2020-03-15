@@ -1,0 +1,67 @@
+@import "utils";
+
+.form {
+  text-align: center;
+  &__title {
+    @extend %poppins;
+    @include text ($font-size-26, 1.5, $white-color);
+    margin-bottom: 40px;
+  }
+
+  &__field {
+    margin-bottom: 32px;
+    @extend %poppins;
+    @include text ($font-size-15, 22px, $white-color);
+    border: none;
+    padding: 16px 0;
+    width: 100%;
+    background-color: transparent !important;
+    border-bottom: 1px solid $white-color;
+    @include transition (border-color);
+    &:-webkit-autofill {
+      border-bottom: 1px solid $button-color;
+      -webkit-text-fill-color: #fff !important;
+      -webkit-box-shadow: 0 0 0 1000px rgba(0,0,0,0) inset !important;
+      box-shadow: 0 0 0 1000px #2c2c2c inset !important;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $button-color;
+    }
+  }
+
+  &--textarea {
+    height: 55px;
+    border-color: $button-color;
+  }
+
+  &::placeholder {
+    @extend %poppins;
+    @include text ($font-size-15, 22px, $white-color);
+    opacity: 0.7;
+  }
+}
+
+@media (min-width: 640px) {
+  .form {
+    &__title {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .form {
+    text-align: left;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__field--textarea {
+      margin-bottom: 80px;
+    }
+  }
+}

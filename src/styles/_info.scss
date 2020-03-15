@@ -1,0 +1,122 @@
+@import "utils";
+
+.info {
+  background-color: $dark-color;
+  height: calc(100vh - 60px);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__text {
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__title {
+    margin: auto;
+    @extend %poppins;
+    width: 240px;
+    @include text($font-size-32, 34px, $white-color);
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    max-width: 362px;
+    margin: auto;
+    @include text($font-size-15, 1.5, $white-color);
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    @extend %poppins;
+    @include text($font-size-15, 22px, $white-color);
+    padding: 14px 70px;
+    background-color: $button-color;
+    border: 1px solid $button-color;
+    border-radius: 8px;
+    transition: color $transition-duration $ease-function,
+      background-color $transition-duration $ease-function;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white-color;
+      color: $button-color;
+    }
+
+    &:focus {
+      box-shadow: 0 0 2px inset #eee;
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .info {
+    position: relative;
+
+    &__container {
+      height: 100%;
+      display: flex;
+    }
+
+    &__text {
+      margin: auto;
+    }
+
+    &__title {
+      width: 350px;
+      font-size: 64px;
+      line-height: 68px;
+      margin-bottom: 60px;
+    }
+
+    &__description {
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .info {
+    height: calc(100vh - 120px);
+
+    &__text {
+      margin: auto 0;
+      padding: 0 40px;
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 64px;
+      line-height: 68px;
+      margin: 0;
+      margin-bottom: 32px;
+    }
+
+    &__description {
+      width: 362px;
+      font-size: 18px;
+      margin: 0;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (min-width: $notebook-breakpoint) {
+  .info {
+    &__text {
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: $design-breakpoint) {
+  .info {
+    height: 680px;
+
+    &__description {
+      margin-bottom: 83px;
+    }
+  }
+}
