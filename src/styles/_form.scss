@@ -15,24 +15,32 @@
     border: none;
     padding: 16px 0;
     width: 100%;
-    background-color: inherit;
+    background-color: transparent !important;
     border-bottom: 1px solid $white-color;
     @include transition (border-color);
+    &:-webkit-autofill {
+      border-bottom: 1px solid $button-color;
+      -webkit-text-fill-color: #fff !important;
+      -webkit-box-shadow: 0 0 0 1000px rgba(0,0,0,0) inset !important;
+      box-shadow: 0 0 0 1000px #2c2c2c inset !important;
+    }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       border-color: $button-color;
     }
+  }
 
-    &--textarea {
-      height: 55px;
-    }
+  &--textarea {
+    height: 55px;
+    border-color: $button-color;
+  }
 
-    &::placeholder {
-      @extend %poppins;
-      @include text ($font-size-15, 22px, $white-color);
-      opacity: 0.7;
-    }
+  &::placeholder {
+    @extend %poppins;
+    @include text ($font-size-15, 22px, $white-color);
+    opacity: 0.7;
   }
 }
 
