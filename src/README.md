@@ -1,3 +1,3 @@
-Layout-dia
+Layout-air
 
-Dia landing page Demo link - https://sashapylypyuk.github.io/layout_dia/
+Air landing page Demo link - https://sashapylypyuk.github.io/layout_dia/
