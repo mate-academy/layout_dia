@@ -1,0 +1,191 @@
+.process {
+  padding: 230px 20px 0;
+
+  @media (max-width: $break-point-tablet) {
+    padding: 50px 20px 20px;
+  }
+
+  @media (max-width: $break-point-mobile) {
+    padding: 20px 20px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $break-point-tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__desc {
+    flex-basis: 36%;
+
+    @media (max-width: $break-point-tablet) {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+
+    color: $text-color-light;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    @include subsection-heading;
+    margin-bottom: 24px;
+    line-height: 130%;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  &__text {
+    font-family: "OpenSans", sans-serif;
+    color: $text-color-dark;
+    font-size: 0.7rem;
+    line-height: 150%;
+  }
+
+  &__text:last-child {
+    margin-top: 20px;
+  }
+
+  &__list {
+    flex-basis: 60%;
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  @media (max-width: $break-point-tablet) {
+    justify-content: center;
+    margin-top: 100px;
+  }
+
+  @media (max-width: $break-point-mobile) {
+    margin-top: 50px;
+  }
+
+  &__item {
+    width: 265px;
+
+    margin: 15px;
+    padding: 32px;
+
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+    z-index: 5;
+  }
+
+  &__item:nth-child(odd) {
+    transform: translateY(50px);
+
+    @media (max-width: $break-point-mobile) {
+      transform: translateY(0);
+    }
+  }
+
+  &__item:nth-child(even) {
+    transform: translateY(-80px);
+
+    @media (max-width: $break-point-mobile) {
+      transform: translateY(0);
+    }
+  }
+
+  &__count {
+    padding: 0 8px;
+    width: fit-content;
+    margin-bottom: 24px;
+
+    border-radius: 23px;
+
+    font-size: 0.65rem;
+    font-weight: bold;
+    line-height: 19px;
+  }
+
+  &__text {
+    color: $text-color-dark;
+    font-family: "OpenSans", sans-serif;
+    font-size: 0.65rem;
+    line-height: 150%;
+    font-weight: bold;
+
+    &:last-child {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 20px;
+    background-image: url("../images/process/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+
+    transition: width 0.3s, background-image 0.3s;
+
+    &::after {
+      content: "Learn more";
+      position: absolute;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: 250%;
+
+      font-size: 0.75rem;
+      color: $heading-color-dark;
+      font-weight: bold;
+
+      z-index: 1;
+      transition: color 0.3s;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus {
+    width: 100%;
+    background-image: none;
+  }
+
+  &__link:hover::after,
+  &__link:focus::after {
+    color: #fff;
+  }
+
+  &__item:nth-child(1) {
+    @include count-button($text-color-blue, $text-color-blue-rgba);
+  }
+
+  &__item:nth-child(2) {
+    @include count-button($text-color-yellow, $text-color-yellow-rgba);
+  }
+
+  &__item:nth-child(3) {
+    @include count-button($text-color-green, $text-color-green-rgba);
+  }
+
+  &__item:nth-child(4) {
+    @include count-button($text-color-red, $text-color-red-rgba);
+  }
+}
