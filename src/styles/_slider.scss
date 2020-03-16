@@ -1,4 +1,9 @@
 .slider {
+  list-style-type: none;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
   &__controls {
     height: 32px;
     width: 72px;
@@ -10,39 +15,13 @@
   }
 
   &__controls_prev {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: #fff;
+    @include control;
     background-image: url(../images/slider/slider-prev.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    outline: none;
-    border: none;
-    cursor: pointer;
-
-    &:active {
-      transform: scale(0.9);
-    }
   }
 
   &__controls_next {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: $c-white;
+    @include control;
     background-image: url(../images/slider/slider-next.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    outline: none;
-    border: none;
-    cursor: pointer;
-
-    &:active {
-      transform: scale(0.9);
-    }
   }
 
   &__title {
@@ -68,4 +47,32 @@
     bottom: 48px;
     left: 145px;
   }
+}
+
+.slide {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-top-left-radius: 180px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.slide--active {
+  opacity: 1;
+}
+
+.slide:nth-of-type(1) {
+  background-image: url("../images/slider/air-slider-1.png");
+}
+
+.slide:nth-of-type(2) {
+  background-image: url("../images/slider/slider-2.png");
+}
+
+.slide:nth-of-type(3) {
+  background-image: url("../images/slider/slider-3.png");
 }
