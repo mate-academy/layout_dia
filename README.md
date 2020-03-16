@@ -34,8 +34,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/vh
 6. `git checkout -b develop` - to create new branch and switch on it
 7. Write you code in `src` folder
 8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to gh-pages
-10. `git add . && git commit -m 'solution'` to save your chages
+9. Run `npm run deploy` to deploy your solution to `gh-pages`
+10. `git add . && git commit -m 'solution'` to save your changes
 11. `git push origin develop` - to send you code for PR
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
