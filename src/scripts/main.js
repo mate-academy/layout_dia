@@ -99,8 +99,13 @@ previous.onclick = function() {
 };
 
 const hendelForm = document.querySelector('.form');
+const collectionsInputs = document.querySelectorAll('.form__input');
+
+const inputs = Object.values(collectionsInputs);
 
 // eslint-disable-next-line no-shadow
 hendelForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  // eslint-disable-next-line
+  inputs.map(input => input.value = '');
 });
