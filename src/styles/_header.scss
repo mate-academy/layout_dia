@@ -1,0 +1,129 @@
+@import "vars";
+
+.header {
+  height: 800px;
+  position: relative;
+  background: $blue-active-color;
+  border-radius: 0 0 0 200px;
+
+  &__container {
+    max-width: 1145px;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 45px;
+
+    @media (max-width: $notebook-screen-breakpoint) {
+      padding: 45px 120px;
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    @extend h4;
+    letter-spacing: $h4-letter-spacing;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color $hover-duration;
+  }
+
+  &__action {
+    position: relative;
+
+    @media (max-width: $notebook-screen-breakpoint) {
+      display: none;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 67px;
+      background-color: $pink-active-color;
+      top: 26px;
+      left: 0;
+      border-radius: 4px;
+    }
+  }
+
+  &__title {
+    width: 490px;
+    height: 355px;
+    position: absolute;
+    top: 240px;
+    left: 227px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+
+    @media (max-width: $notebook-screen-breakpoint) {
+      z-index: 1;
+    }
+  }
+
+  &__text {
+    width: 362px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  &__button {
+    margin-top: 53px;
+  }
+
+  &__toggler-label {
+    display: none;
+    width: 18px;
+    height: 12px;
+    background-image: url("../images/toggler.png");
+
+    @media (max-width: $notebook-screen-breakpoint) {
+      display: inline-block;
+      position: absolute;
+      top: 60px;
+      right: 10%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+  }
+
+  &__toggler {
+    display: none;
+
+    @media (max-width: $notebook-screen-breakpoint) {
+      &:checked ~ .nav {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        animation: 0.7s surf-nav;
+
+        @keyframes surf-nav {
+          from {
+            right: -300px;
+          }
+          to {
+            left: 0;
+          }
+        }
+      }
+
+      &:checked + .header__toggler-label {
+        width: 16px;
+        height: 16px;
+        background-image: url("../images/close.svg");
+      }
+    }
+  }
+}

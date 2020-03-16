@@ -1,0 +1,131 @@
+@import "vars";
+
+.header__gallery {
+  width: 687px;
+  height: 680px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+label { /*при наведении на стрелки или переключатели - курсор изменится*/
+  cursor: pointer;
+}
+
+.slides article { /*все изображения справа друг от друга*/
+  float: left;
+}
+
+.slides .image { /*устанавливает общий размер блока с изображениями*/
+  width: 300%;
+  line-height: 0;
+  transition: all 800ms cubic-bezier(0.77, 0, 0.17, 1);
+}
+
+.overflow { /*сркывает все, что находится за пределами этого блока*/
+  width: 100%;
+  border-radius: 200px 0 0;
+  overflow: hidden;
+}
+
+article img { /*размер изображений слайдера*/
+  width: 100%;
+}
+
+.controls label { /*прозрачность стрелок при отводе курсора*/
+  transition: opacity 0.2s ease-out;
+}
+
+.active label { /*стиль отдельного переключателя*/
+  border-radius: 10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: white;
+}
+
+.controls label:hover { /*прозрачность стрелок при наведении*/
+  opacity: 0.6;
+}
+
+.active label:hover { /*поведение чекбокса при наведении*/
+  background: #76c8ff;
+}
+
+/*настройка переключения и положения для левой стрелки*/
+#switch1:checked ~ .controls label:nth-child(3),
+#switch2:checked ~ .controls label:nth-child(1),
+#switch3:checked ~ .controls label:nth-child(2) {
+  display: block;
+  height: 68px;
+  width: 68px;
+  position: absolute;
+  left: 15%;
+  bottom: 10%;
+  background: url("../images/slider/arrow-left.svg") no-repeat;
+
+  &::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    left: -20%;
+    bottom: 45%;
+  }
+}
+
+/*настройка переключения и положения для правой стрелки*/
+#switch1:checked ~ .controls label:nth-child(2),
+#switch2:checked ~ .controls label:nth-child(3),
+#switch3:checked ~ .controls label:nth-child(1) {
+  display: block;
+  height: 68px;
+  width: 68px;
+  position: absolute;
+  left: 25%;
+  bottom: 10%;
+  background: url("../images/slider/arrow-right.svg") no-repeat;
+
+  &::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    left: -30%;
+    bottom: 45%;
+  }
+}
+
+.header__gallery input { /*скрывает стандартные инпуты (чекбоксы) на странице*/
+  display: none;
+}
+
+/*позиция изображения при активации переключателя*/
+#switch1:checked ~ .slides .image {
+  margin-left: 0;
+}
+
+#switch2:checked ~ .slides .image {
+  margin-left: -100%;
+}
+
+#switch3:checked ~ .slides .image {
+  margin-left: -200%;
+}
+
+.active { /*расположение блока с переключателями*/
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+}
+
+/*цвет активного лейбла при активации чекбокса*/
+#switch1:checked ~ .active label:nth-child(1),
+#switch2:checked ~ .active label:nth-child(2),
+#switch3:checked ~ .active label:nth-child(3) {
+  background: $blue-active-color;
+}
