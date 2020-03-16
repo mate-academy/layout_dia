@@ -97,3 +97,10 @@ next.onclick = function() {
 previous.onclick = function() {
   previousSlide();
 };
+
+const hendelForm = document.querySelector('.form');
+
+// eslint-disable-next-line no-shadow
+hendelForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
