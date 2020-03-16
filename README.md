@@ -9,7 +9,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/vh
 
 1. Implement the header with `nav`
 1. Implement `Global digital agency` block
-1. Implement slider
+1. Implement slide
 1. Implement `Welcome` block
 1. Implement `What we do` block with the card reused 3 times
 1. Implement `Process` block with 4 process cards
