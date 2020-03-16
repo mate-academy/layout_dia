@@ -27,3 +27,10 @@ next.onclick = function() {
 previous.onclick = function() {
   previousSlide();
 };
+
+const form = document.querySelector('.footer__form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.location.reload(false);
+});
