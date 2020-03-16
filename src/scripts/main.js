@@ -29,14 +29,14 @@ previous.onclick = function() {
 };
 
 const form = document.querySelector('.contact-form');
-const email = document.querySelector('.email');
-const nameI = document.querySelector('.name');
-const message = document.querySelector('.message');
+const emailInput = document.querySelector('.form__input_email');
+const nameInput = document.querySelector('.form__input_name');
+const messageInput = document.querySelector('.form__input_message');
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  email.value = '';
-  nameI.value = '';
-  message.value = '';
+  emailInput.value = '';
+  nameInput.value = '';
+  messageInput.value = '';
 });
