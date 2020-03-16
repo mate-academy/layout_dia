@@ -27,3 +27,16 @@ next.onclick = function() {
 previous.onclick = function() {
   previousSlide();
 };
+
+const form = document.querySelector('.contact-form');
+const email = document.querySelector('.email');
+const nameI = document.querySelector('.name');
+const message = document.querySelector('.message');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  email.value = '';
+  nameI.value = '';
+  message.value = '';
+});
