@@ -1,0 +1,197 @@
+.header {
+  background-color: $black;
+  &__top {
+    height: 120px;
+    max-width: $content-max-width;
+    margin: auto;
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    animation: pop-out-left 0.8s ease-in-out;
+  }
+  &__logo-link {
+    margin-right: 6%;
+    &:hover {
+      transform: scale(1.5);
+      transition-duration: 0.5s;
+    }
+  }
+}
+
+.logo {
+  display: block;
+  width: 44.82px;
+  height: 25.63px;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav > div {
+  background: $overlay-color;
+  border-radius: 50%;
+  width: 200vw;
+  height: 250vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.mobile-menu .mobile-nav > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 50vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-nav > div > div > ul > li {
+  list-style: none;
+  color: $white;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.mobile-nav > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+  &:hover {
+    color: $blue;
+  }
+}
+
+.toggler {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 3;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.hamburger {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__line {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: $blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: -10px;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+    &::after {
+      top: 10px;
+    }
+  }
+}
+
+/* Toggler Animation */
+.toggler:checked + .hamburger {
+  &__line {
+    transform: rotate(135deg);
+  }
+}
+
+/* Show Menu */
+.toggler:checked ~ .mobile-nav {
+  visibility: visible;
+}
+
+.toggler:checked ~ .mobile-nav > div {
+  transform: scale(1);
+  transition-duration: $hover-duration;
+}
+
+.toggler:checked ~ .mobile-nav > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+/* Turns Lines Into X */
+.toggler:checked + .hamburger > div:before,
+.toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+@media screen and(max-width: 1200px) {
+  .header {
+    transition-duration: $hover-duration;
+    padding: 0 10px;
+    &__top {
+      max-width: 900px;
+    }
+  }
+}
+
+@media screen and(max-width: 1024px) {
+  .header {
+    transition-duration: $hover-duration;
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+      transition-duration: $hover-duration;
+      margin-left: 0;
+    }
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media screen and(max-width: 430px) {
+  .header__top {
+    max-width: 200px;
+  }
+}

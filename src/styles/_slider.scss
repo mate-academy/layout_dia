@@ -1,0 +1,127 @@
+.slider {
+  color: $white;
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
+  display: flex;
+
+  &__slides {
+    background-color: $black;
+    overflow: hidden;
+    position: relative;
+    border-radius: 40px 0;
+    min-height: 680px;
+    width: 50vw;
+  }
+
+  &__slide-1_text {
+    position: absolute;
+    left: 200px;
+    bottom: 48px;
+  }
+
+  &__slide-3_text {
+    position: absolute;
+    left: 180px;
+    bottom: 48px;
+    color: $black;
+  }
+
+  &__slide-intro {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__slide-info {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__slide {
+    position: absolute;
+    width: inherit;
+    min-height: 680px;
+  }
+
+  &__slide-1 {
+    background-image: url(../images/slider/Photo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__slide-2 {
+    background-image: url(../images/slider/Photo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__slide-3 {
+    background-image: url(../images/slider/Photo3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__controls {
+    left: 48px;
+    bottom: 66px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__label {
+    cursor: slideer;
+    display: inline-block;
+    height: 8px;
+    margin: 0 12px 0 16px;
+    position: relative;
+    width: 8px;
+    border-radius: 50%;
+    transition: background ease-in-out 0.3s;
+  }
+  &__label:after {
+    border: 2px solid $blue;
+    content: " ";
+    display: block;
+    height: 12px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    border-radius: 50%;
+  }
+}
+
+label:hover {
+  transition-duration: $hover-duration;
+  background: $blue;
+}
+
+#slide1:checked ~ .slider__controls label:nth-of-type(1),
+#slide2:checked ~ .slider__controls label:nth-of-type(2),
+#slide3:checked ~ .slider__controls label:nth-of-type(3) {
+  transition-duration: $hover-duration;
+  background: $blue;
+}
+
+#slide1:checked ~ .slider__slides > .slider__slide-1,
+#slide2:checked ~ .slider__slides > .slider__slide-2,
+#slide3:checked ~ .slider__slides > .slider__slide-3 {
+  opacity: 1;
+  z-index: 1;
+}
+
+@media screen and(max-width: 960px) {
+  .slider {
+    display: none;
+  }
+}
