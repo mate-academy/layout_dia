@@ -1,0 +1,109 @@
+@import "utils";
+
+.slider {
+  position: relative;
+  height: 680px;
+
+  @media screen and (max-width: $maxTabletWidth) {
+    height: 480px;
+  }
+
+  &__item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 30px 0;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    outline: none;
+  }
+
+  &__img {
+    @include hover(transform, scale(1.1));
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__item-descr {
+    position: absolute;
+    bottom: 48px;
+    left: 144px;
+    max-width: 260px;
+    color: $colorOnDark;
+  }
+
+  &__slide-header {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorOnDark;
+  }
+
+  &__slide-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &__nav {
+    position: absolute;
+    bottom: 66px;
+    left: 48px;
+    display: grid;
+    grid-template-columns: repeat(2, $iconSize);
+    column-gap: 8px;
+  }
+
+  &__button {
+    @include hover(background-color, $darkActiveColor);
+    @include hover(border-color, $activeColor);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: $iconSize;
+    width: $iconSize;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $colorOnDark;
+    border: 1px solid $colorOnDark;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      background-color: $darkActiveColor;
+      border-color: $activeColor;
+    }
+  }
+
+  &__button--prev {
+    background-image: url(../images/slider/prev-arrow.svg);
+
+    &:hover,
+    &:focus {
+      background-image: url(../images/slider/prev-arrow-hover.svg);
+    }
+  }
+
+  &__button--next {
+    background-image: url(../images/slider/next-arrow.svg);
+
+    &:hover,
+    &:focus {
+      background-image: url(../images/slider/next-arrow-hover.svg);
+    }
+  }
+}

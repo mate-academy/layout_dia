@@ -1,0 +1,63 @@
+@import "utils";
+
+.contact {
+
+  &__title {
+    margin-bottom: 8px;
+    color: $colorOnDark;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 155%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  &__text {
+    margin: 0 0 48px;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 150%;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      font-size: 20px;
+    }
+  }
+
+  &__icons-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, $iconSize);
+    column-gap: 36px;
+    margin-top: 16px;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      justify-content: center;
+    }
+  }
+
+  &__icon-link {
+    @include hover(background-color, $activeColor);
+    display: block;
+    height: $iconSize;
+    background-color: $colorOnDark;
+    mask-position: center;
+    mask-repeat: no-repeat;
+
+    &:focus {
+      background-color: $activeColor;
+    }
+
+    &--facebook {
+      mask-image: url(../images/socials/facebook.svg);
+    }
+
+    &--twitter {
+      mask-image: url(../images/socials/twitter.svg);
+    }
+
+    &--instagram {
+      mask-image: url(../images/socials/instagram.svg);
+    }
+  }
+}
