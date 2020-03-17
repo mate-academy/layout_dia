@@ -23,15 +23,15 @@
 
   &__row {
     display: grid;
-    grid-template-columns: max-content max-content 1fr;
-    justify-items: center;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: space-between;
     align-items: center;
     column-gap: 60px;
     height: 120px;
     padding: 4px 0 0;
+    z-index: 120;
 
     @media screen and (max-width: $maxTabletWidth) {
-      grid-template-columns: max-content 1fr max-content;
       justify-content: space-between;
     }
 
@@ -41,6 +41,8 @@
   }
 
   &__logo {
+    z-index: 120;
+
     @media screen and (max-width: $maxTabletWidth) {
       grid-column: 2;
       grid-row: 1;
@@ -168,7 +170,9 @@
   &__hire-us {
     @include navLinkStyle;
     @include navLinkEffect($activeColor);
+    justify-self: end;
     color: $colorOnDark;
     white-space: nowrap;
+    z-index: 120;
   }
 }
