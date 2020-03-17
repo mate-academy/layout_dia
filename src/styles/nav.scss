@@ -1,0 +1,108 @@
+@import "var";
+
+.nav {
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media screen and (max-width: $breakpoint) {
+    display: none;
+  }
+  @media screen and (min-width: 1500px) {
+    width: 1500px;
+  }
+
+  &__logo {
+    display: inline-block;
+    position: relative;
+    bottom: -5px;
+    background-image: url("../images/Air.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 30px;
+  }
+
+  &__list {
+    display: flex;
+    z-index: 1;
+    @media screen and (max-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  &__item {
+    padding: 8px 24px;
+    list-style: none;
+  }
+
+  &__link {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 120px;
+    letter-spacing: 3px;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      opacity: 0;
+      background-color: $blue-color;
+      top: 27px;
+      left: 0;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    &:focus {
+      &::before {
+        opacity: 1;
+        background-color: $blue-color;
+      }
+    }
+  }
+
+  &__nav__hire {
+    display: inline;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__menu {
+    z-index: 2;
+    display: none;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url(../images/menu.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    @media screen and (min-width: $breakpoint) {
+      // display: none;
+    }
+  }
+
+  &__toggler:checked ~ .nav__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__toggler:checked + &__menu::after {
+    background-image: url(../images/menuX.png);
+    width: 30px;
+    height: 30px;
+    top: 0;
+  }
+}

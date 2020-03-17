@@ -1,13 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dia</title>
-    <link rel="stylesheet" href="./styles/main.css">
-  </head>
-  <body>
-    <h1>Dia</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dia</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="header">
+
+
+    <nav class="header__nav nav">
+      <input type="checkbox" class="nav__toggler" id="toggler">
+      <label for="toggler" class="nav__menu"></label>
+
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link"> <span class="nav__logo"></span></a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">About us</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Servies</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Work</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Contuct us</a></li>
+      </ul>
+      <li class="nav__item"><a href="#" class="nav__hire nav__link">Hire us</a></li>
+    </nav>
+  </header>
+  <main>
+    <section class="section">
+      <div class="strategic-agency">
+        <div class="strategic-agency__text">
+          <h1 class="strategic-agency__text-heading">Strategic<br>
+            Agency</h1>
+          <p class="strategic-agency__description">We believe in the power of bold ideas that<br> can solve business
+            challenges.</p>
+          <button class="button strategic-agency__button">Learn more</button>
+        </div>
+        <div class="slider">
+          <div class="slider__change">
+            <img src="../images/slider/1.svg" alt="photo" class="slider__img">
+            <img src="../images/slider/2.svg" alt="photo" class="slider__img">
+
+          </div>
+          <div class="arrow__left"></div>
+          <div class="arrow__right"></div>
+          <p class="slider__article">INtro</p>
+          <p class="slider__text">By the same illusion which lifts the<br> horizon.</p>
+
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="script">
+        <h2 class="script__heading">Who we are</h2>
+        <p class="script__text">We embrace a strategic approach to creative ideas. We are interested in people and human
+          relationships. This is the main thing you need to know about us. We believe in the power of bold ideas that
+          can solve business challenges.</p>
+      </div>
+    </section>
+    <section class="section">
+      <h1 class="section__heading">Our expertise</h1>
+
+      <div class="expertise">
+        <div class="expertise__card">
+          <img src="images/image1.png" alt="expertise" class="expertise__photo">
+          <div class="expertise__article">Branding</div>
+          <div class="expertise__text">We create additional value for companies, products, services as well as verbal
+            and visual ways to deliver it to the audience.</div>
+        </div>
+        <div class="expertise__card">
+          <img src="images/image2.png" alt="expertise" class="expertise__photo">
+          <div class="expertise__article">Communication</div>
+          <div class="expertise__text">We strive to create communications that can increase media performance. We use
+            everything — words, meanings, stories, art, movies.
+          </div>
+        </div>
+        <div class="expertise__card">
+          <img src="images/image3.png" alt="expertise" class="expertise__photo">
+          <div class="expertise__article">Strategy</div>
+          <div class="expertise__text">We create business growth strategies, from the moment of its birth to the
+            achievement of the necessary business indicators.</div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="process">
+        <div class="process__text"></div>
+        <div class="process__frames"></div>
+      </div>
+    </section>
+
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(function () {
+      var slider__change = $('.slider__change'),
+        slider__changeContent = slider__change.html(),
+        slideWidth = $('.slider').outerWidth(),
+        slideCount = $('.slider__change img').length,
+        arrow__left = $('.arrow__left'),
+        arrow__right = $('.arrow__right'),
+
+        animateTime = 500,
+        course = 1,
+        margin = - slideWidth;
+      $('.slider__change img:last').clone().prependTo('.slider__change'); $('.slider__change img').eq(1).clone().appendTo('.slider__change'); $('.slider__change').css('margin-left', -slideWidth); function arrow__rightSlide() { interval = window.setInterval(animate, slider__changeInterval) } function animate() { if (margin == -slideCount * slideWidth - slideWidth) { slider__change.css({ 'marginLeft': -slideWidth }); margin = -slideWidth * 2 } else if (margin == 0 && course == -1) { slider__change.css({ 'marginLeft': -slideWidth * slideCount }); margin = -slideWidth * slideCount + slideWidth } else { margin = margin - slideWidth * (course) } slider__change.animate({ 'marginLeft': margin }, animateTime) } function slider__changeStop() { window.clearInterval(interval) } arrow__left.click(function () { if (slider__change.is(':animated')) { return false } var course2 = course; course = -1; animate(); course = course2 }); arrow__right.click(function () { if (slider__change.is(':animated')) { return false } var course2 = course; course = 1; animate(); course = course2 }); slider__change.add(arrow__right).add(arrow__left).hover(function () { slider__changeStop() }, arrow__rightSlide); arrow__rightSlide()
+    });
+  </script>
+</body>
+
 </html>
