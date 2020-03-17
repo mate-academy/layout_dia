@@ -1,0 +1,133 @@
+.nav {
+  padding-top: 49px;
+
+  &__list {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  &__item {
+    margin-right: 64px;
+    &:last-child a {
+      margin-left: 240px;
+      margin-right: 150px;
+    }
+  }
+
+  &__link {
+    flex-wrap: nowrap;
+    @extend %link;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &__toggler {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: -8px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  &__hamburger {
+    display: none;
+    position: absolute;
+    top: 48px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/hamburger.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: $midle-screen-breakpoint) {
+  .nav {
+    &__item {
+      &:last-child .nav__link {
+        margin-left: 50px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen-breakpoint) {
+  .nav {
+    width: 300px;
+    height: auto;
+    position: absolute;
+    z-index: 1;
+    justify-content: center;
+    opacity: 0.9;
+    &__list {
+      flex-direction: column;
+      position: absolute;
+      left: -240px;
+      top: 32px;
+    }
+
+    &__item {
+      position: relative;
+      left: -500px;
+      margin: 0 0 10px;
+      padding: 10px;
+      border-radius: 30px;
+      background-color: rgba($color: $main-color * 0.5, $alpha: 0.5);
+      transition: transform 1s;
+      &:first-child {
+        display: inline-block;
+        left: 0;
+      }
+
+      &:last-child .nav__link {
+        margin-left: 0;
+      }
+    }
+
+    &__toggler {
+      display: block;
+      top: 40px;
+      left: 150px;
+      &:checked ~ .nav .nav__list .nav__item:not(:first-child) {
+        display: block;
+        position: relative;
+        transform: translateX(500px);
+      }
+    }
+
+    &__hamburger {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: $smallest-screen-breakpoint) {
+  .nav {
+
+    &__item {
+      &:first-child {
+        left: 220px;
+      }
+    }
+
+    &__toggler {
+      display: block;
+      left: 8px;
+      &:checked + .nav .nav__list .nav__item:not(:first-child) {
+        transform: translateX(720px);
+      }
+      &:checked ~ .slider {
+        transform: translateX(320px);
+      }
+    }
+  }
+}
