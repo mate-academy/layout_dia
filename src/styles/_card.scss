@@ -1,0 +1,96 @@
+$themes: (
+  blue: #56ccf2,
+  yellow: #fcc91d,
+  green: #15d850,
+  red: #f36363
+);
+
+.card {
+  width: 264px;
+  height: 264px;
+  box-sizing: border-box;
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+
+  @media screen and (max-width:$breakpoint-small) {
+    width: 220px;
+    height: 220px;
+    padding: 20px;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+
+    @media screen and (max-width:$breakpoint-small) {
+      width: 38px;
+      height: 38px;
+      margin-right: 12px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.13);
+
+    .card__icon {
+      transform: scale(1.2);
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    font-family: $main-font;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 12px;
+    border-radius: 23px;
+  }
+
+  &__text {
+    font-weight: bold;
+    margin-top: 24px;
+
+    @media screen and (max-width:$breakpoint-small) {
+      margin-top: 16px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    font-family: $main-font;
+    font-size: 15px;
+    font-weight: bold;
+    color: $heading-color;
+    text-decoration: none;
+
+    @media screen and (max-width:$breakpoint-small) {
+      margin-top: 16px;
+    }
+  }
+}
+
+@each $name, $color in $themes {
+
+  .card--theme-#{$name} {
+
+    .card__number {
+      color: $color;
+      background-color: rgba($color, 0.1);
+    }
+
+    .card__icon {
+      background-color: $color;
+    }
+  }
+}
