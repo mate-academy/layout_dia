@@ -3,38 +3,127 @@
 @import "typography";
 
 .navigation {
-  width: 1146px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  @media (min-width: $tablet-width) {
+    width: 700px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: $laptop-width) {
+    width: 900px;
+  }
+
+  @media (min-width: $laptop-large-width) {
+    width: 1146px;
+  }
 
   &__list {
-    @include list-style-reset;
-    width: 637px;
-    display: flex;
-    justify-content: space-between;
+    display: none;
+
+    @media (min-width: $tablet-width) {
+      @include list-style-reset;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 50px;
+      height: unset;
+    }
+
+    @media (min-width: $laptop-width) {
+      margin-left: 78px;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      width: 637px;
+      margin-left: 78px;
+    }
   }
 
   &__link {
     display: block;
-
+    text-align: center;
     font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    line-height: 19px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
 
+    padding: 10px 0;
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
-    padding: 20px 10px;
+
     transition: $transition-time ease-in-out;
     outline: none;
+
+    @media (min-width: $tablet-width) {
+      font-size: 13px;
+      line-height: 19px;
+      padding: 20px 10px;
+      text-align: left;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
 
     &:hover,
     &:focus,
     &:active {
       color: $c-link;
     }
+
+    &--main {
+      display: none;
+
+      @media (min-width: $tablet-width) {
+        position: relative;
+        display: block;
+        padding: 8px 0;
+        width: 50px;
+        margin-left: 100px;
+      }
+
+      @media (min-width: $laptop-width) {
+        margin-left: 200px;
+      }
+
+      @media (min-width: $laptop-large-width) {
+        width: 70px;
+        margin-left: 318px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: $c-button;
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 260px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $tablet-width) {
+      width: 45px;
+      margin: 0;
+    }
+  }
+
+  &__sandwich {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/sandwich.svg);
+    background-position: center;
   }
 }
