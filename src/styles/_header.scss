@@ -23,7 +23,7 @@
 
   &__row {
     display: grid;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     align-items: center;
     column-gap: 60px;
@@ -31,17 +31,30 @@
     padding: 4px 0 0;
     z-index: 120;
 
+    @media screen and (max-width: $maxTabletWidth) {
+      padding: 0;
+      height: auto;
+    }
+
     @media screen and (max-width: $maxMobileWidth) {
       height: 60px;
     }
   }
 
   &__logo {
+    justify-self: center;
     z-index: 120;
 
     @media screen and (max-width: $maxTabletWidth) {
       grid-column: 2;
       grid-row: 1;
+      background-color: $darkGray;
+      border-radius: 0 0 50% 50%;
+      padding: 15px 50px 20px;
+    }
+
+    @media screen and (max-width: $maxMobileWidth - 400px) {
+      padding: 15px 20px 20px;
     }
   }
 
@@ -81,16 +94,20 @@
 
   &__nav {
     transition: transform 0.3s;
+    z-index: 100;
+
     @media screen and (max-width: $maxTabletWidth) {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: $activeColor;
+      background: rgb(32,96,246)
+        linear-gradient(180deg,
+        rgba(32,96,246,1) 0%,
+        rgba(22,60,148,1) 64%);
       border-radius: 0 0 30px 30px;
-      transform: translateY(-100%);
-      z-index: -1;
+      transform: translateX(-100%);
 
       @media screen and (max-width: $maxMobileWidth) {
         border-radius: 0 0 30px;
@@ -98,8 +115,7 @@
     }
 
     &--show {
-      transform: translateY(0);
-      z-index: 100;
+      transform: translateX(0);
     }
   }
 
@@ -171,5 +187,9 @@
     color: $colorOnDark;
     white-space: nowrap;
     z-index: 120;
+
+    @media screen and (max-width: $maxMobileWidth - 400px) {
+      font-size: 10px;
+    }
   }
 }
