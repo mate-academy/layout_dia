@@ -25,7 +25,7 @@ const prevButton = document.querySelector('.slider__arrow-box.left');
 function setCurrentSlide() {
   slider
     .style
-    .backgroundImage = `url(../images/slider/slide-${currentSlide}.png)`;
+    .backgroundImage = `url(/images/slider/slide-${currentSlide}.png)`;
 }
 
 setCurrentSlide();
