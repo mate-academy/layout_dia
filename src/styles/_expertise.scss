@@ -1,0 +1,93 @@
+@import "utils";
+
+.expertise {
+  padding: 120px $frameX;
+
+  @media screen and (max-width: $maxNotebookWidth) {
+    padding: $frameXNotebook $frameXNotebook;
+  }
+
+  @media screen and (max-width: $maxTabletWidth) {
+    padding: 60px $frameXTablet;
+  }
+
+  @media screen and (max-width: $maxMobileWidth) {
+    padding: 40px 0;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 150%;
+    text-align: center;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      font-size: 32px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, $cardWidth);
+    justify-content: space-between;
+    margin-top: 20px;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      grid-template-columns: repeat(3, $cardWidthTablet);
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 240px repeat(2 max-content,);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__img-link {
+    display: block;
+    height: $cardWidth - ($cardImgMargin * 2);
+    width: $cardWidth - ($cardImgMargin * 2);
+    margin: $cardImgMargin;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      height: $cardWidthTablet - ($cardImgMarginTablet * 2);
+      width: $cardWidthTablet - ($cardImgMarginTablet * 2);
+      margin: $cardImgMarginTablet;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      margin-left: 0;
+      border-radius: 0;
+    }
+  }
+
+  &__img {
+    @include hover(transform, scale(1.1));
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item-name {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  &__item-descr {
+    margin: 0;
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
