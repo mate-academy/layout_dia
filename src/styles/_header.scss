@@ -1,0 +1,99 @@
+.header {
+  position: relative;
+  max-width: $content-max-width;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 45px 50px 205px;
+  border-bottom-left-radius: 200px;
+  background-color: $main-color-blue;
+  color: white;
+
+  &__wrap {
+    max-width: $header-content-max-width;
+    margin: auto;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 46px minmax(auto, 650px) minmax(90px, 1fr);
+    gap: 45px 80px;
+    align-items: center;
+  }
+
+  &__action {
+    justify-self: end;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc(100% - 3px);
+      height: 2px;
+      background: $main-color-pink;
+      border-radius: 4px;
+      bottom: -8px;
+    }
+  }
+
+  &__text {
+    margin-top: 165px;
+  }
+
+  &__slider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  @media screen and (max-width: 1500px) {
+    padding-bottom: 95px;
+    border-bottom-left-radius: 150px;
+
+    &__text {
+      margin-top: 55px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    padding-bottom: 50px;
+    border-bottom-left-radius: 100px;
+
+    &__top {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    &__action {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+
+    &__nav {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
+
+    &__text {
+      margin-top: 45px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    max-width: 500px;
+    padding-bottom: 385px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 85px;
+
+    &__slider {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 25px 25px 310px;
+    border-bottom-right-radius: 35px;
+  }
+}
