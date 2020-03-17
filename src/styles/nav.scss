@@ -1,0 +1,74 @@
+@import "utils/vars";
+
+.nav {
+  margin-left: 78px;
+
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+
+  &__list,
+  &__item {
+    display: flex;
+  }
+
+  &__list {
+    @media (max-width: $breakpoint-tablet) {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 54px;
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    padding: 8px 5px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: $transition;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 30px;
+    }
+  }
+
+  &__link:hover {
+    color: $c-link-hover;
+  }
+}
+
+.active {
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 2;
+    background-color: $bgc-blue;
+    transition: transition;
+    animation: 0.5s both burger-menu;
+  }
+}
+
+@keyframes burger-menu {
+  from {
+    left: -200%;
+  }
+  to {
+    top: 0;
+  }
+}
