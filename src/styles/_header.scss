@@ -74,7 +74,7 @@
   }
   &__toggler-label {
     position: absolute;
-    left: calc(50% - 9px);
+    left: calc(10% - 9px);
     top: 50px;
     display: none;
     color: white;
@@ -84,21 +84,30 @@
     content: "";
     color: wheat;
     background-image: url(../images/menu.svg);
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     background-repeat: no-repeat;
     z-index: 20;
+    cursor: pointer;
   }
   &__toggler:checked + .nav__toggler-label::before {
     content: "";
     background-image: url(../images/menu_close.svg);
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     background-repeat: no-repeat;
     z-index: 20;
+    cursor: pointer;
   }
+}
+
+.mobile-version {
+  display: none;
+  position: relative;
+  top: 42px;
+  left: 35%;
 }
 
 .strategic-agency {
@@ -219,46 +228,23 @@
   &::before,
   &::after {
     content: "";
-    width: 40%;
-    height: 4px;
-    margin-top: -2px;
-    background: #fff;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
-    top: 50%;
+    top: 30%;
+    left: 40%;
     border-radius: 4px;
   }
-  &::before {
-    transform: rotate(45deg);
-  }
-  &::after {
-    transform: rotate(-45deg);
-  }
-}
-
-.arrow-prev::before,
-.arrow-prev::after {
-  left: 32%;
-}
-
-.arrow-prev::before {
-  transform-origin: 0 0;
 }
 
 .arrow-prev::after {
-  transform-origin: 0 100%;
-}
-
-.arrow-next::before,
-.arrow-next::after {
-  right: 32%;
-}
-
-.arrow-next::before {
-  transform-origin: 100% 100%;
+  background-image: url(../images/logo/Vector--.svg);
 }
 
 .arrow-next::after {
-  transform-origin: 100% 0;
+  background-image: url(../images/logo/Vector---.svg);
 }
 
 .slider-toggler {
@@ -284,10 +270,16 @@
     z-index: 1;
   }
 
+  .mobile-version {
+    display: inline-block;
+  }
+
   .nav {
     &__list {
       margin-top: 130px;
       display: none;
+      background: rgba(black,0.1);
+      border-radius: 20px;
     }
     &__toggler-label,
     &__toggler:checked ~ .nav__list {
@@ -312,16 +304,15 @@
       background-repeat: no-repeat;
       margin-right: 0;
     }
-    &__item {
-      box-shadow: 0 15px 10px #777;
-      border-radius: 10px;
+    &__item_logo {
+      display: none;
     }
   }
 }
 
 @media screen and (max-width: 680px) {
   .strategic-agency {
-    transform: scale(0.75) translateY(270px);
+    transform: scale(0.75) translateY(270px) translateX(-20px);
   }
 
   .slider-block {
@@ -335,7 +326,7 @@
 
 @keyframes move {
   0% {
-    transform: translateY(-500px);
+    transform: translateX(300px);
   }
 
   100% {
