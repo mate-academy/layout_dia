@@ -2,12 +2,18 @@
 @import "../utils/mixins";
 
 .section-strategic {
+  position: relative;
+
   background-color: $color-main;
   height: 680px;
   box-sizing: border-box;
-  position: relative;
 
   border-radius: 0 0 30px 30px;
+
+  @media (max-width: 1070px) {
+    height: auto;
+    z-index: -1;
+  }
 
   &__container {
 
@@ -20,32 +26,52 @@
     margin: 0 auto;
 
     color: #fff;
+
+    padding-left: 15px;
+
+    @media (max-width: 1070px) {
+      display: block;
+
+      padding-right: 15px;
+    }
   }
 
   &__left {
     max-width: 490px;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto 30px;
+      text-align: center;
+    }
   }
 
   &__right {
-    transform: translateX(218px);
-
-    @media (max-width: 1400px) {
-      transform: translateX(118px);
-    }
-
-    @media (max-width: 1200px) {
-      transform: translateX(18px);
-    }
-
-    @media (max-width: 1024px) {
-      transform: translateX(0);
-    }
+    position: absolute;
     
+    right: 0;
+    bottom: -4px;
+
+    @media (max-width: 1070px) {
+      position: static;
+    }
+  }
+
+  &__img {
+
+    @media (max-width: 1070px) {
+      width: 100%;
+    }
   }
 
   &__slider {
     max-width: 687px;
     min-height: 100%;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto;
+      border-radius: 30px;
+      overflow: hidden;
+    }
   }
 
   &__title {
@@ -57,6 +83,10 @@
     max-width: 300px;
 
     margin-bottom: 32px;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto 32px;
+    }
   }
 
   &__text {
@@ -67,5 +97,15 @@
 
     margin-bottom: 83px;
     max-width: 362px;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto 83px;
+    }
+  }
+
+  &__button {
+    @media (max-width: 1070px) {
+      margin: 0 auto;
+    }
   }
 }
