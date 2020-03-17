@@ -24,7 +24,13 @@
     font-weight: bold;
     font-size: 13px;
     padding: 8px 20px;
+    transition-duration: 0.3s;
 
+    &:hover {
+      background-color: #ff9c8e;
+      border-radius: 10px;
+
+    }
   }
 
   &__action {
@@ -33,15 +39,22 @@
     right: 227px;
     color: white;
 
-    &:after {
-      content: "";
+    &::after {
       position: absolute;
-      bottom: -8px;
-      right: 0;
-      height: 2px;
-      background-color: #ff9c8e;
+      top: 100%;
+      left: 0;
       width: 100%;
-      border-radius: 4px;
+      height: 4px;
+      background: #ff9c8e;
+      content: "";
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(20px);
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(10px);
     }
 
     &--link {
@@ -58,7 +71,9 @@
 
 @media screen and (max-width: 1280px) {
   .nav__list {
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .nav__item {
+    margin-bottom: 10px;
   }
 }
