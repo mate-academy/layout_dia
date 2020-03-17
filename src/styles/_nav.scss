@@ -1,5 +1,5 @@
 .nav {
-  padding-top: 49px;
+  padding-top: 39px;
 
   &__list {
     display: flex;
@@ -11,10 +11,17 @@
   }
 
   &__item {
-    margin-right: 64px;
+    margin-right: 44px;
+    padding: 10px;
+    border-radius: 30px;
+    transition: transform 0.5s, background-color 0.3s;
     &:last-child a {
       margin-left: 240px;
       margin-right: 150px;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: rgba($color: $main-colorby2, $alpha: 0.5);
     }
   }
 
@@ -29,23 +36,12 @@
     display: none;
     position: absolute;
     top: 40px;
-    left: -8px;
+    left: 20px;
     width: 40px;
     height: 40px;
     opacity: 0;
     z-index: 2;
-  }
 
-  &__hamburger {
-    display: none;
-    position: absolute;
-    top: 48px;
-    width: 20px;
-    height: 20px;
-    background-image: url(../images/hamburger.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 }
 
@@ -71,7 +67,7 @@
     &__list {
       flex-direction: column;
       position: absolute;
-      left: -240px;
+      left: -180px;
       top: 32px;
     }
 
@@ -79,10 +75,7 @@
       position: relative;
       left: -500px;
       margin: 0 0 10px;
-      padding: 10px;
-      border-radius: 30px;
-      background-color: rgba($color: $main-color * 0.5, $alpha: 0.5);
-      transition: transform 1s;
+
       &:first-child {
         display: inline-block;
         left: 0;
@@ -91,17 +84,43 @@
       &:last-child .nav__link {
         margin-left: 0;
       }
+
     }
 
     &__toggler {
       display: block;
       top: 40px;
-      left: 150px;
+      left: 10px;
+
+      &:checked ~ .hamburger .hamburger__layout {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+      }
+
+      &:checked ~ .hamburger .hamburger__layout:nth-last-child(2) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      &:checked ~ .hamburger .hamburger__layout:nth-last-child(1) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(0, -1px);
+      }
+
       &:checked ~ .nav .nav__list .nav__item:not(:first-child) {
         display: block;
         position: relative;
         transform: translateX(500px);
       }
+
+      &:checked ~ .slider {
+        transform: translateX(50vw);
+      }
+
+      &:checked ~ .promo {
+        transform: translateX(50vw);
+      }
+
     }
 
     &__hamburger {
@@ -113,6 +132,10 @@
 @media screen and (max-width: $smallest-screen-breakpoint) {
   .nav {
 
+    &__list {
+      left: -280px;
+    }
+
     &__item {
       &:first-child {
         left: 220px;
@@ -122,11 +145,15 @@
     &__toggler {
       display: block;
       left: 8px;
-      &:checked + .nav .nav__list .nav__item:not(:first-child) {
+      &:checked ~ .nav .nav__list .nav__item:not(:first-child) {
         transform: translateX(720px);
       }
       &:checked ~ .slider {
-        transform: translateX(320px);
+        transform: translateX(50vw);
+      }
+
+      &:checked ~ .promo {
+        transform: translateX(50vw);
       }
     }
   }
