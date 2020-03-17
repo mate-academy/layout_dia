@@ -6,9 +6,53 @@
   background-color: $air-blue;
   height: 120px;
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 
   &__nav {
     width: $main-cont-width;
     margin: 0 auto;
+    @media screen and (max-width: 1200px) {
+      width: $mob-cont-width;
+    }
   }
+
+  &__menu-toggler {
+    position: absolute;
+    display: none;
+
+  }
+
+  @media screen and (max-width: 950px) {
+    &__menu-label {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      background-image: url(../images/header/burger.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &__logo {
+      height: 40px;
+      width: 69px;
+      position: absolute;
+      left: 50px;
+      top: 40px;
+      background-image: url(../images/logo/Air.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+  }
+
+  &__menu-toggler:checked ~ .header__nav {
+    transform: translateY(0);
+  }
+
 }
