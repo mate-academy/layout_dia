@@ -1,0 +1,146 @@
+.header {
+  height: 100vh;
+  position: relative;
+  background-color: $blue-color;
+  border-bottom-left-radius: 200px;
+  color: #fff;
+
+  &__main {
+    height: 100%;
+  }
+
+  &__navbar {
+    display: flex;
+    align-items: center;
+    height: 15%;
+    z-index: 2;
+    background-color: $blue-color;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__logo {
+    width: 45px;
+    height: 26px;
+  }
+
+  &__logo-link {
+    margin-right: 78px;
+    z-index: 3;
+  }
+
+  &__info-container {
+    height: 85%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    max-width: 362px;
+  }
+
+  &__heading {
+    @include font-bold;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 150%;
+    margin: 32px 0 83px;
+  }
+
+  &__slider {
+    position: absolute;
+    left: 57%;
+    right: 0;
+    bottom: 0;
+    height: 85%;
+    background: url(../images/slider/Photo.jpg) no-repeat center;
+    background-size: cover;
+    border-top-left-radius: 200px;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  @media screen and (max-width: 1050px) {
+    &__logo-link {
+      margin-right: 60px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    &__burger--icon:before {
+      content: "";
+      background: url(../images/hamburger.svg) no-repeat center;
+      background-size: cover;
+      width: 18px;
+      height: 12px;
+      position: absolute;
+      right: 5%;
+      top: 35%;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+
+    &__burger--icon:after {
+      content: "";
+      background: url(../images/close.svg) no-repeat center;
+      background-size: cover;
+      width: 18px;
+      height: 12px;
+      position: absolute;
+      right: 5%;
+      top: 35%;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 3;
+    }
+
+    &__burger:checked ~ .mobile-menu {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__burger:checked ~ &__burger--icon::before {
+      opacity: 0;
+    }
+
+    &__burger:checked ~ &__burger--icon::after {
+      opacity: 1;
+    }
+
+    &__info-container {
+      justify-content: center;
+      height: 100%;
+    }
+
+    &__info {
+      text-align: center;
+    }
+
+    &__navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0 10%;
+      height: 50px;
+      opacity: 0.9;
+    }
+  }
+}
