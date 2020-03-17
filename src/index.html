@@ -84,15 +84,15 @@
       </div>
       <div class="slider__container">
         <div class="sldr">
-          <img src="images/slider/1.png" alt="Photo one" class="photo__slider">
-          <img src="images/slider/2.png" alt="Photo two" class="photo__slider">
-          <img src="images/slider/3.png" alt="Photo three" class="photo__slider">
+          <img src="images/slider/1.png" alt="Photo one" class="slider__photo">
+          <img src="images/slider/2.png" alt="Photo two" class="slider__photo">
+          <img src="images/slider/3.png" alt="Photo three" class="slider__photo">
         </div>
         <div class="button__container">
-          <div class="left__arrow">
+          <div class="slider-left__arrow">
             <img src="images/slider/arrow-left.svg" alt="" class="arrow_img">
           </div>
-          <div class="right__arrow">
+          <div class="slider-right__arrow">
             <img src="images/slider/arrow-right.svg" alt="" class="arrow_img">
           </div>
         </div>
@@ -128,10 +128,10 @@
           sldrContent = sldr.html(),
           slideWidth = $('.slider__container').outerWidth(),
           slideCount = $('.sldr img').length,
-          prv_b = $('.left__arrow'),
-          nxt_b = $('.right__arrow'),
+          prv_b = $('.slider-left__arrow'),
+          nxt_b = $('.slider-right__arrow'),
           sldrInterval = 60000,
-          animateTime = 1000,
+          animateTime = 700,
           course = 1,
           margin = - slideWidth;
         $('.sldr img:last').clone().prependTo('.sldr'); $('.sldr img').eq(1).clone().appendTo('.sldr'); $('.sldr').css('margin-left', -slideWidth); function nxt_bSlide() { interval = window.setInterval(animate, sldrInterval) } function animate() { if (margin == -slideCount * slideWidth - slideWidth) { sldr.css({ 'marginLeft': -slideWidth }); margin = -slideWidth * 2 } else if (margin == 0 && course == -1) { sldr.css({ 'marginLeft': -slideWidth * slideCount }); margin = -slideWidth * slideCount + slideWidth } else { margin = margin - slideWidth * (course) } sldr.animate({ 'marginLeft': margin }, animateTime) } function sldrStop() { window.clearInterval(interval) } prv_b.click(function () { if (sldr.is(':animated')) { return false } var course2 = course; course = -1; animate(); course = course2 }); nxt_b.click(function () { if (sldr.is(':animated')) { return false } var course2 = course; course = 1; animate(); course = course2 }); sldr.add(nxt_b).add(prv_b).hover(function () { sldrStop() }, nxt_bSlide); nxt_bSlide()
