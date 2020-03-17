@@ -2,17 +2,16 @@
 
 .header__gallery {
   width: 687px;
-  height: 680px;
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-label { /*при наведении на стрелки или переключатели - курсор изменится*/
+.switch { /*при наведении на стрелки или переключатели - курсор изменится*/
   cursor: pointer;
 }
 
-.slides article { /*все изображения справа друг от друга*/
+.slides .photo { /*все изображения справа друг от друга*/
   float: left;
 }
 
@@ -28,15 +27,15 @@ label { /*при наведении на стрелки или переключ�
   overflow: hidden;
 }
 
-article img { /*размер изображений слайдера*/
+.photo .img { /*размер изображений слайдера*/
   width: 100%;
 }
 
-.controls label { /*прозрачность стрелок при отводе курсора*/
+.controls .switch { /*прозрачность стрелок при отводе курсора*/
   transition: opacity 0.2s ease-out;
 }
 
-.active label { /*стиль отдельного переключателя*/
+.active .switch { /*стиль отдельного переключателя*/
   border-radius: 10px;
   display: inline-block;
   width: 20px;
@@ -44,18 +43,18 @@ article img { /*размер изображений слайдера*/
   background: white;
 }
 
-.controls label:hover { /*прозрачность стрелок при наведении*/
+.controls .switch:hover { /*прозрачность стрелок при наведении*/
   opacity: 0.6;
 }
 
-.active label:hover { /*поведение чекбокса при наведении*/
+.active .switch:hover { /*поведение чекбокса при наведении*/
   background: #76c8ff;
 }
 
 /*настройка переключения и положения для левой стрелки*/
-#switch1:checked ~ .controls label:nth-child(3),
-#switch2:checked ~ .controls label:nth-child(1),
-#switch3:checked ~ .controls label:nth-child(2) {
+#switch1:checked ~ .controls .switch:nth-child(3),
+#switch2:checked ~ .controls .switch:nth-child(1),
+#switch3:checked ~ .controls .switch:nth-child(2) {
   display: block;
   height: 68px;
   width: 68px;
@@ -85,9 +84,9 @@ article img { /*размер изображений слайдера*/
 }
 
 /*настройка переключения и положения для правой стрелки*/
-#switch1:checked ~ .controls label:nth-child(2),
-#switch2:checked ~ .controls label:nth-child(3),
-#switch3:checked ~ .controls label:nth-child(1) {
+#switch1:checked ~ .controls .switch:nth-child(2),
+#switch2:checked ~ .controls .switch:nth-child(3),
+#switch3:checked ~ .controls .switch:nth-child(1) {
   display: block;
   height: 68px;
   width: 68px;
@@ -116,7 +115,7 @@ article img { /*размер изображений слайдера*/
   }
 }
 
-.header__gallery input { /*скрывает стандартные инпуты (чекбоксы) на странице*/
+.header__gallery .input { /*скрывает стандартные инпуты (чекбоксы) на странице*/
   display: none;
 }
 
@@ -148,8 +147,8 @@ article img { /*размер изображений слайдера*/
 }
 
 /*цвет активного лейбла при активации чекбокса*/
-#switch1:checked ~ .active label:nth-child(1),
-#switch2:checked ~ .active label:nth-child(2),
-#switch3:checked ~ .active label:nth-child(3) {
+#switch1:checked ~ .active .switch:nth-child(1),
+#switch2:checked ~ .active .switch:nth-child(2),
+#switch3:checked ~ .active .switch:nth-child(3) {
   background: $blue-active-color;
 }
