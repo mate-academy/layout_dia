@@ -1,17 +1,32 @@
 .btn {
-  background-color: #ff9c8e;
+  width: 226px;
+  height: 56px;
+  background-color: $orange-color;
   color: #fff;
   border-radius: 64px;
-  transition: all 0.5s;
-  padding: 14px 70px;
+  transition: all 0.4s;
   border: none;
   @include font-bold;
   font-size: 15px;
   line-height: 22px;
   cursor: pointer;
+  position: relative;
 
-  &:hover {
-    transform: scale(1.1);
-    color: $blue-color;
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+    background: url(../images/right-icon.svg) no-repeat center;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 }
