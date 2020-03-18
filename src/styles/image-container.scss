@@ -1,0 +1,53 @@
+@import "utils/mixins";
+
+.image-container {
+  height: 680px;
+  width: 687px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  &__control-panel {
+    display: grid;
+    align-items: center;
+    grid-template-areas: "arrows description" "arrows description";
+    grid-gap: 0 24px;
+    position: absolute;
+    left: 48px;
+    bottom: 48px;
+  }
+  &__description {
+    color: #fff;
+    grid-area: description;
+  }
+  &__capture {
+    @include poppins_font;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  &__text {
+    @include open_sans_font;
+    font-size: 14px;
+  }
+  &__arrows {
+    grid-area: arrows;
+    display: flex;
+  }
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    &--left {
+      background-image: url("../images/slider/arrow-left.svg");
+      margin-right: 8px;
+    }
+    &--right {
+      background-image: url("../images/slider/arrow-right.svg");
+    }
+  }
+}
