@@ -4,7 +4,7 @@ const sandwich = document.querySelector('.navigation__sandwich');
 const closeMenu = document.querySelector('.navigation__close');
 const mobileMenu = document.querySelector('.navigation__menu-wrapper');
 const upButton = document.querySelector('.up-arrow');
-const links = document.querySelectorAll('.navigation__link');
+const links = document.querySelectorAll('.sroll-link');
 
 sandwich.addEventListener('click', function() {
   mobileMenu.classList.remove('hide');
