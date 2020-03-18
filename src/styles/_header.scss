@@ -1,155 +1,59 @@
-@import "vars";
-
 .header {
-  height: 800px;
-  position: relative;
-  background: $blue-active-color;
-  border-radius: 0 0 0 200px;
+  height: 120px;
+  display: flex;
+  background-color: $main-blue-color;
 
-  &__container {
-    max-width: 1145px;
-    height: 100%;
-    margin: 0 auto;
+  @media screen and (max-width: $breakpoint-notebook) {
+    height: 80px;
   }
 
-  &__top {
+  @media screen and (max-width: $breakpoint-mobile) {
+    height: 60px;
+  }
+
+  &__container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 45px;
+    flex-grow: 1;
 
-    @media (max-width: $notebook-screen-breakpoint) {
-      padding: 45px 120px;
+    @media screen and (max-width: $breakpoint-notebook) {
+      justify-content: space-between;
     }
+  }
 
-    @media (max-width: 650px) {
-      padding: 45px 60px;
+  &__logo {
+    margin-right: 78px;
+
+    @media screen and (max-width: $breakpoint-notebook) {
+      margin-right: 0;
     }
   }
 
   &__link {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    @extend h4;
-    letter-spacing: $h4-letter-spacing;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color $hover-duration;
-  }
-
-  &__action {
     position: relative;
+    display: block;
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
 
-    @media (max-width: $notebook-screen-breakpoint) {
-      display: none;
+    @media screen and (max-width: $breakpoint-notebook) {
+      margin-left: 0;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      height: 2px;
-      width: 67px;
-      background-color: $pink-active-color;
-      top: 26px;
-      left: 0;
-      border-radius: 4px;
-    }
-  }
-
-  &__title {
-    width: 490px;
-    height: 355px;
-    position: absolute;
-    top: 225px;
-    left: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    color: white;
-
-    @media (max-width: $notebook-screen-breakpoint) {
-      z-index: 1;
-    }
-
-    @media (max-width: 800px) {
-      top: 225px;
-      left: 27px;
-      width: 290px;
-    }
-  }
-
-  &__heading {
-    @media (max-width: 685px) {
-      font-size: 48px;
-      line-height: 52px;
-      width: 190px;
-    }
-  }
-
-  &__text {
-    width: 362px;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 27px;
-
-    @media (max-width: 685px) {
-      width: 190px;
-    }
-  }
-
-  &__button {
-    margin-top: 53px;
-  }
-
-  &__toggler-label {
-    display: none;
-    width: 18px;
-    height: 12px;
-    background-image: url("../images/toggler.png");
-
-    @media (max-width: $notebook-screen-breakpoint) {
-      display: inline-block;
-      z-index: 2;
-    }
-  }
-
-  &__toggler {
-    display: none;
-
-    @media (max-width: $notebook-screen-breakpoint) {
-      &:checked ~ .nav {
-        display: block;
-        position: fixed;
-        top: 0;
-        bottom: 0;
+    &:hover {
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -8px;
         left: 0;
         right: 0;
-        z-index: 1;
-        animation: 0.7s surf-nav;
-
-        @media (max-width: 400px) {
-          z-index: 2;
-        }
-
-        @keyframes surf-nav {
-          from {
-            right: -300px;
-          }
-          to {
-            left: 0;
-          }
-        }
-      }
-
-      &:checked + .header__toggler-label {
-        width: 16px;
-        height: 16px;
-        background-image: url("../images/close.svg");
-
-        @media (max-width: 400px) {
-          position: relative;
-          z-index: 3;
-        }
+        height: 2px;
+        background-color: #ff9c8e;
+        border-radius: 4px;
       }
     }
   }
