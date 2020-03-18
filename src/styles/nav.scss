@@ -4,13 +4,10 @@
   margin: 0 auto;
   text-transform: uppercase;
   color: white;
-  white-space: nowrap;
+  white-space: nowrap__button;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media screen and (max-width: $breakpoint) {
-    display: none;
-  }
   @media screen and (min-width: 1500px) {
     width: 1500px;
   }
@@ -79,30 +76,37 @@
 
   &__menu {
     z-index: 2;
-    display: none;
+    // display: none;
+
     &::after {
       content: "";
       position: absolute;
       width: 30px;
       height: 30px;
+      top: 70px;
+      left: 60px;
       background-image: url(../images/menu.png);
       background-repeat: no-repeat;
       background-size: contain;
     }
     @media screen and (min-width: $breakpoint) {
-      // display: none;
+      display: none;
     }
   }
 
   &__toggler:checked ~ .nav__list {
+    background-color: blue;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 0;
   }
 
   &__toggler:checked + &__menu::after {
+    content: "";
     background-image: url(../images/menuX.png);
     width: 30px;
     height: 30px;
-    top: 0;
   }
 }
