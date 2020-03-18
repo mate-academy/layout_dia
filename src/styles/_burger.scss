@@ -1,0 +1,104 @@
+@import "vars";
+
+.menu__toggle {
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+}
+
+.menu {
+  &__span {
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background-color: white;
+      transition-duration: 0.3s;
+    }
+
+    &::before {
+      content: "";
+      top: -8px;
+    }
+
+    &::after {
+      content: "";
+      top: 8px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    position: absolute;
+    left: calc(50% - 20px);
+    margin: 11px auto 0;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .menu__toggle:checked ~ .menu__btn > .menu__span {
+    transform: rotate(45deg);
+  }
+  .menu__toggle:checked ~ .menu__btn > .menu__span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  .menu__toggle:checked ~ .menu__btn > .menu__span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .menu__toggle:checked ~ .nav__list {
+    visibility: visible;
+    top: 50px;
+  }
+}
+
+.header__nav {
+  position: relative;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    visibility: hidden;
+    margin: 0 auto;
+    top: -2500%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    width: 70vw;
+    height: 40vh;
+    padding: 20px 0;
+    list-style: none;
+    background-color: $c-blue;
+    border-radius: 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
+    transition-duration: 0.3s;
+  }
+
+  &__link {
+    display: block;
+    padding: 12px 24px;
+    color: #fff;
+    border-radius: 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.3s;
+
+    &:hover {
+      background-color: #334563;
+    }
+  }
+}
