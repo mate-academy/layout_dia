@@ -4,6 +4,23 @@
 
 .testimonials {
 
+  &__container {
+    width: 300px;
+    margin: 0 auto;
+
+    @media (min-width: $tablet-width) {
+      width: 700px;
+    }
+
+    @media (min-width: $laptop-width) {
+      width: 940px;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      width: 1146px;
+    }
+  }
+
   &__title {
     margin: 0 0 16px;
 
@@ -18,8 +35,8 @@
   }
 
   &__title-additional {
-    width: 362px;
-    margin: 0 0 85px;
+    width: 300px;
+    margin: 0 0 45px;
 
     font-family: "Poppins", sans-serif;
     font-size: 32px;
@@ -27,19 +44,42 @@
     font-weight: 600;
 
     color: $c-title;
+
+    @media (min-width: $tablet-width) {
+      width: 362px;
+      margin: 0 0 85px;
+    }
   }
 
   &__list {
     @include list-style-reset;
+
     display: grid;
-    grid-template-columns: repeat(3, 314px);
-    grid-template-rows: 494px;
-    gap: 0 102px;
-    justify-content: center;
+    grid-template-columns: 300px;
+    gap: 20px 0;
+
+    @media (min-width: $tablet-width) {
+      grid-template-columns: repeat(3, 240px);
+      grid-template-rows: 494px;
+      gap: 0 12px;
+      justify-content: center;
+    }
+
+    @media (min-width: $laptop-width) {
+      grid-template-columns: repeat(3, 300px);
+      grid-template-rows: 494px;
+      gap: 0 20px;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      grid-template-columns: repeat(3, 314px);
+      gap: 0 102px;
+    }
   }
 
   &__item {
-    width: 314px;
+    width: 300px;
+    justify-self: center;
     box-sizing: border-box;
     padding: 32px;
     display: flex;
@@ -52,33 +92,109 @@
 
     transition: $transition-time ease-in-out;
 
+    @media (min-width: $tablet-width) {
+      width: 240px;
+      justify-content: space-between;
+    }
+
+    @media (min-width: $laptop-width) {
+      width: 300px;
+      justify-content: unset;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      width: 314px;
+    }
+
     &:hover {
       box-shadow: 0 9px 18px rgba(37, 41, 49, 0.3);
     }
   }
 
   &__photo-container {
+    position: relative;
     width: 140px;
     height: 140px;
     margin-top: 55px;
-    margin-bottom: 111px;
-    border-radius: 50%;
-    overflow: hidden;
+    margin-bottom: 52px;
+
+    @media (min-width: $laptop-width) {
+      margin-bottom: 79px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -50%;
+      width: 139px;
+      height: 56px;
+      border-radius: 30px;
+      transform: rotate(-60deg) translate(50%, -50%);
+      background-color: $c-first-cart;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 50%;
+      right: -50%;
+      width: 139px;
+      height: 56px;
+      border-radius: 30px;
+      transform: rotate(-60deg) translate(-50%, 50%);
+      background-color: $c-first-cart;
+    }
+
+    &--second {
+      &::before {
+        background-color: $c-second-cart-testimonials;
+      }
+
+      &::after {
+        background-color: $c-second-cart-testimonials;
+      }
+    }
+
+    &--third {
+      &::before {
+        background-color: $c-third-cart-testimonials;
+      }
+
+      &::after {
+        background-color: $c-third-cart-testimonials;
+      }
+    }
   }
 
   &__photo {
+    position: relative;
     width: 100%;
     height: auto;
     transition: $transition-time ease-in-out;
+    border-radius: 50%;
+    z-index: 2;
 
     &:hover {
       transform: scale(1.1);
     }
   }
 
+  &__quotes {
+    margin-bottom: 10px;
+
+    &--yellow {
+      fill: $c-second-cart-testimonials;
+    }
+
+    &--red {
+      fill: $c-third-cart-testimonials;
+    }
+  }
+
   &__text {
-    position: relative;
     width: 250px;
+    position: relative;
     margin: 0 0 16px;
 
     font-size: 13px;
@@ -88,16 +204,12 @@
     text-align: center;
     color: $c-text;
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -31px;
-      transform: translate(-50%, 0);
-      width: 21px;
-      height: 19px;
+    @media (min-width: $tablet-width) {
+      width: 210px;
+    }
 
-      background-image: url(../images/quotes.svg);
+    @media (min-width: $laptop-width) {
+      width: 250px;
     }
   }
 
@@ -124,5 +236,13 @@
     text-transform: uppercase;
 
     color: $c-small-title;
+  }
+
+  &--outer {
+    margin-bottom: 100px;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 168px;
+    }
   }
 }
