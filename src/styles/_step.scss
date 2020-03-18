@@ -20,7 +20,6 @@
   &__item {
     counter-increment: step-counter;
     min-width: ($unit * 10);
-    padding: ($unit * 2);
     background-color: $colorOnDark;
     border-radius: $unit;
     z-index: 10;
@@ -44,8 +43,54 @@
     }
   }
 
+  &__link {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: $unit;
+    align-items: center;
+    padding: ($unit * 2);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 22px;
+    color: #334563;
+    border-radius: $unit;
+    outline: none;
+
+    &::before {
+      content: "";
+      grid-row: 3;
+      height: 40px;
+      width: 40px;
+      background-image: url(../images/arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: $activeColor;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    &::after {
+      content: "Learn more";
+      grid-row: 3;
+    }
+
+    &:hover,
+    &:focus {
+      @include shadowLight;
+
+      &::before {
+        content: "";
+        transform: scale(1.2);
+        @include shadowRound;
+      }
+    }
+  }
+
   &__counter {
-    display: inline-block;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: start;
     margin-bottom: 24px;
     padding: 2px 12px;
     font-family: $headersFont;
@@ -66,45 +111,13 @@
   }
 
   &__sublist {
+    grid-row: 2;
+    grid-column: 1 / -1;
     margin-bottom: ($unit * 2);
   }
 
   &__sublist-item {
     font-family: $commonFont;
     color: $mainTextColor;
-  }
-
-  &__link {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    column-gap: $unit;
-    align-items: center;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    line-height: 22px;
-    color: #334563;
-    outline: none;
-
-    &::before {
-      content: "";
-      height: 40px;
-      width: 40px;
-      background-image: url(../images/arrow.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: $activeColor;
-      border-radius: 50%;
-      transition: transform 0.3s;
-    }
-
-    &:hover,
-    &:focus {
-      &::before {
-        content: "";
-        transform: scale(1.2);
-        @include shadow;
-      }
-    }
   }
 }

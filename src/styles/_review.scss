@@ -2,20 +2,31 @@
 
 .review {
   display: grid;
-  grid-template-rows: max-content 1fr max-content ($unit * 2);
+  grid-template-rows: ($reviewImageWidth * 2) 1fr max-content ($unit * 4);
   justify-items: center;
-  padding: ($unit * 2);
-  max-width: 320px;
+  justify-content: center;
+  max-width: $reviewCard;
+  box-sizing: border-box;
   background: $colorOnDark;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
-  border-radius: $unit;
+  border-radius: 5%;
+  overflow: hidden;
 
-  &__photo-link {
+  &:hover {
+    @include shadowSquare;
+
+    & img {
+      border-radius: 5%;
+      transform: scale(1.99);
+    }
+  }
+
+  &__photo-wrap {
     position: relative;
+    align-self: center;
     display: block;
-    height: 140px;
-    width: 140px;
-    padding: 55px 0;
+    height: $reviewImageWidth;
+    width: $reviewImageWidth;
     outline: none;
 
     &::before,
@@ -23,7 +34,7 @@
       content: "";
       position: absolute;
       display: block;
-      width: 140px;
+      width: $reviewImageWidth;
       height: 56px;
       background-color: $activeColor;
       border-radius: 12px;
@@ -43,32 +54,26 @@
 
   &__photo {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: $reviewImageWidth;
+    height: $reviewImageWidth;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
     transition: border-radius 0.3s, transform 0.3s;
     z-index: 10;
-
-    &:hover {
-      @include shadow;
-      border-radius: 10%;
-      transform: scale(1.8);
-    }
   }
 
   &__text {
     color: $mainTextColor;
     text-align: center;
-    margin: 0;
+    margin: 0 $unit;
 
     &::before {
       content: "";
       display: block;
       height: ($unit * 1.5);
       width: ($unit * 1.5);
-      margin: 10px auto;
+      margin: $unit auto;
       background-image: url(../images/quote.svg);
       background-position: center;
       background-repeat: no-repeat;
@@ -88,12 +93,11 @@
 
     &:focus {
       color: $activeColor;
-      text-decoration: underline;
     }
   }
 
   &__author-company {
-    margin-top: ($unit / 4);
+    margin: ($unit / 4) 0 ($unit * 2);
     text-align: center;
     color: $lightGray;
   }
