@@ -1,0 +1,153 @@
+.process {
+  background-color: #f2f6fa;
+  position: relative;
+  max-width: 1600px;
+
+  &__wrapper {
+    padding: 148px 227px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__services {
+    display: flex;
+    flex-wrap: wrap;
+    width: 558px;
+  }
+
+  &__top-text {
+    @include font-poppins(13px, bold, 19px, #c0cdd7);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    @include font-poppins(32px, 600, 130%, #253757);
+    max-width: 362px;
+  }
+
+  &__text {
+    @include font-open-sans(12px, normal, 150%, #6c788b);
+    max-width: 362px;
+  }
+
+  &__card {
+    box-sizing: border-box;
+    padding-left: 32px;
+    padding-top: 32px;
+    background-color: #fff;
+    width: 264px;
+    height: 264px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &__number {
+      @include font-poppins(13px, 600, 19px, $active-color);
+      text-align: center;
+      width: 46px;
+      height: 24px;
+      color: $active-color;
+      background-color: #f2f6fa;
+      border-radius: 23px;
+    }
+
+    &__description {
+      @include font-open-sans(13px, 600, 150%, #6c788b);
+      width: 200px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+    }
+
+    &__link,
+    &__link:visited {
+      text-decoration: none;
+    }
+
+    &__link {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $active-color;
+      transition: 0.3s;
+
+      &__text {
+        @include font-poppins(15px, 600, 22px, #334563);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: calc(50% - 8px);
+        left: calc(50% - 8px);
+        background-image: url("../images/right-arrow.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 16px;
+      }
+
+      &::after {
+        @include font-poppins(15px, 600, 22px, #334563);
+        position: absolute;
+        bottom: calc(50% - 11px);
+        left: 53px;
+        width: 87px;
+        content: "Learn more";
+
+      }
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px -1px 10px 0px rgba(0,0,0,0.75);
+      }
+    }
+  }
+
+  @media (max-width: 970px) {
+    &__wrapper {
+      flex-direction: column;
+    }
+
+    &__description {
+      margin-bottom: 30px;
+    }
+
+    .shifted-card {
+      position: static;
+    }
+
+    &__top-text,
+    &__heading,
+    &__text {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) { 
+
+
+    &__card {
+      margin-right: 0;
+    }
+
+    &__services {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.shifted-card {
+  position: relative;
+  top: 132px;
+}

@@ -30,23 +30,29 @@
     opacity: 0.9;
     transition: 0.3s;
     
-    &:hover {
-      opacity: 1;
-      transform: scale(1.1);
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    &-underline::after,
-    &:hover::after {
+    
+    &::after {
       content: "";
       display: block;
+      visibility: hidden;
       position: absolute;
       width: 100%;
-      bottom: -8px;
+      bottom: 25px;
       height: 1px;
       background: $active-color;
       border-radius: 4px;
+    }
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      transition: 0.3s;
+      
+      &::after {
+        visibility: visible;
+        bottom: -8px;
+        transition: 0.3s;
+      }
     }
   }
 }
@@ -128,7 +134,6 @@
     transition: 0.3s;
 
     &:hover {
-      transform: scale(1.025);
       background-color: #fff;
       color: $active-color;
       cursor: pointer;
@@ -186,6 +191,13 @@
     margin-left: 8px;
     left: 88px;
   }
+
+  .right:hover,
+  .left:hover {
+    cursor: pointer;
+    animation: rotate 0.4s linear;
+  }
+
 }
 
 .slider img {
@@ -222,6 +234,7 @@
     &__top {
       margin: 20px 20px 0;
       display: flex;
+      flex-direction: row-reverse;
       justify-content: space-between;
     }
 
@@ -238,6 +251,12 @@
 
   .small-screen-menu {
     display: block;
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      animation: rotate 0.4s linear;
+    }
   }
 
   #menu:checked + .header .header__nav-small-screen {
@@ -305,5 +324,15 @@
       margin: 0;
       margin-bottom: 20px;
     }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
