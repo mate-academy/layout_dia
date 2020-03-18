@@ -32,12 +32,17 @@
     justify-content: space-around;
     align-items: flex-end;
     transition: $transition-time ease-in-out;
+    padding: 10px 0;
 
     @media (min-width: $tablet-width) {
       height: unset;
       position: static;
       display: block;
       width: auto;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      padding: 0;
     }
   }
 
@@ -51,6 +56,7 @@
 
     @media (min-width: $tablet-width) {
       @include list-style-reset;
+      width: 400px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -60,6 +66,7 @@
     }
 
     @media (min-width: $laptop-width) {
+      width: 500px;
       margin-left: 78px;
     }
 
@@ -79,6 +86,7 @@
 
   &__link {
     display: block;
+    position: relative;
     text-align: center;
     font-family: "Poppins", sans-serif;
     font-size: 20px;
@@ -96,7 +104,6 @@
     @media (min-width: $tablet-width) {
       font-size: 13px;
       line-height: 19px;
-      padding: 20px 10px;
       text-align: left;
     }
 
@@ -105,10 +112,28 @@
       letter-spacing: 3px;
     }
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: $c-link;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+
+      border-radius: 2px;
+      background-color: $c-button;
+
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+      transform: translateY(10px);
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active::after {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     &--main {
@@ -129,17 +154,6 @@
       @media (min-width: $laptop-large-width) {
         width: 70px;
         margin-left: 300px;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        border-radius: 2px;
-        background-color: $c-button;
       }
     }
   }
