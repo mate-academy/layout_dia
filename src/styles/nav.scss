@@ -27,14 +27,22 @@
   &__list {
     display: flex;
     z-index: 1;
+    // transition: all 1s;
+    
     @media screen and (max-width: $breakpoint) {
       display: none;
+      position: relative;
+      // top: -300px;
     }
   }
 
   &__item {
     padding: 8px 24px;
     list-style: none;
+    margin: 0 auto;
+    @media screen and (max-width: $breakpoint) {
+      height: 30px;
+    }
   }
 
   &__link {
@@ -66,10 +74,6 @@
     }
   }
 
-  &__nav__hire {
-    display: inline;
-  }
-
   &__toggler {
     display: none;
   }
@@ -95,12 +99,17 @@
   }
 
   &__toggler:checked ~ .nav__list {
-    background-color: blue;
+    background-color: gray;
+    border-radius: 0 0 30px 30px;
     width: 100%;
+    height: 120%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow: hidden;
     padding: 0;
+    // transform: translateY(100%);
+    // transition: transform 1s;
+
   }
 
   &__toggler:checked + &__menu::after {
@@ -109,4 +118,8 @@
     width: 30px;
     height: 30px;
   }
+}
+
+.nav__hire {
+  padding-left: 7vw;
 }
