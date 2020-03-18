@@ -3,8 +3,16 @@
 .nav {
   margin-left: 78px;
 
-  @media (max-width: $breakpoint-tablet) {
-    display: none;
+  @media (max-width: $breakpoint-large-tablet) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    margin-left: 0;
+    transform: translateX(-200%);
+    transition: $transition;
+    z-index: 2;
   }
 
   &__list,
@@ -13,62 +21,60 @@
   }
 
   &__list {
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-large-tablet) {
       flex-direction: column;
-      justify-content: center;
-      width: 100%;
+      margin-top: 110px;
     }
   }
 
   &__item:not(:last-child) {
     margin-right: 54px;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-large-tablet) {
       margin-right: 0;
     }
   }
 
   &__link {
+    position: relative;
     padding: 8px 5px;
     font-weight: bold;
     letter-spacing: 3px;
     text-transform: uppercase;
-    transition: $transition;
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-large-tablet) {
       width: 100%;
       text-align: center;
-      padding: 30px 15px;
-      font-size: 30px;
+      padding: 25px 0;
+      font-size: 20px;
     }
-  }
 
-  &__link:hover {
-    color: $c-link-hover;
+    &:hover,
+    &:focus {
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: $bgc-rose;
+        border-radius: 4px;
+      }
+    }
   }
 }
 
 .active {
-  @media (max-width: $breakpoint-tablet) {
-    display: flex;
-    position: absolute;
+  @media (max-width: $breakpoint-large-tablet) {
+    position: fixed;
     top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
-    margin: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(0);
     z-index: 2;
     background-color: $bgc-blue;
-    transition: transition;
-    animation: 0.5s both burger-menu;
-  }
-}
-
-@keyframes burger-menu {
-  from {
-    left: -200%;
-  }
-  to {
-    top: 0;
+    opacity: 0.9;
   }
 }

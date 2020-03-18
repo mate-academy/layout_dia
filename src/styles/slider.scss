@@ -1,11 +1,21 @@
 @import "utils/vars";
 
 .slider {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/slider/slide-img-1.jpg);
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 200px;
 
-  &__img {
+  @media (max-width: $breakpoint-large-tablet) {
+    width: 80%;
+    border-top-left-radius: 100px;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    border-top-left-radius: 50px;
     width: 100%;
-    height: auto;
-    border-top-left-radius: 200px;
   }
 
   &__intro,
@@ -23,7 +33,7 @@
       right: 490px;
     }
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-large-tablet) {
       right: 0;
       left: 50px;
     }
@@ -38,7 +48,7 @@
       right: 200px;
     }
 
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-large-tablet) {
       right: 0;
       left: 150px;
     }
@@ -53,10 +63,18 @@
     font-size: 14px;
     line-height: 20px;
     color: $c-white;
+
+    @media (max-width: $breakpoint-large-tablet) {
+      padding-right: 10px;
+    }
   }
 }
 
 .arrow {
+  &__left {
+    margin-right: 8px;
+  }
+
   &__left,
   &__right {
     display: flex;
@@ -68,10 +86,13 @@
     background-position: center;
     background-size: cover;
     background-color: $c-white;
-  }
+    cursor: pointer;
+    transition: $transition;
 
-  &__left {
-    margin-right: 8px;
+    &:hover,
+    &:focus {
+      background-color: $bgc-blue;
+    }
   }
 
   &__left img,
