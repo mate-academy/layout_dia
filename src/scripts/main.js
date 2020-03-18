@@ -1,5 +1,9 @@
 'use strict';
 
+const btnLeft = document.getElementById('btn-left');
+
+const btnRight = document.getElementById('btn-right');
+
 const images = [
   './images/slider/slide-1.png',
   './images/slider/slide-2.png',
@@ -8,7 +12,7 @@ const images = [
 
 let num = 0;
 
-function next() {
+btnLeft.onclick = function() {
   const slider = document.getElementById('slider');
 
   num++;
@@ -17,9 +21,9 @@ function next() {
     num = 0;
   }
   slider.src = images[num];
-}
+};
 
-function prev() {
+btnRight.onclick = function() {
   const slider = document.getElementById('slider');
 
   num--;
@@ -29,8 +33,4 @@ function prev() {
   }
 
   slider.src = images[num];
-}
-
-next();
-
-prev();
+};
