@@ -1,0 +1,88 @@
+.nav {
+  padding-top: 39px;
+  @include container;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    text-transform: uppercase;
+
+    &--footer {
+      justify-content: flex-end;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: $logo-width;
+    height: $logo-height;
+  }
+
+  &__item {
+    position: relative;
+    padding: 10px 32px;
+
+    @media screen and (max-width: 1280px) {
+      display: none;
+    }
+
+    &--hire {
+      margin-left: auto;
+    }
+
+    &--footer {
+      margin-right: auto;
+    }
+
+    &--logo {
+      padding-left: 0;
+
+      @media screen and (max-width: 1280px) {
+        display: inline-block;
+      }
+    }
+
+    &--menu {
+      margin-left: auto;
+      padding-right: 0;
+      @media screen and (max-width: 1280px) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+    transition: transform $transition-duration;
+
+    &::after {
+      position: absolute;
+      content: " ";
+      box-sizing: border-box;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $primary-color;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity $transition-duration, transform $transition-duration;
+    }
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+  }
+}

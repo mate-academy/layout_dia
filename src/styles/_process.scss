@@ -1,0 +1,171 @@
+.process {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 940px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  &__subtitle {
+    @include subtitle-style;
+    margin-top: 250px;
+    color: $text-color-subtitle;
+
+    @media screen and (max-width: 1024px) {
+      margin-top: 100px;
+    }
+    @media screen and (max-width: 940px) {
+      margin-top: 120px;
+    }
+  }
+
+  &__title {
+    @include title-style;
+    width: 360px;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+
+  &__desc {
+    margin-top: 24px;
+    @include desc-style;
+    width: 360px;
+
+    &--second {
+      margin-top: 15px;
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+
+  &__list {
+    margin-top: 148px;
+    display: grid;
+    grid-template-columns: repeat(2, 229px);
+    grid-template-rows: repeat(2, 264px);
+    grid-gap: 30px;
+
+    @media screen and (max-width: 940px) {
+      margin-top: 100px;
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(1, 229px);
+    }
+  }
+
+  &__card {
+    padding: 32px;
+    background-color: white;
+    border-radius: 24px;
+    z-index: 1;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+    &:nth-child(2n+1) {
+      transform: translateY(132px);
+
+      @media screen and (max-width: 600px) {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__num {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 23px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+
+    &--blue {
+      color: $card-color-blue;
+      background-color: rgba($card-color-blue, 0.1);
+    }
+
+    &--yellow {
+      color: $card-color-yellow;
+      background-color: rgba($card-color-yellow, 0.1);
+    }
+
+    &--green {
+      color: $card-color-green;
+      background-color: rgba($card-color-green, 0.1);
+    }
+
+    &--red {
+      color: $card-color-red;
+      background-color: rgba($card-color-red, 0.1);
+    }
+  }
+
+  &__text {
+    margin-top: 24px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $text-color;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform $transition-duration;
+
+    &--blue {
+      background-color: $card-color-blue;
+    }
+
+    &--yellow {
+      background-color: $card-color-yellow;
+    }
+
+    &--green {
+      background-color: $card-color-green;
+    }
+
+    &--red {
+      background-color: $card-color-red;
+    }
+  }
+
+  &__arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-left: 16px;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 40px;
+  }
+
+  &__button {
+    margin-top: 32px;
+    display: flex;
+
+    &:hover .process__icon {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+}
