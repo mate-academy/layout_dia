@@ -1,0 +1,94 @@
+@import "utils";
+
+.review {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content ($unit * 2);
+  justify-items: center;
+  padding: ($unit * 2);
+  max-width: 320px;
+  background: $colorOnDark;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: $unit;
+
+  &__photo-link {
+    position: relative;
+    display: block;
+    height: 140px;
+    width: 140px;
+    padding: 55px 0;
+    outline: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 140px;
+      height: 56px;
+      background-color: $activeColor;
+      border-radius: 12px;
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      transform: translateX(-40px) rotate(-60deg);
+    }
+
+    &::after {
+      content: "";
+      transform: translateX(40px) translateY(-60px) rotate(-60deg);
+    }
+  }
+
+  &__photo {
+    @include hover(transform, scale(1.1));
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 10;
+  }
+
+  &__text {
+    color: $mainTextColor;
+    text-align: center;
+    margin: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      height: ($unit * 1.5);
+      width: ($unit * 1.5);
+      margin: 10px auto;
+      background-image: url(../images/quote.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__author {
+    @include hover(color, $activeColor);
+    display: inline-block;
+    margin-top: $unit;
+    color: $darkBlue;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-decoration: none;
+    outline: none;
+
+    &:focus {
+      color: $activeColor;
+      text-decoration: underline;
+    }
+  }
+
+  &__author-company {
+    margin-top: ($unit / 4);
+    text-align: center;
+    color: $lightGray;
+  }
+}
