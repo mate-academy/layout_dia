@@ -1,5 +1,4 @@
 @import "mixins-vars";
-@import "media";
 
 .header {
   background: #2c2c2c;
@@ -7,8 +6,13 @@
 
   .block-container {
     padding-top: 42px;
-    padding-left: $side-margin;
-    padding-right: $side-margin;
+    padding-left: $side-margin-design;
+    padding-right: $side-margin-design;
+
+    @media screen and (max-width: $tab-width) {
+      padding-left: $side-margin-tab;
+      padding-right: $side-margin-tab;
+    }
 
     .top-panel {
       display: flex;
@@ -19,6 +23,7 @@
       .logo-nav {
         display: flex;
         justify-content: flex-start;
+        // position: relative; delete this to make menu expand all screen
 
         &__logo {
 
@@ -27,6 +32,50 @@
             height: 26px;
             margin-right: 78px;
           }
+        }
+
+        .hamburger {
+          position: relative;
+          top: -16px;
+          left: -200px;
+    
+          &__check {
+            opacity: 0;
+          }
+    
+          &-logo {
+            cursor: pointer;
+    
+            & span {
+              display: none;
+        
+              @media screen and (max-width: $tab-width) {
+                display: block;
+                width: 25px;
+                height: 4px;
+                margin-bottom: 5px;
+                position: relative;
+                
+                background: #cdcdcd;
+                border-radius: 3px;
+                
+                z-index: 3;
+                transform-origin: 4px 0;
+                
+                // transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1), 
+                //background 0.5s cubic-bezier(0.77,0.2,0.05,1),
+                //opacity 0.55s ease;
+          
+                &:first-child {
+                  transform-origin: 0% 0%;
+                }
+          
+                &:nth-last-child(2) {
+                  transform-origin: 0% 100%;
+                }
+              } //end of media
+            } //end of hamburger-logo span
+          } // end of HAMBURGER-LOGO
         }
 
         .nav {
@@ -39,10 +88,14 @@
             list-style: none;
             justify-content: space-between;
             line-height: 30px;
+
+            @media screen and (max-width: $tab-width) {
+              display: none;
+            }
           }
 
           &__item {
-            margin-right: 64px;
+            margin-right: 4vw;
           }
 
           &__link {
@@ -60,9 +113,34 @@
             //   }
             // }
           }
+
         } // nav
 
       } // logo-nav
+
+      .hamburger-checkbox {
+        display: none;
+    
+        @media screen and (max-width: $tab-width) {
+          &:checked + .nav__list {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #2060f6;
+            padding-top: 100px;
+            padding-left: 40vw;
+            z-index: 2;
+
+            .nav__link {
+              font-size: 22px;
+              line-height: 60px;
+            }
+          }
+        }
+      } // hamburger-checkbox
 
       .hire {
         @include nav-link-style;
@@ -72,13 +150,13 @@
     } // top-panel
 
     .header-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      // column-gap: ;
+      display: flex;
+
       
 
       .text-side {
         align-self: center;
+        flex: 1 2 auto;
 
         &__heading {
           font-family: Poppins, sans-serif;
@@ -88,6 +166,7 @@
           line-height: 68px;
           letter-spacing: -2px;
           color: #fff;
+          padding-bottom: 32px;
         }
 
         &__subheading {
@@ -97,6 +176,7 @@
           font-size: 18px;
           line-height: 150%;
           color: #fff;
+          padding-bottom: 83px;
         }
 
         &__link {
@@ -109,20 +189,27 @@
           background: #2060f6;
           border-radius: 8px;
           text-decoration: none;
+          margin-bottom: 83px;
         }
 
       } //text-side
 
       &__img-side {
+        flex: 2 1 600px;
         background-image: url(../images/upd/header-img.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         height: 680px;
-        width: 43vw;
+        max-width: 43vw;
         position: relative;
-        right: -$side-margin;
+        right: -$side-margin-design;
         border-radius: 30px 0;
+
+        @media screen and (max-width: $tab-width) {
+          right: 0;
+          max-width: 100%;
+        }
 
         .img-side {
           position: absolute;
@@ -143,8 +230,14 @@
             max-width: 264px;
           }
         }
-      }
-    }
+      } //img-side
 
+      @media screen and (max-width: $tab-width) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+    } // header info
   } // block-container
 } //header
