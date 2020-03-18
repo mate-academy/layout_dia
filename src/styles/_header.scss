@@ -1,9 +1,11 @@
+@import "configuration";
+
 .header {
   display: flex;
   justify-content: center;
   height: 800px;
   width: 100%;
-  background-color: #2c2c2c;
+  background-color: $mainBackgroundColor;
   position: relative;
   border-radius: 0 0 30px 30px;
 }
@@ -11,7 +13,7 @@
 .nav {
   display: flex;
   justify-content: center;
-  width: 1206px;
+  width: $mainBlockSize;
   &__list {
     position: absolute;
     display: flex;
@@ -32,7 +34,7 @@
     width: 45px;
     height: 25px;
     background-image: url(../images/logo/Air.svg);
-    color: white;
+    color: $mainFontsColor;
     display: inline-block;
     margin-right: 78px;
     margin-top: 7px;
@@ -40,18 +42,18 @@
 
   &__link {
     text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
+    font-family: $mainFontStyle;
     font-style: normal;
     font-weight: bold;
     display: inline-block;
     font-size: 13px;
     line-height: 50px;
-    color: white;
+    color: $mainFontsColor;
     letter-spacing: 3px;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: $transitionDuration;
     &:hover {
-      color: #2060f6;
+      color: $mainLinkColor;
     }
   }
 
@@ -64,7 +66,7 @@
       width: 70px;
       top: 48px;
       right: 0;
-      background-color: #2060f6;
+      background-color: $mainLinkColor;
       border-radius: 4px;
       position: absolute;
     }
@@ -77,7 +79,7 @@
     left: calc(10% - 9px);
     top: 50px;
     display: none;
-    color: white;
+    color: $mainFontsColor;
     z-index: 20;
   }
   &__toggler-label::before {
@@ -111,7 +113,7 @@
 }
 
 .strategic-agency {
-  width: 1206px;
+  width: $mainBlockSize;
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -122,20 +124,20 @@
   }
 
   &__article {
-    font-family: "Poppins", sans-serif;
+    font-family: $mainFontStyle;
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
     line-height: 68px;
-    color: white;
+    color: $mainFontsColor;
     margin-bottom: 32px;
   }
 
   &__text {
     font-size: 18px;
     line-height: 27px;
-    font-family: "Open-Sans", sans-serif;
-    color: white;
+    font-family: $secondFontStyle;
+    color: $mainFontsColor;
     margin-bottom: 83px;
   }
 
@@ -143,18 +145,18 @@
     display: inline-block;
     width: 226px;
     height: 50px;
-    background: #2060f6;
+    background: $mainLinkColor;
     border-radius: 8px;
-    font-family: "Poppins", sans-serif;
+    font-family: $mainFontStyle;
     font-weight: 600;
     font-size: 15px;
     line-height: 50px;
     text-align: center;
-    color: white;
-    transition: 0.3s;
+    color: $mainFontsColor;
+    transition: $transitionDuration;
     &:hover {
-      color: #2060f6;
-      background: white;
+      color: $mainLinkColor;
+      background: $mainFontsColor;
     }
   }
 }
@@ -171,8 +173,8 @@
 
   &__article {
     position: absolute;
-    color: white;
-    font-family: "Poppins", sans-serif;
+    color: $mainFontsColor;
+    font-family: $mainFontStyle;
     font-weight: 900;
     font-size: 13px;
     line-height: 19px;
@@ -184,8 +186,8 @@
 
   &__text {
     position: absolute;
-    color: white;
-    font-family: "Open-Sans", sans-serif;
+    color: $mainFontsColor;
+    font-family: $secondFontStyle;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -206,23 +208,23 @@
 .arrow-next {
   width: 50px;
   height: 50px;
-  background: rgba(black,0.8);
+  background: rgba($sliderButtonColor,0.8);
   border-radius: 50%;
   margin: 0 4px;
   position: relative;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 0 0 rgba(black, 0.5);
+  transition: $transitionDuration ease;
+  box-shadow: 0 0 0 0 rgba($sliderButtonColor, 0.5);
 
   &:hover {
-    box-shadow: 0 0 0 5px rgba(black, 0.5);
+    box-shadow: 0 0 0 5px rgba($sliderButtonColor, 0.5);
   }
   &:focus {
-    box-shadow: 0 0 0 5px rgba(black, 0.5);
+    box-shadow: 0 0 0 5px rgba($sliderButtonColor, 0.5);
     outline: none;
   }
   &:active {
-    box-shadow: 0 0 0 5px rgba(black, 1);
+    box-shadow: 0 0 0 5px rgba($sliderButtonColor, 1);
   }
 
   &::before,
@@ -257,13 +259,13 @@
   }
 }
 
-@media screen and (min-width: 1601px) {
+@media screen and (min-width: $desktopResolution) {
   .slider-block {
     right: calc(25% - 300px);
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: $tabletResolution) {
   .strategic-agency {
     width: 100%;
     margin-left: 20px;
@@ -278,7 +280,6 @@
     &__list {
       margin-top: 130px;
       display: none;
-      background: rgba(black,0.1);
       border-radius: 20px;
     }
     &__toggler-label,
@@ -292,7 +293,7 @@
       flex-direction: column;
       align-items: flex-end;
       z-index: 2;
-      animation: move 0.5s;
+      animation: move $animationDuration;
     }
     &__link-right::after {
       content: none;
@@ -307,10 +308,20 @@
     &__item_logo {
       display: none;
     }
+    &__link {
+      font-size: 25px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $mainBackgroundColor;
+    }
+  }
+  .strategic-agency__article,
+  .strategic-agency__text {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $mainBackgroundColor;
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: $mobileResolution) {
   .strategic-agency {
     transform: scale(0.75) translateY(270px) translateX(-20px);
   }
