@@ -1,11 +1,4 @@
-$themes: (
-  blue: #56ccf2,
-  yellow: #fcc91d,
-  green: #15d850,
-  red: #f36363
-);
-
-.card {
+.service-card {
   width: 264px;
   height: 264px;
   box-sizing: border-box;
@@ -29,7 +22,7 @@ $themes: (
   &:hover {
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.13);
 
-    .card__icon {
+    .service-card__icon {
       transform: scale(1.2);
     }
   }
@@ -48,6 +41,21 @@ $themes: (
     margin-top: 24px;
   }
 
+  @each $name, $color in $card-themes {
+
+    &--theme-#{$name} {
+
+      .service-card__number {
+        color: $color;
+        background-color: rgba($color, 0.1);
+      }
+
+      .service-card__icon {
+        background-color: $color;
+      }
+    }
+  }
+
   &__button {
     display: flex;
     align-items: center;
@@ -57,20 +65,5 @@ $themes: (
     font-weight: bold;
     color: $heading-color;
     text-decoration: none;
-  }
-}
-
-@each $name, $color in $themes {
-
-  .card--theme-#{$name} {
-
-    .card__number {
-      color: $color;
-      background-color: rgba($color, 0.1);
-    }
-
-    .card__icon {
-      background-color: $color;
-    }
   }
 }
