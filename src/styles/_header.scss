@@ -267,7 +267,7 @@
 
 @media screen and (max-width: $tabletResolution) {
   .strategic-agency {
-    width: 100%;
+    width: 90%;
     margin-left: 20px;
     z-index: 1;
   }
@@ -279,22 +279,29 @@
   .nav {
     &__list {
       margin-top: 130px;
-      display: none;
-      border-radius: 20px;
-    }
-    &__toggler-label,
-    &__toggler:checked ~ .nav__list {
-      display: inline-block;
-    }
-    &__toggler:checked ~ .nav__list {
-      position: absolute;
-      right: 50px;
       display: flex;
+      border-radius: 20px;
+      font-size: 1px;
+      background: rgba($sliderButtonColor,0.3);
+      position: absolute;
+      right: 13%;
       flex-direction: column;
       align-items: flex-end;
       z-index: 2;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    &__toggler:checked ~ .nav__list {
+      opacity: 1;
       animation: move $animationDuration;
     }
+
+    /*&__toggler:checked ~ .nav__list*/
+    &__toggler-label {
+      display: inline-block;
+    }
+
     &__link-right::after {
       content: none;
     }
@@ -332,6 +339,9 @@
     &__text {
       display: none;
     }
+  }
+  .nav__list {
+    right: 10%;
   }
 }
 
