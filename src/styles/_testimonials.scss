@@ -1,3 +1,19 @@
+$theme:(
+  "",
+  "-yellow",
+  "-red");
+
+@each $color in $theme {
+  .testimonials__card:hover .testimonials__image#{$color}::after {
+    right: -55px;
+    top: 110px;
+  }
+  .testimonials__card:hover .testimonials__image#{$color}::before {
+    left: -55px;
+    top: -27px;
+  }
+}
+
 .testimonials {
   margin-bottom: 168px;
   &__wrap-title {
@@ -32,12 +48,19 @@
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 24px;
     position: relative;
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 3px 6px 30px -9px rgba(77,76,77,1);
+    }
+
   }
   &__image {
     @include imageBgr(#56ccf2);
+
   }
   &__image-red {
     @include imageBgr(#f25656);
+
   }
   &__image-yellow {
     @include imageBgr(#fcc304);
