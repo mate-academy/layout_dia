@@ -5,18 +5,46 @@
 .process {
   position: relative;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 602px;
+  justify-content: space-between;
+  align-items: center;
   max-width: $main-cont-width;
 
-  padding: 148px 0 0;
   margin: 0 auto;
-  align-content: space-between;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 588px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 588px;
+    margin: 120px 0 44px;
+
+    @media screen and (max-width: 1200px) {
+      margin-right: 20px;
+    }
+
+    @media screen and (max-width: 598px) {
+      flex-wrap: nowrap;
+      max-height: none;
+    }
+
+  }
 
   &__article {
     width: 362px;
-    margin-top: 100px;
+    margin: 0;
+    @media screen and (max-width: 1200px) {
+      margin-left: 20px;
+    }
+
+    @media screen and (max-width: 402px) {
+      width: calc(100% - 40px);
+    }
 
   }
 
@@ -28,28 +56,41 @@
   }
 
   &__card2 {
-    margin-top: 30px;
+    margin: 15px 0 15px 30px;
   }
 
   &__card2:nth-of-type(2) {
     order: 1;
+    @media screen and (max-width: 598px) {
+      order: 0;
+    }
   }
 
   &__card2:nth-of-type(4) {
     order: 1;
+    z-index: 1;
+    @media screen and (max-width: 598px) {
+      order: 0;
+    }
   }
 
   &__card2:nth-of-type(1) {
-    position: absolute;
-    top: 280px;
-    left: 588px;
+    position: relative;
+    top: 132px;
+    @media screen and (max-width: 598px) {
+      top: 0;
+    }
+
   }
 
   &__card2:nth-of-type(3) {
     z-index: 1;
-    position: absolute;
-    top: 574px;
-    left: 588px;
+    position: relative;
+    top: 132px;
+    @media screen and (max-width: 598px) {
+      top: 0;
+    }
+
   }
 
 }
