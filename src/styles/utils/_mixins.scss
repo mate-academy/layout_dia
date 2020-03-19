@@ -4,3 +4,30 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin circles($_size, $_posX, $_posY, $_thickness, $_color) {
+  
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: $_posY;
+    right: $_posX;
+    width: $_size;
+    height: calc(#{$_size / 3});
+    border: $_thickness solid $_color;
+    border-radius: 500px;
+    transform: rotate(-65deg);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: $_posY;
+    left: $_posX;
+    width: $_size;
+    height: calc(#{$_size / 3});
+    border: $_thickness solid $_color;
+    border-radius: 500px;
+    transform: rotate(-65deg);
+  }
+}

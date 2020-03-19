@@ -1,0 +1,41 @@
+.burger {
+  position: relative;
+  display: none;
+  width: 24px;
+  height: 16px;
+  cursor: pointer;
+  z-index: 3;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+  }
+
+  &__span {
+    display: block;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &--clicked {
+
+    .burger__span {
+
+      &:first-child {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(400%);
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}

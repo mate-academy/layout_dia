@@ -1,0 +1,68 @@
+.service-card {
+  width: 264px;
+  height: 264px;
+  box-sizing: border-box;
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.13);
+
+    .service-card__icon {
+      transform: scale(1.2);
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    font-family: $main-font;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 12px;
+    border-radius: 23px;
+  }
+
+  &__text {
+    font-weight: bold;
+    margin-top: 24px;
+  }
+
+  @each $name, $color in $card-themes {
+
+    &--theme-#{$name} {
+
+      .service-card__number {
+        color: $color;
+        background-color: rgba($color, 0.1);
+      }
+
+      .service-card__icon {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    font-family: $main-font;
+    font-size: 15px;
+    font-weight: bold;
+    color: $heading-color;
+  }
+}
