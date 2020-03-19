@@ -3,14 +3,203 @@
 @import "typography";
 @import "base";
 
-/*** Header ***/
+/*** Slider ***/
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  @media (max-width: $laptop-width) {
+    display: none;
+  }
+  &__slides {
+    position: relative;
+    width: 687px;
+    height: 80vh;
+    border-radius: 200px 0 0;
+    overflow: hidden;
 
+    @media (min-width: $laptop-width) and (max-width: 1470px) {
+      width: 500px;
+      height: 495px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity 1s;
+      &.showed {
+        opacity: 1;
+      }
+      &--img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      &--desc {
+        position: absolute;
+        left: 145px;
+        bottom: 40px;
+        font-size: 14px;
+        .sign-title {
+          margin: 0;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__arrows {
+    position: absolute;
+    bottom: 65px;
+    left: 45px;
+    display: flex;
+    &--btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin: 0 5px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .prev {
+      background-image: url("../images/slider/arrow-left.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .next {
+      background-image: url("../images/slider/arrow-right.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+/*** Header ***/
 .header {
+  position: relative;
+  height: 100vh;
   background-color: $header-bg;
+  border-radius: 0 0 0 200px;
+  color: #fff;
+  margin-bottom: 10%;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    @media screen and(max-width: $tablet-width) {
+      justify-content: space-around;
+    }
+    &--link {
+      margin-top: 1px;
+      margin-left: auto;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      color: #fff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      @include hover(color, $accent-color);
+      @media screen and(max-width: $tablet-width) {
+        display: none;
+      }
+    }
+  }
 
   &__logo {
     &--img {
       height: 26px;
+    }
+  }
+
+  &__title {
+    margin-top: 15%;
+    font-size: 64px;
+    font-weight: $weight;
+    line-height: 68px;
+    letter-spacing: -2px;
+
+    @media screen and(max-width: $mobile-width) {
+      margin-top: 40%;
+      font-size: 50px;
+      line-height: 55px;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    @media screen and(max-width: $mobile-width) {
+      text-align: center;
+    }
+    @media (min-width: $laptop-width) and (max-width: $desktop-width) {
+      max-width: 50%;
+    }
+  }
+
+  &__btn {
+    margin-top: 80px;
+    @media screen and(max-width: $mobile-width) {
+      text-align: center;
+      margin: 55px auto;
+    }
+  }
+}
+
+.nav {
+  margin-left: 50px;
+
+  @media screen and(max-width: $tablet-width) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+  }
+  &__item {
+    margin-right: 64px;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media screen and(max-width: $laptop-width) {
+      margin-right: 30px;
+    }
+  }
+  &__link {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: -5px;
+      left: 0%;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $accent-color;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }
