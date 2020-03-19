@@ -1,0 +1,102 @@
+@import "utils/vars";
+@import "utils/mixins";
+
+.case {
+  &__container {
+    text-align: center;
+    max-width: 314px;
+    height: 494px;
+    padding: 87px 32px 32px;
+    background-color: $c-white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+    box-sizing: border-box;
+
+    @media (max-width: $breakpoint-large-tablet) {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        max-width: 280px;
+        height: 454px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 9px 18px rgba(37, 41, 49, 0.3);
+      cursor: pointer;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    margin: 0 auto;
+    width: 140px;
+    height: 140px;
+
+    &::before {
+      @include photo-decor-before;
+    }
+
+    &::after {
+      @include photo-decor-after;
+    }
+
+    &--yellow::before {
+      @include photo-decor-before;
+      background-color: #fcc304;
+    }
+
+    &--yellow::after {
+      @include photo-decor-after;
+      background-color: #fcc304;
+    }
+
+    &--red::before {
+      @include photo-decor-before;
+      background-color: #f25656;
+    }
+
+    &--red::after {
+      @include photo-decor-after;
+      background-color: #f25656;
+    }
+  }
+
+  &__img {
+    position: relative;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__quotes {
+    width: 21px;
+    height: 19px;
+    margin: 82px auto 11px;
+    background-image: url(../images/testimonials/quotes-blue.svg);
+    background-position: center;
+
+    &--yellow {
+      background-image: url(../images/testimonials/quotes-yellow.svg);
+    }
+
+    &--red {
+      background-image: url(../images/testimonials/quotes-red.svg);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      margin-top: 42px;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+  }
+
+  &__u-name {
+    margin: 16px 0 4px;
+    font-weight: 600;
+    color: $c-darkGrey;
+  }
+}
