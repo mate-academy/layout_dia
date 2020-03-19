@@ -55,19 +55,32 @@
     display: block;
   }
 
-  &__arrow {
-    display: inline-flex;
-    justify-content: center;
+  &__link {
+    display: flex;
     align-items: center;
+  }
+
+  &__arrow {
+    position: relative;
+    display: inline-block;
     width: 40px;
     height: 40px;
     margin-right: 16px;
     background-color: #56ccf2;
     border-radius: 50%;
+    transition: $transition;
+    cursor: pointer;
 
-    & img {
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 16px;
       height: 16px;
+      background-image: url(../images/process/arrow.svg);
+      background-repeat: no-repeat;
     }
 
     &--green {
@@ -81,12 +94,21 @@
     &--red {
       background-color: #f36363;
     }
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
-  &__link {
+  &__button {
     position: relative;
     font-size: 15px;
     line-height: 22px;
     color: #334563;
+    transition: $transition;
+
+    &:hover {
+      color: $bgc-blue;
+    }
   }
 }
