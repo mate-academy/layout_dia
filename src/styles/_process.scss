@@ -9,13 +9,25 @@
   font-size: 14px;
   line-height: 150%;
 
+  @media screen and (max-width: $maxFrame) {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  @media screen and (max-width: $maxNotebookWidth) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media screen and (max-width: $maxTabletWidth) {
     grid-template-columns: 1fr;
   }
 
   &__column {
     &:first-child {
-      padding-right: 30%;
+      padding-right: ($unit * 10);
+
+      @media screen and (max-width: $maxFrame) {
+        padding-right: ($unit * 4);
+      }
 
       @media screen and (max-width: $maxNotebookWidth) {
         padding-right: $frameXNotebook;
