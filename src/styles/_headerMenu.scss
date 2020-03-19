@@ -1,0 +1,64 @@
+.menu__span,
+.menu__span::before,
+.menu__span::after {
+  display: block;
+  position: absolute;
+
+  width: 30px;
+  height: 3px;
+
+  background-color: white;
+
+  transition-duration: 0.3s;
+
+  border-radius: 2px;
+}
+
+.menu-hamb {
+  position: absolute;
+  right: 25%;
+  transform: translate(-10%);
+  width: 40px;
+  height: 40px;
+  top: 45px;
+  z-index: 2;
+}
+
+.menu__span {
+  top: 50%;
+  right: 25%;
+  display: block;
+  transform: translate(0 , -50%);
+  z-index: 1;
+
+  &::before {
+    content: "";
+    top: -8px;
+  }
+  &::after {
+    content: "";
+    top: 8px;
+  }
+}
+
+.nav__toggler {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+.nav__toggler:checked ~ .menu-hamb > .menu__span {
+  transform: rotate(45deg);
+
+}
+
+.nav__toggler:checked ~ .menu-hamb > .menu__span::before {
+  transform: rotate(0);
+  top: 0;
+}
+
+.nav__toggler:checked ~ .menu-hamb > .menu__span::after {
+  top: 0;
+  transform: rotate(90deg);
+}

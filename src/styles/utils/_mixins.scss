@@ -4,3 +4,62 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin rectangle($height, $width, $bcolor, $border) {
+  height: #{$height};
+  width: #{$width};
+  background-color: $cWhiteText;
+  box-sizing: border-box;
+  border: #{$border} solid #{$bcolor};
+  position: absolute;
+  border-radius: 500px;
+  opacity: 0.5;
+  transform: rotate(-65.1deg);
+}
+
+@mixin rightRect($right, $top) {
+  right: #{$right};
+  top: #{$top};
+}
+
+@mixin leftRect($left, $top) {
+  left: #{$left};
+  top: #{$top};
+}
+
+@mixin imageBgr($bgcolor) {
+  position: relative;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  margin: 87px auto 0;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 139px;
+    height: 56px;
+    background: #{$bgcolor};
+    border-radius: 500px;
+    transform: rotate(-60deg);
+    left: -55px;
+    top: 0;
+    z-index: -1;
+    transition: all 0.3s;
+
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 139px;
+    height: 56px;
+    background: #{$bgcolor};
+    border-radius: 500px;
+    transform: rotate(-60deg);
+    right: -55px;
+    top: 83px;
+    transition: all 0.3s;
+
+    z-index: -1;
+  }
+}
