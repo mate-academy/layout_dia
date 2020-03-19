@@ -1,0 +1,75 @@
+@import "utils";
+
+.footer {
+  background-color: $darkGray;
+  border-radius: ($unit * 2) ($unit * 2) 0 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 226px;
+    padding: 180px $frameX 0;
+    color: $colorOnDark;
+
+    @media screen and (max-width: $maxNotebookWidth) {
+      column-gap: $frameXNotebook;
+      padding: $frameXNotebook $frameXNotebook;
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      column-gap: ($unit * 4);
+      padding: ($unit * 4) $frameXTablet;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-template-columns: 1fr;
+      padding: 40px $frameXMobile;
+    }
+  }
+
+  &__column {
+    margin-bottom: 28px;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    justify-content: end;
+    align-items: center;
+    height: 188px;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-template-columns: 1fr;
+      grid-column: 1;
+      grid-row: 2;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__header {
+    color: $colorOnDark;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      margin-bottom: 28px;
+    }
+  }
+}

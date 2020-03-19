@@ -1,0 +1,107 @@
+@import "utils";
+
+.review {
+  display: grid;
+  grid-template-rows: ($reviewImageWidth * 2) 1fr max-content ($unit * 4);
+  justify-items: center;
+  justify-content: center;
+  max-width: $reviewCard;
+  box-sizing: border-box;
+  background: $colorOnDark;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: $unit;
+  outline: none;
+  overflow: hidden;
+
+  &:hover,
+  &:focus-within {
+    @include shadowSquare;
+
+    & img {
+      @include shadowSquare;
+      border-radius: 0;
+      transform: scale(2);
+    }
+  }
+
+  &__photo-wrap {
+    position: relative;
+    align-self: center;
+    display: block;
+    height: $reviewImageWidth;
+    width: $reviewImageWidth;
+    outline: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: $reviewImageWidth;
+      height: 56px;
+      background-color: $activeColor;
+      border-radius: $unit $unit 0 0;
+      z-index: 1;
+    }
+
+    &::before {
+      content: "";
+      transform: translateX(-40px) rotate(-60deg);
+    }
+
+    &::after {
+      content: "";
+      transform: translateX(40px) translateY(-60px) rotate(-60deg);
+    }
+  }
+
+  &__photo {
+    position: relative;
+    width: $reviewImageWidth;
+    height: $reviewImageWidth;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    transition: border-radius 0.3s, transform 0.3s;
+    z-index: 10;
+  }
+
+  &__text {
+    color: $mainTextColor;
+    text-align: center;
+    margin: 0 $unit;
+
+    &::before {
+      content: "";
+      display: block;
+      height: ($unit * 1.5);
+      width: ($unit * 1.5);
+      margin: $unit auto;
+      background-image: url(../images/quote.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__author {
+    @include hover(color, $activeColor);
+    display: inline-block;
+    margin-top: $unit;
+    color: $darkBlue;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-decoration: none;
+    outline: none;
+
+    &:focus {
+      color: $activeColor;
+    }
+  }
+
+  &__author-company {
+    margin: ($unit / 4) 0 ($unit * 2);
+    text-align: center;
+    color: $lightGray;
+  }
+}

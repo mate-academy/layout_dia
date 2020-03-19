@@ -1,0 +1,137 @@
+@import "utils";
+
+.step {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    counter-reset: stem-counter;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+
+    @media screen and (max-width: ($maxMobileWidth - 200px)) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      font-size: 14px;
+    }
+  }
+
+  &__item {
+    counter-increment: step-counter;
+    min-width: ($unit * 10);
+    background-color: $colorOnDark;
+    border-radius: $unit;
+    z-index: 10;
+
+    &:nth-child(odd) {
+      transform: translateY(140px);
+
+      @media screen and (max-width: $maxTabletWidth) {
+        transform: none;
+      }
+    }
+
+    &:nth-child(even) {
+      @media screen and (max-width: $maxTabletWidth) {
+        transform: translateY(50%);
+      }
+
+      @media screen and (max-width: $maxMobileWidth) {
+        transform: translateY(30%);
+      }
+    }
+
+    @media screen and (max-width: ($maxMobileWidth - 200px)) {
+      width: 70vw;
+
+      &:nth-child(odd) {
+        justify-self: start;
+      }
+
+      &:nth-child(even) {
+        justify-self: end;
+        transform: none;
+      }
+    }
+  }
+
+  &__link {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: $unit;
+    align-items: center;
+    padding: ($unit * 2);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 22px;
+    color: #334563;
+    border-radius: $unit;
+    outline: none;
+
+    &::before {
+      content: "";
+      grid-row: 3;
+      height: 40px;
+      width: 40px;
+      background-image: url(../images/arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: $activeColor;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    &::after {
+      content: "Learn more";
+      grid-row: 3;
+      white-space: nowrap;
+    }
+
+    &:hover,
+    &:focus {
+      @include shadowLight;
+
+      &::before {
+        content: "";
+        transform: scale(1.2);
+        @include shadowRound;
+      }
+    }
+  }
+
+  &__counter {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: start;
+    margin-bottom: 24px;
+    padding: 2px 12px;
+    font-family: $headersFont;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    color: $activeColor;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: ($unit * 2);
+
+    &::before {
+      content: "00";
+    }
+
+    &::after {
+      content: counter(step-counter);
+    }
+  }
+
+  &__sublist {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin-bottom: ($unit * 2);
+  }
+
+  &__sublist-item {
+    font-family: $commonFont;
+    color: $mainTextColor;
+  }
+}

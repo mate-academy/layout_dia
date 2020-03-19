@@ -1,0 +1,64 @@
+@import "utils";
+
+.page {
+  position: relative;
+
+  &__white-wrap {
+    position: relative;
+    background-color: #fff;
+  }
+
+  &__colored-wrap {
+    position: relative;
+    background-color: #f2f6fa;
+  }
+
+  &__asimetric-wrap {
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      right: 0;
+      background-color: $darkGray;
+      z-index: 1;
+    }
+  }
+
+  &__overflow-hidden {
+    overflow: hidden;
+  }
+
+  &__button-scroll {
+    position: fixed;
+    bottom: ($unit * 3);
+    right: $unit;
+    display: block;
+    padding: ($unit / 2);
+    height: ($unit * 2);
+    width: ($unit * 2);
+    background-color: $activeColor;
+    background-image: url(../images/arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    border-radius: 50%;
+    transform: rotate(-90deg) translateX(-($unit * 10));
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+    z-index: 9000;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include shadowLight;
+      background-color: $darkActiveColor;
+    }
+
+    &--show {
+      transform: rotate(-90deg) translateX($unit);
+    }
+  }
+}

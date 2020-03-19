@@ -1,0 +1,130 @@
+@import "utils";
+
+.expertise {
+  padding: ($frameX - 100px) $frameX;
+
+  @media screen and (max-width: $maxNotebookWidth) {
+    padding: $frameXNotebook $frameXNotebook;
+  }
+
+  @media screen and (max-width: $maxTabletWidth) {
+    padding: ($frameXTablet * 1.5) $frameXTablet;
+  }
+
+  @media screen and (max-width: $maxMobileWidth) {
+    padding: ($frameXMobile * 2) 0;
+  }
+
+  &__header {
+    text-align: center;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      font-size: ($unit * 2);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(
+      $cardWidth,
+      ($cardWidth + ($unit * 10))
+    ));
+    column-gap: ($unit * 10);
+    justify-content: space-between;
+    margin-top: 20px;
+
+    @media screen and (max-width: $maxFrame) {
+      column-gap: ($unit * 4);
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      column-gap: ($unit * 2);
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      row-gap: ($unit * 4);
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: 240px repeat(2, max-content);
+    justify-items: center;
+    align-content: start;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      margin-bottom: 0;
+    }
+
+    &:hover,
+    &:focus-within {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__img-wrap {
+    display: block;
+    height: $cardWidth - ($cardImgMargin * 2);
+    width: $cardWidth - ($cardImgMargin * 2);
+    margin: $cardImgMargin;
+    border-radius: $unit;
+    overflow: hidden;
+
+    @media screen and (max-width: $maxFrame) {
+      width: 90%;
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      height: $cardWidthTablet - ($cardImgMarginTablet * 2);
+      width: $cardWidthTablet - ($cardImgMarginTablet * 2);
+      margin: $cardImgMarginTablet;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      margin-left: 0;
+      border-radius: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+  }
+
+  &__item-name {
+    margin-bottom: $unit;
+  }
+
+  &__link {
+    @include hover(color, $activeColor);
+    text-decoration: none;
+    color: $darkBlue;
+    outline: none;
+
+    &:focus {
+      color: $activeColor;
+    }
+  }
+
+  &__item-descr {
+    margin: 0;
+    font-size: 14px;
+    line-height: 150%;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      padding: 0 $frameXMobile;
+    }
+  }
+}

@@ -4,3 +4,76 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin navLinkEffect($_bgColor) {
+  position: relative;
+  outline: none;
+
+  &::after {
+    content: "";
+    opacity: 0;
+    transform: scale(0.1);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 3px;
+      display: block;
+      height: 2px;
+      margin-top: 8px;
+      background-color: $_bgColor;
+      border-radius: 4px;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin navLinkStyle {
+  font-family: $headersFont;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 1px 10px $darkGray;
+  white-space: nowrap;
+}
+
+@mixin responsiveBlock {
+  padding: ($frameX - 100px) $frameX;
+
+  @media screen and (max-width: $maxNotebookWidth) {
+    padding: $frameXNotebook $frameXNotebook;
+  }
+
+  @media screen and (max-width: $maxTabletWidth) {
+    padding: ($frameXTablet * 1.5) $frameXTablet;
+  }
+
+  @media screen and (max-width: $maxMobileWidth) {
+    padding: ($frameXMobile * 2) $frameXMobile;
+  }
+}
+
+@mixin shadowRound {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+@mixin shadowSquare {
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.01),
+    0 6px 5px rgba(0, 0, 0, 0.01),
+    0 12px 10px rgba(0, 0, 0, 0.03),
+    0 22px 18px rgba(0, 0, 0, 0.03);
+}
+
+@mixin shadowLight {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}

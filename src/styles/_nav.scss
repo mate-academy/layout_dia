@@ -1,0 +1,46 @@
+@import "utils";
+
+.nav {
+  &__list {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 64px;
+    justify-content: end;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      justify-content: center;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-auto-flow: row;
+      row-gap: 20px;
+      justify-content: start;
+    }
+
+    &--top {
+      @media screen and (max-width: $maxTabletWidth) {
+        grid-auto-flow: row;
+        row-gap: 30px;
+        justify-items: center;
+        justify-content: center;
+        padding-top: ($frameXTablet * 3);
+
+        & .nav__link {
+          @include navLinkEffect($colorOnDark);
+          font-size: 20px;
+        }
+      }
+
+      @media screen and (max-width: $maxMobileWidth) {
+        padding: 0;
+        padding-top: ($frameXTablet * 3);
+      }
+    }
+  }
+
+  &__link {
+    @include navLinkStyle;
+    @include navLinkEffect($activeColor);
+    color: $colorOnDark;
+  }
+}

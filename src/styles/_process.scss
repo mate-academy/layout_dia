@@ -1,0 +1,47 @@
+@import "utils";
+
+.process {
+  @include responsiveBlock;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding-bottom: ($unit * 3);
+  font-size: 14px;
+  line-height: 150%;
+
+  @media screen and (max-width: $maxFrame) {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  @media screen and (max-width: $maxNotebookWidth) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: $maxTabletWidth) {
+    grid-template-columns: 1fr;
+  }
+
+  &__column {
+    &:first-child {
+      padding-right: ($unit * 10);
+
+      @media screen and (max-width: $maxFrame) {
+        padding-right: ($unit * 4);
+      }
+
+      @media screen and (max-width: $maxNotebookWidth) {
+        padding-right: $frameXNotebook;
+      }
+
+      @media screen and (max-width: $maxTabletWidth) {
+        padding: 0 0 60px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__block-name {
+    margin-bottom: 20px;
+    color: $lightGray;
+  }
+}

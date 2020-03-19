@@ -1,0 +1,219 @@
+@import "utils";
+
+.header {
+  position: relative;
+  background-color: $darkGray;
+  border-radius: 0 0 ($unit * 2) ($unit * 2);
+
+  &__row-container {
+    padding: 0 $frameX;
+
+    @media screen and (max-width: $maxNotebookWidth) {
+      padding: 0 $frameXNotebook;
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      padding: 0 $frameXTablet;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      padding: 0 $frameXMobile;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    column-gap: ($unit * 4);
+    height: 120px;
+    padding: 4px 0 0;
+    z-index: 120;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      padding: 0;
+      height: auto;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      height: ($unit * 4);
+    }
+  }
+
+  &__logo {
+    justify-self: center;
+    z-index: 120;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      grid-column: 2;
+      grid-row: 1;
+      background-color: $darkGray;
+      border-radius: 0 0 50% 50%;
+      padding: 15px 50px 20px;
+    }
+
+    @media screen and (max-width: $maxMobileWidth - 390px) {
+      padding: 15px 20px 20px;
+    }
+  }
+
+  &__nav-button {
+    @include hover(transform, scale(1.2));
+    position: relative;
+    display: none;
+    grid-column: 1;
+    grid-row: 1;
+    height: 32px;
+    width: 32px;
+    box-sizing: content-box;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    z-index: 120;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      display: block;
+    }
+
+    & span {
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 4px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      background: $lightGray;
+      border-radius: 2px;
+      z-index: 1;
+      transform-origin: 4px 0;
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        opacity 0.55s ease;
+    }
+
+    &--close {
+      & span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-7px, -15px);
+        background: $colorOnDark;
+      }
+
+      & span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      & span:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(-4px, 13px);
+      }
+    }
+
+    & span:first-child {
+      transform-origin: 0% 0%;
+    }
+
+    & span:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+
+  &__nav {
+    transition: transform 0.3s;
+    z-index: 100;
+
+    @media screen and (max-width: $maxTabletWidth) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgb(32,96,246)
+        linear-gradient(180deg,
+        rgba(32,96,246,1) 0%,
+        rgba(22,60,148,1) 64%);
+      border-radius: 0 0 30px 30px;
+      transform: translateX(-100%);
+
+      @media screen and (max-width: $maxMobileWidth) {
+        border-radius: 0 0 ($unit * 2);
+      }
+    }
+
+    &--show {
+      transform: translateX(0);
+    }
+  }
+
+  &__column-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 200px;
+
+    @media screen and (max-width: $maxNotebookWidth) {
+      column-gap: 100px;
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      column-gap: ($unit * 4);
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__strategic {
+    display: grid;
+    align-items: center;
+    padding-left: $frameX;
+    padding-bottom: 40px;
+    color: $colorOnDark;
+
+    @media screen and (max-width: $maxNotebookWidth) {
+      padding-left: $frameXNotebook;
+    }
+
+    @media screen and (max-width: $maxTabletWidth) {
+      padding-left: $frameXTablet;
+    }
+
+    @media screen and (max-width: $maxMobileWidth) {
+      padding: $frameXMobile;
+    }
+  }
+
+  &__headline {
+    margin-bottom: ($unit * 2);
+    color: $colorOnDark;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      font-size: 40px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 80px;
+
+    @media screen and (max-width: $maxMobileWidth) {
+      margin-bottom: ($unit * 3);
+    }
+  }
+
+  &__hire-us {
+    @include navLinkStyle;
+    @include navLinkEffect($activeColor);
+    justify-self: end;
+    color: $colorOnDark;
+    white-space: nowrap;
+    z-index: 120;
+
+    @media screen and (max-width: $maxMobileWidth - 400px) {
+      font-size: 10px;
+    }
+  }
+}
