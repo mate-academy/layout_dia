@@ -3,29 +3,35 @@
 .header {
   height: 800px;
   background-color: #008aff;
-  position: relative;
   border-bottom-left-radius: 200px;
   z-index: 1;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  &__title {
-    max-width: 420px;
-    position: absolute;
-    top: 240px;
-    left: 227px;
-
-    &--heading {
-      font-weight: 600;
-      font-size: 64px;
-      line-height: 68px;
-      letter-spacing: -2px;
-    }
+  &__top {
+    max-width: 1200px;
+    padding: 0 200px;
+    position: relative;
+    top: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  &__slider {
+  &__nav {
+    display: flex;
     position: absolute;
-    bottom: 0;
-    right: 0;
+  }
+
+  &__container {
+    max-width: 1600px;
+    padding-left: 200px;
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__toggler {
@@ -38,37 +44,66 @@
       background-image: url("../images/menu.png");
     }
   }
+}
 
+@media screen and (min-width: 1601px) {
+  .header__container {
+    width: 1400px;
+    margin: 0 auto;
+    padding-left: 200px;
+  }
+  .header__top {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: $screen-brakepoint) {
   .header {
+    height: 800px;
     border-bottom-left-radius: 0;
 
+    &__top {
+      padding: 0 100px;
+    }
+
+    &__container {
+      height: 80%;
+      flex-direction: column;
+      align-items: space-between;
+      padding-left: 0;
+    }
+
     &__title {
-      left: 20%;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     &__toggler-label {
-      display: block;
       position: absolute;
-      top: 60px;
-      right: 20%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: block;
       z-index: 2;
       cursor: pointer;
     }
 
     &__toggler:checked ~ .nav > .nav__list {
-      position: fixed;
       transform: translate(0,0);
     }
 
     &__toggler:checked + .header__toggler-label {
-      position: fixed;
       width: 16px;
       height: 16px;
       background-image: url("../images/x.png");
       z-index: 3;
     }
+  }
+}
+
+@media screen and (max-width: $small-screen-brakepoint) {
+  .header__top {
+    padding: 0 20px;
+
   }
 }
