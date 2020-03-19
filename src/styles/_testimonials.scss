@@ -1,0 +1,126 @@
+.testimonials {
+  max-width: 1146px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  &__subtitle {
+    @include subtitle;
+  }
+
+  &__title {
+    @include title;
+    font-size: 32px;
+  }
+}
+
+.feedbacks {
+  display: flex;
+  justify-content: space-between;
+  margin: 85px 0 168px;
+}
+
+.person {
+  padding: 0 32px 32px;
+  text-align: center;
+  width: 314px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__inner {
+    position: relative;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 139px;
+      height: 56px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #56ccf2;
+      border-radius: 500px;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 85px;
+      left: 0;
+    }
+
+    &::after {
+      top: 175px;
+      right: 0;
+    }
+
+    &--yellow::after,
+    &--yellow::before {
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #fcc304;
+    }
+
+    &--amaranth::after,
+    &--amaranth::before {
+      background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%),
+        #f25656;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 1;
+    margin: 87px 0 96px;
+  }
+
+  &__text {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      content: "";
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/testimonials/quotes-1.svg);
+    }
+
+    &--yellow::before {
+      background-image: url(../images/testimonials/quotes-2.svg);
+    }
+
+    &--amaranth::before {
+      background-image: url(../images/testimonials/quotes-3.svg);
+    }
+  }
+
+  &__name {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #253757;
+  }
+
+  &__company {
+    @include subtitle;
+  }
+}
+
+@media (max-width: 1000px) {
+  .testimonials {
+    text-align: center;
+  }
+
+  .feedbacks {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .person {
+    margin-bottom: 30px;
+  }
+}
