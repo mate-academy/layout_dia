@@ -47,10 +47,6 @@
     }
   }
 
-  &__link {
-    @extend .nav__link;
-  }
-
   &__text {
     margin-top: 165px;
   }
@@ -73,6 +69,7 @@
     top: 0;
     right: 0;
     cursor: pointer;
+    z-index: 2;
   }
 
   &__span,
@@ -112,13 +109,14 @@
     transform: rotate(90deg);
   }
 
-  &__toggle:checked ~ &__top {
+  &__toggle:checked ~ &__nav-mob {
     @media screen and (max-width: $breakpoint-third) {
-      height: 225px;
+      visibility: visible;
+      top: 0;
     }
   }
 
-  @media screen and (min-width: $breakpoint-first) {
+  @media screen and (min-width: $header-max-width + 1px) {
     border-bottom-right-radius: 200px;
   }
 
@@ -140,17 +138,7 @@
     }
 
     &__top {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-end;
-      height: 0;
-      margin-left: 0;
-      overflow: hidden;
-      transition: height 0.5s;
-    }
-
-    &__action {
-      margin-left: 0;
+      display: none;
     }
 
     &__btn {
