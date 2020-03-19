@@ -1,6 +1,8 @@
 @import "utils";
 
 .page {
+  position: relative;
+
   &__white-wrap {
     position: relative;
     background-color: #fff;
@@ -30,6 +32,33 @@
   }
 
   &__button-scroll {
-    display: none;
+    position: fixed;
+    bottom: ($unit * 3);
+    right: $unit;
+    display: block;
+    padding: ($unit / 2);
+    height: ($unit * 2);
+    width: ($unit * 2);
+    background-color: $activeColor;
+    background-image: url(../images/arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    border-radius: 50%;
+    transform: rotate(-90deg) translateX(-($unit * 10));
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+    z-index: 9000;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include shadowLight;
+      background-color: $darkActiveColor;
+    }
+
+    &--show {
+      transform: rotate(-90deg) translateX($unit);
+    }
   }
 }

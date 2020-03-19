@@ -1,5 +1,6 @@
 'use strict';
 
+// Top Navigation
 const navBlock = document.querySelector('#header__nav');
 const navList = document.querySelector('#nav__list');
 const navLinks = document.querySelectorAll('.nav__link');
@@ -16,4 +17,15 @@ navLinks.forEach((link) => {
     navBlock.classList.remove('header__nav--show');
     btnMenu.classList.remove('header__nav-button--close');
   });
+});
+
+// Scroll button
+const btnScroll = document.querySelector('#page__button-scroll');
+
+window.addEventListener('scroll', () => {
+  if (pageYOffset > 600) {
+    btnScroll.classList.add('page__button-scroll--show');
+  } else {
+    btnScroll.classList.remove('page__button-scroll--show');
+  }
 });
