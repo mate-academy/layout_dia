@@ -14,6 +14,12 @@
       padding-right: $side-margin-tab;
     }
 
+    // @media screen and (min-width: 1600px) {
+    //   max-width: 1600px;
+    //   margin-right: auto;
+    //   margin-left: auto;
+    // }
+
     .top-panel {
       display: flex;
       justify-content: space-between;
@@ -26,11 +32,20 @@
         // position: relative; delete this to make menu expand all screen
 
         &__logo {
+          line-height: 30px;
+          margin-bottom: -4px;
 
           & img {
             width: 45px;
             height: 26px;
             margin-right: 78px;
+
+            transition: transform 300ms, opacity 300ms;
+
+            &:hover {
+              transform: scale(1.05);
+              opacity: 0.8;
+            }
           }
         }
 
@@ -100,19 +115,22 @@
 
           &__link {
             @include nav-link-style;
+            transition: opacity 300ms;
 
-            // &:hover {
+            &:hover {
+              opacity: 0.8;
               
-            //   &::after {
-            //     content: "";
-            //     display: block;
-            //     width: 67px;
-            //     height: 2px;
-            //     background: #2060f6;
-            //     border-radius: 4px;
-            //   }
-            // }
-          }
+              &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #2060f6;
+                border-radius: 50%;
+                margin-bottom: -2px;
+              }
+            } // hover
+          } // &__link
 
         } // nav
 
@@ -145,23 +163,37 @@
       .hire {
         @include nav-link-style;
         line-height: 30px;
+        margin-bottom: -2px;
+        transition: opacity 300ms;
+
+        &:hover {
+          opacity: 0.8;
+              
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #2060f6;
+            border-radius: 4px;
+          }
+        } // hover
 
       }
     } // top-panel
 
     .header-info {
       display: flex;
-
+      justify-content: space-between;
       
 
       .text-side {
         align-self: center;
+        text-align: center;
         flex: 1 2 auto;
 
         &__heading {
-          font-family: Poppins, sans-serif;
-          font-style: normal;
-          font-weight: 600;
+          @include heading-style;
           font-size: 64px;
           line-height: 68px;
           letter-spacing: -2px;
@@ -170,16 +202,16 @@
         }
 
         &__subheading {
-          font-family: "Open Sans", sans-serif;
-          font-style: normal;
+          @include text-style;
           font-weight: normal;
           font-size: 18px;
-          line-height: 150%;
           color: #fff;
           padding-bottom: 83px;
         }
 
         &__link {
+          @include heading-style;
+          font-size: 15px;
           display: block;
           width: 226px;
           height: 50px;
@@ -189,7 +221,14 @@
           background: #2060f6;
           border-radius: 8px;
           text-decoration: none;
+          margin: 0 auto;
           margin-bottom: 83px;
+          transition: background 300ms, transform 300ms;
+
+          &:hover {
+            transform: scale(1.05);
+            background: #144ed5;
+          }
         }
 
       } //text-side
@@ -201,7 +240,7 @@
         background-position: center;
         background-size: cover;
         height: 680px;
-        max-width: 43vw;
+        min-width: 43vw;
         position: relative;
         right: -$side-margin-design;
         border-radius: 30px 0;
@@ -221,8 +260,7 @@
           }
 
           &__subheading {
-            font-family: "Open Sans", sans-serif;
-            font-style: normal;
+            @include text-style;
             font-weight: normal;
             font-size: 14px;
             line-height: 140%;
