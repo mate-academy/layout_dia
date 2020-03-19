@@ -34,11 +34,13 @@
       justify-content: space-between;
 
       @media screen and (max-width: $tab-width) {
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
       }
 
       .service {
         padding: 0 10px;
+        width: $process-block-dimension;
 
         @media screen and (max-width: $tab-width) {
           padding: 20px 0;
@@ -68,7 +70,143 @@
 
       } // service
     } //&__services
-
   } //expertise
+
+  .process {
+    margin: 0 auto;
+    padding: 0 $side-margin-design;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // not sure to use it!!!!!!
+
+    @media screen and (max-width: $tab-width) {
+      flex-direction: column;
+    }
+
+    .info {
+      max-width: 23vw;
+
+      @media screen and (max-width: $tab-width) {
+        max-width: 100vw;
+      }
+      
+      &__subheader {
+        @include heading-style;
+        font-size: 13px;
+        line-height: 19px;
+        letter-spacing: 3px;
+        color: #c0cdd7;
+        margin-top: 251px;
+        margin-bottom: 16px;
+
+        @media screen and (max-width: $tab-width) {
+          margin-top: 100px;
+        }
+      }
+
+      &__main-header {
+        @include heading-style;
+        font-size: 32px;
+        line-height: 130%;
+        margin-bottom: 24px;
+      }
+
+      &__text {
+        @include text-style;
+        font-size: 14px;
+
+        &_top {
+          margin-bottom: 1em;
+        }
+
+        &:last-child {
+          margin-bottom: 250px;
+
+          @media screen and (max-width: $tab-width) {
+            margin-bottom: 100px;
+          }
+        }
+      }
+    } // info
+
+    &__blocks {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      .blocks {
+        width: $process-block-dimension;
+
+        &_shifted {
+          margin-right: 30px;
+          position: relative;
+          top: 132px;
+        }
+
+        .block {
+          height: $process-block-dimension;
+          background-color: #fff;
+          border-radius: 16px;
+          padding: 32px;
+          box-sizing: border-box;
+          position: relative;
+
+          &:last-child {
+            margin-top: 30px;
+          }
+
+          &__number {
+            @include heading-style;
+            font-size: 13px;
+            line-height: 24px;
+            color: #2060f6;
+            padding: 2px 12px;
+            box-sizing: border-box;
+            width: 46px;
+            height: 24px;
+            background-color: $c-gray;
+            border-radius: 23px;
+            margin-bottom: 24px;
+          }
+
+          &__text {
+            @include text-style;
+            font-size: 13px;
+            margin-bottom: 32px;
+          }
+
+          &__link {
+            position: absolute;
+            bottom: 32px;
+
+            .arrow-img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: #2060f6;
+              line-height: 45px;
+              text-align: center;
+              display: inline-block;
+              margin-right: 16px;
+
+              &__img {
+                width: 16px;
+                height: 16px;
+              }
+            } // arrow-img
+          } //arrow-img
+
+          a {
+            @include heading-style;
+            font-size: 15px;
+          }
+
+        } // block
+
+      } // blocks
+
+    } // __blocks
+
+  } // process
 
 } //main-content
