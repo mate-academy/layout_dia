@@ -4,6 +4,11 @@
   grid-template-rows: repeat(2, 264px);
   grid-gap: 30px;
 
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 264px;
+    justify-content: center;
+  }
+
   .card {
     display: block;
     box-sizing: border-box;
@@ -67,7 +72,6 @@
       &:hover {
         cursor: pointer;
         transform: scale(1.2);
-        margin-right: 12px;
       }
     }
 
@@ -81,26 +85,12 @@
       line-height: 22px;
       transition: $activeTransition;
 
-      &::after {
-        position: absolute;
-        content: "";
-        bottom: -8px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #1de9b6;
-        border-radius: 4px;
-        transition: width 0.3s;
-      }
-
-      &:hover {
-        color: #6c788b;
-
-        &::after {
-          width: 100%;
-        }
-      }
+      @include linkActive($backgColor: #1de9b6);
     }
+
+    //&__span:hover ~ .card__link {
+    //
+    //}
 
     .card__number-first {
       background-color: rgba(86, 204, 242, 0.1);
@@ -141,9 +131,17 @@
 
   .card-first {
     transform: translateY(132px);
+
+    @media screen and (max-width: $middleBreakpointWidth) {
+      transform: translateY(0);
+    }
   }
 
   .card-third {
     transform: translateY(132px);
+
+    @media screen and (max-width: $middleBreakpointWidth) {
+      transform: translateY(0);
+    }
   }
 }

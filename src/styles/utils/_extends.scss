@@ -1,3 +1,21 @@
-@mixin stuff {
-  color: red;
+@mixin linkActive ($backgColor) {
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $backgColor;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+
+  &:hover {
+    color: #6c788b;
+
+    &::after {
+      width: 100%;
+    }
+  }
 }
