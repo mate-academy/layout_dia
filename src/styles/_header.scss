@@ -1,17 +1,16 @@
 .header {
   height: 800px;
   color: #fff;
-
+  border-radius: 0 0 0 200px;
   background-color: $backgroundHeaderFooter;
   position: relative;
 
   @media screen and (min-width: 960px) and (max-width: 1220px) {
     height: 100vh;
-    border-radius: 0;
+    border-radius: 0 0 0 200px;
   }
 
-  @media screen and (max-width: 540px) {
-    height: 100vh;
+  @media screen and (max-width: 959px) {
     border-radius: 0;
   }
 
@@ -25,35 +24,38 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
   }
-
-  // &__info {
-  //   padding-left: 20px;
-  //   padding-right: 20px;
-  // }
 
   &__hire {
     color: #fff;
     white-space: nowrap;
-    border-bottom: 3px solid $colorPrimary;
+    border-bottom: 3px solid #fff;
     border-radius: 1px;
     letter-spacing: 3px;
     text-transform: uppercase;
 
     display: block;
 
-    @media screen and (min-width: 541px) and (max-width: 959px) {
-      position: absolute;
-      right: 20px;
-      bottom: 63%;
-      font-size: 32px;
-      z-index: 0;
-    }
+    @include hover(color, $colorPrimary);
 
-    @media screen and (max-width: 540px) {
-      display: none;
+    @media screen and (max-width: 959px) {
+      display: inline-block;
+      padding: 36px 0 20px;
+      margin-left: 30px;
+      letter-spacing: 0;
+      font-size: 24px;
+      @include hover(color, $backgroundHeaderFooter);
+    }
+  }
+
+  &__info {
+    @media screen and (min-width: 541px) and (max-width: 959px) {
+      display: grid;
+      grid-template-columns: repeat(2, 250px);
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -65,13 +67,15 @@
     letter-spacing: -2px;
     margin-top: 120px;
 
-    @media screen and (min-width: 960px) and (max-width: 1220px) {
-      margin-top: 60px;
-      letter-spacing: 2px;
+    @media screen and (min-width: 541px) and (max-width: 959px) {
+      font-size: 52px;
+      line-height: 1;
+      margin-top: 0;
     }
 
     @media screen and (max-width: 540px) {
       text-align: center;
+      margin-top: 10px;
     }
   }
 
@@ -82,7 +86,12 @@
     font-size: 18px;
     line-height: 150%;
 
-    margin-top: 32px;
+    margin-top: 16px;
+
+    @media screen and (min-width: 541px) and (max-width: 959px) {
+      width: 250px;
+      margin-top: 0;
+    }
 
     @media screen and (max-width: 540px) {
       width: 100%;
@@ -98,8 +107,14 @@
       margin-top: 62px;
     }
 
+    @media screen and (min-width: 541px) and (max-width: 959px) {
+      margin-top: 20px;
+    }
+
     @media screen and (max-width: 540px) {
       text-align: center;
+      margin-top: 10px;
+
     }
   }
 }

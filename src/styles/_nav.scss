@@ -1,9 +1,4 @@
 .nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
   font-family: "Poppins-Regular", sans-serif;
   font-size: 13px;
   letter-spacing: 3px;
@@ -16,7 +11,8 @@
     flex-direction: row;
 
     @media screen and (max-width: 959px) {
-      display: none;
+      display: block;
+      margin-left: 30px;
     }
   }
 
@@ -40,21 +36,25 @@
       transform: translateY(-10px);
     }
 
-    &:hover::after {
+    &:focus::after {
       height: 2px;
       opacity: 1;
       transform: translateY(0);
     }
+
+    @include hover(color, $colorPrimary);
 
     @media screen and (min-width: 960px) and (max-width: 1220px) {
       padding: 8px 2.1em;
     }
 
     @media screen and (max-width: 959px) {
-      display: block;
-      padding: 36px 0 20px 28px;
+      display: inline-block;
+      padding: 36px 0 20px;
+      // margin-left: 38px;
       letter-spacing: 0;
       font-size: 24px;
+      @include hover(color, $backgroundHeaderFooter);
     }
   }
 
@@ -67,7 +67,7 @@
     color: #fff;
     padding: 5px;
     position: absolute;
-    right: 30px;
+    right: 10px;
     cursor: pointer;
     z-index: 3;
     width: $widthHumburger;
