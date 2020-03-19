@@ -1,9 +1,15 @@
 @import "var";
 
 .process {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-around;
+
+  @media screen and (max-width: $breakpoint) {
+    grid-template-columns: 1fr;
+    padding: 50px;
+    justify-content: center;
+  }
   &__text {
     display: flex;
     flex-direction: column;
@@ -31,10 +37,28 @@
     line-height: 150%;
   }
 
+  &__frames {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    @media screen and (min-width: $breakpoint) {
+      width: 550px;
+
+      .process__frame:nth-child(even) {
+        transform: translateX(20%);
+        margin-top: 30px;
+      }
+      .process__frame:nth-child(odd) {
+        transform: translateY(80%);
+      }
+    }
+  }
+
   &__frame {
+    z-index: 1;
     box-sizing: border-box;
-    width: 264px;
-    height: 264px;
+    width: 140px;
+    height: 140px;
     background-color: #ffff;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
@@ -42,6 +66,11 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    flex-shrink: 0;
+    @media screen and (min-width: $breakpoint) {
+      width: 264px;
+      height: 264px;
+    }
   }
 
   &__frame-text {
@@ -50,6 +79,9 @@
     line-height: 150%;
     font-family: $fontfamily-description;
     color: $main-description-color;
+    @media screen and (max-width: $breakpoint) {
+      font-size: 6px;
+    }
   }
 
   &__frame-number {
@@ -65,6 +97,7 @@
   }
 
   &__button {
+    flex-shrink: 0;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -79,6 +112,9 @@
     font-size: 15px;
     line-height: 16px;
     color: $article-dark-color;
+    @media screen and (max-width: $breakpoint) {
+      font-size: 10px;
+    }
   }
 }
 

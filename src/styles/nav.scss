@@ -4,9 +4,9 @@
   margin: 0 auto;
   text-transform: uppercase;
   color: white;
-  white-space: nowrap__button;
+  white-space: nowrap;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   @media screen and (min-width: 1500px) {
     width: 1500px;
@@ -15,13 +15,18 @@
   &__logo {
     display: inline-block;
     position: relative;
-    bottom: -5px;
     background-image: url("../images/Air.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     width: 44px;
     height: 30px;
+    @media screen and (max-width: $breakpoint) {
+      position: absolute;
+      right: 60px;
+      top: 60px;
+      z-index: 2;
+    }
   }
 
   &__list {
@@ -49,10 +54,15 @@
     position: relative;
     color: white;
     text-decoration: none;
+    outline: none;
     font-weight: bold;
     font-size: 13px;
     line-height: 120px;
     letter-spacing: 3px;
+    transition: $hover-duration;
+    &:hover {
+      color: $blue-color;
+    }
     &:before {
       content: "";
       position: absolute;
@@ -105,7 +115,6 @@
     height: 400px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     padding: 0;
     // transform: translateY(100%);
     // transition: transform 1s;
