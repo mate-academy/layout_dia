@@ -1,6 +1,7 @@
 @import "variables";
 
 .nav {
+  position: relative;
   display: flex;
   align-items: center;
   width: 75%;
@@ -10,6 +11,7 @@
   font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  z-index: 2;
 
   &__mobile {
     display: none;
@@ -22,17 +24,34 @@
     height: $logoHeight;
     width: $logoWidth;
     margin-right: 79px;
-    z-index: 2;
   }
 
   &__list {
-    position: relative;
     display: flex;
     list-style-type: none;
     width: 100%;
   }
 
+  &__list-mobile {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100vw;
+    height: 100vh;
+    top: 40px;
+    left: -16.6%;
+    transform: translateX(-400%);
+    transition: 0.5s;
+    font-size: 16px ;
+    background-color: rgba(#008aff, 1);
+    z-index: 2;
+    padding-left: 16%;
+    box-sizing: border-box;
+  }
+
   &__item {
+    display: block;
     margin-right: 56px;
   }
 
@@ -43,8 +62,9 @@
   }
 
   &__link {
+    display: block;
     position: relative;
-    padding: 8px 4px;
+    padding: 8px 4px 8px 0;
     color: #fff;
     text-decoration: none;
     outline: none;
@@ -84,19 +104,103 @@
   }
 }
 
+@media (min-width: 1901px) and (max-width: 2560px) {
+  .nav {
+
+    &__item {
+      margin-right: 80px;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+  .nav {
+
+    &__link {
+      font-size: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .nav {
+
+    &__list-mobile {
+      display: none;
+    }
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .nav {
+    position: relative;
+
+    &__logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-right: 79px;
+    }
+
+    &__list {
+      display: none;
+    }
 
     &__mobile-button:after {
       content: url("../images/menu-button.png");
       position: absolute;
       right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
+      transform: translateY(50%);
     }
+
+    &__item {
+      margin: 0 0 10px;
+    }
+
+    &__last-item {
+      position: static;
+      margin: 0;
+    }
+
+    &__mobile:checked ~ &__list-mobile {
+      display: flex;
+      flex-direction: column;
+      transform: translateX(0);
+      font-size: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nav {
 
     &__list {
       display: none;
+    }
+
+    &__mobile-button:after {
+      content: url("../images/menu-button.png");
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateY(50%);
+    }
+
+    &__item {
+      margin: 0 0 10px;
+    }
+
+    &__last-item {
+      position: static;
+      margin: 0;
+    }
+
+    &__mobile:checked ~ &__list-mobile {
+      display: flex;
+      flex-direction: column;
+      transform: translateX(0);
     }
   }
 }
