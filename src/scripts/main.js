@@ -1,10 +1,10 @@
 'use strict';
 
 // Top Navigation
-const navBlock = document.querySelector('#header__nav');
-const navList = document.querySelector('#nav__list');
+const navBlock = document.getElementById('header__nav');
+const navList = document.getElementById('nav__list');
 const navLinks = document.querySelectorAll('.nav__link');
-const btnMenu = document.querySelector('#header__nav-button');
+const btnMenu = document.getElementById('header__nav-button');
 
 btnMenu.addEventListener('click', () => {
   navBlock.classList.toggle('header__nav--show');
@@ -20,7 +20,7 @@ navLinks.forEach((link) => {
 });
 
 // Scroll button
-const btnScroll = document.querySelector('#page__button-scroll');
+const btnScroll = document.getElementById('page__button-scroll');
 
 window.addEventListener('scroll', () => {
   if (pageYOffset > 600) {
