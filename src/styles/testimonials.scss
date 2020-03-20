@@ -39,25 +39,60 @@
       @include photo_blue_stripe;
       transform-origin: left;
       transform: rotate(-45deg) translateX(-20px);
-      z-index: -1;
+      // z-index: -1;
     }
     &::after {
       @include photo_blue_stripe;
       transform-origin: right;
       transform: rotate(-45deg) translateX(20px);
-      z-index: -1;
     }
+  }
+  &__text {
+    @include open_sans_font;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+    text-align: center;
+    margin-top: 60px;
+    &::before {
+      content: url("../images/testimonials/comma.png");
+      display: block;
+      line-height: 100%;
+      margin: 32px 0 10px;
+    }
+  }
+  &__name {
+    @include open_sans_font;
+    font-size: 13px;
+    line-height: 150%;
+    color: #253757;
+    font-weight: 600;
+    margin: 16px 0 10px;
+  }
+  &__position {
+    @include poppins_font;
+    color: #c0cdd7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
   }
   &__cards {
     display: grid;
-    grid-template-columns: repeat(3, 314px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0 102px;
+    padding-top: 85px;
+    @media screen and (max-width: 980px) {
+      grid-template-columns: 1fr;
+      padding-top: 50px;
+      grid-gap: 10px 0;
+    }
   }
   &__card {
     background-color: #fff;
-    padding: 32px;
+    padding: 90px 32px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    border-radius: 16px;
   }
 }
