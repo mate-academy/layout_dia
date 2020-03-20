@@ -2,50 +2,91 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width: 1180px) {
+      & {
+        @include padding-l-r-20;
+      }
+    }
+
+    @media screen and (max-width: 970px) {
+      & {
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+    
+    @media screen and (max-width: 730px) {
+      & {
+        padding-top: 220px;
+      }
+    }
   }
 
   &__info {
     display: grid;
     padding-top: 250px;
+
+    @media screen and (max-width: 1180px) {
+      & {
+        padding-top: 20px;
+      }
+    }
+
+    @media screen and (max-width: 970px) {
+      & {
+        @include padding-l-r-20;
+
+        height: auto;
+        display: block;
+      }
+    }
   }
 
   &__sub-title {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 19px;
+    @include poppins-13px-bold;
+
+    padding-bottom: 16px;
+
+    line-height: 150%;
     text-align: left;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #c0cdd7;
-    padding-bottom: 16px;
   }
 
   &__title {
-    margin: 0;
+    @include poppins-32px;
+
     padding-bottom: 24px;
-    font-family: "Poppins", sans-serif;
-    height: 84px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 42px;
+
+    line-height: 150%;
     color: #253757;
   }
 
   &__text {
+    @include open-sans-14px;
+
     height: 105px;
     width: 362px;
-    margin: 0;
+
     padding-bottom: 250px;
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 21px;
+    line-height: 150%;
     color: #6c788b;
+
+    @media screen and (max-width: 1180px) {
+      & {
+        padding-bottom: 20px;
+      }
+    }
+    @media screen and (max-width: 730px) {
+      & {
+        height: 100%;
+        line-height: 100%;
+        padding-bottom: 20px;
+      }
+    }
   }
 
   &__columns {
@@ -54,32 +95,81 @@
     grid-template-rows: repeat(2, 264px);
     grid-gap: 30px;
     padding-top: 148px;
+
+    @media screen and (max-width: 1180px) {
+      & {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+    @media screen and (max-width: 930px) {
+      & {
+        display: flex;
+        flex-wrap: wrap;
+
+        width: 100%;
+        padding-top: 20px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      & {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        padding-top: 0;
+      }
+    }
   }
 
   &__locker {
     position: relative;
     box-sizing: border-box;
+
     width: 264px;
     height: 264px;
+
     padding-left: 32px;
     padding-top: 32px;
+
     background: #fff;
     border-radius: 24px;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
-    &:hover {
-      box-shadow: 0 9px 18px rgba(37, 41, 49, 0.1);
+
+    @media screen and (max-width: 600px) {
+      & {
+        margin-bottom: 10px;
+      }
+      @media screen and (max-width: 600px) {
+        & {
+          margin-bottom: 10px;
+        }
+      }
+      &:hover {
+        box-shadow: 0 9px 18px rgba(37, 41, 49, 0.1);
+      }
+    }
+  }
+
+  &__locker--1,
+  &__locker--3 {
+    z-index: 999;
+    top: 132px;
+    @media screen and (max-width: 600px) {
+      & {
+        position: static;
+      }
     }
   }
 
   &__locker-title {
+    @include poppins-13px;
+
     margin: 0;
     width: 46px;
     height: 24px;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 24px;
+
+    line-height: 150%;
     text-align: center;
     text-transform: uppercase;
   }
@@ -109,15 +199,15 @@
   }
 
   &__locker-text {
+    @include open-sans-13px;
+
     width: 200px;
     height: 80px;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 19px;
+
+    line-height: 150%;
     color: #6c788b;
+
     padding-top: 24px;
     padding-bottom: 32px;
   }
@@ -129,8 +219,10 @@
 
   &__locker-arrow {
     position: relative;
+
     width: 40px;
     height: 40px;
+
     border-radius: 50%;
     transition: transform 0.5s;
 
@@ -164,13 +256,13 @@
   }
 
   &__locker-link {
+    @include poppins-15px;
+
     margin: auto 16px;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
+
+    line-height: 150%;
+
     color: #334563;
   }
 
