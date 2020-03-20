@@ -6,5 +6,9 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {}
+  rules: {
+    "max-line-length":[120, {
+			"ignorePattern": ["/\\/\\*.*?\\*\\//"]
+		}]
+  }
 };
