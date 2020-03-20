@@ -4,3 +4,73 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin linkActive ($backgColor) {
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $backgColor;
+    border-radius: 4px;
+    transition: width $activeTransition;
+  }
+
+  &:hover {
+    color: #6c788b;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+@mixin sectionTitle($_color) {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $_color;
+}
+
+@mixin sectionHeading($_color) {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+  color: $_color;
+}
+
+@mixin personRectangle($_bgColor) {
+  &::before {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    width: 139px;
+    height: 56px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      $_bgColor;
+    border-radius: 500px;
+    transition: $activeTransition;
+    transform: rotate(-60deg) translate(-15%, -75%);
+  }
+
+  &::after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    width: 139px;
+    height: 56px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%),
+      $_bgColor;
+    border-radius: 500px;
+    transition: $activeTransition;
+    transform: rotate(-60deg) translate(55%, 14%);
+  }
+}
