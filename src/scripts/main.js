@@ -65,6 +65,7 @@ function carouselHome(){
   $('.home__carousel').addClass('owl-carousel').owlCarousel({
     dots : false,
     items: 1,
+    loop: true,
     nav: true
   });
 }
