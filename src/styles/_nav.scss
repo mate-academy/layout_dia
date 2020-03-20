@@ -13,11 +13,32 @@
     margin-left: 64px;
   }
   &__link {
+    position: relative;
     padding: 8px 0;
     font-weight: bold;
     letter-spacing: 3px;
     color: #fff;
     text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+
+    &::after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background: rgb(255, 156, 142,);
+      content: "";
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__action {
@@ -45,13 +66,8 @@
       transition: transform 0.5s ease-in-out;
     }
 
-    &__mobile_action {
-      display: block;
-      margin-top: 20px;
-    }
-
     &__link {
-      font-size: 36px;
+      font-size: 24px;
       margin: 0;
     }
 
@@ -67,5 +83,10 @@
     &__logo {
       left: 20%;
     }
+  }
+}
+@media screen and (max-width: $small-screen-brakepoint) {
+  .nav__link {
+    font-size: 16px;
   }
 }
