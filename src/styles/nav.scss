@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 4px;
 
   font-size: 13px;
   font-weight: 700;
@@ -64,6 +63,8 @@
   }
 
   @media screen and (max-width: 1024px) {
+    $header-height: 600px;
+
     &__list {
       display: grid;
       grid-template-columns: 200px;
@@ -73,10 +74,11 @@
       align-content: center;
       position: absolute;
       visibility: hidden;
-      top: -100%;
-      left: 0;
+      top: 0;
+      right: -100%;
       width: 100vw;
-      height: 100%;
+      height: $header-height;
+      box-sizing: border-box;
       z-index: 1;
 
       background-color: $prime-color;
@@ -90,6 +92,18 @@
         margin-left: 0;
         margin-top: 48px;
       }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    $header-height: 600px;
+    $nav-height: 80px;
+
+    &__list {
+      height: $header-height / 2 + $nav-height;
+      grid-row-gap: 12px;
+      justify-content: start;
+      padding-left: 48px;
     }
   }
 }

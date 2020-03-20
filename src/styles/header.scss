@@ -3,8 +3,9 @@
 
 .header {
   position: relative;
-  height: 800px;
+  height: $header-height;
   box-sizing: border-box;
+  overflow: hidden;
 
   color: #fff;
   font-family: "Poppins", sans-serif;
@@ -12,7 +13,9 @@
   border-bottom-left-radius: 200px;
 
   &__nav {
-    height: 116px;
+    height: $nav-height;
+    padding-top: 4px;
+    box-sizing: border-box;
   }
 
   &__logo {
@@ -31,15 +34,19 @@
   }
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 48px;
+    height: $header-height - $nav-height;
   }
 
   &__article {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
     max-width: 490px;
-    margin-top: 124px;
+    padding: 0 24px 85px 0;
   }
 
   &__title {
@@ -59,5 +66,55 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+  }
+
+  &__button {
+    width: 226px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    $header-height: 600px;
+
+    height: $header-height;
+
+    &__content {
+      height: $header-height - $nav-height;
+    }
+
+    &__title {
+      font-size: 48px;
+      line-height: 52px;
+    }
+
+    &__paragraph {
+      margin-bottom: 48px;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    $header-height: 600px;
+    $nav-height: 80px;
+
+    height: $header-height + $nav-height + 120px;
+
+    &__nav {
+      height: $nav-height;
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-row-gap: 48px;
+    }
+
+    &__article {
+      height: $header-height / 2;
+      padding-bottom: 0;
+    }
+
+    &__paragraph {
+      margin-bottom: 32px;
+    }
   }
 }

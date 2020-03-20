@@ -1,11 +1,13 @@
+@import "./utils";
+
 .slider {
   display: flex;
   align-items: flex-end;
   position: absolute;
   right: 0;
-  width: 687px;
-  height: 680px;
-  padding: 0 0 48px 48px;
+  width: 686px;
+  height: $header-height - $nav-height;
+  padding: 48px;
   box-sizing: border-box;
 
   background: url(../images/slider/slide-img-1.jpg) no-repeat center;
@@ -14,24 +16,30 @@
 
   &__nav {
     display: flex;
+    margin-bottom: 18px;
   }
 
   &__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 32px;
     height: 32px;
     margin-right: 8px;
 
     background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 6px 9px;
     border-radius: 50%;
     border: none;
     outline: none;
+    cursor: pointer;
 
-    &_img {
-      width: 6px;
-      height: 9px;
+    &_prev {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &_next {
+      background-image: url(../images/slider/arrow-right.svg);
+
     }
   }
 
@@ -40,6 +48,7 @@
   }
 
   &__title {
+    margin-bottom: 8px;
     font-weight: 600;
     font-size: 13px;
     line-height: 19px;
@@ -48,9 +57,42 @@
   }
 
   &__paragraph {
+    max-width: 490px;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
+  }
+
+  @media screen and (max-width: 1600px) {
+    width: calc(100% / 2);
+  }
+
+  @media screen and (max-width: 1024px) {
+    $header-height: 600px;
+
+    height: $header-height - $nav-height;
+  }
+
+  @media screen and (max-width: 800px) {
+    $header-height: 600px;
+
+    position: relative;
+    width: 100%;
+    height: $header-height / 2;
+
+    grid-row: 1 / 2;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 24px;
+
+    &__desc {
+      margin-left: 16px;
+    }
+
+    &__paragraph {
+      font-size: 12px;
+    }
   }
 }
