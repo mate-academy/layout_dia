@@ -1,3 +1,5 @@
+@import "mixins-vars";
+
 .main-container {
   //padding: 0 227px; unnecessary
 
@@ -39,8 +41,18 @@
       }
 
       .service {
-        padding: 0 10px;
+        padding: 10px;
         width: $process-block-dimension;
+        border-radius: 10px;
+        transition: all 300ms;
+
+        &:hover {
+          background-color: $main-grey-color-rgba;
+
+          & img {
+            transform: scale(1.1);
+          }
+        }
 
         @media screen and (max-width: $tab-width) {
           padding: 20px 0;
@@ -48,10 +60,23 @@
 
         &__pict {
           text-align: center;
+          overflow: hidden;
+          margin-bottom: 40px;
 
-          img {
+          .try {
+            display: inline-block;
+            overflow: hidden;
             border-radius: 16px;
-            margin-bottom: 40px;
+            height: 166px;
+
+            img {
+              border-radius: 16px;
+              transition: 300ms;
+  
+              // &:hover { not used
+              //   transform: scale(1.1);
+              // }  this was before hover on service was added
+            }
           }
         } //&__pict
 
@@ -178,6 +203,10 @@
           &__link {
             position: absolute;
             bottom: 32px;
+            height: 40px;
+            line-height: 40px;
+            width: 159px;
+            border-radius: 20px;
 
             .arrow-img {
               width: 40px;
@@ -188,18 +217,43 @@
               text-align: center;
               display: inline-block;
               margin-right: 16px;
+              transition: transform 300ms;
 
               &__img {
                 width: 16px;
                 height: 16px;
               }
-            } // arrow-img
-          } //arrow-img
+            }
 
-          a {
-            @include heading-style;
-            font-size: 15px;
-          }
+            &:hover .arrow-img {
+              transform: scale(1.2);
+            }
+
+            p {
+              @include heading-style;
+              font-size: 15px;
+              position: relative;
+              bottom: 2px;
+              display: inline-block;
+            }
+
+            // .arrow-img {
+            //   width: 40px;
+            //   height: 40px;
+            //   border-radius: 50%;
+            //   background: #2060f6;
+            //   line-height: 45px;
+            //   text-align: center;
+            //   display: inline-block;
+            //   margin-right: 16px;
+            //   transition: transform 300ms;
+
+            //   &__img {
+            //     width: 16px;
+            //     height: 16px;
+            //   }
+            // } // arrow-img
+          } // &__link
 
         } // block
 

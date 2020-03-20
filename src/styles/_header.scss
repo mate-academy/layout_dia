@@ -39,7 +39,7 @@
             height: 26px;
             margin-right: 78px;
 
-            transition: transform 300ms, opacity 300ms;
+            transition: all 300ms;
 
             &:hover {
               transform: scale(1.05);
@@ -114,17 +114,28 @@
 
             &:hover {
               opacity: 0.8;
+            }
+    
+            &::after {
+              content: "";
+              display: block;
               
-              &::after {
-                content: "";
-                display: block;
-                width: 100%;
-                height: 2px;
-                background: #2060f6;
-                // border-radius: 50%;
-                margin-bottom: -2px;
-              }
-            } // hover
+              width: 0;
+              height: 2px;
+              background: #2060f6;
+              border-radius: 50%;
+              opacity: 0;
+              position: relative;
+              top: -5px;
+              transition: all 500ms;
+            }
+    
+            &:hover::after {
+              opacity: 1;
+              width: 100%;
+              top: 0;
+              transition: all 500ms;
+            }
           } // &__link
 
         } // nav
@@ -163,18 +174,30 @@
 
         &:hover {
           opacity: 0.8;
-              
-          &::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: #2060f6;
-            // border-radius: 50%;
-          }
-        } // hover
+        }
 
-      }
+        &::after {
+          content: "";
+          display: block;
+          
+          width: 0;
+          height: 2px;
+          background: #2060f6;
+          border-radius: 50%;
+          opacity: 0;
+          position: relative;
+          top: -5px;
+          transition: all 500ms;
+        }
+
+        &:hover::after {
+          opacity: 1;
+          width: 100%;
+          top: 0;
+          transition: all 500ms;
+        }
+
+      } //hire
     } // top-panel
 
     .header-info {
