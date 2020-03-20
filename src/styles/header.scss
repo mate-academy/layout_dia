@@ -1,0 +1,103 @@
+@import "utils/vars";
+@import "utils/mixins";
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  background-color: $color-main;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: $ffp;
+    margin: 0 auto;
+    max-width: 1146px;
+    height: 120px;
+
+    padding-left: 15px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 10px;
+  }
+
+  &__hire {
+    @include header-item;
+
+    @media (max-width: 1070px) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin-right: 78px;
+
+    @media (max-width: 1070px) {
+      z-index: 1;
+    }
+  }
+
+  @media (max-width: 1070px) {
+    position: static;
+    z-index: 0;
+  }
+}
+
+.header-navbar {
+  
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: 1070px) {
+      position: absolute;
+      display: block;
+
+      text-align: center;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      background-color: $color-accent;
+
+      transform: translateY(-100%);
+      transition: transform 0.4s ease-in-out;
+    }
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    margin-right: 44px;
+    padding: 8px 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    @media (max-width: 1070px) {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include header-item;
+  }
+}
