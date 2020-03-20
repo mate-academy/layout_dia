@@ -3,16 +3,21 @@
 .process {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
   align-items: center;
 
   @media screen and (max-width: $breakpoint) {
-    grid-template-columns: 1fr;
-    padding: 50px;
-    justify-content: center;
+    grid-template-columns: 300px;
+    padding: 5px;
+    justify-items: center;
   }
   &__text {
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: $breakpoint) {
+      align-items: center;
+      width: 250px;
+    }
   }
 
   &__text-1 {
@@ -29,6 +34,9 @@
     font-size: 32px;
     line-height: 130%;
     color: $main-article-color;
+    @media screen and (max-width: $breakpoint) {
+      font-size: 20px;
+    }
   }
 
   &__text-2 {
@@ -40,25 +48,17 @@
   &__frames {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
-    @media screen and (min-width: $breakpoint) {
-      width: 550px;
-
-      .process__frame:nth-child(even) {
-        transform: translateX(20%);
-        margin-top: 30px;
-      }
-      .process__frame:nth-child(odd) {
-        transform: translateY(80%);
-      }
+    width: 550px;
+    @media screen and (max-width: $middle-breakpoint) {
+      flex-direction: column;
+      align-items: center;
     }
   }
-
   &__frame {
     z-index: 1;
     box-sizing: border-box;
-    width: 140px;
-    height: 140px;
+    width: 264px;
+    height: 264px;
     background-color: #ffff;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
@@ -67,21 +67,30 @@
     justify-content: space-around;
     flex-direction: column;
     flex-shrink: 0;
-    @media screen and (min-width: $breakpoint) {
-      width: 264px;
-      height: 264px;
+  }
+
+  &__frame:nth-child(even) {
+    transform: translateX(20%);
+    margin-top: 30px;
+    @media screen and (max-width: $middle-breakpoint) {
+      transform: translateX(0%);
     }
   }
 
+  &__frame:nth-child(odd) {
+    transform: translateY(80%);
+    @media screen and (max-width: $middle-breakpoint) {
+      transform: translateX(0%);
+    }
+  }
+
+  
   &__frame-text {
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
     font-family: $fontfamily-description;
     color: $main-description-color;
-    @media screen and (max-width: $breakpoint) {
-      font-size: 6px;
-    }
   }
 
   &__frame-number {
@@ -118,9 +127,6 @@
     font-size: 15px;
     line-height: 16px;
     color: $article-dark-color;
-    @media screen and (max-width: $breakpoint) {
-      font-size: 10px;
-    }
   }
 }
 

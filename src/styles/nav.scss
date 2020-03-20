@@ -1,18 +1,18 @@
 @import "var";
 
 .nav {
-  margin: 0 auto;
   text-transform: uppercase;
   color: white;
   white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 1500px) {
-    width: 1500px;
-  }
+  // @media screen and (min-width: 1500px) {
+  //   width: 1500px;
+  // }
 
   &__logo {
+    flex-shrink: 0;
     display: inline-block;
     position: relative;
     background-image: url("../images/Air.svg");
@@ -32,12 +32,13 @@
   &__list {
     display: flex;
     z-index: 1;
-    // transition: all 1s;
+   
 
     @media screen and (max-width: $breakpoint) {
       display: none;
       position: relative;
-      // top: -300px;
+      transform: translateY(-60%);
+      transition: all 1s;
     }
   }
 
@@ -90,7 +91,7 @@
 
   &__menu {
     z-index: 2;
-    // display: none;
+   
 
     &::after {
       content: "";
@@ -116,8 +117,8 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    // transform: translateY(100%);
-    // transition: transform 1s;
+    transform: translateY(0);
+    transition: transform 1s;
   }
 
   &__toggler:checked + &__menu::after {
@@ -130,7 +131,7 @@
 
 .nav__hire {
   padding-left: 7vw;
-  @media screen and (max-width: $breakpoint) {
+  @media screen and (max-width: $big-breakpoint) {
     padding-left: 0;
   }
 }
