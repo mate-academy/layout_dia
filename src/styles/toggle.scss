@@ -1,0 +1,62 @@
+@import "./utils";
+
+.toggle {
+  position: absolute;
+  opacity: 0;
+  top: -100%;
+
+  &__btn {
+    display: none;
+    position: relative;
+    padding: 8px 0;
+    width: 28px;
+    height: 4px;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__span::before {
+    content: "";
+    top: -8px;
+  }
+
+  &__span::after {
+    content: "";
+    bottom: -8px;
+  }
+
+  &__span,
+  &__span::before,
+  &__span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: 0.35s;
+  }
+
+  &:checked ~ .toggle__btn > .toggle__span {
+    transform: rotate(45deg);
+  }
+  &:checked ~ .toggle__btn > .toggle__span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  &:checked ~ .toggle__btn > .toggle__span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  &:checked ~ .nav__list {
+    visibility: visible;
+    top: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    &__btn {
+      display: block;
+    }
+  }
+}
