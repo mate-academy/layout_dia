@@ -1,0 +1,182 @@
+@import "utils";
+
+.header {
+  height: 70vh;
+  background-color: #008aff;
+  position: relative;
+  border-bottom-left-radius: 175px;
+  color: white;
+  text-transform: uppercase;
+
+  &__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__nav-wrap {
+    display: flex;
+    align-items: center;
+    height: 132px;
+  }
+
+  &__logo-link {
+    z-index: 2;
+  }
+
+  &__logo {
+    width: 45px;
+    height: 26px;
+    margin-right: 5vw;
+  }
+
+  &__info-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 7vh;
+    padding-left: 15px;
+  }
+
+  &__info {
+    max-width: 400px;
+    text-transform: initial;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+  }
+
+  &__text {
+    margin-top: 2vh;
+    font-size: 18px;
+    line-height: 150%;
+  }
+
+  &__btn {
+    position: relative;
+    width: 226px;
+    height: 56px;
+    margin-top: 7vh;
+
+    background-color: #ff9c8e;
+    border-radius: 64px;
+    border: 2px solid #ff9c8e;
+
+    font-size: 15px;
+    line-height: 22px;
+    cursor: pointer;
+    color: white;
+
+    transition: color 0.5s, background-color 0.5s, border 0.5s;
+
+    &:hover {
+      border: 2px solid #ff9c8e;
+      background-color: white;
+      color: #ff9c8e;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    left: 57%;
+    right: 0;
+    bottom: 0;
+    height: 85%;
+    background: url(../images/slider/slider-1.png) no-repeat center;
+    background-size: cover;
+    border-top-left-radius: 200px;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__toggler-icon {
+    position: absolute;
+    display: none;
+    align-items: center;
+    top: 10%;
+    transform: translateY(-50%);
+    right: 10%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__toggler-item {
+
+    &,
+    &::after,
+    &::before {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      transition: 0.4s;
+    }
+
+    &::before {
+      content: "";
+      top: -8px;
+    }
+
+    &::after {
+      content: "";
+      top: 8px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    &__toggler-icon {
+      display: flex;
+      z-index: 2;
+    }
+
+    &__toggler:checked ~ .mobile-menu {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__toggler:checked ~ &__toggler-icon > &__toggler-item {
+      transform: rotate(45deg);
+    }
+
+    &__toggler:checked ~ &__toggler-icon > &__toggler-item::before {
+      top: 0;
+      transform: rotate(0deg);
+    }
+
+    &__toggler:checked ~ &__toggler-icon > &__toggler-item::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    .header__nav {
+      display: none;
+    }
+
+    &__logo {
+      margin-left: 7vw;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    &__slider {
+      display: none;
+    }
+
+    &__logo {
+      margin-left: 7vw;
+    }
+
+    &__info-wrap {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      width: 100vw;
+      text-align: center;
+    }
+  }
+}
