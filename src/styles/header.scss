@@ -11,6 +11,11 @@
   background-color: $main-color;
   border-bottom-left-radius: $main-radius;
 
+  &__container {
+    height: $header-height;
+    overflow: hidden;
+  }
+
   &__nav {
     height: $nav-height;
     padding-top: 4px;
@@ -55,8 +60,6 @@
   &__paragraph {
     margin-bottom: 83px;
 
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
     font-size: 18px;
     line-height: 150%;
   }
@@ -67,8 +70,14 @@
 
   @media screen and (max-width: 1024px) {
     $header-height: 600px;
+    $main-radius: 130px;
 
     height: $header-height;
+    border-bottom-left-radius: $main-radius;
+
+    &__container {
+      height: $header-height + 2px;
+    }
 
     &__content {
       height: $header-height - $nav-height;
@@ -83,10 +92,12 @@
   @media screen and (max-width: 800px) {
     $header-height: 600px;
     $nav-height: 80px;
-    $main-radius: 130px;
 
     height: $header-height + $nav-height + 120px;
-    border-bottom-left-radius: $main-radius;
+
+    &__container {
+      height: $header-height + $nav-height + 120px;
+    }
 
     &__nav {
       height: $nav-height;
