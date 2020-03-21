@@ -1,0 +1,192 @@
+@import "./utils";
+
+.review {
+  margin-bottom: 168px;
+
+  &__container {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    align-items: start;
+    grid-row-gap: 85px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    grid-column-gap: 32px;
+  }
+
+  &__title--s {
+    margin-bottom: 16px;
+    color: $title-xs-color;
+  }
+
+  &__title {
+    max-width: 180px;
+    color: $title-color;
+  }
+
+  &__img {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    z-index: 1;
+
+    border-radius: 50%;
+    box-shadow: 0 14px 12px rgba(37, 41, 49, 0.12);
+    transition: all 0.35s;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    justify-items: center;
+    align-content: start;
+    max-width: 314px;
+    padding: 84px 32px 32px;
+
+    background: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+    transition: box-shadow 0.45s;
+
+    &:hover {
+      box-shadow: 0 6px 14px rgba(37, 41, 49, 0.13);
+
+      .review__img {
+        box-shadow: 0 14px 12px rgba(37, 41, 49, 0.18);
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__img-wrap {
+    position: relative;
+    margin-bottom: 82px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 139px;
+      height: 56px;
+      z-index: 0;
+      border-radius: 500px;
+
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 0;
+      left: -54px;
+    }
+
+    &::after {
+      bottom: 0;
+      right: -54px;
+    }
+
+    &--1::before,
+    &--1::after {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%) $card-color-1;
+    }
+
+    &--2::before,
+    &--2::after {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%) $card-color-2;
+    }
+
+    &--3::before,
+    &--3::after {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%) $card-color-3;
+    }
+  }
+
+  &__decor {
+    width: 21px;
+    height: 19px;
+    margin-bottom: 10px;
+
+    &--1 {
+      fill: $card-color-1;
+    }
+
+    &--2 {
+      fill: $card-color-2;
+    }
+
+    &--3 {
+      fill: $card-color-3;
+    }
+  }
+
+  &__note {
+    max-width: 250px;
+    width: 100%;
+    margin-bottom: 16px;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $paragraph-color;
+    text-align: center;
+  }
+
+  &__autor {
+    margin-bottom: 4px;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $title-color;
+
+    transition: all 0.35s ease;
+
+    &--1:hover {
+      color: $card-color-1;
+    }
+
+    &--2:hover {
+      color: $card-color-2;
+    }
+
+    &--3:hover {
+      color: $card-color-3;
+    }
+
+  }
+
+  &__autor-pro {
+    color: $title-xs-color;
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 88px;
+
+    &__container {
+      grid-row-gap: 48px;
+    }
+
+    &__autor-pro {
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &__row {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      grid-row-gap: 32px;
+      justify-items: center;
+    }
+
+    &__title {
+      max-width: 100%;
+    }
+  }
+}
