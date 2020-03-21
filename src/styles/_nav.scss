@@ -1,0 +1,132 @@
+#menuToggle {
+
+  input {
+    display: none;
+  }
+
+  span {
+    display: none;
+    width: 32px;
+    height: 2px;
+    margin-bottom: 8px;
+    background: $text-color-light;
+    border-radius: 2px;
+    z-index: 3;
+    transform-origin: 2px 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1) opacity 0.55s;
+
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__item {
+    padding: 0 32px;
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: $text-color-light;
+    transition: 0.5s;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-bottom: 2px solid $bg-color-dark;
+
+    &:hover {
+      border-bottom: 2px solid $button-blue;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .nav {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+
+    &__list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item {
+      max-width: 160px;
+      padding-top: 30px;
+    }
+  }
+
+  #menu {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    height: 400px;
+    width: 100vw;
+    margin-top: 0;
+    right: 0;
+    z-index: -1;
+    background: $bg-color-dark;
+    transform-origin: 0% 0%;
+    transform: translate(0, -150%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  #menuToggle {
+    left: 0;
+    padding-right: 80vw;
+    transform: translate(0, 30%);
+    z-index: 3;
+
+    span {
+      display: block;
+      z-index: 3;
+      transition: 0.3s;
+      &:hover {
+        background: lightgray;
+      }
+    }
+    input {
+      &:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg);
+
+        &:nth-last-child(3) {
+          opacity: 0;
+          transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        &:nth-last-child(2) {
+          opacity: 1;
+          transform: rotate(-45deg);
+        }
+      }
+
+      &:checked ~ ul {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
