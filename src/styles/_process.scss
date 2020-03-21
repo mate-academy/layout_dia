@@ -1,0 +1,93 @@
+.process {
+  padding: 148px 0 44px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__textblock {
+    max-width: 362px;
+    display: flex;
+    flex-direction: column;
+
+    &--top {
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c0cdd7;
+    }
+
+    &--title {
+      margin: 16px 0 0;
+      line-height: 130%;
+      font-weight: 600;
+      font-size: 32px;
+      color: #253757;
+    }
+
+    &--text {
+      font-size: 14px;
+      margin-top: 20px;
+      line-height: 150%;
+    }
+  }
+
+  &__cardblock {
+    display: grid;
+    grid-template-columns: repeat(2, 264px);
+    grid-gap: 30px;
+  }
+
+  &__card:nth-child(odd) {
+    transform: translateY(50%);
+  }
+}
+
+@media screen and (max-width: $screen-brakepoint) {
+  .process {
+    padding: 80px 0;
+    &__content {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__textblock {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+    &__card:nth-child(odd) {
+      transform: translateY(0);
+    }
+  }
+}
+@media screen and (max-width: $small-screen-brakepoint) {
+  .process {
+    padding: 40px 0;
+    text-align: center;
+
+    &__cardblock {
+      grid-template-columns: 264px;
+    }
+
+    &__card:nth-child(odd) {
+      transform: translateX(-30%);
+    }
+    &__card:nth-child(even) {
+      transform: translateX(30%);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .process {
+    &__card:nth-child(odd) {
+      transform: translateX(0);
+    }
+    &__card:nth-child(even) {
+      transform: translateX(0);
+    }
+  }
+}
