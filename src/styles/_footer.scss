@@ -1,20 +1,170 @@
 @import "vars";
 
 .footer {
-  height: 867px;
-  background-color: $c-blue;
-  border-top-right-radius: 200px;
-  display: flex;
   position: relative;
-  top: -200px;
+  background-color: #fff;
+
+  &__nav {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 867px;
+    background-color: $c-blue;
+    border-top-right-radius: 200px;
+    transition: height 1s;
+    @media screen and (max-width: 768px) {
+      height: 630px;
+    }
+    @media screen and (max-width: 700px) {
+      height: 890px;
+    }
+  }
+
   &__info {
     display: flex;
     flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    margin: 180px auto 121px;
+    width: 100vw;
+    transition: margin 1s;
+    @media screen and (max-width: 768px) {
+      margin: 50px auto;
+    }
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+      width: 90vw;
+      align-items: center;
+    }
+
     &_message {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      width: 460px;
     }
+  }
+}
+
+.message {
+  position: relative;
+  @media screen and (max-width: 700px) {
+    align-items: center;
+  }
+
+  &__button {
+    width: 226px;
+    height: 56px;
+    background-color: $c-peach;
+    color: white;
+    font-size: 15px;
+    line-height: 22px;
+    @include important-font;
+    border-radius: 56px;
+    border: none;
+    transition: box-shadow 1s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 2px 6px white;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    @include important-font;
+    color: white;
+    margin-bottom: 39px;
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+      width: 70vw;
+
+    }
+  }
+
+  &__name,
+  &__sms {
+    margin-top: 31px;
+  }
+
+  &__sms {
+    margin-bottom: 80px;
+    @media screen and (max-width: 700px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__email,
+  &__name,
+  &__sms {
+    @include input-style;
+    border-bottom: 1px solid white;
+    border-radius: 0.5px;
+    @media screen and (max-width: 700px) {
+      width: 70vw;
+    }
+
+    &:focus {
+      border-bottom: 2px solid white;
+      border-radius: 1px;
+    }
+  }
+}
+
+.contacts {
+  @media screen and (max-width: 700px) {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    @include important-font;
+    color: white;
+    margin-bottom: 56px;
+    transition: margin-bottom 1s;
+    @media screen and (max-width: 700px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    @include important-font;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.5;
+    margin: 56px 0 0;
+    transition: margin 1s;
+    @media screen and (max-width: 700px) {
+      margin: 35px 0 0;
+    }
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    @include regular-font;
+    color: white;
   }
 }
