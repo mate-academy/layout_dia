@@ -2,8 +2,11 @@
   height: 120px;
   display: flex;
   background-color: #008aff;
-  @media screen and (max-width: $desctop-min-width) {
+  @media screen and (max-width: $noteboock-screen) {
     & {
+      display: flex;
+      justify-content: space-between;
+
       @include padding-l-r-20;
     }
   }
@@ -12,10 +15,17 @@
     display: flex;
     flex-grow: 1;
     align-items: center;
+
+    @media screen and (max-width: $noteboock-screen) {
+      & {
+        justify-content: space-between;
+      }
+    }
   }
 
   &__logo {
     margin-right: 78px;
+    z-index: 4;
   }
 
   &__link {
@@ -23,17 +33,17 @@
 
     position: relative;
     display: inline-block;
-    
+
     margin-left: auto;
 
     line-height: $standart-line-height;
     color: $white-color;
     letter-spacing: 3px;
     text-transform: uppercase;
-    text-decoration: none;
 
     &:hover {
-      color: $button-color-one;
+      color: $button-color-two;
+      transition: 1s;
 
       &::after {
         content: "";
@@ -47,12 +57,18 @@
 
         background: $button-color-one;
         border-radius: 4px;
+
+        @media screen and (max-width: $mobile-menu-screen) {
+          & {
+            display: none;
+          }
+        }
       }
     }
 
-    @media screen and (max-width: $desctop-min-width) {
+    @media screen and (max-width: $mobile-menu-screen) {
       & {
-        display: none;
+        z-index: 5;
       }
     }
   }
@@ -92,27 +108,21 @@
       top: 0;
       transform: rotate(90deg);
     }
-    &:checked ~ .nav__list {
-      visibility: visible;
-      top: 40px;
+    &:checked ~ .nav {
+      display: block;
     }
   }
 
   &__btn {
     display: none;
 
-    @media screen and (max-width: $middle-min-width) {
+    @media screen and (max-width: $mobile-menu-screen) {
       & {
         display: block;
         position: relative;
-
         width: 40px;
         height: 30px;
-
-        margin: 20px auto 0;
-        right: 50px;
-        top: 35px;
-
+        top: 14px;
         cursor: pointer;
         z-index: 3;
       }
