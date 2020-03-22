@@ -9,11 +9,19 @@
     &__header {
       @include heading-style;
       font-size: 52px;
+
+      @media screen and (max-width: $tab-width) {
+        font-size: 32px;
+      }
     } //&__header
 
     &__text {
       @include text-style;
       font-size: 24px;
+
+      @media screen and (max-width: $tab-width) {
+        font-size: 15px;
+      }
 
     }
   } //about-info
@@ -154,6 +162,11 @@
       justify-content: space-between;
       position: relative;
 
+      @media screen and (max-width: $tab-width) {
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
       .blocks {
         width: $process-block-dimension;
 
@@ -161,6 +174,11 @@
           margin-right: 30px;
           position: relative;
           top: 132px;
+
+          @media screen and (max-width: $tab-width) {
+            position: static;
+            margin-bottom: 30px;
+          }
         }
 
         .block {
@@ -273,8 +291,307 @@
       border-radius: 30px 0 0 30px;
       padding: 204px 0 0 204px;
       position: relative; // will be used fo positioning the img
-      
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (max-width: $tab-width) {
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 100px;
+        padding-top: 204px;
+      }
+
+      .approach-info {
+        margin-bottom: 140px;
+        margin-right: 16px;
+        max-width: 362px;
+
+        @media screen and (max-width: $tab-width) {
+          margin-bottom: 20px;
+          max-width: 100%;
+        }
+
+        &__subheader {
+          @include heading-style;
+          font-size: 13px;
+          letter-spacing: 3px;
+          color: #fff;
+          margin-bottom: 16px;
+        } //&__subheader
+
+        &__header {
+          @include heading-style;
+          font-size: 32px;
+          color: #fff;
+          margin-bottom: 32px;
+        }
+
+        .block-line {
+          display: flex;
+          justify-content: space-between;
+          height: 92px;
+          align-items: center;
+          margin-bottom: 64px;
+
+          &__img {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+            margin-right: 34px;
+          }
+
+          &__text {
+            @include text-style;
+            font-size: 15px;
+            color: #fff;
+            font-weight: normal;
+          }
+
+        } // block-line
+      } // .approach-info
+
+      .approach-photo {
+        max-width: 43vw;
+        // object-fit: cover;
+
+        @media screen and (max-width: $tab-width) {
+          max-width: 100%;
+          border-radius: 30px;
+        }
+      }
     } // approach-inner
   } // approach-outter
 
+  .testimonials {
+    padding: 148px $side-margin-design;
+
+    &__subheader {
+      @include heading-style;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #c0cdd7;
+      margin-bottom: 16px;
+    }
+
+    &__header {
+      @include heading-style;
+      font-size: 32px;
+      color: #253757;
+      margin-bottom: 85px;
+    }
+
+    &__feedbacks {
+      display: flex;
+      // justify-content: space-between; // it was before I added wrap
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      @media screen and (max-width: $tab-width) {
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .feedback {
+        background: #fff;
+        box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+        border-radius: 16px;
+        position: relative;
+        text-align: center;
+        width: 314px;
+        margin-bottom: 50px;
+
+        .rect {
+          position: absolute;
+        }
+
+        &__photo {
+          display: block;
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          margin: 82px auto;
+          object-fit: cover;
+          position: relative;
+          z-index: 2;
+          
+        }
+
+        &__rectangle-upper {
+          top: 36px;
+          left: 50px;
+        }
+
+        &__rectangle-lower {
+          top: 129px;
+          right: 49px;
+        }
+
+        &__quote {
+          @include text-style;
+          font-size: 13px;
+          color: #6c788b;
+          margin-top: 11px;
+        }
+
+        &__name {
+          @extend .feedback__quote;
+          color: #253757;
+          margin-top: 16px;
+        }
+
+        &__company {
+          @include heading-style;
+          font-size: 13px;
+          line-height: 19px;
+          letter-spacing: 3px;
+          color: #c0cdd7;
+          text-transform: uppercase;
+          margin-top: 4px;
+        }
+      } // feedback
+    } // &__feedbacks
+  } // testimonials
+
+  .components {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 198px 20px;
+    background-color: #fff;
+    position: relative;
+
+    @media screen and (max-width: $tab-width) {
+      padding: 20px;
+    }
+
+    &__header {
+      @include heading-style;
+      font-size: 52px;
+      margin-bottom: 24px;
+
+      @media screen and (max-width: $tab-width) {
+        font-size: 32px;
+      }
+    }
+
+    &__text {
+      @include text-style;
+      font-size: 24px;
+      color: #6c788b;
+      margin-bottom: 64px;
+      max-width: 754px;
+      text-align: center;
+
+      @media screen and (max-width: $tab-width) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__btn {
+      @include heading-style;
+      font-size: 15px;
+      display: block;
+      width: 226px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+      background: #2060f6;
+      border-radius: 8px;
+      transition: background 300ms;
+
+      &:hover {
+        background: #144ed5;
+      }
+    } // &__btn
+
+    &__figure {
+
+      @media screen and (max-width: $tab-width) {
+        display: none;
+      }
+
+      &:nth-child(1)::before {
+        @include components-flying-figures;
+        top: 40%;
+        left: 14%;
+      }
+
+      &:nth-child(1)::after {
+        @include components-flying-figures;
+        top: 18%;
+        left: 84%;
+      }
+
+      &:nth-child(2)::before {
+        @include components-flying-figures;
+        top: 59%;
+        left: 89%;
+      }
+
+      &:nth-child(2)::after {
+        @include components-flying-figures;
+        transform: scale(0.5) rotate(35deg);
+        top: 5%;
+        left: 15%;
+      }
+
+      &:nth-child(3)::before {
+        @include components-flying-figures;
+        transform: scale(0.5) rotate(35deg);
+        top: 10%;
+        left: 93%;
+      }
+
+      &:nth-child(3)::after {
+        @include components-flying-figures;
+        transform: scale(0.5) rotate(35deg);
+        top: 59%;
+        left: 71%;
+      }
+
+      &:nth-child(4)::before {
+        @include components-flying-figures;
+        transform: scale(0.3) rotate(35deg);
+        top: 35%;
+        left: 89%;
+      }
+
+      &:nth-child(4)::after {
+        @include components-flying-figures;
+        transform: scale(0.3) rotate(35deg);
+        top: 59%;
+        left: 6%;
+      }
+
+      &:nth-child(5)::before {
+        @include components-flying-figures;
+        transform: scale(0.3) rotate(35deg);
+        top: 9%;
+        left: 22%;
+      }
+
+      &:nth-child(5)::after {
+        @include components-flying-figures;
+        transform: scale(0.3) rotate(35deg);
+        top: 47%;
+        left: 79%;
+      }
+
+      &:nth-child(6)::before {
+        @include components-flying-figures;
+        transform: scale(0.5) rotate(35deg);
+        top: 23%;
+        left: 23%;
+      }
+
+      &:nth-child(6)::after {
+        @include components-flying-figures;
+        transform: scale(0.7) rotate(35deg);
+        top: 70%;
+        left: 16%;
+      }
+    } // &__figure
+  } // components
 } //main-content
