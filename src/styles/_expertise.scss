@@ -5,14 +5,11 @@
   }
 
   &__blocks {
-    display: grid;
+    display: flex;
     justify-content: space-between;
-    grid-template-columns: repeat(3, 290px);
-    column-gap: 25px;
+    flex-wrap: wrap;
 
-    @media only screen and (min-width: 300px) and (max-width: 1024px) {
-      display: grid;
-      grid-template-columns: repeat(1, 290px);
+    @media screen and (min-width: 300px) and (max-width: 1124px) {
       justify-content: center;
     }
   }
@@ -20,10 +17,21 @@
   &__block {
     width: 290px;
     height: 350px;
+
+    @media only screen and (min-width: 300px) and (max-width: 1024px) {
+      margin: 0 20px 100px;
+    }
   }
 }
 
 .block {
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   &__image {
     margin: 0 auto 40px;
     width: 166px;
