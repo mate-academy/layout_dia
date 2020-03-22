@@ -1,6 +1,31 @@
 @import "utils/mixins";
 
 .stages {
+  &__img-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: #2060f6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: all 0.3s;
+  }
+  &__num {
+    @include poppins_font;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 24px;
+    color: #2060f6;
+    display: block;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: rgba($color: #000, $alpha: 0.1);
+    text-align: center;
+    transition: all 0.3s;
+  }
   &__step {
     padding: 32px;
     background-color: #fff;
@@ -9,52 +34,27 @@
     transition: all 0.3s;
     cursor: pointer;
     box-shadow: -20px 25px 49px 0 rgba(0, 0, 0, 0.51);
-    &__num {
-      @include poppins_font;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 24px;
-      color: #2060f6;
-      display: block;
-      width: 46px;
-      height: 24px;
-      border-radius: 23px;
-      background-color: rgba($color: #000, $alpha: 0.1);
-      text-align: center;
-      transition: all 0.3s;
-    }
     &:hover .stages__num {
       color: tomato;
     }
-    &__img-wrapper {
-      width: 40px;
-      height: 40px;
-      background-color: #2060f6;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 10px;
-      transition: all 0.3s;
-    }
     &:hover .stages__img-wrapper {
-      background-color: tomato;
+      background-color: tomato; 
     }
+  }
+  &:nth-child(2n+1) {
+    transform: translateY(50%);
+  }
+  @media screen and (max-width: 980px) {
     &:nth-child(2n+1) {
-      transform: translateY(50%);
+      transform: translateY(0);
     }
-    @media screen and (max-width: 980px) {
-      &:nth-child(2n+1) {
-        transform: translateY(0);
-      }
-      margin-top: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    @media screen and (max-width: 500px) {
-      flex-direction: column;
-    }
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
   }
   &__list {
     @include open_sans_font;
