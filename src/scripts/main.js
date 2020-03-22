@@ -20,6 +20,7 @@ const func = () => {
 // const resizeWindow = () => {
 //   const navbar = document.querySelector('.header-navbar__list');
 //   window.addEventListener('resize', e => {
+
 //     if (window.innerWidth > 1069) {
 //       navbar.style.transform = 'translateY(0)';
 //     } else {
