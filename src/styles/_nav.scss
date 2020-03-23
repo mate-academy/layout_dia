@@ -1,0 +1,99 @@
+.nav {
+  @include poppins-13px;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $mobile-menu-screen) {
+    & {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 800px;
+      z-index: 2;
+      align-items: left;
+      background-color: #008aff;
+    }
+  }
+
+  @media screen and (max-width: $mobile-screen) {
+    & {
+      height: 700px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    @media screen and (max-width: $mobile-menu-screen) {
+      & {
+        font-size: 22px;
+        line-height: 1.5em;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 200px;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__item {
+    margin-right: 64px;
+    &:focus {
+      margin-right: 60px;
+    }
+
+    @media screen and (max-width: $mobile-menu-screen) {
+      & {
+        padding-bottom: 35px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    color: $white-color;
+
+    &:hover {
+      color: $button-color-two;
+      transition: 1s;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 30px;
+        width: 100%;
+        height: 2px;
+        background: $button-color-two;
+        border-radius: 4px;
+
+        @media screen and (max-width: $mobile-menu-screen) {
+          & {
+            display: none;
+          }
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background: $button-color-two;
+        border-radius: 4px;
+
+        @media screen and (max-width: $mobile-menu-screen) {
+          & {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

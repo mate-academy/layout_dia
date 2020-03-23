@@ -1,0 +1,131 @@
+.header {
+  height: 120px;
+  display: flex;
+  background-color: #008aff;
+  @media screen and (max-width: $noteboock-screen) {
+    & {
+      display: flex;
+      justify-content: space-between;
+
+      @include padding-l-r-20;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+
+    @media screen and (max-width: $noteboock-screen) {
+      & {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__logo {
+    margin-right: 78px;
+    z-index: 4;
+  }
+
+  &__link {
+    @include poppins-13px;
+
+    position: relative;
+    display: inline-block;
+
+    margin-left: auto;
+
+    line-height: $standart-line-height;
+    color: $white-color;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $button-color-two;
+      transition: 1s;
+
+      &::after {
+        content: "";
+        position: absolute;
+
+        width: 100%;
+        height: 2px;
+
+        left: 0;
+        top: 30px;
+
+        background: $button-color-one;
+        border-radius: 4px;
+
+        @media screen and (max-width: $mobile-menu-screen) {
+          & {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $mobile-menu-screen) {
+      & {
+        z-index: 5;
+      }
+    }
+  }
+
+  &__span,
+  &__span::before,
+  &__span::after {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 4px;
+
+    background-color: $white-color;
+    transition-duration: 0.3s;
+  }
+  &__span::before {
+    content: "";
+    top: -8px;
+  }
+  &__span::after {
+    content: "";
+    top: 8px;
+  }
+  &__toggle {
+    opacity: 0;
+    position: absolute;
+    top: -100%;
+    &:checked ~ .header__btn > .header__span {
+      transform: rotate(45deg);
+    }
+    &:checked ~ .header__btn > .header__span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+    &:checked ~ .header__btn > .header__span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &:checked ~ .nav {
+      display: block;
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @media screen and (max-width: $mobile-menu-screen) {
+      & {
+        display: block;
+        position: relative;
+        width: 40px;
+        height: 30px;
+        top: 14px;
+        cursor: pointer;
+        z-index: 3;
+      }
+    }
+  }
+}
