@@ -1,6 +1,71 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin item-hover($_property, $_toValue, $_animation) {
+  transition: #{$_property} 0.3s #{$_animation};
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin title-before {
+  position: absolute;
+
+  font-family: $ffp;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 3px;
+
+  left: 0;
+  top: -26px;
+}
+
+@mixin some-changes {
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $color-gray;
+  white-space: nowrap;
+}
+
+@mixin header-item {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 3px;
+  color: #fff;
+
+  text-transform: uppercase;
+
+  transition: opacity 0.5s ease-in-out;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 20px);
+    height: 2px;
+    background-color: $color-accent;
+  
+    bottom: 0;
+    left: 0;
+
+    border-radius: 4px;
+
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(-100%);
+  }
+
+  &:hover {
+    opacity: 0.7;
+    &::after {
+      transform: translateX(10px);
+    }
+  }
+
+  &:focus {
+    color: $color-accent;
+    outline: none;
+  }
+
+  @media (max-width: 1070px) {
+    font-size: 30px;
   }
 }

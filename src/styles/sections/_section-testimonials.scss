@@ -1,0 +1,177 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.sections-testimonials {
+
+  margin-bottom: 168px;
+
+  &__container {
+    max-width: 1146px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+
+    @media (max-width: 500px) {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  &__title {
+    position: relative;
+
+    font-family: $ffp;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+
+    max-width: 200px;
+    margin-bottom: 85px;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto 50px;
+      max-width: 314px;
+    }
+
+    &::before {
+      @include title-before;
+      content: "TESTIMONIALS";
+      color: $color-gray;
+    }
+  }
+
+  &__test {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1070px) {
+      display: block;
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+
+    width: 314px;
+    height: 494px;
+
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+    padding: 32px;
+    transition: background-color 0.3s ease-in-out;
+
+    @media (max-width: 1070px) {
+      margin: 0 auto 30px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+  }
+
+  &__img {
+    position: relative;
+
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 111px;
+
+    &::before {
+      position: absolute;
+      content: "";
+
+      width: 56px;
+      height: 139px;
+      bottom: 35%;
+      left: 20%;
+
+      background-color: $color-accent;
+      border-radius: 12px;
+
+      transform: rotate(30deg);
+      z-index: 1;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+
+      width: 56px;
+      height: 139px;
+      top: 33%;
+      right: 19%;
+
+      background-color: $color-accent;
+      border-radius: 12px;
+
+      transform: rotate(30deg);
+      z-index: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__text {
+    position: relative;
+
+    font-family: $ffo;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $color-lightgray;
+
+    margin-bottom: 16px;
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      content: url(../../images/testimonials/“.png);
+      color: $color-accent;
+      left: 50%;
+      top: -28px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__heading {
+    position: relative;
+
+    font-family: $ffo;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: #000;
+    text-align: center;
+
+    &--1 {
+      &::after {
+        @include title-before;
+        content: "TEACH FOR AMERICA";
+        @include some-changes;
+      }
+    }
+
+    &--2 {
+      &::after {
+        @include title-before;
+        content: "HAWKINS CONSULTING";
+        @include some-changes;
+      }
+    }
+
+    &--3 {
+      &::after {
+        @include title-before;
+        content: "HULU";
+        @include some-changes;
+      }
+    }
+  }
+}
