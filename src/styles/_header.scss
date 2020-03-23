@@ -59,7 +59,9 @@
 
 .small-screen-logo {
   display: none;
+  z-index: 4;
 }
+
 
 .header {
   box-sizing: border-box;
@@ -74,7 +76,6 @@
 
   &__wrapper {
     width: 1070px;
-    
   }
 
   &__nav {
@@ -83,11 +84,11 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 22px;
+    transition: 0.5s;
+  }
 
-    &-small-screen {
-      display: none;
-
-    }
+  &__nav-small-screen {
+    display: none;
   }
 
   &__inner-wrapper {
@@ -98,12 +99,26 @@
 
 .small-screen-menu {
   display: none;
-  background-image: url("../images/menu.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 18px;
+  position: relative;
   height: 18px;
+  width: 18px;
+  z-index: 4;
+
+  & span {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    height: 2px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 1px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+  }
+
+  & span:last-child {
+    margin-bottom: 0;
+  }
 
   &-switcher {
     display: none;
@@ -149,25 +164,13 @@
   overflow: hidden;
   bottom: 0;
   right: 0;
-  border-radius: 30px 0px;
+  border-radius: 30px 0;
 
   @media (max-width: 1065px) {
     & {
       width: 500px;
     }
   }
-
-  // &__arrow {
-  //   display: block;
-  //   position: absolute;
-  //   bottom: 0;
-  //   background-image: url("../images/slider/arrow-right.svg");
-  //   background-position: center;
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  //   width: 16px;
-  //   height: 16px;
-  // }
 
   &__intro {
     position: absolute;
@@ -184,6 +187,7 @@
     height: 32px;
     bottom: 60px;
     left: 48px;
+    transition: 0.4s;
   }
 
   .right {
@@ -195,7 +199,8 @@
   .right:hover,
   .left:hover {
     cursor: pointer;
-    animation: rotate 0.4s linear;
+    transform: scale(1.1);
+    transition: 0.4s;
   }
 
 }
@@ -207,7 +212,7 @@
   height: calc(100% + 7px); // у фото снизу пустая область, поэтому высота чуть больше родительского блока
   object-fit: cover;
   object-position: center;
-  border-radius: 30px 0px;
+  border-radius: 30px 0;
 }
 
 .intro__heading {
@@ -223,14 +228,44 @@
   margin: 0;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1088px) {
   .header {
-    transition: 0.3s;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav {
+    flex-direction: column;
+
+    &__item {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .header {
+    padding-left: 0;
+    padding-right: 0;
 
     &__nav {
       display: none;
     }
     
+    &__nav-small-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 350px;
+      transform: translateY(-100%);
+      z-index: 3;
+      background-color: $dark-color;
+      transition: 1s;
+    }
+
     &__top {
       margin: 20px 20px 0;
       display: flex;
@@ -255,41 +290,41 @@
 
     &:hover {
       cursor: pointer;
-      animation: rotate 0.4s linear;
     }
   }
 
   #menu:checked + .header .header__nav-small-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    background-color: $dark-color;
-    z-index: 3;
-    transition: 0.3s;
+    transform: translateY(0);
+    transition: 1s;
   }
 
-  #menu:checked + .header {
-    height: 450px;
-  }
+  #menu:checked + .header .small-screen-menu {
+    & span:nth-child(2) {
+      display: none;
+    }
 
-  #menu:checked + .header .nav {
-  flex-direction: column;
-    
-  &__item {
-    margin-right: 0;
-    margin-bottom: 20px;
+    & span:nth-child(1) {
+      position: absolute;
+      transform: rotate(45deg);
+      bottom: 8px;
+      z-index: 2;
+      margin: 0;
+    }
+
+    & span:nth-child(3) {
+      position: absolute;
+      transform: rotate(-45deg);
+      bottom: 8px;
+      z-index: 1;
+      margin: 0;
     }
   }
+  
 
   .slider {
-    width: 300px;
+    width: 100%;
     height: 330px;
-    right: calc(50% - 300px / 2);
-    margin-bottom: 30px;
-    border-radius: 30px 30px;
+    border-radius: 30px;
 
     &__intro {
       right: 18px;
@@ -305,7 +340,6 @@
       left: 58px;
     }
   }
-
 
   .strategic {
     margin-top: 70px;
@@ -324,15 +358,5 @@
       margin: 0;
       margin-bottom: 20px;
     }
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
