@@ -1,0 +1,138 @@
+@import "var";
+
+.nav {
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: $breakpoint) {
+    align-items: stretch;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    display: inline-block;
+    position: relative;
+    background-image: url("../images/Air.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 30px;
+    @media screen and (max-width: $breakpoint) {
+      position: absolute;
+      right: 40px;
+      top: 35px;
+      z-index: 2;
+    }
+  }
+
+  &__list {
+    display: flex;
+    z-index: 1;
+    margin: 0;
+
+    @media screen and (max-width: $breakpoint) {
+      position: absolute;
+      transform: translateY(-160%);
+      background-color: gray;
+      border-radius: 0 0 50px 50px;
+      width: 100%;
+      height: 400px;
+      flex-direction: column;
+      transition: transform 1s;
+      padding-left: 0;
+    }
+  }
+
+  &__item {
+    padding: 8px 24px;
+    list-style: none;
+    margin: 0 auto;
+    @media screen and (max-width: $breakpoint) {
+      height: 30px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 120px;
+    letter-spacing: 3px;
+    transition: $hover-duration;
+    &:hover {
+      color: $blue-color;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      opacity: 0;
+      background-color: $blue-color;
+      top: 27px;
+      left: 0;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:focus {
+      &::before {
+        opacity: 1;
+        background-color: $blue-color;
+      }
+    }
+    @media screen and (max-width: $breakpoint) {
+      font-size: 25px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__menu {
+    z-index: 2;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 40px;
+      left: 40px;
+      background-image: url(../images/menu.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    @media screen and (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  &__toggler:checked ~ .nav__list {
+    position: absolute;
+    transform: translateY(0);
+  }
+
+  &__toggler:checked + &__menu::after {
+    content: "";
+    background-image: url(../images/menu-x.svg);
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.nav__hire {
+  padding-left: 7vw;
+  @media screen and (max-width: $big-breakpoint) {
+    padding-left: 0;
+  }
+}
