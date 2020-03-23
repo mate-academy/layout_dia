@@ -7,6 +7,7 @@
   border-radius: 24px;
   background: white;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  @include hover (box-shadow, 0 9px 10px rgba(37, 41, 49, 0.13));
 
   &:nth-child(odd) {
     top: 135px;
@@ -20,23 +21,6 @@
     height: 24px;
     margin-bottom: 24px;
     border-radius: 23px;
-    background: rgba(86, 203, 242, 0.25);
-    color: #56ccf2;
-
-    &_yellow {
-      background: rgba(252, 200, 29, 0.25);
-      color: #fcc91d;
-    }
-
-    &_green {
-      background: rgba(21, 216, 79, 0.25);
-      color: #15d850;
-    }
-
-    &_red {
-      background: rgba(243, 99, 99, 0.25);
-      color: #f36363;
-    }
   }
 
   &__text {
@@ -48,6 +32,30 @@
     align-items: center;
     justify-content: space-between;
     width: 143px;
+  }
+
+  $box-color: 
+    "blue" #56ccf2, 
+    "yellow" #fcc91d, 
+    "green" #15d850, 
+    "red" #f36363;
+
+  @each $name, $color in $box-color {
+    &_#{$name} {
+
+      .box__num {
+        background-color: transparentize($color, 0.75);
+        color: $color;
+      }
+
+      .box__btn {
+        background-color: $color;
+
+        &:focus {
+          box-shadow: 0 3px 25px $color;
+        }
+      }
+    }
   }
 
   @media screen and (max-width: $breakpoint-grid-big) {

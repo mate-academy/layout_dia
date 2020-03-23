@@ -5,6 +5,8 @@
   background: white;
   border-radius: 24px;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  outline: none;
+  transition-duration: 0.3s;
 
   &__decor {
     position: absolute;
@@ -16,6 +18,7 @@
     background: linear-gradient(180deg,
     rgba(255, 255, 255, 0.25) 0%,
     rgba(255, 255, 255, 0) 100%);
+    transition-duration: 0.3s;
 
     &::before {
       position: absolute;
@@ -28,6 +31,7 @@
       top: -4px;
       background: inherit;
       transform: rotate(-60deg);
+      transition-duration: inherit;
     }
 
     &::after {
@@ -41,6 +45,20 @@
       top: 85px;
       background: inherit;
       transform: rotate(-60deg);
+      transition-duration: inherit;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 25px rgba(87, 17, 82, 0.2);
+
+    .client__decor::before {
+      transform: translate(-13px, -22px) rotate(-60deg);
+    }
+  
+    .client__decor::after {
+      transform: translate(13px, 22px) rotate(-60deg);
     }
   }
 
@@ -81,27 +99,18 @@
     color: #c0cdd7;
   }
 
-  &_first &__decor {
-    background-color: #56ccf2;
-  }
+  $client:
+    "first" #56ccf2 1,
+    "second" #fcc304 2,
+    "third" #f25656 3;
 
-  &_second &__decor {
-    background-color: #fcc304;
-  }
+  @each $name, $color, $num in $client {
+    &_#{$name} &__decor {
+      background-color: $color;
+    }
 
-  &_third &__decor {
-    background-color: #f25656;
-  }
-
-  &_first &__quotes {
-    background-image: url(../images/testimonials/1.png);
-  }
-
-  &_second &__quotes {
-    background-image: url(../images/testimonials/2.png);
-  }
-
-  &_third &__quotes {
-    background-image: url(../images/testimonials/3.png);
+    &_#{$name} &__quotes {
+      background-image: url(../images/testimonials/#{$num}.png);
+    }
   }
 }
