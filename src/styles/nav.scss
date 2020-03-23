@@ -7,9 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // @media screen and (min-width: 1500px) {
-  //   width: 1500px;
-  // }
 
   &__logo {
     flex-shrink: 0;
@@ -23,8 +20,8 @@
     height: 30px;
     @media screen and (max-width: $breakpoint) {
       position: absolute;
-      right: 60px;
-      top: 60px;
+      right: 40px;
+      top: 35px;
       z-index: 2;
     }
   }
@@ -32,13 +29,22 @@
   &__list {
     display: flex;
     z-index: 1;
-   
+    margin: 0;
 
     @media screen and (max-width: $breakpoint) {
       display: none;
       position: relative;
-      transform: translateY(-60%);
-      transition: all 1s;
+      // transform: translateY(-60%);
+      // transition: all 1s;
+    }
+  }
+
+  @keyframes transform {
+    0% {
+      transform: translateY(-350px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 
@@ -74,7 +80,7 @@
       top: 27px;
       left: 0;
       border-radius: 2px;
-      transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out;
     }
 
     &:focus {
@@ -82,6 +88,9 @@
         opacity: 1;
         background-color: $blue-color;
       }
+    }
+    @media screen and (max-width: $breakpoint) {
+      font-size: 25px;
     }
   }
 
@@ -91,15 +100,15 @@
 
   &__menu {
     z-index: 2;
-   
+    cursor: pointer;
 
     &::after {
       content: "";
       position: absolute;
       width: 30px;
       height: 30px;
-      top: 70px;
-      left: 60px;
+      top: 40px;
+      left: 40px;
       background-image: url(../images/menu.png);
       background-repeat: no-repeat;
       background-size: contain;
@@ -113,17 +122,18 @@
     background-color: gray;
     border-radius: 0 0 30px 30px;
     width: 100%;
-    height: 400px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     padding: 0;
-    transform: translateY(0);
-    transition: transform 1s;
+    // transform: translateY(0);
+    animation: transform 1s;
+  
   }
 
   &__toggler:checked + &__menu::after {
     content: "";
-    background-image: url(../images/menuX.png);
+    background-image: url(../images/menu-x.svg);
     width: 30px;
     height: 30px;
   }
