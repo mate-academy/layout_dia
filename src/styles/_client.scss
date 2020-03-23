@@ -1,0 +1,116 @@
+.client {
+  position: relative;
+  box-sizing: border-box;
+  padding: 30px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  outline: none;
+  transition-duration: 0.3s;
+
+  &__decor {
+    position: absolute;
+    width: 10px;
+    height: 56px;
+    border-radius: 500px;
+    left: calc(50% - 5px);
+    top: 93px;
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%);
+    transition-duration: 0.3s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 140px;
+      height: 56px;
+      border-radius: inherit;
+      left: -109px;
+      top: -4px;
+      background: inherit;
+      transform: rotate(-60deg);
+      transition-duration: inherit;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 140px;
+      height: 56px;
+      border-radius: inherit;
+      left: -24px;
+      top: 85px;
+      background: inherit;
+      transform: rotate(-60deg);
+      transition-duration: inherit;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 25px rgba(87, 17, 82, 0.2);
+
+    .client__decor::before {
+      transform: translate(-13px, -22px) rotate(-60deg);
+    }
+  
+    .client__decor::after {
+      transform: translate(13px, 22px) rotate(-60deg);
+    }
+  }
+
+  &__photo {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 57px;
+    z-index: 1;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__quotes {
+    width: 24px;
+    height: 24px;
+    margin-top: 82px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+    margin-top: 11px;
+  }
+  
+  &__name {
+    margin-top: 16px;
+    color: #253757;
+  }
+  
+  &__company {
+    margin-top: 5px;
+    color: #c0cdd7;
+  }
+
+  $client:
+    "first" #56ccf2 1,
+    "second" #fcc304 2,
+    "third" #f25656 3;
+
+  @each $name, $color, $num in $client {
+    &_#{$name} &__decor {
+      background-color: $color;
+    }
+
+    &_#{$name} &__quotes {
+      background-image: url(../images/testimonials/#{$num}.png);
+    }
+  }
+}

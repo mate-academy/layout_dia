@@ -1,0 +1,76 @@
+.box {
+  position: relative;
+  box-sizing: border-box;
+  width: 264px;
+  height: 264px;
+  padding: 32px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  @include hover (box-shadow, 0 9px 10px rgba(37, 41, 49, 0.13));
+
+  &:nth-child(odd) {
+    top: 135px;
+  }
+
+  &__num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+    border-radius: 23px;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 143px;
+  }
+
+  $box-color: 
+    "blue" #56ccf2, 
+    "yellow" #fcc91d, 
+    "green" #15d850, 
+    "red" #f36363;
+
+  @each $name, $color in $box-color {
+    &_#{$name} {
+
+      .box__num {
+        background-color: transparentize($color, 0.75);
+        color: $color;
+      }
+
+      .box__btn {
+        background-color: $color;
+
+        &:focus {
+          box-shadow: 0 3px 25px $color;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-grid-big) {
+    &:nth-child(odd) {
+      top: 0;
+    }
+
+    &:nth-child(even) {
+      top: 135px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-grid-small) {
+    &:nth-child(even) {
+      top: 0;
+    }
+  }
+}
