@@ -1,0 +1,113 @@
+@import "utils/mixins";
+
+.nav {
+  @include poppins_font;
+  &__toggler,
+  &__button {
+    display: none;
+  }
+  &__list {
+    list-style: none;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 2fr;
+    transition: all 0.3s;
+    @media screen and (max-width: 1160px) {
+      & {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+  }
+  &__item {
+    justify-self: center;
+    &:last-child {
+      justify-self: end;
+    }
+    &--active {
+      border-bottom: 1px solid #2060f6;
+      & :only-child {
+        padding: 5px 0;
+      }
+    }
+  }
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 3px;
+    font-size: 13px;
+    padding: 5px;
+    transition: 0.3s all;
+    &:hover {
+      color: tomato;
+    }
+  }
+  @media screen and (max-width: 980px) {
+    &__toggler {
+      opacity: 0;
+      position: absolute;
+    }
+    &__button {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      z-index: 3;
+      position: absolute;
+      right: 30px;
+    }
+    &__button > .nav__span,
+    &__button > .nav__span::before,
+    &__button > .nav__span::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
+    &__button > .nav__span::before {
+      content: "";
+      top: -8px;
+    }
+    &__button > .nav__span::after {
+      content: "";
+      top: 8px;
+    }
+    &__list {
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 130px;
+      background-color: tomato;
+      border-radius: 0 0 30px 30px;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      position: absolute;
+      z-index: 1;
+      right: -100%;
+    }
+    &__link {
+      font-size: 20px;
+    }
+    &__toggler:checked ~ .nav__button > .nav__span {
+      transform: rotate(45deg);
+    }
+    &__toggler:checked ~ .nav__button > .nav__span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+    &__toggler:checked ~ .nav__button > .nav__span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &__toggler:checked ~ .nav__list {
+      visibility: visible;
+      right: 0;
+    }
+  }
+}

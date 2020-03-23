@@ -1,0 +1,101 @@
+@import "utils/mixins";
+
+.testimonials {
+  &__subcapture {
+    @include poppins_font;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+  &__capture {
+    @include poppins_font;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #253757;
+  }
+  &__image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s;
+    cursor: pointer;
+    @media screen and (min-width: 1160px) {
+      &:hover {
+        transform: scale(2);
+        border-radius: 5% 5% 0 0;
+      }
+    }
+  }
+  &__text {
+    display: block;
+    @include open_sans_font;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+    text-align: center;
+    margin-top: 60px;
+    padding: 0 32px;
+    &::before {
+      content: url("../images/testimonials/comma.png");
+      display: block;
+      line-height: 100%;
+      margin: 32px 0 10px;
+    }
+  }
+  &__name {
+    @include open_sans_font;
+    font-size: 13px;
+    line-height: 150%;
+    color: #253757;
+    font-weight: 600;
+    margin: 16px 0 10px;
+  }
+  &__position {
+    @include poppins_font;
+    color: #c0cdd7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    grid-gap: 0 102px;
+    padding-top: 85px;
+    @media screen and (max-width: 1160px) {
+      grid-template-columns: 1fr;
+      padding-top: 50px;
+      grid-gap: 10px 0;
+    }
+  }
+  &__card {
+    box-shadow: -20px 25px 49px 0 rgba(0,0,0,0.51);
+    background-color: #fff;
+    padding: 24px 0 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+  }
+  &__wrapper {
+    &::before {
+      @include photo_blue_stripe;
+      transform-origin: right;
+      transform: translateX(-50%) rotate(-45deg);
+
+    }
+    &::after {
+      @include photo_blue_stripe;
+      transform-origin: left;
+      transform: translateX(50%) rotate(-45deg);
+    }
+  }
+}
