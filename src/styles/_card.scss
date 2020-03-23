@@ -12,10 +12,12 @@
     transform: translateY(89px);
     position: relative;
     z-index: 3;
+
     @media screen and (max-width: 959px) {
       transform: translateY(0);
+      position: relative;
+      z-index: 3;
     }
-
   }
 
   @media screen and (min-width: 541px) and (max-width: 1220px) {
@@ -23,8 +25,9 @@
     width: 200px;
     height: 200px;
   }
+
   @media screen and (max-width: 540px) {
-    margin: 0 0 30px;
+    margin: 0;
   }
 
   &__number {
@@ -45,7 +48,6 @@
     @media screen and (min-width: 541px) and (max-width: 1220px) {
       padding-top: 16px;
     }
-
   }
 
   &__link {
@@ -57,7 +59,6 @@
     @media screen and (min-width: 541px) and (max-width: 1220px) {
       padding-top: 16px;
     }
-
   }
 
   &__arrow {
@@ -68,9 +69,9 @@
     background-image: url("../images/Vector.svg");
     background-repeat: no-repeat;
     background-position: center;
+    transition: transform 0.3s;
 
     @include hover(box-shadow, 0 0 5px 2px rgb(160, 140, 140));
-
   }
 
   &__learn-more {
@@ -80,11 +81,15 @@
     font-size: 15px;
     line-height: 22px;
     color: #334563;
-    transition: 0.3s;
+    transition: font-size 0.3s;
   }
 
   &:hover .card__learn-more {
     font-size: 24px;
+
+    @media screen and (min-width: 541px) and (max-width: 1220px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -130,4 +135,8 @@
   .card__arrow {
     background-color: #f36363;
   }
+}
+
+.card:hover .card__arrow {
+  transform: scale(1.2);
 }
