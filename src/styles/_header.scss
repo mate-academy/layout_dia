@@ -1,0 +1,370 @@
+.nav {
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    display: block;
+    background-image: url("../images/logo/dia-logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 45px;
+    height: 25px;
+  }
+
+  &__item {
+    margin-right: 64px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include font-poppins(13px, bold, 150%, #fff);
+    display: block;
+    position: relative;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    transition: 0.3s;
+    
+    
+    &::after {
+      content: "";
+      display: block;
+      visibility: hidden;
+      position: absolute;
+      width: 100%;
+      bottom: 25px;
+      height: 1px;
+      background: $active-color;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      transition: 0.3s;
+      
+      &::after {
+        visibility: visible;
+        bottom: -8px;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.small-screen-logo {
+  display: none;
+  z-index: 4;
+}
+
+
+.header {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 100vw;
+  height: 800px;
+  background-color: $dark-color;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__wrapper {
+    width: 1070px;
+  }
+
+  &__nav {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+    transition: 0.5s;
+  }
+
+  &__nav-small-screen {
+    display: none;
+  }
+
+  &__inner-wrapper {
+    margin-top: 163px;
+    display: flex;
+  }
+}
+
+.small-screen-menu {
+  display: none;
+  position: relative;
+  height: 18px;
+  width: 18px;
+  z-index: 4;
+
+  & span {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    height: 2px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 1px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+  }
+
+  & span:last-child {
+    margin-bottom: 0;
+  }
+
+  &-switcher {
+    display: none;
+  }
+}
+
+.strategic {
+
+  &__heading {
+    @include font-poppins(64px, 600, 68px, #fff);
+    max-width: 490px;
+  }
+
+  &__text {
+    @include font-open-sans(18px, normal, 150%, #fff);
+    max-width: 362px;
+  }
+
+  &__button {
+    @include font-poppins(15px, normal, 22px, #fff);
+    text-align: center;
+    background-color: $active-color;
+    border-radius: 8px;
+    width: 226px;
+    height: 50px;
+    margin-top: 83px;
+    border: 0;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #fff;
+      color: $active-color;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.slider {
+  position: absolute;
+  width: 687px;
+  height: 680px;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+  margin-right: auto;
+  border-radius: 30px 0;
+
+  @media (max-width: 1065px) {
+    & {
+      width: 500px;
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    display: inline-block;
+    bottom: 55px;
+    left: 144px;
+  }
+
+  &__buttons {
+    position: absolute;
+    display: inline-block;
+    background-image: url("../images/slider/Arrow\ buttons.svg");
+    width: 32px;
+    height: 32px;
+    bottom: 60px;
+    left: 48px;
+    transition: 0.4s;
+  }
+
+  .right {
+    background-position: right;
+    margin-left: 8px;
+    left: 88px;
+  }
+
+  .right:hover,
+  .left:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.4s;
+  }
+}
+
+.slider img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: calc(100% + 7px); // у фото снизу пустая область, поэтому высота чуть больше родительского блока
+  object-fit: cover;
+  object-position: center;
+  border-radius: 30px 0;
+}
+
+.intro__heading {
+  @include font-poppins(13px, bold, 19px, #fff);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.intro__text {
+  @include font-open-sans(14px, normal, 140%, #fff);
+  margin: 0;
+}
+
+@media (max-width: 1088px) {
+  .header {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav {
+    flex-direction: column;
+
+    &__item {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+
+    &__nav {
+      display: none;
+    }
+    
+    &__nav-small-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 350px;
+      transform: translateY(-100%);
+      z-index: 3;
+      background-color: $dark-color;
+      transition: 0.5s;
+    }
+
+    &__top {
+      margin: 20px 20px 0;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    &__inner-wrapper {
+      margin-top: 0;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .small-screen-logo {
+    display: block;
+  }
+
+  .small-screen-menu {
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  #menu:checked + .header .header__nav-small-screen {
+    transform: translateY(0);
+    transition: 0.5s;
+  }
+
+  #menu:checked + .header .small-screen-menu {
+    & span:nth-child(2) {
+      display: none;
+    }
+
+    & span:nth-child(1) {
+      position: absolute;
+      transform: rotate(45deg);
+      bottom: 8px;
+      z-index: 2;
+      margin: 0;
+    }
+
+    & span:nth-child(3) {
+      position: absolute;
+      transform: rotate(-45deg);
+      bottom: 8px;
+      z-index: 1;
+      margin: 0;
+    }
+  }
+  
+
+  .slider {
+    width: 100%;
+    height: 330px;
+    border-radius: 30px;
+
+    &__intro {
+      right: 18px;
+      bottom: 15px;
+    }
+
+    &__buttons {
+      left: 18px;
+      bottom: 20px;
+    }
+
+    .right {
+      left: 58px;
+    }
+  }
+
+  .strategic {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__heading,
+    &__text {
+      text-align: center;
+    }
+    
+    &__heading,
+    &__text,
+    &__button {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+}
+@media only screen and (min-width: 1601px){
+  .slider {
+    border-radius: 30px;
+    // right: calc(25% - 343px);
+    left: 50%
+  }
+}
