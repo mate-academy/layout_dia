@@ -1,0 +1,207 @@
+@import "variable";
+
+.testimonials {
+  &__card__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 168px;
+  }
+
+  &__test {
+    width: 140px;
+    height: 140px;
+  }
+
+  &__img {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    margin-top: 86px;
+    z-index: 1;
+
+    transition: transform 0.2s;
+  }
+
+  &__img__box {
+    position: relative;
+    margin-bottom: 82px;
+  }
+
+  &__img__box::before,
+  &__img__box::after {
+    content: " ";
+    position: absolute;
+    height: 56px;
+    width: 139px;
+    transform: rotate(-60deg);
+    
+    border-radius: 50px;
+    background-color: #56ccf2;
+    z-index: 0;
+  }
+
+  &__img__box::before {
+    top: 90px;
+    left: -50px;
+
+    transition: transform 0.2s;
+  }
+
+  &__img__box::after {
+    top: 170px;
+    right: -50px;
+
+    transition: transform 0.2s;
+  }
+
+  &__card:nth-child(2) > &__img__box {
+    &::before,
+    &::after {
+      background-color: #fcc304;
+    }
+  }
+
+  &__card:nth-child(3) > &__img__box {
+    &::before,
+    &::after {
+      background-color: #f25656;
+    }
+  }
+
+  &__card:hover > &__img__box {
+    transform: scale(1.2, 1.2);
+    
+    &::before {
+      transform: translate(50px, -40px);
+    }
+    &::after {
+      transform: translate(-50px, 40px);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+  }
+
+  &__icon__box {
+    position: relative;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  &__svg__box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__svg__box::before {
+    content: " ";
+    position: absolute;
+    height: 19px;
+    width: 21px;
+    background-image: url(../images/logo/“.svg);
+    background-repeat: no-repeat;
+  }
+
+  &__card:nth-child(2) {
+    &__svg__box {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 19px;
+        width: 21px;
+        background-image: url(../images/logo/“.png);
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__card:nth-child(3) {
+    &__svg__box {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 19px;
+        width: 21px;
+        background-image: url(../images/logo/3.png);
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  
+  &__card__p {
+    font-family: $Open-Sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    color: $text-color;
+
+    margin: 0 32px 16px;
+  }
+
+  &__card__h3 {
+    font-family: $Open-Sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    color: #253757;
+
+    margin-bottom: 4px;
+  }
+
+  &__card__h1 {
+    font-family: $poppins;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+
+    margin-bottom: 32px;
+  }
+
+}
+
+@media screen and (max-width: 1070px) {
+  .testimonials {
+    &__card__p {
+      margin: 0 13px 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .testimonials {
+    &__card__box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 50px;
+    }
+
+    &__card {
+      margin: 5px;
+      margin-bottom: 20px;
+    }
+  }
+}
