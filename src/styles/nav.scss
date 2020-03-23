@@ -1,10 +1,13 @@
 @import "./utils";
+@import "./fonts";
 
 .nav {
+  height: $nav-height;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  font-family: "Poppins", sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -12,13 +15,17 @@
 
   &__list {
     display: flex;
-    width: $max-width-desc - $logo-width - 78px;
+
+    &--header {
+      width: $max-width-desc - $logo-width - 78px;
+    }
   }
 
   &__item {
     margin-right: 64px;
+    height: 100%;
 
-    &:last-child {
+    &--last {
       margin-right: 0;
       margin-left: auto;
     }
@@ -53,70 +60,64 @@
     }
   }
 
+  &--footer {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    background-color: $main-color;
+  }
+
   @media screen and (max-width: 1280px) {
     $max-width-desc: 980px;
 
-    &__list {
+    &__list--header {
       width: $max-width-desc - $logo-width - 78px;
     }
   }
 
   @media screen and (max-width: 1024px) {
-    $header-height: 600px;
-    $main-radius: 130px;
-
-    font-size: 18px;
-
-    &__list {
+    &--footer {
       display: grid;
-      grid-template-columns: 200px;
-      grid-template-rows: auto;
-      grid-row-gap: 28px;
-      justify-content: center;
-      align-content: center;
-      position: absolute;
-      visibility: hidden;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      height: $header-height;
-      z-index: 1;
-
-      background-color: $prime-color;
-      border: 1px solid transparent;
-      border-bottom-left-radius: $main-radius;
-      transition-duration: 0.6s;
+      grid-template-rows: repeat(2, auto);
+      grid-row-gap: 48px;
+      padding-bottom: 88px;
     }
 
-    &__item {
-      margin-right: 0;
-
-      &:last-child {
-        margin-left: 0;
-        margin-top: 48px;
-      }
-    }
-
-    &__link::after {
-      background-color: $main-color;
+    &__item--last {
+      margin-left: 0;
     }
   }
 
   @media screen and (max-width: 800px) {
-    $header-height: 600px;
     $nav-height: 80px;
 
-    font-size: 14px;
+    height: $nav-height;
+
+    &--footer {
+      height: initial;
+      justify-content: stretch;
+    }
 
     &__list {
-      height: $header-height / 2 + $nav-height;
-      grid-row-gap: 12px;
-      justify-content: start;
-      padding: 48px 0 0 48px;
-      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      grid-row-gap: 16px;
+      grid-column-gap: 16px;
+    }
 
-      border: none;
-      border-bottom-left-radius: 0;
+    &__item {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &--footer {
+      height: initial;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
     }
   }
 }

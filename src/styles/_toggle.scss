@@ -58,5 +58,58 @@
     &__btn {
       display: block;
     }
+
+    &__menu {
+      $header-height: 600px;
+      $main-radius: 130px;
+
+      display: grid;
+      grid-template-columns: 200px;
+      grid-template-rows: auto;
+      grid-row-gap: 28px;
+      justify-content: center;
+      align-content: center;
+      position: absolute;
+      visibility: hidden;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: $header-height;
+      z-index: 1;
+
+      font-size: 18px;
+      background-color: $prime-color;
+      border: 1px solid transparent;
+      border-bottom-left-radius: $main-radius;
+      transition-duration: 0.6s;
+    }
+
+    &__item {
+      &:last-child {
+        margin-top: 48px;
+      }
+    }
+
+    &__link::after {
+      background-color: $main-color;
+    }
   }
+
+  @media screen and (max-width: 800px) {
+    &__menu {
+      $header-height: 600px;
+      $nav-height: 80px;
+
+      height: $header-height / 2 + $nav-height;
+      grid-row-gap: 12px;
+      justify-content: start;
+      padding: 48px 0 0 48px;
+      box-sizing: border-box;
+
+      font-size: 14px;
+      border: none;
+      border-bottom-left-radius: 0;
+    }
+  }
+
 }
