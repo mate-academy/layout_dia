@@ -5,6 +5,49 @@
   display: flex;
   align-items: center;
 
+  &__mobile {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background-color: #2060f6;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+
+    &-list {
+      display: flex;
+      height: 90%;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      justify-content: space-evenly;
+    }
+
+    &-item {
+      list-style: none;
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+
+      border-bottom: 2px solid white;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  &__toggle-checkbox,
+  &__toggle-icon,
+  &__toggle-icon-x {
+    display: none;
+  }
+
   &__list {
     margin: 0;
     padding: 0;
@@ -40,10 +83,16 @@
     text-decoration: none;
     color: white;
     position: relative;
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus {
+      color: #c2c2c2;
+    }
 
     &::after {
       content: "";
-      background-image: url("../images/sub-title/sub-link-icon-dark.svg");
+      background-image: url("../images/nav/sub-link-icon-dark.svg");
       position: absolute;
       left: 0;
       width: calc(100% - 3px);
@@ -53,9 +102,55 @@
       transition: opacity 0.3s, transform 0.3s;
     }
 
-    &:hover::after {
+    &:hover::after,
+    &:focus::after {
       opacity: 100%;
       transform: translateY(8px);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  .nav {
+
+    &__item {
+      display: none;
+      &:first-child {
+        display: block;
+      }
+    }
+
+    &__toggle-icon {
+      display: block;
+      margin: 25px 32px;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &-x {
+        margin: 25px 32px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    &__toggle-checkbox:checked ~ &__toggle-icon-x {
+      display: block;
+      z-index: 2;
+    }
+
+    &__toggle-checkbox:checked ~ &__toggle-icon {
+      display: none;
+    }
+
+    &__toggle-checkbox:checked ~ .nav__mobile {
+      visibility: visible;
+      opacity: 1;
     }
   }
 }

@@ -75,7 +75,7 @@
     transition: border-bottom 0.3s;
 
     &:focus {
-      border-bottom: 2px solid #144ed4;
+      border-bottom: 2px solid #144ed5;
     }
   }
 
@@ -103,7 +103,7 @@
     transition: border-bottom 0.3s;
 
     &:focus {
-      border-bottom: 2px solid #144ed4;
+      border-bottom: 2px solid #144ed5;
     }
   }
 
@@ -131,7 +131,7 @@
     transition: border-bottom 0.3s;
 
     &:focus {
-      border-bottom: 2px solid #144ed4;
+      border-bottom: 2px solid #144ed5;
     }
   }
 
@@ -146,12 +146,20 @@
     box-sizing: border-box;
     width: 226px;
     height: 56px;
-    transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
 
-    &:hover {
+    // I have added this property so the text in button doesn't
+    // blur and jump 1px to top or bottom when button scales
+
+    backface-visibility: hidden;
+
+    &:hover,
+    &:focus {
+      outline: none;
       color: #144ed5;
       background-color: white;
       border: 1px solid #144ed5;
+      transform: scale(1.1);
       cursor: pointer;
     }
   }
@@ -276,21 +284,85 @@
     line-height: 32px;
     position: relative;
 
+    &-logo {
+      &:focus {
+        outline: none;
+      }
+    }
+
     &::after {
       content: "";
-      background-image: url("../images/sub-title/sub-link-icon-dark.svg");
+      background-image: url("../images/nav/sub-link-icon-dark.svg");
       position: absolute;
       left: 0;
       width: calc(100% - 3px);
       height: 2px;
       bottom: 0;
       opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
+      transition: opacity 0.3s, transform 0.3s, color 0.3s;
     }
 
-    &:hover::after {
+    &:focus,
+    &:hover {
+      outline: none;
+      color: #c2c2c2;
+    }
+
+    &:hover::after,
+    &:focus::after {
       opacity: 100%;
       transform: translateY(8px);
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  .footer {
+    height: 100%;
+    margin: 15px 0 0;
+    width: 100%;
+
+    &__container {
+      padding: 0 15px;
+    }
+
+    &__content {
+      flex-direction: column;
+    }
+
+    &__message {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__contact {
+      margin-top: 30px;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__message-title {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    &__contact-title {
+      margin-bottom: 20px;
+    }
+
+    &__number {
+      font-size: 15px;
+    }
+
+    &__address {
+      font-size: 15px;
+    }
+
+    &__white-background {
+      position: absolute;
+      z-index: -1;
     }
   }
 }
