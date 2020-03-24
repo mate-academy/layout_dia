@@ -1,12 +1,15 @@
 @import "mixins-vars";
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // width: 100vw;
+  // position: relative;
+
+  
   background: $dark-bg-color;
   border-radius: 0 0 30px 30px;
-  // width: 100vw;
 
   .header-inner {
     // max-width: 1600px;
@@ -18,6 +21,12 @@
 
     @media screen and (max-width: $tab-width) {
       padding-left: $side-margin-tab;
+      padding-right: $side-margin-tab;
+    }
+
+    @media screen and (max-width: 400px) {
+      padding-left: $side-margin-mobile;
+      padding-right: $side-margin-mobile;
     }
 
     .top-panel {
@@ -52,6 +61,14 @@
           position: absolute;
           top: 42px;
           right: 100px;
+
+          @media screen and (max-width: $tab-width) {
+            right: $side-margin-tab;
+          }
+
+          @media screen and (max-width: 400px) {
+            right: $side-margin-mobile;
+          }
     
           &__check {
             opacity: 0;
@@ -172,6 +189,10 @@
             padding-left: 40vw;
             z-index: 2;
 
+            @media screen and (max-width: 400px) {
+              padding-left: 50px;
+            }
+
             .nav__link {
               font-size: 22px;
               line-height: 60px;
@@ -185,9 +206,15 @@
       display: flex;
       justify-content: space-between;
 
+      @media screen and (max-width: $tab-width) {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
       .text-side {
-        flex: 1 2 auto;
-        max-width: 490px;
+        flex: 0 1 auto;
+        max-width: 437px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -195,6 +222,7 @@
         @media screen and (max-width: $tab-width) {
           justify-content: center;
           align-items: center;
+          text-align: center;
         }
 
         &__heading {
@@ -243,7 +271,7 @@
       } //text-side
 
       &__img-side {
-        flex: 2 1 600px;
+        flex: 0 1 600px;
         background-image: url(../images/upd/header-img.png);
         background-repeat: no-repeat;
         background-position: center;
@@ -251,9 +279,11 @@
 
         // min-width: 43vw;
         position: relative; //used for ARROWS
-        // right: -13vw;
+        // right: 0;
         border-radius: 30px 0;
-        overflow: hidden;
+        // z-index: 3;
+        // width: 600px;
+        // height: 100%;
 
         @media screen and (max-width: 400px) {
           display: none;
