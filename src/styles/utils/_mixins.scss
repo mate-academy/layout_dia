@@ -4,3 +4,25 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin toEllipse($_size, $_X, $_Y, $_body-width, $_color) {
+
+  &::after {
+    position: absolute;
+    z-index: 2;
+    content: "";
+    bottom: $_Y;
+    right: $_X;
+
+    width: $_size;
+    height: calc(#{$_size / 2.5});
+
+    border: $_body-width solid $_color;
+    border-radius: 500px;
+    transform: rotate(295deg);
+  }
+}
+
+@mixin to-none {
+  display: none;
+}
