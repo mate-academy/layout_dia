@@ -1,0 +1,112 @@
+@mixin quotes {
+  position: absolute;
+  top: 310px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 21px;
+  height: 19px;
+}
+
+.person {
+  position: relative;
+  text-align: center;
+  background: white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  padding: 32px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 11px rgba(44,44,44, 0.5);
+  }
+
+  &__proffesion {
+    font-weight: bold;
+    color: #c0cdd7;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  &__rectangle {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #56ccf2;
+    border-radius: 500px;
+    transform: rotate(-60deg);
+    width: 139px;
+    height: 56px;
+    top: 50px;
+    left: 10px;
+    position: absolute;
+    transition: 0.5s;
+
+    &--down {
+      top: 130px;
+      left: 110px;
+    }
+
+    &--yellow {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #fcc304;
+    }
+
+    &--red {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #f25656;
+    }
+
+  }
+
+  &:hover .person__rectangle {
+    top: 30px;
+  }
+
+  &:hover .person__rectangle--down {
+    top: 160px;
+  }
+
+  &__img {
+    position: relative;
+    border-radius: 50%;
+    margin-top: 55px;
+    margin-bottom: 111px;
+    z-index: 1;
+  }
+
+  &__text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 1px;
+    color: #6c788b;
+
+    &--blue::before {
+      content: url(../images/testimonials/quotes.svg);
+      @include quotes;
+    }
+
+    &--yellow::before {
+      content: url(../images/testimonials/yellow_quotes.svg);
+      @include quotes();
+    }
+
+    &--red::before {
+      content: url(../images/testimonials/red_quotes.svg);
+      @include quotes();
+    }
+  }
+
+  &__name {
+    font-family: "Open Sans", sans-serif;
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #253757;
+  }
+
+  &__photo {
+    position: relative;
+  }
+
+}
