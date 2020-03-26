@@ -1,0 +1,33 @@
+@import "../utils/vars";
+
+.nav {
+  display: flex;
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    cursor: pointer;
+    &:after {
+      display: block;
+      content: "";
+      margin-top: 8px;
+      border-bottom: solid 3px $c-pink;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 64px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav__list {
+    align-items: center;
+  }
+}

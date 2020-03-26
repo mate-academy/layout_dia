@@ -1,6 +1,42 @@
+@import "./vars";
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin setTestimonialBackground($bg) {
+  &::before {
+    background-color: $bg;
+  }
+
+  &::after {
+    background-color: $bg;
+  }
+}
+
+@mixin customButton($mt) {
+  display: inline-block;
+  background-color: $c-pink;
+  border-radius: 64px;
+  padding: 13px 70px;
+  color: $c-white;
+  margin-top: $mt;
+  border: none;
+  transition: background-color 1s;
+  &:hover {
+    background-color: darken($c-pink, 20);
+  }
+}
+
+@mixin visionEllipse($color, $scale, $borderwidth) {
+  position: absolute;
+  width: 143.04px;
+  height: 56.54px;
+  opacity: 0.5;
+  border-radius: 500px;
+  transform: rotate(-65.1deg) scale($scale);
+  border: $borderwidth solid $color;
 }

@@ -1,0 +1,51 @@
+.slider {
+  &__container {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__arrows {
+    display: flex;
+  }
+  @import "../utils/vars";
+  @import "../utils/extends";
+  
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    background-color: $c-white;
+    border: none;
+    border-radius: 50%;
+    @extend %background-image;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    &:hover {
+      background-color: rgba(118, 129, 149, 0.6);
+    }
+    &--disable {
+      pointer-events: none;
+      background-color: rgba(250, 250, 250, 0.6);
+    }
+    &--prev {
+      background-image: url("../../images/slider/arrow-left.svg");
+    }
+    &--next {
+      background-image: url("../../images/slider/arrow-right.svg");
+      margin-left: 8px;
+    }
+  }
+
+  &__box {
+    margin-left: 24px;
+  }
+  &__title {
+    text-shadow: 0 1px 8px rgba(255,255,255,0.9);
+  }
+  &__text {
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+  }
+}

@@ -1,0 +1,96 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.header {
+  background-color: $c-blue;
+  color: $c-white;
+  border-bottom-left-radius: 200px;
+  overflow-y: hidden;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    padding: 4px 0 0;
+    &-left {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    color: $c-white;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: flex;
+    align-self: center;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__slider {
+    position: relative;
+    width: 687px;
+    height: 680px;
+    border-top-left-radius: 200px;
+    background-image: url("../../images/slider/1.png");
+    background-size: cover;
+  }
+  &__left {
+    width: 380px;
+    margin-top: 165px;
+  }
+  &__title {
+    font-size: 64px;
+  }
+  &__text {
+    font-size: 18px;
+    margin-top: 32px;
+  }
+  &__button {
+    @include customButton("96px");
+  }
+}
+
+@media only screen and (max-width: $media-desktop) {
+  .header {
+    &__left {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      align-self: center;
+    }
+    &__container {
+      flex-direction: column;
+    }
+    &__slider {
+      margin-top: 100px;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .header__link {
+    font-size: 3em;
+    &--desktop {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    &__left {
+      width: auto;
+    }
+    &__text {
+      text-align: center;
+    }
+  }
+}
