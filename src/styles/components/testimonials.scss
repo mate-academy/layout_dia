@@ -1,0 +1,128 @@
+@import "../utils/vars";
+@import "../utils/extends";
+@import "../utils/mixins";
+
+.testimonials {
+  margin: auto;
+  width: 80%;
+  padding-top: 148px;
+  padding-bottom: 168px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 85px;
+  }
+  &__box {
+    width: 314px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    padding: 32px;
+    padding-top: 64px;
+    background-color: $c-white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    &:hover {
+      box-shadow: 3px 6px 30px -9px #4d4c4d;
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 50%;
+    z-index: 2;
+    &--wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      &::before {
+        @extend %testimonials-line;
+        left: -55px;
+        top: 0;
+      }
+      &::after {
+        @extend %testimonials-line;
+        right: -55px;
+        top: 83px;
+      }
+    }
+  }
+
+  &__box:hover &__image--wrapper {
+    &::before {
+      top: -15px;
+    }
+    &::after {
+      top: 98px;
+    }
+  }
+
+  &__box:first-of-type &__image--wrapper {
+    @include setTestimonialBackground($c-blue);
+  }
+  &__box:nth-of-type(2) &__image--wrapper {
+    @include setTestimonialBackground($c-orange);
+  }
+  &__box:last-of-type &__image--wrapper {
+    @include setTestimonialBackground($c-red);
+  }
+  &__text {
+    margin-top: 10px;
+    color: #6c788b;
+    text-align: center;
+  }
+  &__name {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 16px;
+    color: $c-dark;
+  }
+  &__position {
+    margin-top: 4px;
+    color: #c0cdd7;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  &__quote {
+    margin-top: 31px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .testimonials {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .testimonials {
+    &__container {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    &__box {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 3%;
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 23px;
+    }
+
+    &__box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
