@@ -1,0 +1,108 @@
+@import "./utils";
+
+.slider {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  right: 0;
+  width: 686px;
+  height: $header-height - $nav-height;
+  padding: 48px;
+  box-sizing: border-box;
+
+  background: url(../images/slider/slide-img-1.jpg) no-repeat center;
+  background-size: cover;
+  border-top-left-radius: $main-radius;
+
+  &__nav {
+    display: flex;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+
+    background-color: #fff;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.45s ease;
+
+    &_prev,
+    &_next {
+      width: 6px;
+      height: 10px;
+
+      fill: $title-color;
+      transition: all 0.35s;
+    }
+
+    &:hover {
+      background-color: rgba($main-color, 0.85);
+      box-shadow: 0 5px 10px rgba(37, 41, 49, 0.23);
+
+      .slider__btn_prev,
+      .slider__btn_next {
+        fill: #fff;
+      }
+    }
+  }
+
+  &__desc {
+    margin-left: 28px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__paragraph {
+    max-width: 490px;
+
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  @media screen and (min-width: 1600px) {
+    border-bottom-right-radius: $main-radius;
+  }
+
+  @media screen and (max-width: 1600px) {
+    width: calc(100% / 2);
+  }
+
+  @media screen and (max-width: 1024px) {
+    $header-height: 600px;
+    $main-radius: 130px;
+
+    height: $header-height - $nav-height;
+    border-top-left-radius: $main-radius;
+  }
+
+  @media screen and (max-width: 800px) {
+    $header-height: 600px;
+
+    position: relative;
+    width: 100%;
+    height: $header-height / 2;
+    grid-row: 1 / 2;
+
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 24px;
+
+    &__desc {
+      margin-left: 16px;
+    }
+
+    &__paragraph {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,131 @@
+@import "./utils";
+
+.services {
+  padding-top: 128px;
+  padding-bottom: 134px;
+
+  background-color: #fff;
+
+  &__title {
+    margin-bottom: 64px;
+    text-align: center;
+    color: $title-color;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 264px);
+    justify-content: space-between;
+  }
+
+  &__img-wrapper {
+    width: 166px;
+    height: 166px;
+    margin-bottom: 24px;
+
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    transition: transform 0.25s ease-out;
+    transform: scale(1);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    align-content: start;
+    grid-row-gap: 16px;
+
+    &:hover {
+      .services__img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__item-title {
+    color: $title-color;
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 150%;
+    color: $paragraph-color;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 88px;
+    padding-bottom: 118px;
+
+    &__row {
+      grid-template-columns: repeat(3, 224px);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    $main-radius: 130px;
+
+    padding-top: 62px;
+    padding-bottom: 62px;
+
+    &__title {
+      margin-bottom: 32px;
+      padding-left: 48px;
+      text-align: left;
+    }
+
+    &__container {
+      padding: 0;
+    }
+
+    &__row {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, auto);
+      grid-row-gap: 64px;
+    }
+
+    &__img-wrapper {
+      width: 100%;
+      height: 320px;
+      margin-bottom: 8px;
+      border-radius: 0;
+
+      &--1 {
+        border-bottom-left-radius: $main-radius;
+      }
+
+      &--2 {
+        border-bottom-right-radius: $main-radius;
+      }
+
+      &--3 {
+        border-top-right-radius: $main-radius;
+      }
+    }
+
+    &__item-title {
+      justify-self: start;
+      padding-left: 48px;
+    }
+
+    &__desc {
+      justify-self: start;
+      text-align: left;
+      padding: 0 48px;
+      max-width: 490px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    &__img-wrapper {
+      height: 240px;
+    }
+  }
+}

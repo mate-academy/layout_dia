@@ -1,0 +1,124 @@
+@import "./utils";
+@import "./fonts";
+
+.nav {
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  &__list {
+    display: flex;
+
+    &--header {
+      width: $max-width-desc - $logo-width - 78px;
+    }
+  }
+
+  &__item {
+    margin-right: 64px;
+    height: 100%;
+
+    &--last {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: 8px 0;
+    outline: none;
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      bottom: 0;
+      right: 3px;
+      left: 0;
+      height: 2px;
+
+      background-color: $prime-color;
+      opacity: 0;
+      transition: all 0.35s;
+      transform: scale(0.1);
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  &--footer {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    background-color: $main-color;
+  }
+
+  @media screen and (max-width: 1280px) {
+    $max-width-desc: 980px;
+
+    &__list--header {
+      width: $max-width-desc - $logo-width - 78px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    &--footer {
+      display: grid;
+      grid-template-rows: repeat(2, auto);
+      grid-row-gap: 48px;
+      padding-bottom: 88px;
+    }
+
+    &__item--last {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    $nav-height: 80px;
+
+    height: $nav-height;
+
+    &--footer {
+      height: initial;
+      justify-content: stretch;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      grid-row-gap: 16px;
+      grid-column-gap: 16px;
+    }
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &--footer {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

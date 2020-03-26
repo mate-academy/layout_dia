@@ -1,0 +1,224 @@
+@import "./utils";
+
+.approach {
+  background-color: $prime-color;
+  border-radius: $main-radius 0 0 $main-radius;
+  transform: translateX(122px);
+  margin-bottom: 148px;
+
+  &--transform {
+    transform: translateX(-122px);
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 204px;
+    padding-bottom: 204px;
+    padding-left: 98px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    background: url(../images/features/features-bg.jpg) no-repeat left;
+    background-size: cover;
+
+    transition: transform 0.65s;
+    transform: scale(1);
+  }
+
+  &__img-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 686px;
+    height: 680px;
+    overflow: hidden;
+
+    border-radius: $main-radius 0 0 0;
+
+    &:hover {
+      .approach__img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__note {
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 16px;
+    align-content: start;
+  }
+
+  &__title--s,
+  &__title {
+    color: #fff;
+  }
+
+  &__title {
+    max-width: 362px;
+    margin-bottom: 16px;
+  }
+
+  &__desc {
+    display: grid;
+    max-width: 440px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: 48px;
+
+    font-size: 15px;
+    line-height: 150%;
+    color: #fff;
+
+    &--3 {
+      margin-bottom: 0;
+    }
+
+    &--1::before {
+      background: url(../images/features/features-item-icon-1.svg) no-repeat center;
+    }
+
+    &--2::before {
+      background: url(../images/features/features-item-icon-2.svg) no-repeat center;
+    }
+
+    &--3::before {
+      background: url(../images/features/features-item-icon-3.svg) no-repeat center;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin-right: 34px;
+
+      border-radius: 50%;
+      background-color: #fff;
+      background-size: contain;
+
+      transition: all 0.35s;
+    }
+
+    &:hover {
+      &::before {
+        transform: scale(1.1);
+        box-shadow: 0 6px 14px rgba(37, 41, 49, 0.18);
+      }
+    }
+
+  }
+
+  @media screen and (min-width: 1600px) {
+    &__img-wrapper {
+      border-bottom-right-radius: $main-radius;
+    }
+  }
+
+  @media screen and (max-width: 1600px) {
+    &__container {
+      padding-left: 180px;
+    }
+
+    &__img-wrapper {
+      width: calc((100% - 120px) / 2);
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    &__container {
+      padding-top: 164px;
+      padding-bottom: 164px;
+    }
+
+    &__desc {
+      max-width: 380px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    $main-radius: 130px;
+
+    margin-bottom: 88px;
+    border-radius: $main-radius 0 0 $main-radius;
+    transform: translateX(48px);
+
+    &--transform {
+      transform: translateX(-48px);
+    }
+
+    &__container {
+      padding-top: 88px;
+      padding-bottom: 88px;
+      padding-left: 108px;
+    }
+
+    &__img-wrapper {
+      height: 480px;
+      width: calc((100% - 180px) / 2);
+      border-radius: $main-radius 0 0 0;
+    }
+
+    &__title {
+      max-width: 100%;
+    }
+
+    &__desc {
+      max-width: 340px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 62px;
+
+    &__container {
+      justify-items: center;
+      padding-top: 124px;
+      padding-bottom: 124px;
+      padding-left: 48px;
+      margin-left: 48px;
+    }
+
+    &__img-wrapper {
+      display: none;
+    }
+
+    &__title,
+    &__desc {
+      max-width: 490px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    $main-radius: 130px;
+
+    transform: translateX(0);
+    border-radius: 0 $main-radius $main-radius 0;
+
+    &--transform {
+      transform: translateX(0);
+    }
+
+    &__container {
+      padding-top: 64px;
+      padding-bottom: 64px;
+      margin-left: 0;
+    }
+
+    &__desc {
+      grid-template-columns: 1fr;
+      grid-row-gap: 16px;
+      justify-items: center;
+      text-align: center;
+      margin-bottom: 32px;
+
+      &::before {
+        margin: 0;
+      }
+    }
+  }
+}

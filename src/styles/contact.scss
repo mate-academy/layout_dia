@@ -1,0 +1,145 @@
+@import "./utils";
+
+.contact {
+  position: relative;
+
+  background-color: #fff;
+  color: #fff;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: calc(100% / 4);
+
+    background-color: $main-color;
+    z-index: 0;
+  }
+
+  &__container {
+    position: relative;
+    background-color: $main-color;
+    border-top-right-radius: $main-radius;
+    z-index: 1;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    grid-column-gap: 220px;
+    min-height: 200px;
+    padding-top: 180px;
+    padding-bottom: 40px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 460px;
+    width: 100%;
+  }
+
+  &__adress {
+    margin-top: 56px;
+  }
+
+  &__item-wrapper {
+    margin-bottom: 48px;
+  }
+
+  &__item-title {
+    margin-bottom: 8px;
+    opacity: 0.5;
+  }
+
+  &__item {
+    padding: 8px 0;
+    transition: opacity 0.35s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    margin-right: 32px;
+  }
+
+  &__icon {
+    fill: #fff;
+    transition: opacity 0.35s;
+
+    &--1 {
+      width: 15px;
+      height: 25px;
+    }
+
+    &--2 {
+      width: 24px;
+      height: 22px;
+    }
+
+    &--3 {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    &__wrapper {
+      grid-column-gap: 88px;
+      padding-top: 120px;
+    }
+
+    &__form {
+      max-width: 320px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    &__container {
+      $main-radius: 130px;
+
+      border-top-right-radius: $main-radius;
+    }
+    &__wrapper {
+      grid-column-gap: 48px;
+      padding-top: 88px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &__wrapper {
+      grid-template-columns: 1fr;
+      grid-row-gap: 64px;
+      padding-bottom: 0;
+    }
+
+    &__form {
+      margin-top: 24px;
+    }
+
+    &__adress {
+      margin-top: 32px;
+    }
+
+    &__item-wrapper {
+      margin-bottom: 24px;
+    }
+  }
+}
