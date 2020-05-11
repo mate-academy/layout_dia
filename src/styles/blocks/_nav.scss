@@ -1,0 +1,36 @@
+@import "../utils";
+
+.nav {
+
+  &__list {
+    @extend %flex-center;
+
+    :not(:first-child) {
+      margin-left: 64px;
+    }
+
+    @media (max-width: 968px) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateY(-100%); //TODO side menu
+      flex-direction: column;
+    }
+  }
+
+  &__link {
+    @extend %links;
+    @extend %links-menu;
+    padding: 8px 0;
+
+    @include hover(color, $secondary-color-scheme);
+  }
+
+  &__toggle {
+
+    @media (min-width: 969px) {
+      display: none;
+    }
+  }
+}
