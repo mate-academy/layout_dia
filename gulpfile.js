@@ -30,12 +30,13 @@ gulp.task('cleanDist', function() {
 gulp.task('processHtml', function() {
   return gulp.src(htmlBlob)
     .pipe(gulpHtmllint({
-      config: './node_modules/@mate-academy/htmllint-config/.htmllintrc',
+      config: './node_modules/@mate-academy/linthtml-config/.linthtmlrc.json',
     }, function(filepath, issues) {
       issues.forEach(function(issue) {
         const { line, column, code, msg } = issue;
+​
         console.log(
-          ` ❌   ${colors.red('htmllint error')}
+          ` ❌   ${colors.red('linthtml error')}
           📁  file: ${filepath}
           🖊️ [line: ${line}, column: ${column}]: (${code}) - ${msg}`);
       });
