@@ -38,8 +38,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/vh
 10. `git add . && git commit -m 'solution'` to save your changes.
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+13. Replace `Dead-TR` with your Github username in the
+  [DEMO LINK](https://Dead-TR.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

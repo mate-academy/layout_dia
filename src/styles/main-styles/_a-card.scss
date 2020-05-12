@@ -1,0 +1,108 @@
+
+.a-card {
+  display: flex;
+  position: relative;
+  margin: 100px 0;
+
+  &__img {
+    display: inline-block;
+    background: white no-repeat center;
+    background-size: cover;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    margin: 0 34px 0 0;
+    transition: top 1s,
+      left 1s;
+
+    &--speaker {
+      background-image: url(../../images/features/features-item-icon-1.svg);
+    }
+
+    &--calendar {
+      background-image: url(../../images/features/features-item-icon-2.svg);
+    }
+
+    &--document {
+      background-image: url(../../images/features/features-item-icon-3.svg);
+    }
+  }
+
+  &__text {
+    @include font (normal, 15px, 150%, $head_main_color, $font-text);
+    margin: 0;
+    position: absolute;
+    left: 100px;
+    top: -10px;
+    transition: left 1s;
+  }
+
+  &__check {
+    display: none;
+  }
+  
+
+  //end
+}
+
+@media only screen and (max-width: 990px) {
+  .a-card {
+    
+    &__img {
+      position: absolute;
+      left: -40px;
+      top: 0;
+
+      &:hover {
+        height: 70px;
+        width: 70px;
+        background-size: cover;
+      }
+    }
+
+    &__text {
+      left: -1500px;
+    }
+  }
+
+  //CheckBoxes:
+
+  //first:
+  #a-check1:checked ~ .a-card__label1 {
+    top: -100px;
+    height: 73px;
+    width: 73px;
+  }
+
+  #a-check1:checked ~ .a-card__text--1 {
+    left: 35px;
+    width: 90%;
+  }
+
+  //two:
+  #a-check2:checked ~ .a-card__label2 {
+    top: -195px;
+    height: 73px;
+    width: 73px;
+  }
+
+  #a-check2:checked ~ .a-card__text--2 {
+    left: 35px;
+    width: 90%;
+    top: -100px;
+  }
+  //three:
+  #a-check3:checked ~ .a-card__label3 {
+    top: -295px;
+    height: 73px;
+    width: 73px;
+  }
+
+  #a-check3:checked ~ .a-card__text--3 {
+    left: 35px;
+    width: 90%;
+    top: -200px;
+  }
+  
+  //end
+}

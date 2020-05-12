@@ -1,0 +1,79 @@
+
+.header {
+  margin: 0 auto;
+  height: 800px;
+  max-width: 1920px;
+  padding: 50px 0;
+
+  &__nav-box {
+    position: relative;
+    margin: 0 228px;
+    width: calc(100% - (228px * 2));
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: "";
+      background: url(../../images/logo/dia-logo.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 45px;
+      height: 26px;
+      position: absolute;
+
+    }
+  }
+
+  &__lure {
+    position: absolute;
+    width: 490px;
+    height: 355px;
+    margin: 168px 75px;
+    transition: 1s left;
+  }
+
+  &__lure-tittle {
+    @include font (600, 64px, 68px, $head_main_color, $font-tittle);
+  }
+
+  &__lure-text {
+    @include font (normal, 18px, 150%, $head_main_color, $font-text);
+  }
+
+}
+
+@media only screen and (max-width: 990px) {
+  .header {
+    height: 700px;
+
+    &__nav-box {
+      margin: 10px;
+      width: calc(100% - (10px * 2));
+      top: -50px;
+      overflow-x: hidden;
+
+      & :last-child {
+        margin: 0;
+      }
+    }
+
+    &__lure {
+      width: 60%;
+      margin: 0 0 0 20px;
+      left: 0;
+      top: 400px;
+      z-index: 3;
+      height: 300px;
+    }
+
+    &__lure-tittle {
+      @include font (600, 35px, 100%, $head_main_color, $font-tittle);
+    }
+
+    &__lure-text {
+      @include font (normal, 15px, 150%, $head_main_color, $font-text);
+    }
+
+  }
+}
