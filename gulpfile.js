@@ -34,7 +34,6 @@ gulp.task('processHtml', function() {
     }, function(filepath, issues) {
       issues.forEach(function(issue) {
         const { line, column, code, msg } = issue;
-​
         console.log(
           ` ❌   ${colors.red('linthtml error')}
           📁  file: ${filepath}
