@@ -18,20 +18,10 @@
     padding: 2px 12px;
     margin-bottom: 24px;
 
-    &--lightblue {
-      @include colored-item($colored-elements-lightblue);
-    }
-  
-    &--lightgreen {
-      @include colored-item($colored-elements-lightgreen);
-    }
-  
-    &--orange {
-      @include colored-item($colored-elements-orange);
-    }
-  
-    &--lightred {
-      @include colored-item($colored-elements-lightred);
+    @each $modificator, $color in $colored-block-list {
+      &#{$modificator} {
+        @include colored-item($color);
+      }
     }
   }
 
@@ -53,20 +43,10 @@
   }
   &__button {
 
-    &--lightblue::before {
-      background: $colored-elements-lightblue url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
-    }
-  
-    &--lightgreen::before {
-      background: $colored-elements-lightgreen url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
-    }
-  
-    &--orange::before {
-      background: $colored-elements-orange url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
-    }
-  
-    &--lightred::before {
-      background: $colored-elements-lightred url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
+    @each $modificator, $color in $colored-block-list {
+      &#{$modificator}::before {
+        background: $color url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
+      }
     }
   }
 }
