@@ -6,16 +6,23 @@
 }
 
 @mixin rounding($y, $x) {
-  border-#{$y}-#{$x}-radius: 200px;
-  padding-#{$y}: 200px;
+  $round-size: 200px;
+
+  border-#{$y}-#{$x}-radius: $round-size;
+  padding-#{$y}: $round-size;
+
+  @media (max-width: $res-desktop) {
+    border-#{$y}-#{$x}-radius: $round-size * 3 / 4;
+    padding-#{$y}: $round-size * 3 / 4;
+  }
 
   @media (max-width: $res-tablet) {
-    border-#{$y}-#{$x}-radius: 100px;
-    padding-#{$y}: 100px;
+    border-#{$y}-#{$x}-radius: $round-size / 2;
+    padding-#{$y}: $round-size / 2;
   }
 
   @media (max-width: $res-mobile) {
-    border-#{$y}-#{$x}-radius: 40px;
-    padding-#{$y}: 40px;
+    border-#{$y}-#{$x}-radius: $round-size / 5;
+    padding-#{$y}: $round-size / 5;
   }
 }
