@@ -9,6 +9,9 @@
   background: $bg-text-white;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 24px;
+  transition: box-shadow ;
+
+  @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.3));
 
   &__photo {
     margin-bottom: 110px;
@@ -25,11 +28,6 @@
       z-index: -1;
 
       transform: rotate(-60deg);
-      background: linear-gradient(
-        180deg, rgba(255, 255, 255, 0.25) 0%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-        $colored-elements-lightblue;
     }
 
     &::before {
@@ -65,11 +63,9 @@
       width: 19px;
       height: 21px;
       position: absolute;
-      top: -31px;
+      top: -30px;
       left: 50%;
       transform: translateX(-50%);
-
-      background-color: $colored-elements-lightblue;
       -webkit-mask: url("../images/testimonials/quotes.svg") no-repeat 100% / 100%;
     }
   }
@@ -81,10 +77,27 @@
     color: $secondary-darkblue;
 
     margin-bottom: 10px;
+
+    @include hover(transform, scale(1.2));
   }
 
   &__position {
     @extend %h6;
     color: $secondary-grey-white;
+  }
+
+  @each $modificator, $color in $colored-block-list {
+    &#{$modificator} &__photo::before,
+    &#{$modificator} &__photo::after {
+      background: linear-gradient(
+        180deg, rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+        $color;
+    }
+
+    &#{$modificator} &__review::before {
+      background-color: $color;
+    }
   }
 }

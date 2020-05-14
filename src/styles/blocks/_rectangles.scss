@@ -1,0 +1,47 @@
+@import "../utils";
+
+.rectangle {
+  position: absolute;
+  transform: rotate(30deg);
+
+  opacity: 0.5;
+
+  border-radius: 500px;
+  border: 2px solid;
+
+  z-index: -1;
+  
+  &--small {
+    width: 5vh;
+    height: 14vh;
+    max-width: 22px;
+    max-height: 54px;
+  }
+  
+  &--medium {
+    width: 5vh;
+    height: 18vh;
+    max-width: 27px;
+    max-height: 68px;
+  }
+  
+  &--big {
+    width: 6vh;
+    height: 20vh;
+    max-width: 34px;
+    max-height: 85px;
+  }
+  
+  &--large {
+    width: 7vh;
+    height: 22vh;
+    max-width: 60px;
+    max-height: 150px;
+  }
+
+  @each $modificator, $top, $left, $color in $rectangles-styles-list {
+    &--#{$modificator} {
+      @include position-colored-rectangles($top, $left, $color);
+    }
+  }
+}
