@@ -1,0 +1,90 @@
+@import "../utils";
+
+.person-card {
+  width: 314px;
+
+  padding: 87px 32px 32px;
+
+  text-align: center;
+  background: $bg-text-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__photo {
+    margin-bottom: 110px;
+    position: relative;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 139px;
+      height: 56px;
+      border-radius: 500px;
+      z-index: -1;
+
+      transform: rotate(-60deg);
+      background: linear-gradient(
+        180deg, rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+        $colored-elements-lightblue;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__review {
+    font-size: 13px;
+    line-height: 150%;
+    
+    color: $secondary-grey-blue;
+
+    margin-bottom: 16px;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 19px;
+      height: 21px;
+      position: absolute;
+      top: -31px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background-color: $colored-elements-lightblue;
+      -webkit-mask: url("../images/testimonials/quotes.svg") no-repeat 100% / 100%;
+    }
+  }
+
+  &__name-link {
+    display: block;
+    @extend %links-secondary;
+
+    color: $secondary-darkblue;
+
+    margin-bottom: 10px;
+  }
+
+  &__position {
+    @extend %h6;
+    color: $secondary-grey-white;
+  }
+}
