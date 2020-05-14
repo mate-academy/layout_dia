@@ -7,15 +7,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  $clr-list: ("blue": $blue, "green": $green, "red": $red, "yellow": $yellow);
+  text-align: center;
 
   @each $clr, $clr-var in $clr-list {
     &--#{$clr} {
       svg {
         fill: $clr-var;
       }
+
+      .person__oval {
+        @include oval($clr-var);
+      }
     }
+  }
+
+  &__oval {
+    position: absolute;
+    z-index: -1;
+    width: 139px;
+    height: 59px;
+
+    &:first-child {
+      top: 20%;
+      left: 5px;
+      transition: left 0.3s;
+    }
+
+    &:last-child {
+      bottom: 20%;
+      right: 5px;
+      transition: right 0.3s;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    border-radius: 50%;
+
+    transition: border-radius, 0.3s;
   }
 
   &__photo {
@@ -29,31 +58,23 @@
     align-items: center;
 
     margin-bottom: 27px;
-  }
 
-  &__reactangles {
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    
+    &:hover {
+      .person__oval {
+        &:first-child {
+          left: -15px;
+        }
 
-    svg:first-child {
-      top: 4px;
-      left: 18px;
-      position: absolute;
+        &:last-child {
+          right: -15px;
+        }
+      }
+
+      .person__img {
+        border-radius: 60px;
+        transform: scale(1.1);
+      }
     }
-
-    svg:last-child {
-      top: 100px;
-      left: 115px;
-      position: absolute;
-    }
-  }
-
-  &__img {
-    width: 140px;
-    border-radius: 50%;
   }
 
   &__describe {

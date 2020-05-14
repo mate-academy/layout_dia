@@ -2,23 +2,8 @@
   position: relative;
   text-align: center;
   background: #fff;
-  padding: 200px 0;
+  padding: 200px 20px;
   z-index: 0;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: -1;
-
-    margin: 72px auto;
-    max-width: 1450px;
-    max-height: 550px;
-    background: center / cover no-repeat #fff url(../../images/shapes.jpg);
-  }
 
   &__title {
     margin-bottom: 1rem;
@@ -34,12 +19,117 @@
   &__btn {
     margin-bottom: 200px;
   }
+
+  &__oval {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    transition: background 0.3s;
+
+    @include oval;
+
+    @each $clr, $clr-var in $clr-list {
+      &--#{$clr} {
+        border: 2px solid $clr-var;
+        transform: rotate(-65deg);
+
+        &:hover {
+          background-color: $clr-var;
+          border: none;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      left: 20%;
+      top: 10%;
+      width: 86px;
+      height: 34px;
+    }
+
+    &:nth-child(2) {
+      width: 45px;
+      height: 18px;
+      left: 30%;
+      top: 10%;
+    }
+
+    &:nth-child(3) {
+      width: 67px;
+      height: 27px;
+      left: 10%;
+      top: 45%;
+    }
+
+    &:nth-child(4) {
+      width: 143px;
+      height: 57px;
+      left: 20%;
+      top: 35%;
+    }
+
+    &:nth-child(5) {
+      width: 94px;
+      height: 37px;
+      left: 15%;
+      top: 55%;
+    }
+
+    &:nth-child(6) {
+      width: 45px;
+      height: 18px;
+      left: 35%;
+      top: 50%;
+    }
+
+    &:nth-child(7) {
+      width: 143px;
+      height: 57px;
+      right: 20%;
+      top: 20%;
+    }
+
+    &:nth-child(8) {
+      width: 45px;
+      height: 18px;
+      right: 15%;
+      top: 10%;
+    }
+
+    &:nth-child(9) {
+      width: 94px;
+      height: 37px;
+      right: 10%;
+      top: 30%;
+    }
+
+    &:nth-child(10) {
+      width: 94px;
+      height: 37px;
+      right: 25%;
+      top: 45%;
+    }
+
+    &:nth-child(11) {
+      width: 45px;
+      height: 18px;
+      right: 35%;
+      top: 55%;
+    }
+
+    &:nth-child(12) {
+      width: 143px;
+      height: 57px;
+      top: 50%;
+      right: 15%;
+    }
+  }
 }
 
-@media (max-width: $res-desktop) {
+@media (max-width: $res-tablet) {
   .cooperation {
-    &::after {
-      margin: 40px;
+    &__reactangles {
+      visibility: hidden;
     }
   }
 }
