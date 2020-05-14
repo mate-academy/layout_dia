@@ -5,14 +5,35 @@
   }
 }
 
-@mixin background($_width, $_height, $_border-width) {
+@mixin background ($_width, $_height, $_border-width,$_max-width,$_max-height) {
+  max-width: $_max-width;
+  max-height: $_max-height;
   width: $_width;
   height: $_height;
   border: $_border-width solid $button-color;
   border-radius: 15%;
-  transition: 2s transform;
-  
+  transform: rotate(-65.1deg);
+  transition: 1s transform;
+  position: relative;
+
   &:hover {
     transform: rotate(-90.1deg);
   }
+}
+
+@mixin button-general {
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: $button-color;
+  transition: border-color 1s, background-color 1s, opacity 1s;
+  &:active {
+    border-color: $button-active-color;
+    background-color: $button-active-color;
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+
 }
