@@ -5,15 +5,21 @@ const burger = document.querySelector('.header__burger');
 const times = nav.querySelector('.nav-mobile__times');
 
 burger.onclick = function() {
-  translateNav();
+  toggleMenu();
 };
 
 nav.addEventListener('click', function(e) {
   if (e.target === times || e.target.classList.contains('nav-mobile__link')) {
-    translateNav(-200);
+    toggleMenu(0);
   }
 });
 
-function translateNav(val = 0) {
-  nav.style.transform = `translateY(${val}%)`;
+function toggleMenu(val = 1) {
+  nav.style.opacity = val;
+
+  val ? nav.style.zIndex = 1
+    : nav.addEventListener('transitionend', function toggleZIndex() {
+      nav.style.zIndex = -1;
+      nav.removeEventListener('transitionend', toggleZIndex);
+    });
 }
