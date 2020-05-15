@@ -33,9 +33,35 @@
   }
 
   &__media-link {
-    
     @extend %links;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      transition: background-color 0.3s;
+      left: 0;
+      top: 0;
+    }
+
+    &:hover::before {
+      background: $secondary-color-scheme;
+    }
+
+    &--facebook::before {
+      -webkit-mask: url("../images/social-media/facebook.svg") no-repeat 60% / 60%;
+    }
+
+    &--twitter::before {
+      -webkit-mask: url("../images/social-media/twitter.svg") no-repeat 100% / 100%;
+    }
+
+    &--instagram::before {
+      -webkit-mask: url("../images/social-media/instagram.svg") no-repeat 100% / 100%;
+    }
     
-    @include hover(color, $secondary-color-scheme);
   }
 }
