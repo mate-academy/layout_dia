@@ -1,0 +1,72 @@
+@import "utils";
+
+.approach {
+  position: relative;
+  top: -215px;
+
+  min-height: 976px;
+  margin-left: 121px;
+  padding: 204px;
+
+  background-color: $button-bg;
+  border-radius: 200px 0 0 200px;
+
+  color: $header-highlite-color;
+
+  &__name {
+    @extend .section-name;
+  }
+
+  &__headline {
+    @extend .section-heading;
+
+    max-width: 362px;
+  }
+
+  &__types {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: 264px;
+    min-height: 404px;
+    margin-left: 98px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__text::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - #{$approach-icon-size/2});
+    left: -102px;
+
+    display: block;
+    width: $approach-icon-size;
+    height: $approach-icon-size;
+
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @for $i from 1 through 3 {
+    &__text:nth-child(#{$i})::after {
+      background-image: url(../images/features/features-item-icon-#{$i}.svg);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    display: block;
+    width: 687px;
+    height: 680px;
+  }
+}
