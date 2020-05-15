@@ -18,9 +18,10 @@
   }
 
   &__headline {
-    @extend .section-heading;
-
+    margin-bottom: 24px;
     max-width: 362px;
+
+    font-size: 32px;
   }
 
   &__types {
@@ -52,6 +53,8 @@
 
     background-position: center;
     background-repeat: no-repeat;
+
+    transition: transform $transition-duration ease-in;
   }
 
   @for $i from 1 through 3 {
@@ -60,13 +63,22 @@
     }
   }
 
+  &__text:hover::after {
+    transform: translateY(-15px);
+  }
+
   &__img {
     position: absolute;
     bottom: 0;
     right: 0;
 
     display: block;
-    width: 687px;
-    height: 680px;
+    max-width: 43vw;
+
+    transition: opacity 1.5s ease-in;
+
+    &:hover {
+      opacity: 0;
+    }
   }
 }
