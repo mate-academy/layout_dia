@@ -5,7 +5,7 @@
   justify-content: space-between;
 
   max-width: $container-width;
-  height: 759px;
+  min-height: 759px;
 
   padding: 0 227px;
 
@@ -42,10 +42,42 @@
   &__cards {
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, 264px);
+    grid-template-columns: repeat(2, 264px);
     justify-content: center;
 
     max-width: 560px;
-    max-height: 760px;
+  }
+
+  @media screen and (max-width: 1410px) {
+    padding: 0 150px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+
+    &__explanation {
+      margin-bottom: 50px;
+    }
+
+    &__cards {
+      max-width: 100%;
+      gap: 30px 150px;
+    }
+  }
+
+  @media screen and (max-width: 730px) {
+    min-height: 759px;
+
+    &__explanation {
+      margin: 25px;
+    }
+
+    &__cards {
+      gap: 30px;
+      grid-template-columns: 264px;
+      margin-bottom: 25px;
+    }
   }
 }
