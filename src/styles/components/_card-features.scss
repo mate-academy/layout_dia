@@ -36,22 +36,52 @@
     line-height: 1.5em;
   }
 
-  &__bottom {
-    display: flex;
-  }
+  $btn-height: 40px;
 
   &__btn {
-    width: 40px;
-    height: 40px;
+    position: absolute;
+    width: $btn-height;
+    height: $btn-height;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border-radius: 50%;
+    border-radius: 40px;
     margin-right: 16px;
 
-    @include hover(transform, scale(1.2));
+    transition: width 0.3s;
+  }
+
+  &__btn-name {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 15px;
+    line-height: $btn-height;
+  }
+
+  &__bottom {
+    display: inline-block;
+    position: relative;
+    width: 143px;
+    height: $btn-height;
+    color: inherit;
+
+    &:hover {
+      .card-features__btn {
+        width: 140%;
+        justify-content: flex-end;
+      }
+
+      .card-features__arrow {
+        display: none;
+      }
+
+      .card-features__btn-name {
+        color: #fff;
+      }
+    }
   }
 
   @each $clr, $clr-var in $clr-list {
@@ -59,7 +89,7 @@
       .card-features__order {
         color: $clr-var;
       }
-  
+
       .card-features__btn {
         background-color: $clr-var;
       }
