@@ -1,30 +1,44 @@
 @import "../utils";
 
 .tagline {
-  display: none; //for refactor
-  
   max-width: 1600px;
   margin: 0 auto;
   padding-left: 120px;
   margin-bottom: 148px;
 
+  @media (max-width: 900px) {
+    padding-left: 0;
+    margin-bottom: 50px;
+  }
+
   &__wrapper {
     background: $secondary-color-scheme;
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
+    border-radius: 200px 0 0 200px;
     overflow: hidden;
     position: relative;
     padding: 204px 0 204px 204px;
+
+    @media (max-width: 900px) {
+      border-radius: 50px 0 0 50px;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__picture {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 50%;
+    max-width: 40%;
     
-    border-top-left-radius: 200px;
+    border-radius: 200px 0 0;
     overflow: hidden;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
   
   &__image {
@@ -45,14 +59,18 @@
   }
 
   &__overhead {
-    @extend %h6;
-
     margin-bottom: 16px;
   }
 
   &__title {
-    @extend %h2;
+    color: $bg-text-white;
     margin-bottom: 32px;
+    text-align: left;
+    
+    @media (max-width: 900px) {
+      text-align: center;
+      font-size: 26px;
+    }
   }
 
   &__text {
@@ -62,6 +80,11 @@
     line-height: 150%;
     position: relative;
     padding-left: 98px;
+    
+    @media (max-width: 900px) {
+      padding: 50px 0 0;
+      text-align: center;
+    }
 
     &:not(:last-child) {
       margin-bottom: 64px;
@@ -76,6 +99,13 @@
       height: 64px;
       border-radius: 50%;
       transform: translateY(-50%);
+      
+      
+      @media (max-width: 900px) {
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     @for $i from 1 to 4 {
