@@ -1,3 +1,5 @@
+@import "utils";
+
 .header {
   background-color: $header-footer-bg;
   border-radius: 0 0 0 200px;
@@ -8,6 +10,39 @@
     padding: 48px 0 0 228px;
     max-width: $container-width;
     margin: 0 auto;
+  }
+
+  &__toggler {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: none;
+  }
+
+  &__toggler--label {
+    width: 18px;
+    height: 12px;
+  }
+
+  &__toggler--label::after {
+    content: url(../images/toggler/burger.svg);
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    top: 0;
+    left: 0;
+  }
+
+  &__top-nav--mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    transform: translate(-50%, -50%);
   }
 
   &__top-nav {
@@ -68,5 +103,50 @@
     position: relative;
 
     max-width: 43vw;
+  }
+
+  @media screen and (max-width: 1280px) {
+    &__container {
+      padding-left: 100px;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    &__container {
+      padding: 20px;
+      height: 100vh;
+    }
+
+    &__logo {
+      width: 30px;
+      height: 17px;
+      margin-right: 78px;
+    }
+
+    &__top-nav,
+    &__slider {
+      display: none;
+    }
+
+    &__description {
+      margin: 250px auto;
+      align-items: center;
+    }
+
+    &__toggler--label {
+      display: block;
+    }
+
+    &__toggler:checked ~ &__middle-box {
+      display: none;
+    }
+
+    &__toggler:checked ~ &__top-nav--mobile {
+      display: block;
+    }
+
+    &__toggler:checked + &__toggler--label::after {
+      content: url(../images/toggler/x.svg);
+    }
   }
 }
