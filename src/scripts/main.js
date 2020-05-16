@@ -1,5 +1,6 @@
 'use strict';
 
+// rotate all rectangles
 const buttonSlogan = document.querySelector('.slogan__button');
 const rectangles = document.querySelectorAll('.rectangle');
 
@@ -17,6 +18,7 @@ buttonSlogan.addEventListener('onmouseover', (e) => {
   }
 });
 
+// toggle menu
 const burger = document.querySelector('.header__toggle--toggler');
 const closeMenu = document.querySelector('.nav__toggle--close');
 const menu = document.querySelector('.nav');
@@ -34,4 +36,34 @@ menu.addEventListener('click', function(e) {
   }
 });
 
-// || e.target.classList.contains('nav-toggle__link')
+// slider
+
+const slides = document.querySelectorAll('.slider__picture');
+const previousSlide = document.querySelector('.slider__btn--previous');
+const nextSlide = document.querySelector('.slider__btn--next');
+
+nextSlide.onclick = nextPicture;
+previousSlide.onclick = nextPicture;
+
+let currentSlide = 0;
+
+function nextPicture() {
+  ++currentSlide;
+
+  if (currentSlide >= slides.length) {
+    slides[currentSlide - 1].classList.remove('slider__picture--is-active');
+    currentSlide = 0;
+    slides[currentSlide].classList.add('slider__picture--is-active');
+  } else {
+    slides[currentSlide - 1].classList.remove('slider__picture--is-active');
+    slides[currentSlide].classList.add('slider__picture--is-active');
+  }
+}
+
+nextSlide.addEventListener('click', function(e) {
+  if (e.target === nextSlide) {
+    nextPicture();
+  }
+});
+
+setInterval(nextPicture, 7000);
