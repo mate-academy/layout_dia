@@ -2,35 +2,70 @@
 
 .nav {
 
-  &__list {
-    @extend %flex-center;
+  @media (max-width: 968px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateY(-100%); //TODO side menu
+    background: $secondary-color-scheme;
+    z-index: 1;
+    padding-top: 10px;
+  }
 
-    :not(:first-child) {
-      margin-left: 64px;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (min-width: 969px) {
+      
+      :not(:first-child) {
+        margin-left: 64px;
+      }
+    }
+    
+    @media (max-width: 968px) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-left: 0;
+      padding: 20px 50px 60px;
+    }
+  }
+  
+  &__item {
+    
+    @media (max-width: 968px) {
+      margin: 0;
     }
 
-    @media (max-width: 968px) {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      transform: translateY(-100%); //TODO side menu
-      flex-direction: column;
+    &--toggle {
+      @media (min-width: 968px) {
+        display: none;
+      }
+
+      align-self: flex-end;
     }
   }
 
   &__link {
     @extend %links;
     @extend %links-menu;
+    font-size: 13px;
     padding: 8px 0;
 
     @include hover(color, $secondary-color-scheme);
+    
+    @media (max-width: 968px) {
+      font-size: 25px;
+    }
   }
 
   &__toggle {
-
-    @media (min-width: 969px) {
-      display: none;
-    }
+    align-self: end;
   }
 }
