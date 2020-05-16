@@ -2,6 +2,15 @@
 
 .contacts {
 
+  &__items {
+
+    @media (max-width: 900px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   &__item {
     margin-bottom: 48px;
   }
@@ -17,9 +26,8 @@
 
   &__link {
     @extend %links;
+    @extend %font-open-sans-bold;
 
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
     font-size: 24px;
 
     color: $bg-text-white;
@@ -29,7 +37,13 @@
 
   &__media {
     width: 45%;
-    @extend %flex-center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media (max-width: 900px) {
+      width: 50vw;
+    }
   }
 
   &__media-link {
@@ -45,6 +59,7 @@
       transition: background-color 0.3s;
       left: 0;
       top: 0;
+      transform: translate(-50%);
     }
 
     &:hover::before {
