@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 'use strict';
@@ -33,12 +34,12 @@ function showSlides(n) {
 }
 
 $('.form').submit(function() {
-  $('.success').addClass('success--active').hide().fadeIn();
+  $('.form__success').addClass('form__success--active').hide().fadeIn();
 
   setTimeout(function() {
-    $('.success').removeClass('success--active').fadeOut();
+    $('.form__success').removeClass('form__success--active').fadeOut();
     $('.form').trigger('reset');
-  }, 3000);
+  }, 2000);
 
   return false;
 });
