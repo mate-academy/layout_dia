@@ -47,9 +47,32 @@
   }
 
   &__item {
+    position: relative;
     display: flex;
     height: 100px;
     margin-bottom: 50px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      background-color: #fff;
+      border-radius: 30px;
+      transition: width 0.4s;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      width: 80%;
+      height: 100%;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: black;
+      transition: 0.5s;
+    }
   }
 
   &__picture {
@@ -77,9 +100,9 @@
   &__text {
     width: 250px;
 
-    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 15px;
     line-height: 150%;
   }
@@ -91,6 +114,6 @@
     right: 0;
     width: 40vw;
     height: 580px;
-    background: url(../images/bridges.jpg) center center/cover no-repeat;
+    background: url(../images/bridge.png) center center/cover no-repeat;
   }
 }
