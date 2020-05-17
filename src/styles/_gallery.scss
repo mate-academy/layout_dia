@@ -1,0 +1,122 @@
+.gallery {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  &__item {
+    outline: none;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  &__intro {
+    position: absolute;
+    bottom: 48px;
+    left: 144px;
+    max-width: 264px;
+
+    color: $main-color;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 140%;
+  }
+
+  &__caption {
+    @extend %caption-text;
+    color: $main-color;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  &__next {
+    left: 88px;
+  }
+
+  &__prev {
+    left: 48px;
+  }
+
+  &__next,
+  &__prev {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    bottom: 66px;
+
+    border-radius: 50%;
+    background: $main-color;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 9px;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+      background: url(../images/slider/next.svg);
+    }
+
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 686px) {
+  .gallery {
+
+    &__img {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 686px) {
+  .gallery {
+
+    &__intro {
+      left: 90px;
+      bottom: 24px;
+      padding-right: 20px;
+    }
+
+    &__prev,
+    &__next {
+      bottom: 42px;
+    }
+
+    &__prev {
+      left: 12px;
+    }
+
+    &__next {
+      left: 48px;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+.promo {
+  background-color: $main-color;
+
+  &__flex {
+    position: relative;
+    overflow: hidden;
+    max-width: 1600px;
+    
+    margin: 0 auto;
+    padding: 199px 0 209px;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  &__center {
+    max-width: 754px;
+    padding: 0 70px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    margin-bottom: 64px;
+    color: $text-lighter;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+  }
+
+}
+
+.boxes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transform: rotate(15deg);
+}
+
+.box {
+  position: absolute;
+  border: 2px solid $accent-color;
+  border-radius: 12px;
+  bottom: -250px;
+
+  opacity: 0.5;
+  z-index: -1;
+
+  animation: flying 25s linear infinite;
+
+  @include boxesPosition(1%, 8%);
+  @include duration(25);
+  @include delayOdd(3);
+
+  &:nth-child(n+6) {
+    bottom: -180px;
+  }
+
+  &:nth-child(1) {
+    height: 2.5em;
+    width: 1em;
+  }
+
+  &:nth-child(2) {
+    height: 3.72em;
+    width: 1.44em;
+  }
+
+  &:nth-child(3) {
+    height: 5.16em;
+    width: 2.05em;
+  }
+
+  &:nth-child(4) {
+    height: 4.72em;
+    width: 1.83em;
+  }
+
+  &:nth-child(5) {
+    width: 1.16em;
+    height: 2.94em;
+  }
+
+  &:nth-child(6) {
+    height: 7.94em;
+    width: 3.11em;
+  }
+
+  &:nth-child(7) {
+    height: 2.5em;
+    width: 1em;
+  }
+
+  &:nth-child(8) {
+    height: 8.5em;
+    width: 3.33em;
+  }
+
+  &:nth-child(9) {
+    height: 4.72em;
+    width: 1.83em;
+  }
+
+  &:nth-child(10) {
+    height: 3em;
+    width: 1.16em;
+  }
+
+  &:nth-child(11) {
+    height: 7.94em;
+    width: 3.11em;
+  }
+
+  &:nth-child(12) {
+    width: 1.16em;
+    height: 2.94em;
+  }
+
+  &:nth-child(13) {
+    width: 1.16em;
+    height: 2.94em;
+  }
+
+  &:nth-child(14) {
+    height: 2.5em;
+    width: 1em;
+  }
+}
+
+@keyframes flying {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-1000px);
+  }
+
+}
+
+@media screen and (max-width: 420px) {
+  .promo {
+
+    &__flex {
+      padding: 120px 0;
+    }
+
+    &center {
+      padding: 0 30px;
+    }
+  }
+
+  .boxes {
+    transform: rotate(0deg);
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+}
