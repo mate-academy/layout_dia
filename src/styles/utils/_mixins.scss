@@ -4,3 +4,38 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin process-card-color($card-number, $card-color) {
+  &:nth-child(#{$card-number}) {
+    .process-card__order {
+      color: $card-color;
+
+      &::before {
+        background-color: $card-color;
+        opacity: 0.1;
+      }
+    }
+    .process-card__arrow {
+      color: $card-color;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin client-card-color($card-number, $card-color) {
+  &:nth-child(#{$card-number}) {
+    .client-card__graphic {
+      color: $card-color;
+      &::before {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          $card-color;
+      }
+      &::after {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%),
+          $card-color;
+      }
+    }
+  }
+}
