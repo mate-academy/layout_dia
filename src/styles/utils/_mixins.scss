@@ -68,8 +68,10 @@
 
   width: 32px;
   height: 32px;
+
   border-radius: 50%;
-  background-color: #fff;
+  background-color: $white-color;
+  
   &::after {
     content: "";
     position: absolute;
@@ -84,10 +86,12 @@
 @mixin item-color($color) {
   &_number {
     color: $color;
+
     &:after {
       background: $color;
     }
   }
+
   &_btn {
     @include hover(color, $color);
 
@@ -99,14 +103,18 @@
 
 @mixin approach-icon($url) {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
-    background: $url center;
-    width: 64px;
-    height: 64px;
     top: 15px;
     left: 0;
+
+    width: 64px;
+    height: 64px;
+
+    background: $url center;
+
     @media(max-width: 621px) {
       top: 20px;
 
@@ -117,34 +125,47 @@
   }
 }
 
-@mixin peopleSay-forms($color-form) {
+@mixin review-forms($color-form) {
   &::after {
     content: "";
     position: absolute;
-    width: 140px;
-    height: 56px;
-    background: $color-form;
     top: -5px;
     left: 5px;
+    z-index: -1;
+
+    width: 140px;
+    height: 56px;
+
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%, 
+    rgba(255, 255, 255, 0) 100%)
+      $color-form;
+
     border-radius: 500px;
     transform: rotate(-60deg);
-    z-index: -1;
 
     @media(max-width: 415px) {
       left: -5px;
     }
   }
+
   &::before {
     content: "";
     position: absolute;
-    width: 140px;
-    height: 56px;
-    background: $color-form;
     bottom: -5px;
     right: 5px;
+    z-index: -1;
+
+    width: 140px;
+    height: 56px;
+
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.25) 0%, 
+    rgba(255, 255, 255, 0) 100%)
+      $color-form;
+
     border-radius: 500px;
     transform: rotate(-60deg);
-    z-index: -1;
 
     @media(max-width: 415px) {
       right: -5px;
@@ -153,16 +174,19 @@
 }
 
 @mixin big-figure($color) {
-  @include hover(background-color, $color);
-  position: absolute;
   content: "";
+  position: absolute;
+  z-index: 1;
+
   width: 144px;
   height: 57px;
+
   border: 4px solid $color;
   border-radius: 500px;
+
+  @include hover(background-color, $color);
   transform: rotate(-65deg);
   opacity: 0.5;
-  z-index: 1;
 
   @media(max-width: 1125px) {
     width: 110px;
@@ -176,13 +200,16 @@
 }
 
 @mixin middle-figure($color) {
-  @include hover(background-color, $color);
   position: absolute;
   content: "";
+
   width: 94px;
   height: 37px;
+
   border: 4px solid $color;
   border-radius: 500px;
+
+  @include hover(background-color, $color);
   transform: rotate(-65deg);
   opacity: 0.5;
 
@@ -198,13 +225,16 @@
 }
 
 @mixin small-figure($color) {
-  @include hover(background-color, $color);
-  position: absolute;
   content: "";
+  position: absolute;
+
   width: 46px;
   height: 18px;
+
   border: 4px solid $color;
   border-radius: 500px;
+  
+  @include hover(background-color, $color);
   transform: rotate(-65deg);
   opacity: 0.5;
 
