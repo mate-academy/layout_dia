@@ -9,6 +9,7 @@
     margin-bottom: 32px;
 
     background: transparent;
+
     border: none;
     border-bottom: 1px solid $bg-text-white;
     box-shadow: 0 1px 0 $main-color-theme;
@@ -16,6 +17,20 @@
     @extend %form-input;
 
     transition: box-shadow 0.4s;
+
+    @-webkit-keyframes autofill {
+      to {
+        @extend %form-input;
+        color: $bg-text-white;
+        background: transparent;
+
+      }
+    }
+    
+    &:-webkit-autofill {
+      -webkit-animation-name: autofill;
+      -webkit-animation-fill-mode: both;
+    }
 
     &::placeholder {
       @extend %form-input;
@@ -37,6 +52,7 @@
 
   &__button {
     width: 60%;
+
     padding: 16px 0;
     margin-top: 80px;
 
