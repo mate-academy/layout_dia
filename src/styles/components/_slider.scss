@@ -1,0 +1,94 @@
+.slider {
+  background-color: inherit;
+  color: white;
+
+  @include rounding(top, left);
+
+  padding: 0;
+  overflow: hidden;
+  width: 687px;
+  height: 680px;
+
+  &__gallery {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    width: 360px;
+  }
+
+  &__controll {
+    display: flex;
+  }
+
+  &__arrow-left,
+  &__arrow-right {
+    height: 32px;
+    width: 32px;
+    background: no-repeat center / cover;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__arrow-left {
+    background-image: url(../../images/slider/arrow-left.svg);
+  }
+
+  &__arrow-right {
+    background-image: url(../../images/slider/arrow-right.svg);
+  }
+
+  &__describe {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+  }
+
+  &__small {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.4em;
+  }
+}
+
+@media (max-width: $res-desktop) {
+  .slider {
+    padding: 0;
+    height: 520px;
+    width: 550px;
+  }
+}
+
+@media (max-width: $res-notebook) {
+  .slider {
+    padding: 0;
+
+    height: 400px;
+    width: 460px;
+  }
+}

@@ -1,0 +1,122 @@
+.card-features {
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  padding: 32px;
+
+  @include hover(box-shadow, 0 10px 25px rgba(0, 0, 0, 0.2));
+
+  &__order {
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    margin-bottom: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    font-size: 13px;
+    line-height: 1.5em;
+  }
+
+  $btn-height: 40px;
+
+  &__btn {
+    position: absolute;
+    width: $btn-height;
+    height: $btn-height;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 40px;
+    margin-right: 16px;
+
+    transition: width 0.3s;
+  }
+
+  &__btn-name {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 15px;
+    line-height: $btn-height;
+  }
+
+  &__bottom {
+    display: inline-block;
+    position: relative;
+    width: 143px;
+    height: $btn-height;
+    color: inherit;
+
+    &:hover {
+      .card-features__btn {
+        width: 140%;
+        justify-content: flex-end;
+      }
+
+      .card-features__arrow {
+        display: none;
+      }
+
+      .card-features__btn-name {
+        color: #fff;
+      }
+    }
+  }
+
+  @each $clr, $clr-var in $clr-list {
+    &--#{$clr} {
+      .card-features__order {
+        color: $clr-var;
+      }
+
+      .card-features__btn {
+        background-color: $clr-var;
+      }
+    }
+  }
+
+  &--blue {
+    .card-features__order {
+      background-color: rgba(86, 204, 242, 0.1);
+    }
+  }
+
+  &--yellow {
+    .card-features__order {
+      background-color: rgba(252, 201, 29, 0.1);
+    }
+  }
+
+  &--green {
+    .card-features__order {
+      background-color: rgba(252, 201, 29, 0.1);
+    }
+  }
+
+  &--red {
+    .card-features__order {
+      background-color: rgba(243, 99, 99, 0.1);
+    }
+  }
+}

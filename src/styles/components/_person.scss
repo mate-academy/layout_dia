@@ -1,0 +1,92 @@
+.person {
+  padding: 32px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @each $clr, $clr-var in $clr-list {
+    &--#{$clr} {
+      svg {
+        fill: $clr-var;
+      }
+
+      .person__oval {
+        @include oval($clr-var);
+      }
+    }
+  }
+
+  &__oval {
+    position: absolute;
+    z-index: -1;
+    width: 139px;
+    height: 59px;
+
+    &:first-child {
+      top: 20%;
+      left: 5px;
+      transition: left 0.3s;
+    }
+
+    &:last-child {
+      bottom: 20%;
+      right: 5px;
+      transition: right 0.3s;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    border-radius: 50%;
+
+    transition: border-radius, 0.3s;
+  }
+
+  &__photo {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 27px;
+
+    &:hover {
+      .person__oval {
+        &:first-child {
+          left: -15px;
+        }
+
+        &:last-child {
+          right: -15px;
+        }
+      }
+
+      .person__img {
+        border-radius: 60px;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__describe {
+    width: 250px;
+    margin: 10px 0 16px;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+  }
+
+  &__job {
+    color: #c0cdd7;
+  }
+}

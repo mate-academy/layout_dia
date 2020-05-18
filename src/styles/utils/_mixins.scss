@@ -4,3 +4,33 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin oval($clr: rgba(0,0,0,0)) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%,
+  rgba(255, 255, 255, 0) 100%),
+    $clr;
+  border-radius: 500px;
+  transform: rotate(-60deg);
+}
+
+@mixin rounding($y, $x) {
+  $round-size: 200px;
+
+  border-#{$y}-#{$x}-radius: $round-size;
+  padding-#{$y}: $round-size;
+
+  @media (max-width: $res-desktop) {
+    border-#{$y}-#{$x}-radius: $round-size * 3 / 4;
+    padding-#{$y}: $round-size * 3 / 4;
+  }
+
+  @media (max-width: $res-tablet) {
+    border-#{$y}-#{$x}-radius: $round-size / 2;
+    padding-#{$y}: $round-size / 2;
+  }
+
+  @media (max-width: $res-mobile) {
+    border-#{$y}-#{$x}-radius: $round-size / 4;
+    padding-#{$y}: $round-size / 4;
+  }
+}
