@@ -1,9 +1,10 @@
-@import "../utils";
+@use "../utils";
 
 .promo {
 
   &__content {
     @extend %flex-center;
+
     height: 100%;
 
     @media (max-width: 900px) {
@@ -32,38 +33,26 @@
   &__title {
     margin-bottom: 32px;
 
-    font-weight: 600;
-    font-size: 64px;
-    line-height: 68px;
-    letter-spacing: -2px;
-    
+    @extend %h1;    
     color: $bg-text-white;
     
-    
     @media (max-width: 900px) {
-      font-size: 42px;
-      line-height: 42px;
-      letter-spacing: 0;
+      @include font-rule($size: 42px, $height: 1);
     }
     
     @media (max-width: 320px) {
-      font-size: 24px;
-      line-height: 24px;
-      margin-bottom: 10px;
+      @include font-rule($size: 24px, $height: 1);
     }
   }
 
   &__idea {
     margin-bottom: 83px;
     
-    font-family: "Open Sans", sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 150%;
+    @include font-rule-family-weight($family: "Open Sans");
+    @include font-rule($size: 18px, $height: 1.5);
     
     color: $bg-text-white;
-    
-    
+
     @media (max-width: 900px) {
       font-size: 14px;
       margin-bottom: 30px;

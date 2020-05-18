@@ -1,9 +1,12 @@
-@import "../utils";
+@use "../utils";
 
 .slider {
   display: flex;
-  border-radius: 200px 0 0;
   overflow: hidden;
+
+  border-radius: 200px 0 0;
+  
+  @include font-rule-family-weight($family: "Open Sans");
   
   @media (max-width: 900px) {
     border-radius: 50px;
@@ -59,18 +62,15 @@
   }
 
   &__title {
-    @extend %font-poppins-normal;
-    font-size: 13px;
-    line-height: 19px;
+    @extend %title;
 
-    letter-spacing: 3px;
+    @include font-rule($size: 13px, $height: 19px, $spacing: 3px);
+
     text-transform: uppercase;
   }
-
+  
   &__text {
-    @extend %font-open-sans-normal;
-    font-size: 14px;
-    line-height: 20px;
+    @include font-rule($size: 14px, $height: 1.4);
   }
 
   &__arrows {
@@ -80,7 +80,9 @@
   &__btn {
     width: 32px;
     height: 32px;
+
     object-fit: contain;
+
     border: 1px solid $bg-text-white;
     border-radius: 50%;
   }
