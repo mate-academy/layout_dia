@@ -1,0 +1,88 @@
+@import "utils";
+
+.client-card {
+  @include client-card-color(1, $element-color-1);
+  @include client-card-color(2, $element-color-2);
+  @include client-card-color(3, $element-color-3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: (calc(#{$client-card-width} * 0.28)) 32px 32px;
+  width: $client-card-width;
+
+  background-color: $client-card-bg;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__graphic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 40%;
+      bottom: 80%;
+      z-index: -1;
+
+      width: calc(#{$client-card-width} * 0.44);
+      height: calc(#{$client-card-width} * 0.18);
+
+      border-radius: 500px;
+      transform: rotate(-60deg);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 30%;
+      top: 40%;
+      z-index: -1;
+
+      width: calc(#{$client-card-width} * 0.44);
+      height: calc(#{$client-card-width} * 0.18);
+
+      border-radius: 500px;
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__quote-sign {
+    margin: 30px 10px 5px;
+  }
+
+  &__portrait {
+    margin-bottom: calc(#{$client-card-width} * 0.2);
+    width: calc(#{$client-card-width} * 0.44);
+    height: calc(#{$client-card-width} * 0.44);
+    border-radius: 50%;
+  }
+
+  &__text {
+    margin: 0 0 15px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 150%;
+    color: $text-color-dark;
+  }
+
+  &__name {
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__position {
+    margin: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $text-color-pale;
+  }
+}
