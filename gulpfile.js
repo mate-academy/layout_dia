@@ -23,19 +23,22 @@ const jsBlob = 'src/scripts/**';
 const { series, parallel } = gulp;
 
 gulp.task('cleanDist', function() {
-  return gulp.src(distDirectory, { read: false, allowEmpty: true })
+  return gulp.src(distDirectory, {
+    read: false, allowEmpty: true,
+  })
     .pipe(clean());
 });
 
 gulp.task('processHtml', function() {
   return gulp.src(htmlBlob)
     .pipe(gulpHtmllint({
-      config: './node_modules/@mate-academy/htmllint-config/.htmllintrc',
+      config: './node_modules/@mate-academy/linthtml-config/.linthtmlrc.json',
     }, function(filepath, issues) {
       issues.forEach(function(issue) {
         const { line, column, code, msg } = issue;
+
         console.log(
-          ` ❌   ${colors.red('htmllint error')}
+          ` ❌   ${colors.red('linthtml error')}
           📁  file: ${filepath}
           🖊️ [line: ${line}, column: ${column}]: (${code}) - ${msg}`);
       });
@@ -58,9 +61,9 @@ gulp.task('lintCss', function() {
     .src(stylesBlob)
     .pipe(gulpStylelint({
       failAfterError: false,
-      reporters: [
-        { formatter: 'string', console: true },
-      ],
+      reporters: [{
+        formatter: 'string', console: true,
+      }],
       debug: true,
     }));
 });
