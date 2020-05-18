@@ -14,36 +14,15 @@
     position: relative;
     z-index: 1;
     margin: 55px 87px 111px;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
 
-      width: 139px;
-      height: 56px;
-
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: translate(-30%) rotate(-60deg) ;
-
+    &--1 {
+      @include rectangleBefore("rectangle-bg-before-1", "rectangle-radius");
     }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: -1;
-
-      width: 139px;
-      height: 56px;
-
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: translate(30%) rotate(-60deg) ;
-
+    &--2 {
+      @include rectangleBefore("rectangle-bg-before-2", "rectangle-radius");
+    }
+    &--3 {
+      @include rectangleBefore("rectangle-bg-before-3", "rectangle-radius");
     }
   }
 
@@ -61,20 +40,39 @@
     text-align: center;
 
     color: #6c788b;
+  }
+  &__description {
+    position: relative;
+    max-width: 240px;
+    margin-bottom: 16px;
 
-    &--testimonial {
-      position: relative;
-      max-width: 240px;
-      margin-bottom: 16px;
-
-      font-size: 13px;
+    font-size: 13px;
+    &--1 {
       &::before {
-        position: absolute;
-        top: -30px;
-        left: calc(50% - 11px);
-        content: url(../../images/testimonials/“.jpg);
-
+        @include theme() {
+          content: url(t('quote-1'));
+        }
       }
+    }
+    &--2 {
+      &::before {
+        @include theme() {
+          content: url(t('quote-2'));
+        }
+      }
+    }
+    &--3 {
+      &::before {
+        @include theme() {
+          content: url(t('quote-3'));
+        }
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: -30px;
+      left: calc(50% - 11px);
     }
   }
 }
