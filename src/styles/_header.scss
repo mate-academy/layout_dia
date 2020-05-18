@@ -2,8 +2,21 @@
   display: flex;
 
   height: $header-height;
+  max-width: 1600px;
+  margin: 0 auto;
 
   background-color: $highlight-color-cold;
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+    width: calc(100% - 120px);
+    max-width: 1200px;
+  }
+
   &__menu {
     display: flex;
     justify-content: space-between;
@@ -15,14 +28,21 @@
 
   &__link {
     @extend %menu-link;
-  }
+    position: relative;
 
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &::after {
+      content: "";
 
-    margin: 0 auto;
+      position: absolute;
+      bottom: 0;
+      left: 4px;
+
+      width: 67px;
+      height: 2px;
+
+      border-radius: 4px;
+      background-color: $highlight-color-warm-intense;
+    }
   }
 
   &__logo {
