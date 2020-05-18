@@ -1,0 +1,93 @@
+.review {
+  width: 314px;
+  height: 494px;
+
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 87px 32px 32px;
+
+  transition: box-shadow $transition-duration ease;
+
+  @media (max-width: 890px) {
+    margin-bottom: 30px;
+    width: 290px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46);
+  }
+
+  &__person {
+    width: 140px;
+    height: 140px;
+    z-index: 1;
+
+    display: inline-block;
+    margin-bottom: 82px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+  }
+
+  &__photo {
+    display: flex;
+    margin: auto;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 139px;
+      height: 56px;
+
+      background-color: $element-color;
+      border-radius: 12px;
+
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: -3%;
+      right: 35%;
+    }
+
+    &::after {
+      top: 40%;
+      left: 34%;
+    }
+  }
+
+  &__quotes {
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    text-align: center;
+    @include decsription;
+
+    color: #6c788b;
+    line-height: 150%;
+
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    text-align: center;
+    @include decsription;
+    color: #253757;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    text-align: center;
+    @include intro;
+  }
+}
