@@ -6,7 +6,6 @@
 
   &__container {
     position: relative;
-    max-height: 800px;
     padding: 48px 0 0 228px;
     max-width: $container-width;
     margin: 0 auto;
@@ -112,6 +111,8 @@
   }
 
   @media screen and (max-width: 1000px) {
+    border-radius: 0 0 0 100px;
+
     &__container {
       padding: 20px;
       height: 425px;
@@ -127,8 +128,13 @@
     }
 
     &__description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
       text-align: center;
-      margin: 50px auto;
       align-items: center;
     }
 
@@ -146,6 +152,12 @@
 
     &__toggler:checked + &__toggler--label::after {
       content: url(../images/toggler/x.svg);
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &__container {
+      height: 100vh;
     }
   }
 }
