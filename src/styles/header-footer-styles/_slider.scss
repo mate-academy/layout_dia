@@ -1,37 +1,37 @@
 
 .slide {
   position: relative;
-  
+  z-index: 0;
 
-  &__visible {
+  &__visible-zone {
     position: absolute;
     top: calc(-800px + #{$head_size} + 60px);//not crutch
     right: 0;
 
-    @include BGradius (200px, 0, 0, 0);
+    border-radius: 200px 0 0;
     width: 690px;
     height: 690px;
     overflow: hidden;
+    z-index: 0;
   }
 
-  &__img {
+  &__images {
     display: flex;
     width: 400%;
     height: 100%;
     transition: 1s ease-in-out ;
   }
 
-  &__img-itm {
+  &__item {
     width: 690px;
     height: 690px;
   }
 
-  &__swich-item {
-    position: absolute;
+  &__switches {
     display: none;
   }
 
-  &__arr-buttons {
+  &__buttons {
     position: relative;
 
     & :nth-child(n) {
@@ -48,20 +48,20 @@
     }
   }
 
-  &__info {
+  &__intro {
     position: absolute;
     left: 144px;
     bottom: 40px;
   }
 
-  &__info-tittle {
+  &__intro-tittle {
     @include font (bold, 13px, 19px, $head_main_color, $font-tittle);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin: 0;
   }
 
-  &__info-txt {
+  &__intro-txt {
     @include font (normal, 14px, 140%, $head_main_color, $font-text);
     width: 264px;
     margin: 0;
@@ -76,7 +76,7 @@
 
 //slide - menu
 
-.slide-side {
+.slide-menu {
   position: absolute;
   top: 50px;
   right: 10px;
@@ -94,7 +94,7 @@
 //img:
 
 @for $i from 0 to 4 {
-  #slide_swch#{$i}:checked ~ .slide__img {
+  #slide_swch#{$i}:checked ~ .slide__images {
     margin-left: -#{100% * $i};
   }
 }
@@ -102,8 +102,8 @@
 //left-arrow
 
 @for $i from 0 to 4 {
-  #slide_swch0:checked ~ .slide__arr-buttons :nth-child(4),
-  #slide_swch#{$i}:checked ~ .slide__arr-buttons :nth-child(#{$i}) {
+  #slide_swch0:checked ~ .slide__buttons :nth-child(4),
+  #slide_swch#{$i}:checked ~ .slide__buttons :nth-child(#{$i}) {
     top: -80px;
     left: 48px;
 
@@ -118,8 +118,8 @@
 //right-arrow
 
 @for $i from 0 to 4 {
-  #slide_swch3:checked ~ .slide__arr-buttons :nth-child(1),
-  #slide_swch#{$i}:checked ~ .slide__arr-buttons :nth-child(#{2+$i}) {
+  #slide_swch3:checked ~ .slide__buttons :nth-child(1),
+  #slide_swch#{$i}:checked ~ .slide__buttons :nth-child(#{2+$i}) {
     top: -80px;
     left: 88px;
     
@@ -131,24 +131,26 @@
   }
 }
 
-/*------slide-nav-------*/
-#slide-lure:checked ~ .header__lure {
-  left: -500px;
+/*------slide-switches-------*/
+#slide-navigation {
+  &:checked ~ .header__poster {
+    left: -500px;
+  }
+
+  &:checked ~ .phone-navigation {
+    left: -0;
+  }
+
+  &:checked ~ .slide-menu {
+    background-image: url(../../images/slider/menuX.svg);
+  }
 }
 
-#slide-lure:checked ~ .nav-mini {
-  left: -0;
-}
-
-#slide-lure:checked ~ .slide-side {
-  background-image: url(../../images/slider/menuX.svg);
-}
-
-/*----------------------------------------------*/
+/*------------------media----------------------------*/
 
 @media only screen and (max-width: 990px) {
 
-  .slide-side {
+  .slide-menu {
     visibility: visible;
   }
 
@@ -162,11 +164,15 @@
       right: 20px;
       bottom: 0;
     }
+
+    &__intro {
+      display: none;
+    }
   }
 
   @for $i from 0 to 4 {
-    #slide_swch0:checked ~ .slide__arr-buttons :nth-child(4),
-    #slide_swch#{$i}:checked ~ .slide__arr-buttons :nth-child(#{$i}) {
+    #slide_swch0:checked ~ .slide__buttons :nth-child(4),
+    #slide_swch#{$i}:checked ~ .slide__buttons :nth-child(#{$i}) {
       top: -80px;
       right: 60px;
       left: auto;
@@ -174,8 +180,8 @@
   }
     
   @for $i from 0 to 4 {
-    #slide_swch3:checked ~ .slide__arr-buttons :nth-child(1),
-    #slide_swch#{$i}:checked ~ .slide__arr-buttons :nth-child(#{2+$i}) {
+    #slide_swch3:checked ~ .slide__buttons :nth-child(1),
+    #slide_swch#{$i}:checked ~ .slide__buttons :nth-child(#{2+$i}) {
       top: -80px;
       right: 20px;
       left: auto;
