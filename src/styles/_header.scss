@@ -35,6 +35,7 @@
   &__logo {
     margin-right: 10%;
     transform: translateY(10px);
+    z-index: 4;
   }
 
   &__hire-us {
@@ -64,6 +65,8 @@
     @include mobile(display, block);
     justify-self: end;
     height: 100%;
+    outline: none;
+    z-index: 4;
   }
 
   &__main {
@@ -100,6 +103,7 @@
   align-items: flex-end;
   border-radius: 200px 0 0;
   @include mobile(border-radius, 100px 0 0);
+  @include mobile(display, none);
 
   &__slider {
     display: flex;
@@ -144,4 +148,41 @@
   &__info {
     margin-bottom: 40px;
   }
+}
+
+.mobile-abs {
+  position: relative;
+}
+
+.mobile-menu {
+  transition: transform 0.3s ease-in;
+
+  transform: translateY(-150vh);
+  width: 100vw;
+  height: 100vh;
+  background: red;
+  display: flex;
+  position: absolute;
+  z-index: 3;
+
+  &-nav {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    align-self: center;
+    font-size: 60px;
+  
+    &__item {
+      display: block;
+      font-size: 60px;
+    }
+  }
+
+  &__link {
+    font-size: 50px;
+  }
+}
+
+.on {
+  transform: translateY(0);
 }
