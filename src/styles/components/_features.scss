@@ -1,0 +1,109 @@
+.features {
+  max-width: 90vw;
+  min-height: 980px;
+  background-color: $header-color;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 204px 0 0 204px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 860px) {
+    padding: 10vw 5vw;
+  }
+
+  &__description {
+    max-width: 370px;
+    align-self: flex-start;
+  }
+
+  &__intro {
+    @include intro;
+    
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  &__heading {
+    @extend %h2;
+
+    color: #fff;
+    margin-bottom: 32px;
+  }
+
+  &__points {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: 264px;
+    margin-left: 98px;
+
+    @media (max-width: 860px) {
+      margin: 100px auto 10px;
+    }
+  }
+
+  &__point {
+    position: relative;
+    @include decsription;
+    font-size: 15px;
+    line-height: 150%;
+
+    
+    margin-bottom: 64px;
+
+    @media (max-width: 860px) {
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: -35%;
+
+      display: block;
+      width: 64px;
+      height: 64px;
+
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @media (max-width: 860px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -200%);
+      }
+    }
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i})::after {
+        background-image: url(../images/features/features-item-icon-#{$i}.svg);
+      }
+    }
+  }
+
+  &__photo {
+    max-width: 675px;
+    max-height: 675px;
+
+    width: 41vw;
+    height: 41vw;
+
+    align-self: flex-end;
+
+    background-image: url(../images/features/features-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-top-left-radius: 30px;
+
+    @media (max-width: 890px) {
+      display: none;
+    }
+  }
+}
