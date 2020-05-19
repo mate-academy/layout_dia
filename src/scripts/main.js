@@ -1,9 +1,9 @@
 'use strict';
 
 const images = [
-  "../images/slider/slide-img-1.jpg",
-  "../images/slider/slide-img-2.jpg",
-  "../images/slider/slide-img-3.jpg",
+  "images/slider/slide-img-1.jpg",
+  "images/slider/slide-img-2.jpg",
+  "images/slider/slide-img-3.jpg",
 ];
 let nextimage = 1;
 
