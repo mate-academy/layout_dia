@@ -1,0 +1,116 @@
+@import "utils";
+
+.approach {
+  position: relative;
+
+  min-height: 976px;
+  margin-left: 121px;
+  padding: 204px;
+
+  background-color: $button-bg;
+  border-radius: 200px 0 0 200px;
+
+  color: $header-highlite-color;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -121px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    background-color: $main-bg-color;
+  }
+
+  &__name {
+    @extend %h2;
+  }
+
+  &__headline {
+    margin-bottom: 24px;
+    max-width: 362px;
+
+    font-size: 32px;
+  }
+
+  &__types {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: 264px;
+    min-height: 404px;
+    margin-left: 98px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__text::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - #{$approach-icon-size/2});
+    left: -102px;
+
+    display: block;
+    width: $approach-icon-size;
+    height: $approach-icon-size;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: transform $transition-duration ease-in;
+  }
+
+  @for $i from 1 through 3 {
+    &__text:nth-child(#{$i})::after {
+      background-image: url(../images/features/features-item-icon-#{$i}.svg);
+    }
+  }
+
+  &__text:hover::after {
+    transform: translateY(-15px);
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    display: block;
+    max-width: 43vw;
+
+    transition: opacity 1.5s ease-in;
+
+    &:hover {
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    margin-left: 0;
+    padding: 150px 100px 100px;
+  }
+
+  @media screen and (max-width: 710px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+
+    border-radius: 100px 0 0 100px;
+
+    &__img {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@import "utils";
+
+.contacts {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 180px 150px 0 227px;
+
+  background-color: $header-footer-bg;
+  border-radius: 0 200px 0 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    background-color: #fff;
+  }
+
+  &__send-message {
+    max-width: 460px;
+  }
+
+  &__heading {
+    margin-bottom: 56px;
+
+    font-size: 32px;
+  }
+
+  &__minor-text {
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    opacity: 0.5;
+  }
+
+  &__link {
+    @extend %p;
+
+    display: block;
+    margin-bottom: 48px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 150px;
+  }
+
+  &__icon {
+    position: relative;
+    display: block;
+
+    width: $social-icon-size;
+    height: $social-icon-size;
+
+    transition: transform $transition-duration, opacity $transition-duration;
+
+    &:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+  }
+
+  &__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: $social-icon-size;
+    height: $social-icon-size;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: translate(-50%, -50%);
+  }
+
+  @for $i from 1 through 3 {
+    &__icon:nth-child(#{$i})::after {
+      background-image: url(../images/socials/social#{$i}.svg);
+    }
+  }
+
+  @media screen and (max-width: 1150px) {
+    padding: 50px;
+  }
+
+  @media screen and (max-width: 910px) {
+    flex-direction: column;
+
+    border-radius: 0 100px 0 0;
+
+    &__send-message {
+      padding-bottom: 50px;
+    }
+  }
+}

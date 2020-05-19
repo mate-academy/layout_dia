@@ -1,0 +1,124 @@
+@import "utils";
+
+.person {
+  height: 494px;
+
+  text-align: center;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+
+  background: $header-highlite-color;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  transition: transform $transition-duration,
+    background-color $transition-duration ease-in;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 1px solid $hover-header-color;
+  }
+
+  &__img {
+    position: relative;
+    z-index: 1;
+    display: block;
+
+    width: $person-img-size;
+    height: $person-img-size;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    margin: 87px auto 111px;
+  }
+
+  &__img-wrap {
+    position: relative;
+  }
+
+  &__img-wrap::after,
+  &__img-wrap::before {
+    content: "";
+    position: absolute;
+
+    display: block;
+    width: 139px;
+    height: 56px;
+
+    border-radius: 500px;
+    transform: rotate(-60deg);
+  }
+
+  &__img-wrap::after {
+    @include person-figure($number-color-first);
+    top: 0;
+    left: 30px;
+  }
+
+  &__img-wrap::before {
+    @include person-figure($number-color-first);
+    bottom: 0;
+    right: 30px;
+  }
+
+  &__img-wrap--second::after,
+  &__img-wrap--second::before {
+    background: $number-color-second;
+  }
+
+  &__img-wrap--third::after,
+  &__img-wrap--third::before {
+    background: $number-color-fourth;
+  }
+
+  &__text {
+    position: relative;
+
+    max-width: 250px;
+    margin: 0 auto 16px;
+
+    color: $text-color;
+  }
+
+  &__text::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: calc(50% - 11px);
+
+    display: block;
+    width: 21px;
+    height: 19px;
+
+    background-image: url(../images/testimonials/quotes-blue.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__text--second::after {
+    background-image: url(../images/testimonials/quotes-yellow.svg);
+  }
+
+  &__text--third::after {
+    background-image: url(../images/testimonials/quotes-red.svg);
+  }
+
+  &__link {
+    display: block;
+
+    font-size: 13px;
+    color: $headline-color;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $small-headline;
+  }
+}
