@@ -1,0 +1,122 @@
+.person {
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px;
+
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__photo {
+    width: 140px;
+    height: 140px;
+    align-self: center;
+    margin: 50px 0 110px;
+
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      @include pseudo-oval-list;
+      transform: translateX(-45px) rotate(-60deg);
+    }
+
+    &::after {
+      @include pseudo-oval-list;
+      transform: translate(-90px, 80px) rotate(-60deg);
+    }
+
+    &-blue {
+      @extend .person__photo;
+
+      &::before,
+      &::after {
+        background-color: #56ccf2;
+      }
+    }
+
+    &-yellow {
+      @extend .person__photo;
+
+      &::before,
+      &::after {
+        background-color: #fcc304;
+      }
+    }
+
+    &-red {
+      @extend .person__photo;
+
+      &::before,
+      &::after {
+        background-color: #f25656;
+      }
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+
+  &__text {
+    font-weight: 600;
+    text-align: center;
+    color: $c-text-grey;
+
+    margin-bottom: 16px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20.58px;
+      height: 18.48px;
+      left: 0;
+      right: 0;
+      top: -30px;
+      margin: auto;
+    }
+
+    &-blue {
+      @extend .person__text;
+      &::before {
+        background-image: url(../images/testimonials/blue-quotes.svg);
+      }
+    }
+
+    &-yellow {
+      @extend .person__text;
+      &::before {
+        background-image: url(../images/testimonials/yellow-quotes.svg);
+      }
+    }
+
+    &-red {
+      @extend .person__text;
+      &::before {
+        background-image: url(../images/testimonials/red-quotes.svg);
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    text-align: center;
+    color: $c-heading-grey;
+
+    margin-bottom: 4px;
+  }
+
+  &__organization {
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #c0cdd7;
+  }
+}
