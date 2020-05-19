@@ -33,6 +33,7 @@
     @media screen and (max-width: 900px) {
       flex-direction: column;
       justify-content: center;
+
       position: absolute;
       top: 0;
       left: 0;
@@ -41,8 +42,6 @@
       width: 100vw;
       height: 100vh;
       min-width: 0;
-
-      // opacity: 0.2;
 
       background-color: $highlight-color-warm;
 
@@ -64,12 +63,11 @@
       bottom: 0;
       left: 4px;
 
-      width: 67px;
+      width: calc(100% - 10px);
       height: 2px;
 
       border-radius: 4px;
       background-color: $highlight-color-warm-intense;
-      
     }
   }
 
@@ -80,20 +78,26 @@
 
     @media screen and (max-width: 900px) {
       position: absolute;
-      left: 50%;
       z-index: 3;
+      top: 40%;
+      left: 40px;
 
+      transform: scale(1.5);
       margin-right: 0;
     }
   }
 
   &__toggler {
-    width: 40px;
-    height: 32px;
+    display: none;
+    @include small-screen(900px, display, block);
+
     position: absolute;
     right: 20px;
     opacity: 0;
     z-index: 4;
+
+    width: 40px;
+    height: 32px;
 
     &:checked ~ .header__burger-menu > .header__burger-bar {
       opacity: 1;
@@ -114,15 +118,21 @@
   }
 
   &__burger-menu {
+    display: none;
+    @include small-screen(900px, display, block);
+
     position: absolute;
     right: 20px;
+
     span {
       display: block;
-      width: 33px;
-      height: 4px;
-      margin-bottom: 5px;
+
       position: relative;
       right: 10px;
+
+      margin-bottom: 5px;
+      width: 33px;
+      height: 4px;
       
       background: #fff;
       border-radius: 3px;
@@ -141,14 +151,5 @@
     span:nth-last-child(2) {
       transform-origin: 0% 100%;
     }
-
   }
 }
-
-// .header__toggler:checked ~ .header__burger-menu {
-//   span {
-//     opacity: 1;
-//     transform: rotate(45deg) translate(-2px, -1px);
-//     background: #232323;
-//   }
-// }
