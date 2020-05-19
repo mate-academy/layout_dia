@@ -3,7 +3,6 @@
 // let blueMode = localStorage.getItem('blueMode');
 
 const toggle = document.querySelector('.toggle');
-const toggleText = document.querySelector('.toggle__text');
 
 // const enableBlueMode = () => {
 //   document.body.classList.add('bluemode');
@@ -19,19 +18,12 @@ toggle.addEventListener('click', () => {
   if (document.body.classList.value === 'theme--black') {
     document.body.classList.remove('theme--black');
     document.body.classList.add('theme--blue');
-    toggleText.innerHTML = 'Black theme';
+    toggle.classList.remove('toggle--sun');
+    toggle.classList.add('toggle--moon');
   } else {
     document.body.classList.remove('theme--blue');
     document.body.classList.add('theme--black');
-    toggleText.innerHTML = 'Blue theme';
+    toggle.classList.remove('toggle--moon');
+    toggle.classList.add('toggle--sun');
   }
-
-  // if (blueMode !== 'enabled') {
-  //   enableBlueMode();
-  //   console.log(blueMode);
-  // } else {
-  //   removeBlueMode();
-
-  //   console.log(blueMode);
-  // }
 });

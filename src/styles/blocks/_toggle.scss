@@ -1,62 +1,16 @@
 .toggle {
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  display: flex;
-  align-items: center;
-
-  &__button {
-    position: relative;
-
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    @include theme() {
-      background-color: t("header-background-color");
-    }
-
-    border: 1px solid #bbc1e1;
-    border-radius: 15px;
-    outline: none;
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    transition: transform 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2),
-      background-color 0.3s ease-in-out;
-
-    &::after {
-      content: "";
-
-      position: absolute;
-
-      width: 22.5px;
-      height: 22.5px;
-      background-color: $secondary-color;
-      border-radius: 50%;
-
-      transition: transform 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2),
-        background-color 0.3s ease-in-out;
-    }
-
-    &:checked {
-      background-color: #008aff;
-      &::after {
-        transform: translateX(calc(100% + 3px));
-
-      }
-    }
+  width: 32px;
+  height: 32px;
+  order: 1;
+  @media (min-width: 1024px) {
+    order: 2;
   }
-  &__text {
-    margin-left: 0.5rem;
 
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $secondary-color;
+  &--moon {
+    background-image: url(../../images/toggle/moon.svg);
+
+  }
+  &--sun {
+    background-image: url(../../images/toggle/sun.svg);
   }
 }
