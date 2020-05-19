@@ -2,9 +2,9 @@
 
 const slider = document.querySelector('.slider');
 const images = [
-  'url(/images/slider/slide-img-1.png)',
-  'url(/images/slider/slide-img-2.png)',
-  'url(/images/slider/slide-img-3.png)'];
+  'url(images/slider/slide-img-1.png)',
+  'url(images/slider/slide-img-2.png)',
+  'url(images/slider/slide-img-3.png)'];
 let index = 0;
 
 slider.querySelector('.slider__arrow-left').onclick = function() {
