@@ -1,0 +1,176 @@
+.nav {
+  width: 100%;
+
+  &__list {
+    display: flex;
+  }
+
+  &__list--mob {
+    flex-direction: column;
+  }
+
+  &__item {
+    margin-right: 64px;
+    
+    &:last-child {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+
+      margin-right: 0;
+    }
+
+  }
+
+  &__item--mob {
+    margin-right: 0;
+    padding-bottom: 45px;
+
+    &:last-child {
+      justify-content: start;
+      flex-grow: 0;
+      padding-bottom: 0;
+    }
+
+  }
+
+  &__item--footer:last-child {
+    justify-content: flex-start;
+  }
+
+  &__link {
+    color: $main-color;
+    
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+
+    &:visited,
+    &:active {
+      color: $main-color;
+    }
+
+    &:focus,
+    &:hover {
+      color: $text-lighter;
+    }
+  }
+
+  &__order {
+    position: relative;
+    color: $main-color;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      right: 0;
+      left: 0;
+      bottom: -8px;
+      background-color: $accent-color;
+    }
+
+    &:hover {
+      color: $accent-color;
+    }
+
+  }
+
+  &__order--footer {
+    display: none;
+  }
+
+  &__mobile {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 2;
+    display: flex;
+
+    justify-content: center;
+    padding-top: 120px;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: $bg-dark;
+    
+    transform: translateX(-1000px);
+    transition: transform 0.6s ease;
+
+  }
+
+  &__mobile--open {
+    transform: translateX(0);
+  }
+
+}
+
+@media screen and (max-width: 1320px) {
+  .nav {
+  
+    &__item {
+      margin-right: 20px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .nav {
+  
+    &__link {
+      letter-spacing: 1px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .nav {
+  
+    &__header {
+      display: none;
+    }
+
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .nav {
+  
+    &__mobile {
+      display: none;
+    }
+
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .nav {
+  
+    &--footer {
+      display: none;
+    }
+
+    &__order--footer {
+      display: block;
+    }
+
+  }
+}

@@ -1,6 +1,26 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin rectangflePosition($leftstart, $leftstep) {
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      left: $leftstart;
+      $leftstart: $leftstart + $leftstep;
+    }
+  }
+}
+
+@mixin delayOdd($randommax) {
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      $delay: random($randommax) + 0s;
+      animation-delay: $delay;
+    }
+  }
+}
+
+@mixin duration($randommax) {
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      $duration: random($randommax) + 0s;
+      animation-duration: $duration + 5s;
+    }
   }
 }

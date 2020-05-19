@@ -1,0 +1,172 @@
+.services {
+  padding: 148px 0 44px;
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__caption {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    @extend %caption-text;
+    color: $caption-color;
+  }
+
+  &__title {
+    color: $text-dark;
+    margin-bottom: 24px;
+    line-height: 130%;
+  }
+
+  &__text {
+    color: $text-lighter;
+    font-size: 14px;
+    line-height: 150%;
+
+  }
+
+  &__description {
+    max-width: 362px;
+    padding-right: 20px;
+  }
+
+  &__grid {
+    max-width: 558px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  &__item {
+    position: relative;
+    width: 264px;
+    padding: 32px;
+
+    z-index: 1;
+
+    background: $main-color;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    transition: transform 0.2s ease;
+
+    &:nth-child(odd) {
+      top: 148px;
+    }
+
+    &:hover {
+      transform: translateY(-15px);
+    }
+
+  }
+
+  &__item-text {
+    margin-bottom: 28px;
+    color: $text-lighter;
+    
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__item-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+
+    background-color: $accent-color;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    
+    &::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+      mask: url(../images/what-we-do/arrow.svg);
+      background-color: $main-color;
+    }
+  }
+
+  &__item-link {
+    position: relative;
+    bottom: 10px;
+
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: $services-link;
+    transition: color 0.2s ease;
+
+    &:visited,
+    &:active {
+      color: $services-link;
+    }
+
+    &:focus,
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  &__item-range {
+    @extend %caption-text;
+    display: inline-block;
+    padding: 2px 12px;
+    margin-bottom: 26px;
+
+    letter-spacing: normal;
+    color: $accent-color;
+    background-color: $bg-lighter;
+    border-radius: 23px;
+  }
+
+}
+
+@media screen and (max-width: 980px) {
+  .services {
+    padding: 90px 0 44px;
+
+    &__flex {
+      flex-direction: column;
+    }
+
+    &__description {
+      padding-right: 0;
+      margin-bottom: 60px;
+    }
+
+    &__item:nth-child(odd) {
+      top: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 686px) {
+  .services {
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__item:nth-child(odd) {
+      top: 0;
+    }
+    
+  }
+}
