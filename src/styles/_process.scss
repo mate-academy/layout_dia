@@ -1,9 +1,8 @@
 .process {
   padding: 250px 0;
-  max-width: 340px;
 
   &__subtitle {
-    margin: 0 0 16px;
+    @include margin-width(0, 0, 16px, 227px, 127px);
 
     @extend %h3;
     line-height: 19px;
@@ -12,7 +11,7 @@
   }
 
   &__title {
-    margin: 0 0 24px;
+    @include margin-width(0, 0, 24px, 227px, 362px);
 
     @extend %h1;
     font-size: 32px;
@@ -20,10 +19,30 @@
   }
 
   &__text {
-    margin: 0 0 24px;
+    @include margin-width(0, 0, 24px, 227px, 362px);
     
     @extend %p;
     font-size: 14px;
     line-height: 150%;
+  }
+}
+
+@media screen and (max-width: $adapt-break + 100px) {
+  .process {
+    margin: 0 auto;
+
+    padding: 74px 0 60px;
+    text-align: center;
+
+    &__subtitle,
+    &__title,
+    &__text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__title {
+      margin-bottom: 40px;
+    }
   }
 }

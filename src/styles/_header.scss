@@ -1,7 +1,7 @@
 .header {
   position: relative;
   
-  padding: 48px 0 0 228px;
+  padding: 48px 0 0 20px;
   height: 800px;
   width: 100%;
 
@@ -10,14 +10,16 @@
   background-color: $b-blue;
 
   &__top {
-    max-width: 1146px;
-
     display: flex;
-    justify-content: space-between;
+    justify-content: stretch;
     align-items: center;
   }
 
   &__hire {
+    position: absolute;
+    right: 227px;
+    min-width: 70px;
+
     @extend %h3;
 
     padding: 8px 0;
@@ -32,6 +34,25 @@
     &:hover {
       box-shadow: 0 9px 18px rgba(255, 255, 255, 0.03);
       opacity: 0.7;
+    }
+  }
+}
+
+@media screen and (max-width: $adapt-break + 400px) {
+  .header {
+    &__hire {
+      right: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: $adapt-break) {
+  .header {
+    padding: 48px 20px 0;
+    
+    text-align: center;
+    &__hire {
+      display: none;
     }
   }
 }

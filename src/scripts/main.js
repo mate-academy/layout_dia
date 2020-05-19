@@ -42,9 +42,9 @@ function left() {
   setTimeout(function() {
     slides2[0].remove();
     draw();
-    document.onclick = left;
+    document.getElementById('slider-button').onclick = left;
   }, 1000);
 }
 
 draw(); draw();
-document.onclick = left;
+document.getElementById('slider-button').onclick = left;
