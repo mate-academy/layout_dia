@@ -1,0 +1,83 @@
+.slider {
+  &__slide {
+    width: 20%;
+    float: left;
+  }
+
+  &__image {
+    width: 500%;
+    line-height: 0;
+    transition: margin-left 800ms
+      cubic-bezier(0.77, 0, 0.17, 1);
+  }
+
+  &__slides-wrap {
+    width: 680px;
+    overflow: hidden;
+  }
+
+  &__active {
+    margin: 23% 0 0;
+    text-align: center;
+  }
+
+  &__active-btn {
+    border-radius: 10px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: #bbb;
+    &:hover {
+      background: #76c8ff;
+    }
+  }
+
+  &__controls {
+    margin: -50% 0 0;
+    position: relative;
+    width: 100%;
+    height: 50px;
+  }
+
+  &__control {
+    @include hover(opacity, 0.6);
+  }
+
+  &__toggler {
+    display: none;
+
+    &--1:checked ~ .slider__slides-wrap .slider__image {
+      margin-left: 0;
+    }
+      
+    &--2:checked ~ .slider__slides-wrap .slider__image {
+      margin-left: -100%;
+    }
+      
+    &--3:checked ~ .slider__slides-wrap .slider__image {
+      margin-left: -200%;
+    }
+
+    &--2:checked ~ .slider__controls .slider__control:nth-child(1),
+    &--3:checked ~ .slider__controls .slider__control:nth-child(2) {
+      background: url("../images/slider/arrow-left.svg") no-repeat center;
+      float: left;
+      display: block;
+      height: 68px;
+      width: 68px;
+    }
+    &--1:checked ~ .slider__controls .slider__control:nth-child(2),
+    &--2:checked ~ .slider__controls .slider__control:nth-child(3) {
+      background: url("../images/slider/arrow-right.svg") no-repeat center;
+      float: right;
+      display: block;
+      height: 68px;
+      width: 68px;
+    }
+    &--1:checked ~ .slider__active .slider__active-btn:nth-child(1),
+    &--2:checked ~ .slider__active .slider__active-btn:nth-child(2),
+    &--3:checked ~ .slider__active .slider__active-btn:nth-child(3) {
+      background: #18a3dd;
+    }
+  }
+}
