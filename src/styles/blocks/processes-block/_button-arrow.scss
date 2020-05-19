@@ -1,0 +1,32 @@
+@use "../utils";
+
+.button-arrow {
+  @include font-rule-family-weight($family: "Poppins", $weight: 600);
+  @include font-rule($size: 15px, $height: 1.5);
+
+  color: $secondary-darkgrey-blue;
+  background: $bg-text-white;
+  border: 0;
+
+  margin-left: 40px;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    color: $bg-text-white;
+  }
+
+  &--lightblue::before {
+    background: $colored-elements-lightblue url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
+  }
+
+  @include hover("transform", translateX(20px));
+}

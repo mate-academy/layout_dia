@@ -1,0 +1,122 @@
+@use "../utils";
+
+.person-card {
+  max-width: 314px;
+
+  padding: 87px 32px 32px;
+
+  text-align: center;
+
+  background: $bg-text-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  transition: box-shadow ;
+
+  @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.3));
+
+  
+  @media (max-width: 900px) {
+    padding: 40px 5px 5px;
+  }
+
+  &__photo {
+    margin-bottom: 110px;
+    
+    position: relative;
+    
+    z-index: 1;
+
+    
+    @media (max-width: 900px) {
+      margin-bottom: 60px;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 139px;
+      height: 56px;
+
+      border-radius: 500px;
+
+      z-index: -1;
+
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+  }
+
+  &__review {
+    @include font-rule($size: 13px, $height: 1.5);
+    
+    color: $secondary-grey-blue;
+
+    margin-bottom: 16px;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 21px;
+      top: -30px;
+      left: 50%;
+
+      transform: translateX(-50%);
+      -webkit-mask: url("../images/testimonials/quotes.svg") no-repeat 100% / 100%;
+    }
+  }
+
+  &__name-link {
+    display: block;
+
+    @extend %links-secondary;
+
+    color: $secondary-darkblue;
+
+    margin-bottom: 10px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__position {
+    @extend %h4;
+    color: $secondary-grey-white;
+  }
+
+  @each $modificator, $color in $colored-block-list {
+    &#{$modificator} &__photo::before,
+    &#{$modificator} &__photo::after {
+      background: linear-gradient(
+        180deg, rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+        $color;
+    }
+
+    &#{$modificator} &__review::before {
+      background-color: $color;
+    }
+  }
+}

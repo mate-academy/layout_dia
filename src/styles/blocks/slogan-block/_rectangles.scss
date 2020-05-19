@@ -1,0 +1,43 @@
+@use "../utils";
+
+.rectangle {
+  position: absolute;
+  transform: rotate(30deg);
+
+  opacity: 0.5;
+
+  border-radius: 500px;
+  border: 2px solid;
+
+  z-index: -1;
+
+  &--is-active {
+    transform: rotate(390deg);
+  }
+
+  
+  @include hover(transform, rotate(210deg));
+  transition: transform 1s;
+  
+  &--small {
+    @include rectangles-size($width: 2vh, $height: 6vh);
+  }
+
+  &--medium {
+    @include rectangles-size($width: 3vh, $height: 9vh);
+  }
+  
+  &--big {
+    @include rectangles-size($width: 4vh, $height: 11vh);
+  }
+  
+  &--large {
+    @include rectangles-size($width: 5vh, $height: 14vh);
+  }
+
+  @each $modificator, $top, $left, $color in $rectangles-styles-list {
+    &--#{$modificator} {
+      @include position-colored-rectangles($top, $left, $color);
+    }
+  }
+}

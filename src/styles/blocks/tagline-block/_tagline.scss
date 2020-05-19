@@ -1,0 +1,130 @@
+@use "../utils";
+
+.tagline {
+  max-width: 1600px;
+
+  margin: 0 auto 148px;
+  padding-left: 120px;
+
+  @media (max-width: 900px) {
+    padding-left: 0;
+    margin-bottom: 50px;
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    position: relative;
+
+    padding: 204px 0 204px 204px;
+
+    background: $secondary-color-scheme;
+    border-radius: 200px 0 0 200px;
+
+    @media (max-width: 900px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px 20px;
+
+      border-radius: 50px 0 0 50px;
+    }
+  }
+
+  &__picture {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 40%;
+    
+    border-radius: 200px 0 0;
+
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+  
+  &__image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 680px;
+
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 362px;
+
+    color: $bg-text-white;
+  }
+
+  &__overhead {
+    @extend %h4;
+
+    color: $secondary-grey-white;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @extend %h2;
+
+    color: $bg-text-white;
+    text-align: left;
+
+    margin-bottom: 32px;
+    
+    @media (max-width: 900px) {
+      text-align: center;
+      font-size: 26px;
+    }
+  }
+
+  &__text {
+    @include font-rule-family-weight($family: "Open Sans");
+    @include font-rule($size: 15px, $height: 1.5);
+    position: relative;
+    padding-left: 98px;
+    
+    @media (max-width: 900px) {
+      padding: 50px 0 0;
+      text-align: center;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      width: 64px;
+      height: 64px;
+
+      border-radius: 50%;
+
+      transform: translateY(-50%);
+      
+      @media (max-width: 900px) {
+        top: 10px;
+        left: 50%;
+        
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @for $i from 1 to 4 {
+      &--logo-#{$i}::before {
+        background: url("../images/features/features-item-icon-#{$i}.svg") center / 100% no-repeat;
+      }
+    }
+  }
+}

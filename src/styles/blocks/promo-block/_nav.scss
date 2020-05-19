@@ -1,0 +1,84 @@
+@use "../utils";
+
+.nav {
+
+  @media (max-width: 1000px) {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    bottom: 50%;
+    right: 0;
+    transform: translateY(-100%);
+
+    padding-top: 10px;
+
+    border-radius: 0 0 50px 50px;
+    background: $secondary-color-scheme;
+    z-index: 2;
+
+    transition: transform 0.5s;
+
+    @media (max-width: 768px) {
+      left: 0;
+      bottom: 0;
+    }
+
+    &--is-active {
+      transform: translateY(0);
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (min-width: 969px) {
+      
+      :not(:first-child) {
+        margin-left: 64px;
+      }
+    }
+    
+    @media (max-width: 1000px) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-left: 0;
+      padding: 20px 50px 60px;
+    }
+  }
+  
+  &__item {
+    
+    @media (max-width: 968px) {
+      margin: 0;
+    }
+
+    &--toggle {
+      @media (min-width: 1000px) {
+        display: none;
+      }
+
+      align-self: flex-end;
+    }
+  }
+
+  &__link {
+    @extend %links;
+    @extend %links-menu;
+    padding: 8px 0;
+
+    @include hover(color, $main-color-theme);
+    
+    @media (max-width: 1000px) {
+      font-size: 25px;
+    }
+  }
+
+  &__toggle {
+    align-self: end;
+  }
+}

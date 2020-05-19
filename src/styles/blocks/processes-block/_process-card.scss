@@ -1,0 +1,48 @@
+@use "../utils";
+
+.process-card {
+  background: $bg-text-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__number {
+    display: inline-block;
+
+    font-weight: 600;
+    @include  font-rule($size: 13px, $height: 1.5);
+
+    border-radius: 23px;
+
+    padding: 2px 12px;
+    margin-bottom: 24px;
+
+    @each $modificator, $color in $colored-block-list {
+      &#{$modificator} {
+        @include colored-item($color);
+      }
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    @include font-rule-family-weight($family: "Open Sans", $weight: 600);
+    @include  font-rule($size: 13px, $height: 1.5);
+
+    color: $secondary-grey-blue;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  &__button {
+
+    @each $modificator, $color in $colored-block-list {
+      &#{$modificator}::before {
+        background: $color url("../images/slider/arrow-btn.svg") center / 50% no-repeat;
+      }
+    }
+  }
+}
