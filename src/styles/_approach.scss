@@ -1,7 +1,20 @@
 .approach {
-  background-color: $c-orange;
+  position: relative;
   @include grid;
-  border-radius: 200px 0 0 200px;
+
+  &::after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    right: -100vw;
+    width: 200vw;
+    position: absolute;
+    background-color: $c-orange;
+    border-radius: 200px 0 0 200px;
+    z-index: -1;
+
+  }
 
   &__info {
     margin: 204px auto 140px;
@@ -43,9 +56,18 @@
   }
 
   &__img {
+    position: relative;
     grid-column: 8 / span 5;
-    @include mobile(grid-column, 1 / span 2);
-    background: url(../images/features/features-bg.jpg) left bottom no-repeat;
-    // background-size: ;
+    @include mobile(display, none);
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1000px;
+      width: 1000px;
+      bottom: 0;
+      left: 0;
+      background: url(../images/features/features-bg.jpg) left bottom no-repeat;
+    }
   }
 }
