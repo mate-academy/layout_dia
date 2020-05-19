@@ -44,8 +44,8 @@ $('.form').submit(function() {
   return false;
 });
 
-$('.nav__burger').click(function() {
-  $(this).toggleClass('nav__burger--open');
+$('.burger').click(function() {
+  $('.burger__arrow').toggleClass('burger__arrow--open');
   $('.nav__mobile').toggleClass('nav__mobile--open');
 
   return false;

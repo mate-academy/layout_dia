@@ -1,0 +1,54 @@
+.burger {
+  display: none;
+  padding: 12px 0;
+  cursor: pointer;
+  z-index: 10;
+
+  &__arrow {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 4px;
+
+    background: $main-color;
+    transition: all 0.2s ease-in-out;
+    
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      
+      background: $main-color;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    &:before {
+      top: -8px;
+    }
+    
+    &:after {
+      top: 8px;
+    }
+  }
+
+  &__arrow--open {
+    background-color: transparent;
+
+    &:before {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    
+    &:after {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+
+}
+
+@media screen and (max-width: 720px) {
+  .burger {
+    display: block;
+  }
+}
