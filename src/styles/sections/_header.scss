@@ -136,28 +136,36 @@
     }
 
     .nav__list {
-      display: none;
+      transform: translateX(-100%);
+      transition: transform $transition-time;
     }
 
     &__hire {
-      display: none;
       font-size: 18px;
       margin-top: 45px;
+      transform: translateX(-300%);
+      transition: transform $transition-time;
+    }
+
+    &__text {
+      transition: opacity $transition-time, visibility $transition-time;
+      opacity: 1;
     }
 
     &--active {
       .header {
         &__text {
           visibility: hidden;
+          opacity: 0;
         }
 
         &__hire {
-          display: flex;
+          transform: none;
         }
       }
         
       .nav__list {
-        display: flex;
+        transform: none;
       }
 
       .burger div {
