@@ -1,0 +1,67 @@
+@import "utils";
+@import "_typography";
+
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__item {
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+    scroll-snap-align: start;
+    position: relative;
+  
+    &-left::before {
+      content: "";
+      background: url(../images/slider/arrow-left.svg) center no-repeat;
+      position: absolute;
+      bottom: 66px;
+      left: 48px;
+
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: $main-color;
+    }
+  
+    &-right::before {
+      content: "";
+      background: url(../images/slider/arrow-right.svg) center no-repeat;
+      position: absolute;
+      bottom: 66px;
+      left: 88px;
+
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: $main-color;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 70px;
+    left: 144px;
+
+    color: $main-color;
+  }
+
+  &__text-title {
+    margin-bottom: 10px;
+  }
+}
