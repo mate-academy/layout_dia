@@ -1,24 +1,11 @@
 'use strict';
 
 const images = [
-  './images/slider/slide-img-1.jpg',
-  './images/slider/slide-img-2.jpg',
-  './images/slider/slide-img-3.jpg',
+  '../images/slider/slide-img-1.jpg',
+  '../images/slider/slide-img-2.jpg',
+  '../images/slider/slide-img-3.jpg',
 ];
 let nextimage = 0;
-
-doSlideshow();
-
-function doSlideshow() {
-  if (nextimage >= images.length) {
-    nextimage = 0;
-  } else if (nextimage < 0) {
-    nextimage = images.length - 1;
-  }
-
-  $('.gallery__slider')
-    .css('background-image', 'url(' + images[nextimage++] + ')');
-}
 
 $('.gallery__button-r').click(function() {
   if (nextimage >= images.length) {
@@ -27,7 +14,7 @@ $('.gallery__button-r').click(function() {
     nextimage = images.length - 1;
   }
   $('.gallery__slider')
-    .css('background-image', 'url(' + images[nextimage++] + ')');
+    .css('background-image', 'url("' + images[nextimage++] + '")');
 });
 
 $('.gallery__button-l').click(function() {
@@ -37,6 +24,6 @@ $('.gallery__button-l').click(function() {
     nextimage = images.length - 1;
   }
   $('.gallery__slider')
-    .css('background-image', 'url(' + images[nextimage--] + ')');
+    .css('background-image', 'url("' + images[nextimage--] + '")');
 });
 
