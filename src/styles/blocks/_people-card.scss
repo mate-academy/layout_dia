@@ -1,0 +1,120 @@
+.people-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 87px 34px 32px;
+
+  background-color: $second-color;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  @include hover("box-shadow", "0 30px 60px rgba(37, 41, 49, 0.03)");
+      
+  &:hover .people-card__link::before,
+  &:hover .people-card__link::after {
+    animation: rectangle 0.7s;
+  }
+
+  &__link {
+    width: 140px;
+    height: 140px;
+    position: relative;
+
+    /* stylelint-disable */
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 139px;
+      height: 56px;
+
+      position: absolute;
+      z-index: 1;
+      transform: rotate(-60deg);
+      border-radius: 500px;
+    }
+
+    &::before {
+      top: 0;
+      left: -44px;
+    }
+
+    &::after {
+      right: -44px;
+      bottom: 0;
+    }
+    /* stylelint-enable */
+  }
+
+  &__img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+
+    @include hover("transform", "scale(1.05)");
+  }
+
+  &__text {
+    position: relative;
+    margin-top: 111px;
+
+    font-family: $main-font;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    color: $main-color_semilight;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20.58px;
+      height: 18.48px;
+
+      position: absolute;
+      top: -31px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__name {
+    margin-top: 16px;
+
+    font-family: $main-font;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+    color: $main-color;
+  }
+
+  &__description {
+    margin-top: 4px;
+    
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $main-color_light;
+  }
+}
+
+@keyframes rectangle {
+  form {
+    transform: rotate(-60deg);
+  }
+
+  50% {
+    transform: rotate(-45deg);
+  }
+
+  80% {
+    transform: rotate(-70deg);
+  }
+
+  to {
+    transform: rotate(-60deg);
+  }
+}

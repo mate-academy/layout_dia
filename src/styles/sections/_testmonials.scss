@@ -1,0 +1,79 @@
+.testmonials {
+  padding: 148px 20px 168px;
+
+  &__container {
+    max-width: $content-width_small;
+    margin: 0 auto;
+  }
+
+  &__info {
+    max-width: 200px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 85px;
+  }
+
+  &__card {
+    max-width: 314px;
+
+    $colors: (
+      "1": $rectangle-color_1,
+      "2": $rectangle-color_2,
+      "3": $rectangle-color_4
+    );
+    @each $num, $col in $colors {
+      &:nth-child(#{$num}) {
+        .people-card {
+          &__text:before {
+            background: url(../images/testimonials/quotes-#{$num}.svg);
+          }
+
+          &__link::before,
+          &__link::after {
+            background-color: #{$col};
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $screen_extralarge) {
+    &__info {
+      margin: 0 auto;
+    }
+
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card {
+      &:not(:first-child) {
+        margin-top: 56px;
+      }
+
+      &:nth-child(n + 1) {
+        transform: translateX(-6vw);
+      }
+
+      &:nth-child(2n) {
+        transform: translateX(6vw);
+      }
+    }
+  }
+
+  @media (max-width: $screen_small) {
+    padding: 70px 20px 93px;
+
+    &__container {
+      max-width: 275px;
+    }
+
+    &__content {
+      margin-top: 65px;
+    }
+  }
+}
