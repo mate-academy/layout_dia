@@ -1,0 +1,116 @@
+.mobile {
+  display: none;
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__button {
+    position: absolute;
+    right: 2em;
+    top: 0;
+
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__lines {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: $c-white;
+    position: relative;
+    display: block;
+    transition: all $transition-duration ease-in-out;
+
+    &:before {
+      top: -10px;
+      visibility: visible;
+    }
+
+    &:after {
+      top: 10px;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 4px;
+      width: 35px;
+      border-radius: 2px;
+      background-color: $c-white;
+      transition: all $transition-duration ease-in-out;
+    }
+  }
+
+  &__container {
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    background: $c-air-beige;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    list-style: none;
+  }
+
+  &__item {
+    padding: 1em;
+  }
+
+  &__link {
+    color: $c-white;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked ~ .mobile__container {
+      visibility: visible;
+    }
+
+    &:checked ~ .mobile__button {
+      &:hover .mobile__lines {
+        background: transparent;
+      }
+
+      span {
+        &:before {
+          transform: rotate(45deg) translate(7px, 7px);
+          opacity: 1;
+        }
+        &:after {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: $screen-breakpoint) {
+  .mobile {
+    display: block;
+  }
+}

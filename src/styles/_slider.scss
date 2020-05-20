@@ -4,7 +4,9 @@
 
   &__img {
     border-radius: 200px 0 0;
-    object-fit: fill;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
 
   &__content {
@@ -25,6 +27,11 @@
     border-width: 0;
     background-color: #fff;
     outline: none;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__button-left {
@@ -67,5 +74,14 @@
     line-height: 140%;
 
     max-width: 264px;
+  }
+}
+
+@media screen and (max-width: $screen-breakpoint) {
+  .slider {
+
+    &__img {
+      border-radius: 200px;
+    }
   }
 }
