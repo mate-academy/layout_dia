@@ -1,0 +1,163 @@
+@keyframes e-rotate {
+  from {
+    transform: rotate(30deg);
+    transform-origin: 50% 50%;
+  }
+  25% {
+    transform-origin: 0% 0%;
+  }
+  75% {
+    transform-origin: 0% 100%;
+  }
+  to {
+    
+    transform: rotate(390deg);
+    transform-origin: 50% 50%;
+  }
+}
+
+.elips {
+  position: absolute;
+  height: 100%;
+  width: 90%;
+  z-index: 1;
+
+  &__item {
+    
+    position: absolute;
+    border-radius: 500px;
+
+    transform: rotate(30deg);
+    transform-origin: 50% 50%;
+
+    &--yellow {
+      box-shadow: 0 0 1px 4px #fcc304;
+    }
+
+    &--blue {
+      box-shadow: 0 0 1px 4px #56ccf2;
+    }
+
+    &--red {
+      box-shadow: 0 0 1px 4px #f25656;
+    }
+
+    &--big {
+      height: 160px;
+      width: 65px;
+    }
+
+    &--medium {
+      height: 120px;
+      width: 40px;
+    }
+
+    &--small {
+      height: 90px;
+      width: 30px;
+    }
+
+  }
+
+  
+}
+
+#elips1 {
+  top: 10%;
+  left: 22%;
+}
+
+#elips2 {
+  top: 15%;
+  right: 25%;
+}
+
+#elips3 {
+  bottom: 20%;
+  right: 5%;
+}
+
+#elips4 {
+  top: 25%;
+  right: 15%;
+}
+
+#elips5 {
+  bottom: 14%;
+  left: 25%;
+}
+
+#elips6 {
+  bottom: -10%;
+  right: 40%;
+}
+
+#elips7 {
+  top: 10%;
+  left: 5%;
+}
+
+#elips8 {
+  bottom: 25%;
+  left: 7%;
+}
+
+#elips9 {
+  bottom: -15%;
+  right: 10%;
+}
+
+#elips10 {
+  bottom: 5%;
+  right: 25%;
+}
+
+#e-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+}
+
+.elips__button {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+
+  height: 60px;
+  width: 165px;
+  border-radius: 500px;
+  transform: rotate(30deg);
+  transform-origin: 50% 50%;
+
+  box-shadow: 0 0 1px 5px #46dad2;
+  transition: 1s box-shadow,
+    1s animation;
+}
+
+.elips__button:hover {
+  box-shadow: 0 0 1px 5px #3df73d;
+}
+
+#e-check:checked ~ .elips__button {
+  box-shadow: 0 0 1px 5px #ce13f3;
+  animation: e-rotate 10s ease-in infinite ;
+}
+
+#e-check:checked ~ .elips__item--slow {
+  animation: e-rotate 10s ease-in infinite ;
+}
+
+#e-check:checked ~ .elips__item--fast {
+  animation: e-rotate 8s ease-in-out infinite;
+}
+
+#e-check:checked ~ .elips__item--nofast {
+  animation: e-rotate 15s cubic-bezier(0.12,1.4,0.82,-0.24) infinite;
+}
+
+@media only screen and (max-width: 400px) {
+  .elips {
+    display: none;
+  }
+}

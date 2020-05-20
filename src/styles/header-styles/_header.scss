@@ -1,0 +1,104 @@
+.header {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 50px 0;
+
+  height: $head_size;
+  max-width: $max_scr;
+
+  &__navigation {
+    position: relative;
+    margin: 0 auto;
+
+    width: calc(100% - 250px);
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: "";
+      background: url(../../images/logo/dia-logo.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+
+      position: absolute;
+      width: 45px;
+      height: 26px;
+
+    }
+  }
+
+  &__poster {
+    position: absolute;
+    width: 490px;
+    height: 355px;
+    margin: 168px 75px;
+    transition: 1s left;
+  }
+
+  &__poster-tittle {
+    @include font (600, 64px, 68px, $head_main_color, $font-tittle);
+    margin: 0 0 30px;
+  }
+
+  &__poster-text {
+    @include font (normal, 18px, 150%, $head_main_color, $font-text);
+    margin: 0 0 90px;
+  }
+
+  &__poster-button {
+    @include font (600, 15px, 22px, $head_main_color, $font-tittle);
+    padding: 13px 70px;
+  
+    background: #ff9c8e;
+  
+    border-radius: 64px;
+    border-style: none;
+    transition: $transition_long background;
+  
+    &:hover {
+      background: #ff8e9d;
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .header {
+    height: $head_size;
+    overflow: hidden;
+
+    &__navigation {
+      margin: 10px;
+      width: calc(100% - (10px * 2));
+      top: -50px;
+      overflow-x: hidden;
+    }
+
+    &__poster {
+      width: 60%;
+      height: 300px;
+      
+      margin: 0 0 0 20px;
+      z-index: 3;
+
+      left: 0;
+      top: 400px;
+    }
+
+    &__poster-tittle {
+      @include font (600, 35px, 100%, $head_main_color, $font-tittle);
+    }
+
+    &__poster-text {
+      @include font (normal, 15px, 150%, $head_main_color, $font-text);
+    }
+
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  .header__poster-button {
+    padding: 8px 40px;
+  }
+}
