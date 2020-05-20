@@ -1,0 +1,122 @@
+@import "utils";
+
+.approach {
+  position: relative;
+
+  min-height: 976px;
+  margin-left: 121px;
+  padding: 204px;
+
+  background-color: $secondary-bg-color;
+  border-radius: 200px 0 0 200px;
+
+  color: $white-color;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -121px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    background-color: $bg-color-main;
+  }
+
+  &__name {
+    @extend %h2;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    max-width: 362px;
+
+    font-size: 32px;
+  }
+
+  &__types {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    max-width: 264px;
+    min-height: 404px;
+    margin-left: 98px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__text::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - #{64px/2});
+    left: -102px;
+
+    display: block;
+    width: 64px;
+    height: 64px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: transform $transition-duration ease-in-out;
+  }
+
+  &__text:nth-child(1)::after {
+    background-image: url(../images/features/features-item-icon-1.svg);
+  }
+
+  &__text:nth-child(2)::after {
+    background-image: url(../images/features/features-item-icon-2.svg);
+  }
+
+  &__text:nth-child(3)::after {
+    background-image: url(../images/features/features-item-icon-3.svg);
+  }
+
+  &__text:hover::after {
+    transform: translateY(-20px);
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    display: block;
+    max-width: 43vw;
+
+    transition: opacity $transition-duration ease-in-out;
+
+    &:hover {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: $notebook-screen-size) {
+    margin-left: 0;
+    padding: 150px 100px 100px;
+  }
+
+  @media (max-width: $tablet-screen-size) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+
+    border-radius: 100px 0 0 100px;
+
+    &__img {
+      display: none;
+    }
+  }
+}
