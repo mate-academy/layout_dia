@@ -1,0 +1,60 @@
+@import "vars";
+
+.menu__toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+@media screen and (max-width:$small-screen-breakpoint) {
+  .menu__span,
+  .menu__span::before,
+  .menu__span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: $text-color;
+    transition-duration: $hover-duration;
+  }
+
+  .menu__span::before {
+    content: "";
+    top: -8px;
+  }
+
+  .menu__span::after {
+    content: "";
+    top: 8px;
+  }
+
+  .menu__toggle:checked ~ .menu__btn > .menu__span {
+    transform: rotate(45deg);
+  }
+
+  .menu__toggle:checked ~ .menu__btn > .menu__span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  .menu__toggle:checked ~ .menu__btn > .menu__span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  .menu__toggle:checked ~ .nav__list {
+    display: flex;
+    opacity: 1;
+  }
+
+  .menu__btn {
+    display: block;
+    position: absolute;
+    padding-top: 20px;
+    top: 25px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 3;
+  }
+}
