@@ -1,0 +1,67 @@
+.header {
+  height: 80px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: $main-blue-color;
+  z-index: 2;
+
+  @media screen and (max-width: $breakpoint-notebook) {
+    height: 80px;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    height: 60px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    @media screen and (max-width: $breakpoint-notebook) {
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    margin-right: 78px;
+
+    @media screen and (max-width: $breakpoint-notebook) {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @media screen and (max-width: $breakpoint-notebook) {
+      margin-left: 0;
+    }
+
+    &:hover {
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #ff9c8e;
+        border-radius: 4px;
+      }
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 1.5px solid $main-pink-color;
+    }
+  }
+}

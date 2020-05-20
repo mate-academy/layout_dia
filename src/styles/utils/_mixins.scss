@@ -1,6 +1,21 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $hover-transition;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin ellipses($_size, $_posX, $_posY, $_thickness, $_color) {
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: $_posY;
+    right: $_posX;
+    width: $_size;
+    height: calc(#{$_size / 2.5});
+    border: $_thickness solid $_color;
+    border-radius: 500px;
+    transform: rotate(-65deg);
   }
 }

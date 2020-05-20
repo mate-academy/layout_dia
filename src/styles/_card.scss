@@ -1,0 +1,73 @@
+.card {
+  width: 264px;
+  height: 264px;
+  box-sizing: border-box;
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: $border-radius-small;
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+    transition: transform $hover-transition;
+  }
+
+  &__number {
+    display: inline-block;
+    font-family: $first-font;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 12px;
+    border-radius: 23px;
+  }
+
+  &__text {
+    font-weight: 600;
+    color: $section-p-color;
+    margin-top: 24px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    font-family: $first-font;
+    font-size: 15px;
+    font-weight: bold;
+    color: $heading-color;
+    text-decoration: none;
+
+    &:hover {
+      .card__arrow {
+        transform: scale(1.1);
+      }
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 1px $main-pink-color;
+    }
+  }
+}
+
+$colors: ("blue": #56ccf2, "yellow": #fcc91d, "green": #15d850, "pink": #f36363);
+
+@each $color, $id in $colors {
+
+  .card--#{$color} {
+
+    .card__number {
+      color: $id;
+      background-color: rgba($id, 0.1);
+    }
+
+    .card__arrow {
+      background-color: $id;
+    }
+  }
+}
