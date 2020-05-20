@@ -1,9 +1,31 @@
 .navbar {
   display: flex;
-  &__link:not(:last-child) {
-    margin-right: 2rem;
-    @media (min-width: 1024px) {
-      margin-right: 4rem;
+  &__link {
+    &:not(:last-child) {
+      margin-right: 2rem;
+      @media (min-width: 1024px) {
+        margin-right: 4rem;
+      }
+    }
+    &::after {
+      content: "";
+      position: relative;
+      top: 8px;
+
+      display: block;
+      width: 0;
+      height: 2px;
+      border-radius: 4px;
+
+      transition: width 0.3s ease-in-out;
+      @include theme() {
+        background-color: t("link-underline");
+      }
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
