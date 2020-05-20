@@ -8,22 +8,19 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 24px;
 
-  @include hover("box-shadow", "0 20px 40px rgba(37, 41, 49, 0.1)");
+  @include hover("box-shadow", "0 30px 60px rgba(37, 41, 49, 0.03)");
+      
+  &:hover .people-card__link::before,
+  &:hover .people-card__link::after {
+    animation: rectangle 0.7s;
+  }
 
-  &__img {
+  &__link {
     width: 140px;
     height: 140px;
     position: relative;
 
-    img {
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      border-radius: 50%;
-      
-      @include hover("transform", "scale(1.03)");
-    }
-
+    /* stylelint-disable */
     &::before,
     &::after {
       content: "";
@@ -46,6 +43,16 @@
       right: -44px;
       bottom: 0;
     }
+    /* stylelint-enable */
+  }
+
+  &__img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+
+    @include hover("transform", "scale(1.05)");
   }
 
   &__text {
@@ -91,5 +98,23 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     color: $main-color_light;
+  }
+}
+
+@keyframes rectangle {
+  form {
+    transform: rotate(-60deg);
+  }
+
+  50% {
+    transform: rotate(-45deg);
+  }
+
+  80% {
+    transform: rotate(-70deg);
+  }
+
+  to {
+    transform: rotate(-60deg);
   }
 }
