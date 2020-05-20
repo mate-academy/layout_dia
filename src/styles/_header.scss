@@ -1,0 +1,163 @@
+@import "utils";
+
+.header {
+  background-color: #008aff;
+  border-radius: 0 0 0 200px;
+
+  &__container {
+    position: relative;
+    padding: 48px 0 0 228px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__toggler {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: none;
+  }
+
+  &__toggler--label {
+    width: 18px;
+    height: 12px;
+  }
+
+  &__toggler--label::after {
+    content: url(../images/toggler/burger.svg);
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 12px;
+    top: 0;
+    left: 0;
+  }
+
+  &__top-nav-mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 950px;
+    margin: 0 0 48px 123px;
+  }
+
+  &__logo {
+    position: absolute;
+    display: inline-block;
+    width: 45px;
+    height: 26px;
+    margin-right: 78px;
+  }
+
+  &__hire-us {
+    position: relative;
+
+    margin-right: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      display: block;
+
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+
+      width: 67px;
+      height: 2px;
+
+      background-color: $secondary-bg-color;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 362px;
+  }
+
+  &__slider {
+    position: relative;
+
+    max-width: 43vw;
+  }
+
+  @media (max-width: $notebook-screen-size) {
+    &__container {
+      padding-left: 100px;
+    }
+  }
+
+  @media (max-width: $notebook-screen-size) {
+    border-radius: 0 0 0 100px;
+
+    &__container {
+      padding: 20px;
+      height: 425px;
+    }
+
+    &__logo {
+      transform: scale(0.8);
+    }
+
+    &__top-nav,
+    &__slider {
+      display: none;
+    }
+
+    &__description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      text-align: center;
+      align-items: center;
+    }
+
+    &__toggler--label {
+      display: block;
+    }
+
+    &__toggler:checked ~ &__bottom {
+      display: none;
+    }
+
+    &__toggler:checked ~ &__top-nav-mobile {
+      display: block;
+    }
+
+    &__toggler:checked + &__toggler--label::after {
+      content: url(../images/toggler/x.svg);
+    }
+  }
+
+  @media (max-width: $mobile-screen-size) {
+    &__container {
+      height: 100vh;
+    }
+  }
+}
