@@ -1,0 +1,96 @@
+@import "utils";
+
+.process-card {
+  @include process-card-color(1, $element-color-1);
+  @include process-card-color(2, $element-color-2);
+  @include process-card-color(3, $element-color-3);
+  @include process-card-color(4, $element-color-4);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 32px;
+
+  width: $process-card-size;
+  height: $process-card-size;
+
+  background-color: $process-card-bg;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  @include hover(transform, scale(1.1));
+
+  &:nth-child(odd) {
+    position: relative;
+    top: 50%;
+
+    @media screen and (max-width: 900px) {
+      top: 0;
+    }
+  }
+
+  &__order {
+    @extend %small-heading;
+
+    position: relative;
+    text-align: center;
+    padding-left: 4px;
+
+    width: 46px;
+    height: 24px;
+
+    color: $text-color-dark;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 46px;
+      height: 24px;
+
+      border-radius: 23px;
+      opacity: 0.1;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    @include hover(transform, translateX(10%));
+  }
+
+  &__arrow {
+    position: relative;
+    margin-right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    &::before {
+      content: url(../images/features/Vector.png);
+      position: absolute;
+
+      width: 16px;
+      height: 16px;
+
+      top: 12px;
+      left: 12px;
+    }
+  }
+}
