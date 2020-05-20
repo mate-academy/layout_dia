@@ -1,9 +1,10 @@
 .testimonials {
-  width: 80%;
+  width: 100%;
+  padding: 10%;
+  box-sizing: border-box;
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  margin-bottom: 168px;
   &__people {
     display: flex;
     flex-direction: row;
@@ -25,38 +26,6 @@
   }
 }
 
-.person__rectangle {
-  width: 139px;
-  height: 56px;
-  background: $rectangle #56ccf2;
-  border-radius: 500px;
-  transform: $rot;
-  transition: all 0.5s ease-in-out;
-  &:hover {
-    transform: rotate(180deg);
-  }
-
-  &--top {
-    position: relative;
-    top: 50px;
-    right: 20%;
-  }
-
-  &--bottom {
-    position: relative;
-    top: -50px;
-    left: 20%;
-  }
-
-  &--middle {
-    background-color: #fcc304;
-  }
-
-  &--end {
-    background-color: #f25656;
-  }
-}
-
 .person {
   display: flex;
   flex-direction: column;
@@ -65,25 +34,53 @@
     position: relative;
     z-index: 5;
     border-radius: 50%;
+    transition: all 1s ease-in-out;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__rectangle {
+    width: 139px;
+    height: 56px;
+    background: $rectangle #56ccf2;
+    border-radius: 500px;
+    transform: $rot;
     transition: all 0.5s ease-in-out;
     &:hover {
       transform: scale(1.1);
     }
   }
 
+  &__rectangle--top {
+    position: relative;
+    top: 50px;
+    right: 20%;
+  }
+
+  &__rectangle--bottom {
+    position: relative;
+    top: -50px;
+    left: 20%;
+  }
+
+  &__rectangle--middle {
+    background-color: #fcc304;
+  }
+
+  &__rectangle--end {
+    background-color: #f25656;
+  }
+
   &__text {
-    font-family: Open Sans, Arial;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 150%;
+    @extend %testimonial;
+
     color: #6c788b;
   }
 
   &__name {
-    font-family: Open Sans, Arial;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 150%;
+    @extend %testimonial;
+
     color: #253757;
   }
 

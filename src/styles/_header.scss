@@ -4,6 +4,7 @@
   width: 100%;
   height: 700px;
   border-radius: 0 0 0 90px;
+  overflow: hidden;
 
   &__content {
     color: #fff;
@@ -17,7 +18,7 @@
 
   &__image {
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     background-image: url(../images/Photo.png);
     background-size: cover;
     box-sizing: border-box;
@@ -46,11 +47,11 @@
     font-weight: bold;
     font-size: 13px;
     letter-spacing: 3px;
-    color: #c0cdd7;
     text-transform: uppercase;
     color: #fff;
   }
 }
+
   .nav {
   &__list {
     display: flex;
@@ -71,6 +72,7 @@
     &:first-child {
       margin-left: 10%;
     }
+
     &:last-child {
       margin: 0 10%;
     }
@@ -92,36 +94,99 @@
   width: 226px;
   height: 50px;
   margin-top: 100px;
-  font-family: Poppins, Arial;
+  font-family: Poppins, Arial, sans-serif;
   font-weight: 600;
   font-size: 15px;
 }
 
-
 @media screen and (max-width: 950px) {
   .header {
+    overflow: hidden;
     &__image {
       display: none;
     }
 
     &__content {
-      top:5%;
-      left: 50%;
+      position: absolute;
+      top: 10%;
+      left: 40%;
       transform: translate(-40%);
     }
   }
 
   .nav {
-    &__list{
-      flex-wrap: wrap;
+    visibility: hidden;
+    &__list {
+      flex-direction: column;
+      position: relative;
+      height: 600px;
     }
+
     &__item {
       &:first-child {
         margin-left: 0;
       }
+
       &:last-child {
         display: none;
       }
     }
   }
+
+  .nav__menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .nav__menu > span,
+  .nav__menu > span::before,
+  .nav__menu > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+
+  .nav__menu > span::before {
+    content: "";
+    top: -8px;
+  }
+
+  .nav__menu > span::after {
+    content: "";
+    top: 8px;
+  }
+
+  #menu__toggle:checked ~ .nav__menu > span {
+    transform: rotate(45deg);
+  }
+
+  #menu__toggle:checked ~ .nav__menu > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  #menu__toggle:checked ~ .nav__menu > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  #menu__toggle:checked ~ .nav {
+    visibility: visible;
+  }
+  
+  #menu__toggle:checked ~ .header__content {
+    display: none;
+  }
+}
+
+#menu__toggle {
+  opacity: 0;
+  outline: none;
 }
