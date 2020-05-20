@@ -23,7 +23,9 @@ const jsBlob = 'src/scripts/**';
 const { series, parallel } = gulp;
 
 gulp.task('cleanDist', function() {
-  return gulp.src(distDirectory, { read: false, allowEmpty: true })
+  return gulp.src(distDirectory, {
+    read: false, allowEmpty: true,
+  })
     .pipe(clean());
 });
 
