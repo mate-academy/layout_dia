@@ -1,0 +1,105 @@
+﻿.testimonials {
+  padding: $mobile-padding;
+
+  @media (min-width: $tablet-width) {
+    padding: $tablet-padding;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 184px $desktop-horizontal-padding 168px;
+  }
+
+  &__header {
+    @extend %h2;
+    @include second-header(Testimonials);
+    margin-bottom: 85px;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+      text-align: left;
+    }
+  }
+
+  &__list {
+    @media (min-width: $tablet-width) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @extend %card;
+    width: 314px;
+    margin: 0 auto 30px;
+    padding: 87px 32px;
+    box-sizing: border-box;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+      @include hover(transform, scale(1.1));
+      margin-bottom: 0;
+      padding: 87px 16px;
+      width: 250px;
+    }
+
+    @media (min-width: $desktop-width) {
+      width: 314px;
+      padding: 87px 32px;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    margin-bottom: 82px;
+
+    &::before {
+      @extend %image-block;
+    }
+
+    &::after {
+      @extend %image-block;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__quote {
+    margin-bottom: 4px;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 21px;
+      height: 21px;
+      margin: 0 auto 11px;
+      background-image: url("../../images/testimonials/quotes.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &__text {
+    @extend %text-weight;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+
+  &__name {
+    @extend %h3;
+    line-height: 150%;
+  }
+
+  &__item-header {
+    @extend %text-bold;
+    line-height: 19px;
+    color: #c0cdd7;
+  }
+}
