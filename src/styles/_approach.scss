@@ -1,16 +1,22 @@
+@import "utils";
+
 .approach {
   margin: 0 0 100px 100px;
   padding: 200px 0 0 50px;
 
   background-color: $highlight-color-warm;
   border-radius: 150px 0 0 150px;
-
-  @include small-screen(900px, margin, 0 0 50px 0);
-  @include small-screen(900px, padding, 30px 0 20px 20px);
-  @include small-screen(900px, border-radius, 50px 0 0 50px);
-  
   overflow: hidden;
-  @include big-screen(border-radius, 150px);
+  
+  @media screen and (max-width: 900px) {
+    margin: 0 0 50px;
+    padding: 30px 0 20px 20px;
+    border-radius: 50px 0 0 50px;
+  }
+
+  @media screen and (min-width: 1601px) {
+    border-radius: 150px;
+  }
   
   &__container {
     display: flex;
@@ -27,7 +33,9 @@
     margin: 0 150px;
     width: 362px;
 
-    @include small-screen(1024px, margin, 0 30px);
+    @media screen and (max-width: 1024px) {
+      margin: 30px;
+    }
   }
 
   &__title {
@@ -70,6 +78,9 @@
     width: 680px;
 
     background-image: url(../images/what-we-do/Photo.png);
-    @include small-screen(900px, display, none);
+
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "utils";
+
 .header {
   display: flex;
 
@@ -18,8 +20,10 @@
     width: calc(100% - 120px);
     max-width: 1200px;
 
-    @include small-screen(900px, margin, 0);
-    @include small-screen(900px, width, 100%);
+    @media screen and (max-width: 900px) {
+      margin: 0;
+      width: 100%;
+    }
   }
 
   &__menu {
@@ -88,10 +92,13 @@
   }
   &__burger-menu {
     display: none;
-    @include small-screen(900px, display, block);
 
     position: absolute;
     right: 20px;
+
+    @media screen and (max-width: 900px) {
+      display: block;
+    }
 
     .header__burger-bar {
       display: block;
@@ -123,7 +130,6 @@
 
   &__toggler {
     display: none;
-    @include small-screen(900px, display, block);
 
     position: absolute;
     right: 20px;
@@ -132,6 +138,10 @@
 
     width: 40px;
     height: 32px;
+
+    @media screen and (max-width: 900px) {
+      display: block;
+    }
 
     &:checked ~ .header__burger-menu > .header__burger-bar:last-child {
       opacity: 1;

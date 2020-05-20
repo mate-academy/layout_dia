@@ -1,12 +1,18 @@
+@import "utils";
+
 .intro {
   background-color: $highlight-color-cold;
   border-radius: 0 0 0 150px;
-
   overflow: hidden;
-  @include big-screen(border-radius, 0 0 150px 150px);
 
-  @include small-screen(900px, z-index, 1);
-  @include small-screen(900px, border-radius, 0 0 0 50px);
+  @media screen and (max-width: 900px) {
+    z-index: 1;
+    border-radius: 0 0 0 50px;
+  }
+  @media screen and (min-width: 1601px) {
+    border-radius: 0 0 150px 150px;
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -22,8 +28,10 @@
     padding: 60px;
     width: 490px;
 
-    @include small-screen(400px, width, 70%);
-    @include small-screen(400px, padding, 15px);
+    @media screen and (max-width: 400px) {
+      width: 70%;
+      padding: 15px;
+    }
   }
 
   &__text {
@@ -34,7 +42,10 @@
   &__slider {
     overflow: hidden;
     border-radius: 200px 0 0;
-    @include small-screen(900px, display, none);
+
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
   }
 
   &__button {
@@ -42,6 +53,8 @@
     margin-top: 83px;
     height: 50px;
 
-    @include small-screen(400px, margin-top, 15px);
+    @media screen and (max-width: 400px) {
+      margin-top: 15px;
+    }
   }
 }
