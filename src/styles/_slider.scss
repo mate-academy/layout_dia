@@ -1,95 +1,79 @@
 .slider {
-  width: 90%;
-  height: 600px;
-  position: relative;
+  max-width: 675px;
+  max-height: 670px;
+  width: 41vw;
+  height: 40vw;
+  border-radius: $section-border-radius 0 0;
   overflow: hidden;
-  border: 5px solid black;
-  
-  &::before {
-    // content: '';
+
+  &__gallery {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    transition: 0.5s;
-  }
-
-  &__slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    top: 0;
-  }
-
-  &__item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  &__item-active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  // &__slide {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  // }
-
-  &__control {
-    position: absolute;
-    bottom: 0;
-    top: 0;
     right: 0;
+    bottom: 0;
+    display: flex;
     width: 100%;
-    height: 160px;
-    background-color: #fff;
-    z-index: 1;
-    transition: 0.5s;
-    box-shadow: 0 10 20px rgba(0,0,0,0.2);
+    height: 100%;
+    transition: transform $hover-duration ease;
   }
 
-  &:hover &__control {
-    bottom: -40px;
-    right: -40px;
+  &__photo {
+    width: 100%;
+    object-fit: cover;
   }
 
-  
-}
+  &__arrow-left {
+    position: absolute;
 
-.next,
-.prev {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  display: flex;
-  color: #262626;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+    top: 85%;
+    left: 7%;
 
-}
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/slider/arrow-left.svg);
+    background-size: contain;
+    transition: transform $hover-duration ease;
 
-.next {
-  bottom: 80px;
-  right: 0;
-}
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
-.prev {
-  bottom: 0;
-  right: 0;
+  &__arrow-right {
+    position: absolute;
 
+    top: 85%;
+    left: 15%;
+
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/slider/arrow-right.svg);
+    background-size: contain;
+    transition: transform $hover-duration ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__heading {
+
+    position: absolute;
+    top: 83%;
+    left: 25%;
+  }
+
+  &__paragraph {
+
+    position: absolute;
+    top: 87%;
+    left: 25%;
+    max-width: 264px;
+
+  }
+
+  @media screen and (max-width: $slider-screen-braakpoint) {
+    display: none;
+  }
 }
