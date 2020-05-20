@@ -1,0 +1,130 @@
+@import "utils";
+@import "_typography";
+
+.promo {
+  background-color: $main-color;
+
+  position: relative;
+
+  &__square {
+    position: absolute;
+    z-index: 0;
+
+    transition: transform 0.5s, background-color 0.5s;
+
+    &--small {
+      @include flying-square(5vw, 3vw, 1px);
+
+      &:nth-child(4) {
+        top: 10%;
+        left: 40%;
+      }
+
+      &:nth-child(5) {
+        bottom: 10%;
+        left: 25%;
+      }
+
+      &:nth-child(6) {
+        bottom: 30%;
+        right: 20%;
+      }
+
+      &:nth-child(7) {
+        bottom: 80%;
+        right: 10%;
+      }
+    }
+
+    &--medium {
+      @include flying-square(7vw, 3.5vw, 2px);
+      top: 30%;
+
+      &:nth-child(8) {
+        top: 15%;
+        left: 3%;
+      }
+
+      &:nth-child(9) {
+        top: 55%;
+        left: 3%;
+      }
+
+      &:nth-child(10) {
+        top: 75%;
+        right: 25%;
+      }
+
+      &:nth-child(11) {
+        bottom: 55%;
+        right: 5%;
+      }
+    }
+
+    &--large {
+      @include flying-square(11vw, 5vw, 3px);
+
+      &:nth-child(12) {
+        top: 70%;
+        left: 10%;
+      }
+
+      &:nth-child(13) {
+        top: 15%;
+        left: 20%;
+      }
+
+      &:nth-child(14) {
+        top: 15%;
+        right: 25%;
+      }
+
+      &:nth-child(15) {
+        bottom: 15%;
+        right: 5%;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    text-align: center;
+
+    height: 800px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+
+    color: $big-text-color;
+
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+
+    color: $small-text-color;
+
+    margin-bottom: 64px;
+  }
+
+  &__btn:hover ~ .promo__square {
+    transform: rotate(220deg);
+    background-color: $semi-color;
+    border: none;
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 1;
+  }
+}

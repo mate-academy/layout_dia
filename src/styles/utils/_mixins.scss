@@ -1,6 +1,21 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin flying-square ($_width, $_height, $_shadow-width) {
+  width: $_width;
+  height: $_height;
+  box-shadow: 0 0 40px $_shadow-width rgba(32, 96, 246, 1);
+  border-radius: 15%;
+  transform: rotate(65deg);
+}
+
+@keyframes flying-square {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
