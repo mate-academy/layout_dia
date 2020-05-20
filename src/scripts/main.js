@@ -1,12 +1,17 @@
 'use strict';
 
 const menu = document.getElementById('menu-mobile');
+const menuItems = document.getElementById('nav-list');
 const button = document.getElementById('burger-button');
 const images = document.querySelectorAll('.slider__image');
 const slider = new Slider(images);
 
 button.onclick = function() {
   menu.classList.toggle('header__top--open');
+};
+
+menuItems.onclick = function() {
+  menu.classList.remove('header__top--open');
 };
 
 document.getElementById('slider-left').onclick = function() {
