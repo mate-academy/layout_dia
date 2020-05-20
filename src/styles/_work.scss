@@ -1,20 +1,46 @@
 @import "process";
 @import "bar";
+@import "approach";
 
 .work {
   position: relative;
   width: inherit;
   max-width: $max-width;
   height: $work-height;
+  margin: 0 auto;
   background-color: $c-background;
   &__process {
     position: absolute;
     top: $work-tg;
-    left: 14vw;
+    left: $primary-gap;
   }
+
   &__bars {
     position: absolute;
-    // top: $header-mb;
-    // right: 14vw;
+    z-index: 1;
+  }
+  &__bars--top {
+    @include bar-position($bars-primary_gap, $primary-gap +300px);
+  }
+  &__bars--right {
+    @include bar-position($bars-primary_gap - 148px, $primary-gap);
+  }
+  &__bars--left {
+    @include bar-position($bars-primary_gap + 294px, $primary-gap +300px);
+  }
+  &__bars--bottom {
+    @include bar-position($bars-primary_gap + 162px, $primary-gap);
+  }
+
+  &__approach {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 986px;
+    width: 92%;
+    border-bottom-left-radius: $big-border-radius;
+    border-top-left-radius: $big-border-radius;
+    background-color: $c-orange;
+    padding: 204px 0 0 204px;
   }
 }

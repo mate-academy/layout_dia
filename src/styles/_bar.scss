@@ -2,7 +2,7 @@
   box-sizing: border-box;
   height: $bar-size;
   width: $bar-size;
-  padding: $bar-padding;
+  padding: $medium-padding;
   border-radius: $bar-radius;
   background-color: $c-white;
   &__index {
@@ -12,16 +12,27 @@
     vertical-align: center;
     border-radius: $bar-radius;
 
-    background: rgba(86, 204, 242, 0.1);
-
     font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 1.46em;
     text-transform: uppercase;
-    color: #56ccf2;
   }
+
+  &__index--red {
+    @include bar-index($c-bar_red, $c-bar_red-light);
+  }
+  &__index--green {
+    @include bar-index($c-bar_green, $c-bar_green-light);
+  }
+  &__index--yellow {
+    @include bar-index($c-bar_yellow, $c-bar_yellow-light);
+  }
+  &__index--blue {
+    @include bar-index($c-bar_blue, $c-bar_blue-light);
+  }
+
   &__text {
     max-width: 150px;
     font-family: "Open Sans", sans-serif;
@@ -33,11 +44,22 @@
 
     margin-bottom: 32px;
   }
+
   &__button {
     margin-right: 16px;
-    @include circle(40px);
-    background: url(../images/arrow.svg) no-repeat cover;
-    background-color: #56ccf2;
+    background: no-repeat cover;
+  }
+  &__button--blue {
+    @include circle-colored(40px, $c-bar_blue);
+  }
+  &__button--yellow {
+    @include circle-colored(40px, $c-bar_yellow);
+  }
+  &__button--green {
+    @include circle-colored(40px, $c-bar_green);
+  }
+  &__button--red {
+    @include circle-colored(40px, $c-bar_red);
   }
   &__arrow {
     vertical-align: middle;
@@ -45,11 +67,6 @@
     height: 16px;
   }
   &__link {
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 1.45em;
-    color: $c-text-light;
+    @include font-secondary (600, 15px, 1.45em, $c-text-light);
   }
 }
