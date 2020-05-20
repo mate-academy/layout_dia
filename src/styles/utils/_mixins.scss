@@ -1,6 +1,22 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin second-header($content) {
+  position: relative;
+
+  &::before {
+    @extend %text-bold;
+    position: absolute;
+    top: -20px;
+    content: "#{$content}";
+    color: #c0cdd7;
+
+    @media (min-width: $tablet-width) {
+      top: -36px;
+    }
   }
 }
