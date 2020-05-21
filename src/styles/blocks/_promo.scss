@@ -2,13 +2,20 @@
   position: relative;
   height: 100vh;
   max-height: 800px;
+  display: flex;
+  flex-direction: column;
+
   @include theme() {
     background-color: t("header-background-color");
     border-radius: t("header-radius");
   }
 
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  
   &__header {
-    padding-top: 8vh;
+    padding-top: 8%;
     display: flex;
     justify-content: space-between;
 
@@ -23,7 +30,7 @@
 
   &__link {
     display: none;
-    @media (min-width: 1024px) {
+    @media (min-width: 1200px) {
       display: block;
     }
 
@@ -51,12 +58,17 @@
   }
   &__highlight {
     text-align: center;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
-    @media (min-width: 850px) {
-      text-align: left;
-    }
+    margin: auto;
 
+    @media (min-width: 850px) {
+      margin: 0;
+      text-align: left;
+      padding-top: 20%;
+      max-height: 50%;
+    }
+    @media (min-width: 1500px) {
+      padding-top: 15%;
+    }
   }
 
   &__title {
@@ -67,9 +79,9 @@
   }
 
   &__text {
-    margin-bottom: 10vh;
+    margin-bottom: 5%;
     @media (min-width: 850px) {
-      max-width: 24vw;
+      max-width: 33%;
     }
     font-family: "Open Sans", sans-serif;
     font-weight: normal;
