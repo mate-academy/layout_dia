@@ -1,0 +1,67 @@
+@import "vars";
+
+%burger-menu {
+  position: absolute;
+  display: block;
+  left: 0;
+
+  width: 24px;
+  height: 3px;
+  background-color: white;
+}
+
+%forline {
+  transition: transform 0.2s ease-in 0.2s, top 0.2s linear 0.2s;
+}
+
+%foractive {
+  top: 0;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+@media screen and (max-width: $small_screen) {
+  .menu-icon {
+    display: block;
+  }
+}
+
+.menu-icon {
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+
+.menu-icon-line {
+  position: relative;
+  @extend %burger-menu;
+
+  &::after {
+    content: "";
+    top: 10px;
+    @extend %burger-menu;
+    @extend %forline;
+  }
+
+  &::before {
+    content: "";
+    top: -10px;
+    @extend %burger-menu;
+    @extend %forline;
+  }
+
+  &.menu-icon-active {
+    background-color: transparent;
+  }
+  
+  &.menu-icon-active::before {
+    transform: rotate(45deg);
+    @extend %foractive;
+  }
+  
+  &.menu-icon-active::after {
+    transform: rotate(-45deg);
+    @extend %foractive;
+  }
+}

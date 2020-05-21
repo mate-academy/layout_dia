@@ -1,0 +1,157 @@
+@import "vars";
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+
+  height: auto;
+
+  background: $primarycolor;
+  border-radius: 30px 30px 0 0;
+
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  color: #fff;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+  }
+
+  &__input {
+    margin: 30px 0;
+    padding: 17px;
+
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    animation: autofill both;
+    /*for problem with autofill*/
+    @keyframes autofill {
+      to {
+        color: inherit;
+        background: transparent;
+      }
+    }
+
+    &:focus,
+    &:active {
+      border-bottom: 2px solid $secondcolor;
+    }
+
+    &::placeholder {
+      font-family: Poppins, Arial, Helvetica, sans-serif;
+      color: $lower_section_grey;
+    }
+
+  }
+
+  &__button {
+    margin-top: 50px;
+  }
+
+  &__info {
+    width: 360px;
+  }
+
+  &__subheading {
+    display: block;
+
+    margin-top: 48px;
+    margin-bottom: 8px;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+
+    color: $lower_section_grey;
+  }
+
+  &__text {
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    width: 180px;
+  }
+
+  &__item {
+    height: 25px;
+    width: 25px;
+
+    border-radius: 5px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:nth-child(1):hover {
+      background: #39569a;
+    }
+
+    &:nth-child(2):hover {
+      background: #1c9deb;
+    }
+
+    &:nth-child(3):hover {
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,
+      #dc2743 50%,#cc2366 75%,#bc1888 100%);
+    }
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+@media screen and(max-width:$tablet_bp) {
+  .contact {
+    flex-direction: column;
+    align-items: center;
+
+    &__info {
+      width: 560px;
+    }
+
+    &__button {
+      margin: 50px auto;
+    }
+  }
+}
+
+@media screen and(max-width: $small_screen) {
+  .contact {
+
+    &__form {
+      width: 300px;
+    }
+
+    &__info {
+      width: 300px;
+    }
+  }
+
+  
+}
