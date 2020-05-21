@@ -1,18 +1,6 @@
 'use strict';
 
-// let blueMode = localStorage.getItem('blueMode');
-
 const toggle = document.querySelector('.toggle');
-
-// const enableBlueMode = () => {
-//   document.body.classList.add('bluemode');
-//   localStorage.setItem('bluemode', 'enabled');
-// };
-
-// const removeBlueMode = () => {
-//   document.body.classList.remove('bluemode');
-//   localStorage.setItem('bluemode', 'null');
-// };
 
 toggle.addEventListener('click', () => {
   if (document.body.classList.value === 'theme--black') {
