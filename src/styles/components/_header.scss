@@ -1,0 +1,266 @@
+@import "nav";
+
+.header {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 52px;
+  padding-left: 227px;
+  height: 800px;
+  background-color: $color-main-specific;
+  color: $color-main-simple;
+  border-radius: 0 0 0 200px;
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__separate {
+    margin-right: 227px;
+  }
+
+  &__link {
+    @include link-font;
+    padding: 15px;
+    position: relative;
+  }
+
+  &__link::before,
+  &__link::after {
+    position: absolute;
+    top: -2px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #354856;
+    content: "";
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  &__link::after {
+    border-color: $color-main-simple;
+    opacity: 0;
+    transition: translateY(-7px) translateX(6px);
+    -webkit-transition: translateY(-7px) translateX(6px);
+    -moz-transition: translateY(-7px) translateX(6px);
+  }
+
+  &__link:hover::before,
+  &__link:hover::before {
+    opacity: 0;
+    -webkit-transform: translateY(5px) translateX(-5px);
+    -moz-transform: translateY(5px) translateX(-5px);
+    transform: translateY(5px) translateX(-5px);
+  }
+
+  &__link:hover::after,
+  &__link:hover::after {
+    opacity: 1;
+    -webkit-transform: translateY(0) translateX(0);
+    -moz-transform: translateY(0) translateX(0);
+    transform: translateY(0)  translateX(0);
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__presentation {
+    margin-top: 100px;
+  }
+
+  &__headline {
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    font-weight: 700;
+  }
+
+  &__paragraph {
+    margin-top: 32px;
+    margin-bottom: 96px;
+  }
+
+  &__bottom__link {
+    padding: 15px 80px;
+    background-color: $color-items-bright;
+    border-radius: 64px;
+    border: 2px solid #ff9c8e;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 22px;
+    color: $color-main-simple;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+
+  &__bottom__link:hover {
+    color: $color-items-bright;
+    background-color: $color-main-simple;
+  }
+
+  &__slide {
+    position: relative;
+  }
+
+  &__picture {
+    width: 687px;
+    height: 680px;
+  }
+
+  &__picture_fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+
+    from {
+      opacity: 0.8;
+    }
+
+    to {
+      opacity: 1;
+    }
+
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.8;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    @include bg-img;
+    border-radius: 200px 0 0;
+  }
+
+  &__options {
+    display: flex;
+    align-items: center;
+    color: $color-main-simple;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    transform: translateX(10%);
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-main-simple;
+    border-radius: 32px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+
+  &__arrow_right {
+    margin-left: 8px;
+    margin-right: 24px;
+  }
+
+  &__arrow_img {
+    width: 12px;
+    height: 12px;
+  }
+
+  &__headline_small {
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__paragraph_small {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (min-width: $large-monitor) {
+  .header {
+    &__wrapper {
+      width: 1400px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    &__separate {
+      margin-right: 0;
+    }
+
+    &__bottom {
+      justify-content: space-between;
+    }
+
+    &__picture {
+      width: 600px;
+      height: 600px;
+    }
+
+    &__img {
+      border-radius: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $middle-monitor) {
+  .header {
+    padding-left: 5%;
+
+    &__separate {
+      margin-right: 5%;
+    }
+
+    &__presentation {
+      margin-top: 0;
+    }
+
+    &__picture {
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
+
+@media only screen and (max-width: $small-monitor - 50px) {
+  .header {
+
+    &__wrapper {
+      justify-content: flex-start;
+    }
+
+    &__presentation {
+      text-align: center;
+    }
+
+    &__bottom {
+      margin-top: 15%;
+      justify-content: center;
+    }
+
+    &__slide {
+      display: none;
+    }
+  }
+}

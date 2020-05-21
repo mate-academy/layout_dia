@@ -1,0 +1,152 @@
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  padding: 148px 20px 168px;
+
+  &__cards {
+    display: flex;
+    margin-top: 85px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 314px;
+    height: 494px;
+    background-color: $color-main-simple;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+  }
+
+  &__cards &__card:nth-child(even) {
+    margin: 0 102px;
+  }
+
+  &__label {
+    @include label-font;
+    color: #c0cdd7;
+  }
+
+  &__headline {
+    @include headline-font;
+    color: $color-headline-dark;
+  }
+
+  &__picture {
+    position: relative;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    margin-top: 87px;
+    margin-bottom: 82px;
+  }
+
+  &__picture::before,
+  &__picture::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    width: 139px;
+    height: 56px;
+    border-radius: 500px;
+    transform: rotate(-60deg);
+  }
+
+  &__picture::before {
+    left: -35%;
+    top: 0;
+    transition: left 0.2s;
+  }
+
+  &__picture::after {
+    right: -35%;
+    bottom: 0;
+    transition: right 0.2s;
+  }
+
+  &__picture_blue::before,
+  &__picture_blue::after {
+    background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.25) 0%, 
+    rgba(255, 255, 255, 0) 100%) #56ccf2;
+  }
+
+  &__picture_yellow::before,
+  &__picture_yellow::after {
+    background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.25) 0%, 
+    rgba(255, 255, 255, 0) 100%) #fcc304;
+  }
+
+  &__picture_red::before,
+  &__picture_red::after {
+    background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.25) 0%, 
+    rgba(255, 255, 255, 0) 100%) #f25656;
+  }
+
+  &__picture:hover::before {
+    left: -45%;
+  }
+  &__picture:hover::after {
+    right: -45%;
+  }
+
+  &__img {
+    @include bg-img;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+
+  &__picture:hover &__img {
+    transform: scale(1.1);
+  }
+
+  &__sign {
+    margin-bottom: 10px;
+  }
+
+  &__sign_img {
+    width: 21px;
+    height: 19px;
+  }
+
+  &__description {
+    width: 250px;
+    @include paragraph-font;
+    color: $color-paragraph-dark;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    @include paragraph-font;
+    color: $color-headline-dark;
+    margin-bottom: 4px;
+  }
+
+  &__profession {
+    @include label-font;
+    color: #c0cdd7;
+  }
+}
+
+@media only screen and (max-width: $middle-monitor - 150px) {
+  .testimonials {
+    &__cards {
+      flex-direction: column;
+    }
+
+    &__cards &__card:nth-child(even) {
+      margin: 50px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-res-small) {
+  .testimonials {
+    text-align: center;
+  }
+}
