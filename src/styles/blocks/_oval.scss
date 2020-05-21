@@ -1,0 +1,42 @@
+.oval {
+  position: absolute;
+  z-index: -1;
+
+  opacity: 0.5;
+  border: 3px solid;
+  border-radius: 500px;
+  transform: rotate(-65.1deg);
+
+  &-large {
+    @extend .oval;
+    width: 8.9vw;
+    height: 5.2vh;
+  }
+
+  &-medium {
+    @extend .oval;
+    width: 5.3vw;
+    height: 3.1vh;
+  }
+
+  &-small {
+    @extend .oval;
+    width: 4.2vw;
+    height: 2.5vh;
+  }
+
+  &-tiny {
+    @extend .oval;
+    width: 2.8vw;
+    height: 1.6vh;
+  }
+
+  @each $modifier, $top, $left, $border-color in $ovals-list {
+    &_#{$modifier} {
+      top: $top;
+      left: $left;
+      border-color: $border-color;
+    }
+  }
+
+}
