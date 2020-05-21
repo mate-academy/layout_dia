@@ -1,0 +1,126 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__link {
+    color: #fff;
+    &:hover {
+      text-shadow: #fff 0 0 5px,
+        #fff 0 0 10px,
+        #fff 0 0 15px,
+        #ff2d95 0 0 20px,
+        #ff2d95 0 0 30px,
+        #ff2d95 0 0 40px,
+        #ff2d95 0 0 50px,
+        #ff2d95 0 0 75px,
+        -13px -15px 20px rgba(255,204,228,0.05);
+    }
+  }
+
+  &__item {
+    &:first-child {
+      margin-left: 10%;
+    }
+
+    &:last-child {
+      margin: 0 10%;
+    }
+  }
+}
+
+#menu__toggle {
+  opacity: 0;
+  outline: none;
+}
+
+
+@media screen and (max-width: 950px) {
+  .nav {
+    visibility: hidden;
+    &__list {
+      flex-direction: column;
+      position: relative;
+      height: 600px;
+    }
+
+    &__item {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    &__menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    &__menu > .toggle,
+    &__menu > .toggle::before,
+    &__menu > .toggle::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background-color: #fff;
+    }
+
+    &__menu > .toggle::before {
+      content: "";
+      top: -8px;
+    }
+
+    &__menu > .toggle::after {
+      content: "";
+      top: 8px;
+    }
+  }
+
+  #menu__toggle {
+    &:checked ~ .nav__menu > .toggle {
+      transform: rotate(45deg);
+    }
+
+    &:checked ~ .nav__menu > .toggle::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &:checked ~ .nav__menu > .toggle::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &:checked ~ .nav {
+      visibility: visible;
+    }
+
+    &:checked ~ .header__content {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .nav {
+    width: 1400px;
+    margin: auto;
+  }
+}
