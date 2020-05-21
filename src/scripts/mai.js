@@ -1,3 +1,4 @@
+// eslint-disable-next-line strict
 let btnRight = document.querySelector(".header__button");
 let slides = document.querySelectorAll(".header__img");
 
@@ -6,6 +7,7 @@ let i = 0;
 btnRight.addEventListener("click", function () {
 
   ++i
+
   if (i >= slides.length) {
     slides[i-1].classList.remove("block");
 
@@ -13,7 +15,7 @@ btnRight.addEventListener("click", function () {
     slides[i].classList.add("block");
 
   } else {
-    slides[i-1].classList.remove("block");
+    slides[i - 1].classList.remove("block");
     slides[i].classList.add("block");
   }
 });
