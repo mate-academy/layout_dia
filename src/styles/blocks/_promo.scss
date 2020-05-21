@@ -1,0 +1,98 @@
+.promo {
+  position: relative;
+  height: 100vh;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+
+  @include theme() {
+    background-color: t("header-background-color");
+    border-radius: t("header-radius");
+  }
+
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  
+  &__header {
+    padding-top: 8%;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &__navigation {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__link {
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      top: 8px;
+
+      display: block;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      @include theme() {
+        background-color: t("link-underline");
+      }
+    }
+  }
+
+  &__hamburger {
+    order: 2;
+
+    cursor: pointer;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  &__highlight {
+    text-align: center;
+    margin: auto;
+
+    @media (min-width: 850px) {
+      margin: 0;
+      text-align: left;
+      padding-top: 20%;
+      max-height: 50%;
+    }
+    @media (min-width: 1500px) {
+      padding-top: 15%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    @media (min-width: 850px) {
+      max-width: 15vw;
+    }
+  }
+
+  &__text {
+    margin-bottom: 5%;
+    @media (min-width: 850px) {
+      max-width: 33%;
+    }
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: $secondary-color;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 226px;
+    height: 50px;
+  }
+}

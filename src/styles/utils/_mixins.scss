@@ -1,6 +1,75 @@
+@import "../theme";
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.3s ease-in-out;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$_property}: ($_toValue);
+  }
+}
+
+@mixin theme() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin rectangle($recWidth, $recHeight, $borderWidth,
+$borderColor, $ovalRadius) {
+  width: $recWidth;
+  height: $recHeight;
+
+  @include theme() {
+    border: $borderWidth solid t($borderColor);
+    border-radius: t($ovalRadius);
+  }
+
+}
+
+@mixin rectangleBefore($bg-color, $radius) {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 139px;
+    height: 56px;
+
+    @include theme() {
+      background: t($bg-color);
+      border-radius: t($radius);
+    }
+    transform: translate(-30%) rotate(-60deg) ;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    width: 139px;
+    height: 56px;
+
+    @include theme() {
+      background: t($bg-color);
+      border-radius: t($radius);
+    }
+    transform: translate(30%) rotate(-60deg) ;
   }
 }

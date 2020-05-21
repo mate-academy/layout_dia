@@ -1,0 +1,85 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+
+  @include hover(box-shadow, 0 3px 6px rgba(0, 0, 0, 0.5));
+  &--testimonial {
+    padding: 2rem;
+
+    background-color: $secondary-color;
+    border-radius: 1rem;
+
+    text-align: center;
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 1;
+    margin: 3.5rem 3.5rem 5rem;
+
+    &--first {
+      @include rectangleBefore("rectangle-bg-before-1", "rectangle-radius");
+    }
+    &--second {
+      @include rectangleBefore("rectangle-bg-before-2", "rectangle-radius");
+    }
+    &--third {
+      @include rectangleBefore("rectangle-bg-before-3", "rectangle-radius");
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 184px;
+    height: 166px;
+    border-radius: 1.5rem;
+    &--testimonial {
+      border-radius: 50%;
+    }
+  }
+  &__text {
+
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    color: $paragraph-clr;
+  }
+  &__description {
+    position: relative;
+    margin-bottom: 16px;
+    @media (min-width: 768px) {
+      max-width: 240px;
+    }
+    font-size: 13px;
+    &--first {
+      &::before {
+        @include theme() {
+          content: url(t('quote-1'));
+        }
+      }
+    }
+    &--second {
+      &::before {
+        @include theme() {
+          content: url(t('quote-2'));
+        }
+      }
+    }
+    &--third {
+      &::before {
+        @include theme() {
+          content: url(t('quote-3'));
+        }
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: -30px;
+      left: calc(50% - 11px);
+    }
+  }
+}

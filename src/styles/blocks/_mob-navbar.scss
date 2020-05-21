@@ -1,0 +1,51 @@
+.mob-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include theme() {
+    background-color: t("header-background-color");
+  }
+  width: 100%;
+  height: 100vh;
+
+  z-index: -1;
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
+  &--active {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  &__header {
+    position: absolute;
+    top: 8vh;
+
+    width: 87.5%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cross {
+    height: 18px;
+    width: 18px;
+
+    background: url(../../images/cross/cross.svg) no-repeat center;
+
+    cursor: pointer;
+
+    @include hover (transform, rotate(180deg));
+  }
+
+  &__list {
+    text-align: center;
+  }
+  &__item {
+    margin-top: 8vh;
+  }
+}
