@@ -8,8 +8,8 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-document.querySelctor('.header__picture').onclick = () => plusSlides(-1);
-document.querySelctor('.header__picture').onclick = () => plusSlides(1);
+document.querySelector('.header__sorrow_left').onclick = () => plusSlides(-1);
+document.querySelector('.header__sorrow_right').onclick = () => plusSlides(1);
 
 function showSlides(n) {
   let i;
