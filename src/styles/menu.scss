@@ -1,0 +1,67 @@
+@import "vars";
+
+.menu {
+  position: absolute;
+  opacity: 0;
+
+  @media screen and (max-width: $small-screen-breakpoint) {
+    &__span {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: $text-color;
+      transition-duration: $hover-duration;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: -8px;
+        width: 100%;
+        height: 4px;
+        background-color: $text-color;
+        transition-duration: $hover-duration;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 8px;
+        width: 100%;
+        height: 4px;
+        background-color: $text-color;
+        transition-duration: $hover-duration;
+      }
+    }
+  }
+
+  &:checked ~ &__btn > &__span {
+    transform: rotate(45deg);
+
+    &::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  &:checked ~ .nav__list {
+    display: flex;
+    opacity: 1;
+  }
+
+  &__btn {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    padding-top: 20px;
+    top: 25px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+  }
+}
