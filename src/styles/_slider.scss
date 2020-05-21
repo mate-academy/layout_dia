@@ -1,0 +1,112 @@
+.slider {
+  position: relative;
+  height: 70vh;
+
+  &__container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__titles {
+    display: none;
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+
+    &--showed {
+      opacity: 1;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 4;
+  }
+
+  &__button {
+    width: 75px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    
+    background-image: url(../images/slider/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 100px;
+    outline: none;
+
+    &:last-of-type {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .slider {
+    position: absolute;
+    right: 0;
+    top: 78px;
+    width: 592px;
+    height: 592px;
+    border-radius: 30px 0;
+
+    &__image {
+      width: 592px;
+      height: 592px;
+      border-radius: 30px 0;
+    }
+
+    &__titles {
+      display: block;
+      position: absolute;
+      left: 144px;
+      bottom: 48px;
+      color: #fff;
+    }
+
+    &__title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      max-width: 264px;
+    }
+
+    &__buttons {
+      width: 72px;
+      top: initial;
+      left: 48px;
+      bottom: 58px;
+    }
+
+    &__button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-size: 6px 12px;
+      background-color: #000;
+      filter: invert(1);
+      transition: 0.3s;
+
+      &:hover {
+        filter: invert(0);
+      }
+    }
+  }
+}
