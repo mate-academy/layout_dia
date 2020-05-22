@@ -5,38 +5,25 @@
   }
 }
 
-@mixin mobile($_property, $_toValue) {
-  @include media("<tablet") {
-    #{$_property}: $_toValue;
-  }
-}
-
-@mixin desktop($_property, $_toValue) {
-  @include media(">=tablet", "<desktop") {
-    #{$_property}: $_toValue;
-  }
-}
-
 @mixin max-width {
   max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
 }
 
-@mixin side-padding($desk, $tabl, $mob) {
-  padding: 0 $desk;
-  @include desktop(padding, 0 $tabl);
-  @include mobile(padding, 0 $mob);
-  box-sizing: border-box;
-}
-
 @mixin grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(37px,69px));
   column-gap: 30px;
-  @include desktop(column-gap, 20px);
-  @include mobile(column-gap, 30px);
-  @include mobile(grid-template-columns, repeat(2, minmax(125px, 375px)));
   margin-right: 20px;
   margin-left: 20px;
+
+  @include media(">=tablet", "<desktop") {
+    column-gap: 20px;
+  }
+
+  @include media("<tablet") {
+    column-gap: 30px;
+    grid-template-columns: repeat(2, minmax(125px, 375px));
+  }
 }

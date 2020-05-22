@@ -13,23 +13,31 @@
     width: 100vw;
     background-color: $c-background-blue;
     border-radius: 0 0 0 200px;
-    @include mobile(border-radius, 0);
+
+    @include media("<tablet") {
+      border-radius: 0;
+    }
   }
 
   &__top {
     grid-column: 1 / span 12;
-    @include mobile(grid-column, 1 / span 2);
-    @include grid;
     margin-top: 52px;
     margin-bottom: 48px;
+
+    @include grid;
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
   }
 
   &__logo-nav {
     grid-column: 1 / span 11;
-    @include mobile(grid-column, 1 / span 1);
-
     display: flex;
     flex-direction: row;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 1;
+    }
   }
 
   &__logo {
@@ -40,13 +48,18 @@
 
   &__hire-us {
     grid-column: 12 / span 2;
-    @include desktop(grid-column, 12/ span 3);
-    @include mobile(grid-column, 2 / span 1);
-    @include mobile(display, none);
-
     justify-self: end;
     width: fit-content;
     position: relative;
+
+    @include media("<tablet") {
+      grid-column: 2 / span 1;
+      display: none;
+    }
+
+    @include media(">=tablet", "<desktop") {
+      grid-column: 12/ span 3;
+    }
 
     &::before {
       content: "";
@@ -61,13 +74,16 @@
 
   &__hamburger {
     display: none;
-    @include mobile(grid-column, 2 / span 1);
-    @include mobile(display, block);
     justify-self: end;
     height: 100%;
     outline: none;
     z-index: 4;
     margin-top: 5px;
+
+    @include media("<tablet") {
+      grid-column: 2 / span 1;
+      display: block;
+    }
   }
 
   &__main {
@@ -76,35 +92,46 @@
 
   &__info {
     grid-column: 1 / span 6;
-    @include mobile(grid-column, 1 / span 2);
     max-width: 490px;
     display: flex;
     align-items: center;
 
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+
     &-wrap {
       margin-top: 20%;
-      @include mobile(margin-top, 0);
+
+      @include media("<tablet") {
+        margin-top: 0;
+      }
     }
   }
 
   &__button {
     margin-top: 83px;
     margin-bottom: 183px;
-    @include mobile(margin-bottom, 83px);
 
+    @include media("<tablet") {
+      margin-bottom: 83px;
+    }
   }
 }
 
 .gallery {
   grid-column: 8 / span 6;
-  @include mobile(grid-column, 1 / span 2);
   min-height: 400px;
   position: relative;
   display: flex;
   align-items: flex-end;
   border-radius: 200px 0 0;
-  @include mobile(border-radius, 100px 0 0);
-  @include mobile(display, none);
+
+  @include media("<tablet") {
+    grid-column: 1 / span 2;
+    border-radius: 100px 0 0;
+    display: none;
+  }
 
   &__slider {
     display: flex;
@@ -113,11 +140,14 @@
     top: 0;
     bottom: 0;
     left: 0;
-    @include mobile(left, -20px);
     width: 800px;
     background: url(../images/slider/slide-img-1.jpg) bottom left no-repeat;
     border-radius: 200px 0 0;
     transition: background 0.3s linear;
+
+    @include media("<tablet") {
+      left: -20px;
+    }
   }
 
   &__buttons {
@@ -126,7 +156,6 @@
     margin: 0 24px 66px 40px;
   }
   &__button {
-    @extend %link;
     width: 32px;
     height: 32px;
     background: $c-white;
