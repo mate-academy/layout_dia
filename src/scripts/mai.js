@@ -9,14 +9,14 @@ btnRight.addEventListener("click", function () {
   ++i
 
   if (i >= slides.length) {
-    slides[i-1].classList.remove("block");
+    slides[i - 1].classList.remove("header__img--active");
 
     i = 0;
-    slides[i].classList.add("block");
+    slides[i].classList.add("header__img--active");
 
   } else {
-    slides[i - 1].classList.remove("block");
-    slides[i].classList.add("block");
+    slides[i - 1].classList.remove("header__img--active");
+    slides[i].classList.add("header__img--active");
   }
 });
 
