@@ -1,0 +1,79 @@
+.approach {
+  position: relative;
+  @include grid;
+
+  &::after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    right: -100vw;
+    width: 200vw;
+    position: absolute;
+    background-color: $c-orange;
+    border-radius: 200px 0 0 200px;
+    z-index: -1;
+
+  }
+
+  &__info {
+    margin: 204px auto 140px;
+    grid-column: 2 / span 4;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 64px;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-color: $c-white;
+    border-radius: 50%;
+    margin-right: 34px;
+
+    &--1 {
+      background: url(../images/features/features-item-icon-1.svg) center no-repeat;
+    }
+
+    &--2 {
+      background: url(../images/features/features-item-icon-2.svg) center no-repeat;
+    }
+
+    &--3 {
+      background: url(../images/features/features-item-icon-3.svg) center no-repeat;
+    }
+  }
+
+  &__text {
+    max-width: 265px;
+    margin-left: 80px;
+  }
+
+  &__img {
+    position: relative;
+    grid-column: 8 / span 5;
+
+    @include media("<tablet") {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1000px;
+      width: 1000px;
+      bottom: 0;
+      left: 0;
+      background: url(../images/features/features-bg.jpg) left bottom no-repeat;
+    }
+  }
+}

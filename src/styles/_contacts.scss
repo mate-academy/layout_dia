@@ -1,0 +1,111 @@
+.contacts {
+  padding-top: 180px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -100vw;
+    width: 100vw;
+    background-color: $c-white;
+
+    @include media("<tablet") {
+      border-radius: 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -100vw;
+    width: 100vw;
+    background-color: $c-background-blue;
+    border-radius: 200px 0 0;
+
+    @include media("<tablet") {
+      border-radius: 0;
+    }
+  }
+
+  &__wrapper {
+    @include max-width;
+    @include grid;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
+
+  &__main {
+    grid-column: 1 / span 5;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  &__info {
+    grid-column: 8 / span 5;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+
+    &-main {
+      margin-top: 56px;
+    }
+  }
+
+  &__button {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    margin-top: 8px;
+    margin-bottom: 48px;
+  }
+
+  &__socials {
+    margin-top: 20px;
+    display: flex;
+
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+    margin-right: 36px;
+
+    &--facebook {
+      background: url("../images/contacts/f.svg") center no-repeat;
+      @include hover(background, url("../images/contacts/f-hover.svg") center no-repeat);
+    }
+
+    &--twitter {
+      background: url("../images/contacts/t.svg") center no-repeat;
+      @include hover(background, url("../images/contacts/t-hover.svg") center no-repeat);
+    }
+
+    &--instagram {
+      background: url("../images/contacts/i.svg") center no-repeat;
+      @include hover(background, url("../images/contacts/i-hover.svg") center no-repeat);
+    }
+  }
+}

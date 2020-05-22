@@ -1,0 +1,215 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: $c-background-blue;
+    border-radius: 0 0 0 200px;
+
+    @include media("<tablet") {
+      border-radius: 0;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / span 12;
+    margin-top: 52px;
+    margin-bottom: 48px;
+
+    @include grid;
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__logo-nav {
+    grid-column: 1 / span 11;
+    display: flex;
+    flex-direction: row;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 1;
+    }
+  }
+
+  &__logo {
+    margin-right: 10%;
+    transform: translateY(10px);
+    z-index: 4;
+  }
+
+  &__hire-us {
+    grid-column: 12 / span 2;
+    justify-self: end;
+    width: fit-content;
+    position: relative;
+
+    @include media("<tablet") {
+      grid-column: 2 / span 1;
+      display: none;
+    }
+
+    @include media(">=tablet", "<desktop") {
+      grid-column: 12/ span 3;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background: $c-orange;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+    justify-self: end;
+    height: 100%;
+    outline: none;
+    z-index: 4;
+    margin-top: 5px;
+
+    @include media("<tablet") {
+      grid-column: 2 / span 1;
+      display: block;
+    }
+  }
+
+  &__main {
+    @include grid;
+  }
+
+  &__info {
+    grid-column: 1 / span 6;
+    max-width: 490px;
+    display: flex;
+    align-items: center;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+
+    &-wrap {
+      margin-top: 20%;
+
+      @include media("<tablet") {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 83px;
+    margin-bottom: 183px;
+
+    @include media("<tablet") {
+      margin-bottom: 83px;
+    }
+  }
+}
+
+.gallery {
+  grid-column: 8 / span 6;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 200px 0 0;
+
+  @include media("<tablet") {
+    grid-column: 1 / span 2;
+    border-radius: 100px 0 0;
+    display: none;
+  }
+
+  &__slider {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 800px;
+    background: url(../images/slider/slide-img-1.jpg) bottom left no-repeat;
+    border-radius: 200px 0 0;
+    transition: background 0.3s linear;
+
+    @include media("<tablet") {
+      left: -20px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 0 24px 66px 40px;
+  }
+  &__button {
+    width: 32px;
+    height: 32px;
+    background: $c-white;
+    border-radius: 50%;
+    margin-left: 8px;
+
+    &-l {
+      background: white url(../images/slider/arrow-left.svg) center no-repeat;
+      background-size: 5px;
+
+    }
+
+    &-r {
+      background: white url(../images/slider/arrow-right.svg) center no-repeat;
+      background-size: 5px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 40px;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.mobile-menu {
+  transition: transform 0.3s ease-in;
+
+  transform: translateY(-151vh);
+  width: 100vw;
+  height: 100vh;
+  background: $c-numbers-yellow;
+  display: flex;
+  position: absolute;
+  z-index: 3;
+}
+
+.on {
+  transform: translateY(0);
+}
+
+.mobile-nav {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  align-self: center;
+
+  &__item {
+    display: block;
+  }
+
+  &__link {
+    font-size: 40px;
+  }
+}

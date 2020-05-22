@@ -1,0 +1,44 @@
+.footer {
+  @include max-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    background-color: $c-background-blue;
+  }
+
+  &__top {
+    @include grid;
+    background: $c-background-blue;
+    padding: 84px 0;
+  }
+
+  &__info {
+    grid-column: 1 / span 12;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__logo {
+    transform: translateY(10px);
+  }
+
+  &__nav {
+    // margin: 84px;
+    background: $c-background-blue;
+  }
+}

@@ -1,0 +1,112 @@
+.process {
+  margin-top: 148px;
+  @include grid;
+  z-index: 2;
+
+  &__info {
+    grid-column: 1 / span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__left {
+    margin-top: 30px;
+    grid-column: 7 / span 3;
+    transform: translateY(102px);
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+      transform: translateY(0);
+    }
+
+    @include media(">=tablet", "<desktop") {
+      grid-column: 5 / span 4;
+    }
+  }
+
+  &__right {
+    grid-column: 10 / span 3;
+
+    @include media("<tablet") {
+      grid-column: 1 / span 2;
+    }
+    
+    @include media(">=tablet", "<desktop") {
+      grid-column: 9 / span 4;
+    }
+  }
+
+  &__item {
+    background: $c-white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 24px;
+    padding: 32px;
+    margin: 0 auto 30px;
+
+    @include media("<tablet") {
+      justify-self: center;
+      width: 200px;
+    }
+  }
+
+  &__num {
+    border-radius: 23px;
+    width: 46px;
+    text-align: center;
+    margin-bottom: 24px;
+
+    &--blue {
+      background: #{$c-numbers-blue + "0f"};
+    }
+
+    &--yellow {
+      background: #{$c-numbers-yellow + "0f"};
+    }
+
+    &--green {
+      background: #{$c-numbers-green + "0f"};
+    }
+
+    &--red {
+      background: #{$c-numbers-red + "0f"};
+    }
+  }
+
+  &__arrow {
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background: url("../images/expertise/arrow.svg") center no-repeat;
+
+    &--blue {
+      background-color: $c-numbers-blue;
+    }
+
+    &--yellow {
+      background-color: $c-numbers-yellow;
+    }
+
+    &--green {
+      background-color: $c-numbers-green;
+    }
+
+    &--red {
+      background-color: $c-numbers-red;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    border-radius: 40px;
+    @include hover(background, rgb(220, 231, 255));
+    @include hover(transform, scale(1.2));
+  }
+}
