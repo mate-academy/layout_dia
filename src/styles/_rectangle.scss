@@ -1,0 +1,30 @@
+.rectangle {
+  position: absolute;
+  transform: rotate(30deg);
+  border-radius: $big-border-radius;
+  border: 1px solid;
+  &--size-small {
+    @include rectangle-size(2vh, 6vh);
+  }
+
+  &--size-medium {
+    @include rectangle-size(3vh, 9vh);
+  }
+
+  &--size-big {
+    @include rectangle-size(4vh, 11vh);
+  }
+
+  &--size-large {
+    @include rectangle-size(5vh, 14vh);
+  }
+
+  // &--pos1 {
+  //   @include rectangle-position-color(10%, 20%, $c-orange);
+  // }
+  @each $modifier, $top, $left, $color in $rectangle-position-color-list {
+    &--#{$modifier} {
+      @include rectangle-position-color($top, $left, $color);
+    }
+  }
+}
