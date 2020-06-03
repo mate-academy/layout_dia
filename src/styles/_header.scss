@@ -1,0 +1,127 @@
+.header {
+  background-color: $color-bg;
+  padding-top: 50px;
+  margin-bottom: 140px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  &__container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 210px;
+
+    @media (max-width:1024px) {
+      padding-left: 10px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 165px;
+  }
+
+  &__logo {
+    margin-right: 70px;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__toggler-label {
+    display: none;
+    position: absolute;
+    right: 10px;
+    z-index: 3;
+
+    &::after {
+      content: "\2630";
+      color: #fff;
+      height: 12px;
+      width: 18px;
+
+      font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__toggler:checked + &__toggler-label::after {
+    content: "\2716";
+  }
+
+  &__description {
+    max-width: 330px;
+  }
+
+  &__title {
+    @extend %header-typography;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: $color-txt;
+  }
+
+  &__paragraph {
+    @extend %header_paragraph-typography;
+    color: $color-txt;
+    margin-bottom: 83px;
+  }
+}
+
+.button {
+  @extend %button-typography;
+  color: $color-txt;
+  background-color: #2060f6;
+  border-radius: 8px;
+  line-height: 22px;
+  padding: 14px 70px;
+
+  transition: 0.5s;
+
+  &:hover {
+    color: #2060f6;
+    background-color: $color-txt;
+    cursor: pointer;
+  }
+}
+
+.slider {
+  width: 43%;
+  height: 680px;
+  border-radius: 200px 0 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    height: 60%;
+  }
+
+  @media (max-width: 425px) {
+    display: none;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/slider/slide-img-1.jpg);
+    background-position: center;
+  }
+}
+
+.header__toggler:checked ~ .nav {
+  display: block;
+  position: absolute;
+  height: 50%;
+
+  top: 0;
+  right: 0;
+}
