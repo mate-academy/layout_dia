@@ -9,6 +9,7 @@
   height: $work-height;
   margin: 0 auto;
   background-color: $c-background;
+
   &__process {
     position: absolute;
     top: $work-tg;
@@ -18,6 +19,7 @@
   &__bars {
     position: absolute;
     z-index: 1;
+    @include hover(box-shadow, $h-effect_fire_2);
   }
   &__bars--top {
     @include bar-position($bars-primary_gap, $primary-gap +300px);
@@ -47,6 +49,9 @@
 
 @media screen and (max-width: 1350px) {
   .work {
+    &__approach {
+      @include size_1350(padding-left);
+    }
     &__process {
       @include size_1350(left);
     }
@@ -65,10 +70,32 @@
   }
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 959px) {
   .work {
+    height: fit-content;
+    &__process {
+      position: initial;
+    }
+
+    &__bars {
+      position: relative;
+      margin: 0 auto 20px;
+    }
+
+    &__bars--top,
+    &__bars--right,
+    &__bars--bottom,
+    &__bars--left {
+      top: unset;
+      right: unset;
+    }
+
     &__approach {
-      @include size_1350(padding-left);
+      position: relative;
+      width: 100%;
+      border-bottom-left-radius: 100px;
+      border-top-left-radius: 100px;
+      padding: 150px 0 0;
     }
   }
 }
