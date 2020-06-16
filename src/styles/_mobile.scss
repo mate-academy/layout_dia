@@ -1,0 +1,56 @@
+@import "hamburger";
+@import "mobile-navigation";
+
+.mobile {
+  height: 10vh;
+  background: $c-blue;
+  z-index: 1;
+  &__navigation {
+    display: none;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .mobile {
+    position: relative;
+
+    &__hamburger {
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 50%;
+      transform: translate(-5%, -50%);
+      z-index: 2;
+    }
+
+    &__navigation {
+      display: flex;
+      position: absolute;
+      background: $c-dark_orange;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(10px at 90% -10%);
+      -webkit-clip-path: circle(10px at 90% -10%);
+      transition: all 1s ease-out;
+      pointer-events: none;
+    }
+
+    &__navigation.open {
+      clip-path: circle(1200px at 90% -10%);
+      -webkit-clip-path: circle(1200px at 90% -10%);
+      pointer-events: all;
+    }
+  }
+
+}
+
+.appear {
+  margin-top: 100px;
+  opacity: 1;
+}
