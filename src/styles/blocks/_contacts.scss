@@ -1,86 +1,39 @@
 ﻿.contacts {
-  background-color: $background-color;
+  border-radius: 30px 30px 0 0;
+  padding: 180px 20px 121px;
+  background-color: $paige-color;
+  color: #fff;
 
-  &__wrapper {
-    border-radius: 30px 30px 0 0;
-    background-color: $paige-color;
-    padding: $mobile-padding;
-    color: #fff;
+  @media (min-width: $laptop-width) {
+    display: flex;
+    justify-content: space-between;
+    padding: 180px 120px 121px;
+  }
 
-    @media (min-width: $tablet-width) {
-      display: flex;
-      justify-content: space-between;
-      padding: $tablet-padding;
-    }
-
-    @media (min-width: $desktop-width) {
-      padding: 180px 325px 108px $desktop-horizontal-padding;
-    }
+  @media (min-width: $desktop-width) {
+    padding: 180px 325px 121px 227px;
   }
 
   &__form {
-    margin-bottom: 50px;
+    margin-bottom: 75px;
 
-    @media (min-width: $tablet-width) {
+    @media (min-width: $laptop-width) {
       width: 460px;
       margin-bottom: 0;
-    }
-  }
-
-  &__form-header {
-    @extend %h2;
-    margin-bottom: 40px;
-    color: #fff;
-    text-align: center;
-
-    @media (min-width: $tablet-width) {
-      text-align: left;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    margin-bottom: 88px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    padding: 16px 0;
-    background-color: $paige-color;
-
-    &::placeholder {
-      @extend %form-font;
-      opacity: 0.7;
+      margin-right: 150px;
     }
 
-    &:focus {
-      @extend %form-font;
-      outline: none;
-      border-bottom-color: $decorative-color;
+    @media (min-width: $desktop-width) {
+      margin-right: 226px;
     }
-  }
-
-  &__button {
-    @extend %button;
-    @include hover(color, $decorative-color);
-    @include hover(background-color, $background-color);
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-    color: #fff;
-    cursor: pointer;
   }
 
   &__contacts-wrapper {
     text-align: center;
 
-    @media (min-width: $tablet-width) {
-      width: 320px;
-      text-align: left;
-    }
-
-    @media (min-width: $desktop-width) {
+    @media (min-width: $laptop-width) {
       width: 362px;
+      text-align: left;
     }
   }
 
@@ -92,14 +45,15 @@
 
   &__contact-header {
     @extend %text-bold;
-    margin-bottom: 8px;
-    line-height: 19px;
+    margin: 48px 0 8px;
     opacity: 0.5;
   }
 
-  &__contact {
+  &__contact-link {
+    @include hover(color, $hover-color);
     @extend %text-weight;
-    margin-bottom: 48px;
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
   }
 
   &__socials-list {
@@ -107,22 +61,29 @@
     justify-content: center;
     margin-top: 16px;
 
-    @media (min-width: $tablet-width) {
+    @media (min-width: $laptop-width) {
       justify-content: left;
     }
   }
 
   &__socials-item {
-    width: 32px;
-    margin-right: 32px;
+    margin-right: 36px;
 
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &__socials-icon {
+  &__socials-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 32px;
     height: 32px;
+    cursor: default;
+  }
+
+  &__socials-icon {
+    @include hover(fill, $hover-color);
   }
 }

@@ -5,18 +5,27 @@
   }
 }
 
-@mixin second-header($content) {
+@mixin header-before($content) {
   position: relative;
 
   &::before {
     @extend %text-bold;
     position: absolute;
-    top: -20px;
+    top: -36px;
     content: "#{$content}";
-    color: #c0cdd7;
+  }
+}
 
-    @media (min-width: $tablet-width) {
-      top: -36px;
+@mixin animation($name, $property, $from-value, $to-value) {
+  animation: $name 0.3s linear forwards;
+
+  @keyframes #{$name} {
+    from {
+      #{$property}: $from-value;
+    }
+
+    to {
+      #{$property}: $to-value;
     }
   }
 }

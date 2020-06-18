@@ -1,87 +1,81 @@
 ﻿.services {
-  padding: $mobile-padding;
+  padding: 148px 20px 44px;
+  background-color: $background-color;
 
-  @media (min-width: $tablet-width) {
+  @media (min-width: $laptop-width) {
     display: flex;
     justify-content: space-between;
-    padding: $tablet-padding;
-    padding-bottom: 44px;
+    padding: 148px 120px 44px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 148px $desktop-horizontal-padding 44px;
+    padding: 148px 227px 44px;
   }
 
   &__text-wrapper {
-    margin-bottom: 50px;
+    text-align: center;
 
-    @media (min-width: $tablet-width) {
+    @media (min-width: $laptop-width) {
       width: 362px;
-      margin-bottom: 0;
-      padding: 85px 0 152px;
+      margin: 139px 150px 0 0;
+      text-align: left;
     }
 
     @media (min-width: $desktop-width) {
-      padding: 139px 0 206px;
+      margin-right: 226px;
     }
   }
 
   &__header {
     @extend %h2;
-    @include second-header(Process);
+    @include header-before(Process);
     margin-bottom: 24px;
     line-height: 130%;
-    text-align: center;
-
-    @media (min-width: $tablet-width) {
-      text-align: left;
-    }
   }
 
   &__text {
     margin-bottom: 15px;
     line-height: 150%;
-    text-align: center;
 
-    &last-child {
+    &:last-child {
       margin-bottom: 0;
-    }
-
-    @media (min-width: $tablet-width) {
-      text-align: left;
     }
   }
 
   &__list {
-    @media (min-width: $tablet-width) {
-      display: grid;
-      grid-template-columns: repeat(2, 210px);
-      grid-template-rows: repeat(2, 210px);
-      grid-gap: 30px;
-    }
+    display: grid;
+    grid-template-columns: 264px;
+    grid-template-rows: repeat(4, 264px);
+    justify-content: center;
 
-    @media (min-width: $desktop-width) {
+    @media (min-width: $laptop-width) {
       grid-template-columns: repeat(2, 264px);
       grid-template-rows: repeat(2, 264px);
+      grid-gap: 30px;
     }
   }
 
   &__item {
     @extend %card;
+    @include hover(transform, scale(1.1));
     margin-bottom: 30px;
-    padding: 16px;
-
-    @media (min-width: $desktop-width) {
-      padding: 32px;
-    }
+    padding: 32px;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    @media (min-width: $tablet-width) {
-      @include hover(transform, scale(1.1));
+    &:nth-child(n) {
+      position: relative;
+      top: 132px;
+    }
+
+    @media (min-width: $laptop-width) {
       margin-bottom: 0;
+
+      &:nth-child(2n) {
+        position: static;
+      }
 
       &:nth-child(2n + 1) {
         position: relative;
@@ -91,34 +85,31 @@
   }
 
   &__item-header {
-    @extend %h3;
     width: 46px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     border-radius: 23px;
     background-color: rgba(32, 96, 246, 0.1);
+    font-weight: 600;
+    font-size: 13px;
     line-height: 19px;
-    color: $decorative-color;
     text-align: center;
-
-    @media (min-width: $desktop-width) {
-      margin-bottom: 24px;
-    }
+    text-transform: uppercase;
+    color: $decorative-color;
   }
 
   &__item-text {
     @extend %text-weight;
-    height: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-size: 13px;
-
-    @media (min-width: $desktop-width) {
-      margin-bottom: 40px;
-    }
   }
 
   &__item-link {
-    @include hover(color, $decorative-color);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
     color: #334563;
+    transition: color 0.3s;
+    cursor: default;
 
     &::before {
       display: inline-block;
@@ -128,10 +119,19 @@
       margin-right: 16px;
       border-radius: 50%;
       background-color: $decorative-color;
-      background-image: url("../../images/arrow/arrow.svg");
+      background-image: url("../../images/services/arrow.svg");
       background-repeat: no-repeat;
       background-position: center;
       vertical-align: middle;
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      color: $hover-color;
+
+      &::before {
+        transform: scale(1.1);
+      }
     }
   }
 }

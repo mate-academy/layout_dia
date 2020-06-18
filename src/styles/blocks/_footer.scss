@@ -1,25 +1,141 @@
 ﻿.footer {
-  @extend %menu-background;
-  position: relative;
+  padding: 0 20px 81px;
+  background-color: $paige-color;
+
+  @media (min-width: $laptop-width) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px 81px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 227px 81px 228px;
+  }
 
   &__nav {
+    @media (min-width: $laptop-width) {
+      order: 1;
+    }
+  }
+
+  &__footer-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
-    @media (min-width: $tablet-width) {
-      flex-direction: row;
-      width: 100%;
+    @media (min-width: $laptop-width) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    width: 44.82px;
+    height: 25.63px;
+  }
+
+  &__menu-button {
+    @extend %menu-button;
+    position: relative;
+  }
+
+  &--nojs {
+    .footer__menu-button {
+      display: none;
     }
 
-    .nav__menu-toggle {
-      bottom: $mobile-padding-top + 5px;
+    .footer__nav {
+      height: auto;
+      transform: none;
+    }
+  }
+
+  &--menu-open {
+    .footer__menu-button {
+      @include animation(
+        open-button,
+        background-color,
+        rgba(255, 255, 255, 1),
+        rgba(255, 255, 255, 0)
+      );
+
+      &::before {
+        @include animation(
+          open-upper-button,
+          transform,
+          rotate(0) translateY(0),
+          rotate(45deg) translateY(7px)
+        );
+      }
+
+      &::after {
+        @include animation(
+          open-lower-button,
+          transform,
+          rotate(0) translateY(0),
+          rotate(-45deg) translateY(-7px)
+        );
+      }
     }
 
-    .nav__list {
-      order: -1;
+    .footer__nav {
+      animation: open-menu 0.3s linear forwards;
 
-      @media (min-width: $tablet-width) {
-        order: 0;
+      @keyframes open-menu {
+        from {
+          height: 0;
+          transform: scaleY(0);
+        }
+
+        to {
+          height: 200px;
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+
+  &--menu-close {
+    .footer__menu-button {
+      @include animation(
+        close-button,
+        background-color,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 1)
+      );
+
+      &::before {
+        @include animation(
+          close-upper-button,
+          transform,
+          rotate(45deg) translateY(7px),
+          rotate(0) translateY(0)
+        );
+      }
+
+      &::after {
+        @include animation(
+          close-lower-button,
+          transform,
+          rotate(-45deg) translateY(-7px),
+          rotate(0) translateY(0)
+        );
+      }
+    }
+
+    .footer__nav {
+      animation: close-menu 0.3s linear forwards;
+
+      @keyframes close-menu {
+        from {
+          height: 200px;
+          transform: scaleY(1);
+        }
+
+        to {
+          height: 0;
+          transform: scaleY(0);
+        }
       }
     }
   }

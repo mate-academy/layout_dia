@@ -1,23 +1,6 @@
-%menu-background {
-  padding: $mobile-padding;
-  background-color: $paige-color;
-
-  @media (min-width: $tablet-width) {
-    display: flex;
-    align-items: center;
-    height: 60px;
-    padding: 0 50px;
-  }
-
-  @media (min-width: $desktop-width) {
-    height: 120px;
-    padding: 0 $desktop-horizontal-padding;
-  }
-}
-
 %card {
-  border-radius: 16px;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
   background-color: #fff;
 }
 
@@ -27,30 +10,61 @@
   content: "";
   width: 139px;
   height: 56px;
-  background-color: $decorative-color;
   border-radius: 12px;
+  background-color: $decorative-color;
   transform: rotate(-60deg);
 }
 
-%button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  border-radius: 8px;
-  background-color: $decorative-color;
+%menu-button {
+  @include hover(opacity, 0.5);
+  width: 18px;
+  height: 2px;
+  outline: none;
+  cursor: pointer;
 
-  @media (min-width: $tablet-width) {
-    width: 220px;
+  @media (min-width: $laptop-width) {
+    display: none;
+  }
+
+  &::before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    content: "";
+    width: 18px;
+    height: 2px;
+    background-color: #fff;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: "";
+    width: 18px;
+    height: 2px;
+    background-color: #fff;
   }
 }
 
-%button-arrow {
-  display: block;
-  content: "";
-  margin: 0 auto;
-  width: 5.56px;
-  height: 9px;
+%button {
+  @include hover(background-color, $hover-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background-color: $decorative-color;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  cursor: default;
+
+  @media (min-width: $laptop-width) {
+    width: 220px;
+  }
 }
 
 %h2 {
@@ -60,10 +74,13 @@
   color: #253757;
 }
 
-%h3 {
-  font-weight: 600;
+%text-bold {
+  font-weight: bold;
   font-size: 13px;
-  color: #253757;
+  line-height: 19px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0cdd7;
 }
 
 %text-weight {
@@ -72,16 +89,7 @@
   line-height: 150%;
 }
 
-%text-bold {
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 150%;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-%form-font {
-  font-family: "Poppins", sans-serif;
+%input-font {
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;

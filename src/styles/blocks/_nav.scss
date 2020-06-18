@@ -1,67 +1,35 @@
 ﻿.nav {
-  text-align: center;
+  height: 0;
+  transform: scaleY(0);
 
-  @media (min-width: $tablet-width) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
-
-  &__logo {
-    width: 45px;
-    height: 25px;
-  }
-
-  &__menu-toggle {
-    @include hover(opacity, 0.5);
-    position: absolute;
-    right: $mobile-padding-left;
-    width: 18px;
-    height: 2px;
-    border: none;
-    background-color: $background-color;
-    cursor: pointer;
-
-    &::before {
-      position: absolute;
-      top: -5px;
-      left: 0;
-      content: "";
-      width: 18px;
-      height: 2px;
-      border: none;
-      background-color: $background-color;
-    }
-
-    &::after {
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      content: "";
-      width: 18px;
-      height: 2px;
-      border: none;
-      background-color: $background-color;
-    }
-
-    @media (min-width: $tablet-width) {
-      display: none;
-    }
+  @media (min-width: $laptop-width) {
+    height: auto;
+    transform: none;
   }
 
   &__list {
-    @media (min-width: $tablet-width) {
+    text-align: center;
+
+    @media (min-width: $laptop-width) {
       display: flex;
+      text-align: left;
     }
   }
 
   &__item {
-    padding: 10px;
+    padding: 10px 0;
 
-    @media (min-width: $tablet-width) {
-      margin-right: 64px;
+    @media (min-width: $laptop-width) {
       padding: 0;
+      margin-right: 42px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-right: 64px;
 
       &:last-child {
         margin-right: 0;
@@ -71,129 +39,8 @@
 
   &__link {
     @extend %text-bold;
-    @include hover(color, $decorative-color);
-    line-height: 19px;
-  }
-
-  &--menu-open {
-    .nav__menu-toggle {
-      background-color: transparent;
-
-      &::before {
-        animation: upper-button-open 0.3s linear forwards;
-
-        @keyframes upper-button-open {
-          from {
-            transform: translateY(0) rotate(0);
-          }
-
-          to {
-            transform: translateY(5px) rotate(-45deg);
-          }
-        }
-
-        @media (min-width: $tablet-width) {
-          animation: none;
-        }
-      }
-
-      &::after {
-        animation: lower-button-open 0.3s linear forwards;
-
-        @keyframes lower-button-open {
-          from {
-            transform: translateY(0) rotate(0);
-          }
-
-          to {
-            transform: translateY(-5px) rotate(45deg);
-          }
-        }
-
-        @media (min-width: $tablet-width) {
-          animation: none;
-        }
-      }
-    }
-
-    .nav__list {
-      animation: menu-open 0.3s linear forwards;
-
-      @keyframes menu-open {
-        from {
-          transform: scale(0);
-          height: 0;
-        }
-
-        to {
-          transform: scale(1);
-          height: 200px;
-        }
-      }
-
-      @media (min-width: $tablet-width) {
-        animation: none;
-      }
-    }
-  }
-
-  &--menu-close {
-    .nav__menu-toggle {
-      &::before {
-        animation: upper-button-close 0.3s linear forwards;
-
-        @keyframes upper-button-close {
-          from {
-            transform: translateY(5px) rotate(-45deg);
-          }
-
-          to {
-            transform: translateY(0) rotate(0);
-          }
-        }
-
-        @media (min-width: $tablet-width) {
-          animation: none;
-        }
-      }
-
-      &::after {
-        animation: lower-button-close 0.3s linear forwards;
-
-        @keyframes lower-button-close {
-          from {
-            transform: translateY(-5px) rotate(45deg);
-          }
-
-          to {
-            transform: translateY(0) rotate(0);
-          }
-        }
-
-        @media (min-width: $tablet-width) {
-          animation: none;
-        }
-      }
-    }
-
-    .nav__list {
-      animation: menu-close 0.3s linear forwards;
-
-      @keyframes menu-close {
-        from {
-          transform: scale(1);
-          height: 200px;
-        }
-
-        to {
-          transform: scale(0);
-          height: 0;
-        }
-      }
-
-      @media (min-width: $tablet-width) {
-        animation: none;
-      }
-    }
+    @include hover(color, $hover-color);
+    line-height: 150%;
+    color: #fff;
   }
 }

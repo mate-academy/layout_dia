@@ -1,44 +1,118 @@
 ﻿.header {
-  @extend %menu-background;
   position: relative;
+  padding: 49px 20px 45px;
+  background-color: $paige-color;
+  text-align: center;
 
-  @media (min-width: $tablet-width) {
-    position: static;
+  @media (min-width: $laptop-width) {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 49px 120px 45px;
+    text-align: left;
   }
 
-  &__nav {
-    @media (min-width: $tablet-width) {
-      width: 760px;
+  @media (min-width: $desktop-width) {
+    padding: 49px 227px 45px 228px;
+  }
+
+  &__header-wrapper {
+    @media (min-width: $laptop-width) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    width: 44.82px;
+    height: 25.63px;
+
+    @media (min-width: $laptop-width) {
+      margin-right: 52px;
     }
 
-    .nav__menu-toggle {
-      top: $mobile-padding-top + 5px;
+    @media (min-width: $desktop-width) {
+      margin-right: 78px;
     }
+  }
+
+  &__menu-button {
+    @extend %menu-button;
+    position: absolute;
+    top: 63px;
+    right: 20px;
   }
 
   &__contacts {
     @extend %text-bold;
-    @include hover(color, $decorative-color);
+    @include hover(color, $hover-color);
     position: absolute;
-    top: $mobile-padding-top;
-    left: $mobile-padding-left;
-    line-height: 19px;
+    top: 52px;
+    left: 20px;
+    color: #fff;
 
     &::before {
       position: absolute;
       bottom: -10px;
+      display: block;
       content: "";
-      width: 67px;
+      width: 100%;
       height: 2px;
       border-radius: 4px;
-      background-color: $decorative-color;
+      background-color: $hover-color;
     }
 
-    @media (min-width: $tablet-width) {
+    @media (min-width: $laptop-width) {
       position: relative;
       top: 0;
       left: 0;
+    }
+  }
+
+  &--nojs {
+    .header__menu-button {
+      display: none;
+    }
+
+    .header__nav {
+      height: auto;
+      transform: none;
+    }
+  }
+
+  &--menu-open {
+    .header__menu-button {
+      animation: open-button 0.3s linear forwards;
+
+      &::before {
+        animation: open-upper-button 0.3s linear forwards;
+      }
+
+      &::after {
+        animation: open-lower-button 0.3s linear forwards;
+      }
+    }
+
+    .header__nav {
+      animation: open-menu 0.3s linear forwards;
+    }
+  }
+
+  &--menu-close {
+    .header__menu-button {
+      animation: close-button 0.3s linear forwards;
+
+      &::before {
+        animation: close-upper-button 0.3s linear forwards;
+      }
+
+      &::after {
+        animation: close-lower-button 0.3s linear forwards;
+      }
+    }
+
+    .header__nav {
+      animation: close-menu 0.3s linear forwards;
     }
   }
 }
