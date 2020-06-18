@@ -7,6 +7,9 @@ const footer = document.querySelector('.footer');
 const headerButton = document.querySelector('.header__menu-button');
 const footerButton = document.querySelector('.footer__menu-button');
 const anchorItems = document.querySelectorAll('a[href*="#"]');
+const sliderButtons = document.querySelector('.slider__button-wrapper');
+const sliderList = document.querySelector('.slider__list');
+let currentSliderItem = 0;
 
 footer.classList.remove('footer--nojs');
 header.classList.remove('header--nojs');
@@ -32,8 +35,8 @@ footerButton.addEventListener('click', () => {
 });
 
 for (const item of anchorItems) {
-  item.addEventListener('click', (e) => {
-    e.preventDefault();
+  item.addEventListener('click', (evt) => {
+    evt.preventDefault();
 
     const id = item.getAttribute('href');
 
@@ -43,3 +46,15 @@ for (const item of anchorItems) {
     });
   });
 }
+
+sliderButtons.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('slider__button--right')
+    && currentSliderItem < sliderList.children.length - 1) {
+    sliderList.children[currentSliderItem].style.display = 'none';
+    sliderList.children[++currentSliderItem].style.display = 'block';
+  } else if (evt.target.classList.contains('slider__button--left')
+    && currentSliderItem > 0) {
+    sliderList.children[currentSliderItem].style.display = 'none';
+    sliderList.children[--currentSliderItem].style.display = 'block';
+  }
+});
