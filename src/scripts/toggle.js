@@ -6,9 +6,13 @@ const toggle = document.querySelector('.toggle');
 if (lightMode === 'enabled') {
   document.body.classList.remove('theme--black');
   document.body.classList.add('theme--blue');
+  toggle.classList.remove('toggle--sun');
+  toggle.classList.add('toggle--moon');
 } else {
   document.body.classList.remove('theme--blue');
   document.body.classList.add('theme--black');
+  toggle.classList.remove('toggle--moon');
+  toggle.classList.add('toggle--sun');
 }
 
 toggle.addEventListener('click', () => {
