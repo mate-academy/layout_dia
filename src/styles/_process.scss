@@ -72,6 +72,8 @@
   border-radius: 24px;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.1);
 
+  transition: box-shadow 0.3s ease-in-out;
+
   &__num {
     font-family: "Poppins-SemiBold", Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -108,16 +110,39 @@
     color: $c-text-2;
     font-family: "Poppins-SemiBold", Arial, Helvetica, sans-serif;
     font-size: 15px;
-    
+
+    position: relative;
     padding-left: 16px;
-    
   }
+
+  &__link-text::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -3px;
+    left: 7px;
+
+    background-color: $c-blue;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover {
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.3);
+  }
+
+  &:hover &__link-text::after {
+    width: 100%;
+  }
+
   // TODO: cycle or whatever
   &:nth-child(2) > &__num {
     color: $c-yellow;
     background-color: rgba($c-yellow, 0.1);
   }
-  &:nth-child(2) &__link-icon {
+  &:nth-child(2) &__link-icon,
+  &:nth-child(2) &__link-text::after {
     background-color: $c-yellow;
   }
 
@@ -125,7 +150,8 @@
     color: $c-green;
     background-color: rgba($c-green, 0.1);
   }
-  &:nth-child(3) &__link-icon {
+  &:nth-child(3) &__link-icon,
+  &:nth-child(3) &__link-text::after {
     background-color: $c-green;
   }
 
@@ -133,7 +159,8 @@
     color: $c-red;
     background-color: rgba($c-red, 0.1);
   }
-  &:nth-child(4) &__link-icon {
+  &:nth-child(4) &__link-icon,
+  &:nth-child(4) &__link-text::after {
     background-color: $c-red;
   }
 
