@@ -1,9 +1,16 @@
 'use strict';
 
-document.querySelector('.menu-icon').onclick = function() {
-  document.querySelector('.menu-icon-line')
-    .classList.toggle('menu-icon-active');
+const menuIcon = document.querySelector('.menu-icon');
+const menuIconLine = document.querySelector('.menu-icon-line');
+const mobNav = document.querySelector('.mob__nav');
 
-  document.querySelector('.mob__nav')
-    .classList.toggle('mob__slide');
-};
+menuIcon.addEventListener('click', () => {
+  menuIconLine.classList.toggle('menu-icon-active');
+  mobNav.classList.toggle('mob__slide');
+});
+
+const button = document.querySelector('.strategic__button');
+
+button.addEventListener('click', () => (
+  window.location = '#description'
+));
