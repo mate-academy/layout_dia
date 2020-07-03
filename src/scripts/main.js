@@ -9,8 +9,13 @@ menuIcon.addEventListener('click', () => {
   mobNav.classList.toggle('mob__slide');
 });
 
-const button = document.querySelector('.strategic__button');
+const buttonDescription = document.querySelector('.strategic__button');
+const buttonVision = document.querySelector('.vision__button');
 
-button.addEventListener('click', () => (
+buttonVision.addEventListener('click', () => (
+  window.location = '#contact'
+));
+
+buttonDescription.addEventListener('click', () => (
   window.location = '#description'
 ));
