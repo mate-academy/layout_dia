@@ -1,4 +1,5 @@
 'use strict';
+// burger-menu
 
 const menuIcon = document.querySelector('.menu-icon');
 const menuIconLine = document.querySelector('.menu-icon-line');
@@ -12,6 +13,7 @@ menuIcon.addEventListener('click', () => {
 const buttonDescription = document.querySelector('.strategic__button');
 const buttonVision = document.querySelector('.vision__button');
 
+// link for buttons
 buttonVision.addEventListener('click', () => (
   window.location = '#contact'
 ));
@@ -53,3 +55,16 @@ function prevPhoto() {
 
   slider.style.transform = `translateX(${position}px)`;
 }
+
+// form reload
+
+function onSubmit() {
+  event.preventDefault();
+  document.querySelector('input[name=email]').value = '';
+  document.querySelector('input[name=name]').value = '';
+  document.querySelector('input[name=message]').value = '';
+}
+
+const submitButton = document.querySelector('.contact__button');
+
+submitButton.addEventListener('click', onSubmit);
