@@ -65,6 +65,6 @@ function onSubmit() {
   document.querySelector('input[name=message]').value = '';
 }
 
-const submitButton = document.querySelector('.contact__button');
+const submitButton = document.querySelector('.contact__form');
 
-submitButton.addEventListener('click', onSubmit);
+submitButton.addEventListener('submit', onSubmit);
