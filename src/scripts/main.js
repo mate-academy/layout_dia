@@ -26,7 +26,7 @@ buttonDescription.addEventListener('click', () => (
 const slider = document.querySelector('.slider');
 const photo = document.querySelector('.slider__photo');
 const photos = document.querySelectorAll('.slider__photo');
-const photoWidth = photo.offsetWidth;
+const photoWidth = photo.width;
 
 const nextButton = document.querySelector('#photo__button-right');
 const previousButton = document.querySelector('#photo__button-left');
