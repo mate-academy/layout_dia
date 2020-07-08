@@ -24,9 +24,9 @@ buttonDescription.addEventListener('click', () => (
 
 // slider
 const slider = document.querySelector('.slider');
-const photoItem = document.querySelector('.slider__item');
+const photoContainer = document.querySelector('.photo__container');
+const photoContainerWidth = photoContainer.clientWidth;
 const photos = 4;
-const photoItemWidth = photoItem.clientWidth;
 
 const nextButton = document.querySelector('#photo__button-right');
 const previousButton = document.querySelector('#photo__button-left');
@@ -37,11 +37,11 @@ nextButton.addEventListener('click', nextPhoto);
 previousButton.addEventListener('click', prevPhoto);
 
 function nextPhoto() {
-  if (position <= -((photos - 1) * photoItemWidth)) {
+  if (position <= -((photos - 1) * photoContainerWidth)) {
     return;
   }
 
-  position -= photoItemWidth;
+  position -= photoContainerWidth;
 
   slider.style.transform = `translateX(${position}px)`;
 }
@@ -51,7 +51,7 @@ function prevPhoto() {
     return;
   }
 
-  position += photoItemWidth;
+  position += photoContainerWidth;
 
   slider.style.transform = `translateX(${position}px)`;
 }
