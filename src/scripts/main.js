@@ -25,7 +25,7 @@ buttonDescription.addEventListener('click', () => (
 // slider
 const slider = document.querySelector('.slider');
 const photoContainer = document.querySelector('.photo__container');
-const photos = 4;
+const photos = 3;
 
 const nextButton = document.querySelector('#photo__button-right');
 const previousButton = document.querySelector('#photo__button-left');
