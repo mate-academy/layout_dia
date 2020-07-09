@@ -1,4 +1,5 @@
 .person {
+  position: relative;
   box-sizing: border-box;
   width: 314px;
   padding: 87px 32px 32px;
@@ -7,37 +8,42 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
   text-align: center;
-  z-index: -2;
+
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-20px);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+
+    width: 139px;
+    height: 56px;
+
+    background: $interactive-color;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+  }
+
+  &::before {
+    top: 18%;
+    left: 7%;
+  }
+
+  &::after {
+    bottom: 55%;
+    right: 7%;
+  }
   
   &__photo {
     position: relative;
     width: 140px;
     height: 140px;
     margin: 0 auto 111px;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-
-      width: 139px;
-      height: 56px;
-
-      background: $interactive-color;
-      border-radius: 12px;
-      transform: rotate(-60deg);
-    }
-
-    &::before {
-      top: 0;
-      left: -35%;
-    }
-
-    &::after {
-      bottom: 0;
-      right: -35%;
-    }
+    z-index: 1;
   }
 
   &__img {
