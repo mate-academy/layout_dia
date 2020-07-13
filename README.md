@@ -14,5 +14,8 @@
 - BEM
 - JavaScript
 
+## Install / run
+Use 'npm install' to install project and 'npm run' to run project
+
 ## Preview
   [DEMO LINK](https://tyooma.github.io/layout_dia/)
