@@ -5,8 +5,8 @@ const slider = document.querySelector('.slider');
 const gallery = slider.querySelector('.slider__carousel');
 let current = 0;
 
-slider.querySelector('.slider__controll').onclick = function(e) {
-  if (e.target.classList.contains('slider__controll')) {
+slider.querySelector('.slider__control').onclick = function(e) {
+  if (e.target.classList.contains('slider__control')) {
     return;
   }
 
