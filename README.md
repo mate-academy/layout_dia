@@ -1,4 +1,4 @@
-# Miami landing page
+# Dia landing page
 [DEMO LINK](https://hryshko-denys.github.io/layout_dia/).
 
 ## Tech stack
@@ -6,4 +6,3 @@
 - JS
 - BEM
 - Figma
-
