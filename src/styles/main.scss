@@ -26,6 +26,10 @@
   &:hover {
     transform: scale(1.05);
   }
+
+  &:active {
+    border: none;
+  }
 }
 
 * {
@@ -91,11 +95,15 @@ body {
   position: fixed;
   left: 100%;
   z-index: 2;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+
+  @media (max-width: 940px) {
+    display: flex;
+  }
 }
 
 .burger__link {
@@ -483,27 +491,27 @@ body {
   }
 }
 
-.about-us__container {
+.work__container {
   @extend %container;
   position: relative;
   padding: 250px 0;
 
-  & .about-us-card--1 {
+  & .work-card--1 {
     top: 150px;
     right: 0;
   }
 
-  & .about-us-card--2 {
+  & .work-card--2 {
     top: 445px;
     right: 0;
   }
 
-  & .about-us-card--3 {
+  & .work-card--3 {
     top: 280px;
     right: 295px;
   }
 
-  & .about-us-card--4 {
+  & .work-card--4 {
     top: 575px;
     right: 295px;
     z-index: 2;
@@ -512,22 +520,22 @@ body {
   @media (max-width: 960px) {
     padding: 100px 0 650px;
 
-    & .about-us-card--1 {
+    & .work-card--1 {
       top: 400px;
       left: calc(50% + 15px);
     }
   
-    & .about-us-card--2 {
+    & .work-card--2 {
       top: 695px;
       left: calc(50% + 15px);
     }
   
-    & .about-us-card--3 {
+    & .work-card--3 {
       top: 530px;
       left: calc(50% - 265px - 15px);
     }
   
-    & .about-us-card--4 {
+    & .work-card--4 {
       top: 825px;
       left: calc(50% - 265px - 15px);
     }
@@ -539,12 +547,12 @@ body {
     flex-direction: column;
     align-items: center;
 
-    & .about-us-card:not(.about-us-card--4) {
+    & .work-card:not(.work-card--4) {
       position: static;
       margin-top: 60px;
     }
 
-    & .about-us-card--4 {
+    & .work-card--4 {
       top: 1390px;
       left: 50%;
       transform: translateX(-50%);
@@ -552,7 +560,7 @@ body {
   }
 }
 
-.about-us__heading-block {
+.work__heading-block {
   max-width: 360px;
 }
 
@@ -575,7 +583,7 @@ body {
   color: #6c788b;
 }
 
-.about-us-card {
+.work-card {
   height: 265px;
   width: 265px;
   position: absolute;
@@ -585,7 +593,7 @@ body {
   border-radius: 16px;
 }
 
-.about-us-card__number {
+.work-card__number {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -599,7 +607,7 @@ body {
   color: #2060f6;
 }
 
-.about-us-card__paragraph {
+.work-card__paragraph {
   margin-top: 25px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -608,7 +616,7 @@ body {
   color: #6c788b;
 }
 
-.about-us-card__learn-more-button {
+.work-card__learn-more-button {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -645,7 +653,7 @@ body {
 }
 
 .our-advantages__heading {
-  width: 360px;
+  max-width: 400px;
   margin-top: 15px;
   font-weight: 600;
   font-size: 32px;
@@ -655,17 +663,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 365px;
+  width: 100%;
+  max-width: 405px;
+  padding: 0 20px;
+  margin-left: -20px;
 }
 
 .advantages__image-wrapper {
   height: 65px;
   width: 65px;
   border-radius: 100%;
+  flex-shrink: 0;
 }
 
 .advantages__paragraph {
-  width: 265px;
+  width: 100%;
+  max-width: 265px;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
   line-height: 150%;
@@ -714,10 +727,19 @@ body {
 
   @media (max-width: 880px) {
     background: #2c2c2c;
-    padding: 200px 0;
+    padding: 200px 0 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    & .our-advantages__heading {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    & .advantages__paragraph {
+      margin-left: 20px;
+    }
   }
 }
 
@@ -1016,14 +1038,26 @@ body {
 
 .contact-us--facebook {
   background: url(../images/contacts__facebook.svg) no-repeat center;
+
+  &:hover {
+    background: url(../images/contacts__facebook-active.svg) no-repeat center;
+  }
 }
 
 .contact-us--twitter {
   background: url(../images/contacts__twitter.svg) no-repeat center;
+
+  &:hover {
+    background: url(../images/contacts__twitter-active.svg) no-repeat center;
+  }
 }
 
 .contact-us--instagram {
   background: url(../images/contacts__instagram.svg) no-repeat center;
+
+  &:hover {
+    background: url(../images/contacts__instagram-active.svg) no-repeat center;
+  }
 }
 
 .footer {
@@ -1053,6 +1087,7 @@ body {
     & .nav__list {
       height: 80px;
       width: 100%;
+      justify-content: space-around;
     }
   }
 }
