@@ -6,27 +6,50 @@
 
   background-color: $main-bg-color;
 
+  &__explanation {
+    max-width: 362px;
+  }
+
   &__name {
     @extend %h2;
     color: $small-headline;
   }
 
   &__headline {
-    max-width: 362px;
     margin-bottom: 85px;
-
     font-size: 32px;
+
     color: $headline-color;
   }
 
   &__people {
-    display: grid;
-    gap: 102px;
-    grid-template-columns: repeat(auto-fit, 314px);
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: 1400px) {
+    padding: 168px 50px;
+
+    &__explanation {
+      margin: 0 auto;
+    }
+
+    &__name,
+    &__headline {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 880px) {
+    &__people {
+      flex-direction: column;
+      align-items: center;
+
+    }
   }
 
   @media screen and (max-width: 500px) {
+    grid-template-columns: 314px;
     padding: 25px;
   }
 }

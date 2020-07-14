@@ -1,41 +1,24 @@
+
 'use strict';
 
-const btnNext = document.querySelector('.slider__button--right');
-const btnPrev = document.querySelector('.slider__button--left');
-const list = document.querySelector('.slider__carousel');
+const slider = document.querySelector('.slider');
+const gallery = slider.querySelector('.slider__carousel');
+let current = 0;
 
-const quantityItems = list.childElementCount - 1;
+slider.querySelector('.slider__controll').onclick = function(e) {
+  if (e.target.classList.contains('slider__controll')) {
+    return;
+  }
 
-const width = list.firstElementChild.offsetWidth;
+  e.target.classList
+    .contains('slider__button--right') ? move(true) : move(false);
+};
 
-list.style.width = `${width}px`;
+function move(side) {
+  side ? current++ : current--;
 
-let counter = 0;
+  current < 0 && (current = gallery.children.length - 1);
+  current > gallery.children.length - 1 && (current = 0);
 
-btnNext.addEventListener('click', function() {
-  countNext();
-
-  slideShow();
-});
-
-btnPrev.addEventListener('click', function() {
-  countPrev();
-
-  slideShow();
-});
-
-function countPrev() {
-  counter = (counter <= 0)
-    ? quantityItems
-    : (counter - 1);
-}
-
-function countNext() {
-  counter = (counter >= quantityItems)
-    ? 0
-    : (counter + 1);
-}
-
-function slideShow() {
-  list.style.transform = `translateX(-${(counter) * width}px)`;
+  gallery.style.transform = `translateX(${-current * 100}%)`;
 }
