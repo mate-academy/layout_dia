@@ -38,9 +38,39 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Poppins, sans-serif;
   background: #f2f6fa;
+}
+
+.up-button {
+  box-sizing: content-box;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: #ddd url(../images/up-button__arrow.svg) no-repeat center;
+  border: 1px solid #ddd;
+  opacity: 0.7;
+  background-size: 50%;
+  border-radius: 100%;
+  position: sticky;
+  left: 90%;
+  top: 85%;
+  z-index: 3;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: black;
+  }
+
+  @media (max-width: 940px) {
+    display: none;
+  }
 }
 
 .burger-toggler__label {
@@ -59,7 +89,7 @@ body {
   position: fixed;
   top: 35px;
   right: 35px;
-  z-index: 3;
+  z-index: 51;
 
   &:active {
     transform: scale(0.95);
@@ -92,9 +122,9 @@ body {
   background: #2c2c2c;
   height: 100vh;
   width: 100vw;
+  z-index: 50;
   position: fixed;
   left: 100%;
-  z-index: 2;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -244,6 +274,8 @@ body {
       margin: 100px 0 0 auto;
       width: 100%;
       height: 100vw;
+      max-height: none;
+      max-width: none;
 
       & .slider__button {
         bottom: 40px;
@@ -255,6 +287,12 @@ body {
         left: auto;
         right: 50px;
       }
+    }
+  }
+
+  @media (min-width: 1900px) {
+    & .promo__slider {
+      left: 50%;
     }
   }
 }
@@ -662,7 +700,8 @@ body {
 .our-advantages__advantage {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 405px;
   padding: 0 20px;
@@ -673,12 +712,11 @@ body {
   height: 65px;
   width: 65px;
   border-radius: 100%;
-  flex-shrink: 0;
+  margin: 30px 0;
 }
 
 .advantages__paragraph {
-  width: 100%;
-  max-width: 265px;
+  width: 265px;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
   line-height: 150%;
@@ -705,7 +743,7 @@ body {
 
   & .advantage--1 {
     margin-top: 30px;
-
+    
     & .advantages__image-wrapper {
       background: #fff url(../images/advantage-1.png) no-repeat center;
     }
@@ -740,6 +778,14 @@ body {
     & .advantages__paragraph {
       margin-left: 20px;
     }
+
+    & .our-advantages__advantage {
+      margin-top: 30px;
+    }
+  }
+
+  @media (min-width: 1900px) {
+    max-width: calc(1480px + (100% - 1480px) / 2);
   }
 }
 
@@ -889,6 +935,14 @@ body {
   align-items: center;
   background: #fff url(../images/slogan__background.png) no-repeat center;
   background-size: contain;
+
+  @media (max-width: 800px) {
+    padding: 100px 20px;
+  }
+
+  @media (max-width: 600px) {
+    background: #fff;
+  }
 }
 
 .slogan__heading {
@@ -1009,9 +1063,11 @@ body {
   margin-top: 55px;
 }
 
-.contact-us--number,
-.contact-us--adress {
+.contact-us--number {
   margin-top: 8px;
+  cursor: auto;
+  color: #fff;
+  text-decoration: none;
 }
 
 .contact-us--visit-us,
@@ -1020,6 +1076,7 @@ body {
 }
 
 .contact-us--adress {
+  margin-top: 8px;
   text-align: center;
 }
 
