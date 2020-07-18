@@ -182,12 +182,113 @@
 }
 
 .slogan {
-  padding: 200px 20px 230px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff url(../images/slogan__background.png) no-repeat center;
-  background-size: contain;
+  background: #fff;
+  &__container {
+    @extend %container;
+    padding: 200px 20px 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: contain;
+    position: relative;
+  }
+
+  &__decoration-rectangle {
+    opacity: 0.5;
+    border: 5px solid #2060f6;
+    position: absolute;
+    transform: rotate(25deg);
+    animation: rectangles-jumping 0.5s infinite linear alternate;
+    transition: 0.2s;
+
+    &:hover {
+      border-color: #faa295;
+    }
+
+    &--big {
+      height: 145px;
+      width: 55px;
+      border-radius: 12px;
+    }
+
+    &--medium {
+      height: 90px;
+      width: 35px;
+      border-radius: 12px;
+    }
+
+    &--small {
+      height: 45px;
+      width: 18px;
+      border-radius: 6px;
+    }
+
+    &--1 {
+      left: 5vw;
+      top: 20vw;
+    }
+
+    &--2 {
+      top: 8vw;
+      right: 15vw;
+    }
+
+    &--3 {
+      bottom: 7vw;
+      right: 10vw;
+    }
+
+    &--4 {
+      top: 6vw;
+      left: 7vw;
+    }
+
+    &--5 {
+      bottom: 6vw;
+      left: 3vw;
+    }
+
+    &--6 {
+      bottom: 22vw;
+      right: 20vw;
+    }
+
+    &--7 {
+      top: 25vw;
+      right: 2vw;
+    }
+
+    &--8 {
+      top: 6vw;
+      left: 50vw;
+    }
+
+    &--9 {
+      bottom: 9vw;
+      right: 35vw;
+    }
+
+    &--10 {
+      top: 5vw;
+      left: 25vw;
+    }
+
+    &--11 {
+      bottom: 15vw;
+      left: 20vw;
+    }
+
+    &--12 {
+      top: 5vw;
+      right: 1vw;
+    }
+
+    @for $i from 1 through 12 {
+      &--#{$i} {
+        animation-delay: #{0.2s * $i};
+      }
+    }
+  }
 
   &__heading {
     font-weight: 600;
@@ -211,10 +312,38 @@
   }
 
   @media (max-width: 800px) {
-    padding: 100px 20px;
+    &__container {
+      padding: 100px 20px;
+    }
+
+    &__decoration-rectangle {
+      &--1,
+      &--2,
+      &--7,
+      &--8,
+      &--9 {
+        display: none;
+      }
+    }
   }
 
   @media (max-width: 600px) {
-    background: #fff;
+    &__decoration-rectangle {
+      display: none;
+    }
+  }
+}
+
+@keyframes rectangles-jumping {
+  0% {
+    transform: rotate(24deg) translateY(-2px);
+  }
+
+  50% {
+    transform: rotate(26deg);
+  }
+
+  100% {
+    transform: rotate(24deg) translateY(2px);
   }
 }
