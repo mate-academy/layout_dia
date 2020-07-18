@@ -3,7 +3,7 @@
     @extend %container;
   }
 
-  &__pre-heading {
+  &__testimonials {
     @extend %grey-inscription;
     margin-top: 150px;
   }
@@ -61,36 +61,42 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
   position: relative;
+  transition: 1s;
 
-  &:after,
-  &:before {
-    content: "";
-    display: block;
-    width: 140px;
-    height: 55px;
-    position: absolute;
-    background: #2060f6;
-    border-radius: 12px;
-    transform: rotate(-60deg);
+  &:hover {
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.3);
   }
 
-  &:after {
-    top: 85px;
-    left: 40px;
-  }
-
-  &:before {
-    top: 180px;
-    left: 135px;
-  }
-
-  &__image-wrapper {
+  &__pseudoelement-wrapper {
     height: 140px;
     width: 140px;
-    border-radius: 100%;
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
+    position: absolute;
+    transform-style: preserve-3d;
+    z-index: 0;
+    transition: 1.5s;
+  
+    &:after,
+    &:before {
+      content: "";
+      display: block;
+      width: 140px;
+      height: 55px;
+      position: absolute;
+      background: #2060f6;
+      border-radius: 12px;
+      transform: rotate(-60deg) translateZ(-1px);
+      transition: 1.5s;
+    }
+
+    &:before {
+      top: 0;
+      left: -50px;
+    }
+
+    &:after {
+      top: 90px;
+      left: 48px;
+    }
   }
 
   &__paragraph {
@@ -116,6 +122,31 @@
     }
   }
 
+  &__image-wrapper {
+    height: 140px;
+    width: 140px;
+    border-radius: 100%;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 1;
+    transition: 1.5s;
+
+    &:hover {
+      transform: scale(1.05);
+
+      & + .reviews-card__pseudoelement-wrapper {
+        transform: rotate(360deg);
+        &:before {
+          transform: translateX(-45px) rotate(-60deg) translateZ(-1px);
+        }
+
+        &:after {
+          transform: translateX(45px) rotate(-60deg) translateZ(-1px);
+        }
+      }
+    }
+  }
+
   &__name {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -125,7 +156,7 @@
     margin-top: 15px;
   }
 
-  &__grey-inscription {
+  &__profession {
     @extend %grey-inscription;
     margin-top: 4px;
   }

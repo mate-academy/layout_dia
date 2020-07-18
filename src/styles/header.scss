@@ -10,7 +10,13 @@
 
   &__logo {
     @extend %air-logo;
-    margin-right: 80px;
+  }
+
+  &__nav {
+    margin-left: 80px;
+    & .nav__item {
+      padding: 60px 0;
+    }
   }
 
   &__hire-us {
@@ -27,6 +33,92 @@
     &__nav,
     &__hire-us {
       display: none;
+    }
+  }
+}
+
+.burger {
+  &__toggler {
+    height: 40px;
+    width: 40px;
+    background: #dcdcdc;
+    border-radius: 3px;
+    opacity: 0.5;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.1s;
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    z-index: 51;
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  
+    @media (max-width: 940px) {
+      display: flex;
+    }
+  }
+
+  &__strip {
+    
+    &-top {
+      @extend %burger-strip;
+    }
+
+    &-bottom {
+      @extend %burger-strip;
+      margin-top: 8px;
+    }
+  }
+
+  &__menu {
+    background: #2c2c2c;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    position: fixed;
+    left: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  
+    @media (max-width: 940px) {
+      display: flex;
+    }
+  }
+
+  &__link {
+    font-size: 35px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0 20px;
+    margin: 20px 0;
+  }
+
+  &__checkbox {
+    visibility: hidden;
+    position: absolute;
+  
+    &:checked ~ .burger__menu {
+      transform: translateX(-100%);
+    }
+  
+    &:checked ~ .burger__toggler > .burger__strip-top {
+      transform: rotate(45deg);
+      margin-left: 7px;
+    }
+  
+    &:checked ~ .burger__toggler > .burger__strip-bottom {
+      transform: rotate(-45deg);
+      margin: 15px 0 0 7px;
     }
   }
 }

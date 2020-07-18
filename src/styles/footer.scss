@@ -7,18 +7,20 @@
 
   &__container {
     @extend %container;
-    padding: 180px 0 35px;
+    padding-top: 180px;
     display: flex;
     justify-content: space-between;
   }
 
-  &__form-heading {
+  &__heading {
     font-weight: 600;
     font-size: 32px;
   }
 
   &__form {
     width: 460px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__input {
@@ -47,44 +49,27 @@
     margin-top: 80px;
   }
 
-  &__heading {
-    font-weight: 600;
-    font-size: 32px;
-  }
-
   &__title {
+    display: block;
     font-weight: bold;
     font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
     opacity: 0.5;
-  
-    &--call-us {
-      margin-top: 55px;
-    }
-  
-    &--visit-us,
-    &--our-socials {
-      margin-top: 48px;
-    }
+    margin-top: 50px;
   }
 
   &__data {
+    display: block;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 24px;
+    margin-top: 8px;
   
     &--number {
-      display: block;
-      margin-top: 8px;
       cursor: auto;
       color: #fff;
       text-decoration: none;
-    }
-  
-    &--adress {
-      margin-top: 8px;
-      text-align: center;
     }
   }
 
@@ -99,11 +84,19 @@
     display: block;
     height: 32px;
     width: 32px;
+
+    &:after {
+      content: "";
+      display: block;
+      visibility: hidden;
+      height: 32px;
+      width: 32px;
+    }
   
     &--facebook {
       background: url(../images/contacts__facebook.svg) no-repeat center;
     
-      &:hover {
+      &:after {
         background: url(../images/contacts__facebook-active.svg) no-repeat center;
       }
     }
@@ -111,7 +104,7 @@
     &--twitter {
       background: url(../images/contacts__twitter.svg) no-repeat center;
     
-      &:hover {
+      &:after {
         background: url(../images/contacts__twitter-active.svg) no-repeat center;
       }
     }
@@ -119,26 +112,28 @@
     &--instagram {
       background: url(../images/contacts__instagram.svg) no-repeat center;
     
-      &:hover {
+      &:after {
         background: url(../images/contacts__instagram-active.svg) no-repeat center;
+      }
+    }
+
+    &:hover {
+      visibility: hidden;
+
+      &:after {
+        visibility: visible;
       }
     }
   }
 
   @media (max-width: 900px) {
     &__container {
-      padding: 100px 0 35px;
+      padding-top: 100px;
       flex-direction: column;
-    }
-
-    &__form-heading {
-      text-align: center;
     }
 
     &__form {
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       width: 250px;
     }
@@ -148,6 +143,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+    
+    &__heading,
+    &__data,
+    &__title {
+      text-align: center;
     }
   }
 }
@@ -160,31 +161,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
-    &__logo {
-      @extend %air-logo;
-    }
+    padding: 40px 0;
+  }
+
+  &__logo {
+    @extend %air-logo;
   }
 
   @media (max-width: 800px) {
     &__container {
       flex-direction: column;
-      padding-bottom: 30px;
-    }
-    
-    &__logo {
-      margin-top: 30px;
+      padding: 50px 0 30px;
     }
 
     &__nav {
-      margin-top: 15px;
+      margin-top: 20px;
       width: 100%;
       max-width: 650px;
 
       & .nav__list {
-        height: 80px;
         width: 100%;
         justify-content: space-around;
+      }
+
+      & .nav__item {
+        padding: 20px 0;
       }
     }
   }
