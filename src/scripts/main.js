@@ -27,3 +27,18 @@
     slider.onmouseleave = sliding;
   };
 })();
+
+(function themeSwitcher() {
+  const body = document.querySelector('body');
+  const checkbox = document.querySelector('.theme-switcher__checkbox');
+
+  checkbox.checked = false;
+
+  checkbox.onchange = () => {
+    if (checkbox.checked) {
+      body.classList.add('light-theme');
+    } else {
+      body.classList.remove('light-theme');
+    }
+  };
+})();

@@ -1,5 +1,6 @@
 .header {
   background-color: #2c2c2c;
+  transition: 0.5s;
 
   &__container {
     @extend %container;
@@ -19,21 +20,58 @@
     }
   }
 
-  &__hire-us {
-    @extend %link;
-    position: absolute;
-    right: -10px;
+  &__features {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
-  @media (max-width: 940px) {
+  &__theme-switcher {
+    margin-right: 20px;
+  }
+
+  &__hire-us {
+    @extend %link;
+  }
+
+  @media (max-width: 1000px) {
     &__container {
       height: 120px;
     }
 
     &__nav,
-    &__hire-us {
+    &__features {
       display: none;
     }
+  }
+}
+
+.theme-switcher {
+  height: 20px;
+  width: 50px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+
+  &__checkbox {
+    position: abxolute;
+    visibility: hidden;
+  }
+ 
+  &:after {
+    content: "";
+    display: block;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background-color: #2c2c2c;
+    position: absolute;
+    left: 3px;
+    transition: 0.5s;
   }
 }
 
@@ -59,7 +97,7 @@
       transform: scale(0.95);
     }
   
-    @media (max-width: 940px) {
+    @media (max-width: 1000px) {
       display: flex;
     }
   }
@@ -94,13 +132,16 @@
     }
   }
 
+  &__theme-switcher {
+    margin-bottom: 30px;
+  }
+
   &__link {
     font-size: 35px;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    padding: 0 20px;
-    margin: 20px 0;
+    padding: 2vw 20px;
   }
 
   &__checkbox {
@@ -130,6 +171,7 @@
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
   overflow: hidden;
+  transition: 0.5s;
 
   &__container {
     @extend %container;
@@ -241,14 +283,11 @@
   
   @for $i from 1 through 4 {
     &__slide:nth-of-type(#{$i}) {
+      height: 100%;
+      width: 25%;
       background: url(../images/slider-image-#{$i}.png);
+      background-size: cover;
     }
-  }
-
-  &__slide {
-    height: 100%;
-    width: 25%;
-    background-size: cover;
   }
 
   &__intro {
@@ -257,7 +296,9 @@
     font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin: 555px 0 0 145px;
+    position: absolute;
+    left: 145px;
+    bottom: 90px;
   }
 
   &__heading {
@@ -265,7 +306,9 @@
     font-size: 14px;
     line-height: 140%;
     font-weight: normal;
-    margin: 10px 0 0 145px;
+    position: absolute;
+    left: 145px;
+    bottom: 40px;
   }
 
   &__radio {
@@ -307,6 +350,13 @@
         left: auto;
         right: 50px;
       }
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__intro,
+    &__heading {
+      display: none;
     }
   }
 }
