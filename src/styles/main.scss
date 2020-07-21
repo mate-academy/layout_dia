@@ -1,7 +1,76 @@
 @import "utils";
-@import "fonts";
-@import "typography";
+@import "header";
+@import "about-us";
+@import "work";
+@import "reviews";
+@import "footer";
+@import "light-theme";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  font-family: Poppins, sans-serif;
+  background: #f2f6fa;
+}
+
+.nav {
+  &__list {
+    width: 650px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    height: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    @extend %link;
+  }
+}
+
+.up-button {
+  display: block;
+  height: 50px;
+  width: 50px;
+  background: #ddd url(../images/up-button__arrow.svg) no-repeat center;
+  border: 1px solid #ddd;
+  opacity: 0.7;
+  background-size: 50%;
+  border-radius: 100%;
+  position: sticky;
+  left: 90%;
+  top: 85%;
+  z-index: 3;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: black;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  @media (min-width: 1150px) {
+    left: calc(50% + (var(--container-width) / 2) - 50px);
+  }
+
+  @media (min-width: 1800px) {
+    top: 90%;
+  }
 }
