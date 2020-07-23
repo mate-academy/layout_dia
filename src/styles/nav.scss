@@ -1,0 +1,64 @@
+@import "mixins";
+@import "vars";
+
+$nav-height: 120px;
+$nav-pad: 350px;
+
+.nav {
+	height: $nav-height;
+	position: relative;
+	background-color: #008aff;
+	padding-left: 25%;
+
+	&__logo {
+		position: absolute;
+		left: 15%;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	&__image {
+		width: 45px;
+		height: 25px;
+	}
+	
+	&__list {
+		display: flex;
+		height: $nav-height;
+		justify-content: flex-start;
+	}
+	
+	&__item {
+		line-height: $nav-height;
+		margin-right: 64px;
+		transition: all 1s ease-in-out;
+		
+		&--last {
+			align-self: flex-end;
+		}
+		
+		&:hover {
+			transform: scale(1.2);
+			
+			&:after {
+				content: "";
+				height: 2px;
+				width: 100%;
+				background-color: $button-color;
+				position: absolute;
+				bottom: 25%;
+				left: 0;
+			}
+		}
+	}
+	
+	&__link {
+		@include header(13px);
+		font-size: 13px;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: $text-white;
+		
+	}
+}

@@ -1,0 +1,32 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.5s ease-in-out;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin header ($font-size) {
+  font-family: "Poppins", serif;
+  font-size: $font-size;
+  font-weight: 600;
+  line-height: $font-size * 1.5;
+}
+
+@mixin text ($font-size) {
+  font-size: $font-size;
+  line-height: $font-size * 1.5;
+  font-family: "Open Sans", serif;
+  font-style: normal;
+}
+
+@mixin button {
+  width: 226px;
+  height: 50px;
+  background-color: $button-color;
+  border: 1px solid $button-color;
+  border-radius: 64px;
+  @include header(15px);
+  color: $text-white;
+  @include hover ( transform, scale(1.1) );
+  cursor: cell;
+}
