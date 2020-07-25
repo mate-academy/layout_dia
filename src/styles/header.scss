@@ -34,7 +34,7 @@ $slider-button-size: 32px;
 	
 	&__slider {
 		
-		background-color: red;
+		background-color: $bg-blue;
 		
 		height: $header-height;
 		width: 687px;
@@ -51,7 +51,6 @@ $slider-button-size: 32px;
 		position: absolute;
 		top: 0;
 		left: 0;
-		display: none;
 		
 		&--1 {
 			background-image: url("../images/slider/1.png");
@@ -59,23 +58,28 @@ $slider-button-size: 32px;
 		
 		&--2 {
 			background-image: url("../images/slider/2.png");
+			display: none;
 		}
 		
 		&--3 {
 			background-image: url("../images/slider/3.png");
+			display: none;
 		}
 		
 		&--4 {
 			background-image: url("../images/slider/4.png");
+			display: none;
 		}
 	}
 	
 	&__slider-title {
 		position: absolute;
 		left: 20%;
-		bottom: 15%;
+		bottom: calc(5% + 35px);
 		@include header(13px);
-		color: $text-white;
+		@include slider-text;
+		letter-spacing: 3px;
+		text-transform: uppercase;
 	}
 	
 	&__slider-text {
@@ -83,7 +87,7 @@ $slider-button-size: 32px;
 		left: 20%;
 		bottom: 5%;
 		@include text(14px);
-		color: $text-white;
+		@include slider-text;
 	}
 	
 	&__slider-button {
@@ -95,13 +99,22 @@ $slider-button-size: 32px;
 		border-radius: 50%;
 		color: $text-medium;
 		border: 1px solid #fff;
+		transition: all 0.5s ease-in;
+		z-index: 2;
+
 		
 		&--left {
-			left: 5%;
+			left: 48px;
+			background: #fff url(../images/slider/arrow-left.svg) no-repeat center;
 		}
 		
 		&--right {
-			left: 10%;
+			left: calc(48px + #{$slider-button-size} + 8px);
+			background: #fff url(../images/slider/arrow-right.svg) no-repeat center;
+		}
+		
+		&:hover {
+			@include hover (transform, scale(1.2));
 		}
 	}
 }
