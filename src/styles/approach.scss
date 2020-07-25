@@ -1,0 +1,85 @@
+@import "mixins";
+@import "vars";
+
+$approach-height: 976px;
+$approach-width: 1480px;
+$block-width: 362px;
+$icon-size: 64px;
+$picture-size: 680px;
+$approach-pad: 204px;
+
+.approach-wrapper {
+	position: relative;
+	height: $approach-height;
+}
+
+.approach {
+	background-color: $bg-pink;
+	position: relative;
+	float: right;
+	height: $approach-height;
+	width: $approach-width;
+	border-radius: 25% 0 0 25%;
+	padding: $approach-pad 0 0 $approach-pad;
+	
+	&__header-small {
+		@include header(13px);
+		color: $text-white;
+		text-transform: uppercase;
+	}
+	
+	&__header-big {
+		@include header(32px);
+		color: $text-white;
+		margin-top: 16px;
+		margin-bottom: 32px;
+	}
+	
+	&__block {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		width: $block-width;
+	}
+	
+	&__icon {
+		width: $icon-size;
+		height: $icon-size;
+		background-color: #fff;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+
+		@include hover (transform, scale(1.2));
+		
+		&--union {
+			background-image: url(../images/features/features-item-icon-1.svg);
+		}
+		
+		&--calendar {
+			background-image: url(../images/features/features-item-icon-2.svg);
+		}
+		
+		&--document {
+			background-image: url(../images/features/features-item-icon-3.svg);
+		}
+	}
+	
+	&__text {
+		@include text(15px);
+		color: $text-white;
+		margin-left: 34px;
+	}
+	
+	&__picture {
+		height: $picture-size;
+		width: $picture-size;
+		background-image: url(../images/features/features-bg.jpg);
+		background-size: cover;
+		border-radius: 25% 0 0 0;
+		float: right;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+}

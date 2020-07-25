@@ -1,0 +1,80 @@
+@import "mixins";
+@import "vars";
+
+$contact-height: 765px;
+$base-pad: 226px;
+$header-margin: 56px;
+
+.contact {
+	height: $contact-height;
+	background-color: $bg-blue;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	padding-top: 180px;
+	border-radius: 0 25% 0 0;
+	
+	&__form {
+		width: 50%;
+		padding-left: $base-pad;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	&__form-header{
+		@include header(32px);
+		margin-bottom: $header-margin;
+	}
+	
+	&__email, &__name, &__msg {
+		@include input;
+	}
+	
+	&__button {
+		@include button;
+		margin-top: 80px;
+	}
+	
+	&__info {
+		width: 50%;
+		padding-left: $base-pad;
+	}
+	
+	&__info-header {
+		@include header(32px);
+		margin-bottom: $header-margin;
+	}
+	
+	&__info-label {
+		@include header(13px);
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		opacity: 0.5;
+		margin: 48px 0 8px;
+	}
+	
+	&__number, &__address {
+		@include text(24px);
+		font-weight: 600;
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	&__socials {
+		display: flex;
+		justify-content: space-between;
+		width: 130px;
+		margin-top: 19px;
+	}
+	
+	&__social {
+		height: 24px;
+		width: 24px;
+		
+		&:hover{
+			@include custom-cursor;
+			fill: $fill-color;
+		}
+	}
+
+}

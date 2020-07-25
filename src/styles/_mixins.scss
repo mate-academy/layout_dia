@@ -5,6 +5,10 @@
   }
 }
 
+@mixin custom-cursor {
+  cursor: url(../images/Cursor/Mouse/Vector.svg), auto;
+}
+
 @mixin header ($font-size) {
   font-family: "Poppins", serif;
   font-size: $font-size;
@@ -28,5 +32,95 @@
   @include header(15px);
   color: $text-white;
   @include hover ( transform, scale(1.1) );
-  cursor: cell;
+  @include custom-cursor;
+}
+
+@mixin process-card ($color) {
+  & > .process__card-header {
+    background-color: rgba($color, 0.1);
+    color: $color;
+  }
+  
+  & > .process__card-button > .process__card-button-image {
+    background-color: $color;
+  }
+}
+
+@mixin testimonials-card ($color,$imageName) {
+  & > .testimonials__icon {
+    background-image: url(../images/testimonials/#{$imageName}.png);
+  }
+  
+  & > .testimonials__image {
+    background-image: url(../images/testimonials/#{$imageName}.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    
+    &:before {
+      content: "";
+      width: 140px;
+      height: 56px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #{$color};
+      border-radius: 500px;
+      transform: rotate(-60deg);
+      position: absolute;
+      top: -8%;
+      left: -30%;
+      z-index: -1;
+    }
+    
+    &:after {
+      content: "";
+      width: 140px;
+      height: 56px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), #{$color};
+      border-radius: 500px;
+      transform: rotate(-60deg);
+      position: absolute;
+      bottom: -8%;
+      right: -30%;
+      z-index: -1;
+    }
+  }
+}
+
+@mixin spinaroo {
+    transform: scale(1.4);
+    transition: all 2s ease-in-out;
+    &:before, &:after {
+      transform: rotate(360deg);
+      transition-delay: 1s;
+      transition: all 2s ease-in-out;
+    }
+}
+
+@mixin apply-shape ($color, $size, $posX, $posY) {
+  border: 4px solid $color;
+  top: $posY;
+  left: $posX;
+  width: $size;
+  height: $size/3;
+}
+
+@mixin input {
+  background-color: $bg-blue;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  opacity: 0.7;
+  width: 460px;
+  height: 40px;
+  @include header(15px);
+  margin-bottom: 48px;
+  
+  &::placeholder {
+    color: #fff;
+    opacity: 0.7;
+  }
+  
+  &:focus {
+    opacity: 1;
+    background-color: $bg-blue;
+  }
 }
