@@ -18,6 +18,7 @@ $nav-pad: 350px;
 		width: 45px;
 		height: 25px;
 		background-image: url(../images/logo/Air.svg);
+		background-repeat: no-repeat;
 		
 		&:hover {
 			@include custom-cursor;
@@ -29,6 +30,7 @@ $nav-pad: 350px;
 		display: flex;
 		height: $nav-height;
 		justify-content: flex-start;
+		flex-wrap: wrap;
 	}
 	
 	&__item {
@@ -66,4 +68,47 @@ $nav-pad: 350px;
 		color: $text-white;
 		@include custom-cursor;
 	}
+	
+	@media screen and (max-width: 1280px) {
+		&__list {
+			justify-content: space-around;
+		}
+		
+		&__item {
+			margin-right: 0;
+			
+			&--last {
+				align-self: flex-start;
+				margin-left: 0;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 720px) {
+		& {
+			padding-left: 10%;
+			height: $nav-height/2;
+		}
+		
+		&__logo {
+			width: 50%;
+			left: 1%;
+		}
+		
+		&__list {
+			height: 100%;
+		}
+		
+		&__item {
+			flex-shrink: 1;
+			height: 100%;
+			line-height: $nav-height/2;
+		}
+		
+		&__link {
+			font-size: 13px;
+			letter-spacing: normal;
+		}
+	}
+	
 }
