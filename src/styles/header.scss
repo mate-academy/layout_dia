@@ -1,0 +1,181 @@
+@import "mixins";
+@import "vars";
+
+$header-height: 680px;
+$padding-base: 120px;
+$slider-button-size: 32px;
+
+.header {
+	height: $header-height;
+	background-color: $bg-blue;
+	border-radius: 0 0 25% 10%;
+	padding-left: 15%;
+	position: relative;
+	padding-top: $padding-base;
+	
+	&__title {
+		@include header(64px);
+		letter-spacing: -2px;
+		line-height: 68px;
+		color: $text-white;
+	}
+	
+	&__text {
+		margin-top: 32px;
+		@include text (18px);
+		color: $text-white;
+		width: 360px;
+	}
+	
+	&__button {
+		margin-top: 80px;
+		@include button;
+	}
+	
+	&__slider {
+		
+		background-color: $bg-blue;
+		
+		height: $header-height;
+		width: 687px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		border-radius: 25% 0 25% 0;
+	}
+	
+	&__slide {
+		width: 687px;
+		height: $header-height;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-position: center;
+		background-size: cover;
+		
+		&--1 {
+			background-image: url("../images/slider/1.png");
+		}
+		
+		&--2 {
+			background-image: url("../images/slider/2.png");
+			display: none;
+		}
+		
+		&--3 {
+			background-image: url("../images/slider/3.png");
+			display: none;
+		}
+		
+		&--4 {
+			background-image: url("../images/slider/4.png");
+			display: none;
+		}
+	}
+	
+	&__slider-title {
+		position: absolute;
+		left: 25%;
+		bottom: calc(5% + 35px);
+		@include header(13px);
+		@include slider-text;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+	}
+	
+	&__slider-text {
+		position: absolute;
+		left: 25%;
+		bottom: 5%;
+		@include text(14px);
+		@include slider-text;
+	}
+	
+	&__slider-button {
+		height: $slider-button-size;
+		width: $slider-button-size;
+		position: absolute;
+		bottom: 10%;
+		background-color: #fff;
+		border-radius: 50%;
+		color: $text-medium;
+		border: 1px solid #fff;
+		transition: all 0.5s ease-in;
+		z-index: 2;
+
+		
+		&--left {
+			left: 48px;
+			background: #fff url(../images/slider/arrow-left.svg) no-repeat center;
+		}
+		
+		&--right {
+			left: calc(48px + #{$slider-button-size} + 8px);
+			background: #fff url(../images/slider/arrow-right.svg) no-repeat center;
+		}
+		
+		&:hover {
+			@include hover (transform, scale(1.2));
+		}
+	}
+	
+	@media screen and (max-width: 1280px) {
+		& {
+			height: $header-height*1.3;
+			display: flex;
+			padding-bottom: 70%;
+			justify-content: space-around;
+			align-items: flex-start;
+			padding-top: $padding-base/2;
+			padding-left: 0;
+		}
+		
+		&__text {
+			margin-top: 0;
+		}
+		
+		&__button {
+			margin-top: 40px;
+		}
+			
+		&__slider {
+			height: 70%;
+			width: 100%;
+		}
+		
+		&__slide {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	
+	@media screen and (max-width: 720px) {
+		& {
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			text-align: center;
+			
+			&__title {
+				width: 80%;
+			}
+			
+			&__text-wrapper {
+				width: 80%;
+			}
+			
+			&__text {
+				margin-top: 40px;
+				width: 100%;
+			}
+			
+			&__slider {
+				height: 50%;
+				width: 100%;
+				top: 50%;
+			}
+		}
+	}
+	
+}

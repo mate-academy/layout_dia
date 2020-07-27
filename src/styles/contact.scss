@@ -1,0 +1,112 @@
+@import "mixins";
+@import "vars";
+
+$contact-height: 765px;
+$base-pad: 226px;
+$header-margin: 56px;
+
+.contact {
+	height: $contact-height;
+	background-color: $bg-blue;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	padding: $base-pad*0.8 0 0 $base-pad;
+	border-radius: 0 25% 0 0;
+	
+	&__form {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	&__form-header{
+		@include header(32px);
+		margin-bottom: $header-margin;
+	}
+	
+	&__email, &__name, &__msg {
+		@include input;
+	}
+	
+	&__button {
+		@include button;
+		margin-top: 80px;
+	}
+	
+	&__info {
+		width: 50%;
+		padding-left: $base-pad;
+	}
+	
+	&__info-header {
+		@include header(32px);
+		margin-bottom: $header-margin;
+	}
+	
+	&__info-label {
+		@include header(13px);
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		opacity: 0.5;
+		margin: 48px 0 8px;
+	}
+	
+	&__number, &__address {
+		@include text(24px);
+		font-weight: 600;
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	&__socials {
+		display: flex;
+		justify-content: space-between;
+		width: 130px;
+		margin-top: 19px;
+		
+	}
+	
+	&__social {
+		height: 24px;
+		width: 24px;
+		
+		&:hover {
+			@include custom-cursor;
+			animation: filter-in 500ms both ease-in-out;
+		}
+	}
+
+	@keyframes filter-in {
+		0% {
+			filter: brightness(1) sepia(0) hue-rotate(0) saturate(0);
+		}
+		100% {
+			filter: brightness(0.5) sepia(1) hue-rotate(140deg) saturate(6);
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		& {
+			padding: $base-pad*0.6 0 0 $base-pad/5;
+			
+			&__info {
+				padding-left: $base-pad/5;
+			}
+			
+			&__button {
+				margin-top: 0;
+			}
+			
+			&__email, &__name, &__msg {
+				width: 100%;
+			}
+			
+			&__contact {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+	
+}

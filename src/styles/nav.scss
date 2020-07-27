@@ -1,0 +1,114 @@
+@import "mixins";
+@import "vars";
+
+$nav-height: 120px;
+$nav-pad: 350px;
+
+.nav {
+	height: $nav-height;
+	position: relative;
+	background-color: #008aff;
+	padding-left: 25%;
+
+	&__logo {
+		position: absolute;
+		left: 15%;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 45px;
+		height: 25px;
+		background-image: url(../images/logo/Air.svg);
+		background-repeat: no-repeat;
+		
+		&:hover {
+			@include custom-cursor;
+		}
+	}
+
+	
+	&__list {
+		display: flex;
+		height: $nav-height;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	
+	&__item {
+		line-height: $nav-height;
+		margin-right: 64px;
+		transition: all 1s ease-in-out;
+		
+		&--last {
+			align-self: flex-end;
+			margin-left: auto;
+		}
+		
+		&:hover {
+			@include custom-cursor;
+			transform: scale(1.2);
+			
+			&:after {
+				content: "";
+				height: 2px;
+				width: 100%;
+				background-color: $button-color;
+				position: absolute;
+				bottom: 25%;
+				left: 0;
+			}
+		}
+	}
+	
+	&__link {
+		@include header(13px);
+		font-size: 13px;
+		letter-spacing: 3px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: $text-white;
+		@include custom-cursor;
+	}
+	
+	@media screen and (max-width: 1280px) {
+		&__list {
+			justify-content: space-around;
+		}
+		
+		&__item {
+			margin-right: 0;
+			
+			&--last {
+				align-self: flex-start;
+				margin-left: 0;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 720px) {
+		& {
+			padding-left: 10%;
+			height: $nav-height/2;
+		}
+		
+		&__logo {
+			width: 50%;
+			left: 1%;
+		}
+		
+		&__list {
+			height: 100%;
+		}
+		
+		&__item {
+			flex-shrink: 1;
+			height: 100%;
+			line-height: $nav-height/2;
+		}
+		
+		&__link {
+			font-size: 13px;
+			letter-spacing: normal;
+		}
+	}
+	
+}
