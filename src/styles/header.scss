@@ -1,0 +1,54 @@
+.header {
+  position: relative;
+  background-color: #2c2c2c;
+  border-radius: 0 0 30px 30px;
+  width: $header-width;
+  height: $height;
+  overflow: hidden;
+
+  &__toggle {
+    display: none;
+  }
+}
+
+@media (max-width: $media-width-1080) {
+  .header {
+
+    &__hamburger {
+      position: absolute;
+      right: 23px;
+      padding: 25px;
+      width: 18px;
+      height: 12px;
+      top: 5%;
+      left: 5%;
+      z-index: 5;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        background-image: url("../images/logo/hamburger.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 18px;
+        height: 12px;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &__toggle:checked ~ {
+      .nav {
+        display: block;
+      }
+
+      .header__hamburger::after {
+        content: "";
+        position: absolute;
+        background-image: url("../images/logo/hide.png");
+        width: 20px;
+        height: 20px;
+        z-index: 4;
+      }
+    }
+  }
+}

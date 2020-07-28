@@ -7,6 +7,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/vh
 - Tablet 1024
 - Mobile (> 320px)
 
+ [DEMO LINK](https://oivannikov.github.io/layout_dia/).
+
 1. Implement the header with `nav`.
 1. Implement `Strategic agency` block.
 1. Implement slider (You may start with a single picture).
