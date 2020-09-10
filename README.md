@@ -1,4 +1,4 @@
-# Dia landing page
+# Air landing page
 [DEMO LINK](https://tanyamoore.github.io/layout_dia/) |
 [LAYOUT DESIGN](https://www.figma.com/file/vhfzZ7SqWGkMGd5iCDdBCy/Dia-New?node-id=0%3A1)
 
