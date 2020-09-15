@@ -4,19 +4,24 @@
   align-items: center;
   height: var(--header-height);
 
-  &__logo {
-    padding: 20px;
-    padding-left: 0;
-  }
   &__wrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    order: 1;
+
+    @media (max-width: 620px) {
+      order: 2;
+    }
   }
 
   &__list {
     display: flex;
     margin-left: 58px;
+
+    @media (max-width: 620px) {
+      display: none;
+    }
   }
 
   &__item {
@@ -26,13 +31,23 @@
     &:first-child {
       margin-left: 0;
     }
+
+    @media (max-width: 850px) {
+      margin-left: 25px;
+    }
   }
 
   &__link {
     @include poppins(13px, 700);
+
     transition: color 0.3s;
+
     &:hover {
       color: $color;
+    }
+
+    @media (max-width: 850px) {
+      font-size: 10px;
     }
   }
 }
