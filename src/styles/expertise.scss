@@ -10,13 +10,6 @@
     grid-template-columns: repeat(3, auto);
     row-gap: 64px;
     column-gap: 177px;
-
-    @media (max-width: 1024px) {
-      grid-template-areas: "title" "item" "item" "item";
-      grid-template-columns: auto;
-      grid-template-rows: repeat(3, auto);
-      justify-items: center;
-    }
   }
 
   &__title {
@@ -25,14 +18,27 @@
 
     @extend %main;
     font-size: 52px;
-
-    @media (max-width: 425px) {
-      font-size: 38px;
-    }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
+  }
+
+  @media (max-width: 1024px) {
+    &__container {
+      grid-template-areas: "title" "item" "item" "item";
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto);
+      justify-items: center;
+    }
+  }
+
+  @media (max-width: 425px) {
+    padding: 70px 0;
+
+    &__title {
+      font-size: 38px;
+    }
   }
 }
