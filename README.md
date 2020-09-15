@@ -8,22 +8,22 @@ Implemented landing page according to [Figma design](https://www.figma.com/file/
 - Mobile (> 320px)
 
 1. Implemented the header with `nav`.
-1. Implemented `Strategic agency` block.
-1. Implemented slider (You may start with a single picture).
-1. Implemented `Who we are` block.
-1. Implemented `Our expertise` block with the card reused 3 times.
-1. Implemented `Process` block with 4 process cards.
-1. Implemented `Approach` block.
-1. Implemented `Testimonials` block.
-1. Implemented `Vision, Passion, Results` block
+2. Implemented `Strategic agency` block.
+3. Implemented slider (You may start with a single picture).
+4. Implemented `Who we are` block.
+5. Implemented `Our expertise` block with the card reused 3 times.
+6. Implemented `Process` block with 4 process cards.
+7. Implemented `Approach` block.
+8. Implemented `Testimonials` block.
+9. Implemented `Vision, Passion, Results` block
     - Background use one reusable oval block many times.
     - Use mixin.
     - The color is set with `--modifier`.
     - The size is limited by parent container.
-1. Implemented `Send us  a message`.
-1. ImpleImplementedment `Contact us`.
-1. ImImplementedplement the footer.
-1. Adopt the page to mobile screens.
+10. Implemented `Send us  a message`.
+11. Implemented `Contact us`.
+12. Implemented the footer.
+13. Adopt the page to mobile screens.
 
  - [DEMO LINK](https://Maildes.github.io/layout_dia/).
 
