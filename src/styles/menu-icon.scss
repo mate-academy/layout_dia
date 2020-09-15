@@ -1,0 +1,40 @@
+.menu-icon {
+  position: relative;
+  cursor: pointer;
+
+  z-index: 2;
+
+  &__line-1 {
+    @include icon-line;
+    transform-origin: bottom left;
+    bottom: 4px;
+  }
+
+  &__line-2 {
+    @include icon-line;
+    bottom: calc(50% + 4px);
+    opacity: 1;
+  }
+
+  &__line-3 {
+    @include icon-line;
+    transform-origin: top left;
+    bottom: calc(100% + 4px);
+  }
+
+  &--open {
+    & :nth-child(1) {
+      transform: rotate(-47deg);
+    }
+
+    & :nth-child(2) {
+      transition: opacity 0.1s 0.1s;
+      opacity: 0;
+
+    }
+
+    & :nth-child(3) {
+      transform: rotate(47deg);
+    }
+  }
+}

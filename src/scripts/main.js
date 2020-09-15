@@ -28,3 +28,21 @@ decorRightRects.forEach((rect, i) => {
   rect.style.right = decorRectRightPos[i][0] + 'px';
   rect.style.bottom = decorRectRightPos[i][1] + 'px';
 });
+
+// -----------------------------------------
+
+const page = document.querySelector('.page');
+const menuIcon = document.querySelector('.menu-icon');
+const burgerMenu = document.querySelector('.burger-menu');
+const burgerMenuList = document.querySelector('.burger-menu__list');
+
+menuIcon.addEventListener('click', openMenu);
+burgerMenuList.addEventListener('click', openMenu);
+
+function openMenu() {
+  page.classList.toggle('page--no-scroll');
+  burgerMenu.classList.toggle('header__burger-menu--open');
+
+  menuIcon.classList.toggle('menu-icon--open');
+  menuIcon.classList.toggle('header__menu--screen--small');
+}

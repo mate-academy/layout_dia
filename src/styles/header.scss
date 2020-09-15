@@ -11,6 +11,18 @@
   padding: 0 $edge-space-primary;
 
   background-color: $primary-color;
+  z-index: 1;
+
+  @media screen and (max-width: 1224px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    justify-content: space-between;
+    width: 100vw;
+
+    background-color: transparent;
+  }
 
   &__logo {
     @include logo;
@@ -24,6 +36,10 @@
     @include link;
     position: relative;
 
+    @media screen and (max-width: 1224px) {
+      display: none;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -34,6 +50,32 @@
 
       background-color: $secondary-color;
       border-radius: 4px;
+    }
+  }
+
+  &__menu {
+    width: 23px;
+    height: 16px;
+
+    &--screen--small {
+      display: none;
+
+      @media screen and (max-width: 1224px) {
+        display: block;
+      }
+    }
+  }
+
+  &__burger-menu {
+    position: fixed;
+    bottom: 100%;
+    left: 0;
+
+    width: 100vw;
+    height: 120vh;
+
+    &--open {
+      bottom: 0;
     }
   }
 
