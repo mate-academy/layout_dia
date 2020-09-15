@@ -15,13 +15,25 @@ burger.addEventListener('click', () => {
 
 navLink.forEach(item => {
   item.addEventListener('click', () => {
-    menuToggle();
+    if (item.classList.contains('menu')) {
+      menuToggle();
+    }
   });
 });
 
 headerLink.addEventListener('click', () => {
-  menuToggle();
+  if (headerLink.classList.contains('menu')) {
+    menuToggle();
+  }
 });
+
+if (burgerItem.classList.contains('menu')) {
+  if (window.orientation === 0) {
+    window.addEventListener('orientationchange', () => {
+      menuToggle();
+    }, false);
+  }
+}
 
 function menuToggle() {
   burgerItem.forEach(item => {
