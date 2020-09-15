@@ -28,11 +28,9 @@ headerLink.addEventListener('click', () => {
 });
 
 if (burgerItem.classList.contains('menu')) {
-  if (window.orientation === 0) {
-    window.addEventListener('orientationchange', () => {
-      menuToggle();
-    }, false);
-  }
+  window.addEventListener('orientationchange', () => {
+    menuToggle();
+  }, false);
 }
 
 function menuToggle() {
