@@ -1,5 +1,6 @@
 'use strict';
 
+// navigation menu
 const burger = document.querySelector('.nav__btn');
 const mobileMenu = document.querySelector('.nav');
 const navLinks = document.querySelectorAll('.nav__link');
@@ -24,3 +25,13 @@ function mobileMenuRemove() {
   mobileMenu.classList.remove('nav--visisble');
   body.classList.remove('has-modal');
 }
+
+//input pattern
+
+const input = document.getElementById('form-message');
+
+input.oninput = () => {
+  if (input.value.charAt(0) === ' ') {
+    input.value = '';
+  }
+};

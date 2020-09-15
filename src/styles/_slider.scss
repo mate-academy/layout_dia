@@ -1,9 +1,35 @@
 .slider {
   box-sizing: border-box;
-  transition: 1s;
+  width: 690px;
+  height: 100%;
 
-  @media screen and (min-width: $designBreakpointWidth) {
-    transform: translateX(90px);
+  @media screen and (max-width: 1200px ) {
+    width: 530px;
+  }
+
+  @media screen and (max-width: $phoneBreakpointWidth) {
+    width: 465px;
+    height: 105%;
+    margin: 50px auto;
+  }
+
+  @media screen and (max-width: 600px ) {
+    width: 400px;
+    margin-top: 20px
+  }
+
+  @media screen and (max-width: 450px ) {
+    width: 280px;
+    height: 600px;
+    margin: 0 auto;
+  }
+
+  #slides {
+    position: absolute;
+    box-sizing: border-box;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
 
   &__gallery {
@@ -35,9 +61,47 @@
     }
   }
 
-  &__control {
+  &__slide {
+    box-sizing: border-box;
     position: absolute;
+    right: 0;
     bottom: 0;
+    opacity: 0;
+    z-index: 0;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: 1s;
+
+    @media screen and (max-width: 1200px ) {
+      width: 530px;
+    }
+
+    @media screen and (max-width: $phoneBreakpointWidth) {
+      width: 465px;
+    }
+
+    @media screen and (max-width: 600px ) {
+      width: 400px;
+    }
+
+    @media screen and (max-width: 450px ) {
+      max-width: 280px;
+      max-height: 280px;
+    }
+  }
+
+  &__slide-showing {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  &__control {
+    //position: absolute;
+    //z-index: 10;
+    //bottom: 0;
+
     @media screen and (min-width: $phoneBreakpointWidth) {
       margin-bottom: 35px;
     }
@@ -45,11 +109,14 @@
 }
 
 .control {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 150px;
-  width: 100%;
 
   @media screen and (min-width: 450px) {
     height: 210px;
@@ -65,7 +132,14 @@
     align-items: center;
     height: 68px;
     bottom: 0;
+    right: 0;
+
   }
+
+  @media screen and (max-width: $phoneBreakpointWidth) {
+    width: 100%;
+  }
+
 
   &__wrapper {
     display: flex;
