@@ -1,6 +1,3 @@
 module.exports = {
-  "extends": "@mate-academy/eslint-config",
-  "env": {
-    "browser": true
-  }
+  extends: '@mate-academy/eslint-config',
 };
