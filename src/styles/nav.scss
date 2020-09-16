@@ -40,11 +40,84 @@
     &:last-child {
       padding-right: 0;
     }
+    &--special {
+      position: relative;
+    }
+
+    &--special::after {
+      position: absolute;
+      bottom: 22px;
+      display: block;
+      content: "";
+      width: 67px;
+      height: 2px;
+      background-color: $pink;
+      border-radius: 4px;
+    }
   }
 
+  &__burger {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/burger-menu/burger.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    &--active {
+      background-image: url("../images/burger-menu/cross.svg");
+    }
+  }
+ 
   @media (max-width: 1100px) {
     &__section--bottom {
       width: 100%;
+    }
+  }
+  @media (max-width: 999px) {
+    padding: 20px 30px 16px;
+  }
+
+  @media (max-width: 900px) {
+    &__link {
+      display: none;
+    }
+
+    &__link--special {
+      display: block;
+    }
+
+    &__section {
+      padding: 40px 50px 0;
+    }
+
+    &__section--bottom {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 580px) {
+    &__section {
+      padding-left: 0;
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    padding-left: 0;
+    &__section {
+      padding-right: 0;
+    }
+  }
+
+  @media (min-width: 900px) {
+    &__burger {
+      display: none;
     }
   }
 }
