@@ -1,109 +1,235 @@
 .process {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  margin-bottom: 900px;
-  padding: 130px 226px 0;
-  color: #6c788b;
-  
-  &__article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 362px;
-    max-height: 470px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 250px 30px 0;
+  background-color: #e5e5e5;
+
+  &__info {
+    width: 340px;
+    padding-right: 20px;
   }
 
   &__name {
-    display: block;
-    margin-bottom: 16px;
     color: #c0cdd7;
+    font-weight: bold;
     font-size: 13px;
-    text-transform: uppercase;
     letter-spacing: 3px;
+    padding-bottom: 16px;
+    text-transform: uppercase;
   }
-
   &__title {
-    margin-bottom: 24px;
     color: #253757;
+    font-weight: 600;
     font-size: 32px;
     line-height: 130%;
+    padding-bottom: 24px;
   }
-
   &__text {
-    margin-bottom: 14px;
+    color: #6c788b;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
+
+    &:first-of-type {
+      padding-bottom: 24px;
+    }
   }
 
   &__cards {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 720px;
-    width: 588px;
+    display: grid;
+    grid-template-columns: 264px 264px;
+    gap: 30px;
+    position: relative;
   }
 
   &__card {
-    width: 264px;
-    height: 264px;
-    margin: 15px;
-    padding: 35px 32px;
-    background-color: #fff;
-    border-radius: 16px;
-    z-index: 1;
-
-    &--right {
-      order: 1;
+    &:nth-child(even) {
+      bottom: 132px;
     }
-
-    &:first-child {
-      margin-top: 66px;
-    }
-  }
   
-  &__num {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 11px;
-    padding: 2px 11px;
-    border-radius: 23px;
-    background-color: rgba(32, 96, 246, 0.1);
-    color: $header-link-button-color;
+    &:nth-child(odd) {
+      top: 20px;
+    }
   }
 
-  &__pack {
-    margin-bottom: 32px;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 150%;
-    color: #6c788b;
-  }
-
-  &__button {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background: url("../images/card_button.svg") center no-repeat;
-    background-color: $header-link-button-color;
-    border: none;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
+  @media (max-width: 960px) {
+    & {
+      padding-top: 30px;
+      justify-content: left;
+    }
+    &__info {
+      width: 50%;
+      padding: 0;
     }
 
-    &::after {
-      content: "Learn more";
-      position: absolute;
-      top: 10px;
-      left: 120%;
-      width: 90px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #253757;
+    &__cards {
+      top: 140px;
+    }
+    &__card {
+      &:nth-child(even) {
+        left: 250px;
+        bottom: 300px;
+      }
+    
+      &:nth-child(odd) {
+        top: -130px;
+        right: -250px;
+      }
+    }
+  }
+
+  @media (max-width: 860px) {
+    &__cards {
+      left: -150px;
+    }
+  }
+  @media (max-width: 715px) {
+    & {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__cards {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__card,
+    &__card:nth-child(odd),
+    &__card:nth-child(even) {
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      margin-top: 20px;
+    }
+    &__info {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__title {
+      font-size: 24px;
+    }
+    &__info {
+      width: 95%;
+      margin-bottom: 10px;
+    }
+    &__card,
+    &__card:nth-child(odd),
+    &__card:nth-child(even) {
+      margin-top: 0;
     }
   }
 }
+
+// .process {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: space-between;
+//   margin-bottom: 900px;
+//   padding: 130px 226px 0;
+//   color: #6c788b;
+  
+//   &__article {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     max-width: 362px;
+//     max-height: 470px;
+//   }
+
+//   &__name {
+//     display: block;
+//     margin-bottom: 16px;
+//     color: #c0cdd7;
+//     font-size: 13px;
+//     text-transform: uppercase;
+//     letter-spacing: 3px;
+//   }
+
+//   &__title {
+//     margin-bottom: 24px;
+//     color: #253757;
+//     font-size: 32px;
+//     line-height: 130%;
+//   }
+
+//   &__text {
+//     margin-bottom: 14px;
+//     font-size: 14px;
+//   }
+
+//   &__cards {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     height: 720px;
+//     width: 588px;
+//   }
+
+//   &__card {
+//     width: 264px;
+//     height: 264px;
+//     margin: 15px;
+//     padding: 35px 32px;
+//     background-color: #fff;
+//     border-radius: 16px;
+//     z-index: 1;
+
+//     &--right {
+//       order: 1;
+//     }
+
+//     &:first-child {
+//       margin-top: 66px;
+//     }
+//   }
+  
+//   &__num {
+//     display: inline-block;
+//     font-size: 13px;
+//     font-weight: 600;
+//     margin-bottom: 11px;
+//     padding: 2px 11px;
+//     border-radius: 23px;
+//     background-color: rgba(32, 96, 246, 0.1);
+//     color: $header-link-button-color;
+//   }
+
+//   &__pack {
+//     margin-bottom: 32px;
+//     font-size: 13px;
+//     font-weight: 600;
+//     line-height: 150%;
+//     color: #6c788b;
+//   }
+
+//   &__button {
+//     position: relative;
+//     width: 40px;
+//     height: 40px;
+//     background: url("../images/card_button.svg") center no-repeat;
+//     background-color: $header-link-button-color;
+//     border: none;
+//     border-radius: 50%;
+//     transition: transform 0.3s ease-in-out;
+
+//     &:hover {
+//       transform: scale(1.1);
+//       cursor: pointer;
+//     }
+
+//     &::after {
+//       content: "Learn more";
+//       position: absolute;
+//       top: 10px;
+//       left: 120%;
+//       width: 90px;
+//       font-size: 15px;
+//       font-weight: 600;
+//       color: #253757;
+//     }
+//   }
+// }
