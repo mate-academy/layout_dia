@@ -1,0 +1,189 @@
+.header {
+  position: relative;
+  padding-top: 50px;
+  overflow: hidden;
+  background-color: $blue;
+  border-radius: 0 0 0 200px;
+  &__flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+  }
+  &__burger-wrapper {
+    margin-bottom: 48px;
+  }
+  &__logo-adapt {
+    display: none;
+  }
+  &__toggler {
+    display: none;
+  }
+  &__label {
+    background: url("/images/burger_btn.svg")no-repeat;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 75px;
+  }
+  &__toggler:checked ~ .navbar {
+    display: block;
+  }
+  &__toggler:checked ~ .header__label {
+    background: url("/images/close_btn.svg")no-repeat;
+    background-size: cover;
+  }
+  &__homepage {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    @include main-header;
+    color: $white;
+    width: 490px;
+    margin-top: auto;
+    margin-bottom: 32px;
+  }
+  &__slogan {
+    width: 362px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: $white;
+    margin-bottom: 83px;
+  }
+  &__button {
+    @include button-styles;
+    padding: 13px 0;
+    margin-bottom: 205px;
+    width: 226px;
+    text-align: center;
+  }
+  &__slider {
+    position: relative;
+    top: 5px;
+    border-radius: 200px 0 0;
+    overflow: hidden;
+    &__wrapper {
+      position: relative;
+    }
+  }
+  &__slider-pic {
+    object-fit: cover;
+  }
+  &__controls {
+    position: absolute;
+    bottom: 66px;
+    left: 48px;
+    display: flex;
+  }
+  &__caption {
+    position: absolute;
+    bottom: 48px;
+    left: 144px;
+    &-title {
+      margin-bottom: 8px;
+      @include small-uppercase;
+      color: $white;
+    }
+    &-description {
+      @include regular-text;
+      font-size: 14px;
+      color: $white;
+      width: 264px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $sections-background;
+    z-index: -1;
+  }
+  @media (max-width: 1300px) {
+    &__flex-wrapper {
+      height: initial;
+    }
+    &__column {
+      width: 30%;
+    }
+    &__title,
+    &__slogan {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1200px) {
+    &__homepage {
+      flex-direction: column;
+    }
+    &__column {
+      width: 100%;
+      text-align: center;
+    }
+    &__button {
+      margin: 0 auto 30px;
+    }
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__slogan {
+      margin-bottom: 25px;
+    }
+    &__slider {
+      margin: 0 auto;
+      width: 493px;
+      border-radius: 125px 125px 0 0;
+    }
+    &__slider-pic {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1100px) {
+    &__slider-pic {
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 1000px) {
+    &__logo-adapt {
+      display: block;
+      position: absolute;
+      z-index: 400;
+    }
+    &__label {
+      display: block;
+      z-index: 300;
+    }
+    &__slider {
+      width: 509px;
+    }
+  }
+  @media (max-width: 800px) {
+   /* border-radius: initial;*/
+  }
+  @media (max-width: 750px) {
+    &__title {
+      font-size: 50px;
+    }
+  }
+  @media (max-width: 600px) {
+    &__slider {
+      border-radius: 125px;
+      width: 100%;
+    }
+    &__caption-description {
+      width: 80%;
+    }
+    
+  }
+}
