@@ -2,15 +2,12 @@
   position: relative;
   z-index: -1;
 
-  margin-left: 120px;
-  padding: 204px 0;
+  margin-left: calc(50% - 625px);
+  padding: 204px 0 204px 204px;
 
   background-color: #2c2c2c;
   border-radius: 30px 0 0 30px;
-
-  &__container {
-    padding-right: 170px;
-  }
+  overflow: hidden;
 
   &__title {
     max-width: 362px;
@@ -55,35 +52,52 @@
   }
 
   &__img {
-    height: 689px;
-    width: 43vw;
+    height: 35vw;
+    width: 35vw;
+    min-width: 650px;
+    min-height: 680px;
     position: absolute;
     right: 0;
     bottom: 0;
 
-    background: url(../images/approach/bgi.png) center / cover no-repeat;
     border-radius: 30px 0 0;
   }
 
-  @media (max-width: 1040px) {
-    padding: 70px 0;
+  @media (max-width: 1400px) {
+    padding: 70px;
     padding-top: 100px;
-
-    &__container {
-      padding-right: 50px;
-    }
 
     &__img {
       display: none;
     }
 
     &__title {
-      max-width: 100%;
+      max-width: 70%;
     }
   }
 
-  @media (max-width: $breakpoint-small) {
+  @media (max-width: $breakpoint-huge) {
     margin-left: 0;
     border-radius: 30px;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    display: grid;
+    justify-items: center;
+
+    &__title {
+      max-width: 100%;
+    }
+
+    &__wrapper {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    &__description,
+    &__main,
+    &__subtitle {
+      text-align: center;
+    }
   }
 }
