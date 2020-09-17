@@ -8,6 +8,7 @@ const menu = document.querySelector('.nav__list');
 const navItem = document.querySelectorAll('.nav__item');
 const navLink = document.querySelectorAll('.nav__link');
 const headerLink = document.querySelector('.header__link');
+const slider = document.querySelector('.slider');
 
 burger.addEventListener('click', () => {
   menuToggle();
@@ -51,4 +52,6 @@ function menuToggle() {
   });
 
   headerLink.classList.toggle('menu');
+
+  slider.classList.toggle('menu');
 }

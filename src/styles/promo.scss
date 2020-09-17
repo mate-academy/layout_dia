@@ -1,11 +1,12 @@
 .promo {
   background-color: $color-dark;
   position: relative;
-  padding: 0 0 50px;
 
   border-radius: 0 0 30px 30px;
 
   &__container {
+    padding: 0 0 0 50px;
+    max-width: 1423px;
     display: grid;
     grid-template-areas: "header header" "title slider";
     grid-template-rows: var(--header-height) 1fr;
@@ -39,16 +40,37 @@
     grid-area: slider;
   }
 
-  @media (max-width: $breakpoint-medium) {
-    padding-bottom: 70px;
+  @media (max-width: 1100px) {
+    &__container {
+      padding: 0;
+      grid-template-areas: "header" "title" "slider";
+    }
 
     &__main {
+      text-align: center;
+    }
+
+    &__description {
+      text-align: center;
+      margin: 0 auto 83px;
+    }
+
+    &__btn {
+      margin: 0 auto 50px;
+    }
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    &__main {
       font-size: 50px;
+      text-align: center;
     }
 
     &__description {
       max-width: 295px;
       font-size: 15px;
+      text-align: center;
+      margin: 0 auto 83px;
     }
   }
 }
