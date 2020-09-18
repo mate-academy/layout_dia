@@ -1,22 +1,44 @@
 .slider-images {
   position: relative;
   overflow: hidden;
-  height: 100%;
 
   @media screen and (max-width: 1224px) {
     display: none;
-  }
-
-  &__img {
-    width: 687px;
-
-    object-fit: cover;
-    object-position: center;
   }
 
   &__intro-menu {
     position: absolute;
     left: 48px;
     bottom: 48px;
+
+    z-index: 2;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    width: $showcase-img-width;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+
+    &--shown {
+      left: 0;
+    }
+
+    &--previous {
+      left: -$showcase-img-width;
+    }
+
+    &--next {
+      left: $showcase-img-width;
+    }
+
+    &--moving {
+      transition: left 1s, right 1s;
+      z-index: 1;
+    }
   }
 }
