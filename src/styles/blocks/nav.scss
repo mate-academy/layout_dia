@@ -5,6 +5,11 @@
     list-style: none;
   }
 
+  &__logo {
+    height: 26px;
+    width: 45px;
+  }
+
   &__link {
     text-decoration: none;
     text-transform: uppercase;
@@ -13,18 +18,48 @@
     font-weight: 700;
     line-height: 26px;
     transition: color 1s;
+    letter-spacing: 3px;
     
+    &--active {
+      position: relative;
+      width: 70px;
 
-    &--active::after {
-      content: "";
-      display: block;
-      height: 2px;
-      width: 100%;
-      background-color: $pink;
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: $pink;
+        position: absolute;
+        bottom: -8px;
+      }
     }
 
     &:hover {
       color: $pink;
+    }
+  }
+}
+
+@media screen and (max-width: $w900) {
+  .nav {
+    text-align: center;
+
+    &__list {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__logo {
+      margin: 0 auto 20px;
+    }
+
+    &__item {
+      margin-bottom: 20px;
+    }
+
+    &__link--active {
+      margin: 0 auto;
     }
   }
 }
