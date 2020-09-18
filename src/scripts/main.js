@@ -28,11 +28,11 @@ headerLink.addEventListener('click', () => {
   }
 });
 
-if (burgerItem.classList.contains('menu')) {
-  window.addEventListener('orientationchange', () => {
-    menuToggle();
-  }, false);
-}
+// if (burgerItem.classList.contains('menu')) {
+//   window.addEventListener('orientationchange', () => {
+//     menuToggle();
+//   }, false);
+// }
 
 function menuToggle() {
   burgerItem.forEach(item => {
