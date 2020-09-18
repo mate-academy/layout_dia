@@ -1,0 +1,90 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $nav-height;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__label {
+    display: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      right: 10vw;
+
+      display: block;
+      width: 20px;
+      height: 20px;
+      z-index: 2;
+
+      background: url(../images/features/burger.svg) no-repeat center;
+      transform: scale(2);
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: 64px;
+
+    @include spaced-uppercase-font;
+  }
+
+  &__link {
+    position: relative;
+
+    color: white;
+    @extend %link;
+  }
+
+  &__hire-link {
+    position: relative;
+
+    @include spaced-uppercase-font;
+    color: white;
+
+    @extend %link;
+  }
+
+  @media (max-width: 1200px) {
+    &__list {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: auto;
+      z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      row-gap: 50px;
+
+      font-size: 26px;
+
+      background-color: $background-color;
+
+      transform: translateX(-2000px);
+      transition: transform 0.4s ease;
+    }
+
+    &__hire-link-block {
+      position: absolute;
+    }
+
+    &__label {
+      display: block;
+    }
+
+    &__checkbox:checked ~ &__list {
+      transform: translateX(0);
+    }
+  }
+}
