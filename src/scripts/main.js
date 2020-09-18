@@ -11,9 +11,9 @@ burger.addEventListener('click', function() {
   burger.classList.toggle('nav__burger--active');
 });
 
-for (let elem of mobileLink) {
+for (const elem of mobileLink) {
   elem.addEventListener('click', function() {
     mobileNav.classList.toggle('mobile--active');
     burger.classList.toggle('nav__burger--active');
   })
-}
+};
