@@ -5,16 +5,44 @@
   }
 }
 
+@mixin container() {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: 0 $edge-space-primary;
+
+  @media screen and (min-width: 2000px) {
+    padding-left: $edge-space-secondary;
+    padding-right: $edge-space-secondary;
+  }
+}
+
 @mixin link() {
+  position: relative;
   font-size: 13px;
   text-decoration: none;
   line-height: 150%;
   color: #fff;
 
-  transition: color $transition-duration;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
 
-  &:hover {
-    color: $secondary-color;
+    width: 100%;
+    height: 1px;
+
+    background-color: $secondary-color;
+    border-radius: 1px;
+
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform $transition-duration,
+      opacity $transition-duration;
+  }
+
+  &:hover::before {
+    transform: translateY(8px);
+    opacity: 1;
   }
 }
 
