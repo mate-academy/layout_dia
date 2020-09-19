@@ -99,3 +99,17 @@ function nextImg() {
     rightArrow.addEventListener('click', nextImg);
   }, sliderDuration);
 };
+
+// ------------ link up --------------
+
+const linkUp = document.querySelector('.arrow-up-link');
+
+window.addEventListener('scroll', showUpLink);
+
+function showUpLink() {
+  if (document.documentElement.scrollTop > 500) {
+    linkUp.classList.add('arrow-up-link--visible');
+  } else if (linkUp.classList.contains('arrow-up-link--visible')) {
+    linkUp.classList.remove('arrow-up-link--visible');
+  }
+}
