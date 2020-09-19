@@ -8,17 +8,6 @@
   border-radius: 16px;
   transition: box-shadow 0.3s, transform 0.3s ease-out, ;
 
-  &:hover {
-    box-shadow: 0 0 20px rgb(189, 188, 188);
-    & .testimonials__text::before {
-      transform: rotate(359deg);
-    }
-
-    & .testimonials__text {
-      transform: scale(1.2);
-    }
-  }
-
   &__img-wrapper {
     position: relative;
     height: 250px;
@@ -66,6 +55,56 @@
   &__photo {
     position: relative;
     z-index: 2;
+  }
+
+  &__text {
+    transition: transform 0.5s;
+    &::before {
+      transition: transform 0.5s;
+      content: "";
+      display: block;
+      @include size(24px);
+      background-image: url(../images/testimonials/text.svg);
+      position: relative;
+      z-index: 40;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__description {
+    @extend %description;
+    margin-bottom: 16px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    &--name {
+      margin-bottom: 4px;
+
+      font-weight: 600;
+      font-size: 13px;
+      color: #253757;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px rgb(189, 188, 188);
+    & .review__text::before {
+      transform: rotate(359deg);
+    }
+
+    & .review__text {
+      transform: scale(1.2);
+    }
   }
 
   @media (max-width: 320px) {

@@ -44,3 +44,26 @@
   right: $right;
   top: $top;
 }
+
+@mixin after {
+  transition: transform 0.3s;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: calc(100% - 3px);
+    margin-top: 8px;
+
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    &::after {
+      background-color: $color;
+    }
+  }
+}
