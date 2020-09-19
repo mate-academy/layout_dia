@@ -7,10 +7,10 @@ const menuIcon = document.querySelector('.menu-icon');
 const burgerMenu = document.querySelector('.burger-menu');
 const burgerMenuList = document.querySelector('.burger-menu__list');
 
-menuIcon.addEventListener('click', openMenu);
-burgerMenuList.addEventListener('click', openMenu);
+menuIcon.addEventListener('click', toggleMenu);
+burgerMenuList.addEventListener('click', toggleMenu);
 
-function openMenu() {
+function toggleMenu() {
   page.classList.toggle('page--no-scroll');
   burgerMenu.classList.toggle('header__burger-menu--open');
 
@@ -19,20 +19,38 @@ function openMenu() {
 }
 
 // --------------slider--------------------
+const sliderDuration = window.getComputedStyle(document.documentElement)
+  .getPropertyValue('--slider-duration-js');
 
 const leftArrow = document.getElementById('left-arrow');
 const rightArrow = document.getElementById('right-arrow');
+const sliderImages = document.querySelector('.slider-images');
 let freeToSlide = true;
+let mousIsOver = false;
+const switchMouseToggler = function() {
+  mousIsOver = !mousIsOver;
+};
 
 leftArrow.addEventListener('click', previousImg);
 rightArrow.addEventListener('click', nextImg);
+sliderImages.addEventListener('mouseover', switchMouseToggler);
+sliderImages.addEventListener('mouseout', switchMouseToggler);
 
-runAutoSlider();
+setInterval(() => {
+  if (freeToSlide && !mousIsOver) {
+    nextImg();
+  }
+
+  freeToSlide = true;
+}, 8000);
 
 function previousImg() {
   const leftImg = document.querySelector('.slider-images__img--previous');
   const currentImg = document.querySelector('.slider-images__img--shown');
   const rightImg = document.querySelector('.slider-images__img--next');
+
+  leftArrow.removeEventListener('click', previousImg);
+  rightArrow.removeEventListener('click', nextImg);
 
   freeToSlide = false;
 
@@ -48,13 +66,19 @@ function previousImg() {
     currentImg.classList.add('slider-images__img--next');
 
     leftImg.classList.remove('slider-images__img--moving');
-  }, 1000);
+
+    leftArrow.addEventListener('click', previousImg);
+    rightArrow.addEventListener('click', nextImg);
+  }, sliderDuration);
 };
 
 function nextImg() {
   const leftImg = document.querySelector('.slider-images__img--previous');
   const currentImg = document.querySelector('.slider-images__img--shown');
   const rightImg = document.querySelector('.slider-images__img--next');
+
+  leftArrow.removeEventListener('click', previousImg);
+  rightArrow.removeEventListener('click', nextImg);
 
   freeToSlide = false;
 
@@ -70,17 +94,8 @@ function nextImg() {
     currentImg.classList.add('slider-images__img--previous');
 
     rightImg.classList.remove('slider-images__img--moving');
-  }, 1000);
-};
 
-function runAutoSlider() {
-  freeToSlide = true;
-
-  setTimeout(() => {
-    if (freeToSlide) {
-      nextImg();
-    }
-
-    runAutoSlider();
-  }, 6000);
+    leftArrow.addEventListener('click', previousImg);
+    rightArrow.addEventListener('click', nextImg);
+  }, sliderDuration);
 };
