@@ -1,15 +1,100 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 45px calc(50% - 500px);
+  padding: 45px calc(50% - 573px) ;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  color: $c-link;
   background-color: $c-bg;
+  text-transform: uppercase;
+
+  &__nav-label {
+    position: absolute;
+    top: 47px;
+    left: 100px;
+    display: none;
+    z-index: 3;
+    cursor: pointer;
+    transition: opacity $transition-duration;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 12px;
+      background: url(../images/menu.svg) center / cover;
+    }
+  }
+
+  &__nav-input {
+    display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+  }
 
   &__logo {
     position: relative;
     background: url(../images/Air.png);
+
+    @media (max-width: 1100px) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__hire {
+    height: 19px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 67px;
+      background-color: $c-link-hover;
+      border-radius: 4px;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   @media (max-width: 1100px) {
-    padding-left: 100px;
+    &__nav-label {
+      display: block;
+    }
+
+    &__nav-input {
+      display: block;
+      width: 0;
+      height: 0;
+
+      &:checked ~ .header__burder {
+        height: 100%;
+        display: block;
+        background-color: $c-bg-burger;
+      }
+
+      &:checked + .header__nav-label {
+        position: fixed;
+        &::after {
+          background-image: url(../images/close.svg);
+        }
+      }
+    }
   }
 }
