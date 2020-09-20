@@ -10,9 +10,7 @@ const navLink = document.querySelectorAll('.nav__link');
 const headerLink = document.querySelector('.header__link');
 const slider = document.querySelector('.slider');
 
-burger.addEventListener('click', () => {
-  menuToggle();
-});
+burger.addEventListener('click', menuToggle);
 
 navLink.forEach(item => {
   item.addEventListener('click', () => {
@@ -27,12 +25,6 @@ headerLink.addEventListener('click', () => {
     menuToggle();
   }
 });
-
-// if (burgerItem.classList.contains('menu')) {
-//   window.addEventListener('orientationchange', () => {
-//     menuToggle();
-//   }, false);
-// }
 
 function menuToggle() {
   burgerItem.forEach(item => {
