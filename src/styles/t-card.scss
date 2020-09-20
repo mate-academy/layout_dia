@@ -1,0 +1,118 @@
+.t-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 314px;
+  padding: 87px 87px 32px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  background: #fff;
+  
+  font-weight: 600;
+  line-height: 150%;
+  color: $gray;
+  text-align: center;
+
+  &__photo-wrapper {
+    &--1 {
+      &::before {
+        @include pseudoelem($blue, -60deg, 175px, 135px);
+      }
+      &::after {
+        @include pseudoelem($blue, -60deg, 85px, 40px);
+      }
+    }
+
+    &--2 {
+      &::before {
+        @include pseudoelem($yellow, -60deg, 175px, 135px);
+      }
+      &::after {
+        @include pseudoelem($yellow, -60deg, 85px, 40px);
+      }
+    }
+
+    &--3 {
+      &::before {
+        @include pseudoelem($bright-pink, -60deg, 175px, 135px);
+      }
+      &::after {
+        @include pseudoelem($bright-pink, -60deg, 85px, 40px);
+      }
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    right: calc(50% - 70px);
+    top: 87px;
+    display: block;
+    z-index: 3;
+    
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    @include hover(transform, scale(1.05));
+    @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.2));
+  }
+
+  &__quotes1 {
+    background: url("../images/testimonials/quotes1.png");
+    @include quotes;
+  }
+
+  &__quotes2 {
+    background: url("../images/testimonials/quotes2.png");
+    @include quotes;
+  }
+
+  &__quotes3 {
+    background: url("../images/testimonials/quotes3.png");
+    @include quotes;
+  }
+  &__text {
+    width: 250px;
+    margin: 240px 0 16px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-family: "Open Sans", sans-serif;
+    color: $dark-text-color;
+  }
+
+  &__credo {
+    width: 202px;
+    font-weight: bold;
+    color: $light-gray;
+    letter-spacing: 3px;
+  }
+
+  @media (max-width: 360px) {
+    width: 290px;
+  
+    &__photo-wrapper--1::before {
+      @include pseudoelem($blue, -60deg, 175px, 125px);
+    }
+    &__photo-wrapper--1::after {
+      @include pseudoelem($blue, -60deg, 85px, 30px);
+    }
+
+    &__photo-wrapper--2::before {
+      @include pseudoelem($yellow, -60deg, 175px, 125px);
+    }
+    &__photo-wrapper--2::after {
+      @include pseudoelem($yellow, -60deg, 85px, 30px);
+    }
+
+    &__photo-wrapper--3::before {
+      @include pseudoelem($bright-pink, -60deg, 175px, 125px);
+    }
+    &__photo-wrapper--3::after {
+      @include pseudoelem($bright-pink, -60deg, 85px, 30px);
+    }
+  }
+}
