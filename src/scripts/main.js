@@ -113,3 +113,12 @@ function showUpLink() {
     linkUp.classList.remove('arrow-up-link--visible');
   }
 }
+
+// ------------ form -----------------------
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.location.reload();
+});
