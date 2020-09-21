@@ -9,6 +9,7 @@ const navItem = document.querySelectorAll('.nav__item');
 const navLink = document.querySelectorAll('.nav__link');
 const headerLink = document.querySelector('.header__link');
 const slider = document.querySelector('.slider');
+const form = document.querySelector('form');
 
 burger.addEventListener('click', menuToggle);
 
@@ -47,3 +48,8 @@ function menuToggle() {
 
   slider.classList.toggle('menu');
 }
+
+form.addEventListener('submit', event => {
+  document.location.reload();
+  event.preventDefault();
+});
