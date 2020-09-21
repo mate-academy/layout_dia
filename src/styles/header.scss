@@ -1,18 +1,40 @@
 @import "./variables.scss";
 
 .header {
-  height: 800px;
-  padding: 0 228px;
-
+  position: relative;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  width: 100%;
+  height: 800px;
+  padding: 0 228px;
   
   color: $color-white;
   font-weight: bold;
-
+  
   background-color: $color-blue;
   border-radius: 0 0 0 200px;
+  
+  overflow: hidden;
+
+  @media screen and (max-width: 1400px) {
+    padding: 0 50px;
+  }
+
+  @media screen and (max-width: 991px) {
+    height: unset;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media screen and (max-width: 475px) {
+    border-bottom-left-radius: 100px;
+  }
 
   &__top {
     display: flex;
@@ -20,6 +42,15 @@
     padding-top: 49px;
 
     letter-spacing: 3px;
+
+    @media screen and (max-width: 991px) {
+      align-items: center;
+    }
+
+    @media screen and (max-width: 575px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
   }
 
   &__logo {
@@ -27,8 +58,22 @@
     height: 25.63px;
   }
 
+  &__logo-link {
+    @media screen and (max-width: 991px) {
+      margin-right: auto;
+    }
+  }
+
   &__nav {
     margin: auto 0;
+  }
+
+  &__burger {
+    display: none;
+
+    @media screen  and (max-width: 991px) {
+      display: flex;
+    }
   }
 
   &__top-link {
@@ -57,22 +102,62 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    @media screen and (max-width: 991px) {
+      margin-top: 50px;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__sign {
     margin-bottom: 205px;
+
+    @media screen and (max-width: 991px) {
+      margin-bottom: 50px;
+    }
   }
 
   &__title {
     @include font-size64px;
     margin-bottom: 32px;
+
+    @media screen and (max-width: 1200px) {
+      margin-top: 50px;
+
+      @include font-size52px;
+      color: $color-white;
+    }
+
+    @media screen and (max-width: 991px) {
+      text-align: center;
+    }
   }
 
   &__p {
     width: 75%;
     margin-bottom: 83px;
+
     @include font-size18px;
     color: $color-white;
+
+    @media screen and (max-width: 1200px) {
+      @include font-size15px;
+    }
+
+    @media screen and (max-width: 991px) {
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+  }
+
+  &__button.button {
+    @media screen and (max-width: 991px) {
+      display: block;
+      margin: 0 auto;
+      padding: 16px 0;
+      text-align: center;
+    }
   }
 
   &__learnMore {
@@ -85,5 +170,10 @@
 
   &__slider {
     margin-right: -228px;
+
+    @media screen and (max-width: 1400px) {
+      margin-top: 40px;
+      margin-right: -50px;
+    }
   }
 }
