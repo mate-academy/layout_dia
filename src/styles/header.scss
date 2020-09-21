@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 45px calc(50% - 573px) ;
+  padding: 45px calc(50% - 573px);
   font-weight: bold;
   font-size: 13px;
   line-height: 20px;
@@ -30,6 +30,10 @@
       height: 12px;
       background: url(../images/menu.svg) center / cover;
     }
+
+    @media (max-width: 1010px) {
+      left: 30px;
+    }
   }
 
   &__nav-input {
@@ -57,14 +61,16 @@
     height: 19px;
     cursor: pointer;
 
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      height: 2px;
-      width: 67px;
-      background-color: $c-link-hover;
-      border-radius: 4px;
+    &:hover {
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 2px;
+        width: 67px;
+        background-color: $c-link-hover;
+        border-radius: 4px;
+      }
     }
   }
 
@@ -84,9 +90,19 @@
       height: 0;
 
       &:checked ~ .header__burder {
-        height: 100%;
+        top: 0;
         display: block;
+        height: 50%;
+        width: 45%;
         background-color: $c-bg-burger;
+        border-right: 4px solid$c-process;
+        border-bottom: 4px solid $c-process;
+
+        @media (max-width: 720px) {
+          margin: 0 auto;
+          width: 100%;
+          height: 100%;
+        }
       }
 
       &:checked + .header__nav-label {
@@ -96,5 +112,10 @@
         }
       }
     }
+  }
+
+  @media (max-width: 475px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
