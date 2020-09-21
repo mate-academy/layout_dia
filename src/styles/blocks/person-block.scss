@@ -11,9 +11,18 @@
 
   @include boldFontStyle(13px, 1.5);
 
-  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.1);
   background-color: #fff;
   border-radius: 16px;
+
+  @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.4));
+
+  &:hover {
+    &::before,
+    &::after {
+      transform: rotate(120deg);
+    }
+  }
 
   &::before {
     content: "";
@@ -23,9 +32,10 @@
     width: 139px;
     height: 56px;
 
-    background-color: #2060f6;
+    background-color: $highlightColor;
     border-radius: 12px;
     transform: rotate(-60deg);
+    transition: transform $quickTransitionDuration;
   }
 
   &::after {
@@ -40,6 +50,7 @@
     background-color: $highlightColor;
     border-radius: 12px;
     transform: rotate(-60deg);
+    transition: transform $quickTransitionDuration;
   }
 
   &__image {
