@@ -11,7 +11,7 @@ navLink.forEach(item => {
 
 form.addEventListener('submit', (event) => {
   reloadPage(event);
-})
+});
 
 function hideMenu() {
   document.getElementById('toggler').checked = false;
