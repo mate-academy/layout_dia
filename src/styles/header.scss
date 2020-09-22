@@ -2,20 +2,24 @@
   display: flex;
   justify-content: space-between;
   padding: 45px calc(50% - 573px);
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 20px;
+
+  font-weight: 600;
+  @include font(13px, 20px);
   letter-spacing: 3px;
   color: $c-link;
+
   background-color: $c-bg;
+
   text-transform: uppercase;
 
   &__nav-label {
     position: absolute;
     top: 47px;
     left: 100px;
-    display: none;
     z-index: 3;
+
+    display: none;
+    
     cursor: pointer;
     transition: opacity $transition-duration;
 
@@ -28,6 +32,7 @@
       display: block;
       width: 18px;
       height: 12px;
+
       background: url(../images/menu.svg) center / cover;
     }
 
@@ -50,7 +55,7 @@
     position: relative;
     background: url(../images/Air.png);
 
-    @media (max-width: 1100px) {
+    @media (max-width: $size-tablet) {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -65,21 +70,23 @@
       &::after {
         content: "";
         position: absolute;
+
         display: block;
         height: 2px;
         width: 67px;
+
         background-color: $c-link-hover;
         border-radius: 4px;
       }
     }
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: $size-notebook) {
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: $size-tablet) {
     &__nav-label {
       display: block;
     }
@@ -91,17 +98,23 @@
 
       &:checked ~ .header__burder {
         top: 0;
+
         display: block;
         height: 50%;
         width: 45%;
+        
         background-color: $c-bg-burger;
-        border-right: 4px solid$c-process;
+        border-right: 4px solid $c-process;
         border-bottom: 4px solid $c-process;
 
         @media (max-width: 720px) {
           margin: 0 auto;
           width: 100%;
           height: 100%;
+        }
+
+        @media (max-height: 390px) {
+          height: 60%;
         }
       }
 
