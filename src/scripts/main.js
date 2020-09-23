@@ -53,3 +53,18 @@ form.addEventListener('submit', event => {
   document.location.reload();
   event.preventDefault();
 });
+
+const headerLogo = document.querySelector('.header__logo');
+const page = document.querySelector('.page');
+const btn = document.querySelectorAll('.button');
+const review = document.querySelector('.testimonials__wrapper');
+
+headerLogo.addEventListener('click', () => {
+  page.classList.toggle('theme');
+
+  btn.forEach(item => {
+    item.classList.toggle('theme');
+  });
+
+  review.classList.toggle('theme');
+});
