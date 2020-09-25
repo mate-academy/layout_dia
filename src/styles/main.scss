@@ -19,6 +19,7 @@
 @import "footer";
 @import "form";
 @import "mobile";
+@import "wrapper";
 
 html {
   font-family: "Poppins", sans-serif;
@@ -33,28 +34,43 @@ body {
 }
 
 .page {
-  max-width: 1600px;
-  margin: 0 auto;
+
+  &__wrapper--approach {
+    margin-left: 121px;
+  }
+
+  &__first-screen {
+    @include block-width;
+  }
 
   &__who {
+    max-width: 730px;
     margin: 0 auto;
+  }
+
+  &__process {
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+
+  &__expertise {
+    margin: 0 auto;
+    max-width: 1150px;
   }
 
   &__approach {
     position: relative;
-    margin-left: 121px;
-    margin-top: -70px;
+    max-width: 1275px;
+    margin: -70px auto 0;
   }
 
   &__testimonials {
-    margin: 148px $screen-margin 168px;
-  }
-
-  &__vision {
-    margin: 0 auto;
+    max-width: 1150px;
+    margin: 148px auto 168px;
   }
 
   &__footer {
+    max-width: 1600px;
     margin: 0 auto;
   }
 
@@ -71,16 +87,26 @@ body {
   }
 
   @media (max-width: 1100px) {
-    &__approach {
+    &__wrapper--approach {
       margin-left: 50px;
     }
-
+  
     &__testimonials {
       margin: 50px 20px;
     }
   }
 
+  @media (max-width: 880px) {
+    &__who {
+      max-width: 80%;
+    }
+  }
+
   @media (max-width: 550px) {
+    &__wrapper--approach {
+      margin-left: 20px;
+    }
+
     &__approach {
       margin-left: 20px;
     }
