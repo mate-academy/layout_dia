@@ -1,95 +1,77 @@
 .process {
-  height: 750px;
-  background-color: $lite_gray-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &__text {
-    width: 362px;
-  }
+  padding: 148px 0 44px;
 
   &__container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   &__title {
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 19px;
-    color: #c0cdd7;
-    padding-bottom: 16px;
+    max-width: 330px;
   }
 
-  &__heading {
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__main {
+    @extend %main;
+    margin-bottom: 24px;
+
     line-height: 130%;
-    color: $hard_blue-color;
-    padding-bottom: 24px;
   }
 
   &__description {
-    font-family: Open Sans, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 150%;
-    color: $gray-color;
-    padding-bottom: 10px;
+    @extend %description;
   }
 
-  &__cards {
-    display: flex;
+  &__wrapper {
+    max-width: $item-size * 2 + $item-gap;
+
+    display: grid;
+    column-gap: $item-gap;
+    grid-template-columns: repeat(2, auto);
   }
 
-  &__card {
-    margin-bottom: 30px;
-  }
+  &__area {
+    display: grid;
+    row-gap: $item-gap;
+    grid-auto-rows: $item-size;
 
-  &__two-cards--left {
-    margin-right: 30px;
-    position: relative;
-    top: 200px;
-    z-index: 2;
-  }
-
-  @media(max-width: 1060px) {
-    & {
-      height: auto;
+    &--left {
+      position: relative;
+      top: 132px;
     }
+  }
+
+  @media (max-width: 1060px) {
+    padding: 50px 0 0;
+    margin-bottom: 70px;
+
     &__container {
       flex-direction: column;
     }
-    &__text {
-      padding-top: 50px;
+
+    &__area {
+      margin-top: 30px;
     }
+
+    
   }
 
-  @media(max-width: 600px) {
-    &__cards {
-      flex-direction: column;
-      position: relative;
-      top: 90px;
-      z-index: 2;
+  @media (max-width: 650px) {
+    margin-bottom: -60px;
+
+    &__wrapper {
+      display: block;
     }
-    &__two-cards--left {
-      position: static;
-      margin-right: 0;
-    }
-    &__two-cards--right {
-      width: 264px;
-    }
-  }
-  @media(max-width: 370px) {
-    &__text {
-      width: 250px;
+
+    &__area {
+      &--left {
+        position: static;
+      }
     }
   }
 }

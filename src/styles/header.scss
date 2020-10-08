@@ -1,86 +1,69 @@
 .header {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  height: 800px;
-  background-color: $black-color;
-  border-radius: 0 0 20px 20px;
-  &__container {
-    padding-top: 50px;
-  }
+  grid-area: header;
+  max-width: 1150px;
 
-  &__text {
-    position: relative;
-    top: 168px;
-  }
+  &__logo {
+    transition: transform 0.3s;
 
-  &__heading {
-    width: 390px;
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 64px;
-    line-height: 68px;
-    letter-spacing: -2px;
-    color: $white-color;
-    padding-bottom: 32px;
-  }
-
-  &__description {
-    width: 382px;
-    font-family: Open Sans, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 150%;
-    color: $white-color;
-    padding-bottom: 83px;
-  }
-
-  &__slider {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-
- 
-
-  @media(max-width: 1060px) {
-
-    & {
-      height: 1200px;
-    }
-
- 
-    &__text {
-      position: static;
-      display: flex;
-      justify-content: center;
-      padding: 70px 0;
-    }
-
-    &__text-content {
-      // width: 250px;
-      text-align: center;
+    &:hover {
+      transform: scale(1.2);
     }
   }
 
-  @media (max-width: 998px) {
-    &__nav {
-      display: none;
+  &__link {
+    margin-top: 10px;
+    @include poppins(13px, 700);
+    order: 3;
+
+    @include after;
+  }
+
+  &__nav {
+    grid-area: header;
+  }
+
+  &__instead {
+    display: none;
+    width: 20px;
+    height: 12px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0 50px;
+    margin-right: 0;
+  }
+
+  @media (max-width: $breakpoint-large) {
+    &__link {
+      font-size: 10px;
     }
   }
 
-  @media(max-width: 440px) {
-    &__heading {
-      display: inline;
-      font-size: 52px;
+  @media (max-width: $breakpoint-normal) {
+    padding: 0 20px;
+    &__link {
+      order: 1;
     }
 
-    &__description {
-      padding-top: 20px;
-      width: 260px;
-      font-size: 14px;
+    &__logo {
+      margin-right: 40px;
+    }
+
+    &__instead {
+      display: block;
+      order: 3;
+    }
+  }
+}
+
+.header__link.menu {
+  @media (max-width: $breakpoint-normal) {
+    &:hover {
+      color: var(--color-dark);
+
+      &::after {
+        background-color: var(--color-dark);
+      }
     }
   }
 }

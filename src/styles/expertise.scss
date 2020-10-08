@@ -1,49 +1,44 @@
 .expertise {
-  height: 760px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  padding: 128px 0 134px;
+  border-radius: 30px;
   background-color: #fff;
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__cards {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__card {
-    padding-bottom: 40px;
+  &__container {
+    display: grid;
+    grid-template-areas: "title title title" "item item item";
+    justify-content: center;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 64px;
+    column-gap: 177px;
   }
 
   &__title {
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
+    grid-area: title;
+    justify-self: center;
+
+    @extend %main;
     font-size: 52px;
-    line-height: 150%;
-    padding-bottom: 74px;
-    color: $hard_blue-color;
   }
 
-  @media(max-width: 1060px) {
-    & {
-      height: auto;
-    }
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
 
-    &__cards {
-      flex-direction: column;
+  @media (max-width: $breakpoint-huge) {
+    &__container {
+      grid-template-areas: "title" "item" "item" "item";
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto);
+      justify-items: center;
     }
   }
 
-  @media(max-width: 400px) {
+  @media (max-width: $breakpoint-small) {
+    padding: 70px 0;
+
     &__title {
-      font-size: 40px;
+      font-size: 38px;
     }
   }
 }
