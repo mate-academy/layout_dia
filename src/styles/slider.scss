@@ -1,0 +1,145 @@
+.slider {
+  height: 100%;
+  width: 600px;
+  border-radius: var(--radius2) 0 var(--radius1);
+  overflow: hidden;
+
+  &__arrow {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    bottom: 65px;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px white;
+    }
+
+    &--left {
+      left: 50px;
+      background: url(../images/slider/arrow-left.svg) no-repeat center;
+    }
+
+    &--right {
+      left: 90px;
+      background: url(../images/slider/arrow-right.svg) no-repeat center;
+    }
+  }
+
+  &__labels-wrapper {
+    height: 100%;
+    width: 400%;
+    display: flex;
+  }
+
+  &__label {
+    height: 100%;
+    width: 25%;
+    cursor: pointer;
+  }
+
+  &__slides-wrapper {
+    height: 100%;
+    width: 400%;
+    display: flex;
+    transition: 0.8s;
+  }
+
+  &__slide {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  @for $i from 1 through 4 {
+    &__slide:nth-of-type(#{$i}) {
+      height: 100%;
+      width: 25%;
+      background: url(../images/slider/image-#{$i}.png);
+      background-size: cover;
+    }
+  }
+
+  &__text {
+    max-width: 265px;
+    margin: 0 145px 45px;
+  }
+
+  &__intro {
+    @extend %subtitle;
+    color: #fff;
+    margin-bottom: 0;
+    display: block;
+    position: absolute;
+    left: 145px;
+    bottom: 90px;
+  }
+
+  &__heading {
+    max-width: 265px;
+    @extend %description;
+    color: #fff;
+    position: absolute;
+    left: 145px;
+    bottom: 40px;
+  }
+
+  &__radio {
+    visibility: hidden;
+    position: absolute;
+
+    &:nth-child(2):checked {
+      & ~ .slider__slides-wrapper,
+      & ~ .slider__arrow .slider__labels-wrapper {
+        margin-left: -100%;
+      }
+    }
+
+    &:nth-child(3):checked {
+      & ~ .slider__slides-wrapper,
+      & ~ .slider__arrow .slider__labels-wrapper {
+        margin-left: -200%;
+      }
+    }
+
+    &:nth-child(4):checked {
+      & ~ .slider__slides-wrapper,
+      & ~ .slider__arrow .slider__labels-wrapper {
+        margin-left: -300%;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    height: 100vh;
+
+    &__button {
+      bottom: 40px;
+      height: calc(45px + 2vw);
+      width: calc(45px + 2vw);
+
+      &--right {
+        left: auto;
+        right: 50px;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__intro,
+    &__heading {
+      display: none;
+    }
+  }
+}
+
+.slider.menu {
+  display: none;
+}

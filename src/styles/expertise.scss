@@ -1,0 +1,44 @@
+.expertise {
+  padding: 128px 0 134px;
+  border-radius: 30px;
+  background-color: #fff;
+
+  &__container {
+    display: grid;
+    grid-template-areas: "title title title" "item item item";
+    justify-content: center;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 64px;
+    column-gap: 177px;
+  }
+
+  &__title {
+    grid-area: title;
+    justify-self: center;
+
+    @extend %main;
+    font-size: 52px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: $breakpoint-huge) {
+    &__container {
+      grid-template-areas: "title" "item" "item" "item";
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto);
+      justify-items: center;
+    }
+  }
+
+  @media (max-width: $breakpoint-small) {
+    padding: 70px 0;
+
+    &__title {
+      font-size: 38px;
+    }
+  }
+}

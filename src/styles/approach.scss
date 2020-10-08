@@ -1,0 +1,105 @@
+.approach {
+  padding: 204px 0 204px 204px;
+
+  background-color: var(--color-inverse);
+  border-radius: var(--radius2) 0 0 var(--radius2);
+  overflow: hidden;
+
+  &__title {
+    max-width: 362px;
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    color: #fff;
+  }
+
+  &__main {
+    @extend %main;
+    margin-bottom: 32px;
+
+    color: #fff;
+  }
+
+  &__description {
+    @extend %description;
+    font-size: 15px;
+    color: #fff;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: $icon-size 1fr;
+    grid-auto-rows: auto;
+    row-gap: $icon-size;
+    column-gap: 34px;
+    align-items: center;
+  }
+
+  &__circle {
+    @include size($icon-size);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  &__img {
+    height: 35vw;
+    width: 35vw;
+    min-width: 650px;
+    min-height: 680px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    border-radius: 30px 0 0;
+  }
+
+  @media (max-width: 1400px) {
+    padding: 70px 204px;
+    padding-top: 100px;
+
+    &__img {
+      display: none;
+    }
+
+    &__title {
+      max-width: 70%;
+    }
+  }
+
+  @media (max-width: $breakpoint-huge) {
+    margin-left: 0;
+
+    &__title {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: $breakpoint-normal) {
+    &__wrapper {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    &__description,
+    &__main,
+    &__subtitle {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: $breakpoint-small) {
+    padding: 100px 70px 70px;
+    display: grid;
+    justify-items: center;
+
+    &__title {
+      max-width: 100%;
+    }
+  }
+}
