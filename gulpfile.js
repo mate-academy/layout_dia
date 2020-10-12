@@ -23,7 +23,9 @@ const jsBlob = 'src/scripts/**';
 const { series, parallel } = gulp;
 
 gulp.task('cleanDist', function() {
-  return gulp.src(distDirectory, { read: false, allowEmpty: true })
+  return gulp.src(distDirectory, {
+    read: false, allowEmpty: true,
+  })
     .pipe(clean());
 });
 
@@ -34,6 +36,8 @@ gulp.task('processHtml', function() {
     }, function(filepath, issues) {
       issues.forEach(function(issue) {
         const { line, column, code, msg } = issue;
+
+        // eslint-disable-next-line no-console
         console.log(
           ` ❌   ${colors.red('htmllint error')}
           📁  file: ${filepath}
@@ -59,7 +63,9 @@ gulp.task('lintCss', function() {
     .pipe(gulpStylelint({
       failAfterError: false,
       reporters: [
-        { formatter: 'string', console: true },
+        {
+          formatter: 'string', console: true,
+        },
       ],
       debug: true,
     }));
@@ -71,7 +77,7 @@ gulp.task('processStyles', series('lintCss', function() {
     .pipe(sass())
     .pipe(gulpReplacePath(/(?:\.\.\/){2,}images/g, '../images'))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      overrideBrowserslist: ['last 2 versions'],
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${distDirectory}/styles`))
@@ -93,7 +99,7 @@ gulp.task('build', series(
     'processImages',
     'processFonts',
     'processJs',
-  )
+  ),
 ));
 
 gulp.task('serve', function() {
