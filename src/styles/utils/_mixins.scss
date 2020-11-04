@@ -4,3 +4,112 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin container() {
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: 0 $edge-space-primary;
+
+  @media screen and (min-width: 2000px) {
+    padding-left: $edge-space-secondary;
+    padding-right: $edge-space-secondary;
+  }
+}
+
+@mixin link() {
+  position: relative;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 150%;
+  color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: $secondary-color;
+    border-radius: 1px;
+
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform $transition-duration,
+      opacity $transition-duration;
+  }
+
+  &:hover::before {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+@mixin button() {
+  background-color: $secondary-color;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-style: normal;
+  color: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: background-color $transition-duration;
+
+  &:hover {
+    background-color: darken($secondary-color, 20%);
+  }
+}
+
+@mixin link-button() {
+  color: #fff;
+
+  &:active {
+    color: #fff;
+  }
+}
+
+@mixin caption() {
+  margin-bottom: 16px;
+
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0cdd7;
+}
+
+@mixin section-title() {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+}
+
+@mixin logo() {
+  width: 45px;
+  height: 26px;
+  margin-right: 14px;
+}
+
+@mixin icon-line() {
+  position: absolute;
+  left: 0;
+
+  height: 4px;
+  width: 100%;
+
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px $primary-color;
+
+  transition: transform 0.7s,
+    opacity 0.1s 0.4s;
+}
