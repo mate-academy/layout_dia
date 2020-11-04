@@ -1,0 +1,104 @@
+.card-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 314px;
+  padding: 32px;
+
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: $card-shadow;
+
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: $card-hover-shadow;
+  }
+
+  &__photo-block {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 27px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 3%;
+
+      display: block;
+      width: 139px;
+      height: 56px;
+
+      background: $color-blue;
+      border-radius: 12px;
+
+      transform: rotate(-60deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 20%;
+      right: 3%;
+
+      display: block;
+      width: 139px;
+      height: 56px;
+
+      background: $color-blue;
+      border-radius: 12px;
+
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+
+    width: 140px;
+    height: 140px;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__quote {
+    margin-bottom: 16px;
+
+    @include text-font(13px, 400);
+    color: $text-color;
+    text-align: center;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 21px;
+      height: 21px;
+      margin: 0 auto 10px;
+
+      background: url(../images/features/quote.svg) no-repeat center;
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+
+    @include text-font(13px, 600);
+    color: $heading-color;
+  }
+
+  &__company {
+    @include spaced-uppercase-font;
+    color: $text-color;
+  }
+
+  @media (max-width: 400px) {
+    @include reduce-padding-horizontal;
+  }
+}
