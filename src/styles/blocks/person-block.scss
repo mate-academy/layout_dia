@@ -1,0 +1,87 @@
+.person-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+
+  position: relative;
+
+  width: 280px;
+  padding: 87px 15px 32px;
+
+  @include boldFontStyle(13px, 1.5);
+
+  box-shadow: 0 9px 18px $shadowColorTransperent;
+  background-color: $defaultColor;
+  border-radius: 16px;
+
+  @include hover(box-shadow, 0 9px 18px $shadowColor);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 15px;
+    width: 139px;
+    height: 56px;
+
+    background-color: $highlightColor;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+    transition: transform $quickTransitionDuration;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 160px;
+    width: 139px;
+    height: 56px;
+
+    background-color: $highlightColor;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+    transition: transform $quickTransitionDuration;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      transform: rotate(120deg);
+    }
+  }
+
+  &__image {
+    margin: 0 auto 72px ;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  &__quote {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 10px auto;
+  }
+
+  &__description {
+    @include normalFontStyle(14px, 1.5);
+
+    color: $descriptionTextColor;
+  }
+
+  &__name {
+    margin: 16px 0 4px;
+
+    color: $headingColor;
+  }
+
+  &__work {
+    color: $secondaryTextColor;
+  }
+}

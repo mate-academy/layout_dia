@@ -1,0 +1,76 @@
+.header {
+  padding: 0 20px;
+
+  background-color: $secondaryBackgroundColor;
+
+  &__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    max-width: $maxContentWidth;
+    margin: auto;
+    padding: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 10px 0;
+    color: $defaultColor;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    &--side {
+      border-bottom: 1px solid $highlightColor;
+    }
+  }
+
+  &__logo {
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__input-toggler {
+    display: none;
+  }
+
+  &__label-toggler {
+    display: none;
+    padding: 10px 0;
+
+    cursor: pointer;
+  }
+
+  @media (max-width:$tabletScreenBreakpoint) {
+    &__link {
+      &--side {
+        display: none;
+      }
+    }
+
+    &__label-toggler {
+      display: block;
+      z-index: 1;
+
+      &::after {
+        content: "\2630";
+        color: $defaultColor;
+        font-size: 25px;
+      }
+    }
+
+    &__input-toggler:checked ~ .nav {
+      display: block;
+    }
+
+    &__input-toggler:checked ~ &__label-toggler {
+      &::after {
+        content: "X";
+      }
+    }
+  }
+}

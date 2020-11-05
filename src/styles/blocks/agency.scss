@@ -1,0 +1,110 @@
+.agency {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+
+  color: $defaultColor;
+  background-color: $secondaryBackgroundColor;
+
+  border-radius: 0 0 30px 30px;
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 80px 10px;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include boldFontStyle(64px, 68px);
+  }
+
+  &__description {
+    margin-bottom: 82px;
+
+    @include normalFontStyle(18px, 27px);
+  }
+
+  &__button {
+    align-self: flex-start;
+  }
+
+  &__link-learn {
+    background-color: $highlightColor;
+    padding: 14px 70px;
+    border-radius: 8px;
+
+    @include hover(color, $highlightColor);
+    @include hover(background-color, $defaultColor);
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__slider-image {
+    display: block;
+    height: 620px;
+    width: 700px;
+
+    object-fit: cover;
+
+    border-radius: 30px 0;
+  }
+
+  &__slider-info {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 50px 20px;
+  }
+
+  &__slider-arrows {
+    &__arrow {
+      margin-right: 5px;
+      cursor: pointer;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+  &__slider-text {
+    margin-left: 20px;
+    max-width: 260px;
+  }
+
+  &__slider-heading {
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__slider-decription {
+    @include normalFontStyle(14px, 19px);
+  }
+
+  @media (max-width: $notebookScreenBreakpoint) {
+    flex-direction: column;
+
+    &__information {
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__button {
+      align-self: center;
+    }
+
+    &__slider-image {
+      width: 100%;
+      height: 50vh;
+      border-radius: 0;
+    }
+  }
+}
