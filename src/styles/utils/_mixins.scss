@@ -4,3 +4,103 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin size ($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin open-sans($size, $weight) {
+  font-family: Open Sans, sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: 150%;
+  color: #fff;
+}
+
+@mixin poppins($size, $weight) {
+  font-family: Poppins, sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}
+
+@mixin design ($width, $height, $radius, $bw) {
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  border-width: $bw;
+}
+
+@mixin vision-left ($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin vision-right ($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+@mixin after {
+  transition: transform 0.3s;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 1px;
+    margin: 0 auto;
+    margin-top: 9px;
+
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    &::after {
+      background-color: var(--color);
+      animation: after 0.3s ease-out forwards;
+    }
+  }
+}
+
+@keyframes after {
+  from {
+    width: 1px;
+  }
+
+  to {
+    width: calc(100% - 3px);
+  }
+}
+
+@mixin colors ($color) {
+  .item__number {
+    color: $color;
+  }
+
+  .item__button {
+    background-color: $color;
+  }
+
+  .review__img-wrapper {
+    &::before,
+    &::after {
+      background-color: $color;
+    }
+  }
+
+  .vision__element {
+    border: solid $color;
+
+    &:hover {
+      background-color: $color;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.review {
+  width: 314px;
+  height: 494px;
+  padding: 32px;
+
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  transition: box-shadow 0.3s, transform 0.3s ease-out, ;
+
+  &__img-wrapper {
+    position: relative;
+    height: 250px;
+    width: 220px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 139px;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      border-radius: var(--review-particle);
+      transform: rotate(30deg);
+      transform-origin: bottom;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 139px;
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      border-radius: var(--review-particle);
+      transform: rotate(30deg);
+      transform-origin: top;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__text {
+    transition: transform 0.5s;
+    &::before {
+      transition: transform 0.5s;
+      content: "";
+      display: block;
+      @include size(24px);
+      background-image: url(../images/testimonials/text.svg);
+      position: relative;
+      z-index: 40;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__description {
+    @extend %description;
+    margin-bottom: 16px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    &--name {
+      margin-bottom: 4px;
+
+      font-weight: 600;
+      font-size: 13px;
+      color: #253757;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px rgb(189, 188, 188);
+    & .review__text::before {
+      transform: rotate(359deg);
+    }
+
+    & .review__text {
+      transform: scale(1.2);
+    }
+  }
+
+  @media (max-width: 320px) {
+    width: 290px;
+  }
+}
