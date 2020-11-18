@@ -9,9 +9,9 @@
 - Design you can find [here](https://www.figma.com/file/nHz8bflIwJaWP3P99vKTH5/miami_home_new?node-id=0%3A2)
 
 **Installing**
-Fork and clone this repository
-Run npm install in your terminal
-Run npm start
+1.Fork and clone this repository
+2.Run npm install in your terminal
+3.Run npm start
 
 **Troubleshooting**
 Any advise for common problems or issues. For any contributing or problem solving you could find me [here](https://www.linkedin.com/in/kirill-lutsenko-1ab7621bb/) and [here](https://join.skype.com/invite/pmxOlX8nMhpq)
