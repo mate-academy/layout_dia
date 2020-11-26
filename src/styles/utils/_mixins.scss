@@ -1,6 +1,26 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
+@mixin gridWithSides {
+  display: grid;
+  grid-template-columns: [full-start] minmax($minSidePadding, 1fr) [main-start]
+    repeat($numOfColumns, minmax($minColumnWidth, $maxColumnWidth))
+    [main-end] minmax($minSidePadding, 1fr) [full-end];
+  column-gap: $columnGap;
+}
+
+@mixin font-param($size: 14px, $weight: 400, $color: black, $spacing: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  letter-spacing: $spacing;
+}
+
+@mixin paintItBlack($bordRad: 30px) {
+  background-color: $cDarkGrey;
+  border-bottom-left-radius: $headerBorderRadius;
+  border-bottom-right-radius: $headerBorderRadius;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

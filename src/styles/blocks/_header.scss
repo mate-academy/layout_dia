@@ -1,0 +1,40 @@
+.header {
+  @include gridWithSides;
+  justify-content: start;
+  align-items: center;
+
+  @include paintItBlack;
+
+  &__logo {
+    grid-column: 2;
+    background-image: url("/images/logo/Air.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 46px;
+    height: 28px;
+  }
+
+  &__navigation {
+    grid-column: 3 / 12;
+  }
+
+  &__hire {
+    grid-column: 12 / -2;
+    position: relative;
+    justify-self: end;
+    @include font-param(13px, 700, $cWhite, 3px);
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1.5em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      width: 67px;
+      height: 2px;
+      background-color: $cBlue;
+    }
+  }
+}
