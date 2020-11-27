@@ -1,9 +1,12 @@
 .slider {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin-left: auto;
   border-top-left-radius: 30px;
 
   &__item {
+    display: block;
     width: 100%;
     height: 100%;
   }
@@ -21,7 +24,6 @@
   &__buttons {
     display: flex;
     margin-right: 24px;
-    cursor: pointer;
   }
 
   &__button {
@@ -36,6 +38,12 @@
     color: #253757;
     border-radius: 50%;
     background-color: #fff;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.7s;
+
+    &:hover {
+      animation: control-scale 1.5s ease-in-out;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -54,5 +62,21 @@
     font-size: 14px;
     font-weight: 400;
     color: #fff;
+  }
+}
+
+@keyframes control-scale {
+  from {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+    color: #fff;
+    background-color: #2060f6;
+  }
+
+  to {
+    transform: scale(1);
   }
 }
