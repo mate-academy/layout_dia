@@ -1,5 +1,7 @@
-// $(document).ready(function() {
-//   $('.showcase__slider').slick({
+'use strict';
 
-//   });
-// });
+$(document).ready(function() {
+  $('.showcase__slider').slick({
+
+  });
+});
