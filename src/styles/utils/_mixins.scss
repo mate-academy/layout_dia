@@ -1,9 +1,10 @@
 @mixin gridWithSides {
+  margin: auto;
+}
+
+@mixin drawColumns($number) {
   display: grid;
-  grid-template-columns: [full-start] minmax($minSidePadding, 1fr) [main-start]
-    repeat($numOfColumns, minmax($minColumnWidth, $maxColumnWidth))
-    [main-end] minmax($minSidePadding, 1fr) [full-end];
-  column-gap: $columnGap;
+  grid-template-columns: repeat($number, 1fr);
 }
 
 @mixin font-param($size: 14px, $weight: 400, $color: black, $spacing: normal) {
@@ -11,12 +12,6 @@
   font-weight: $weight;
   color: $color;
   letter-spacing: $spacing;
-}
-
-@mixin paintItBlack($bordRad: 30px) {
-  background-color: $cDarkGrey;
-  border-bottom-left-radius: $headerBorderRadius;
-  border-bottom-right-radius: $headerBorderRadius;
 }
 
 @mixin flex-center {
