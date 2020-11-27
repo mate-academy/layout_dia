@@ -1,0 +1,74 @@
+$process-height: 750px;
+
+.process {
+  height: $process-height;
+  &__content {
+    @include centeredContainer;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left-hand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 362px;
+    height: $process-height;
+  }
+
+  &__header {
+    margin-bottom: 16px;
+
+    font-family: $font-poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+
+    color: $light-grey-color;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__air-is {
+    color: $dark-text-color;
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    margin-bottom: 24px;
+  }
+  &__about {
+    color: $dark-grey-color;
+    font-family: $font-open-sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  &__right-hand {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, $process-card-size);
+    grid-template-rows: repeat(2, $process-card-size);
+    gap: $grid-gap;
+
+    padding-top: 148px;
+
+    & > :nth-child(1) {
+      position: absolute;
+      top: $grid-off-set;
+    }
+    & > :nth-child(2) {
+      grid-row: 1;
+      grid-column: 2;
+    }
+    & > :nth-child(3) {
+      position: absolute;
+      top: $grid-off-set + $grid-gap + $process-card-size;
+      z-index: 1;
+    }
+    & > :nth-child(4) {
+      grid-row: 2;
+      grid-column: 2;
+    }
+  }
+}

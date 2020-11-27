@@ -1,0 +1,37 @@
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  grid-template-rows: repeat(3, 96px);
+  row-gap: 64px;
+
+  &__logo1::after {
+    content: url(../images/approach/logo1.svg);
+    padding: 4px 0 0 4px;
+  }
+  &__logo2::after {
+    content: url(../images/approach/logo2.svg);
+  }
+  &__logo3::after {
+    content: url(../images/approach/logo3.svg);
+  }
+}
+
+@for $i from 1 through 3 {
+  .app-grid__logo#{$i} {
+    @include grid-logo-circle;
+  }
+
+  .app-grid__text#{$i} {
+    grid-column: 2 / span 3;
+
+    font-family: $font-open-sans;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 150%;
+    color: $on-text-color;
+  }
+
+  .app-grid :nth-child(n) {
+    align-self: center;
+  }
+}
