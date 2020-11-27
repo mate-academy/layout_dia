@@ -1,0 +1,120 @@
+.nav {
+  @include grid;
+  background-color: $black;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+
+  &__logo {
+    grid-column-start: 1;
+    margin-left: 0;
+  }
+
+  &__link {
+    grid-column-start: -2;
+
+    display: inline-block;
+    padding: 48px 0;
+    color: #fff;
+    font-size: 13px;
+    &--active::after {
+      content: " ";
+      display: block;
+      width: 70%;
+      height: 2px;
+      position: relative;
+      top: 8px;
+
+      background-color: #2060f6;
+      border-radius: 4px;
+    }
+  }
+
+  &__list {
+    grid-column-start: 3;
+    min-width: 637px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: $header__nav-height;
+    margin-left: $header-nav-margin;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &--none {
+      display: none;
+    }
+  }
+
+  /*
+  @each $resolution, $proportion in $proportions-more {
+    @media screen and (min-width: $resolution) {
+      .nav {
+        &__item {
+          margin-left: ($header-nav-margin * $proportion);
+
+          &:first-child {
+            margin-right: $nav-first-item-right-space * $proportion;
+          }
+
+          &:last-child {
+            margin-left: $nav-last-item-left-space * $proportion;
+          }
+        }
+      }
+    }
+  }
+  */
+  /*
+    @each $resolution, $proportion in $proportions-less {
+      @media screen and (min-width: $resolution) {
+        & {
+          &__item {
+            margin-left: ($header-nav-margin * $proportion);
+
+            &:first-child {
+              margin-right: $nav-first-item-right-space * $proportion;
+            }
+
+            &:last-child {
+              margin-left: $nav-last-item-left-space * $proportion;
+            }
+          }
+        }
+      }
+    }
+  */
+
+  @media screen and (max-width: 900px) {
+    .nav {
+      &__list {
+        flex-direction: column;
+      }
+      &__item {
+        padding: 10px 0;
+        height: 30px;
+        margin: 10px 0 0;
+        &:first-child {
+          margin-right: 0;
+        }
+
+        &:last-child {
+          margin-left: 0;
+        }
+      }
+      &__link {
+        padding: 2px 0 10px;
+
+      }
+    }
+  }
+}

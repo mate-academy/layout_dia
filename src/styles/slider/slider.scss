@@ -1,0 +1,751 @@
+$slider-image-width: 687px;
+$slider-image-height: 680px;
+$slider-name-height: 136px;
+$slider-about-height: 54px;
+$slider-link-height: 50px;
+
+$l-s: (2560 /1600);
+$n-b: (1280 /1600);
+
+.slider {
+  height: $slider-image-height;
+  position: relative;
+  background-color: $black;
+  color: #fff;
+  @include grid;
+  border-radius: 0 0 $radius $radius;
+
+  &__learn-more {
+    grid-column: 1/5;
+  }
+
+  &__name {
+    margin-top: 120px;
+
+    font-family: Poppins, serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 68px;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  &__about {
+    margin: 32px 0 83px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__link {
+    width: 226px;
+    height: 50px;
+
+    background: #2060f6;
+    color: #eee;
+    border-radius: 8px;
+
+    text-align: center;
+    padding: 14px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 23px;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2f6fff;
+      color: #fff;
+    }
+  }
+
+  &__demo {
+    grid-column-start: 8;
+    grid-row-start: 1;
+
+    background-image: url(../images/slider/slide-img-1.jpg);
+    background-size: cover;
+    height: 680px;
+    width: $slider-image-width;
+    border-radius: $radius 0 $radius 0;
+  }
+
+  &__menu {
+    display: grid;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 48px;
+    grid-gap: 8px;
+
+    width: 100%;
+
+    grid-template-columns: 32px 32px 264px;
+    justify-content: start;
+    margin-left: 48px;
+
+    z-index: 0;
+    &:before {
+      content: " ";
+      width: $slider-image-width;
+      border-radius: 0  0 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: -48px;
+      left: -48px;
+      background-image: linear-gradient(to bottom left,transparent,#130f0c);
+      opacity: 0.8;
+      z-index: -1;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+  }
+
+  &__button--left {
+    grid-column: 1 / 2;
+    background-image: url(../images/slider/arrow-left.svg);
+  }
+
+  &__button--right {
+    grid-column: 2 / 3;
+    background-image: url(../images/slider/arrow-right.svg);
+  }
+
+  &__text {
+    margin-top: 15px;
+    grid-column: 3 / 4;
+    width: 264px;
+    margin-left: 24px;
+  }
+
+  &__header {
+    margin-bottom: 13px;
+    text-transform: uppercase;
+    font-family: Poppins, serif;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+  }
+
+  &__description {
+    font-family: "Open Sans", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+  }
+}
+/*
+AAAAAAAAAAAA
+@media screen and (min-width: 2560px) {
+  .slider {
+    $f-row: (120px + 136px + 32px) * $large-screens;
+    $s-row: (83px + 54px) * $large-screens;
+    $t-row: (205px + 50px) * $large-screens;
+
+    grid-template-rows: $f-row $s-row $t-row;
+    grid-template-columns: auto $slider-image-width * $large-screens;
+    justify-content: end;
+    column-gap: 335px * $large-screens;
+
+    &__name {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      align-self: start;
+      margin-top: 120px * $large-screens;
+
+      font-size: 64px * $large-screens;
+      line-height: 68px * $large-screens;
+
+      margin-bottom: 32px * $large-screens;
+    }
+
+    &__about {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      align-self: start;
+
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px * $large-screens;
+      font-weight: 400;
+      line-height: 20px * $large-screens;
+    }
+
+    &__link {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      align-self: start;
+
+      width: 226px * $large-screens;
+      height: 50px * $large-screens;
+
+      background: #2060f6;
+      color: #eee;
+      border-radius: 8px;
+
+      text-align: center;
+      padding: 14px * $large-screens;
+
+      font-family: Poppins, sans-serif;
+      font-size: 15px * $large-screens;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 23px * $large-screens;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2f6fff;
+        color: #fff;
+      }
+    }
+
+    &__demo {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      position: relative;
+
+      background-image: url(../images/slider/slide-img-1.jpg);
+      background-size: cover;
+      height: 680px * $large-screens;
+      width: $slider-image-width * $large-screens;
+
+    }
+
+    &__menu {
+      display: grid;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 48px * $large-screens;
+      grid-gap: 8px * $large-screens;
+
+      width: 100%;
+
+      grid-template-columns: 32px * $l-s 32px * $l-s 264px * $l-s;
+      justify-content: start;
+      margin-left: 48px * $large-screens;
+
+      z-index: 0;
+      &:before {
+        content: " ";
+        border-radius: 0  0 30px;
+        position: absolute;
+        top: 0;
+        right: 48px * $large-screens;
+        bottom: -48px * $large-screens;
+        left: -48px * $large-screens;
+        background-image: linear-gradient(to bottom left,transparent,#130f0c);
+        opacity: 0.8;
+        z-index: -1;
+      }
+    }
+
+    &__button {
+      margin-top: 20px * $large-screens;
+      height: 32px * $large-screens;
+      width: 32px * $large-screens;
+      border-radius: 50%;
+    }
+
+    &__button--left {
+      grid-column: 1 / 2;
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &__button--right {
+      grid-column: 2 / 3;
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &__text {
+      margin-top: 15px * $large-screens;
+      grid-column: 3 / 4;
+      width: 264px * $large-screens;
+      margin-left: 24px * $large-screens;
+    }
+
+    &__header {
+      margin-bottom: 13px * $large-screens;
+      text-transform: uppercase;
+      font-family: Poppins, serif;
+      font-size: 8px * $large-screens;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px * $large-screens;
+      letter-spacing: 3px * $large-screens;
+    }
+
+    &__description {
+      font-family: "Open Sans", serif;
+      font-size: 18px * $large-screens;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px * $large-screens;
+      text-align: left;
+    }
+  }
+}
+/*
+AAAAAAAAAAAA
+@media screen and (min-width: 1920px) {
+  .slider {
+    $f-row: (120px + 136px + 32px) * $full-hd;
+    $s-row: (83px + 54px) * $full-hd;
+    $t-row: (205px + 50px) * $full-hd;
+
+    grid-template-rows: $f-row $s-row $t-row;
+    grid-template-columns: auto $slider-image-width * $full-hd;
+    justify-content: end;
+    column-gap: 335px * $full-hd;
+
+    &__name {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      align-self: start;
+      margin-top: 120px * $full-hd;
+
+      font-size: 64px * $full-hd;
+      line-height: 68px * $full-hd;
+
+      margin-bottom: 32px * $full-hd;
+    }
+
+    &__about {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      align-self: start;
+
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px * $full-hd;
+      font-weight: 400;
+      line-height: 20px * $full-hd;
+    }
+
+    &__link {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      align-self: start;
+
+      width: 226px * $full-hd;
+      height: 50px * $full-hd;
+
+      background: #2060f6;
+      color: #eee;
+      border-radius: 8px;
+
+      text-align: center;
+      padding: 14px * $full-hd;
+
+      font-family: Poppins, sans-serif;
+      font-size: 15px * $full-hd;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 23px * $full-hd;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2f6fff;
+        color: #fff;
+      }
+    }
+
+    &__demo {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      position: relative;
+
+      background-image: url(../images/slider/slide-img-1.jpg);
+      background-size: cover;
+      height: 680px * $full-hd;
+      width: $slider-image-width * $full-hd;
+
+    }
+
+    &__menu {
+      display: grid;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 48px * $full-hd;
+      grid-gap: 8px * $full-hd;
+
+      width: 100%;
+
+      grid-template-columns: 32px * $full-hd 32px * $full-hd 264px * $full-hd;
+      justify-content: start;
+      margin-left: 48px * $full-hd;
+
+      z-index: 0;
+      &:before {
+        content: " ";
+        border-radius: 0  0 30px;
+        position: absolute;
+        top: 0;
+        right: 48px * $full-hd;
+        bottom: -48px * $full-hd;
+        left: -48px * $full-hd;
+        background-image: linear-gradient(to bottom left,transparent,#130f0c);
+        opacity: 0.8;
+        z-index: -1;
+      }
+    }
+
+    &__button {
+      margin-top: 20px * $full-hd;
+      height: 32px * $full-hd;
+      width: 32px * $full-hd;
+      border-radius: 50%;
+    }
+
+    &__button--left {
+      grid-column: 1 / 2;
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &__button--right {
+      grid-column: 2 / 3;
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &__text {
+      margin-top: 15px * $full-hd;
+      grid-column: 3 / 4;
+      width: 264px * $full-hd;
+      margin-left: 24px * $full-hd;
+    }
+
+    &__header {
+      margin-bottom: 13px * $full-hd;
+      text-transform: uppercase;
+      font-family: Poppins, serif;
+      font-size: 8px * $full-hd;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px * $full-hd;
+      letter-spacing: 3px * $full-hd;
+    }
+
+    &__description {
+      font-family: "Open Sans", serif;
+      font-size: 18px * $full-hd;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px * $full-hd;
+      text-align: left;
+    }
+  }
+}
+
+AAAAAAAAAAAA
+@media screen and (max-width: 1280px) {
+  .slider {
+    $f-row: (120px + 136px + 32px) * $notebook;
+    $s-row: (83px + 54px) * $notebook;
+    $t-row: (205px + 50px) * $notebook;
+
+    grid-template-rows: $f-row $s-row $t-row;
+    grid-template-columns: auto $slider-image-width * $notebook;
+    justify-content: end;
+    column-gap: 335px * $notebook;
+
+    &__name {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      align-self: start;
+      margin-top: 120px * $notebook;
+
+      font-size: 64px * $notebook;
+      line-height: 68px * $notebook;
+
+      margin-bottom: 32px * $notebook;
+    }
+
+    &__about {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      align-self: start;
+
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px * $notebook;
+      font-weight: 400;
+      line-height: 20px * $notebook;
+    }
+
+    &__link {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      align-self: start;
+
+      width: 226px * $notebook;
+      height: 50px * $notebook;
+
+      background: #2060f6;
+      color: #eee;
+      border-radius: 8px;
+
+      text-align: center;
+      padding: 14px * $notebook;
+
+      font-family: Poppins, sans-serif;
+      font-size: 15px * $notebook;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 23px * $notebook;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2f6fff;
+        color: #fff;
+      }
+    }
+
+    &__demo {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      position: relative;
+
+      background-image: url(../images/slider/slide-img-1.jpg);
+      background-size: cover;
+      height: 680px * $notebook;
+      width: $slider-image-width * $notebook;
+
+    }
+
+    &__menu {
+      display: grid;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 48px * $notebook;
+      grid-gap: 8px * $notebook;
+
+      width: 100%;
+
+      grid-template-columns: 32px * $n-b 32px * $n-b 264px * $n-b;
+      justify-content: start;
+      margin-left: 48px * $notebook;
+
+      z-index: 0;
+      &:before {
+        content: " ";
+        border-radius: 0 0  0 $radius;
+        position: absolute;
+        top: 0;
+        right: 48px * $notebook;
+        bottom: -48px * $notebook;
+        left: -48px * $notebook;
+        background-image: linear-gradient(to bottom left,transparent,#130f0c);
+        opacity: 0.8;
+        z-index: -1;
+      }
+    }
+
+    &__button {
+      margin-top: 20px * $notebook;
+      height: 32px * $notebook;
+      width: 32px * $notebook;
+      border-radius: 50%;
+    }
+
+    &__button--left {
+      grid-column: 1 / 2;
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &__button--right {
+      grid-column: 2 / 3;
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &__text {
+      margin-top: 15px * $notebook;
+      grid-column: 3 / 4;
+      width: 264px * $notebook;
+      margin-left: 24px * $notebook;
+    }
+
+    &__header {
+      margin-bottom: 13px * $notebook;
+      text-transform: uppercase;
+      font-family: Poppins, serif;
+      font-size: 8px * $notebook;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px * $notebook;
+      letter-spacing: 3px * $notebook;
+    }
+
+    &__description {
+      font-family: "Open Sans", serif;
+      font-size: 18px * $notebook;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px * $notebook;
+      text-align: left;
+    }
+  }
+}
+
+AAAAAAAAAAAA
+@media screen and (max-width: 1024px) {
+  .slider {
+    $f-row: (120px + 136px + 32px) * $tablet;
+    $s-row: (83px + 54px) * $tablet;
+    $t-row: (205px + 50px)* $tablet;
+
+    grid-template-rows: $f-row $s-row $t-row;
+    grid-template-columns: auto $slider-image-width * $tablet;
+    justify-content: end;
+    column-gap: 335px * $tablet;
+
+    &__name {
+      grid-row: 1/2;
+      grid-column: 1/2;
+      align-self: start;
+      margin-top: 120px * $tablet;
+
+      font-size: 64px * $tablet;
+      line-height: 68px * $tablet;
+
+      margin-bottom: 32px * $tablet;
+    }
+
+    &__about {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      align-self: start;
+
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px * $tablet;
+      font-weight: 400;
+      line-height: 20px * $tablet;
+    }
+
+    &__link {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      align-self: start;
+
+      width: 226px * $tablet;
+      height: 50px * $tablet;
+
+      background: #2060f6;
+      color: #eee;
+      border-radius: 8px;
+
+      text-align: center;
+      padding: 14px * $tablet;
+
+      font-family: Poppins, sans-serif;
+      font-size: 15px * $tablet;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 23px * $tablet;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2060cf;
+        color: #fff;
+      }
+    }
+
+    &__demo {
+      grid-row: 1/4;
+      grid-column: 2/3;
+      position: relative;
+
+      background-image: url(../images/slider/slide-img-1.jpg);
+      background-size: cover;
+      height: 680px * $tablet;
+      width: $slider-image-width * $tablet;
+
+    }
+
+    &__menu {
+      display: grid;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 48px * $tablet;
+      grid-gap: 8px * $tablet;
+
+      width: 100%;
+
+      grid-template-columns: 32px * $tablet 32px * $tablet 264px * $tablet;
+      justify-content: start;
+      margin-left: 48px * $tablet;
+
+      z-index: 0;
+      &:before {
+        content: " ";
+        border-radius: 0  0 30px;
+        position: absolute;
+        top: 0;
+        right: 48px * $tablet;
+        bottom: -48px * $tablet;
+        left: -48px * $tablet;
+        background-image: linear-gradient(to bottom left,transparent,#130f0c);
+        opacity: 0.8;
+        z-index: -1;
+      }
+    }
+
+    &__button {
+      margin-top: 20px * $tablet;
+      height: 32px * $tablet;
+      width: 32px * $tablet;
+      border-radius: 50%;
+    }
+
+    &__button--left {
+      grid-column: 1 / 2;
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &__button--right {
+      grid-column: 2 / 3;
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &__text {
+      margin-top: 15px * $tablet;
+      grid-column: 3 / 4;
+      width: 264px * $tablet;
+      margin-left: 24px * $tablet;
+    }
+
+    &__header {
+      margin-bottom: 13px * $tablet;
+      text-transform: uppercase;
+      font-family: Poppins, serif;
+      font-size: 8px * $tablet;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px * $tablet;
+      letter-spacing: 3px * $tablet;
+    }
+
+    &__description {
+      font-family: "Open Sans", serif;
+      font-size: 18px * $tablet;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px * $tablet;
+      text-align: left;
+    }
+  }
+}
+ */
