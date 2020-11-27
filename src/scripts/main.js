@@ -17,7 +17,7 @@ $(document).ready(function() {
   // Showcase info cannot be placed in the container, but has to be in it
   $('.showcase__info').css('margin-left', ($(window).width() - 1145) / 2);
 
-  $(window).resize(function() {
+  $(window).on('resize', function() {
     if ($(window).width() > 1175) {
       $('.showcase__info').css('margin-left', ($(window).width() - 1145) / 2);
     }
