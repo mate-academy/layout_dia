@@ -1,9 +1,14 @@
 
 @each $disp, $prop in $proportions-less {
   @media screen and (max-width: #{$disp}) {
+    /*region header */
+    .header {
+      max-width: 1600px * $prop;
+    }
+
     /* region NAV */
     .nav {
-      width: 1600px * $prop;
+
       grid-template-columns: repeat(12, 68px * $prop);
       column-gap: 30px * $prop;
 
@@ -32,19 +37,17 @@
 
     /* region MAIN */
     .main {
-      width: 1600px * $prop;
+      max-width: 1600px * $prop;
     }
 
     /* region slider */
     .slider {
       width: 1600px * $prop;
-      height: $slider-image-height * $prop;
+      height: 680px * $prop;
       grid-template-columns: repeat(12, 68px * $prop);
       column-gap: 30px * $prop;
-
       &__name {
         margin-top: 120px * $prop;
-
         font-size: 64px * $prop;
         line-height: 68px * $prop;
         letter-spacing: -2px * $prop;
@@ -60,16 +63,14 @@
       &__link {
         width: 226px * $prop;
         height: 50px * $prop;
-
         padding: 14px * $prop;
-
         font-size: 15px * $prop;
         line-height: 23px * $prop;
       }
 
       &__demo {
         height: 680px * $prop;
-        width: $slider-image-width * $prop;
+        width: 687px * $prop;
       }
 
       &__menu {
@@ -77,12 +78,8 @@
         grid-gap: 8px * $prop;
         grid-template-columns: 32px * $prop 32px * $prop 264px * $prop;
         margin-left: 48px * $prop;
-
         &:before {
-          content: " ";
-          width: $slider-image-width * $prop;
-          border-radius: 0  0 30px * $prop;
-
+          width: 687px * $prop;
           bottom: -48px * $prop;
           left: -48px * $prop;
         }
@@ -93,7 +90,6 @@
         height: 32px * $prop;
         width: 32px * $prop;
       }
-
       &__text {
         margin-top: 15px * $prop;
         width: 264px * $prop;
@@ -134,7 +130,6 @@
 
     /* region expertise */
     .expertise {
-      width: 1600px * $prop;
       grid-template-columns: repeat(12, 68px * $prop);
       column-gap: 30px * $prop;
       height: 759px * $prop;
@@ -351,7 +346,7 @@
       }
     }
 
-    /* regin cision-passion-result */
+    /* region cision-passion-result */
     .vision-passion-results {
       height: $vps-height * $prop;
 
@@ -376,5 +371,91 @@
       }
     }
 
+    /* region footer */
+    .footer {
+      margin: -193px * $prop auto 0;
+      max-width: 1600px * $prop;
+    }
+
+    /* region feedback */
+    .feedback {
+      width: 1600px * $prop;
+      grid-template-columns: repeat(12, 68px * $prop);
+      column-gap: 30px * $prop;
+      height: $foot-hight * $prop;
+      grid-template-rows: auto $foot-nav-height * $prop;
+
+      &__form {
+        margin-top: 180px * $prop;
+        grid-column-start: 1;
+      }
+
+      &__contact-us {
+        margin-top: 180px * $prop;
+      }
+    }
+
+    /* region form */
+    .form {
+      font-size: 15px * $prop;
+      line-height: 23px * $prop;
+      &__header {
+        width: $foot-form-input-width * $prop;
+        margin-bottom: 56px * $prop - 4px * $prop;
+        font-size: 32px * $prop;
+      }
+      &__input {
+        width: $foot-form-input-width * $prop;
+        border-bottom: 2px * $prop solid #fff;
+        margin-bottom: 44px * $prop;
+        padding-top: 4px * $prop;
+        padding-bottom: 17px * $prop;
+        &:focus {
+          border-bottom: 2px * $prop solid #144ed4;
+        }
+      }
+      &__button {
+        width: 226px * $prop;
+        height: 56px * $prop;
+        margin-top: 80px * $prop;
+        font-size: 15px * $prop;
+        line-height: 23px * $prop;
+      }
+    }
+
+    /*region contact-us*/
+    .contact-us {
+      &__header {
+        width: $longest-text-contact-us  * $prop;
+        font-size: 32px * $prop;
+        line-height: 48px * $prop;
+        margin-bottom: 56px * $prop;
+      }
+
+      &__subtitle {
+        width: $longest-text-contact-us * $prop;
+        font-size: 13px * $prop;
+        line-height: 20px * $prop;
+        letter-spacing: 3px * $prop;
+        margin-bottom: 8px * $prop;
+      }
+
+      &__text {
+        width: $longest-text-contact-us * $prop;
+        font-size: 24px * $prop;
+        line-height: 36px * $prop;
+        margin-bottom: 48px * $prop;
+      }
+
+      &__links {
+        width: $longest-text-contact-us  * $prop;
+        margin-top: 16px * $prop;
+      }
+      &__link {
+        height: 32px * $prop;
+        width: 32px * $prop;
+        margin-right: 30px * $prop;
+      }
+    }
   }
 }
