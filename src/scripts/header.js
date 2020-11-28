@@ -7,9 +7,9 @@ function resizeHeaderOnScroll() {
   const headerEl = document.getElementById('header');
 
   if (distanceY > shrinkOn) {
-    headerEl.classList.add('page__header-wrapper--smaller');
+    headerEl.classList.add('page__screen-wrapper--header--smaller');
   } else {
-    headerEl.classList.remove('page__header-wrapper--smaller');
+    headerEl.classList.remove('page__screen-wrapper--header--smaller');
   }
 }
 
