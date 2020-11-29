@@ -7,9 +7,22 @@
   border-top-left-radius: $headerBorderRadius;
   border-bottom-left-radius: $headerBorderRadius;
 
+  @include mobileAdapt {
+    padding-top: $minSidePadding;
+    padding-bottom: $minSidePadding;
+  }
+
   &__text-box {
     grid-column: 2 / span 4;
     align-self: center;
+
+    @include mobileAdapt {
+      grid-column: 2 / span 8;
+    }
+
+    @include narrowMobileAdapt {
+      grid-column: 1 / -1;
+    }
   }
 
   &__title {
@@ -31,6 +44,7 @@
     grid-template-rows: repeat(3, 92px);
     gap: 64px 32px;
     align-content: center;
+    align-items: center;
   }
 
   &__image {
@@ -57,5 +71,9 @@
     font-family: "Open Sans", sans-serif;
     @include font-param(15px, 400, $cWhite);
     line-height: 1.5em;
+
+    @include narrowMobileAdapt {
+      font-size: 13px;
+    }
   }
 }
