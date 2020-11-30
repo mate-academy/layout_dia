@@ -39,6 +39,7 @@
       height: 56px;
       border-radius: 500px;
       transform: rotate(-60deg);
+      transition: transform 0.5s ease-in-out;
     }
     &::after {
       content: "";
@@ -49,6 +50,7 @@
       height: 56px;
       border-radius: 500px;
       transform: rotate(-60deg);
+      transition: transform 0.5s ease-in-out;
     }
     &--blue::before,
     &--blue::after {
@@ -65,11 +67,12 @@
   }
   &__photo {
     position: absolute;
+    z-index: 2;
     top: 87px;
     left: 50%;
     border-radius: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    transition: border-radius 0.5s, transform 0.5s;
   }
   &__review {
     position: relative;
@@ -99,6 +102,10 @@
   &__job {
     @include small-uppercase;
     color: $light-grey;
+  }
+  &__card:hover &__photo {
+    border-radius: 25%;
+    transform: translateX(-50%) scale(1.1);
   }
   @media (min-width: 1601px) {
     &__title {
