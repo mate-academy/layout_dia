@@ -20,7 +20,7 @@ $(document).ready(function() {
   // Showcase slider configuration
   setInterval(function() {
     // prevent slider from not loading
-    $('.showcase__slider').slick({
+    $('.showcase__slider').not('.slick-initialized').slick({
       infinite: false,
       slidesToShow: 1,
       slidesToScroll: 1,
