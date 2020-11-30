@@ -18,14 +18,17 @@ $(document).ready(function() {
   });
 
   // Showcase slider configuration
-  $('.showcase__slider').slick({
-    infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    prevArrow: '<button type="button" class="slick-prev"></button>',
-    nextArrow: '<button type="button" class="slick-next"></button>',
-  });
+  setInterval(function() {
+    // prevent slider from not loading
+    $('.showcase__slider').slick({
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      prevArrow: '<button type="button" class="slick-prev"></button>',
+      nextArrow: '<button type="button" class="slick-next"></button>',
+    });
+  }, 5);
 
   // Slider arrows should adapt to text height
   $('.showcase__slider .slick-arrow').css('bottom',
