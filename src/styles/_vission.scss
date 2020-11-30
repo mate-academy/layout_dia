@@ -1,0 +1,132 @@
+@mixin back-item($scale, $top, $left, $color) {
+  position: absolute;
+  top: $top;
+  left: $left;
+
+  width: 143px;
+  height: 57px;
+  
+  border-radius: 12px;
+  border: 4px solid $color;
+
+  transform: rotate(-65deg) scale($scale);
+}
+
+.vission {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1600px;
+
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 199px 0;
+  font-weight: 600;
+  overflow: hidden;
+
+  &__heading {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 24px;
+    font-size: 52px;
+    font-weight: 600;
+    color: #253757;
+  }
+
+  &__text {
+    font-family: $text-font, sans-serif;
+    max-width: 754px;
+    margin-bottom: 64px;
+    font-size: 24px;
+    color: #6c788b;
+  }
+
+  &__button {
+    transition: 0.3s ease-in;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
+  }
+
+  
+  &__element {
+    transition: 0.3s ease-in-out;
+
+    &--1 {
+      @include back-item(1, 45%, 15%, #56CCF2);
+    }
+    &--2 {
+      @include back-item(1, 30%, 80%, #BC04FC);
+    }
+    &--3 {
+      @include back-item(1.06, 65%, 85%, #03D542);
+    }
+    &--4 {
+      @include back-item(0.65, 80%, 5%, #F25656);
+    }
+    &--5 {
+      @include back-item(0.59, 20%, 10%, #FCC304);
+    }
+    &--6 {
+      @include back-item(0.59, 65%, 74%, #FCC304);
+    }
+    &--7 {
+      @include back-item(0.59, 37%, 89%, #FCC304);
+    }
+    &--8 {
+      @include back-item(0.47, 52%, 3%, #BC04FC);
+    }
+    &--9 {
+      @include back-item(0.37, 13%, 90%, #03D542);
+    }
+    &--10 {
+      @include back-item(0.31, 70%, 60%, #56CCF2);
+    }
+    &--11 {
+      @include back-item(0.31, 15%, 20%, #F25656);
+    }
+    &--12 {
+      @include back-item(0.31, 65%, 20%, #FCC304);
+    }
+
+    &:hover {
+      transform: rotateZ(300deg);
+      cursor: pointer;
+    }
+
+    @media (max-width: 1250px) {
+      &--1,
+      &--2,
+      &--5,
+      &--6,
+      &--8,
+      &--9 {
+        display: none;
+      }
+
+      &--7 {
+        @include back-item(0.59, 15%, 65%, rgb(196, 44, 90));
+      }
+
+      &--3 {
+        @include back-item(1.06, 65%, 75%, rgb(194, 49, 49));
+      }
+    }
+    @media (max-width: 670px) {
+      display: none;
+    }
+  }
+  @media (max-width: 670px) {
+    padding: 50px;
+
+    &__heading {
+      font-size: 30px;
+    }
+    &__text {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+}
