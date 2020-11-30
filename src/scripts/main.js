@@ -1,6 +1,23 @@
 'use strict';
 
 $(document).ready(function() {
+  // Smooth scrolling
+  $('.smooth-scroll').on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== '') {
+      // Store hash
+      const hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top,
+      }, 1000, function() {
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }
+  });
+
+  // Showcase slider configuration
   $('.showcase__slider').slick({
     infinite: false,
     slidesToShow: 1,
