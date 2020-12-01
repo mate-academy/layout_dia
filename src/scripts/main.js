@@ -31,15 +31,31 @@ $(document).ready(function() {
   }, 5);
 
   // Slider arrows should adapt to text height
-  $('.showcase__slider .slick-arrow').css('bottom',
-    $('.showcase__slider-info').height());
+  if ($(window).width() > 1200) {
+    $('.showcase__slider .slick-arrow').css('bottom',
+      $('.showcase__slider-info').height());
+  }
+
+  $('.nav__mobile-button').on('click', function() {
+    $('.nav__mobile-list').slideToggle();
+  });
 
   // Showcase info cannot be placed in the container, but has to be in it
-  $('.showcase__info').css('margin-left', ($(window).width() - 1145) / 2);
+  if ($(window).width() > 1175) {
+    $('.showcase__info').css('margin-left', ($(window).width() - 1145) / 2);
+  } else if ($(window).width() > 710) {
+    $('.showcase__info').css('margin-left', 15);
+  } else {
+    $('.showcase__info').css('margin-left', 0);
+  }
 
   $(window).on('resize', function() {
     if ($(window).width() > 1175) {
       $('.showcase__info').css('margin-left', ($(window).width() - 1145) / 2);
+    } else if ($(window).width() > 710) {
+      $('.showcase__info').css('margin-left', 15);
+    } else {
+      $('.showcase__info').css('margin-left', 0);
     }
   });
 });
