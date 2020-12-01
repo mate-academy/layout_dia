@@ -1,18 +1,19 @@
 .strategicAgency {
   position: relative;
-  padding-top: 120px;
+  overflow: hidden;
 
-  height: 680px;
+  // height: 680px;
   border-radius: 0 0 0 200px;
-  background-color: #008aff;
+  background-color: $dark-blue;
   color: $on-text-color;
 
   &__content {
     @include centeredContainer;
+    display: flex;
   }
 
   &__header {
-    margin-bottom: 32px;
+    margin: 120px 0 32px;
 
     font-family: $font-poppins;
     font-weight: 600;
@@ -24,7 +25,6 @@
   }
 
   &__slogan {
-    // display: inline-block;
     margin-bottom: 83px;
 
     width: 364px;
@@ -36,7 +36,9 @@
   }
 
   &__button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 226px;
     height: 50px;
     border: 1px solid transparent;
@@ -52,28 +54,31 @@
     line-height: 22px;
 
     @include hover(transform, scale(1.1));
+    @include shadow;
     outline: none;
   }
 
   &__interactive {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+
+    padding: 564px 0 0 48px;
+    transform: translate(300px);
 
     width: 687px;
     height: 680px;
+    border-radius: 200px 0 0;
 
     background-image: url(../images/slider/Photo1.png);
-    background-size: contain;
+    // background-size: contain;
+    // background-size: 100%;
     background-repeat: no-repeat;
   }
 
   &__sliders-part {
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 48px;
-    bottom: 48px;
+    // position: absolute;
+    // left: 48px;
+    // bottom: 48px;
   }
 
   &__slider-left {
@@ -116,5 +121,41 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
+  }
+}
+
+@include tablet {
+  .strategicAgency__interactive {
+    display: none;
+  }
+  .strategicAgency__content {
+    justify-content: center;
+    margin-bottom: 204px;
+  }
+}
+
+@include mobile {
+  .strategicAgency__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .strategicAgency__header {
+    text-align: center;
+    font-size: 42px;
+    line-height: 46px;
+    letter-spacing: -2px;
+  }
+  .strategicAgency__slogan {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    width: 300px;
+  }
+
+  .strategicAgency__button {
+    padding-right: 100px * - 1;
+    width: 126px;
+    transform: translate(60%, 0);
   }
 }

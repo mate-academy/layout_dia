@@ -1,0 +1,60 @@
+.send {
+  display: flex;
+  flex-direction: column;
+  max-width: 460px;
+
+  @media (max-width: 1000px) {
+    max-width: 320px;
+  }
+
+  &__header {
+    padding-bottom: 40px;
+
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $on-text-color;
+  }
+  &__mail {
+    margin-bottom: 72px;
+
+    @include form-input;
+    @include focus;
+    // border-bottom: 2px solid $on-text-color;
+  }
+
+  &__person-name {
+    margin-bottom: 72px;
+
+    @include form-input;
+    @include focus;
+    // border-bottom: 1px solid $on-text-color;
+  }
+
+  &__message {
+    margin-bottom: 64px;
+
+    @include form-input;
+    @include focus;
+    &::placeholder {
+      // padding-bottom: -20px;
+    }
+    // border-bottom: 1px solid $on-text-color;
+  }
+  &__button {
+    @include button;
+    margin-bottom: 88px;
+  }
+}
+
+$assignment: "mail", "person-name", "message";
+
+@each $input in $assignment {
+  .send__#{$input} {
+    border-bottom: 1px solid $on-text-color;
+    &:focus {
+      border-bottom: 2px solid $on-text-color;
+    }
+  }
+}

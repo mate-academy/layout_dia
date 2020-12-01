@@ -1,0 +1,85 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 362px;
+
+  @media (max-width: 600px) {
+    & > :nth-child(n) {
+      text-align: center;
+      justify-content: center;
+    }
+    & :last-child {
+      margin: 0;
+    }
+  }
+
+  &__header {
+    padding-bottom: 40px;
+
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $on-text-color;
+  }
+
+  &__call-us {
+    @include contact-smooth;
+  }
+
+  &__phone {
+    @include contact-solid;
+    // @include hover(transform, scale(1.1));
+    transform-origin: bottom left;
+  }
+
+  &__visit-us {
+    @include contact-smooth;
+  }
+
+  &__address {
+    @include contact-solid;
+    // @include hover(transform, scale(1.1));
+  }
+
+  &__our-socials {
+    @include contact-smooth;
+  }
+
+  &__socials-links {
+    display: flex;
+  }
+}
+
+$links: (
+  "fb" 32px url(../images/contacts/fb.svg),
+  "tw" 32px url(../images/contacts/tw.svg),
+  "inst" 32px url(../images/contacts/inst.svg)
+);
+
+@each $social, $size, $icon in $links {
+  .contact__#{$social} {
+    margin-right: 32px;
+    width: $size;
+    height: $size;
+    background: $icon center no-repeat;
+    @include hover(transform, scale(1.2));
+  }
+}
+
+@include mobile {
+  .contact__header {
+    font-size: 26px;
+    line-height: 130%;
+  }
+  .contact__call-us,
+  .contact__visit-us,
+  .contact__our-socials {
+    @include contact-smooth-mobile;
+  }
+
+  .contact__phone,
+  .contact__address {
+    @include contact-solid-mobile;
+  }
+}

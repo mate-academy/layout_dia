@@ -9,7 +9,7 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 24px;
 
-  &__number {
+  &__card {
     @include process-card-id;
   }
 
@@ -35,10 +35,11 @@
   &__learn-button {
     @include process-card-button;
     @include hover(transform, scale(1.2));
+    @include shadow;
   }
 
   &__learn-text {
-    color: $dark-text-color;
+    color: $learn-color;
     font-family: $font-poppins;
     font-weight: 600;
     font-size: 15px;
@@ -54,7 +55,7 @@ $cards-colors: (
 );
 
 @each $number, $back-color, $dig-color in $cards-colors {
-  .process-card__number--#{$number} {
+  .process-card__card--#{$number} {
     background-color: $back-color;
     &::after {
       content: "00#{$number}";

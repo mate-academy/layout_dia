@@ -1,30 +1,40 @@
-$left-off-set: 100px;
+// $left-off-set: 100px;
+// $left-off-set: $general-offset;
 
 .approach {
-  position: relative;
-  height: 976px;
+  overflow: hidden;
 
-  // background-position: ;
-  &__inside-wrapper {
-    position: absolute;
-    top: 0;
-    left: $left-off-set;
-    padding: $left-off-set * 2;
-    right: 0;
-    height: 976px;
+  &__content {
+    @include centeredContainer;
+    display: flex;
 
-    border-radius: 200px 0 0 200px;
-    background-color: $interactive-color;
-
-    &::after {
-      content: url(../images/approach/Photo1.png);
-      position: absolute;
-      bottom: -4px;
-      right: 0;
+    @media (max-width: 1116px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
+
+  &__picture-wrapper {
+    margin-top: 204px;
+
+    transform: translate(300px);
+    @media (max-width: 1116px) {
+      display: none;
+    }
+  }
+
+  &__picture {
+    display: block;
+  }
+
+  &__colored-background {
+    border-radius: 200px 0 0 200px;
+    background-color: $interactive-color;
+  }
+
   &__header {
-    margin-bottom: 16px;
+    margin-top: 204px;
 
     font-family: $font-poppins;
     font-weight: 700;
@@ -44,5 +54,28 @@ $left-off-set: 100px;
     font-size: 32px;
     line-height: 150%;
     color: $on-text-color;
+  }
+  &__grid {
+    @media (max-width: 1116px) {
+      margin-bottom: 204px;
+    }
+  }
+  @include mobile {
+
+    .approach__header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .approach__slogan {
+      text-align: center;
+      width: 310px;
+      margin: 0 auto;
+      font-size: 26px;
+      line-height: 130%;
+    }
+    .approach__grid {
+      margin-top: 20px;
+    }
+
   }
 }

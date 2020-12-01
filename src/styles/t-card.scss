@@ -1,0 +1,102 @@
+.t-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 494px;
+
+  padding: 87px 32px 12px;
+  width: $t-card-width;
+  // height: 200px;
+  background-color: $on-text-color;
+
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  &__decorations {
+    position: relative;
+
+    width: 100%;
+  }
+  &__decor {
+    position: absolute;
+    width: 139px;
+    height: 56px;
+    border-radius: 500px;
+    transform: rotate(-60deg);
+    // &--first1 {
+    //   // left: 50px;
+    // }
+    // &--second1 {
+    //   top: 129px - 44px;
+    //   right: 0;
+    // }
+  }
+  &__photo {
+    width: $t-card-photo;
+    height: $t-card-photo;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 82px;
+  }
+  &__q {
+    margin-bottom: 12px;
+  }
+  &__text {
+    margin-bottom: 16px;
+
+    color: $dark-grey-color;
+    font-family: $font-open-sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+  }
+  &__person-name {
+    margin-bottom: 4px;
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $dark-text-color;
+  }
+  &__person-job {
+    font-family: $font-poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    color: $light-grey-color;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
+
+$decoration-colors: (
+  "1": $t-card-decor-grad-1,
+  "2": $t-card-decor-grad-2,
+  "3": $t-card-decor-grad-3,
+);
+
+@each $position, $color-grad in $decoration-colors {
+  .t-card__decor--first#{$position},
+  .t-card__decor--second#{$position} {
+    background: $color-grad;
+  }
+}
+
+$q-colors: (
+  1 url(../images/testimonials/q1.svg),
+  2 url(../images/testimonials/q2.svg),
+  3 url(../images/testimonials/q3.svg)
+);
+
+@each $position, $element in $q-colors {
+  .t-card__q--#{$position}::after {
+    content: $element;
+  }
+  .t-card__decor--second#{$position} {
+    top: 129px - 44px;
+    right: 0;
+  }
+}

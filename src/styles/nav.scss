@@ -1,32 +1,106 @@
 .nav {
   display: flex;
+  height: $header-height;
+  align-items: center;
 
-  font-family: $font-poppins;
-  font-weight: 700;
-  font-size: 13px;
+  position: relative;
 
   &__list {
     display: flex;
-    justify-content: space-between;
     list-style: none;
-    width: 100%;
+    // width: 100%;
     padding: 0;
   }
+
   &__li {
-    margin: 0 32px;
+    margin-left: 32px;
   }
 
   &__link {
+    padding: 20px 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    height: $header-height;
-
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $on-text-color;
-
     @include hover(transform, scale(1.2));
+    &:hover {
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: $interactive-color;
+        border-radius: 3px;
+        margin-bottom: -3px;
+      }
+    }
+  }
+
+  &__toggler-label {
+    display: none;
+    position: relative;
+    top: 50px;
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+    z-index: 2;
+
+    &::before {
+      @include burger-line;
+      top: 4px;
+    }
+
+    &::after {
+      @include burger-line;
+      bottom: 4px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+
+    &:checked ~ .nav__toggler-label::before {
+      transform: rotate(45deg);
+    }
+    &:checked ~ .nav__toggler-label::after {
+      transform: rotate(-45deg);
+    }
+
+    &:checked ~ .nav__list {
+      visibility: visible;
+    }
+  }
+
+  @media (max-width: 1116px) {
+    flex-direction: column;
+
+    &__list {
+      position: absolute;
+      top: -1000%;
+      left: 50%;
+      // visibility: hidden;
+      transition: transform 0.3s;
+
+      margin-top: 50px;
+      flex-direction: column;
+      transform: translate(-30%, 0);
+      padding: 30px 0;
+      justify-content: center;
+      align-items: center ;
+      background-color: bisque;
+
+      z-index: 1;
+    }
+
+    &__toggler-label {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+  .nav__toggler:checked nav.list {
+    visibility: visible;
+    top: 40px;
   }
 }
