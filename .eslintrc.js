@@ -1,6 +1,7 @@
 module.exports = {
   extends: '@mate-academy/eslint-config',
   "globals": {
-    "$": true
+    "$": true,
+    "WOW": true
   }
 };

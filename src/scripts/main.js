@@ -36,9 +36,15 @@ $(document).ready(function() {
       $('.showcase__slider-info').height());
   }
 
+  // Mobile navigation
   $('.nav__mobile-button').on('click', function() {
     $('.nav__mobile-list').slideToggle();
   });
+
+  // Animations on scroll
+  const wow = new WOW();
+
+  wow.init();
 
   // Showcase info cannot be placed in the container, but has to be in it
   if ($(window).width() > 1175) {
