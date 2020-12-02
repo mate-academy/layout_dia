@@ -39,6 +39,8 @@ $(document).ready(function() {
   // Mobile navigation
   $('.nav__mobile-button').on('click', function() {
     $('.nav__mobile-list').slideToggle();
+
+    $('.nav__mobile').toggleClass('nav__mobile--opened');
   });
 
   // Animations on scroll
