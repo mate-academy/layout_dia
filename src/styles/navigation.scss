@@ -14,6 +14,7 @@
     font-size: 50px;
     font-weight: bold;
     color: #fff;
+    // height: 0;
   }
 
   &__toggler-label:hover {
@@ -38,8 +39,12 @@
     line-height: 60px;
   }
 
-  .nav__toggler:checked ~ .nav__list {
-    display: inline-block;
+  &__toggler-label ~ .nav__list {
+    transition: opacity 1s;
+  }
+  
+  &__toggler:checked ~ .nav__list {
+    transition: opacity 1s;
   }
 
   &__link {
@@ -62,6 +67,7 @@
   @media (max-width: 840px) {
     & {
       justify-content: space-between;
+      // transition: opacity 3s;
       // background-color: rgba(44, 44, 44, 0.5);
     }
 
@@ -70,12 +76,13 @@
       top: 100px;
       right: 5%;
       left: 5%;
-      display: none;
+      display: block;
       flex-direction: column;
       text-align: center;
       background-color: rgba(44, 44, 44, 0.7);
       padding: 40px 20px 20px 0;
       margin: auto;
+      opacity: 0;
       z-index: 10;
     }
 
@@ -85,6 +92,11 @@
 
     &__link {
       max-width: 600px;
+    }
+
+    &__toggler:checked ~ &__list {
+      display: block;
+      opacity: 1;
     }
   }
 
