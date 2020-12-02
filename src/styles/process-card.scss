@@ -1,0 +1,73 @@
+.process-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+
+  width: $process-card-size;
+  height: $process-card-size;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  &__card {
+    @include process-card-id;
+  }
+
+  &__line-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 80px;
+    margin-bottom: 32px;
+  }
+  &__line {
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $dark-grey-color;
+  }
+
+  &__learn-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__learn-button {
+    @include process-card-button;
+    @include hover(transform, scale(1.2));
+    @include shadow;
+  }
+
+  &__learn-text {
+    color: $learn-color;
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+$cards-colors: (
+  "1" $card-1-color-opacity $card-1-color,
+  "2" $card-2-color-opacity $card-2-color,
+  "3" $card-3-color-opacity $card-3-color,
+  "4" $card-4-color-opacity $card-4-color
+);
+
+@each $number, $back-color, $dig-color in $cards-colors {
+  .process-card__card--#{$number} {
+    background-color: $back-color;
+    &::after {
+      content: "00#{$number}";
+
+      font-family: $font-poppins;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 19px;
+      color: $dig-color;
+    }
+  }
+  .process-card__learn-button--#{$number} {
+    background-color: $dig-color;
+  }
+}

@@ -1,0 +1,97 @@
+.send {
+  display: flex;
+  flex-direction: column;
+  max-width: 460px;
+
+  @media (max-width: 1000px) {
+    max-width: 320px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header {
+    padding-bottom: 40px;
+
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $on-text-color;
+
+  }
+  &__mail {
+    margin-bottom: 72px;
+
+    @include form-input;
+    @include focus;
+    // border-bottom: 2px solid $on-text-color;
+    flex-shrink: 0;
+    @include tablet-small {
+      width: 330px;
+      margin-bottom: 22px;
+    }
+    @include mobile {
+      width: 280px;
+    }
+  }
+
+  &__person-name {
+    margin-bottom: 72px;
+
+    @include form-input;
+    @include focus;
+    // border-bottom: 1px solid $on-text-color;
+
+    @include tablet-small {
+      width: 330px;
+      margin-bottom: 42px;
+    }
+    @include mobile {
+      width: 280px;
+    }
+  }
+
+  &__message {
+    margin-bottom: 64px;
+    resize: none;
+
+    @include form-input;
+    @include focus;
+    color: $light-grey-color;
+
+    @include tablet-small {
+      width: 330px;
+      margin-bottom: 44px;
+    }
+
+    @include mobile {
+      width: 280px;
+      margin-bottom: 34px;
+    }
+
+    &:focus {
+      color: $on-text-color;
+    }
+  }
+  &__button {
+    @include button;
+    margin-bottom: 88px;
+    &:hover {
+      background-color: #ff7e6c;
+    }
+    @include tablet-small {
+      margin-bottom: 64px;
+    }
+  }
+}
+
+$assignment: "mail", "person-name", "message";
+
+@each $input in $assignment {
+  .send__#{$input} {
+    border-bottom: 1px solid $on-text-color;
+    &:focus {
+      border-bottom: 2px solid $on-text-color;
+    }
+  }
+}

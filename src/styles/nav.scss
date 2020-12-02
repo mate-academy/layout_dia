@@ -1,0 +1,132 @@
+.nav {
+  display: flex;
+  height: $header-height;
+  align-items: center;
+  // position: relative;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__li {
+    // margin-left: 32px;
+    margin-right: 64px;
+  }
+
+  &__link {
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include hover(transform, scale(1.2));
+    &:hover {
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: $interactive-color;
+        border-radius: 3px;
+        margin-bottom: -3px;
+      }
+    }
+  }
+
+  &__toggler-label {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    // position: relative;
+    // left: -100%;
+    transform: translate(-50%, 0);
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+    z-index: 2;
+
+    &::before {
+      @include burger-line;
+      top: 3px;
+    }
+
+    &::after {
+      @include burger-line;
+      bottom: 3px;
+    }
+  }
+
+  &__toggler {
+    display: none;
+
+    &:checked ~ .nav__toggler-label::before {
+      transform: rotate(45deg);
+      // transform-origin: left center;
+    }
+    &:checked ~ .nav__toggler-label::after {
+      transform: rotate(-45deg);
+      // transform-origin: right center;
+    }
+
+    &:checked ~ .nav__list {
+      top: 0;
+      visibility: visible;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    display: block;
+    // flex-direction: column;
+
+    &__list {
+      flex-direction: column;
+      justify-content: center;
+      visibility: hidden;
+
+      position: absolute;
+      // margin: 0 auto;
+      top: -1000%;
+      // left: 0px;
+      right: 0;
+      // transform: translate(-50%, 0);
+      // width: 96vw;
+      width: 100vw;
+      // height: 100vh;
+      height: 600px;
+
+      transition-duration: 0.3s;
+
+      padding: 30px 0;
+      align-items: center ;
+      background-color: $dark-blue;
+
+      z-index: 1;
+    }
+
+    &__li {
+      margin: 0;
+    }
+
+    &__link {
+      font-weight: 700;
+      font-size: 23px;
+      text-shadow: 2px 1px 5px rgba(0,0,0,0.3);
+    }
+
+    &__toggler-label {
+      display: block;
+    }
+  }
+}
+
+@include mobile {
+  .nav__toggler-label {
+    transform: scale(0.7);
+    left: 45%;
+  }
+}

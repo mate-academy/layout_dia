@@ -1,0 +1,245 @@
+.vis-pass-res {
+  // height: 691px;
+  overflow: hidden;
+
+  background-color: $on-text-color;
+  &__content {
+    position: relative;
+
+    background-color: $on-text-color;
+
+    @include centeredContainer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 198px;
+
+    @include tablet {
+      padding-bottom: 158px;
+    }
+
+    @include mobile-big {
+      padding-bottom: 108px;
+    }
+  }
+  &__header {
+    z-index: 1;
+
+    font-family: $font-poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 150%;
+    color: $dark-text-color;
+    margin-top: 200px;
+    margin-bottom: 24px;
+    text-align: center;
+
+    @include tablet {
+      margin-top: 100px;
+    }
+  }
+
+  &__slogan {
+    z-index: 1;
+
+    font-family: $font-open-sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $dark-grey-color;
+    text-align: center;
+    max-width: 754px;
+    margin-bottom: 64px;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include button;
+    z-index: 1;
+  }
+
+  &__ellipse {
+    position: absolute;
+    animation: cloud1 4s ease-in-out infinite;
+  }
+
+  // light-blue-left
+
+  &__ellipse--1 {
+    background: center no-repeat;
+    bottom: 250px;
+    left: -100px;
+    &::after {
+      content: url(../images/ellipses/ellipse1.svg);
+    }
+  }
+
+  // pink left
+
+  &__ellipse--2 {
+    top: 72px;
+    left: 0;
+    &::after {
+      content: url(../images/ellipses/ellipse2.svg);
+    }
+  }
+
+  // violet left
+
+  &__ellipse--3 {
+    bottom: 72px;
+    left: -40px;
+    &::after {
+      content: url(../images/ellipses/ellipse3.svg);
+    }
+  }
+
+  // green left
+
+  &__ellipse--4 {
+    top: 283px;
+    left: 80px;
+    &::after {
+      content: url(../images/ellipses/ellipse4.svg);
+    }
+
+  }
+
+  // yellow thin left
+
+  &__ellipse--5 {
+    top: 77px;
+    left: 200px;
+    &::after {
+      content: url(../images/ellipses/ellipse5.svg);
+    }
+
+  }
+
+  // yellow thick left
+
+  &__ellipse--6 {
+    bottom: 174px;
+    left: 250px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse6.svg);
+    }
+
+    @include tablet {
+      bottom: 74px;
+    }
+  }
+
+  // violet thin right
+
+  &__ellipse--7 {
+    bottom: 124px;
+    right: 350px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse7.svg);
+    }
+
+    @include tablet {
+      bottom: 224px;
+    }
+
+    @include mobile-big {
+      display: none;
+    }
+
+  }
+
+  // pink right
+
+  &__ellipse--8 {
+    bottom: 214px;
+    right: 150px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse8.svg);
+    }
+  }
+
+  // green right
+
+  &__ellipse--9 {
+    top: 130px;
+    right: 20px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse9.svg);
+    }
+  }
+
+  // blue right
+
+  &__ellipse--10 {
+    bottom: 118px;
+    right: -80px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse10.svg);
+    }
+  }
+
+  // violet thick right
+
+  &__ellipse--11 {
+    top: 110px;
+    right: -100px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse11.svg);
+    }
+  }
+
+  // yellow right
+
+  &__ellipse--12 {
+    top: 276px;
+    right: -150px;
+
+    &::after {
+      content: url(../images/ellipses/ellipse12.svg);
+    }
+  }
+
+  @media (max-width: 1180px) {
+    &__ellipse--1,
+    &__ellipse--2,
+    &__ellipse--3,
+    &__ellipse--10,
+    &__ellipse--11,
+    &__ellipse--12 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__ellipse--1,
+    &__ellipse--3,
+    &__ellipse--10,
+    &__ellipse--11,
+    &__ellipse--12,
+    &__ellipse--6 {
+      display: none;
+    }
+
+    &__ellipse--8 {
+      bottom: 300px;
+      right: 100px;
+
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .vis-pass-res__ellipse--#{$i} {
+    animation-delay: $i * 0.3s;
+  }
+}
