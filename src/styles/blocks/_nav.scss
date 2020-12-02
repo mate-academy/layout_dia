@@ -1,0 +1,145 @@
+.nav {
+  padding-top: 30px;
+  position: relative;
+
+  &__inner {
+    @include flex-justified;
+    align-items: center;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 75px;
+    transition: all $transition-duration;
+
+    &:hover {
+      transform: $transform-scale;
+    }
+  }
+
+  &__list {
+    @include flex-justified;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 64px;
+  }
+
+  &__link,
+  &__hiring-button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    color: $light-font-color;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all $transition-duration;
+
+    &:hover {
+      border-bottom-color: #ff9c8e;
+    }
+  }
+
+  &__mobile-button {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: -43px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "icomoon", sans-serif;
+      content: "\e9bd";
+      font-size: 40px;
+    }
+  }
+
+  &__mobile-list {
+    display: none;
+  }
+
+  &__mobile {
+    position: absolute;
+    width: 100%;
+    background-color: $blue-background-color;
+
+    &--opened {
+      .nav__mobile-list {
+        height: 100vh;
+      }
+
+      .nav__mobile-button {
+        &::before {
+          content: "\ea0f";
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  &__mobile-link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    color: $light-font-color;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all $transition-duration;
+    text-align: center;
+
+    &:hover {
+      border-bottom-color: #ff9c8e;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .nav {
+    &__left {
+      display: block;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__hiring-button {
+      margin-right: 80px;
+    }
+
+    &__mobile-button {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .nav__mobile-list {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav__mobile-item {
+    &:first-child {
+      padding-top: 15px;
+    }
+  }
+}
