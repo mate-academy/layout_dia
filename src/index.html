@@ -18,7 +18,7 @@
         </a>
 
         <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">home</a></li>
+          <li class="nav__item"><a href="#slider" class="nav__link">home</a></li>
           <li class="nav__item"><a href="#about-us" class="nav__link">about us</a></li>
           <li class="nav__item"><a href="#services" class="nav__link">services</a></li>
           <li class="nav__item"><a href="#work" class="nav__link">work</a></li>
@@ -30,10 +30,16 @@
         </a>
       </nav>
 
+      <span
+        class="toggler header__toggler"
+        onclick="toggleSidebar()"
+      >
+      </span>
+
     </header>
 
     <main class="page__main main">
-      <section class="main__slider slider">
+      <section class="main__slider slider" id="slider">
         <div class="slider__learn-more">
           <h1 class="slider__name">
             Strategic<br>
@@ -535,7 +541,7 @@
           We are sure that first-rate job is possible only if all three<br>gicomponents are united.
         </p>
 
-        <a href="#" class="vision-passion-results__link">
+        <a href="#form" class="vision-passion-results__link">
           Apply
         </a>
       </section>
@@ -547,6 +553,7 @@
           action="#"
           method="POST"
           class="feedback__form form"
+          id="form"
         >
           <h2 class="form__header">
             Send us a message
@@ -666,6 +673,14 @@
         </ul>
       </nav>
     </footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script>
+      function toggleSidebar() {
+        const nav = document.querySelector('.header__nav');
+        const toggler = document.querySelector('.toggler');
+        nav.classList.toggle('header__nav--has-popup')
+        toggler.classList.toggle('toggler--open');
+        document.body.classList.toggle('page--fixed')
+      }
+    </script>
   </body>
 </html>

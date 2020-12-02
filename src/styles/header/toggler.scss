@@ -1,0 +1,41 @@
+%line {
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #fff;
+}
+
+.toggler {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  @extend %line;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    transition-duration: 0.3s;
+    @extend %line;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    transition-duration: 0.3s;
+    @extend %line;
+  }
+  &--open {
+    transform: rotate(45deg);
+  }
+  &--open::before {
+    top: 0;
+  }
+  &--open::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}
