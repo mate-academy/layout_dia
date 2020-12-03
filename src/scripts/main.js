@@ -63,3 +63,19 @@ function scrollFromTop() {
   }
 }
 window.addEventListener('scroll', scrollFromTop);
+
+/* eslint-env jquery */
+$(document).ready(function() {
+  $('.header__slider').bxSlider({
+    slideSelector: '.header__slide',
+    wrapperClass: 'header__slider',
+    nextSelector: '.header__controls-next',
+    prevSelector: '.header__controls-prev',
+    nextText: '',
+    prevText: '',
+    pager: false,
+    auto: true,
+    maxSlides: 1,
+    shrinkItems: true,
+  });
+});
