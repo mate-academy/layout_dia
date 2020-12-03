@@ -1,15 +1,23 @@
 .header {
   position: relative;
-  padding-top: $navbar-height;
+  padding-top: $navbar-height + $navbar--fixed-top * 2;
   overflow: hidden;
   background-color: $blue;
   border-bottom-left-radius: 200px;
   &__nav-bg-wrapper {
     position: fixed;
-    top: 0;
+    top: 37px;
     width: 100vw;
     background: $blue;
     z-index: 3;
+    transition: top 0.2s;
+    
+  }
+  &__nav-bg-wrapper--shadow {
+    -webkit-box-shadow: 0 7px 13px -7px #00000042,
+      0 10px 13px -7px rgba(0, 0, 0, 0);
+    box-shadow: 0 7px 13px -7px #00000042,
+      0 10px 13px -7px rgba(0, 0, 0, 0);
   }
   &__flex-wrapper {
     display: flex;
@@ -184,6 +192,9 @@
     }
     &__nav-bg-wrapper {
       position: static;
+    }
+    & {
+      padding-top: 50px;
     }
   }
   @media (max-width: 750px) {

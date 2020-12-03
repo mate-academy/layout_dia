@@ -21,3 +21,45 @@ function parallax(event) {
 }
 
 document.addEventListener('mousemove', parallax);
+
+const circle = document.querySelector('.page__progress-ring-circle');
+const radius = circle.r.baseVal.value;
+const circumference = 2 * Math.PI * radius;
+
+circle.style.strokeDasharray = `${circumference} ${circumference}`;
+
+window.addEventListener('scroll', progressBar);
+
+function progressBar(event) {
+  // eslint-disable-next-line max-len
+  const windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  // eslint-disable-next-line max-len
+  const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  const percent = windowScroll / windowHeight * 100;
+
+  circle.style.strokeDashoffset = -percent * 2.27 + '%';
+}
+
+const navScrolledposition = document.querySelector('.header__nav-bg-wrapper');
+
+const progBar = document.querySelector('.page__prog-bar');
+
+function scrollFromTop() {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop > 60) {
+    navScrolledposition.style.top = '0';
+    navScrolledposition.classList.add('header__nav-bg-wrapper--shadow');
+  } else {
+    navScrolledposition.style.top = '37px';
+    navScrolledposition.classList.remove('header__nav-bg-wrapper--shadow');
+  }
+
+  if (scrollTop > window.innerHeight / 3) {
+    progBar.style.opacity = 1;
+  } else {
+    progBar.style.opacity = 0;
+  }
+}
+window.addEventListener('scroll', scrollFromTop);
