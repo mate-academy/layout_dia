@@ -36,6 +36,7 @@
     font-weight: 600;
     line-height: 150%;
     font-style: normal;
+    text-decoration: none;
 
     color: #fff;
   }
@@ -59,11 +60,24 @@
     background-position: center;
 
     transition: background-image $transition-duration;
+    
+    &:after {
+      content: "";
+      display: block;
+      opacity: 0;
+      height: 32px;
+      width: 32px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: opacity $transition-duration;
+    }
 
     &--facebook {
       background-image: url("../images/socials/facebook.svg");
 
-      &:hover {
+      &::after {
         background-image: url("../images/socials/facebook-hover.svg");
       }
     }
@@ -71,7 +85,7 @@
     &--twitter {
       background-image: url("../images/socials/twitter.svg");
 
-      &:hover {
+      &::after {
         background-image: url("../images/socials/twitter-hover.svg");
       }
     }
@@ -79,13 +93,19 @@
     &--instagram {
       background-image: url("../images/socials/instagram.svg");
 
-      &:hover {
+      &::after {
         background-image: url("../images/socials/instagram-hover.svg");
       }
     }
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }

@@ -1,10 +1,4 @@
 .header {
-  // display: flex;
-  // align-items: center;
-
-  // height: 120px;
-  // padding: 0 228px;
-
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 3px;
@@ -13,18 +7,7 @@
   z-index: 1;
 
   @media screen and (max-width: 1224px) {
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 100vw;
-    justify-content: space-between;
-
     background-color: transparent;
-
-    // @media screen and (min-width: 3000px) {
-    //   padding: 0 5%;
-    // }
   }
 
   &__container {
@@ -38,6 +21,40 @@
 
   &__logo {
     @include logo;
+  }
+
+  &__input-toggler {
+    display: none;
+  }
+
+  &__label-toggler {
+    display: none;
+    padding: 10px 0;
+
+    cursor: pointer;
+  }
+
+  @media (max-width: 1224px) {
+    &__label-toggler {
+      display: block;
+      z-index: 1;
+
+      &::after {
+        content: "\2630";
+        color: #fff;
+        font-size: 25px;
+      }
+    }
+
+    &__input-toggler:checked ~ .nav {
+      display: block;
+    }
+
+    &__input-toggler:checked ~ &__label-toggler {
+      &::after {
+        content: "X";
+      }
+    }
   }
 
   &__nav {
@@ -66,19 +83,6 @@
       @media screen and (max-width: 1224px) {
         display: block;
       }
-    }
-  }
-
-  &__burger-menu {
-    position: fixed;
-    bottom: 100%;
-    left: 0;
-
-    height: 120vh;
-    width: 100vw;
-
-    &--open {
-      bottom: 0;
     }
   }
 }
