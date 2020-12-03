@@ -1,6 +1,6 @@
 .header {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 3px;
 
   background-color: $general-color;
@@ -23,47 +23,13 @@
     @include logo;
   }
 
-  &__input-toggler {
-    display: none;
-  }
-
-  &__label-toggler {
-    display: none;
-    padding: 10px 0;
-
-    cursor: pointer;
-  }
-
-  @media (max-width: 1224px) {
-    &__label-toggler {
-      display: block;
-      z-index: 1;
-
-      &::after {
-        content: "\2630";
-        color: #fff;
-        font-size: 25px;
-      }
-    }
-
-    &__input-toggler:checked ~ .nav {
-      display: block;
-    }
-
-    &__input-toggler:checked ~ &__label-toggler {
-      &::after {
-        content: "X";
-      }
-    }
-  }
-
   &__nav {
     flex-grow: 1;
   }
-  
+
   &__hire-us {
     @include link;
-  
+
     &::before {
       height: 2px;
     }
@@ -74,8 +40,8 @@
   }
 
   &__menu {
-    height: 16px;
     width: 23px;
+    height: 16px;
 
     &--screen--small {
       display: none;
@@ -85,4 +51,20 @@
       }
     }
   }
+
+  &__burger-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 120vh;
+
+    transform: translateY(-100%);
+
+    &--open {
+      transform: translateY(0);
+    }
+  }
+
 }
