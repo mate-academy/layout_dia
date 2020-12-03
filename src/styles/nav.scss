@@ -1,0 +1,149 @@
+.nav {
+  position: relative;
+  padding-right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 1299px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 78px;
+
+    @media (max-width: 1200px) {
+      margin-right: 0;
+    }
+
+    @media (max-width: 900px) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 1299px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 1050px) {
+      max-width: 600px;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__item {
+    margin-right: 64px;
+
+    @media (max-width: 1050px) {
+      margin-right: 34px;
+    }
+
+    @media (max-width: 900px) {
+      margin-right: 0;
+      margin-bottom: 15px;
+      padding: 5px;
+    }
+
+    &:last-child {
+      @media (max-width: 900px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &--hire {
+      margin-left: auto;
+      border-bottom: 2px solid $interaction-color;
+
+      @media (max-width: 1299px) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.5s;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $interaction-color;
+    }
+  }
+
+  &__burger-label {
+    margin-bottom: 20px;
+
+    @media (max-width: 900px) {
+      &::before {
+        position: absolute;
+        top: 47px;
+        left: 50%;
+        transform: translate(-50%);
+        content: "";
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: transform 0.2s linear;
+        z-index: 1;
+      }
+
+      &::after {
+        position: absolute;
+        top: 43px;
+        left: 50%;
+        transform: translate(-50%);
+        content: "";
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: transform 0.2s linear;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    &:checked ~ .nav__burger-label::before {
+      transform: translate(-40%, 106%) rotate(45deg);
+      transform-origin: center;
+    }
+
+    &:checked ~ .nav__burger-label::after {
+      transform: translate(-40%,237%) rotate(-45deg);
+      transform-origin: center;
+    }
+
+    &:checked ~ .nav__list {
+      display: flex;
+      position: absolute;
+      top: 69px;
+      width: 100%;
+      background-color: #2c2c2c;
+    }
+  }
+}
