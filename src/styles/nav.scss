@@ -1,0 +1,158 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 990px) {
+    align-items: flex-end;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: $nav-size;
+
+    @media screen and (max-width: 990px) {
+      justify-content: flex-end;
+      display: none;
+      gap: 0;
+    }
+  }
+
+  &__toggler-label {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    width: $nav-size;
+    height: $nav-size;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 30%;
+      bottom: 50%;
+      left: calc(50% - #{$label-size-w} / 2);
+      right: calc(50% - #{$label-size-w} / 2);
+      display: block;
+      width: $label-size-w;
+      height: $label-size-h;
+      background-color: $c-white;
+      transition: transform 0.5s linear;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      bottom: 30%;
+      left: calc(50% - #{$label-size-w} / 2);
+      right: calc(50% - #{$label-size-w} / 2);
+      display: block;
+      width: $label-size-w;
+      height: $label-size-h;
+      background-color: $c-white;
+      transition: transform 0.5s linear;
+    }
+
+    @media screen and (max-width: 990px) {
+      display: block;
+    }
+  }
+
+  &__toggler {
+    display: none;
+
+    &:checked ~ .nav__toggler-label::before {
+      transform: rotate(#{$label-rotate}deg) translate(5px, 7px);
+    }
+
+    &:checked ~ .nav__toggler-label::after {
+      transform: rotate(-#{$label-rotate}deg);
+    }
+
+    &:checked ~ .nav__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 80vh;
+      animation: opacity 1s ease-in;
+
+      @media screen and (min-width: 990px) {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    height: $nav-size;
+    line-height: $nav-size;
+    @include textPoppinsDifference(700, 13px);
+    color: $c-white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__item {
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $c-pink;
+      width: 0;
+      transition: width 0.3s linear;
+    }
+
+    @media screen and (max-width: 990px) {
+      align-self: flex-end;
+    }
+
+    &:hover::after {
+      width: 100%;
+      @include after;
+    }
+  }
+}
+
+.hire {
+  &__link {
+    @extend .nav__link;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 405px) {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}
+
+.is-active {
+  position: relative;
+
+  &::after {
+    @include after;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

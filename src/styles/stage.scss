@@ -1,0 +1,123 @@
+.stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 20px;
+  padding: 32px;
+  background-color: $c-white;
+  border-radius: 24px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  &--1 {
+    grid-row: 2 / span 2;
+  }
+
+  &--2 {
+    grid-row: 4 / span 2;
+  }
+
+  &--3 {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+  }
+
+  &--4 {
+    grid-row: 3 / span 2;
+    grid-column: 2;
+  }
+
+  @media screen and (max-width: 990px) {
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        grid-row: span 2;
+        grid-column: auto;
+      }
+    }
+  }
+
+  &__number {
+    width: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+
+    border-radius: 23px;
+
+    &--first {
+      color: #56ccf2;
+      background-color: rgba(86,204,242,0.1);
+    }
+
+    &--second {
+      color: #fcc91d;
+      background-color: rgba(252,201,29,0.1);
+    }
+
+    &--third {
+      color: #15d850;
+      background-color: rgba(21,216,80,0.1);
+    }
+
+    &--fourth {
+      color: #f36363;
+      background-color: rgba(243,99,99,0.1);
+    }
+  }
+
+  &__description {
+    font-family: "Open-Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  &__link-img {
+
+    &-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      transition: transform 0.5s linear;
+      cursor: pointer;
+
+      &--first {
+        background-color: $c-blue-light;
+      }
+
+      &--second {
+        background-color: #fcc91d;
+      }
+
+      &--third {
+        background-color: #15d850;
+      }
+
+      &--fourth {
+        background-color: #f36363;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  &:hover &__link-img-inner {
+    transform: scale(1.2);
+  }
+}
