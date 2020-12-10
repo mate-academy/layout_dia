@@ -1,3 +1,14 @@
-Layout-air
+# Landing page Layout-air
 
-Air landing page Demo link - https://sashapylypyuk.github.io/layout_dia/
+You can see it on gh-pages [click here!](https://sashapylypyuk.github.io/layout_dia/ "click here!")
+
+# What used
+- HTML5
+- CSS3
+- SASS
+- Linter
+
+# How to install
+  - clone repo
+  - nmp i
+  - npm run start
