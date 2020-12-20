@@ -1,36 +1,46 @@
 .slider {
-  display: flex;
-  align-items: flex-end;
-
-  width: 687px;
-  height: 680px;
-
-  background: url("/images/slider/slide-img.png") no-repeat;
-  border-top-left-radius: 30px;
-
-  @include onMobile {
-    display: none;
+  &__wrapper {
+    position: relative;
+    align-self: flex-end;
   }
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    padding: 48px;
-    gap: 24px;
+  &__img {
+    display: block;
+    width: 100%;
+    height: 680px;
+
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    object-fit: cover;
+
+    @include onTablet {
+      display: none;
+    }
   }
 
   &__switcher {
+    position: absolute;
+    bottom: 65px;
+    left: 0;
+
     display: flex;
-    column-gap: 8px;
   }
 
   &__button {
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+    margin-right: 16px;
+  }
+
+  &__btn {
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 32px;
     height: 32px;
+    margin-right: 8px;
 
     background-color: #fff;
     border-radius: 50%;
@@ -53,7 +63,7 @@
   }
 
   &__text {
-    width: 264px;
+    max-width: 264px;
     font-size: 14px;
     line-height: 1.4;
     padding-top: 8px;

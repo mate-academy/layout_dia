@@ -16,24 +16,31 @@
 
     @include onTablet {
       height: fit-content;
+      justify-content: center;
     }
 
     @include onMobile {
       width: 100vw;
+    }
+
+    @include on4K {
+      max-width: 1140px + $pageGap * 2;
+      width: calc(100% - #{$pageGap * 2});
+      margin: 0 auto;
     }
   }
 
   &__description {
     align-self: center;
 
-    width: 50%;
+    max-width: $approachTextWidth + 50px;
     padding-top: 50px;
     padding-left: 50px;
     margin-right: 50px;
 
     @include onFullHD {
-      padding-left: 200px;
-      width: $approachTextWidth + 200px;
+      padding-left: 100px;
+      max-width: $approachTextWidth + 100px;
     }
 
     @include onTablet {
@@ -46,6 +53,7 @@
   }
 
   &__title {
+    max-width: 362px;
     margin-bottom: 32px;
 
     color: #fff;
@@ -59,10 +67,19 @@
   &__item {
     display: flex;
     margin-bottom: 64px;
+
+    @include onMobile {
+      flex-direction: column;
+    }
   }
 
   &__image {
     margin-right: 34px;
+
+    @include onMobile {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
   }
 
   &__text {
@@ -72,16 +89,20 @@
 
   &__photoBlock {
     align-self: flex-end;
-    height: 680px;
-    width: 50%;
+    object-fit: cover;
     overflow: hidden;
 
     @include onFullHD {
       width: 687px;
+      height: 680px;
     }
 
     @include onTablet {
       display: none;
     }
+  }
+
+  &__photo {
+    display: block;
   }
 }

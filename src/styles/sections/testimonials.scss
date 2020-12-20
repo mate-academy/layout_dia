@@ -1,11 +1,49 @@
 .testimonials {
-  padding: 130px 0;
+  padding: 140px 0;
   background-color: #f2f6fa;
+
+  @include onTablet {
+    padding: $paddingOnTablet;
+  }
+
+  @include onMobile {
+    padding: $paddingOnMobile;
+  }
+
+  &__wrapper {
+    @include desktop {
+      width: 80%;
+    }
+
+    @include onTablet {
+      width: $reviewsWidth * 2 + $reviewsGap;
+    }
+    @include onMobile {
+      width: $reviewsWidth;
+    }
+  }
+
+  &__intro {
+    margin-bottom: $marginIntroTitle;
+  }
+
+  &__title {
+    margin-bottom: 85px;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+  }
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 314px);
+    grid-template-columns: repeat(auto-fit, $reviewsWidth);
     justify-content: space-between;
-    row-gap: 30px;
+    gap: $reviewsGap;
+
+    @include onTablet {
+      justify-content: center;
+    }
+
   }
 }

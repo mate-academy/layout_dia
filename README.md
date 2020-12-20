@@ -1,4 +1,6 @@
 # Dia landing page
+- [DEMO LINK](https://ira-cherpak.github.io/layout_dia/)
+
 Implement landing page according to [Figma design](https://www.figma.com/file/McHCGFk1u9zvDGqloX5roo/Air-(formerly-Dia)-(Edit)?node-id=0%3A1) - Use BEM and SCSS
 - Large screens 2560px
 - Full HD 1920px
