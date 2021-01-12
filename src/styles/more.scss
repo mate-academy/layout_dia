@@ -1,0 +1,78 @@
+.more {
+  display: grid;
+  grid-template-columns: repeat(2, 264px);
+  gap: 30px;
+
+  &__block {
+    position: relative;
+    z-index: 1;
+    padding: 32px;
+
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    
+    transition: box-shadow $transition-duration;
+    
+
+    &:nth-child(odd) {
+      top: 132px;
+
+      @media (max-width: 650px) {
+        top: 0;
+      }
+    }
+  }
+
+  &__number {
+    margin-bottom: 24px;
+    padding: 2px 12px;
+    width: 46px;
+
+    font-weight: 600;
+    @include font($font-size-main, $font-height-main);
+    color: $c-number;
+
+    background-color: $c-body-bg;
+    border-radius: 23px;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+
+    font-family: $font-Open;
+    font-weight: 600;
+    @include font($font-size-main, $font-height-main);
+    color: $c-text;
+  }
+
+  &__link {
+    display: flex;
+
+    font-weight: 600;
+    @include font(15px, 40px);
+    color: $c-more-link;
+    text-decoration: none;
+
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.1) translateX(10px);
+    }
+  }
+
+  &__circle {
+    margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    
+    background: url(../images/arrow.png) center/ 40% no-repeat;
+    background-color: $c-number;
+    border-radius: 50%;
+    border: none;
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: 264px;
+  }
+}
