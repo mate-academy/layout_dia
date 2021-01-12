@@ -1,0 +1,42 @@
+.nav {
+  display: flex;
+  align-items: center;
+  width: 85%;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+  }
+
+  &__item {
+    transition: padding $transition-duration;
+  }
+
+  &__link {
+    position: relative;
+    color: $c-link;
+    text-decoration: none;
+    transition: color $transition-duration;
+    
+    &:hover {
+      &::after {
+        content: "";
+        position: absolute;
+
+        display: block;
+        height: 2px;
+        width: 100%;
+        
+        background-color: $c-link-hover;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  @media (max-width: $size-tablet) {
+    display: none;
+  }
+}
