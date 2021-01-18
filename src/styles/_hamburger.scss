@@ -1,0 +1,42 @@
+.hamburger {
+  display: none;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 19;
+  background: rgba($color: #2c2c2c, $alpha: 0.9);
+  transition: background-color 0.5s;
+
+  &__layout {
+    width: 33px;
+    display: block;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background-color: $c-gray;
+    border-radius: 3px;
+
+    z-index: 21;
+
+    transform-origin: 4px 4px;
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1),
+      background-color 0.5s cubic-bezier(0.77,0.2,0.05,1),
+      opacity 0.55s ease;
+  }
+
+  &__layout:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  &__layout:nth-child(2) {
+    transform-origin: 0% 100%;
+  }
+}
+@media screen and (max-width: $small-screen-breakpoint) {
+  .hamburger {
+    display: block;
+  }
+}
