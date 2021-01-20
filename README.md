@@ -1,4 +1,4 @@
-# Miami landing page
+# Air landing page
 - Tech stack: HTML5, SASS, BEM, CSS3.
 - Fully responsive design was made my using Flexbox.
 - Click the link to see [DEMO](https://zkhomer.github.io/layout_dia/)
