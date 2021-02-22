@@ -1,10 +1,10 @@
 'use strict';
 
-const toggleHeaderButton = document.getElementsByClassName('header-button')[0];
-const navbarLinksHeader = document.getElementsByClassName('navbar-links')[0];
-const toggleFooterButton = document.getElementsByClassName('footer-button')[0];
+const toggleHeaderButton = document.getElementsByClassName('header__button')[0];
+const navbarLinksHeader = document.getElementsByClassName('navbar_links')[0];
+const toggleFooterButton = document.getElementsByClassName('footer__button')[0];
 const navbarLinksFooter
-  = document.getElementsByClassName('items_navbar-links')[0];
+  = document.getElementsByClassName('items__navbar_links')[0];
 
 toggleHeaderButton.addEventListener('click', () => {
   navbarLinksHeader.classList.toggle('active');
@@ -22,7 +22,7 @@ const nextImageButton
 let slideIndex = 0;
 
 function slideImages() {
-  const slides = document.getElementsByClassName('slide_image');
+  const slides = document.getElementsByClassName('slide__image');
 
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
