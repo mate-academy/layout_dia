@@ -1,5 +1,5 @@
 # Dia landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/McHCGFk1u9zvDGqloX5roo/Air-(formerly-Dia)-(Edit)?node-id=0%3A1) - Use BEM and SCSS
+Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia))?node-id=9138%3A35) - Use BEM and SCSS
 - Large screens 2560px
 - Full HD 1920px
 - The design 1600px
