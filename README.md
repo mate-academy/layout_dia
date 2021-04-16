@@ -3,7 +3,7 @@
 [DEMO LINK](https://KirillLutsenko.github.io/layout_dia/)
 
 **Description**
-- Tech stack: HTML5, SASS, JS(hamburger button & submit)
+- Tech stack: HTML5, SCSS, JS(hamburger button & submit)
 - Fully responsive layout was made by using CSS Grid & Flexbox(mobiles, tablets, laptops, high screens)
 - All buttons and links are interactive
 - Design you can find [here](https://www.figma.com/file/vhfzZ7SqWGkMGd5iCDdBCy/Air-(formerly-Dia))
