@@ -4,10 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dia</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body>
-    <h1>Dia</h1>
+  <body class="page">
+    <header class="header">
+      <div class="header__top container">
+        <a href="/" class="header__top__logo">
+          <img src="images/logo/Air_logo.svg" alt="Logo Air">
+        </a>
+        <nav class="header__top__nav">
+          <div class="header__top__nav__menu-toggler"></div>
+          <div class="header__top__nav__list">
+            <a href="#about" class="header__top__nav__list__link">About us</a>
+            <a href="#services" class="header__top__nav__list__link">Services</a>
+            <a href="#work" class="header__top__nav__list__link">Work</a>
+            <a href="#contact" class="header__top__nav__list__link">Contact Us</a>
+          </div>
+        </nav>
+        <a class="header__top__hire-us" href="tel:+22222222">Hire us</a>
+      </div>
+      <div class="header__main container">
+        <div class="header__main__column">
+          <h1 class="header__main__column__title">Strategic<br>Agency</h1>
+          <div class="header__main__column__subtitle">We believe in the power of bold ideas that<br>can solve business challenges.</div>
+          <a class="header__main__column__link" href="">Learn more</a>
+        </div>
+        <div class="header__main__column">
+          <div class="header__main__column__sliders">
+            <img
+              class="header__main__column__sliders__slider"
+              src="images/slider/1.jpg"
+              alt=""
+            >
+            <div class="header__main__column__sliders__description">
+              <p class="header__main__column__sliders__description__title">Intro</p>
+              <p class="header__main__column__sliders__description__subtitle">By the same illusion which lifts the<br>horizon.</p>
+            </div>
+            <img
+              class="header__main__column__sliders__slider"
+              src="images/slider/2.jpg"
+              alt=""
+            >
+            <img
+              class="header__main__column__sliders__slider"
+              src="images/slider/3.jpg"
+              alt=""
+            >
+            <img
+              class="header__main__column__sliders__slider"
+              src="images/slider/4.jpg"
+              alt=""
+            >
+            <a class="header__main__column__sliders__arrow header__main__column__sliders__arrow--left" onclick="plusDivs(-1)">❮</a>
+            <a class="header__main__column__sliders__arrow header__main__column__sliders__arrow--right" onclick="plusDivs(1)">❯</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="menu">
+      <div class="menu__list">
+        <a href="#about" class="menu__list__link">About us</a>
+        <a href="#services" class="menu__list__link">Services</a>
+        <a href="#work" class="menu__list__link">Work</a>
+        <a href="#contact" class="menu__list__link">Contact Us</a>
+      </div>
+    </div>
+    <main class="container">
+      <section id="about"></section>
+      <section></section>
+      <section id="services"></section>
+      <section></section>
+      <section id="work"></section>
+    </main>
+    <footer id="contact"></footer>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("header__main__column__sliders__slider");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length };
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+      }
+
+    </script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
