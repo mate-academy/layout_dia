@@ -1,7 +1,499 @@
 @import "utils";
-@import "fonts";
 @import "typography";
 
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+.button {
+  background-color: $secondary-color;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 110px;
+  border-radius: 64px;
+
+  border: none;
+
+  cursor: pointer;
+
+  @include hover(background-color, $secondary-color-hover);
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 body {
-  background: $c-gray;
+  margin: 0;
+  background: $bg-color;
+}
+
+$logo-height: 28px;
+$nav-padding-top: 48px;
+$nav-padding-bottom: 40px;
+
+.header {
+  position: relative;
+  background-color: $main-color;
+  height: 100vh;
+  width: 100vw;
+
+  border-bottom-left-radius: 200px;
+
+  color: white;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__content {
+    margin-top: 164px;
+  }
+
+  &__text {
+    @extend %text-style-regular-big;
+    color: white;
+
+    max-width: 362px;
+    margin: 32px 0 83px;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $nav-padding-top;
+  padding-bottom: $nav-padding-bottom;
+
+  &__logo {
+    display: inline-block;
+    color: white;
+    height: $logo-height;
+    width: 46px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+  }
+
+  &__link {
+    display: inline-block;
+    color: white;
+    padding: 0 24px;
+
+    @extend %subtitle-style;
+
+    &--last {
+      padding: 0;
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 680px;
+  max-height: calc(
+    100vh - ($logo-height + $nav-padding-bottom + $nav-padding-top)
+  );
+
+  &__photo {
+    height: 680px;
+    object-fit: cover;
+
+    border-top-left-radius: 200px;
+  }
+
+  &__control {
+    position: absolute;
+    bottom: 66px;
+    left: 48px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__arrows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-right: 24px;
+  }
+
+  &__arrow {
+    @include arrow-button(white, 32px, 18px, "../images/slider/arrow.svg");
+
+    &--left {
+      transform: scaleX(-1);
+    }
+  }
+
+  &__caption {
+    max-width: 264px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  &__text {
+    @extend %text-style-regular-small;
+    color: white;
+  }
+}
+
+.about-us-section {
+  @extend %container;
+  @extend %section-padding;
+
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    max-width: 754px;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    @extend %text-style-semibold-big;
+    color: $text-color-2;
+  }
+}
+
+.services-section {
+  background-color: white;
+
+  &__content {
+    @extend %container;
+    @extend %section-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 64px;
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  max-width: 264px;
+
+  &__img {
+    height: 166px;
+    width: 166px;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  &__title {
+    margin: 40px 0 16px;
+  }
+
+  &__description {
+    @extend %text-style-regular-small;
+    color: $text-color-2;
+  }
+}
+
+.work-section {
+  @extend %container;
+  @extend %section-padding;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text-wrap {
+    margin-top: 102px;
+    max-width: 362px;
+  }
+
+  &__title {
+    margin: 16px 0 24px;
+  }
+
+  &__text {
+    @extend %text-style-regular-small;
+    color: $text-color-2;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  &__work-cards-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -30px;
+
+    &--line-1 {
+      margin-top: 132px;
+    }
+  }
+
+  &__work-card {
+    margin-bottom: 30px;
+  }
+}
+
+.work-card {
+  background-color: white;
+  padding: 32px;
+  border-radius: 24px;
+  width: 264px;
+  height: 264px;
+  @extend %card-shadow;
+
+  &__number {
+    @extend %subtitle-style;
+    letter-spacing: 0;
+    border-radius: 23px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 24px;
+  }
+
+  &__text {
+    @extend %text-style-semibold-small;
+    margin: 24px 0 32px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-icon {
+    margin-right: 16px;
+  }
+
+  &__button-text {
+    @extend %title-font;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text-color-3;
+  }
+
+  @each $name, $color, $bg-number-color in $work-cards {
+    &--style-#{$name} {
+      .work-card__number {
+        color: $color;
+        background-color: $bg-number-color;
+      }
+
+      .work-card__button-icon {
+        @include arrow-button(
+          #{$color}, 40px, 24px, "../images/work-section/arrow-icon-button.svg"
+        );
+      }
+    }
+  }
+}
+
+.testimonials-section {
+  @extend %container;
+  padding-bottom: 148px;
+
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    margin-top: 85px;
+  }
+
+}
+
+.testimonial-card {
+  padding: 32px 56px;
+
+  background-color: white;
+  border-radius: 16px;
+  max-width: 362px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @extend %card-shadow;
+
+  @media (max-width: 1400px) {
+    padding: 32px;
+  }
+
+  &__photo {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  &__text {
+    @extend %text-style-semibold-small;
+    margin: 8px 0 16px;
+  }
+
+  &__name {
+    @extend %text-style-semibold-small;
+    color: $text-color-4;
+    margin-bottom: 4px;
+  }
+
+  @each $name, $color in $testimonial-cards {
+    &--#{$name} {
+      .testimonial-card__icon {
+        @include testimonial-icon(blue);
+      }
+    }
+  }
+}
+
+.hire-us-section {
+  background-color: white;
+  background-image: url(../images/hire-us-section/hire-us-bg.svg);
+
+  &__content {
+    @extend %container;
+    @extend %section-padding;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__text {
+    @extend %text-style-semibold-big;
+    max-width: 754px;
+    margin: 24px 0 54px;
+  }
+}
+
+.contact-us-section {
+  background-color: $main-color;
+  color: white;
+
+  border-top-right-radius: 200px;
+
+  &__content {
+    @extend %container;
+    @extend %section-padding;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // gap: 226px;
+  }
+}
+
+.contact-form {
+  &__title {
+    color: white;
+    margin-bottom: 56px;
+  }
+
+  &__input {
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    margin-top: 40px;
+  }
+}
+
+.contacts {
+  &__title {
+    color: white;
+  }
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  transition: border-bottom 0.3s;
+
+  &__item {
+    background-color: transparent;
+    border: none;
+    padding: 17px 0;
+
+    @extend %text-font;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+
+    &::placeholder {
+      @extend %text-font;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &--message {
+      resize: none;
+      @extend %text-font;
+    }
+
+    &:focus {
+      @extend %text-font;
+      outline: none;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid white;
+  }
+
+  &:hover::after {
+    border-bottom: 2px solid white;
+  }
+
 }
