@@ -7,7 +7,7 @@
 
 .header {
   position: relative;
-  @extend %bg-header-black;
+  @extend %bg-header-blue;
   height: 100vh;
   color: #fff;
   @media (max-width: 800px) {
@@ -23,9 +23,12 @@
     @media (max-width: 414px) {
       height: $header-hight-adapt414px;
     }
+    @media (orientation: landscape) {
+      height: $header-hight-adapt414px;
+    }
     &__logo {
       position: relative;
-      z-index: 1;
+      z-index: 101;
       display: block;
       width: 45px;
       height: 26px;
@@ -33,7 +36,7 @@
     &__nav {
       &__menu-toggler {
         position: relative;
-        z-index: 1;
+        z-index: 101;
         width: 24px;
         height: 24px;
         background-image: url(./../images/burger/Icon-Burger-menu.svg);
@@ -74,7 +77,7 @@
     &__hire-us {
       @extend %link;
       position: relative;
-      z-index: 1;
+      z-index: 101;
       padding: 10px 0;
       &::after {
         content: "";
@@ -84,7 +87,7 @@
         height: 2px;
         width: 100%;
         border-radius: 1px;
-        background-color: $main-color-blue;
+        background-color: $main-color-orange;
       }
     }
   }
@@ -101,6 +104,7 @@
     }
     &__column {
       &__title {
+
         margin-bottom: 20px;
       }
       &__subtitle {
@@ -111,13 +115,17 @@
         }
       }
       &__link {
-        @extend %button-for-black;
+        @extend %button-for-blue;
         width: 265px;
         height: 50px;
         margin-bottom: 20px;
         @media (max-width: 850px) {
           width: 100%;
-          margin-bottom: 50px;
+          //margin-bottom: 50px;
+        }
+        @media (orientation: landscape) {
+          position: relative;
+          z-index: 1;
         }
       }
       &__sliders {
@@ -140,7 +148,7 @@
           width: 100%;
           height: calc(100vh - #{$header-hight});
           object-fit: cover;
-          border-radius: 30px 0;
+          border-radius: $slider-border-radius-orange 0 0;
           @media (max-width: 850px) {
             position: absolute;
             left: 0;
@@ -148,6 +156,7 @@
             bottom: 0;
             height: 50%;
             object-fit: cover;
+            border-radius: 0 $slider-border-radius-orange;
           }
         }
         &__description {

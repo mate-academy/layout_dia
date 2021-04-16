@@ -73,33 +73,123 @@
         <a href="#contact" class="menu__list__link">Contact Us</a>
       </div>
     </div>
-    <main class="container">
-      <section id="about"></section>
-      <section></section>
+    <main>
+      <section id="about" class="about container">
+        <div class="about__title">Who we are</div>
+        <div class="about__description">
+          We embrace a strategic approach to creative ideas. We are interested in people and human relationships. This is the main thing you need to know about us. We believe in the power of bold ideas that can solve business challenges.
+        </div>
+      </section>
+      <section class="expertise">
+        <div class="container">
+          <h2 class="expertise__h2">Our expertise</h2>
+          <div class="expertise__items">
+            <div class="expertise__item">
+              <img src="images/expertise/1.jpg"
+                alt=""
+                class="expertise__img"
+              >
+              <div class="expertise__title">
+                <a class="expertise__title--link" href="">Branding</a>
+              </div>
+              <div class="expertise__description">
+                <p class="description__text">
+                  We create additional value for companies, products, services as well as
+                  verbal
+                  and visual ways to deliver it to the audience.
+                </p>
+              </div>
+            </div>
+            <div class="expertise__item">
+              <img
+                src="images/expertise/2.jpg"
+                alt=""
+                class="expertise__img"
+              >
+              <div class="expertise__title">
+                <a class="expertise__title--link" href="">Communication</a>
+              </div>
+              <div class="expertise__description">
+                <p class="description__text">
+                  We strive to create communications that can increase media performance.
+                  We use everything — words, meanings, stories, art, movies.
+                </p>
+              </div>
+            </div>
+            <div class="expertise__item">
+              <img
+                src="images/expertise/3.jpg"
+                alt=""
+                class="expertise__img"
+              >
+              <div class="expertise__title">
+                <a class="expertise__title--link" href="">Strategy</a>
+              </div>
+              <div class="expertise__description">
+                <p class="description__text">
+                  We create business growth strategies, from the moment of its birth to
+                  the achievement of the necessary business indicators.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="services"></section>
       <section></section>
       <section id="work"></section>
     </main>
     <footer id="contact"></footer>
     <script>
-      var slideIndex = 1;
-      showDivs(slideIndex);
+      //по кнопке
+      //let slideIndex = 1;
 
-      function plusDivs(n) {
-        showDivs(slideIndex += n);
-      }
+      //showDivs(slideIndex);
 
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("header__main__column__sliders__slider");
-        if (n > x.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = x.length };
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
-      }
+      //function plusDivs(n) {
+      //  showDivs(slideIndex += n);
+      //}
 
+      //function showDivs(n) {
+      //  let i;
+      //  let x = document.getElementsByClassName('header__main__column__sliders__slider');
+
+      //  if (n > x.length) {
+      //    slideIndex = 1;
+      //  }
+
+      //  if (n < 1) {
+      //    slideIndex = x.length;
+      //  };
+
+      //  for (i = 0; i < x.length; i++) {
+      //    x[i].style.display = 'none';
+      //  }
+
+      //  x[slideIndex - 1].style.display = 'block';
+      //}
+
+  let myIndex = 0;
+
+  function carousel() {
+    let i;
+    const x = document.getElementsByClassName('header__main__column__sliders__slider');
+
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+
+    myIndex++;
+
+    if (myIndex > x.length) {
+      myIndex = 1;
+    }
+
+    x[myIndex - 1].style.display = 'block';
+
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+  carousel();
     </script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
