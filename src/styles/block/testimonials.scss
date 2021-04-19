@@ -32,127 +32,133 @@
     }
   }
   &__card {
+    width: $testimonials-card-sizeWidth;
+    padding: 40px 42px 32px;
+    background-color: #fff;
+    border-radius: 16px;
+    text-align: center;
+    @media (max-width: 950px) {
+      width: $testimonials-card-sizeWidth + $index-increase;
+    }
+    @media (max-width: 602px) {
       width: $testimonials-card-sizeWidth;
-      padding: 40px 42px 32px;
-      background-color: #fff;
-      border-radius: 16px;
-      text-align: center;
+    }
+    @media (max-width: 422px) {
+      width: 280px;
+    }
+  }
+  &__image-wrapper {
+    position: relative;
+    height: 238px;
+    margin-bottom: 82px;
+    @media (max-width: 950px) {
+      height: 238px + $index-increase / 3.5;
+    }
+    @media (max-width: 602px) {
+      height: 238px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 21px;
+      z-index: 1;
+      height: 141px;
+      width: 110px;
+      background-image: url(./../images/bg/Rectangle-fill.svg);
+      background-repeat: no-repeat;
+      @media (max-width: 1070px) {
+        left: 0;
+      }
       @media (max-width: 950px) {
-        width: $testimonials-card-sizeWidth + $index-increase;
+        left: 120px;
+        height: 141px * 1.2;
+        width: 110px * 1.2;
+        background-size: contain;
       }
       @media (max-width: 602px) {
-        width: $testimonials-card-sizeWidth;
+        height: 141px;
+        width: 110px;
+        left: 21px;
       }
       @media (max-width: 422px) {
-        width: 280px;
+        left: 0;
       }
     }
-    &__image-wrapper {
-      position: relative;
-      height: 238px;
-      margin-bottom: 82px;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 21px;
+      bottom: 0;
+      z-index: 1;
+      height: 141px;
+      width: 110px;
+      background-image: url(./../images/bg/Rectangle-fill.svg);
+      background-repeat: no-repeat;
+      @media (max-width: 1070px) {
+        right: 0;
+      }
       @media (max-width: 950px) {
-        height: 238px + $index-increase / 3.5;
+        right: 120px;
+        height: 141px * 1.2 ;
+        width: 110px * 1.2;
+        background-size: contain;
       }
       @media (max-width: 602px) {
-        height: 238px;
+        height: 141px;
+        width: 110px;
+        right: 21px;
       }
-      &::before {
-          content: "";
-          position: absolute;
-          left: 21px;
-          z-index: 1;
-          height: 141px;
-          width: 110px;
-          background-image: url(./../images/bg/Rectangle-fill.svg);
-          background-repeat: no-repeat;
-          @media (max-width: 1070px) {
-            left: 0;
-          }
-          @media (max-width: 950px) {
-            left: 120px;
-            height: 141px * 1.2;
-            width: 110px * 1.2;
-            background-size: contain;
-          }
-           @media (max-width: 602px) {
-            height: 141px;
-            width: 110px;
-            left: 21px;
-          }
-           @media (max-width: 422px) {
-            left: 0;
-          }
-        }
-      &::after {
-          content: "";
-          position: absolute;
-          right: 21px;
-          bottom: 0;
-          z-index: 1;
-          height: 141px;
-          width: 110px;
-          background-image: url(./../images/bg/Rectangle-fill.svg);
-          background-repeat: no-repeat;
-          @media (max-width: 1070px) {
-            right: 0;
-          }
-          @media (max-width: 950px) {
-            right: 120px;
-            height: 141px * 1.2 ;
-            width: 110px * 1.2;
-            background-size: contain;
-          }
-          @media (max-width: 602px) {
-            height: 141px;
-            width: 110px;
-            right: 21px;
-          }
-           @media (max-width: 422px) {
-            right: 0;
-          }
-        }
-    }
-    &__image {
-        position: absolute;
-        z-index: 2;
-        left: 0;
+      @media (max-width: 422px) {
         right: 0;
-        bottom: 0;
-        top: 0;
-        margin: auto;
-        @include card-image($testimonials-img-size);
-          border-radius: 50%;
-        @media (max-width: 950px) {
-          @include card-image($testimonials-img-size * 1.2);
-        }
-        @media (max-width: 602px) {
-        @include card-image($testimonials-img-size);
-        }
-      }
-    &__icon {
-      height: 19px;
-      margin-bottom: 10px;
-      background-image: url(./../images/features/“.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    &__text {
-      margin-bottom: 16px;
-      @include font ("Open Sans", "600", "13px");
-      color: $text-color;
-      line-height: 19px;
-    }
-    &__author {
-      margin-bottom: 4px;
-      @include font ("Open Sans", "600", "13px");
-      color: $text-color-title;
-      line-height: 19px;
-    }
-    &__label {
-      &--in-card {
-        margin-bottom: 0;
-        line-height: 19px;
       }
     }
+  }
+  &__image {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    @include card-image($testimonials-img-size);
+    border-radius: 50%;
+    @media (max-width: 950px) {
+      @include card-image($testimonials-img-size * 1.2);
+    }
+    @media (max-width: 602px) {
+      @include card-image($testimonials-img-size);
+    }
+  }
+  &__icon {
+    height: 19px;
+    margin-bottom: 10px;
+    background-image: url(./../images/features/“.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__text {
+    margin-bottom: 16px;
+    @include font ("Open Sans", "600", "13px");
+    color: $text-color;
+    line-height: 19px;
+  }
+  &__author {
+    margin-bottom: 4px;
+    @include font ("Open Sans", "600", "13px");
+    color: $text-color-title;
+    line-height: 19px;
+  }
+  &__label--in-card {
+    margin-bottom: 0;
+    line-height: 19px;
+  }
+}
+
+.testimonials__card:hover .testimonials__image-wrapper::before {
+  transform: rotate3d(2, 2, 2, 45deg);
+}
+
+.testimonials__card:hover .testimonials__image-wrapper::after {
+  transform: rotate3d(2, 2, 2, 45deg);
 }
