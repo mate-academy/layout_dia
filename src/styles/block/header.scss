@@ -1,0 +1,186 @@
+
+.header {
+  position: relative;
+  @include header-footer ($bg-color,0 0 30px 30px);
+  //blue version
+  //@include header-footer ($button-hover,0 0 0 200px);
+  height: 100vh;
+  color: #fff;
+  @media (max-width: 800px) {
+    position: static;
+  }
+
+  &__top {
+    @extend %menu-top-bottom;
+    &__logo {
+      position: relative;
+      z-index: 101;
+      display: block;
+      width: 45px;
+      height: 26px;
+    }
+    &__nav {
+      &__menu-toggler {
+        position: relative;
+        z-index: 101;
+        width: 24px;
+        height: 24px;
+        background-image: url(./../images/burger/Icon-Burger-menu.svg);
+        background-position: center;
+        cursor: pointer;
+        &:hover {
+          background-image: url(./../images/burger/Icon-Burger-menu-hover.svg);
+        }
+        &--active {
+          background-image: url(./../images/burger/Icon-Close.svg);
+          &:hover {
+            //что б hover Icon-Burger-menu-hover.svg не перебивал
+            background-image: url(./../images/burger/Icon-Close.svg);
+          }
+        }
+        @media (min-width: 801px) {
+          & {
+            display: none;
+          }
+        }
+      }
+      &__list {
+        display: flex;
+        gap: 26px;
+        @media (max-width: 800px) {
+          & {
+            visibility: hidden;
+            position: absolute;
+            top: -1000px;
+          }
+        }
+        &__link {
+          @extend %link;
+          padding: 20px 10px;
+        }
+      }
+    }
+    &__hire-us {
+      @extend %link;
+      position: relative;
+      z-index: 101;
+      padding: 10px 0;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        border-radius: 1px;
+        background-color: $main-color--blue;
+      }
+    }
+  }
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: calc(100vh - #{$header-hight});
+    align-items: center;
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      text-align: center;
+      align-items: self-end;
+    }
+    &__column {
+      &__title {
+
+        margin-bottom: 20px;
+      }
+      &__subtitle {
+        @include font ("Open Sans", "400", "18px");
+        margin-bottom: 85px;
+        @media (max-width: 850px) {
+          margin-bottom: 30px;
+        }
+      }
+      &__link {
+        @extend %button-for--black;
+        width: 265px;
+        height: 50px;
+        margin-bottom: 20px;
+        @media (max-width: 850px) {
+          width: 100%;
+          //margin-bottom: 50px;
+        }
+        @media (orientation: landscape) {
+          position: relative;
+          z-index: 1;
+        }
+      }
+      &__sliders {
+        position: absolute;
+        top: $header-hight;
+        left: 50%;
+        right: 0;
+        margin-left: 115px;
+        @media (max-width: 1200px) {
+          margin-left: 50px;
+        }
+        @media (max-width: 850px) {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin-left: 0;
+        }
+        &__slider {
+          width: 100%;
+          height: calc(100vh - #{$header-hight});
+          object-fit: cover;
+          border-radius: $slider-border-radius--black;
+          @media (max-width: 850px) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 50%;
+            object-fit: cover;
+            border-radius: $slider-border-radius--black;
+          }
+        }
+        &__description {
+          position: absolute;
+          left: 152px;
+          bottom: 49px;
+          &__title {
+            @include font ("Poppins", "700", "13px");
+            letter-spacing: 3px;
+            text-transform: uppercase;
+          }
+          &__subtitle {
+            @include font ("Open Sans", "400", "14px");
+            padding-right: 20px;
+          }
+        }
+        &__arrow {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 32px;
+          height: 32px;
+          color: #253757;
+          background-color: #fff;
+          border-radius: 50%;
+          bottom: 66px;
+          cursor: pointer;
+          
+          &--left {
+            left: 48px;
+          }
+          &--right {
+            left: 96px;
+          }
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,150 @@
+.footer {
+  @include header-footer ($bg-color, 30px 30px 0 0);
+  padding-top: 180px;
+  color: #fff;
+  &__wrapper {
+    display: grid;
+    grid-template-rows: 1fr 120px;
+  }
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 120px;
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 80px;
+      margin: auto;
+    }
+    &__column {
+      &--second {
+        margin-left: 115px;
+        @media (max-width: 850px) {
+          margin-left: 0;
+        }
+      }
+      &__h3 {
+        @extend %h3;
+        color: #fff;
+        margin-bottom: 56px;
+      }
+      &__form {
+        max-width: 460px;
+        &__email {
+          @extend %input;
+          padding: 16px 0;
+        }
+
+        &__name {
+          @extend %input;
+          padding: 16px 0;
+        }
+
+        &__message {
+          @extend %input;
+          padding-top: 16px;
+          resize: none;
+        }
+
+        &__submit {
+          @extend %button-for--black;
+          width: 264px;
+          height: 56px;
+          cursor: pointer;
+          border: none;
+        }
+      }
+      &--label {
+        @extend %label;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      &--text {
+        display: block;
+        @include font ("Open Sans", "600", "24px");
+        color: #fff;
+        margin-bottom: 48px;
+      }
+
+      &__network {
+        height: 24px;
+        display: flex;
+        gap: 36px;
+      }
+      &__facebook {
+        width: 15px;
+        height: 24px;
+        &:hover {
+          color: $main-color--blue;
+        }
+      }
+
+      &__twitter {
+        width: 24px;
+        height: 22px;
+        &:hover {
+          color: $main-color--blue;
+        }
+      }
+      &__instagram {
+        width: 24px;
+        height: 24px;
+        &:hover {
+          color: $main-color--blue;
+        }
+      }
+    }
+  }
+  &__bottom {
+    @extend %menu-top-bottom;
+
+    &__logo {
+      position: relative;
+      z-index: 101;
+      display: block;
+      width: 45px;
+      height: 26px;
+    }
+    &__nav {
+      &__menu-toggler {
+        position: relative;
+        z-index: 101;
+        width: 24px;
+        height: 24px;
+        background-image: url(./../images/burger/Icon-Burger-menu.svg);
+        background-position: center;
+        cursor: pointer;
+        &:hover {
+          background-image: url(./../images/burger/Icon-Burger-menu-hover.svg);
+        }
+        &--active {
+          background-image: url(./../images/burger/Icon-Close.svg);
+          &:hover {
+            //что б hover Icon-Burger-menu-hover.svg не перебивал
+            background-image: url(./../images/burger/Icon-Close.svg);
+          }
+        }
+        @media (min-width: 801px) {
+          & {
+            display: none;
+          }
+        }
+      }
+      &__list {
+        display: flex;
+        gap: 26px;
+        @media (max-width: 800px) {
+          & {
+            visibility: hidden;
+            position: absolute;
+            top: -1000px;
+          }
+        }
+        &__link {
+          @extend %link;
+          padding: 20px 10px;
+        }
+      }
+    }
+  }
+}
