@@ -205,6 +205,10 @@ $nav-padding-bottom: 40px;
 
   max-width: 264px;
 
+  &--communication {
+    margin: 0 20px;
+  }
+
   &__img {
     height: 166px;
     width: 166px;
@@ -229,11 +233,21 @@ $nav-padding-bottom: 40px;
   &__content {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
   }
 
   &__text-wrap {
     margin-top: 102px;
-    max-width: 362px;
+    max-width: 400px;
+    margin-right: 40px;
+
+    @media (max-width: 1300px) {
+      margin-top: 0;
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -249,6 +263,11 @@ $nav-padding-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+
+    @media (max-width: 1300px) {
+      margin-top: 60px;
+    }
+
   }
 
   &__work-cards-wrap {
@@ -258,6 +277,10 @@ $nav-padding-bottom: 40px;
 
     &--line-1 {
       margin-top: 132px;
+
+      @media (max-width: 1300px) {
+        margin-top: 0;
+      }
     }
   }
 
@@ -273,6 +296,10 @@ $nav-padding-bottom: 40px;
   width: 264px;
   height: 264px;
   @extend %card-shadow;
+
+  @media (max-width: 1300px) {
+    width: 100%;
+  }
 
   &__number {
     @extend %subtitle-style;
@@ -420,13 +447,19 @@ $nav-padding-bottom: 40px;
     @extend %container;
     @extend %section-padding;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
     // gap: 226px;
+
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 .contact-form {
+  width: calc(100% / 2);
+  max-width: 460px;
+
   &__title {
     color: white;
     margin-bottom: 56px;
@@ -441,10 +474,58 @@ $nav-padding-bottom: 40px;
   }
 }
 
-.contacts {
+.contact-info {
+  width: calc(100% / 2);
+  padding-left: 40px;
+
   &__title {
     color: white;
   }
+
+  &__heading {
+    margin-bottom: 8px;
+
+    &--phone {
+      margin-top: 56px;
+    }
+
+    &--address {
+      margin-top: 48px;
+    }
+  }
+
+  &__link {
+    @extend %text-style-semibold-big;
+    color: white;
+
+    @include hover(text-decoration, underline);
+  }
+
+  &__soc-net-icons-wrap {
+    display: flex;
+    margin-top: 84px;
+  }
+
+  &__soc-net-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 38px;
+
+    @include hover(opacity, 60%);
+
+    &--facebook {
+      background-image: url(../images/soc-net-icons/facebook.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/soc-net-icons/instagram.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/soc-net-icons/twitter.svg);
+    }
+  }
+
 }
 
 .input {
