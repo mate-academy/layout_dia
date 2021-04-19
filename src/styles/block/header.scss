@@ -1,13 +1,9 @@
-%link {
-  @include font ("Poppins", "700", "13px");
-  color: #fff;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
 
 .header {
   position: relative;
-  @extend %bg-header-blue;
+  @include header-footer ($bg-color,0 0 30px 30px);
+  //blue version
+  //@include header-footer ($button-hover,0 0 0 200px);
   height: 100vh;
   color: #fff;
   @media (max-width: 800px) {
@@ -15,17 +11,7 @@
   }
 
   &__top {
-    @include font ("Poppins", "700", "13px");
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: $header-hight;
-    @media (max-width: 414px) {
-      height: $header-hight-adapt414px;
-    }
-    @media (orientation: landscape) {
-      height: $header-hight-adapt414px;
-    }
+    @extend %menu-top-bottom;
     &__logo {
       position: relative;
       z-index: 101;
@@ -87,7 +73,7 @@
         height: 2px;
         width: 100%;
         border-radius: 1px;
-        background-color: $main-color-orange;
+        background-color: $main-color--blue;
       }
     }
   }
@@ -115,7 +101,7 @@
         }
       }
       &__link {
-        @extend %button-for-blue;
+        @extend %button-for--black;
         width: 265px;
         height: 50px;
         margin-bottom: 20px;
@@ -148,7 +134,7 @@
           width: 100%;
           height: calc(100vh - #{$header-hight});
           object-fit: cover;
-          border-radius: $slider-border-radius-orange 0 0;
+          border-radius: $slider-border-radius--black;
           @media (max-width: 850px) {
             position: absolute;
             left: 0;
@@ -156,7 +142,7 @@
             bottom: 0;
             height: 50%;
             object-fit: cover;
-            border-radius: 0 $slider-border-radius-orange;
+            border-radius: $slider-border-radius--black;
           }
         }
         &__description {
@@ -184,6 +170,7 @@
           background-color: #fff;
           border-radius: 50%;
           bottom: 66px;
+          cursor: pointer;
           
           &--left {
             left: 48px;

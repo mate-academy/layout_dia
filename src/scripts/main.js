@@ -2,6 +2,7 @@
 
 const page = document.querySelector('.page');
 const toggler = document.querySelector('.header__top__nav__menu-toggler');
+
 const menu = document.querySelector('.menu');
 
 toggler.addEventListener('click', () => {

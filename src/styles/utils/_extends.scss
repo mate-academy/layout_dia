@@ -2,12 +2,12 @@
   @include font ("Poppins", "600", "64px");
   line-height: 68px;
   letter-spacing: -2px;
-  color: $text-color-title;
   @media (max-width: 850px) {
     @include font ("Poppins", "600", "36px");
     line-height: 36px;
   }
 }
+
 %h2 {
   @include font ("Poppins", "700", "52px");
   line-height: 78px;
@@ -18,49 +18,107 @@
   }
 }
 
-%bg-header-black {
-  background-color: $bg-color;
-  border-radius: 0 0 30px 30px;
-  %button-for-black {
+%h3 {
+  @include font ("Poppins", "600", "32px");
+  line-height: 41px;
+  @media (max-width: 750px) {
+    @include font ("Poppins", "700", "24px");
+    line-height: 35px;
+  }
+}
+
+%menu-top-bottom {
+    @include font ("Poppins", "700", "13px");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-hight;
+    @media (max-width: 414px) {
+      height: $header-hight-adapt414px;
+    }
+    @media (max-width: 750px) {
+      @media (orientation: landscape) {
+      height: $header-hight-adapt414px;
+    }
+    }
+}
+
+%label {
+  @include font ("Poppins", "700", "13px");
+  letter-spacing: 3px;
+  color: $text-color-label;
+}
+
+%button-for--black {
     display: flex;
     position: relative;
     border-radius: 8px;
     justify-content: center;
     align-items: center;
-    background-color: $main-color-blue;
+    background-color: $main-color--blue;
     transition-property: background-color;
     transition-duration: 0.5s;
     @include font ("Poppins", "600", "15px");
-    color: #fff
-    ;
+    color: #fff;
     &:hover {
       top: 2px;
-      box-shadow: 0 3px 3px #000
-      ;
+      box-shadow: 0 3px 3px #000;
       background-color: $button-hover;
     }
   }
-}
-%bg-header-blue {
-  background-color: $button-hover;
-  border-radius: 0 0 0 200px;
-  %button-for-blue {
+%button-for--blue {
     display: flex;
     position: relative;
     border-radius: 64px;
     justify-content: center;
     align-items: center;
-    background-color: $main-color-orange;
+    background-color: $main-color--orange;
     transition-property: background-color;
     transition-duration: 0.5s;
     @include font ("Poppins", "600", "15px");
-    color: #fff
-    ;
+    color: #fff;
     &:hover {
       top: 2px;
-      box-shadow: 0 3px 3px #000
-      ;
-      background-color: $main-color-blue;
+      box-shadow: 0 3px 3px #000;
+      background-color: $main-color--blue;
     }
+  }
+
+%arrow-circle {
+  display: inline-block;
+  @include arrow-circle-size($width-circle, $height-circle);
+  border-radius: 50%;
+  background: url(../images/features/arrow.svg) $main-color--blue;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+}
+
+%link {
+  @include font ("Poppins", "700", "13px");
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+%input {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  padding: 16px 0;
+  margin-bottom: 48px;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  @include font ("Poppins", "600", "15px");
+  color: #fff;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  &:focus {
+    border-bottom: 2px solid $input-focus;
   }
 }
