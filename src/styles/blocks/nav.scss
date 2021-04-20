@@ -1,17 +1,18 @@
 .nav {
   @extend %container;
+  padding-top: $nav-padding-top;
+  padding-bottom: $nav-padding-bottom;
 
   display: grid;
   grid-template-columns: 48px 1fr;
   align-items: center;
-  padding-top: $nav-padding-top;
-  padding-bottom: $nav-padding-bottom;
 
   &__logo {
     display: inline-block;
-    color: white;
     height: $logo-height;
     width: 46px;
+
+    color: white;
   }
 
   &__wrap {
@@ -30,13 +31,16 @@
     }
 
     &--small-screen-active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      background-color: $nav-bg-color;
       width: 100vw;
       height: 100vh;
+
+      position: absolute;
       z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+
+      background-color: $nav-bg-color;
 
       @each $screen, $value in $container-padding {
         @media (max-width: #{$screen}) {
@@ -47,14 +51,14 @@
   }
 
   &__list {
-    list-style: none;
     display: flex;
+    list-style: none;
   }
 
   &__nav-bar--big-screen &__list {
-    justify-self: center;
     margin: 0;
     padding: 0;
+    justify-self: center;
   }
 
   &__nav-bar--small-screen-active &__list {
@@ -65,27 +69,29 @@
     margin: 0 24px;
 
     @media (max-width: 800px) {
-      margin: 0;
-      margin-bottom: 40px;
+      margin: 0 0 40px;
     }
   }
 
   &__link {
-    position: relative;
     display: inline-block;
-    color: white;
+    position: relative;
 
+    color: white;
     @extend %subtitle-style;
 
     &:hover::after {
-      position: absolute;
       display: block;
-      content: "";
       width: 100%;
       height: 2px;
+      margin-top: 8px;
+
+      content: "";
+
+      position: absolute;
+
       background-color: $secondary-color;
       border-radius: 2px;
-      margin-top: 8px;
     }
 
     &--last {
@@ -94,18 +100,19 @@
   }
 
   &__burger-icon {
-    position: relative;
-    z-index: 2;
-    justify-self: end;
-    display: none;
     width: 28px;
     height: 28px;
+
+    position: relative;
+    z-index: 2;
+
+    display: none;
+    justify-self: end;
 
     cursor: pointer;
 
     background-position: center;
     background-size: cover;
-
     background-image: url(../images/icon-burger-menu/icon-burger-menu.svg);
 
     &--close {
