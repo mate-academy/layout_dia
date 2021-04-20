@@ -12,6 +12,7 @@
     @extend %container;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__logo {
@@ -45,6 +46,12 @@
     transition: all 400ms;
   }
 
+  &__link {
+    @media (max-width: 768px) {
+      margin-top: 10%;
+    }
+  }
+
   &__link:hover {
     color: $secondary-page-color;
   }
@@ -68,6 +75,68 @@
     }
 
     @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__hamburger {
+    width: 32px;
+    height: 32px;
+    padding: 4px 4px 8px;
+    cursor: pointer;
+  }
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    background-color: $header-color;
+    border-radius: 2px;
+    margin-top: 4px;
+    margin-left: -4px;
+    transition: 400ms all;
+  }
+
+  &__hamburger--active {
+
+    .nav__line:first-child {
+      transform: translateY(9px) rotate(45deg);
+      width: 100%;
+    }
+
+    .nav__line:nth-child(2) {
+      display: none;
+    }
+
+    .nav__line:last-child {
+      transform: translateY(3px) rotate(-45deg);
+      width: 100%;
+    }
+  }
+
+  &__full {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    overflow: hidden;
+    height: calc(100% - 120px);
+    background-color: $header-bg;
+    z-index: 3;
+    border-radius: 0 0 $header-border-radius $header-border-radius;
+    transition: 300ms;
+
+    @media (max-width: 634px) {
+      height: calc(100% - 80px);
+    }
+  }
+
+  &--active &__nav__full--active {
+    width: 100%;
+  }
+
+  &__hamburger,
+  &__full {
+    @media (min-width: 768px) {
       display: none;
     }
   }
