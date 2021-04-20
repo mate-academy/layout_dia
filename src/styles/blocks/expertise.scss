@@ -5,16 +5,27 @@
 
   &__container {
     @extend %container;
-    padding: 128px 0 135px;
+    padding: 10% 0 17%;
   }
 
   &__cards {
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(auto-fill, 25%);
+    grid-template-columns: repeat(3, 25%);
+    grid-auto-flow: row;
     gap: 10%;
     margin-top: 64px;
     text-align: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 50%);
+      gap: 5%;
+    }
+
+    @media (max-width: 495px) {
+      grid-template-columns: repeat(1, 100%);
+      gap: 5%;
+    }
   }
 
   &__img {

@@ -7,13 +7,8 @@
   border-radius: $header-border-radius 0;
   overflow: hidden;
 
-  &::after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
+  @media (max-width: 634px) {
+    display: none;
   }
 
   &__img {
@@ -34,23 +29,37 @@
     left: 48px;
     z-index: 1;
     color: $header-color;
+
+    @media (max-width: 975px) {
+      justify-content: center;
+      bottom: 15%;
+      left: 0;
+      width: 100%;
+      max-width: 100%;
+    }
   }
 
   &__button {
     width: 32px;
     height: 32px;
-    border-color: transparent;
+    border: none;
+    cursor: pointer;
     outline: none;
-    color: $main-text-color;
-    font-weight: 700;
-    border-radius: 50%;
-    background: #fff;
-    font-size: 14px;
+    background: url(../images/process-arrow/arrow-left.svg) no-repeat center/cover;
     margin-right: 16px;
-    transition: all 400ms;
+    transition: transform 400ms;
+
+    &:last-child {
+      background: url(../images/process-arrow/arrow-right.svg)no-repeat center/cover;
+    }
 
     &:hover {
-      background: lightgrey;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 1030px) {
+      transform: scale(0.8);
+      margin-right: 7px;
     }
   }
 
@@ -65,5 +74,9 @@
 
   &__text {
     margin-top: 8px;
+    
+    @media (max-width: 975px) {
+      display: none;
+    }
   }
 }
