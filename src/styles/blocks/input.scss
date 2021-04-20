@@ -1,7 +1,22 @@
 .input {
   position: relative;
   width: 100%;
-  transition: border-bottom 0.3s;
+
+  &::after {
+    display: block;
+    width: 100%;
+    content: "";
+
+    position: absolute;
+
+    border-bottom: 1px solid white;
+
+    transition: border-bottom 0.2s;
+  }
+
+  &:hover::after {
+    border-bottom: 2px solid white;
+  }
 
   &__item {
     border: none;
@@ -42,17 +57,5 @@
       -webkit-box-shadow: 0 0 0 1000px #{$main-color} inset !important;
       transition: background-color 5000s ease-in-out 0s !important;
     }
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid white;
-  }
-
-  &:hover::after {
-    border-bottom: 2px solid white;
   }
 }

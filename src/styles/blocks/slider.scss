@@ -9,19 +9,16 @@
     max-width: 100%;
   }
 
-  &__photo {
+  &__img-conteiner {
     max-height: calc(100vh - #{$nav-height});
+    width: calc(100vw / 2);
+
+    display: flex;
+    margin: auto;
+    overflow-x: hidden;
 
     border-top-left-radius: $b-radius-header-big;
-    object-fit: cover;
-
-    @each $screen, $value in $container-padding {
-      @media (max-width: #{$screen}) {
-        max-width: calc(
-          100vw - (#{$heading-content-text-width} + 40px + (#{$value} / 2))
-        );
-      }
-    }
+    box-shadow: 0 -200px 100px -100px rgba(0, 0, 0, 0.4) inset;
 
     @media (max-width: 1300px) {
       width: 100%;
@@ -30,10 +27,24 @@
     }
   }
 
+  &__photo {
+    transform: translateX(0%);
+    object-fit: cover;
+    width: 100%;
+    display: none;
+
+    position: relative;
+    z-index: -2;
+
+    &--active {
+      display: block;
+    }
+  }
+
   &__control {
     position: absolute;
-    bottom: 66px;
-    left: 48px;
+    bottom: 40px;
+    left: 40px;
 
     display: flex;
     align-items: center;
@@ -53,7 +64,7 @@
     cursor: pointer;
     @include hover(background-color, rgba(255, 255, 255, 0.8));
 
-    &--left {
+    &--prev {
       transform: scaleX(-1);
     }
   }
@@ -68,7 +79,7 @@
   }
 
   &__text {
-    @extend %text-style-regular-small;
+    @extend %text-style-semibold-small;
     color: white;
   }
 }
