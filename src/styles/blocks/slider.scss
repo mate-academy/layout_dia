@@ -1,0 +1,73 @@
+.slider {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+
+  @media (max-width: 1300px) {
+    width: 100%;
+    max-width: 100%;
+
+  }
+
+  &__photo {
+    max-height: calc(100vh - #{$nav-height});
+    object-fit: cover;
+
+    border-top-left-radius: $b-radius-header-big;
+
+    @each $screen, $value in $container-padding {
+      @media (max-width: #{$screen}) {
+        max-width: calc(
+          100vw - (#{$heading-content-text-width} + 40px + (#{$value} / 2))
+        );
+      }
+    }
+
+    @media (max-width: 1300px) {
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(#{$slider-height-small} - 20px);
+    }
+
+  }
+
+  &__control {
+    position: absolute;
+    bottom: 66px;
+    left: 48px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__arrows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-right: 24px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+    @include arrow-button(white, 32px, 18px, "../images/slider/arrow.svg");
+
+    &--left {
+      transform: scaleX(-1);
+    }
+  }
+
+  &__caption {
+    max-width: 264px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  &__text {
+    @extend %text-style-regular-small;
+    color: white;
+  }
+}

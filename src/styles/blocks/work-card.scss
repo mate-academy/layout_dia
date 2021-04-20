@@ -1,0 +1,68 @@
+.work-card {
+  background-color: white;
+  padding: 32px;
+  border-radius: 24px;
+  width: 264px;
+  height: 264px;
+  box-shadow: $card-shadow;
+
+  cursor: pointer;
+  @include hover(box-shadow, $card-shadow-hover);
+  @include hover(transform, scale(1.04));
+
+  @media (max-width: 1300px) {
+    width: 100%;
+  }
+
+  &__number {
+    @extend %subtitle-style;
+    letter-spacing: 0;
+    border-radius: 23px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 24px;
+  }
+
+  &__text {
+    @extend %text-style-semibold-small;
+    margin: 24px 0 32px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-icon {
+    margin-right: 16px;
+  }
+
+  &__button-text {
+    @extend %title-font;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text-color-3;
+  }
+
+  @each $name, $color, $bg-number-color in $work-cards {
+    &--style-#{$name} {
+      grid-area: $name;
+
+      .work-card__number {
+        color: $color;
+        background-color: $bg-number-color;
+      }
+
+      .work-card__button-icon {
+        @include arrow-button(
+          #{$color}, 40px, 24px, "../images/work-section/arrow-icon-button.svg"
+        );
+      }
+    }
+  }
+}
