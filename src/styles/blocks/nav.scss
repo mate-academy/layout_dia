@@ -1,0 +1,134 @@
+.nav {
+  @extend %container;
+  padding-top: $nav-padding-top;
+  padding-bottom: $nav-padding-bottom;
+
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+
+  &__logo {
+    display: inline-block;
+    height: $logo-height;
+    width: 46px;
+
+    color: white;
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__nav-bar {
+    &--big-screen {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+
+    &--small-screen-active {
+      width: 100vw;
+      height: 100vh;
+
+      position: absolute;
+      z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+
+      background-color: $nav-bg-color;
+
+      // padding: 100px calc(#{$container-padding-default} / 2);
+
+      @each $screen, $value in $container-padding {
+        @media (max-width: #{$screen}) {
+          padding: 100px calc(#{$value} / 2);
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__nav-bar--big-screen &__list {
+    margin: 0;
+    padding: 0;
+    justify-self: center;
+  }
+
+  &__nav-bar--small-screen-active &__list {
+    flex-direction: column;
+  }
+
+  &__item {
+    margin: 0 24px;
+
+    @media (max-width: 800px) {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+
+    color: white;
+    @extend %subtitle-style;
+
+    &::after {
+      display: none;
+      width: 100%;
+      height: 2px;
+      margin-top: 8px;
+
+      content: "";
+
+      position: absolute;
+
+      background-color: $secondary-color;
+      border-radius: 2px;
+
+      transition: display 0.5s;
+    }
+
+    &:hover::after {
+      display: block;
+    }
+
+    &--last {
+      width: fit-content;
+    }
+  }
+
+  &__burger-icon {
+    width: 28px;
+    height: 28px;
+
+    position: relative;
+    z-index: 2;
+
+    display: none;
+    justify-self: end;
+
+    cursor: pointer;
+
+    background-position: center;
+    background-size: cover;
+    background-image: url(../images/icon-burger-menu/icon-burger-menu.svg);
+
+    &--close {
+      background-image: url(../images/icon-burger-menu/icon-burger-menu-close.svg);
+    }
+
+    @media (max-width: 800px) {
+      display: block;
+    }
+  }
+}
