@@ -1,16 +1,22 @@
 .nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding-right: $left-padding;
   height: 120px;
 
   &__logo {
-    width: 45px;
+    grid-column: 1 / 2;
+    width: 49px;
     height: 26px;
+    background-image: url(../images/logo/dia-logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   &__list {
+    grid-column: 2 / 3;
+    // width: 70.8%;
     padding: 0;
     display: flex;
     list-style: none;
@@ -21,14 +27,20 @@
     display: inline-block;
     margin-right: 48px;
 
-    &--hire-us {
-      margin: 0 0 0 219px;
-      align-self: flex-end;
+    &:last-child {
+      margin-right: 0;
     }
+  }
+
+  &__item-hire-us {
+    grid-column: 3 / 4;
+    justify-self: end;
+    margin: 0;
   }
 
   &__link {
     position: relative;
+
     @extend %block-title;
     color: $c-white;
     text-decoration: none;
