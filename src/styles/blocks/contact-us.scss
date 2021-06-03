@@ -1,24 +1,46 @@
 .contact-us {
   display: flex;
   flex-direction: column;
+
+  &__header {
+    margin-bottom: 56px;
+    @include font("Popins", $header-text-size, $text-medium);
+    color: $main-color;
+  }
+
+  &__label {
+    letter-spacing: 3px;
+    @include font("Popins", $main-text-size, $text-bold);
+    color: $main-color;
+    opacity: 50%;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    margin-bottom: 48px;
+    @include font("Open Sans", $header-text-size-small, $text-medium);
+    color: $main-color;
+  }
+
+  &__socials-media {
+    display: flex;
+    justify-content: space-evenly;
+    height: 24px;
+    width: ($social-media-icon-size * 3) + ($social-media-icon-gap * 2);
+  }
 }
 
-.contact-us__header {
-  margin-bottom: 56px;
-  @include font("Popins", $header-text-size, $text-medium);
-  color: $main-color;
+@each $social-media-name in $socials-media {
+  .social-media-icon--#{$social-media-name} {
+    height: $social-media-icon-size;
+    width: $social-media-icon-size;
+    background: url("../images/social-media-icons/#{$social-media-name}.svg") no-repeat;
+  }
 }
 
-.contact-us__label {
-  letter-spacing: 3px;
-  @include font("Popins", $main-text-size, $text-bold);
-  color: $main-color;
-  opacity: 50%;
-  text-transform: uppercase;
-}
-
-.contact-us__info {
-  margin-bottom: 48px;
-  @include font("Open Sans", $header-text-size-small, $text-medium);
-  color: $main-color;
+@media (max-width: 1280px) {
+  .contact-us {
+    align-items: center;
+    width: 100vw;
+  }
 }

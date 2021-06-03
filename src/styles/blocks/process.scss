@@ -1,0 +1,113 @@
+.process {
+  display: flex;
+  padding: 148px 0;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50vw;
+    padding: 0 13%;
+  }
+
+  &__approach {
+    width: 50vw;
+  }
+}
+
+.title {
+  letter-spacing: 3px;
+  @include font("Popins", $main-text-size, $text-bold);
+  color: #c0cdd7;
+  text-transform: uppercase;
+}
+
+.text-header {
+  @include font("Popins", $header-text-size, $text-medium);
+  color: $header-color;
+}
+
+.text {
+  margin: 0;
+  @include font("Open Sans", $main-text-size, $text-light);
+  color: $article-text-color;
+}
+
+.approach-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: $approach-card-width;
+  padding: $approach-card-shift;
+  border-radius: $approach-card-radius;
+  background-color: $main-color;
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    width: 46px;
+    @include font("Popins", $main-text-size, $text-medium);
+    border-radius: 23px;
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    @include font("Open Sans", $main-text-size, $text-medium);
+    color: $article-text-color;
+    list-style: none;
+  }
+
+  &__learn-more {
+    display: flex;
+    align-items: center;
+    gap: $learn-more-space;
+    height: $learn-more-button-height;
+    padding: 0;
+    @include font("Popins", $input-text-size, $text-medium);
+    color: $learn-more-color;
+    border: none;
+    background-color: $main-color;
+  }
+
+  &__learn-more:hover {
+    cursor: pointer;
+  }
+
+  @each $card-color, $color-value, $color-val-trans in $approach-card-colors {
+    &--#{$card-color} > &__number {
+      color: $color-value;
+      background-color: $color-val-trans;
+    }
+
+    &--#{$card-color} > &__learn-more > .arrow {
+      background-color: $color-value;
+    }
+  }
+}
+
+.arrow {
+  display: inline-block;
+  height: $learn-more-button-height;
+  width: $learn-more-button-height;
+  border-radius: 50%;
+  border: none;
+  background: url("../images/arrow.svg") no-repeat center;
+}
+
+@media (max-width: 1070px) {
+  .process {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__info {
+      align-items: center;
+      width: 100vw;
+      text-align: center;
+    }
+
+    &__approach {
+      width: 100vw;
+    }
+  }
+}
