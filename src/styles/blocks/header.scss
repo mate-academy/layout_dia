@@ -2,157 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: $header-height;
-  padding: 0 16%;
-  z-index: 2;
-  @include font("Popins", $main-text-size, $text-bold);
-  background: $secondary-color;
-}
+  height: 120px;
+  background-color: $c-blue;
 
-.logo {
-  height: $logo-height;
-  width: $logo-width;
-}
-
-.menu-container {
-  display: flex;
-}
-
-.menu-toggle,
-.menu-button {
-  display: none;
-}
-
-.nav {
-  height: $header-height;
-
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 48px;
-    height: $header-height;
-    margin: 0;
-    list-style: none;
-    text-transform: uppercase;
-  }
-
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: $header-height;
-    letter-spacing: 3px;
-    text-decoration: none;
-    color: $main-color;
-  }
-}
-
-.hire-us {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: $header-height;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 3px;
-  @include font("Popins", $main-text-size, $text-bold);
-  color: $main-color;
-  border: none;
-  background: $secondary-color;
-  text-transform: uppercase;
-
-  &::after {
-    position: absolute;
-    right: 0;
-    bottom: 6vh;
-    left: 0;
-    height: 2px;
-    border-radius: 4px;
-    background-color: #ff9c8e;
-    opacity: 1;
-    content: "";
-  }
-}
-
-@media (max-width: 1028px) {
-  .menu-container {
-    display: block;
-  }
-
-  .nav--header {
-    display: none;
-    position: absolute;
-    top: $header-height;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: $secondary-color;
-    opacity: 0.5;
-
-    &__list {
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      width: 100vw;
-    }
-
-    &__link {
-      height: 100vh / $menu-item-count;
+  @media (min-width: 1600px) {
+    & {
+      padding: 0 15%;
     }
   }
 
-  .menu-button {
-    display: flex;
-    align-items: center;
-    width: $menu-button-size;
-    height: $menu-button-size;
-    cursor: pointer;
-    z-index: 1;
-    transform: translateY(-($menu-button-size / 2));
-
-    & > span,
-    & > span::after,
-    & > span::before {
-      position: absolute;
-      display: block;
-      height: 2px;
-      width: $menu-button-size;
-      background-color: #616161;
-    }
-
-    & > span::before {
-      content: "";
-      top: -8px;
-    }
-
-    & > span::after {
-      content: "";
-      top: 8px;
+  @media (min-width: 1280px) and (max-width: 1599px) {
+    & {
+      padding: 0 10%;
     }
   }
 
-  .menu-toggle {
-    display: block;
-    opacity: 0;
-
-    &:checked ~ .menu-button > span {
-      transform: rotate(45deg);
-    }
-
-    &:checked ~ .menu-button > span::before {
-      top: 0;
-      transform: rotate(0);
-    }
-
-    &:checked ~ .menu-button > span::after {
-      top: 0;
-      transform: rotate(90deg);
-    }
-
-    &:checked ~ .nav--header {
-      display: flex;
+  @media (min-width: 320px) and (max-width: 1279px) {
+    & {
+      padding: 0 5%;
     }
   }
 }
