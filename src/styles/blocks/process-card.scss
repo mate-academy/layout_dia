@@ -1,0 +1,111 @@
+.process-card {
+  @include process-card-size($process-card-size);
+  border-radius: 16px;
+  background-color: $c-white;
+  box-sizing: border-box;
+  padding: 32px;
+
+  &__title {
+    margin: 0 0 24px;
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 23px;
+    color: $c-dark-blue;
+    background-color: $c-dark-blue-bg;
+  }
+
+  &__text {
+    margin: 0 0 32px;
+    @extend %block-text-l;
+    font-size: $block-title-size;
+    line-height: 1.5em;
+    color: $c-grey-text;
+  }
+
+  &__link-text {
+    display: inline-block;
+    margin-left: $process-card-link-size + 16px;
+    @extend %h3;
+    font-size: 15px;
+  }
+
+  &__link {
+    position: absolute;
+    display: block;
+    @include process-card-link($process-card-link-size);
+    background: $c-dark-blue url(../images/process/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      @include process-card-link-hover($process-card-link-size);
+    }
+
+    &:hover + .process-card__link-text {
+      @include process-card-link-hover-margin($process-card-link-size);
+    }
+
+  }
+
+  &__link-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+
+  &--1 {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+
+  &--2 {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+
+  &--3 {
+    grid-area: 4 / 1 / -1 / 2;
+  }
+
+  &--4 {
+    grid-area: 3 / 2 / -2 / 3;
+  }
+
+  @include large-screens {
+    @include process-card-size(($process-card-size / 2) * 3);
+    padding: 48px;
+    border-radius: 24px;
+
+    &__title {
+      margin-bottom: 36px;
+      padding: 3px 18px;
+      font-size: ($block-title-size / 2) * 3;
+    }
+
+    &__text {
+      margin-bottom: 48px;
+      font-size: ($block-title-size / 2) * 3;
+    }
+
+    &__link-text {
+      margin-left: $process-card-link-size-l + 24px;
+      font-size: 30px;
+    }
+
+    &__link {
+      @include process-card-link($process-card-link-size-l);
+
+      &:hover {
+        @include process-card-link-hover($process-card-link-size-l);
+      }
+
+      &:hover + .process-card__link-text {
+        @include process-card-link-hover-margin($process-card-link-size-l);
+      }
+    }
+  }
+
+  @include mobile {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
