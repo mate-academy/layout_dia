@@ -1,0 +1,149 @@
+.what-we-do {
+  padding: $base-padding;
+  padding-top: 148px;
+  display: grid;
+  grid-template-columns: 362px 558px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1400px) {
+    padding: 100px;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 100%;
+    gap: 50px;
+  }
+
+  @media (max-width: 760px) {
+    padding: 50px;
+  }
+}
+
+.what-we-do__progress {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: #c0cdd7;
+  letter-spacing: 3px;
+}
+
+.what-we-do__title {
+  @include title-font();
+  font-size: 32px;
+  line-height: 41.6px;
+}
+
+.what-we-do__text {
+  @include text-font();
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.what-we-do__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 264px);
+  gap: 30px;
+  justify-content: space-around;
+
+  @media (max-width: 760px) {
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1025px) {
+  .what-we-do__card:nth-child(odd) {
+    transform: translate(0, 132px);
+  }
+}
+
+.what-we-do__card {
+  padding-right: 89px;
+  padding-left: 32px;
+  background-color: white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+  height: 264px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 760px) {
+    padding: 25px;
+  }
+}
+
+.what-we-do__card:hover {
+  box-shadow: 0 9px 18px rgba(47, 51, 87, 0.23);
+}
+
+.what-we-do__card-text {
+  @include text-font();
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19.5px;
+}
+
+.what-we-do__learn-more {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include title-font();
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.what-we-do__learn-more-button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.what-we-do__learn-more-button:hover {
+  transform: scale3d(1.2, 1.2, 1.2);
+}
+
+.what-we-do__card-number {
+  @include title-font();
+  font-size: 13px;
+  width: max-content;
+  line-height: 24px;
+  color: yellow;
+  position: relative;
+  z-index: 1;
+  padding-left: 12px;
+}
+
+.what-we-do__card-number::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 46px;
+  height: 24px;
+  z-index: -1;
+  opacity: 0.1;
+  border-radius: 23px;
+}
+
+@each $number, $color in $card-colors {
+  .what-we-do__card--#{$number} .what-we-do__card-number {
+    color: $color;
+  }
+
+  .what-we-do__card--#{$number} .what-we-do__card-number::after {
+    background-color: $color;
+  }
+
+  .what-we-do__card--#{$number} .what-we-do__learn-more-button {
+    background-color: $color;
+  }
+}
