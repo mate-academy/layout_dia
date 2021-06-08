@@ -1,0 +1,127 @@
+.form {
+
+  &__title {
+    margin-bottom: 56px;
+    @extend %title;
+    font-size: 32px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    color: $c-white;
+  }
+
+  &__group {
+    position: relative;
+    margin-bottom: 48px;
+  }
+
+  &__input {
+    @extend %title;
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-white;
+    width: 460px;
+    padding: 0 0 17px ;
+    border: none;
+    border-bottom: 1px solid $c-white;
+    background-color: transparent;
+    outline: none;
+  }
+
+  &__input:focus {
+    transition: border-bottom 0.5s;
+    &:focus {
+      border-bottom: 1px solid $c-form;
+    }
+
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @extend %title;
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-white;
+    opacity: 0.7;
+    z-index: 2;
+  }
+
+  &__input:focus ~ &__label {
+    opacity: 0;
+  }
+
+  &__button {
+    width: 264px;
+    height: 56px;
+    margin-top: 32px;
+    background: $c-button;
+    border: none;
+    border-radius: 8px;
+    @extend %title;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    color: $c-white;
+  }
+
+  &__button:focus,
+  &__button:hover {
+    transition: background-color 0.5s;
+    &:hover,
+    &:focus {
+      background-color: $c-form;
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+
+  .form {
+
+    &__title {
+      margin-bottom: 56px;
+      font-size: 64px;
+      line-height: 96px;
+    }
+
+    &__group {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    &__input {
+      font-size: 30px;
+      line-height: 44px;
+      width: 650px;
+      padding: 0 0 34px ;
+    }
+
+    &__label {
+      font-size: 30px;
+      line-height: 44px;
+    }
+
+    &__button {
+      width: 528px;
+      height: 112px;
+      margin-top: 32px;
+      border-radius: 16px;
+      font-size: 30px;
+      line-height: 44px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .form {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .form__input {
+    width: auto;
+  }
+}
