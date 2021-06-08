@@ -1,0 +1,136 @@
+.process {
+  display: grid;
+  grid-template-columns: 264px 264px;
+  grid-template-rows: repeat(5, 132px);
+  gap: 0 30px;
+
+  @media (max-width: 1023px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &-card {
+    min-width: 264px;
+    padding: 32px;
+    border-radius: 24px;
+    background-color: $c-white;
+    box-shadow: 0 9px 18px 0 #25293108;
+
+    @media (min-width: 1024px) {
+      & {
+        margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      & {
+        min-width: 184px;
+        padding: 22px;
+      }
+    }
+
+    @each $c-name, $c-value, $c-value-tr in $process-card-colors {
+      &--#{$c-name} &__number {
+        color: $c-value;
+        background-color: $c-value-tr;
+      }
+
+      &--#{$c-name} &__learn-more-container &__learn-more {
+        background-color: $c-value;
+      }
+    }
+
+    &--1 {
+      grid-area: 2 / 1 / 4 / 2;
+    }
+
+    &--2 {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    &--3 {
+      grid-area: 4 / 1 / -1 / 2;
+    }
+
+    &--4 {
+      grid-area: 3 / 2 / -2 / 3;
+    }
+
+    &__number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 46px;
+      height: 24px;
+      line-height: 1.5em;
+      font-family: "Popins", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      border-radius: 23px;
+
+      @media (max-width: 1023px) {
+        width: 23px;
+        height: 12px;
+        font-size: 8px;
+        border-radius: 11px;
+      }
+    }
+
+    &__list {
+      margin-bottom: 32px;
+      line-height: 1.5em;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: $c-text;
+
+      @media (max-width: 1023px) {
+        & {
+          margin-bottom: 16px;
+          font-size: 8px;
+        }
+      }
+    }
+
+    &__learn-more-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    &__learn-more {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background-image: url("../images/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 16px;
+
+      @media (max-width: 1023px) {
+        & {
+          width: 20px;
+          height: 20px;
+          background-size: 8px;
+        }
+      }
+    }
+
+    &__learn-more-label {
+      line-height: 1.5em;
+      font-family: "Popins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+
+      @media (max-width: 1023px) {
+        & {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
