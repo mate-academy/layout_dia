@@ -1,0 +1,98 @@
+.header {
+
+  &__nav {
+    max-width: 480px;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    position: relative;
+    padding: 0 0 8px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: 2px;
+      background-color: #2060f6;
+      border-radius: 8px;
+      content: "";
+    }
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+}
+
+#header__toggle {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+
+  .header__btn {
+    display: none;
+  }
+
+  .header__ham {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .header__ham > span,
+  .header__ham > span::before,
+  .header__ham > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
+  .header__ham > span::before {
+    content: "";
+    top: -8px;
+  }
+  .header__ham > span::after {
+    content: "";
+    top: 8px;
+  }
+
+  #header__toggle:checked ~ .header__ham > span {
+    transform: rotate(45deg);
+    transition-duration: 0.5s;
+  }
+  #header__toggle:checked ~ .header__ham > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #header__toggle:checked ~ .header__ham > span::after {
+    top: 0;
+    transform: rotate(90deg);
+    transition-duration: 0.5s;
+  }
+  #header__toggle:checked ~ .header__nav {
+    visibility: visible;
+    right: 0;
+    bottom: 50%;
+  }
+
+}
