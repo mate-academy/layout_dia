@@ -1,0 +1,97 @@
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 362px;
+  padding: 32px 0;
+  border-radius: 16px;
+  background-color: $c-white;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  @media (min-width: 1280px) and (max-width: 1599px) {
+    & {
+      width: 322px;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    & {
+      width: 282px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    & {
+      width: 282px;
+      padding: 16px 0;
+    }
+  }
+
+  &__rect {
+    width: 139px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  @each $rect-pos, $rect-pos-val, $rect-move-x in $testimonial-card-rect-pos {
+    &__rect--#{$rect-pos} {
+      transform: rotate($rect-pos-val) translateX($rect-move-x);
+    }
+  }
+
+  @each $card-color, $color-value in $testimonial-card-colors {
+    &--#{$card-color} &__rect {
+      background-color: $color-value;
+    }
+  }
+
+  &__image {
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  &__quote-logo {
+    width: 21px;
+    height: 18px;
+    margin-top: 31px;
+  }
+
+  @each $card-color, $color-value in $testimonial-card-colors {
+    &--#{$card-color} &__quote-logo {
+      background-image: url("../images/quote-#{$card-color}.svg");
+    }
+  }
+
+  &__quote-text {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    line-height: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: $c-text;
+  }
+
+  &__name {
+    line-height: 1.5em;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: $c-header;
+  }
+
+  &__job {
+    line-height: 1.5em;
+    letter-spacing: $letter-spacing;
+    font-family: "Popins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: $c-label;
+  }
+}
