@@ -1,0 +1,76 @@
+.oval {
+  position: absolute;
+  display: inline;
+  border: 5px solid;
+  border-radius: 500px;
+  opacity: 50%;
+  transform: rotate(-65deg);
+
+  @each $color, $color-value in $oval-colors {
+    &--#{$color} {
+      border-color: $color-value;
+    }
+  }
+
+  @each $size, $width, $height in $oval-sizes {
+    &--#{$size} {
+      @include oval-size($width, $height);
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    transform: rotate(-65deg) scale(0.8);
+  }
+
+  @media (max-width: 1023px) {
+    transform: rotate(-65deg) scale(0.3);
+  }
+
+  &--1 {
+    @include oval-position(11%, 14%);
+  }
+
+  &--2 {
+    @include oval-position-alternate(60%, 20%);
+  }
+
+  &--3 {
+    @include oval-position(8%, 25%);
+  }
+
+  &--4 {
+    @include oval-position(70%, 30%);
+  }
+
+  &--5 {
+    @include oval-position-alternate(45%, 8%);
+  }
+
+  &--6 {
+    @include oval-position(50%, 15%);
+  }
+
+  &--7 {
+    @include oval-position-alternate(25%, 15%);
+  }
+
+  &--8 {
+    @include oval-position(60%, 6%);
+  }
+
+  &--9 {
+    @include oval-position-alternate(75%, 12%);
+  }
+
+  &--10 {
+    @include oval-position(85%, 10%);
+  }
+
+  &--11 {
+    @include oval-position-alternate(10%, 8%);
+  }
+
+  &--12 {
+    @include oval-position-alternate(85%, 35%);
+  }
+}
