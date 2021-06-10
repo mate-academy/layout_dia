@@ -1,0 +1,121 @@
+.header {
+  display: flex;
+  height: 120px;
+  background: $nav-color;
+  align-items: center;
+  justify-content: center;
+
+  &__toggler {
+    display: none;
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    max-width: 1600px;
+    padding: 0 227px 0 228px;
+  }
+  &__logo {
+    background: url(/images/header/Air.svg) no-repeat center;
+    flex-basis: 35px;
+    height: 20px;
+    background-size: cover;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: #fff;
+    font-family: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: color 0.5s;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  &__item:not(:first-child) {
+    margin-left: 48px;
+  }
+
+  &__item:last-child {
+    margin-left: 267px;
+  }
+
+  &__link--active {
+    position: relative;
+    &::after {
+      content: "";
+      width: 5.15em;
+      height: 0.15em;
+      background: $butt-col;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+    }
+  }
+
+  @media (max-width:1400px) {
+    &__navigation {
+      padding: 0 10px;
+      justify-content: space-around;
+    }
+
+  }
+
+  @media (max-width:950px) {
+    &__navigation {
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__label {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      z-index: 1;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        background: url(/images/header/menu.png);
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+        transition: transform 0.5s;
+      }
+    }
+
+    &__toggler:checked ~ &__label::after {
+      background: url(/images/header/menu-X.svg);
+      background-size: cover;
+      transform: rotate(90deg);
+    }
+
+    &__toggler:checked ~ &__list {
+      display: block;
+      position: absolute;
+      right: 0;
+      background: $butt-col;
+      width: 100%;
+      padding: 20px;
+    }
+
+    &__item:not(:first-child) {
+      margin-left: 0;
+    }
+  }
+}
