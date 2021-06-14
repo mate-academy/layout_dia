@@ -140,7 +140,6 @@
   &__intro-scroll {
     display: flex;
     margin-right: 24px;
-    // align-self: flex-end;
     gap: 16px;
   }
   &__intro-buttons {
@@ -182,12 +181,36 @@
 @media (min-width: 1105px) and (max-width: 1279px) {
   .header {
     padding: $padding-large;
+    /* BURGER UNDER */
+    &__burger {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-image: url(../images/free-icon-menu-148795.png);
+      background-position: center;
+      background-size: cover;
+
+      cursor: pointer;
+      &--active {
+        background-image: url(../images/close.png);
+      }
+    }
+    &__nav {
+      transform: translateX(-150vh);
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      &--active {
+        margin-top: 100px;
+        transform: translateX(0);
+      }
+    }
+
     &__menu {
-      margin-bottom: 100px;
+      margin-bottom: 120px;
     }
     &__list {
-      flex-direction: column;
       justify-content: center;
+      text-align: center;
+
     }
     &__article-wrap {
       text-align: center;
@@ -200,7 +223,9 @@
       bottom: 0;
       right: 30px;
     }
+
   }
+
 }
 
 @media (max-width: 1104px) {
@@ -210,10 +235,32 @@
     background-position: center;
     background-size: cover;
     padding: $padding-mobile;
+    /* BURGER UNDER */
+    &__burger {
+      position: relative;
+      width: 35px;
+      height: 35px;
+      background-image: url(../images/free-icon-menu-148795.png);
+      background-position: center;
+      background-size: cover;
+
+      cursor: pointer;
+      &--active {
+        background-image: url(../images/close.png);
+        margin-bottom: 50px;
+      }
+    }
+    &__nav {
+      transform: translateX(-100vh);
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      &--active {
+        margin-top: 50px;
+        transform: translateX(0);
+      }
+    }
+
     &__menu {
-      flex-direction: column;
       gap: 20px;
-      margin-bottom: 20px;
     }
     &__subtitle {
       margin-bottom: 20px;
@@ -224,6 +271,7 @@
     &__list {
       flex-direction: column;
       justify-content: center;
+      text-align: center;
       gap: 15px;
     }
     &__link {
