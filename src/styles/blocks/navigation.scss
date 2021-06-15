@@ -1,37 +1,73 @@
 .navigation {
+  position: relative;
+  z-index: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   padding: 50px 0;
   text-transform: uppercase;
   font-size: 13px;
   font-weight: bold;
 
+  
   &__list {
     display: flex;
     gap: 50px;
     list-style: none;
-  }
-
-  &__link {
-    padding: 10px 0;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-
-    &:hover {
-      color: $btnColor;
-      font-size: 16px;
+    
+    @media (max-width: $mobileWidth) {
+      background-color: $btnColor;
+      position: absolute;
+      z-index: 100;
+      height: 800px;
+      width: 60vw;
+      right: -20px;
+      top: 0;
+      flex-direction: column;
+      padding-top: 20%;
+      padding-left: 20%;
+      text-transform: uppercase;
+      font-size: 20px;
+      border-radius: 0 0 0 50px;
     }
   }
 
-  &__btn {
+  &__link {
+    font-family: Poppins, sans-serif;
+    padding: 10px 0;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: #fff;
+    cursor: pointer;
     border: 1px solid transparent;
     transition: all 0.4s ease-in-out;
 
     &:hover {
-      // color: $btnColor;
       border-bottom: 1px solid #fff;
     }
+  }
+
+  &__btn {
+    width: max-content;
+    padding-bottom: 5px;
+    font-family: Poppins, sans-serif;
+    letter-spacing: 3px;
+    margin-left: 140px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease-in-out;
+
+    @media (max-width: $tabletWidth) {
+      margin-left: 50px;
+    }
+
+    @media (max-width: $mobileWidth) {
+      margin-left: 0;
+    }
+    &:hover {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &__toggler {
+    content: url(/images/features/burger-menu.svg)
   }
 }
