@@ -37,7 +37,14 @@
     background-color: transparent;
     border: none;
     color: #fff;
+    outline: none;
     border-bottom: 1px solid #fff;
+    transition: all 0.4s ease-in-out;
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $btnColor;
+    }
 
     @media (max-width: $tabletWidth) {
       width: 70%;
@@ -76,20 +83,17 @@
   }
 
   &__networks {
-    margin: 0 -10px;
-    &-facebook {
-      @include social-networks;
-      content: url(/images/networks/Facebook.svg);
-    }
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 10px;
 
-    &-twitter {
-      @include social-networks;
-      content: url(/images/networks/Twitter.svg);
-    }
+    &-item {
+      transition: fill 0.5s ease-in-out;
 
-    &-instagram {
-      @include social-networks;
-      content: url(/images/networks/instagram.svg);
+      &:hover {
+        fill: $btnColor;
+      }
     }
   }
 }
