@@ -1,14 +1,9 @@
 'use strict';
 
-window.myFunction = function() {
-  const list = document.getElementById('navigation__sidebar');
-  const icon = document.getElementById('navigation__burger-button');
+const list = document.querySelector('.navigation__sidebar');
+const icon = document.querySelector('.navigation__label');
 
-  if (icon.className === 'navigation__label') {
-    list.className = 'navigation__sidebar-active';
-    icon.className = 'navigation__label-active';
-  } else {
-    list.className = 'navigation__sidebar';
-    icon.className = 'navigation__label';
-  }
-};
+icon.addEventListener('click', () => {
+  icon.classList.toggle('navigation__label--active');
+  list.classList.toggle('navigation__sidebar--active');
+});
