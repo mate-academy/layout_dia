@@ -24,3 +24,10 @@ document.querySelector('.header__slider-but--right').addEventListener('click',
     slider.style.left = num + '%';
   }
 );
+
+const list = document.querySelector('.header__list');
+const check = document.querySelector('.header__toggler');
+
+list.addEventListener('click', () => {
+  check.checked = false;
+});
