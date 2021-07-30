@@ -49,14 +49,15 @@
 
   &__desk {
     display: grid;
-    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 
     padding-top: 50px;
 
-    @include onDesctop {
+    @media (max-width: 600px) {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 
@@ -68,6 +69,14 @@
     box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
     background-color: #fff;
+
+    @include onDesctop {
+      position: relative;
+
+      &:nth-child(even) {
+        top: -130px;
+      }
+    }
 
 
     &--number {
