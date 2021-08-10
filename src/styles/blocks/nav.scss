@@ -1,0 +1,82 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+
+  &__menu {
+    background-color: $darkBackColor;
+    display: none;
+    cursor: pointer;
+    @media (max-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 40px auto;
+    }
+  }
+
+  &__item--hide {
+    display: none;
+  }
+
+  &__logo {
+    display: inline-block;
+    @include backImg("../images/logo/air.png");
+    width: 46px;
+    height: 26px;
+  }
+
+  &__hire {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-align: center;
+
+    &::after {
+      content: "";
+      background-color: $darkBlueColor;
+      height: 2px;
+      display: block;
+      width: inherit;
+      margin-top: 8px;
+    }
+    
+    @media (max-width: 1024px) {
+      opacity: 0;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      background-color: $darkBlueColor;
+      height: 2px;
+      width: inherit;
+      margin-top: 8px;
+      display: block;
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+  }
+}
