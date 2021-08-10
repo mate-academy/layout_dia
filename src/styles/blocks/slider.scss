@@ -1,0 +1,158 @@
+.slider {
+  position: relative;
+
+  &__slides {
+    height: 100%;
+  }
+
+  &__photo-container {
+    float: left;
+    width: calc(100% / #{$countSlides});
+    height: 100%;
+  }
+
+  &__photos {
+    width: calc(100% * #{$countSlides});
+    height: 100%;
+    line-height: 0;
+    transition: margin-left 800ms cubic-bezier(0.77, 0s, 0.17, 1s);
+  }
+
+  &__slides-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    @include tablet() {
+      border-top-left-radius: 30px;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__desktop:checked ~ &__container {
+    max-width: 100vw;
+  }
+
+  $left:
+    1 3,
+    2 1,
+    3 2;
+
+  @each $switch, $button in $left {
+    &__switch#{$switch}:checked ~ &__buttons &__button:nth-child(#{$button}) {
+      @extend %button-slider;
+      float: left;
+      left: 24px;
+      bottom: 33px;
+
+      @include desktop() {
+        left: 48px;
+        bottom: 66px;
+      }
+
+      &:hover ~ .slider__slide--left {
+        transform: perspective(100px) translateZ(20px);
+      }
+
+      &:active ~ .slider__slide--left {
+        transform: none;
+      }
+    }
+  }
+
+  $right:
+    1 2,
+    2 3,
+    3 1;
+
+  @each $switch, $button in $right {
+    &__switch#{$switch}:checked ~ &__buttons &__button:nth-child(#{$button}) {
+      @extend %button-slider;
+      float: right;
+      left: 60px;
+      bottom: 33px;
+
+      @include desktop() {
+        left: 96px;
+        bottom: 66px;
+      }
+
+      &:hover ~ .slider__slide--right {
+        transform: perspective(100px) translateZ(20px);
+      }
+
+      &:active ~ .slider__slide--right {
+        transform: none;
+      }
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+
+  &__slide {
+    position: absolute;
+    height: 7px;
+    filter: invert(0.75) sepia(0) saturate(0) hue-rotate(0deg);
+    bottom: 43.5px;
+    transition: transform 0.3s;
+
+    @include desktop() {
+      height: 9px;
+      bottom: 77.5px;
+    }
+
+    &--left {
+      left: 35.5px;
+
+      @include desktop() {
+        left: 60.5px;
+      }
+    }
+
+    &--right {
+      left: 72px;
+
+      @include desktop() {
+        left: 109.5px;
+      }
+    }
+  }
+
+  & input {
+    display: none;
+  }
+
+  $position:
+    1 0,
+    2 -100%,
+    3 -200%;
+
+  @each $switch, $margin in $position {
+    &__switch#{$switch}:checked ~ &__slides &__photos {
+      margin-left: $margin;
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    bottom: 24px;
+    left: 100px;
+
+    @include desktop() {
+      bottom: 48px;
+      left: 152px;
+    }
+  }
+}

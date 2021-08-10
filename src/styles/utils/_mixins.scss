@@ -1,6 +1,136 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin adaptiv-font($font-size) {
+  $adaptiveFontDesktop:
+    calc(
+      #{$font-size * 0.68}px +
+      (#{$font-size} - (#{$font-size} * 0.68)) *
+      (100vw / #{$viewportSizeNoPX})
+    );
+
+  $adaptiveFont:
+    calc(
+      #{$font-size * 0.68}px +
+      ((#{$font-size} - (#{$font-size} * 0.68)) +
+      (#{$font-size} - (#{$font-size} * 0.68) * 0.7)) *
+      ((100vw - 320px) / #{$viewportSizeNoPX})
+    );
+
+  font-size: $adaptiveFontDesktop;
+
+  @media (max-width: 767px) {
+    font-size: $adaptiveFont;
+  }
+}
+
+@mixin adaptiv-font-card($font-size) {
+  $adaptiveFontDesktop:
+    calc(
+      #{$font-size * 0.68}px +
+      (#{$font-size} - (#{$font-size} * 0.68)) *
+      (100vw / #{$viewportSizeNoPX})
+    );
+
+  $adaptiveFont:
+    calc(
+      #{$font-size * 0.68}px +
+      ((#{$font-size} - (#{$font-size} * 0.68)) +
+      (#{$font-size} - (#{$font-size} * 0.68) * 0.7)) *
+      ((100vw - 320px) / #{$viewportSizeNoPX})
+    );
+
+  font-size: $adaptiveFontDesktop;
+  height: calc(#{$adaptiveFontDesktop} * 1.7);
+  width: calc(#{$adaptiveFontDesktop} * 3);
+
+  @media (max-width: 767px) {
+    font-size: $adaptiveFont;
+    height: calc(#{$adaptiveFont} * 1.7);
+    width: calc(#{$adaptiveFont} * 3);
+  }
+}
+
+@mixin adaptiv-padding($padding, $right, $bottom, $left) {
+  $adaptivePadding:
+    calc(
+      #{$padding * 0.25}px +
+      (#{$padding} - (#{$padding} * 0.25)) *
+      (100vw / #{$viewportSizeNoPX})
+    );
+
+  $adaptivePaddingDesktop:
+    calc(
+      #{$padding * 0.25}px +
+      ((#{$padding} - (#{$padding} * 0.25)) +
+      (#{$padding} - (#{$padding} * 0.25) * 0.7)) *
+      ((100vw - 320px) / #{$viewportSizeNoPX})
+    );
+
+  padding-top: #{$adaptivePadding};
+  padding-right: calc(#{$adaptivePadding} * #{$right});
+  padding-bottom: calc(#{$adaptivePadding} * #{$bottom});
+  padding-left: calc(#{$adaptivePadding} * #{$left});
+
+  @media (max-width: 767px) {
+    padding: #{$adaptivePaddingDesktop};
+    padding-right: calc(#{$adaptivePaddingDesktop} * #{$right});
+    padding-bottom: calc(#{$adaptivePaddingDesktop} * #{$bottom});
+    padding-left: calc(#{$adaptivePaddingDesktop} * #{$left});
+  }
+}
+
+@mixin adaptiv-size($width, $heigth) {
+  $widthSize:
+    calc(
+      #{$width * 0.6}px +
+      (#{$width} - (#{$width} * 0.6)) *
+      (100vw / #{$viewportSizeNoPX})
+    );
+
+  $widthSizeDesktop:
+    calc(
+      #{$width * 0.6}px +
+      ((#{$width} - (#{$width} * 0.6)) +
+      (#{$width} - (#{$width} * 0.6) * 0.7)) *
+      ((100vw - 320px) / #{$viewportSizeNoPX})
+    );
+
+  $heigthSize:
+    calc(
+      #{$heigth * 0.6}px +
+      (#{$heigth} - (#{$heigth} * 0.6)) *
+      (100vw / #{$viewportSizeNoPX})
+    );
+
+  $heigthSizeDesktop:
+    calc(
+      #{$heigth * 0.6}px +
+      ((#{$heigth} - (#{$heigth} * 0.6)) +
+      (#{$heigth} - (#{$heigth} * 0.6) * 0.7)) *
+      ((100vw - 320px) / #{$viewportSizeNoPX})
+    );
+
+  width: $widthSize;
+  height: $heigthSize;
+
+  @media (max-width: 767px) {
+    width: $widthSizeDesktop;
+    height: $heigthSizeDesktop;
+  }
+}
+
+@mixin height {
+  @media (min-height: 1276px) and (max-width: 1276px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
   }
 }
