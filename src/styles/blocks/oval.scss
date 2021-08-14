@@ -1,0 +1,25 @@
+.oval {
+  box-sizing: border-box;
+  border-radius: 12px;
+  transform: rotate(-60deg);
+
+  $paint:
+    "full" 3px 1 1,
+    "thick" 5px 0.5 0,
+    "thin" 3px 0.5 0;
+
+  @each $name, $border, $border-color, $color in $paint {
+    &--#{$name} {
+      background-color: rgba($red, $green, $blue, $color);
+      border: $border solid rgba($red, $green, $blue, $border-color);
+    }
+  }
+
+  @for $height from 18 through 62 {
+    @for $width from 45 through 155 {
+      &--#{$height}-#{$width} {
+        @include oval(#{$height}px,#{$width}px);
+      }
+    }
+  }
+}
