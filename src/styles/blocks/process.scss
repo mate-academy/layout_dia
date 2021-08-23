@@ -1,11 +1,28 @@
 .process {
   &--lower {
-    margin-top: 102px;
+    margin-top: 64px;
+
+    &-tablet {
+      @include onTablet {
+        margin-top: 102px;
+      }
+    }
   }
-  
+
+  &--upper {
+    margin-top: 30px;
+
+    &-tablet {
+      @include onTablet {
+        margin-top: 0;
+      }
+    }
+  }
+
   &__block {
     box-sizing: border-box;
     height: 264px;
+    width: 264px;
     padding: 32px 0 32px 32px;
     background: #fff;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
@@ -33,6 +50,14 @@
         font-weight: 600;
         text-transform: uppercase;
       }
+
+      &--tablet-#{$number}::before {
+        @include onTablet {
+          content: "00#{$number}";
+          font-size: 13px;
+          line-height: 19.5px;
+        }
+      }
     }
   }
 
@@ -41,6 +66,13 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     color: $color-grey;
+
+    &--tablet {
+      @include onTablet {
+        font-size: 13px;
+        line-height: 19.5px;
+      }
+    }
   }
 
   &__link {
@@ -55,6 +87,12 @@
       background-size: center;
       background-repeat: no-repeat;
       border-radius: 50%;
+
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 5px 5px 5px #143c9a;
+      }
     }
 
     &-text {
