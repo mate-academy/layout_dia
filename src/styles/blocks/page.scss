@@ -2,20 +2,38 @@
   font-family: 'Open Sans', sans-serif;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 
   &__body {
     margin: 0 ;
   }
 
   &__section {
-    padding: 148px 0;
+    padding: 50px 0;
+
+    @include onTab {
+      padding: 90px 0;
+    }
+
+    @include onDesktop {
+      padding: 148px 0;
+    }
 
     &--testimonial {
       padding-top: 0;
     }
 
     &-apply {
-      padding: 200px 0;
+      padding: 80px 0;
+      overflow: hidden;
+
+      @include onTab {
+        padding: 120px 0;
+      }
+
+      @include onDesktop {
+        padding: 200px 0;
+      }
     }
 
     &--color {
@@ -29,13 +47,17 @@
       font-family: Poppins;
       font-style: normal;
       font-weight: 600;
-      font-size: 32px;
+      font-size: 30px;
       line-height: 150%;
       text-align: center;
       color: #253757;
 
+      @include onTab {
+        font-size: 32px;
+      }
+
       &--big {
-        font-size: 40px;
+        font-size: 36px;
         margin-bottom: 64px;
 
         @include onDesktop {
@@ -74,6 +96,21 @@
 
     &--testimonial {
       margin-bottom: 85px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 }
