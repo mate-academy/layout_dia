@@ -1,0 +1,62 @@
+.menu-button {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: $menu-toggler-size;
+  width: $menu-toggler-size;
+  cursor: pointer;
+  transform: translateY(-($menu-toggler-size / 2));
+
+  & > span,
+  & > span::before,
+  & > span::after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+  }
+
+  & > span::before {
+    content: "";
+    top: -8px;
+  }
+
+  & > span::after {
+    content: "";
+    top: 8px;
+  }
+}
+
+.menu-toggle {
+  display: block;
+  height: $menu-toggler-size;
+  width: $menu-toggler-size;
+  margin: 0;
+  opacity: 0;
+
+  &:checked ~ .menu-button > span {
+    transform: rotate(45deg);
+  }
+
+  &:checked ~ .menu-button > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  &:checked ~ .menu-button > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  &:checked ~ .nav {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle,
+  .menu-button {
+    display: none;
+  }
+}
