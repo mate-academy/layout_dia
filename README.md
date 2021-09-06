@@ -1,5 +1,7 @@
 # Dia landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35) - Use BEM and SCSS
+
+Adapt the page to the following screens:
 - Large screens 2560px
 - Full HD 1920px
 - The design 1600px
@@ -13,17 +15,15 @@ Implement landing page according to [Figma design](https://www.figma.com/file/7q
 1. Implement `Who we are` block.
 1. Implement `Our expertise` block with the card reused 3 times.
 1. Implement `Process` block with 4 process cards.
-1. Implement `Approach` block.
 1. Implement `Testimonials` block.
-1. Implement `Vision, Passion, Results` block
+1. Implement `Vision, Passion, Results` block.
     - Background use one reusable oval block many times.
     - Use mixin.
     - The color is set with `--modifier`.
     - The size is limited by parent container.
-1. Implement `Send us  a message`.
-1. Implement `Contact us`.
+1. Implement `Send us  a message` block.
+1. Implement `Contact us` block.
 1. Implement the footer.
-1. Adopt the page to mobile screens.
 
 ## Instructions
 1. **Fork** the repo.
