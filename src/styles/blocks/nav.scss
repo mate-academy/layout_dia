@@ -1,0 +1,119 @@
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    margin: 0;
+    height: 25px;
+  }
+
+  &__list {
+    position: absolute;
+    top: -100px;
+    left: 25px;
+    right: 0;
+    
+    margin: 0;
+    padding: 0;
+    
+    visibility: hidden;
+    background-color: $bg-grey;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s ease-in 0.1s;
+    
+    list-style: none;
+
+    @include on-desktop {
+      position: static;
+
+      display: flex;
+      align-items: center;
+
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    margin-left: 48px;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    @include popin-font (13px, 700, 20px);
+    color: $text-white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__hire-button {
+    position: relative;
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: -8px;
+
+      display: block;
+      height: 2px;
+      width: 100%;
+
+      background-color: $main-blue;
+      border-radius: 1px;
+    }
+  }
+
+  &__button {
+    height: 25px;
+    width: 25px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--open {
+      background-image: url(../images/sub-title/sub-title-icon-light.svg);
+    }
+
+    &--close {
+      display: none;
+
+      background-image: url(../images/sub-title/cross.svg);
+    }
+  }
+
+  &:target {
+    .nav__list {
+      position: absolute;
+      top: 45px;
+      left: 50px;
+      right: 25px;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav__item {
+      margin: 0 0 20px;
+    }
+
+    .nav__button--open {
+      display: none;
+    }
+
+    .nav__button--close {
+      display: initial;
+    }
+  }
+}
