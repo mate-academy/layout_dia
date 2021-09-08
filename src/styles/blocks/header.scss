@@ -1,20 +1,30 @@
 .header {
-  padding: 25px;
+  position: relative;
+
+  height: 700px;
+  padding: $padd-mobile;
 
   border-radius: 0 0 30px 30px;
   background-color: $bg-grey;
 
-  @include on-desktop{
-    padding: 50px;
+  @media (min-width: 1600px) {
+    height: 800px;
+  }
+
+  @include wide {
+    height: 700px;
   }
 
   &__container {
-    max-width: 1146px;
-    height: 630px;
-    margin: 0 auto;
+    @include container;
+  }
 
-    @include on-desktop {
-      height: 700px;
+  &__content {
+
+    @include wide {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 
@@ -55,12 +65,17 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 380px;
+    bottom: 0;
 
     @include on-desktop {
       left: unset;
       right: 0;
-      top: 120px;
+    }
+
+    @include wide {
+      position: static;
+
+      margin-top: 60px;
     }
   }
 }

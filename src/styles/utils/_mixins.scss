@@ -1,9 +1,9 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
 
 @mixin popin-font ($font-size, $font-weigth, $line-height) {
   font-family: 'Poppins', sans-serif;
@@ -25,6 +25,18 @@
   }
 }
 
+@mixin wide {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: 1146px;
+  margin: 0 auto;
+  @content;
+}
+
 @mixin oval-color ($color-name, $hex-color) {
   .oval--border--#{$color-name} {
       border-color: $hex-color;
@@ -37,6 +49,18 @@
 
 @mixin oval-size ($size-name, $size: 1) {
   .oval--size--#{$size-name} {
-    transform: scale($size) rotate(-60deg);
+    transform: scale($size * 0.6) rotate(-60deg);
+    @include on-desktop {
+      transform: scale($size) rotate(-60deg);
+      opacity: $size;
+    }
+  }
+}
+
+@mixin oval-position ($position-num, $horisontal, $vertical,$visibility: visible) {
+  &__oval--position--#{$position-num} {
+    visibility: $visibility;
+    left: $horisontal;
+    top: $vertical;
   }
 }
