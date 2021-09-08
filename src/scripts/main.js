@@ -21,3 +21,7 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
   move(-1);
 });
+
+setInterval(function() {
+  move(1);
+}, 3000);
