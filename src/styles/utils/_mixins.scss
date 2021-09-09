@@ -1,9 +1,55 @@
-// @mixin hover($_property, $_toValue) {
-//   transition: #{$_property} 0.3s;
-//   &:hover {
-//     #{$_property}: $_toValue;
-//   }
-// }
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+    @content;
+  }
+}
+
+@mixin hover-dot ($top: 0.25em){
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s, transform 0.4s;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    
+    left: 0%;
+    top: $top;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: left 0.3s ease-out, background-color 0.2s;
+  }
+
+  &:hover {
+    color: $main-blue;
+    transform: scale(1.09);
+    text-shadow: 0 0 2px #122b66, 0px 0px 1px #485988;
+
+    &::before {
+      left: 110%;
+
+      background-color: $main-blue;
+      box-shadow: 0 0 2px #122b66, 0px 0px 1px #485988;
+    }
+  }
+}
+
+@mixin hover-button {
+  transition: box-shadow 0.3s, transform 0.4s;
+
+  &:hover {
+    transform: scale(1.03);
+
+    cursor: pointer;
+    box-shadow: 0 3px 3px #122b66, 0px 3px 10px #dbdbdb33;
+  }
+}
 
 @mixin popin-font ($font-size, $font-weigth, $line-height) {
   font-family: 'Poppins', sans-serif;

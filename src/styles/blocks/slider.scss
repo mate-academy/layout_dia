@@ -21,6 +21,8 @@
   }
 
   @include wide {
+    position: relative;
+
     height: 500px;
 
     border-radius: 30px;
@@ -58,12 +60,15 @@
     bottom: 0;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     padding: 10px;
 
     @include on-desktop {
       padding: 45px;
+      flex-direction: row;
       justify-content: initial;
     }
   }
@@ -75,8 +80,24 @@
     background-color: #{$main-blue}cc;
     border-radius: 3px;
 
+    @include hover (transform, scale(1.03));
+
     @include on-desktop {
       margin-left: 24px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 50px;
+
+    @include on-desktop {
+      width: initial;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -91,6 +112,10 @@
     background-position: center;
     background-size: 8px;
     background-repeat: no-repeat;
+
+    @include hover (transform, scale(1.2)){
+      cursor: pointer;
+    }
 
     &--left {
       margin-right: 16px;

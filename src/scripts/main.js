@@ -1,6 +1,5 @@
 'use strict';
 
-
 const slider = document.querySelector('.slider__container');
 const left = document.querySelector('.slider__button--left');
 const right = document.querySelector('.slider__button--right');
