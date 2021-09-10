@@ -1,9 +1,21 @@
 .slider {
   position: relative;
+  bottom: -32px;
   width: 686px;
   height: 680px;
   overflow: hidden;
   border-radius: 30px 0;
+
+  @include onTablet {
+    width: 344px;
+    height: 340px;
+  }
+
+  @include onPhone {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
 
   &__list {
     display: flex;
@@ -20,13 +32,33 @@
   &__photo {
     width: 686px;
     height: 680px;
+
+    @include onTablet {
+      width: 344px;
+      height: 340px;
+    }
+
+    @include onPhone {
+      width: 300px;
+      height: 300px;
+    }
   }
 
   &__buttons {
     position: absolute;
     bottom: 80px;
-    left: 90px;
+    left: 70px;
     color: #253757;
+
+    @include onTablet {
+      left: 32px;
+      bottom: 40px;
+    }
+
+    @include onPhone {
+      left: 32px;
+      bottom: 10px;
+    }
   }
 
   &__prev {
@@ -40,6 +72,24 @@
 
     &--arrow {
       width: 12px;
+
+      @include onFull {
+        width: 20px;
+      }
+
+      @include onTablet {
+        width: 8px;
+      }
+    }
+
+    @include onFull {
+      width: 50px;
+      height: 50px;
+    }
+
+    @include onTablet {
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -53,17 +103,45 @@
 
     &--arrow {
       width: 12px;
+
+      @include onFull {
+        width: 20px;
+      }
+
+      @include onTablet {
+        width: 8px;
+      }
+    }
+
+    @include onFull {
+      width: 50px;
+      height: 50px;
+    }
+
+    @include onTablet {
+      width: 20px;
+      height: 20px;
     }
   }
 
   &__actions {
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
   }
 
   &__intro {
     position: absolute;
     bottom: 48px;
+
+    @include onTablet {
+      bottom: 24px;
+      left: 120px;
+    }
+
+    @include onPhone {
+      display: none;
+    }
   }
 
   &__intro-title {
@@ -76,6 +154,15 @@
     text-align: center;
     letter-spacing: 3px;
     text-transform: uppercase;
+
+    @include onFull {
+      font-size: 40px;
+    }
+
+    @include onTablet {
+      font-size: 10px;
+      line-height: 14px;
+    }
   }
 
   &__intro-description {
@@ -83,5 +170,14 @@
     width: 264px;
     font-size: 14px;
     line-height: 140%;
+
+    @include onFull {
+      font-size: 20px;
+    }
+
+    @include onTablet {
+      font-size: 10px;
+      line-height: 14px;
+    }
   }
 }
