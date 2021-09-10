@@ -12,7 +12,7 @@ Adapt the page to the following screens:
 1. Implement the header with `nav`.
 1. Implement `Strategic agency` block.
 1. Implement slider (You may start with a single picture).
-    - implement slider block as absolutely positioned element with `left: 0` and `bottom: 0` position inside the black container
+    - implement slider block as absolutely positioned element with `right: 0` and `bottom: 0` position inside the black container
     - on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
 3. Implement `Who we are` block.
 4. Implement `Our expertise` block with the card reused 3 times.
