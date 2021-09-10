@@ -5,25 +5,35 @@
   min-height: 800px;
   background-color: #2c2c2c;
 
+
+
   @include onTablet {
     min-height: 800px;
   }
 
   &__public {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 100%;
     max-width: 320px;
     height: 320px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;
 
+    @include onSmall {
+      max-width: 520px;
+      height: 380px;
+    }
+
     @include onTablet {
       max-width: 580px;
       height: 680px;
-      position: absolute;
-      bottom: 0;
+      transform: unset;
+      left: unset;
       right: 0;
     }
 
@@ -65,7 +75,7 @@
   }
 
   &-title {
-    margin-top: 35px;
+    margin-top: 50px;
     font-size: 54px;
     text-align: center;
     line-height: 58px;
@@ -75,6 +85,7 @@
     @include onTablet {
       text-align: left;
       font-size: 64px;
+      max-width: 300px;
       margin-top: 152px;
       line-height: 68px;
     }
