@@ -12,18 +12,18 @@ Adapt the page to the following screens:
 1. Implement the header with `nav`.
 1. Implement `Strategic agency` block.
 1. Implement slider (You may start with a single picture).
-1. Implement `Who we are` block.
-1. Implement `Our expertise` block with the card reused 3 times.
-1. Implement `Process` block with 4 process cards.
-1. Implement `Testimonials` block.
-1. Implement `Vision, Passion, Results` block.
-    - Background use one reusable oval block many times.
-    - Use mixin.
-    - The color is set with `--modifier`.
-    - The size is limited by parent container.
-1. Implement `Send us  a message` block.
-1. Implement `Contact us` block.
-1. Implement the footer.
+    - implement slider block as absolutely positioned element with `left: 0` and `bottom: 0` position inside the black container
+    - on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
+3. Implement `Who we are` block.
+4. Implement `Our expertise` block with the card reused 3 times.
+5. Implement `Process` block with 4 process cards.
+6. Implement `Testimonials` block.
+     - each card should have a fixed width and on the small screens the whole block should switch to column layout
+8. Implement `Vision, Passion, Results` block.
+    - use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
+9. Implement `Send us  a message` block.
+10. Implement `Contact us` block.
+11. Implement the footer.
 
 ## Instructions
 1. **Fork** the repo.
