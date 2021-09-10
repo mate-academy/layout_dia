@@ -1,14 +1,29 @@
 .slider {
   position: absolute;
   display: flex;
-  bottom: 48px;
-  left: 48px;
+  flex-wrap: wrap;
+  width: 80%;
+  bottom: 35px;
+  left: 32px;
+
+  @include onTablet {
+    flex-wrap: nowrap;
+    width: 100%;
+    left: 48px;
+  }
 
   &__arrow {
     display: flex;
     align-items: center;
+    margin-right: auto;
+    margin-left: auto;
     bottom: 66px;
     border: none;
+
+    @include onTablet {
+      margin-right: unset;
+      margin-left: unset;
+    }
 
     &--icon {
       width: 6px;
@@ -18,7 +33,11 @@
 
   &__arrow--left {
     @include arrows;
-    margin-right: 16px;
+    
+
+    @include onTablet {
+      margin-right: 16px;
+    }
   }
 
   &__arrow--right {
@@ -26,8 +45,12 @@
   }
 
   &__description {
-    margin-left: 24px;
-    max-width: 264px;
+ 
+
+    @include onTablet {
+      margin-left: 24px;
+      max-width: 264px;
+    }
 
     &-title {
       font-size: 13px;

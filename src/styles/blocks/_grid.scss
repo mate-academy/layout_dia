@@ -1,21 +1,34 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 264px);
-  grid-template-rows: repeat(5, 117px);
-  column-gap: 30px;
-  row-gap: 30px;
-  grid-template-areas: ". item-2"
-    "item-1 item-2"
-    "item-1 item-4"
-    "item-3 item-4"
-    "item-3 .";
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   
+  @include onNotebook {
+    display: grid;
+    grid-template-columns: repeat(2, 264px);
+    grid-template-rows: repeat(5, 117px);
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-areas: ". item-2"
+      "item-1 item-2"
+      "item-1 item-4"
+      "item-3 item-4"
+      "item-3 .";
+  }
 
   &__item {
     display: inline-block;
-    padding: 32px;
+    padding: 24px;
+    margin: 15px;
     background-color: #fff;
     border-radius: 16px;
+
+
+
+    @include onNotebook {
+      padding: 32px;
+      margin: 0;
+    }
 
     &--1 {
       grid-area: item-1;
@@ -53,8 +66,12 @@
     margin-top: 24px;
     font-size: 13px;
     display: block;
-    width: 200px;
+    width: 190px;
     color: #6c788b;
+
+    @include onTablet {
+      width: 200px;
+    }
   }
 
   &__button {
@@ -65,7 +82,11 @@
     border: none;
     cursor: pointer;
     width: 143px;
-    margin-top: 32px;
+    margin-top: 28px;
+
+    @include onTablet {
+      margin-top: 32px;
+    }
 
     &--text {
       font-size: 15px;
@@ -77,8 +98,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: 39px;
+    height: 39px;
     background-color: #2060f6;
     border-radius: 50%;
   }
