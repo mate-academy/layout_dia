@@ -1,7 +1,172 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "vars";
 
-body {
-  background: $c-gray;
+.page {
+  font-family: "Open Sans", sans-serif;
+  color: #6c788b;
+  background: #f2f9ff;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__section,
+  &__header {
+    margin: 0 0 148px;
+  }
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #253757;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1146px;
+}
+
+.about {
+  text-align: center;
+
+  &__subtitle {
+    margin-bottom: 0 0 16px;
+    font-size: 32px;
+  }
+
+  &__paragraph {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+  }
+}
+
+.services {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  padding: 130px 40px;
+
+  &__title {
+    margin: 0 0 64px;
+    font-size: 52px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.service {
+  display: block;
+  width: 265px;
+  justify-items: center;
+  align-items: center;
+
+  &__photo {
+    width: 184px;
+    height: 166px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  &__name {
+    margin: 0 0 16px;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__about {
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
+
+.work {
+  &__card {
+    padding: 32px;
+    margin-bottom: 30px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    background-color: #fff;
+  }
+
+  &__number {
+    font-family: Poppins, sans-serif;
+
+    margin-bottom: 24px;
+    display: inline-block;
+    padding: 2px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: $colorBlue;
+
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  &__paragraph {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 32px;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
+    text-decoration: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
+  }
 }
