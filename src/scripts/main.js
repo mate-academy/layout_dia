@@ -24,4 +24,4 @@ prev.addEventListener('click', function() {
 
 setInterval(function() {
   move(1);
-}, 3000);
+}, 5000);
