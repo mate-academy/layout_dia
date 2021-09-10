@@ -17,6 +17,7 @@ Adapt the page to the following screens:
 3. Implement `Who we are` block.
 4. Implement `Our expertise` block with the card reused 3 times.
 5. Implement `Process` block with 4 process cards.
+    - use `trasnlateY(-50%)` to move cards up
 6. Implement `Testimonials` block.
      - each card should have a fixed width and on the small screens the whole block should switch to column layout
 8. Implement `Vision, Passion, Results` block.
