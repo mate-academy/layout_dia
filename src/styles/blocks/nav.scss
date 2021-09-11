@@ -1,71 +1,121 @@
 .nav {
   position: relative;
+  
   display: flex;
   justify-content: space-between;
 
   &__logo {
     margin: 0;
     height: 25px;
-
-    @include hover-dot(0.76em);
   }
 
   &__list {
-    position: absolute;
-    top: 45px;
-    left: 0px;
-    right: 0px;
-      
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
     
-    visibility: hidden;
-    background-color: $bg-grey;
-    opacity: 0;
-    transition: all 0.5s;
-    
     list-style: none;
+    
+    visibility: hidden;
+    opacity: 0;
+    
+    transition: opacity 0.5s, visibility 0.3s;
+
+    
+    @include on-desktop {
+      position: static;
+
+      flex-direction: row;
+      width: initial;
+      height: initial;
+
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:before {
+      content: "";
+      transform: rotateY(120deg);
+      opacity: 0;
+      transition: transform 0.5s, opacity 0.3s;
+    }
 
     &--footer {
       top: unset;
       bottom: 0px;
     }
-
-    @include on-desktop {
-      position: static;
-      flex-direction: row;
-
-      visibility: visible;
-      opacity: 1;
-    }
   }
 
   &__item {
-    margin-left: 48px;
+    margin: 0;
+    
+    transition: transform 0.5s;
 
-    &:first-child {
+    @for $n from 1 through 5 {
+      &:nth-child(#{$n}) {
+        transform: translateX(100px + ($n * 50px));
+      }
+    }
+    
+    @include on-desktop {
+      margin-left: 48px;
+
+      &:first-child {
       margin: 0;
+      }
+      @for $n from 1 through 5 {
+        &:nth-child(#{$n}) {
+          transform: translateX(0);
+        }
+      }
+
+      transition: all 0s;
     }
   }
 
   &__link {
+    display: block;
+    width: 170px;
+    margin: 15px;
     padding: 5px 0;
+    
+    text-align: center;
+    
+    background-color: $main-blue;
+    border-radius: 20px;
 
     @include popin-font (24px, 700, 40px);
     color: $text-white;
     text-decoration: none;
     text-transform: uppercase;
 
-    @include hover-dot;
+    @include hover-dot(25%){
+      &:hover {
+        color: $text-white;
+      }
+    }
 
     @include on-desktop {
-      @include hover-dot(28%);
-
+      display: inline;
+      width: initial;
+      margin: 0;
+    
       @include popin-font (13px, 700, 20px);
+      text-align: start;
+      
+      background: none;
+
+      @include hover-dot(28%);
     }
   }
 
@@ -81,21 +131,21 @@
 
       @include on-desktop {
         visibility: visible;
+
+        &::after {
+          content: "";
+    
+          position: absolute;
+          bottom: -8px;
+    
+          display: block;
+          height: 2px;
+          width: 100%;
+    
+          background-color: $main-blue;
+          border-radius: 1px;
+        }
       }
-    }
-
-    &::after {
-      content: "";
-
-      position: absolute;
-      bottom: -8px;
-
-      display: block;
-      height: 2px;
-      width: 100%;
-
-      background-color: $main-blue;
-      border-radius: 1px;
     }
   }
 
@@ -115,7 +165,16 @@
     }
 
     &--close {
-      display: none;
+      box-sizing: content-box;
+      padding: 20px 0px 30px 30px;
+      position: fixed;
+      top: 0;
+      right: 10px;
+
+      visibility: hidden;
+      opacity: 0;
+
+      transition: all 0.2s;
 
       background-image: url(../images/sub-title/cross.svg);
     }
@@ -123,26 +182,45 @@
 
   &:target {
     .nav__list {
-      position: absolute;
-      top: 40px;
-      left: 0;
-      right: 0;
-      
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      opacity: 1;
+      background-color: #{$bg-grey};
       visibility: visible;
+      opacity: 1;
+      &:before {
+        content: url(../images/logo/dia-logo.svg);
+
+        margin: 0 0 25px;
+        height: 40px;
+
+        opacity: 1;
+
+        transform: scale(3.5);
+
+        @media (orientation: landscape) {
+          display: none;
+        }
+      }
     }
 
     .nav__link {
-      padding: 0px 30px;
+      display: block;
+      width: 170px;
+      margin: 15px;
+      border-radius: 20px;
+      
       @include popin-font (24px, 700, 40px);
+      text-align: center;
+      
+      background-color: $main-blue;
+     
+      @media (orientation: landscape) {
+        margin: 10px;
+        font-size: 22px;
+        line-height: 32px;
+      }
     }
 
     .nav__item {
-      margin: 0 0 20px;
+      transform: translateX(0);
     }
 
     .nav__button--open {
@@ -150,7 +228,10 @@
     }
 
     .nav__button--close {
-      display: initial;
+      transform: scale(1.5);
+      z-index: 1;
+      visibility: visible;
+      opacity: 1;
     }
 
     .nav__hire-button--bar {
@@ -164,8 +245,13 @@
 
     &--footer:target {
     .nav__list {
-      bottom: 40px;
+      bottom: 0px;
       top: unset;
+    }
+
+    .nav__button--close {
+      top: initial;
+      bottom: 0;
     }
   }
 }
