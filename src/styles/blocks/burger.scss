@@ -1,0 +1,106 @@
+.burger {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+transform: translateY(-100%);
+transition: transform 0.3s;
+z-index: 4;
+
+&:target {
+  transform: translateY(0%);
+}
+
+
+&__close {
+  position: absolute;
+  top: 47px;
+  right: 50px;
+  background-color: transparent;
+  border: none;
+  
+
+  &--img {
+    height: 28px;
+    width: 28px;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}
+
+&__open {
+  opacity: 0;
+  position: absolute;
+  top: 6%;
+  right: 10%;
+  background-color: transparent;
+  border: none;
+
+  @include onPhone {
+    opacity: 1;
+  }
+  
+  &--img {
+    height: 30px;
+    width: 30px;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.3);
+    } 
+  }
+}
+
+
+
+&__nav {
+  background-color: #454343;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 395px;
+  border-radius: 0 0 30px 30px;
+  text-align: center;
+  padding: 40px;
+}
+
+
+&__link {
+  position: relative;
+  padding-bottom: 8px;
+  color: $white-color;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 3px;
+
+  
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: $blue-color;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+}
+
+
