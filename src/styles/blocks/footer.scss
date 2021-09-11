@@ -1,10 +1,30 @@
 .footer {
+  position: relative;
   padding: 180px 0 81px;
   background-color: $dark-bg-color;
   border-radius: 30px 30px 0 0;
   margin-top: -25px;
 
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    @include _300 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   &__message-us {
+    display: block;
+    grid-column: 1 / 6;
+
+    @include _300 {
+      padding: 0 20px;
+    }
 
     &-title {
       margin: 0 0 50px;
@@ -14,6 +34,10 @@
       line-height: 48px;
       letter-spacing: 0;
       color: #fff;
+
+      @include _300 {
+        text-align: center;
+      }
     }
 
     &-input {
@@ -29,6 +53,14 @@
       outline: none;
       border: none;
       border-bottom: 1px solid #fff;
+
+      @include _300 {
+        width: 90%;
+      }
+
+      @include _300 {
+        grid-column: 1 / 5;
+      }
 
       &:focus {
         border-bottom: 1px solid $blue;
@@ -54,6 +86,11 @@
   }
 
   &__info {
+    grid-column: 8 / 13;
+
+    @include _300 {
+      padding: 0 20px;
+    }
 
     &-title {
       margin: 0 0 84px;
@@ -106,6 +143,10 @@
     display: flex;
     justify-content: flex-start;
 
+    @include _300 {
+      justify-content: space-around;
+    }
+
     &-bem-bem-svg {
       fill: #fff;
     }
@@ -118,6 +159,10 @@
       height: 32px;
       margin-right: 32px;
       transition: 0.3s;
+
+      @include _300 {
+        margin: 0 0 15px;
+      }
   
       &:hover .footer__socials-bem-bem-svg {
         transition: 0.3s;
@@ -129,6 +174,18 @@
   &__nav {
     display: flex;
     justify-content: space-between;
+    grid-column: 6 / 13;
+
+    @include _300 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 30px;
+    }
 
     &-link {
       font-family: $poppins;
@@ -144,6 +201,14 @@
       &:hover {
         transform: scale(1.3);
       }
+    }
+  }
+
+  &__logo {
+    @include _300 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
     }
   }
 }
