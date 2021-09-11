@@ -1,8 +1,8 @@
 'use strict';
 
-const list = document.querySelector('.header__image-box');
-const right = document.querySelector('.slider__arrow--right');
-const left = document.querySelector('.slider__arrow--left');
+const list = document.querySelector('.carousel__image-box');
+const right = document.querySelector('.carousel__arrow--right');
+const left = document.querySelector('.carousel__arrow--left');
 
 let position = 0;
 

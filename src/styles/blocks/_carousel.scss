@@ -1,0 +1,120 @@
+.carousel {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+
+    @include onSmall {
+      max-width: 520px;
+      height: 380px;
+    }
+
+    @include onTablet {
+      max-width: 580px;
+      height: 680px;
+      transform: unset;
+      left: unset;
+      right: 0;
+    }
+
+    @include onNotebook {
+      max-width: 687px;
+    }
+
+  &__image-box {
+    display: flex;
+    transition: transform 0.3s;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border-radius: 30px;
+    object-fit: cover;
+
+    @include onTablet {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    bottom: 35px;
+    left: 32px;
+  
+    @include onTablet {
+      flex-wrap: nowrap;
+      width: 100%;
+      left: 48px;
+    }
+  }
+  
+  &__arrow {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 66px;
+    border: none;
+
+    @include onTablet {
+      margin-right: unset;
+      margin-left: unset;
+    }
+
+    &-icon {
+      width: 6px;
+      height: 9px;
+    }
+  }
+
+  &__arrow--left {
+    @include arrows;
+    
+
+    @include onTablet {
+      margin-right: 16px;
+    }
+  }
+
+  &__arrow--right {
+    @include arrows;
+  }
+
+  &__description {
+    @include onTablet {
+      margin-left: 24px;
+      max-width: 264px;
+    }
+
+    &-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    &-subtitle {
+      color: #fff;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
