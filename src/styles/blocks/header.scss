@@ -5,6 +5,7 @@
   background-color: $dark-bg-color;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+  overflow: hidden;
 
   &__nav {
     display: flex;
@@ -92,11 +93,81 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    box-sizing: border-box;
     display: block;
+    overflow: hidden;
     width: 687px;
     height: 680px;
     border-top-left-radius: 30px;
-    background-image: url(../images/slide1.png);
-    background-position: center;
+
+    @include _1280 {
+      right: -10%;
+    }
+
+    &-images {
+      display: flex;
+      transition: 0.3s;
+    }
+
+    &-image {
+      width: 100%;
+    }
+
+    &-actions {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 80px;
+    }
+
+    &-button {
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &--left {
+        background-image: url(../images/slideleft.png);
+      }
+
+      &--right {
+        background-image: url(../images/slideright.png);
+      }
+    }
+
+    &-info {
+      margin-left: 24px;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-family: $poppins;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &-slogan {
+      font-family: $open-sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      color: #fff;
+    }
   }
 }
