@@ -6,7 +6,16 @@
   border-bottom-right-radius: 30px;
 
   &__wrapper {
-    padding: 60px 0 205px;
+    padding: 60px 0 270px;
+
+    @include onNotebook {
+      padding-bottom: 190px;
+      padding-left: 20px;
+    }
+
+    @include onTablet {
+      padding-bottom: 140px;
+    }
   }
 
   &__title {
@@ -48,19 +57,30 @@
 
   &__slider {
     position: absolute;
-    top: 0;
     bottom: 0;
     right: 0;
     width: 45%;
 
+    @include onNotebook {
+      width: 52%;
+    }
+
     &--image-1 {
       background-image: url(../images/slider/slider_1.jpg);
-      height: 100%;
+      height: 680px;
       width: 100%;
       border-top-left-radius: 30px;
-      border-bottom-right-radius: 50px;
+      border-bottom-right-radius: 30px;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
+
+      @include onNotebook {
+        height: 600px;
+      }
+
+      @include onTablet {
+        height: 550px;
+      }
     }
   }
 }
@@ -211,10 +231,7 @@
 
   &__text {
     margin-bottom: 32px;
-    @extend %font-open-sans-600;
-    font-size: 13px;
-    line-height: 150%;
-    color: $color-dark-gray;
+    @extend %card-text-style;
   }
 
   &__learn-more {
@@ -276,6 +293,97 @@
 
 .testimonials {
   &__description {
+    margin-bottom: 16px;
+    @extend %block-name-description-style;
+  }
+
+  &__title {
+    margin-bottom: 85px;
+    @extend %title-style;
+    font-size: 32px;
+    line-height: 150%;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 148px;
+  }
+}
+
+.testimonial-card {
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  text-align: center;
+  max-width: 362px;
+  max-height: 494px;
+  background-color: $color-white;
+  border-radius: 16px;
+  padding: 32px 56px;
+
+  &__image-container {
+    position: relative;
+    margin-bottom: 27px;
+    width: 250px;
+    height: 250px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__background-block {
+    position: absolute;
+    z-index: 0;
+    background-color: $color-blue;
+    width: 139px;
+    height: 56px;
+    border-radius: 12px;
+    
+    &--left {
+      transform: translate(5%, 100%) rotate(-60deg);
+    }
+
+    &--right {
+      transform: translate(75%, 255%) rotate(-60deg);
+    }
+  }
+
+  &__quotation-marks {
+    margin-bottom: 10px;
+  }
+
+  &__quotation-marks-image {
+    width: 20px;
+    height: 18px;
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    @extend %card-text-style;
+  }
+  
+  &__name {
+    margin-bottom: 4px;
+    @extend %font-open-sans-600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $color-dark-blue;
+  }
+
+  &__post {
     @extend %block-name-description-style;
   }
 }
