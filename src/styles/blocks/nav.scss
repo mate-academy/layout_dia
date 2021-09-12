@@ -1,9 +1,7 @@
 .nav {
 
   &__list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     text-align: center;
     gap: 48px;
     margin: 0;
@@ -26,12 +24,64 @@
     letter-spacing: 3px;
     text-decoration: none;
     text-transform: uppercase;
-    color: #fff;
+    color: $main-white-color;
     transition: 300ms;
 
     &:hover {
       transform: scale(1.05);
       color: $blue-theme-color;
     }
+  }
+
+  &__toggler {
+    display: none;
+    background-color: transparent;
+    border: 0;
+    padding: 10px 5px;
+    color: $main-white-color;
+
+    &::before {
+      content: "\2630";
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+
+  &--open &__toggler::before {
+    content: "\2718";
+    display: flex;
+  }
+
+  &--open &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &--open &__link {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav__toggler {
+    display: flex;
+  }
+
+  .nav__list {
+    display: none;
+  }
+}
+
+@media (min-width: 720px) {
+  .nav--open .nav__list {
+    @include flex-center;
+    text-align: center;
+    flex-direction: row;
+    gap: 48px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 }

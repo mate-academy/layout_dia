@@ -1,27 +1,34 @@
 .slider {
   position: absolute;
   right: 0;
+  width: 687px;
+  height: 680px;
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
   overflow: hidden;
 
- 
+  @media (min-width: 1920px) {
+    position: relative;
+    margin-right: -340px;
+  }
+
+  @media (max-width: 1023px) {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    border-radius: 30px;
+  }
 
   &__photo-container {
     display: flex;
-    width: 687px;
-    height: 680px;
+    width: 100%;
+    height: 100%;
 
     transition: transform 3s;
-
-    &:active {
-      animation-play-state: paused;
-    }
   }
 
   &__photo {
     width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 
@@ -38,16 +45,14 @@
   }
 
   &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
 
     width: 32px;
     height: 100%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
-    color: #253757;
-    background-color: #fff;
+    color: $title-color;
+    background-color: $main-white-color;
     border-radius: 50%;
 
     transition: 300ms;
