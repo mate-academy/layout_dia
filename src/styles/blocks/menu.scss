@@ -1,0 +1,67 @@
+.menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $colorBlue;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  transition: transform 1s;
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0%);
+  }
+
+  &__container {
+    width: 80%;
+    padding-top: 50px;
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__close-icon {
+    display: block;
+    height: 26px;
+    width: 26px;
+    filter: invert(1);
+    background-image: url(../images/cross.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+  }
+  
+  &__link {
+    color: #fff;
+    font-family: $Poppins;
+    font-weight: 700;
+    font-size: $titleSize-S;
+    text-decoration: none;
+    margin-bottom: 25px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $colorPurple;
+    }
+
+    @include onTablet {
+      font-size: $titleSize-L;
+    }
+  }
+}

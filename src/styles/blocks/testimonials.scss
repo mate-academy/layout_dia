@@ -45,10 +45,6 @@
     line-height: 130%;
     color: $titleColor;
     margin-bottom: 24px;
-
-    @include onDesktop {
-      font-size: $titleSize-L;
-    }
   }
 
   &__items {
@@ -64,47 +60,14 @@
     }
   }
 
-  &__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    background-color: $colorWhite;
-    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-    text-align: center;
-    font-size: 13px;
-    line-height: 150%;
-    padding: 28px 14px;
-    transition: padding 1s;
-
-    @include onTablet {
-      padding: 28px;
-    }
-  }
-
   &__img {
     display: block;
     position: relative;
     width: 140px;
     border-radius: 50%;
     margin-bottom: 82px;
-
-    &--blue::before {
-      position: absolute;
-      display: block;
-      box-sizing: border-box;
-      content: "";
-      height: 56px;
-      width: 139px;
-      background-color: $colorCardBlue;
-      border: 1px solid $colorCardBlue;
-      transform: translate(-50%, -50%) rotate(-60deg);
-      border-radius: 12px;
-      top: 32%;
-      left: 30%;
-    }
+    z-index: 1;
+    transition: transform 1s;
   }
 
   &__paragraph {
@@ -142,14 +105,6 @@
       background-size: contain;
     }
   }
-  
-
-  &__name {
-    font-family: $OpenSans;
-    font-weight: 600;
-    color: $titleColor;
-    margin-bottom: 4px;
-  }
 
   &__role {
     font-family: $Poppins;
@@ -158,5 +113,98 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: $sectionHeadColor;
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    background-color: $colorWhite;
+    box-shadow: 0 9px 18px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 150%;
+    padding: 28px;
+    padding-top: 84px;
+    transition: background-color 0.5s;
+
+    &:hover {
+      .testimonials__paragraph {
+        color: #fff;
+      }
+
+      .testimonials__role {
+        color: #fff;
+      }
+
+      .testimonials__img {
+        transform: scale(1.2);
+      }
+    }
+
+    &--blue:hover {
+      background-color: $colorCardBlue;
+    }
+
+    &--yellow:hover {
+      background-color: $colorCardYellow;
+    }
+
+    &--red:hover {
+      background-color: $colorCardRed;
+    }
+  }
+
+  &__image-wrapper--blue {
+    position: relative;
+
+    &::before {
+      @include testimonialBefore;
+      background-color: $colorCardBlue;
+    }
+
+    &::after {
+      @include testimonialAfter;
+      background-color: $colorCardBlue;
+    }
+  }
+
+  &__image-wrapper--yellow {
+    position: relative;
+
+    &::before {
+      @include testimonialBefore;
+      background-color: $colorCardYellow;
+    }
+
+    &::after {
+      @include testimonialAfter;
+      background-color: $colorCardYellow;
+    }
+  }
+
+  &__image-wrapper--red {
+    position: relative;
+
+    &::before {
+      @include testimonialBefore;
+      background-color: $colorCardRed;
+    }
+
+    &::after {
+      @include testimonialAfter;
+      background-color: $colorCardRed;
+    }
+  }
+
+  &__name {
+    font-family: $OpenSans;
+    font-weight: 600;
+    color: $titleColor;
+    margin-bottom: 4px;
   }
 }
