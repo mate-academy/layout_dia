@@ -182,21 +182,26 @@
     grid-column: 6 / 13;
 
     @include _900 {
-      display: flex;
       flex-direction: column;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      transform: translateX(-50%);
+      justify-content: center;
+      align-items: center;
     }
 
     &-container {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 30px;
+
+      @include _900 {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &-link {
+      display: block;
       font-family: $poppins;
       font-size: 13px;
       font-weight: 700;
@@ -206,6 +211,10 @@
       color: #fff;
       text-transform: uppercase;
       transition: 0.3s;
+
+      @include _900 {
+        line-height: 40px;
+      }
 
       &:hover {
         transform: scale(1.3);
