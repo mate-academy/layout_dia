@@ -7,8 +7,12 @@
   border-bottom-left-radius: 30px;
   overflow: hidden;
 
+  @include _900 {
+    min-height: 100vh;
+  }
+
   &__logo {
-    @include _300 {
+    @include _900 {
       position: absolute;
       top: 5px;
       left: 5px;
@@ -21,18 +25,30 @@
     align-items: center;
     height: 100px;
 
-    @include _300 {
+    @include _900 {
       flex-direction: column;
+      margin-bottom: 20px;
+      height: 124px;
     }
 
     &-container {
-      min-width: 477px;
+      width: 477px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: 0.3s;
 
-      @include _300 {
-        flex-direction: column;
+      @include _900 {
+        display: block;
+        position: absolute;
+        top: 20px;
+        transform: translateY(-140px);
+      }
+
+      &--is-opened {
+        @include _900 {
+          transform: translateY(-20px);
+        }
       }
     }
 
@@ -51,7 +67,7 @@
       text-decoration: none;
       transition: 0.3s;
 
-      @include _300 {
+      @include _900 {
         font-size: 10px;
         line-height: 30px;
       }
@@ -60,18 +76,26 @@
         transform: scale(1.2) translateY(-2px);
       }
 
-      &--marked::after {
-        position: absolute;
-        content: "";
-        top: 80%;
-        transform: translateX(-105%);
-        width: 67px;
-        height: 2px;
-        border-radius: 4px;
-        background-color: #2060f6;
+      &--marked {
+        @include _900 {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
 
-        @include _300 {
-          transform: translateX(-98%);
+        &::after {
+          position: absolute;
+          content: "";
+          top: 80%;
+          transform: translateX(-105%);
+          width: 67px;
+          height: 2px;
+          border-radius: 4px;
+          background-color: #2060f6;
+  
+          @include _900 {
+            transform: translateX(-98%);
+          }
         }
       }
 
@@ -86,15 +110,16 @@
     display: flex;
     flex-direction: column;
 
-    @include _300 {
+    @include _900 {
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 0;
     }
   }
 
   &__title {
-    padding: 0;
+    padding-top: 20px;
     margin: 0 0 32px;
     font-family: $poppins;
     font-size: 64px;
@@ -104,7 +129,7 @@
     letter-spacing: -2px;
     color: #fff;
 
-    @include _300 {
+    @include _900 {
       font-size: 40px;
       text-align: center;
     }
@@ -142,7 +167,7 @@
       right: -10%;
     }
 
-    @include _300 {
+    @include _900 {
       display: none;
     }
 
@@ -210,6 +235,19 @@
       font-weight: 400;
       line-height: 20px;
       color: #fff;
+    }
+  }
+
+  &__toggler {
+    height: 30px;
+    width: 100px;
+    background-color: #fff;
+    display: none;
+    border-radius: 0 0 10px 10px;
+
+    @include _900 {
+      display: block;
+      margin: 0 auto;
     }
   }
 }

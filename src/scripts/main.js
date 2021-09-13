@@ -29,3 +29,10 @@ prev.addEventListener('click', function() {
 
   images.style.transform = `translateX(${-position * 100}%)`;
 });
+
+const menuOpen = document.querySelector('.header__toggler');
+const menu = document.querySelector('.header__nav-container');
+
+menuOpen.addEventListener('click', function() {
+  menu.classList.toggle('header__nav-container--is-opened');
+});
