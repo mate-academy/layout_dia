@@ -38,21 +38,8 @@
   }
 
   &__button {
-    display: flex;
-    width: 264px;
+    @extend %button-style;
     height: 50px;
-    justify-content: center;
-    align-items: center;
-
-    background-color: $color-blue;
-    border-radius: 8px;
-
-    @extend %font-propins-600;
-    font-size: 15px;
-    line-height: 22px;
-
-    color: $color-white;
-    text-decoration: none;
   }
 
   &__slider {
@@ -167,6 +154,7 @@
 
 .process {
   display: flex;
+  // display: none;
   justify-content: space-between;
   padding-top: 148px;
   padding-bottom: 148px;
@@ -308,12 +296,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-bottom: 148px;
   }
 }
 
 .testimonial-card {
-  margin-right: 30px;
+  margin: 0 30px 148px 0;
 
   &:last-child {
     margin-right: 0;
@@ -388,7 +375,167 @@
   }
 }
 
-.footer {
-  height: 148px;
+.vision-passion-results {
+  padding-top: 200px;
+  min-height: 715px;
+  background-color: $color-white;
+  background-size: contain;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../images/decor-elements/Shapes-background.png);
+  
+  @include onNotebook {
+    background-size: cover;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    @extend %title-style;
+    font-size: 52px;
+    line-height: 150%;
+  }
+
+  &__text {
+    margin: 0 auto 64px;
+    max-width: 754px;
+    @extend %card-text-style;
+    font-size: 24px;
+    line-height: 150%;
+  }
+
+  &__button {
+    margin: 0 auto;
+    @extend %button-style;
+  }
+}
+
+.feedback {
   background-color: $color-black;
+  margin-top: -25px;
+  padding-top: 180px;
+  padding-bottom: 100px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 10px;
+  }
+}
+
+.send-message {
+  grid-column: 1 / 6;
+  min-width: 460px;
+
+  &__title {
+    @extend %feedback-title-style;
+  }
+
+  &__email {
+    margin-bottom: 48px;
+    @extend %form-input-style;
+  }
+
+  &__name {
+    margin-bottom: 48px;
+    @extend %form-input-style;
+  }
+
+  &__message {
+    margin-bottom: 80px;
+    @extend %form-input-style;
+  }
+
+  &__button {
+    @extend %button-style;
+    border: none;
+    line-height: 0;
+  }
+}
+
+.contact-us {
+  grid-column: 8 / 13;
+  min-width: 460px;
+
+  &__title {
+    @extend %feedback-title-style;
+  }
+
+  &__call {
+    @extend %contact-us-subtitle-style;
+  }
+
+  &__phone-numder {
+    @extend %feedback-contact-link-style;
+  }
+
+  &__visit {
+    @extend %contact-us-subtitle-style;
+  }
+
+  &__adress {
+    @extend %feedback-contact-link-style;
+  }
+
+  &__socials {
+    margin-bottom: 12px;
+    @extend %contact-us-subtitle-style;
+  }
+}
+
+.s-media {
+  &--facebook {
+    @extend %social-media-icon-style;
+    
+    background-image: url(../images/social-medias/facebook-white.svg);
+
+    &:hover {
+      background-image: url(../images/social-medias/facebook-blue.svg);
+    }
+  }
+
+  &--twitter {
+    @extend %social-media-icon-style;
+    
+    background-image: url(../images/social-medias/twitter-white.svg);
+
+    &:hover {
+      background-image: url(../images/social-medias/twitter-blue.svg);
+    }
+  }
+
+  &--instagram {
+    @extend %social-media-icon-style;
+    
+    background-image: url(../images/social-medias/instagram-white.svg);
+
+    &:hover {
+      background-image: url(../images/social-medias/instagram-blue.svg);
+    }
+  }
+}
+
+.footer {
+  box-sizing: border-box;
+  height: 120px;
+  background-color: $color-black;
+
+  @include onMobile {
+    height: max-content;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 38px;
+  }
+
+  & .navigation {
+    @include onMobile {
+      display: none;
+    }
+  }
 }
