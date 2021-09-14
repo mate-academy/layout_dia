@@ -13,14 +13,29 @@
 }
 
 .card {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 264px;
+  width: 284px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s;
 
   @include onFull {
     width: 400px;
+  }
+
+  @include onPhone {
+    margin-bottom: 32px;
+  }
+
+  &:hover {
+    transform: scale(105%);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    border-color: #eee;
   }
 
   &__image {
@@ -35,6 +50,7 @@
   }
 
   &__title {
+    margin: 40px 0 16px;
     font-weight: 600;
     font-size: 20px;
     line-height: 140%;
@@ -52,6 +68,7 @@
   }
 
   &__description {
+    margin: 0;
     font-size: 14px;
     line-height: 150%;
     text-align: center;
