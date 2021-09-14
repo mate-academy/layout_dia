@@ -4,6 +4,11 @@ const list = document.querySelector('.slider__list');
 const prev = document.querySelector('.slider__button--left');
 const next = document.querySelector('.slider__button--right');
 
+const body = document.querySelector('.page__body');
+const menuOpener = document.querySelector('.icon--menu_opener');
+const menuCloser = document.querySelector('.icon--menu_closer');
+const menuLink = document.querySelectorAll('.nav__link');
+
 let position = 0;
 
 next.addEventListener('click', () => {
@@ -28,4 +33,18 @@ prev.addEventListener('click', () => {
   }
 
   list.style.transform = `translateX(${-position * 100}%)`;
+});
+
+menuOpener.addEventListener('click', () => {
+  body.classList.add('page__body--with-menu-mobile');
+});
+
+menuCloser.addEventListener('click', () => {
+  body.classList.remove('page__body--with-menu-mobile');
+});
+
+menuLink.forEach(link => {
+  link.addEventListener('click', () => {
+    body.classList.remove('page__body--with-menu-mobile');
+  });
 });
