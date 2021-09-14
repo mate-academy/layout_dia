@@ -37,10 +37,22 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
-  
+
     color: #fff;
 
-    @include style;
+    &::after {
+      display: block;
+      content: "";
+      height: 1px;
+      margin-top: 6px;
+      width: inherit;
+      background-color: #2060F6;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
 
     @include mobile {
       font-size: 10px;
@@ -65,15 +77,7 @@
   }
 
   &__link--hire::after {
-    display: block;
-    content: "";
-    width: 67px;
-    height: 2px;
-    border-radius: 4px;
-    background-color: #2060F6;
-
-    position: absolute;
-    margin-top: 8px;
+    opacity: 1;
 
     @include mobile {
       width: 57px;
