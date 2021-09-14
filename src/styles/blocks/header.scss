@@ -1,16 +1,23 @@
 .header {
-  background-color: $bg-black;
+  position: relative;
 
+  max-width: 1600px;
+  margin: 0 auto $margin-section;
+  
+  background-color: $bg-black;
   border-radius: 0 0 30px 30px;
 
   &__content {
     box-sizing: border-box;
 
+    display: flex;
+    flex-direction: column;
+
     height: 100vh;
-    padding-top: 25px;
+    padding-top: $header-padding-top;
 
     @include onDesktop {
-      padding-top: 50px;
+      padding-top: $header-padding-top-desktop;
     }
   }
 
@@ -56,5 +63,64 @@
     &:hover::after {
       opacity: 1;
     }
+  }
+
+  &__intro {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 200px;
+    }
+
+    @include onDesktop {
+      margin-top: 168px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 18px;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #fff;
+
+    @include onTablet {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+
+      font-size: 64px;
+      line-height: 68px;
+      letter-spacing: -2px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 24px;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #fff;
+
+    @include onTablet {
+      font-size: 18px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 83px;
+    }
+  }
+
+  @include onDesktop {
+    margin-bottom: $margin-section-desktop;
   }
 }

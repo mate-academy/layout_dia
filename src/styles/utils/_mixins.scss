@@ -3,3 +3,82 @@
     @content;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin testimonialRectangle {
+  position: absolute;
+  width: 56px;
+  height: 139px;
+
+  background-color: $color-blue;
+  border-radius: 12px;
+  transform: rotate(0deg);
+
+  transition: transform 0.3s;
+
+  @include onDesktop {
+    transform: rotate(30deg);
+  }
+}
+
+@mixin menuMobile {
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  z-index: 3;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+}
+
+@mixin testimonialsProcessContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onDesktop {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@mixin testimonialsProcessTitle {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 3px;
+  color: #c0cdd7;
+  text-align: center;
+
+  @include onDesktop {
+    margin-top: 103px;
+    text-align: start;
+  }
+}
+
+@mixin testimonialsProcessSubtitle {
+  margin-bottom: 24px;
+
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #253757;
+  text-align: center;
+
+  @include onDesktop {
+    text-align: start;
+  }
+}
