@@ -27,21 +27,20 @@ Adapt the page to the following screens:
 11. Implement the footer.
 
 ## HR important moments
-- Скорость анимаций на всем лендинге одинаковая (например увеличение при наведении или выезд блоков при скроле)
-- Placeholder в формах подсказывают что именно ввести, а если стоит валидация формы, то понятно в каком формате вводить номер телефона
-- Убедитесь, что с мобильных выглядит все аккуратно и без горизонтальной прокрутки
-- Добавьте favicon
-- Слайдер должен быть рабочим
-- Добавьте мягкий скролл при клике на меню до соответствующих блоков страницы
-- После нажатия кнопок меню лендинг скролит именно на начало нужного блока (именно, туда, где начинается его секция)
-- Для пользователя удобно, когда при клике на Address, он открывается в новой вкладке в гугл-картах. 
-- Важно, чтобы у пользователя была возможность удобно написать текст в 2-3 строки в поле message
-- Кнопка "learn more" пусть ведет на максимально близкий блок (Our expertise) 
-- Кнопка "Hire Us" пусть ведет на форму внизу, а то сейчас вообще не активная
-- Анимации на сайте должны быть плавными, чтобы сайт выглядел живее: например в блоке с отзывами Our expertise
-- Все иконки соц сетей в футере должны быть кликабельны с hover-стилями и открывать в новой вкладке социальные сети
-- Кнопки футер меню при нажатии должны вести на релевантные блоки лендинга
-
+- The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
+- Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
+- Make sure everything looks neat on mobile and without horizontal scrolling
+- Add favicon
+- Add a smooth scroll for the whole page
+- When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
+- When you click on the Learn More button in the first block scroll page to the About Us block
+- Don’t forget to add the title “Air” for the whole web page https://prnt.sc/rcw40
+ The "Hire Us" button in the header menu should lead to the contact form
+- In the PROCESS section, it is also worth adding a hover effect when hovering over cards (for example, let them increase in size a little)
+- Inside the cards in PROCESS sections, make a link out of the "Learn More" text, so that it hovers simultaneously with the arrow button on the left
+- In the Vision, Passion, Results section, the “Apply” button also should lead to the contact form
+- Try to make the slider on the hero page. Images for it are easy to find on Unsplash.
+- In the Testimonials and Our expertise section add hover effects for each review.
 
 ## Github flow
 1. **Fork** the repo.
