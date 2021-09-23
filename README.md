@@ -26,21 +26,29 @@ Adapt the page to the following screens:
 10. Implement `Contact us` block.
 11. Implement the footer.
 
-## HR important moments
-- Скорость анимаций на всем лендинге одинаковая (например увеличение при наведении или выезд блоков при скроле)
-- Placeholder в формах подсказывают что именно ввести, а если стоит валидация формы, то понятно в каком формате вводить номер телефона
-- Убедитесь, что с мобильных выглядит все аккуратно и без горизонтальной прокрутки
-- Добавьте favicon
-- Слайдер должен быть рабочим
-- Добавьте мягкий скролл при клике на меню до соответствующих блоков страницы
-- После нажатия кнопок меню лендинг скролит именно на начало нужного блока (именно, туда, где начинается его секция)
-- Для пользователя удобно, когда при клике на Address, он открывается в новой вкладке в гугл-картах. 
-- Важно, чтобы у пользователя была возможность удобно написать текст в 2-3 строки в поле message
-- Кнопка "learn more" пусть ведет на максимально близкий блок (Our expertise) 
-- Кнопка "Hire Us" пусть ведет на форму внизу, а то сейчас вообще не активная
-- Анимации на сайте должны быть плавными, чтобы сайт выглядел живее: например в блоке с отзывами Our expertise
-- Все иконки соц сетей в футере должны быть кликабельны с hover-стилями и открывать в новой вкладке социальные сети
-- Кнопки футер меню при нажатии должны вести на релевантные блоки лендинга
+## Checklist for preparing a portfolio project for HR review
+
+1. Don’t forget to add the title “Air” for the whole web page https://prnt.sc/rcw40
+2. A landing page is implemented strictly according to the design in Figma
+4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
+5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
+6. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
+7. Make sure everything looks neat on mobile and without horizontal scrolling
+8. Add favicon
+9. Add a smooth scroll for the whole page
+10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
+11. The form shouldn’t submit empty
+12. The "Learn more" button should lead to the closest block (Our expertise)
+13. The "Hire Us" button in the header menu should lead to the contact form
+14. In the PROCESS section add a hover effect to cards (for example, let them increase in size a little)
+15. Inside the cards in PROCESS sections, make a link out of the "Learn More" text, so that it hovers simultaneously with the arrow button on the left
+16. In the Vision, Passion, Results section, the “Apply” button also should lead to the contact form
+17. In the Testimonials and Our expertise section add hover effects for each review
+18. After clicking the menu buttons, the landing page will scroll exactly to the beginning of the desired block (exactly where its section begins)
+19. The arrows at the bottom of the first block should not respond slowly to pressing (this is possible if the pictures are too large)
+20. When a user clicks on Address Google Maps is opened in a new tab
+21. The user must have the opportunity to conveniently write 2-3 lines of text in the message field
+22. OPTIONAL: After everything is done, you can implement the slider on the hero page (you can find images for it on Unsplash)
 
 
 ## Github flow
