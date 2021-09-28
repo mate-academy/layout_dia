@@ -1,7 +1,9 @@
 .header {
+  position: relative;
   overflow: hidden;
 
   min-height: $headerHeight;
+  height: 1px;
   @include onTabletOrPhone {
     min-height: 893px;
   }
@@ -53,18 +55,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    @include onTabletOrPhone {
-      height: max-content;
-    }
   }
 
   &__details-container {
     display: flex;
+    width: 50%;
+    flex-grow: 1;
 
-    @include onTabletOrPhone {
-      margin-top: 56px;
+    @include onTabletOrPhone { 
       display: block;
+      width: 100%;
+      margin-top: 56px;
     }
   }
 
@@ -111,31 +112,20 @@
     }
   }
 
-  .header__intro-slider-container {
-    position: relative;
-    max-width: 50%;
-    margin-top: 41px;
-    height: 680px;
-
-    @include onTabletOrPhone {
-      height: 390px;
-      max-width: 100%;
-    }
-  }
-
   .header__intro-slider {
-    width: 50vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    margin-top: 48px;
+    height: 680px;
     border-top-left-radius: $mainSectionRadius;
     overflow: hidden;
 
     @include onTabletOrPhone {
+      position: static;
+      width: 100%;
       border-top-right-radius: $mainSectionRadius;
-      width: 100vw;
-      margin-left: -40px;
-    }
-
-    @include onPhone {
-      margin-left: -20px;
     }
   }
 
