@@ -1,4 +1,32 @@
 .grid {
   display: grid;
-  grid-template-columns: ;
+  grid-template-columns: repeat($gridColumnsDesktop, 1fr);
+  column-gap: 3%;
+  border: 1px solid black;
+
+  @include onTabletOrPhone {
+    grid-template-columns: repeat($gridColumnsTablet, 1fr);
+  }
+
+  @include onPhone {
+    grid-template-columns: repeat($gridColumnsPhone, 1fr);
+  }
+
+  &--services {
+    grid-template-rows: repeat($gridRowsServices, $gridRowHeight);
+  }
+
+  &__item {
+    &--desktop {
+      @include gridColumns ($gridColumnsDesktop);
+      @include gridRows ($gridRowsServices);
+    }
+
+    @include onTabletOrPhone {
+      &--tablet {
+        @include gridColumns ($gridColumnsDesktop);
+        @include gridRows ($gridRowsServices);
+      }
+    }
+  }
 }

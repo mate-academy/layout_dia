@@ -9,3 +9,23 @@
     @content;
   }
 }
+
+@mixin gridColumns ($number) {
+  @for $start from 1 through $number {
+    @for $end from $start through $number {
+      &-cols--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+
+@mixin gridRows ($number) {
+  @for $start from 1 through $number {
+    @for $end from $start through $number {
+      &-rows--#{$start}-#{$end} {
+        grid-row: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
