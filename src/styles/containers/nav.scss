@@ -1,13 +1,47 @@
 .nav {
+  
   @include onTabletOrPhone {
+    // display: none;
+  }
+
+  &__link-active {
     display: none;
+
+    @include onTabletOrPhone {
+      display: block;
+    }
   }
 
   &__list {
     display: flex;
+    flex-direction: row;
     list-style: none;
     height: 100%;
     gap: 46px;
+
+    @include onTabletOrPhone {
+      // display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateY(-100%);
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+
+      background-color: darken($mainColor, 5%);
+      border-bottom-left-radius: $mainSectionRadius;
+      border-bottom-right-radius: $mainSectionRadius;
+    }
+
+    &:target {
+      transition: transform $animationTime;
+      transform: translateY(0);
+    }
   }
 
   &__link {
@@ -16,5 +50,9 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     vertical-align: middle;
+
+    @include onTabletOrPhone {
+      font-size: 3em;
+    }
   }
 }
