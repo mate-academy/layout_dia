@@ -1,3 +1,51 @@
+@mixin link {
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+@mixin center-position {
+  max-width: 1146px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin header-footer-link {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+@mixin block-title {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0cdd7;
+}
+
+@mixin text-block {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  color: $text;
+
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+// vision-passion-block //
 @mixin border-w3-r6 {
   border-width: 3px;
   border-radius: 6px;
@@ -18,40 +66,49 @@
   border-radius: 12px;
 }
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// media //
+@mixin mobile {
+  @media (min-width: 320px) and (max-width: 767px) {
+    @content;
+  }
 }
 
-@mixin title {
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 150%;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #c0cdd7;
+@mixin iPad {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
 }
 
-@mixin text-block {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 150%;
-  color: $text;
+@mixin tablet {
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    @content;
+  }
 }
 
+@mixin onDesktop {
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin full {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+// page-color //
 @mixin page-color {
-  .header {
+  .main-content__conteiner--strategic-agency {
     background-color: #008aff;
     border-radius: 0 0 0 100px;
   }
   .button {
     background-color: #ff9c8e;
-    border-radius: 64px;
     border-color: #ff9c8e;
+    border-radius: 64px;
   }
-  .slider__img {
+  .slider__image {
     border-radius: 100px 0 0;
   }
   .expertise {
@@ -93,26 +150,26 @@
   .services__link--4 {
     background-color: #f36363;
   }
-  .testimonial__element--1--1,
-  .testimonial__element--1--2 {
+  .testimonial__card--1 .testimonial__element--1,
+  .testimonial__card--1 .testimonial__element--2 {
     background-color: #56ccf2;
   }
-  .testimonial__quotes--1 {
-    color: #56ccf2;
+  .testimonial__card--1 .testimonial__quotes--1 {
+    background-image: url(../images/testimonials/quotes-blue.png);
   }
-  .testimonial__element--2--1,
-  .testimonial__element--2--2 {
+  .testimonial__card--2 .testimonial__element--1,
+  .testimonial__card--2 .testimonial__element--2 {
     background-color: #fcc304;
   }
   .testimonial__quotes--2 {
-    color: #fcc304;
+    background-image: url(../images/testimonials/quotes-yellow.png);
   }
-  .testimonial__element--3--1,
-  .testimonial__element--3--2 {
+  .testimonial__card--3 .testimonial__element--1,
+  .testimonial__card--3 .testimonial__element--2 {
     background-color: #f25656;
   }
   .testimonial__quotes--3 {
-    color: #f25656;
+    background-image: url(../images/testimonials/quotes-red.png);
   }
   .vision-passion-results__design-element {
     border-radius: 500px;
@@ -139,14 +196,14 @@
   .vision-passion-results__design-element--10 {
     border-color: #bc04fc;
   }
-  .footer {
+  .main-content__conteiner--contact-us {
     background-color: #008aff;
     border-radius: 0 100px 0 0;
   }
   .send-us__form-element {
     background-color: #008aff;
   }
-  .header__container--hire-us::after {
+  .page__header-footer-link::before {
     background-color: #ff9c8e;
   }
 }
