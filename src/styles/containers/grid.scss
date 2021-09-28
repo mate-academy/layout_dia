@@ -1,8 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat($gridColumnsDesktop, 1fr);
-  column-gap: 3%;
-  border: 1px solid black;
+  column-gap: $gridGap;
 
   @include onTabletOrPhone {
     grid-template-columns: repeat($gridColumnsTablet, 1fr);
@@ -14,6 +13,10 @@
 
   &--services {
     grid-template-rows: repeat($gridRowsServices, $gridRowHeight);
+
+    @include onTabletOrPhone {
+      grid-template-rows: repeat($gridRowsServices + 2, $gridRowHeight)
+    }
   }
 
   &__item {
@@ -25,8 +28,14 @@
     @include onTabletOrPhone {
       &--tablet {
         @include gridColumns ($gridColumnsDesktop);
-        @include gridRows ($gridRowsServices);
+        @include gridRows ($gridRowsServices + 2);
       }
     }
+
+    &:nth-last-child(-n + 2) {
+      position: relative;
+      top: $gridGap;
+    }
   }
+
 }
