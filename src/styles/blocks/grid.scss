@@ -1,18 +1,45 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
+  gap: 20px;
+
+  &--not-phone {
+    display: block;
+
+    @include on640 {
+      display: grid;
+    }
+  }
 
   @include on640 {
     grid-template-columns: repeat(6, 1fr);
-    column-gap: 30px;
+    gap: 30px;
+    margin: 0 auto;
+  }
+
+  @include on1024 {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 261px);
+    gap: 20px;
   }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
-        &--#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+    @include on640 {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include on1024 {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
       }
     }
