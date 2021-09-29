@@ -1,32 +1,22 @@
 .header {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 18px;
+  position: relative;
+  min-height: 800px;
+  height: max-content;
+  border-radius: 0 0 30px 30px;
   background-color: $c-dark-grey;
   color: $c-white;
-
-  @include on640 {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
 
   &__content {
     display: flex;
     margin-bottom: 48px;
-  }
 
-  &__nav {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: space-between;
-  }
+    @include on640 {
+      margin-bottom: 56px;
+    }
 
-  &__menu-opener {
-    display: block;
-    width: 18px;
-    height: 8px;
-    background-image: url(../images/menu/vector.svg);
+    @include on1024 {
+      margin-bottom: 38px;
+    }
   }
 
   &__hire-us {
@@ -47,17 +37,69 @@
     }
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__title {
     margin-bottom: 32px;
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;
+
+    @include on640 {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    @include on1024 {
+      max-width: 200px;
+      margin-bottom: 32px;
+    }
   }
 
   &__subtitle {
     margin-bottom: 72px;
     font-size: 18px;
     line-height: 150%;
+
+     @media (min-width: 450px) {
+       width: 400px;
+     }
+
+     @include on640 {
+       margin-bottom: 56px;
+     }
+     
+     @include on1024 {
+       margin-bottom: 83px;
+     }
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 390px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+
+    @include on1024 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      height: 680px;
+      border-radius: 30px 0 30px 0;
+    }
+
+    @include on2560 {
+      justify-content: flex-end;
+    }
   }
 }
