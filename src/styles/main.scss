@@ -1,5 +1,7 @@
 @import "./typography";
 
+$header-height: 800px;
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +13,7 @@
 }
 
 .header {
-  height: 800px;
+  height: $header-height;
   background-color: #2c2c2c;
   padding-top: 48px;
   border-radius: 0 0 30px 30px;
@@ -71,31 +73,33 @@
     background-image: url(../images/header-picture-big.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: fill;
-    height: 390px;
+    background-size: cover;
+    height: 0.43 * $header-height;
     width: 100vw;
     border-radius: 30px;
 
-    @media (min-width: 640px) {
-      width: 100vw;
-      height: 390px;
-    }
+    // @media (min-width: 640px) {
+    //   width: 100vw;
+    //   height: 43.67vh;
+    // }
 
     @media (min-width: 1024px) {
       width: 49.02vw;
-      height: 680px;
+      height: 0.85 * $header-height;
       border-radius: 30px 0;
     }
 
     @media (min-width: 1600px) {
       width: 42.93vw;
-      height: 680px;
+      height: 0.85 * $header-height;
       border-radius: 30px 0;
     }
 
     @media (min-width: 2560px) {
       width: 45.59vw;
-      height: 680px;
+      height: 0.85 * $header-height;
+      background-size: auto;
+      background-position: 0%;
     }
   }
 }
@@ -162,6 +166,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 10px;
 
   &__title {
     @extend %poppins-600;
@@ -208,8 +213,6 @@
 
   &__articles {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: flex-start;
     gap: 177px;
     max-width: 1144px;
@@ -257,17 +260,14 @@
 
 .services {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   max-height: fit-content;
 
   &__container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     width: 1144px;
-    gap: 186px;
+    justify-content: space-between;
     padding: 0 20px;
   }
 
@@ -275,6 +275,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 10px;
   }
 
   &__subtitle {
