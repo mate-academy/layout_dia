@@ -16,11 +16,10 @@
 
     @include onTabletOrPhone {
       position: absolute;
-      top: 0;
+      top: -100%;
       left: 0;
       right: 0;
       bottom: 0;
-      transform: translateY(-100%);
 
       flex-direction: column;
       align-items: center;
@@ -30,11 +29,11 @@
       background-color: darken($mainColor, 5%);
       border-bottom-left-radius: $mainSectionRadius;
       border-bottom-right-radius: $mainSectionRadius;
+      transition: transform $animationTime;
     }
 
     &:target {
-      transition: transform $animationTime;
-      transform: translateY(0);
+      transform: translateY(100%);
     }
   }
 
@@ -45,7 +44,7 @@
     text-transform: uppercase;
 
     @include onTabletOrPhone {
-      font-size: 3em;
+      font-size: 2.5em;
     }
   }
 }
