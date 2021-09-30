@@ -1,0 +1,108 @@
+.process {
+  &--lower {
+    margin-top: 64px;
+
+    &-tablet {
+      @include onTablet {
+        margin-top: 102px;
+      }
+    }
+  }
+
+  &--upper {
+    margin-top: 30px;
+
+    &-tablet {
+      @include onTablet {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__block {
+    box-sizing: border-box;
+    height: 264px;
+    width: 264px;
+    padding: 32px 0 32px 32px;
+    background: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    &--lower {
+      margin-top: 30px;
+    }
+  }
+  
+  &__number {
+    width: 46px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 23px;
+    background-color: #{$color-blue}11;
+
+    @for $number from 1 through 4 {
+      &--#{$number}::before {
+        content: "00#{$number}";
+        color: $color-blue;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      &--tablet-#{$number}::before {
+        @include onTablet {
+          content: "00#{$number}";
+          font-size: 13px;
+          line-height: 19.5px;
+        }
+      }
+    }
+  }
+
+  &__info {
+    margin: 24px 0 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: $color-grey;
+
+    &--tablet {
+      @include onTablet {
+        font-size: 13px;
+        line-height: 19.5px;
+      }
+    }
+  }
+
+  &__link {
+    margin-top: 32px;
+    display: flex;
+
+    &-arrow {
+      @include square(40px);
+      background-image: url(../images/Vector.png);
+      background-color: $color-blue;
+      background-position: center;
+      background-size: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 5px 5px 5px #143c9a;
+      }
+    }
+
+    &-text {
+      margin-left: 16px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      text-align: center;
+      color: #334563;
+    }
+  }
+}
