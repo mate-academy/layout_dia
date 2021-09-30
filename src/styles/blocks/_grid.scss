@@ -1,0 +1,123 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @include onNotebook {
+    display: grid;
+    grid-template-columns: repeat(2, 264px);
+    grid-template-rows: repeat(5, 117px);
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-areas: ". item-2"
+      "item-1 item-2"
+      "item-1 item-4"
+      "item-3 item-4"
+      "item-3 .";
+  }
+
+  &__item {
+    display: inline-block;
+    padding: 24px;
+    margin: 15px;
+    background-color: #fff;
+    border-radius: 16px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 9px rgba(37, 41, 49, 0.03);
+    }
+
+    @include onNotebook {
+      padding: 32px;
+      margin: 0;
+    }
+
+    &--1 {
+      grid-area: item-1;
+    }
+
+    &--2 {
+      grid-area: item-2;
+    }
+
+    &--3 {
+      grid-area: item-3;
+    }
+
+    &--4 {
+      grid-area: item-4;
+    }
+  
+
+    &-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 46px;
+      height: 24px;
+      background-color: #2060f610;
+      border-radius: 23px;
+
+      .grid__number {
+        font-family: "Poppins", sans-serif;
+        font-size: 13px;
+        color: $colorBlue;
+      }
+    }
+
+    &-paragraph {
+      margin-top: 24px;
+      font-size: 13px;
+      display: block;
+      width: 190px;
+      color: $gray-400;
+
+      @include onTablet {
+        width: 200px;
+      }
+    }
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px 5px 5px;
+      margin-left: -5px;
+      border-radius: 12px;
+      width: 143px;
+      margin-top: 28px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+
+      &:hover {
+        background: #2060f620;
+      }
+
+      @include onTablet {
+        margin-top: 32px;
+      }
+
+      &-text {
+        font-size: 15px;
+        line-height: 22.5px;
+        color: $gray-500;
+      }
+
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 39px;
+        height: 39px;
+        margin-right: 5px;
+        background-color: $colorBlue;
+        border-radius: 50%;
+      }
+    }
+  }
+}
