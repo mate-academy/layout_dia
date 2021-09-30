@@ -32,6 +32,8 @@
   }
 
   &__item {
+    position: relative;
+
     &--desktop {
       @include gridColumns ($gridColumnsDesktop);
       @include gridRows ($gridRowsServices);
@@ -43,12 +45,15 @@
         @include gridRows ($gridRowsServices + 1);
       }
     }
+  }
 
-    &--top-offset {
-      transform: translateY(-$gridTopOffset);
+  &__content {
+    &--beyond-left {
+      position: absolute;
+      right: 0;
 
       @include onTabletOrPhone {
-        transform: translateY(0);
+        position: static;
       }
     }
 
@@ -56,6 +61,14 @@
       transform: translateY($gridBottomOffset);
 
       @include onPhone {
+        transform: translateY(0);
+      }
+    }
+
+    &--top-offset {
+      transform: translateY(-$gridTopOffset);
+
+      @include onTabletOrPhone {
         transform: translateY(0);
       }
     }

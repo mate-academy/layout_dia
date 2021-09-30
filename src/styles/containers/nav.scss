@@ -1,9 +1,41 @@
 .nav {
+  height: 50px;
+  
   &__link-active {
     display: none;
+  }
 
+  &--float {
     @include onTabletOrPhone {
-      display: block;
+      .nav__link-active {
+        display: block;
+      }
+
+      .nav__list {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        right: 0;
+        // bottom: 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        background-color: darken($mainColor, 5%);
+        border-bottom-left-radius: $mainSectionRadius;
+        border-bottom-right-radius: $mainSectionRadius;
+        transition: transform $animationTime;
+
+        &:target {
+          transform: translateY(100%);
+        }
+      }
+
+      .nav__link {
+        font-size: 2.5em;
+      }
     }
   }
 
@@ -13,28 +45,6 @@
     list-style: none;
     height: 100%;
     gap: 46px;
-
-    @include onTabletOrPhone {
-      position: absolute;
-      top: -100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-
-      background-color: darken($mainColor, 5%);
-      border-bottom-left-radius: $mainSectionRadius;
-      border-bottom-right-radius: $mainSectionRadius;
-      transition: transform $animationTime;
-    }
-
-    &:target {
-      transform: translateY(100%);
-    }
   }
 
   &__link {
@@ -42,9 +52,5 @@
     font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
-
-    @include onTabletOrPhone {
-      font-size: 2.5em;
-    }
   }
 }
