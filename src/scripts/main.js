@@ -1,5 +1,10 @@
-// 'use strict';
-// const leftShiftButton = document.querySelector('.slider__button-left');
-// const rightShiftButton = document.querySelector('.slider__button-right');
-//
-// const sliders = document.querySelector(".slider__button");
+'use strict';
+
+document.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
