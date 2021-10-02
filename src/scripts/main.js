@@ -8,7 +8,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', () => {
   const form = document.querySelector('.footer__send-message-form');
 
   form.addEventListener('submit', handleEvent);
