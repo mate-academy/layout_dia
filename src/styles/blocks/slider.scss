@@ -1,0 +1,117 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &__photo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    height: inherit;
+    overflow: hidden;
+
+    @include onDesktop {
+      left: 50%;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &--1 {
+      background-image: url(../images/photo1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slide-img-1.jpg);
+    }
+  }
+
+  &__photo-slide {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateX(100%);
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      left: 50%;
+    }
+  }
+
+  &__content {
+    display: block;
+    position: absolute;
+    margin-bottom: 24px;
+    padding-left: 20px;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      left: 50%;
+      margin: 0 0 48px 48px;
+      padding-left: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+
+    margin: 0 0 16px;
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+    background-color: $whiteColor;
+    border-radius: 50%;
+    transition: border-radius 0.3s;
+
+    &:hover {
+      border-radius: 20%;
+    }
+  }
+
+  &__text-title {
+    margin: 0 0 8px;
+
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $whiteColor;
+  }
+
+  &__text-paragraf {
+    margin: 0;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: $whiteColor;
+  }
+
+  &__link {
+    display: inline-block;
+    line-height: 32px;
+  }
+}
