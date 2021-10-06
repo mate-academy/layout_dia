@@ -3,28 +3,29 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
-  @include onDesktop {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
   }
 
-  &--desktop {
+  &--tablet {
     display: block;
 
-    @include onDesktop {
+    @include onTablet {
       display: grid;
     }
   }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }
 
         &--desktop-#{$start}-#{$end} {
-          @include onDesktop {
+          @include onTablet {
             grid-column: #{$start} / #{$end + 1};
           }
         }
