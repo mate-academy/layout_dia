@@ -7,6 +7,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
+  scroll-behavior: smooth;
 
   &__body {
     margin: 0;
@@ -55,6 +56,25 @@
 
     @include onDesktop {
       display: flex;
+    }
+  }
+
+  &__nav {
+    background-color: $header-background;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform $duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      display: none;
     }
   }
 }
