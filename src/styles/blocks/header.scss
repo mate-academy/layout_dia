@@ -1,0 +1,116 @@
+.header {
+  background-color: $c-bg-dark;
+  color: $c-white;
+  border-radius: 0 0 30px 30px;
+
+  &__nav {
+    margin: 0 $left-margin-design;
+  }
+
+  &__content {
+    margin-left: $left-margin-design;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    @extend %h1;
+  }
+
+  &__text {
+    width: $subtitle-width-size;
+    line-height: 1.5em;
+    margin-top: 32px;
+    color: $c-white;
+    @extend %block-text-s;
+    font-size: $header-text-size;
+  }
+
+  &__learn-link {
+    @extend %link;
+    height: 50px;
+    margin-top: 83px;
+    @include hover(background-color, $c-active);
+  }
+
+  @include large-screens {
+    &__title {
+      font-size: ($header-title-size / 3) * 5;
+    }
+
+    &__text {
+      width: ($subtitle-width-size / 3) * 5;
+      font-size: ($header-text-size / 3) * 5;
+      margin-top: 48px;
+    }
+
+    &__image {
+      @include image($header-image-size-wide);
+    }
+
+    &__button {
+      @include button($header-slider-button-design);
+    }
+
+    &__learn-link {
+      height: 75px;
+      width: ($link-width / 2) * 3;
+      font-size: ($link-text-size / 2) * 3;
+    }
+  }
+
+  @include notebook {
+    &__nav {
+      margin: 0 $left-margin-notebook;
+    }
+
+    &__content {
+      margin-left: $left-margin-notebook;
+    }
+  }
+
+  @include tablet {
+    &__nav {
+      margin: 0 $left-margin-tablet;
+    }
+
+    &__content {
+      margin-left: $left-margin-tablet;
+    }
+  }
+
+  @include mobile {
+    &__content {
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 0;
+    }
+
+    &__article {
+      width: 100%;
+    }
+
+    &__nav {
+      margin: 0 $left-margin-tablet;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: ($header-title-size / 3) * 2;
+      margin-top: 48px;
+    }
+
+    &__text {
+      margin: 72px auto 0;
+      width: ($subtitle-width-size / 3) * 2;
+      text-align: center;
+    }
+
+    &__learn-link {
+      margin: 96px auto 0;
+      width: ($link-width / 3) * 2;
+      height: 37px;
+    }
+  }
+}

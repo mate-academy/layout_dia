@@ -1,0 +1,94 @@
+.process {
+  display: flex;
+  justify-content: space-between;
+
+  &__article {
+    margin-top: 104px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    @extend %block-title;
+    text-transform: uppercase;
+    color: $c-light-grey;
+  }
+
+  &__subtitle {
+    margin-bottom: 24px;
+    @extend %h2;
+  }
+
+  &__text {
+    width: $subtitle-width-size;
+    @extend %block-text-s;
+    color: $c-grey-text;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: $process-card-size $process-card-size;
+    grid-template-rows: repeat(5, ($process-card-size / 2));
+    @include process-card-gap(30px);
+  }
+
+  @include large-screens {
+    &__article {
+      margin-top: 208px;
+    }
+
+    &__title {
+      margin-bottom: 32px;
+      font-size: $block-title-size * 2;
+    }
+
+    &__subtitle {
+      margin-bottom: 48px;
+      font-size: $h2-size * 2;
+    }
+
+    &__text {
+      width: $subtitle-width-size  * 2;
+      font-size: $block-text-s-size * 2;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(2, $process-card-size-l);
+      grid-template-rows: repeat(5, ($process-card-size-l / 2));
+      @include process-card-gap(45px);
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: center;
+
+    &__cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    &__article {
+      margin: 0 0 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+    }
+
+    &__subtitle {
+      margin-bottom: 16px;
+      font-size: ($h2-size / 3) * 2;
+    }
+
+    &__text {
+      width: 100%;
+    }
+  }
+}

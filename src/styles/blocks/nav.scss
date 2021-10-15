@@ -1,0 +1,200 @@
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  height: $nav-height;
+
+  &__toggler {
+    display: none;
+  }
+
+  &__toggler-label {
+    display: none;
+  }
+
+  &__logo {
+    grid-column: 1 / 2;
+    width: 49px;
+    height: 26px;
+    background-image: url(../images/logo/dia-logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &__list {
+    grid-column: 2 / 3;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto 1fr;
+    list-style: none;
+
+    &--footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__item--hire-us {
+    grid-column: 5 / 6;
+    justify-self: end;
+    margin: 0;
+  }
+
+  &__link {
+    position: relative;
+    @extend %block-title;
+    color: $c-white;
+    text-decoration: none;
+    text-justify: center;
+    @include hover(color, $c-active);
+
+    &--is-active::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 4px;
+      background-color: #2060f6;
+    }
+  }
+
+  @include large-screens {
+    .nav {
+      &__logo {
+        margin: 32px 0;
+        height: 52px;
+        width: 98px;
+      }
+
+      &__link {
+        font-size: 20px;
+
+        &--is-active::after {
+          height: 6px;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    &__logo {
+      margin: 32px 0;
+      height: 52px;
+      width: 98px;
+    }
+
+    &__list {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      margin: 0;
+
+      &--header {
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: transform, 0.5s;
+      }
+
+      &--footer {
+        display: flex;
+      }
+
+      &--is-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      &--visible {
+        display: flex;
+      }
+    }
+
+    &__toggler {
+      display: block;
+      margin: 16px 0;
+      height: 36px;
+      width: 36px;
+      background-image: url("../images/burger/menu-burger.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &--is-active {
+        animation: 0.5s toggler-active;
+        background-image: url("../images/burger/menu-burger.png");
+        background-size: contain;
+      }
+
+      &--unactive {
+        animation: 0.5s toggler-unactive;
+      }
+
+      @keyframes toggler-active {
+        0% {
+          transform: translateY(-255px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes toggler-unactive {
+        0% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(-255px);
+        }
+      }
+    }
+
+    &__item {
+      box-sizing: border-box;
+      display: block;
+      margin: 0;
+      text-align: center;
+
+      &--hire-us {
+        width: 100%;
+        display: flex;
+      }
+    }
+
+    &__link {
+      display: block;
+      padding: 16px 0;
+      width: 100%;
+      text-align: center;
+
+      &--is-active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        border-radius: 4px;
+        background-color: #2060f6;
+      }
+    }
+  }
+}
