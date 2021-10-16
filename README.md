@@ -28,7 +28,7 @@ Adapt the page to the following screens:
 
 ## Checklist for preparing a portfolio project for HR review
 
-1. Don’t forget to add the title “Air” for the whole web page https://prnt.sc/rcw40
+1. Don’t forget to add the title “Air” for the whole web page
 2. A landing page is implemented strictly according to the design in Figma
 4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
 5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://andriy-yurkiv.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
