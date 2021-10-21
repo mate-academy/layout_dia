@@ -1,10 +1,12 @@
 .link {
   @extend %title;
-  text-decoration: none;
+  color: $colorWhite;
   font-size: 15px;
   line-height: 22px;
+  text-decoration: none;
   border: none;
   cursor: pointer;
+  outline: none;
 
   transition: all $animationTime;
 
@@ -13,14 +15,17 @@
   }
 
   &:hover {
-    color: $colorBlue;
-
     & .link__svg {
       fill: $colorBlue;
     }
   }
 
-  &--button {
+  &__icon {
+    height: $serviceButtonSize;
+    width: $serviceButtonSize;
+  }
+
+  &--button-static {
     @extend %flex-center;
 
     height: 56px;
@@ -33,14 +38,65 @@
     }
 
     &:hover {
-      background-color: $colorBlueForm;
+      background-color: darken($colorBlueForm, 10%);
       text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
       color: $colorWhite;
     }
   }
 
-  &--color-white {
-    color: $colorWhite;
+  &--button-dinamyc {
+    // display: flex;
+    position: relative;
+    align-items: stretch;
+    background-color: $colorWhite;
+    height: 40px;
+    color: $colorTextBlack;
+    overflow: hidden;
+    border-radius: 2em;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      z-index: 0;
+      display: block;
+      height: 40px;
+      min-width: 500px;
+      background-color: $colorBlue;
+      transition: all $animationTime;
+      transform-origin: center left;
+      transform: translateX(-92%);
+      border-radius: 2em;
+    }
+
+    .link__icon {
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+
+    .link__text {
+      position: absolute;
+      left: $serviceButtonTextLeftMargin;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all $animationTime;
+      z-index: 2;
+    }
+
+    @include onPhone {
+      @include wideButton;
+      
+      &:hover {
+        @include wideButtonActive;
+      }
+    }
+
+    &:hover {
+      @include wideButton;
+      @include wideButtonActive;
+    }
+
   }
 
 }
