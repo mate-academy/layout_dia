@@ -1,0 +1,113 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 2em;
+
+  &__link-burger {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 46px;
+  }
+
+  &__item {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: $colorBlue;
+      transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+  
+    &:hover::before {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+  }
+  
+  &__link {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+
+    padding: 0.75em 0;
+    margin-right: -2px;
+  }
+
+  &--burger {
+    @include onTabletOrPhone {
+      .nav__link-burger {
+        display: block;
+        padding: 0 1em;
+      }
+
+      .nav__list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        transform: translateY(-100%);
+
+        background-color: darken($mainColor, 5%);
+        border-bottom-left-radius: $mainSectionRadius;
+        border-bottom-right-radius: $mainSectionRadius;
+        transition: transform $animationTime;
+
+        &:target {
+          transform: translateY(0);
+        }
+      }
+
+      .nav__link {
+        font-size: 2.5em;
+      }
+    }
+
+    @include onPhone {
+      .nav__list {
+        height: 100vh;
+      }
+    }
+  }
+
+  &--column {
+    @include onPhone {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .nav__list {
+        flex-direction: column;
+        gap: 1em;
+
+        margin-top: 2em;
+      }
+    }
+  }
+
+  .nav__link {
+    white-space: nowrap;
+  }
+}

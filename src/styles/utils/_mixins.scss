@@ -1,6 +1,54 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTabletOrPhone {
+  @media (max-width: $tabletBreakpoint) {
+    @content;
+  }
+}
+
+@mixin onPhone {
+  @media (max-width: $phoneBreakpoint) {
+    @content;
+  }
+}
+
+@mixin gridColumns ($number) {
+  @for $start from 1 through $number {
+    @for $end from $start through $number {
+      &-cols--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+
+@mixin gridRows ($number) {
+  @for $start from 1 through $number {
+    @for $end from $start through $number {
+      &-rows--#{$start}-#{$end} {
+        grid-row: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+
+@mixin wideButton {
+  &:before {
+    transform: translateX(0);
+    background-color: $colorBlue;
+  }
+
+  .link__text {
+    color: $colorWhite;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+@mixin wideButtonActive {
+  &::before {
+    background-color: darken($colorBlueForm, 10%);
+  }
+
+  .link__text {
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
   }
 }

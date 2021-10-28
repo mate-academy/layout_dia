@@ -1,0 +1,86 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat($gridColumnsDesktop, 1fr);
+  column-gap: $gridGap;
+
+  @include onTabletOrPhone {
+    grid-template-columns: repeat($gridColumnsTablet, 1fr);
+  }
+
+  &--no-tablet {
+    @include onTabletOrPhone {
+      display: flex;
+      flex-direction: column;
+      gap: $gridGap;
+    }
+
+    @include onPhone {
+      gap: $gridGapSmall;
+    }
+  }
+
+  &--no-phone {
+    @include onPhone {
+      display: flex;
+      flex-direction: column;
+      gap: $gridGapSmall;
+    }
+  }
+
+  &--services {
+    grid-template-rows: repeat($gridRowsServices - 1, $gridRowHeight)
+      $gridRowHeight + $gridBottomOffset;
+
+    @include onTabletOrPhone {
+      grid-template-rows: $gridRowHeight + $gridTopOffset
+        repeat(($gridRowsServices + 1) - 2, $gridRowHeight)
+        $gridRowHeight + $gridBottomOffset;
+    }
+    
+  }
+
+  &__item {
+    position: relative;
+
+    &--desktop {
+      @include gridColumns ($gridColumnsDesktop);
+      @include gridRows ($gridRowsServices);
+    }
+
+    @include onTabletOrPhone {
+      &--tablet {
+        @include gridColumns ($gridColumnsDesktop);
+        @include gridRows ($gridRowsServices + 1);
+      }
+    }
+  }
+
+  &__content {
+    &--beyond-left {
+      position: absolute;
+      min-width: max-content;
+      right: 0;
+
+      @include onTabletOrPhone {
+        min-width: auto;
+        position: static;
+      }
+    }
+
+    &--bottom-offset {
+      transform: translateY($gridBottomOffset);
+
+      @include onPhone {
+        transform: translateY(0);
+      }
+    }
+
+    &--top-offset {
+      transform: translateY(-$gridTopOffset);
+
+      @include onTabletOrPhone {
+        transform: translateY(0);
+      }
+    }
+  }
+}
