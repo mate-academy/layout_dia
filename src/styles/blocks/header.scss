@@ -1,0 +1,135 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: $colorBgBlack;
+  z-index: 100;
+
+  @include flex-center;
+
+  &__content {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    transition: padding 0.3s;
+
+    @include onTablet {
+      padding: 20px 40px;
+    }
+
+    @include onLaptop {
+      padding: 30px 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__desktop-list {
+    display: none;
+    gap: 48px;
+
+    @include onLaptop {
+      display: flex;
+    }
+  }
+
+  &__desktop-link {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    border-radius: 2px;
+    padding-bottom: 8px;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $colorBlue;
+    }
+  }
+
+  &__menu {
+    @include onLaptop {
+      display: none;
+    }
+  }
+
+  &__menu-opener {
+    width: 18px;
+    height: 8px;
+    background-image: url("../images/icons/menu-btn.svg");
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.3);
+      transform: scale(1.2);
+    }
+
+    @include onLaptop {
+      display: none;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $colorBgBlack;
+    padding: 0 40px;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__item {
+    padding: 30px 0;
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: padding 0.3s;
+
+    &:hover {
+      padding-left: 15px;
+    }
+  }
+
+  &__hire-us {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 2px solid $colorBlue;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+    }
+  }
+
+  &__menu-close {
+    margin-left: 35px;
+  }
+}
