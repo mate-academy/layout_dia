@@ -1,0 +1,131 @@
+.nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  height: 120px;
+
+  @include notebook {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  @include tablet {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__logo {
+    background-image: url(./../images/logo/Air.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 45px;
+    height: 26px;
+
+    transition: background-color 0.3s, border-radius 0.3s;
+
+    &:hover {
+      background-color: $colorBlue;
+      border-radius: 5px;
+    }
+
+    @include tablet {
+      margin-right: 35px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    font-family: $fontTitle;
+    list-style: none;
+    padding-left: 48px;
+
+    @include fullHd {
+      padding-left: 40px;
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 0;
+      padding-bottom: 5px;
+    }
+
+    @include mobile {
+      padding-bottom: 10px;
+      padding-left: 0;
+    }
+  }
+
+  &__link {
+    font-family: $fontTitle;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    font-style: normal;
+
+    scroll-behavior: smooth;
+
+    transition: background-color 0.3s, border-radius 0.3s;
+
+    &:hover {
+      background-color: $colorBlue;
+      border-radius: 5px;
+    }
+
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 3px;
+
+    color: #fff;
+
+    &--is-active::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+
+      background-color: $colorBlue;
+      border-radius: 4px;
+    }
+  }
+}
+
+.hide__menu {
+  z-index: 3;
+}
