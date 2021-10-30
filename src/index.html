@@ -99,34 +99,7 @@
         </div>
 
         <div class="header__slider slider">
-          <input
-            checked
-            type="radio"
-            name="respond"
-            class="slider__desktop"
-          >
-
           <div class="slider__container">
-            <input
-              checked
-              type="radio"
-              name="slider"
-              id="switch1"
-              class="slider__switch1"
-            >
-            <input
-              type="radio"
-              name="slider"
-              id="switch2"
-              class="slider__switch2"
-            >
-            <input
-              type="radio"
-              name="slider"
-              id="switch3"
-              class="slider__switch3"
-            >
-
             <div class="slider__slides">
               <div class="slider__slides-container">
                 <div class="slider__photos">
@@ -156,26 +129,61 @@
             </div>
 
             <div class="slider__buttons">
-              <label for="switch1" class="slider__button button-round button-round--white"></label>
-              <label for="switch2" class="slider__button button-round button-round--white"></label>
-              <label for="switch3" class="slider__button button-round button-round--white"></label>
-              <img
-                src="./images/slider/arrow-left.svg"
-                alt="Slide left"
-                class="slider__slide slider__slide--left"
+              <script>
+                const photos = document.querySelector('.slider__photos');
+                let marg = 0;
+
+                const slideRight = () => {
+                  if (marg < 2) {
+                    marg += 1;
+                  } else {
+                    marg = 0;
+                  }
+
+                  photos.style.marginLeft = `${-100 * marg}%`;
+                  photos.style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
+                }
+
+                const slideLeft = () => {
+                  if (marg > 0) {
+                    marg -= 1;
+                  } else {
+                    marg = 2;
+                  }
+
+                  photos.style.marginLeft = `${-100 * marg}%`;
+                  photos.style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
+                }
+              </script>
+              <button
+                class="slider__button slider__button--left button-round button-round--white"
+                type="button"
+                onclick="slideLeft()"
               >
-              <img
-                src="./images/slider/arrow-right.svg"
-                alt="Slide right"
-                class="slider__slide slider__slide--right"
+                <img
+                  src="./images/slider/arrow-left.svg"
+                  alt="Slide left"
+                  class="slider__slide slider__slide--left"
+                >
+              </button>
+              <button
+                class="slider__button slider__button--right button-round button-round--white"
+                type="button"
+                onclick="slideRight()"
               >
+                <img
+                  src="./images/slider/arrow-right.svg"
+                  alt="Slide right"
+                  class="slider__slide slider__slide--right"
+                >
+              </button>
             </div>
             <div class="slider__intro intro">
               <div class="intro__title">
                 INtro
               </div>
               <div class="intro__description">
-                By the same illusion which lifts the horizon.
+                By the same illusion which lifts the<br>horizon.
               </div>
             </div>
           </div>
@@ -270,7 +278,7 @@
       <div class="page__section process" id="process">
         <div class="container">
           <div class="process__content">
-            <div class="grid">
+            <div class="grid grid--phone">
               <div class="grid__item grid__item--1-2 grid__item--tablet-1-1 grid__item--desktop-1-4">
                 <div class="process__description">
                   <div class="process__subtitle subtitle">
@@ -523,7 +531,7 @@
               <div class="vision__description">
                 We are sure that first-rate job is possible only if all three components are united.
               </div>
-              <a href="#contact-us" class="vision__button button">Aplay</a>
+              <a href="#contact-us" class="vision__button button">Apply</a>
             </div>
           </div>
         </div>

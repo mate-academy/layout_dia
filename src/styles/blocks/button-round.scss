@@ -1,32 +1,37 @@
 .button-round {
-  @include adaptiv-size(40, 40);
-
+  position: relative;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: $blueColor;
   border: none;
-  transition: all 0.3s;
+  transition: transform 0.3s;
   cursor: pointer;
-  position: relative;
-
+  
   &:hover {
-    transform: perspective(100px) translateZ(20px);
+    transform: scale(1.2);
     background-color: $blueColor;
   }
-
+  
   &:active {
-    transform: translateZ(0);
+    transform: scale(1);
     background-color: #1c59e7;
   }
-
+  
   &--white {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    position: absolute;
     background-color: #fff;
-    transition: none;
+    transition: transform 0.3s;
 
-    @include desktop() {
-      width: 32px;
-      height: 32px;
+    @include tablet() {
+      width: 40px;
+      height: 40px;
+    }
+
+    &:hover {
+      background-color: #fff;
     }
   }
 

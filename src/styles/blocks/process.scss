@@ -2,32 +2,40 @@
   &__content {
     display: flex;
 
-    & &__cards > :first-child {
+    &__cards > :first-child {
       margin-top: 110%;
     }
   }
 
   &__about {
-    @include adaptiv-font(32);
-
+    font-size: 28px;
     font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
 
     color: $titleColor;
+
+    @include desktop() {
+      font-size: 32px;
+    }
   }
 
   &__phrase {
-    @include adaptiv-font(14);
-
+    font-size: 14px;
     margin-bottom: 21px;
   }
 
   &__card {
     width: 100%;
+    max-height: 264px;
     position: relative;
     box-sizing: border-box;
+    margin-bottom: 24px;
+
+    @include tablet() {
+      margin-bottom: 30px;
+    }
 
     &:after {
       content: "";
@@ -35,20 +43,10 @@
       padding-bottom: 100%;
     }
 
-    &:first-child {
-      margin-bottom: 10px;
-
-      @include tablet() {
-        margin-bottom: 20px;
+    @include phone() {
+      &--margin-top-50perc {
+        margin-top: 50%;
       }
-
-      @include desktop() {
-        margin-bottom: 30px;
-      }
-    }
-
-    &--margin-top-50perc {
-      margin-top: 50%;
     }
   }
 
@@ -59,24 +57,26 @@
   }
 
   &__card-content {
-    @include adaptiv-padding(32, 1, 1, 1);
-
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff;
+    padding: 32px;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
     box-sizing: border-box;
   }
 
   &__card-number {
-    @include adaptiv-font-card(13);
-
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    width: 45px;
+    height: 25px;
 
+    font-size: 13px;
     font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -88,6 +88,10 @@
     border-radius: 23px;
   }
 
+  &__card-description {
+    font-size: 13px;
+  }
+
   &__buttons {
     display: flex;
     flex-direction: row;
@@ -95,8 +99,7 @@
   }
 
   &__button-sing {
-    @include adaptiv-font(15);
-
+    font-size: 15px;
     font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 600;
