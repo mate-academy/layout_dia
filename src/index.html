@@ -129,36 +129,27 @@
             </div>
 
             <div class="slider__buttons">
-              <script>
+              <!-- <script>
                 const photos = document.querySelector('.slider__photos');
                 let marg = 0;
-
-                const slideRight = () => {
-                  if (marg < 2) {
-                    marg += 1;
-                  } else {
-                    marg = 0;
-                  }
-
-                  photos.style.marginLeft = `${-100 * marg}%`;
-                  photos.style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
-                }
-
-                const slideLeft = () => {
-                  if (marg > 0) {
-                    marg -= 1;
-                  } else {
-                    marg = 2;
-                  }
-
-                  photos.style.marginLeft = `${-100 * marg}%`;
-                  photos.style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
-                }
-              </script>
+              </script> -->
               <button
                 class="slider__button slider__button--left button-round button-round--white"
                 type="button"
-                onclick="slideLeft()"
+                onclick="
+                  let slider = document.querySelector('.slider__photos').style.marginLeft;
+                  let position = +(slider.substr(0, slider.length - 1)) / 100;
+                  if (position < 0) {
+                    position *= -1;
+                  }
+                  console.log(position);
+                  position > 0
+                    ? position = +position - 1
+                    : position = 2;
+
+                  document.querySelector('.slider__photos').style.marginLeft = `${-100 * position}%`;
+                  document.querySelector('.slider__photos').style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
+                "
               >
                 <img
                   src="./images/slider/arrow-left.svg"
@@ -169,7 +160,20 @@
               <button
                 class="slider__button slider__button--right button-round button-round--white"
                 type="button"
-                onclick="slideRight()"
+                onclick="
+                  let slider = document.querySelector('.slider__photos').style.marginLeft;
+                  let position = +(slider.substr(0, slider.length - 1)) / 100;
+                  if (position < 0) {
+                    position *= -1;
+                  }
+                  console.log(position);
+                  position < 2
+                    ? position += 1
+                    : position = 0;
+
+                  document.querySelector('.slider__photos').style.marginLeft = `${-100 * position}%`;
+                  document.querySelector('.slider__photos').style.transition = 'margin-left 800ms cubic-bezier(.52,.01,.53,1)';
+                "
               >
                 <img
                   src="./images/slider/arrow-right.svg"
