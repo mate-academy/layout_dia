@@ -1,186 +1,144 @@
-.header {
-  position: relative;
-  background-color: $colorBackground;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+.icon {
+  display: none;
+  width: 25px;
+  padding-bottom: 25px;
+  background-repeat: no-repeat;
+  background-size: contain;
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    box-sizing: border-box;
-    height: 100vh;
-    padding-top: 20px;
-
-    @media (min-width: 1024px) {
-      padding-top: 50px;
-      height: 800px;
-    }
-  }
-
-  &__container-for-header {
-    padding: 0 20px;
-  }
-
-  &__nav {
-    margin-bottom: 50px;
-
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__nav-container {
-    display: none;
-
-    @media (min-width: 1024px) {
-      display: flex;
-      justify-content: center;
-    }
-  }
-
-  &__nav-link {
-    font-family: $font1;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 150%;
-    text-align: center;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: $colorWhite;
-    margin-right: 48px;
-    transition: all $transitionTime;
-
-    &:hover {
-      transform: scale(1.1);
-      color: $colorBackgroundForAfter;
-    }
-  }
-
-  &__nav-link--last {
-    margin-right: 0;
-  }
-
-  &__menu-opener {
+  @include Mobile {
     display: block;
-    height: 15px;
-    width: 18px;
-
-    @include forImage2;
-    background-image: url(../images/fotoForHeader/Menu.png);
-
-    @media (min-width: 1024px) {
-      display: none;
-    }
   }
 
-  &__hire-us {
-    font-family: $font1;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 150%;
+  @include SmallPhone {
+    display: block;
+  }
 
+  &--menu {
+    background-image: url(/images/menu.svg);
+    margin-left: 36px;
+    margin-top: 12px;
+  }
+}
+
+.header {
+  background: #2c2c2c;
+  min-height: 800px;
+
+  position: relative;
+  height: max-content;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+
+  @include Tablet {
+    height: 800px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+
+  justify-content: center;
+
+  padding: 0 20px;
+
+  max-width: 2560px;
+}
+
+.header__content {
+  overflow: hidden;
+}
+
+.header__info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 48px;
+  margin-top: 166px;
+
+  @include Mobile {
+    margin-top: 56px;
     text-align: center;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: $colorWhite;
-    transition: all $transitionTime;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 67px;
-      height: 2px;
-      background-color: $colorBackgroundForAfter;
-      border-radius: 4px;
-      margin-top: 8px;
-    }
-
-    &:hover {
-      transform: scale(1.1);
-      color: $colorBackgroundForAfter;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  &__title {
-    margin: 0 0 32px;
+  @include SmallPhone {
+    margin-top: 58px;
 
-    font-family: $font1;
+    text-align: left;
+    align-items: left;
+  }
+
+  @include Tablet {
+    margin-top: 166px;
+    margin-left: 54px;
+  }
+
+  @include TheDesign {
+    margin-left: 227px;
+  }
+
+  @include Notebook {
+    margin-left: 70px;
+  }
+
+  &-title {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
     font-weight: 600;
-    font-size: 52px;
-    line-height: 120%;
-    letter-spacing: -2px;
-    color: $colorWhite;
+    font-size: 64px;
+    line-height: 68px;
 
-    @media (min-width: 1024px) {
-      margin-top: 150px;
-      font-size: 64px;
-      line-height: 68px;
+    letter-spacing: -2px;
+
+    color: $mainWhite;
+
+    width: 490px;
+
+    @include Mobile {
+      text-align: center;
+      width: 280px;
+      height: 124px;
+    }
+
+    @include SmallPhone {
+      width: 558px;
+      height: 68px;
+    }
+
+    @include Tablet {
+      width: 490px;
+      height: 136px;
+      text-align: left;
     }
   }
 
-  &__text {
-    margin-bottom: 72px;
-
-    font-family: $font2;
+  &-paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 150%;
-    color: $colorWhite;
+    width: 362px;
+    margin-top: 32px;
 
-    @media (min-width: 1024px) {
+    @include Mobile {
+      margin-top: 32px;
+      width: 280px;
+      height: 81px;
+    }
+
+    @include SmallPhone {
+      margin-top: 24px;
       width: 362px;
-      margin-bottom: 80px;
-    }
-  }
-
-  &__button {
-    margin-bottom: 48px;
-    @include displayFlex;
-
-    height: 50px;
-    width: 100%;
-    background-color: $colorBackgroundForAfter;
-    border-radius: 8px;
-
-    font-family: $font1;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-    text-align: center;
-    cursor: pointer;
-    color: $colorWhite;
-    transition: all $transitionTime;
-
-    @media (min-width: 1024px) {
-      width: 264px;
+      height: 54px;
     }
 
-    &:hover,
-    &:active {
-      color: $colorBackgroundForAfter;
-      background-color: $colorWhite;
-      border: 1px solid $colorBackgroundForAfter;
-    }
-  }
+    color: $mainWhite;
 
-  &__photo {
-    height: 390px;
-    width: 100%;
-
-    @include forImage2;
-    background-image: url(../images/fotoForHeader/Photo.png);
-
-    border-radius: 30px;
-
-    @media (min-width: 1024px) {
-      position: absolute;
-      height: 680px;
-      width: 50%;
-      right: 0;
-      bottom: 0;
+    @include Tablet {
+      width: 362px;
+      height: 54px;
     }
   }
 }
