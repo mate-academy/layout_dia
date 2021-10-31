@@ -1,0 +1,163 @@
+.result {
+  background-color: $colorWhite;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  &__title {
+    color: $titleColor;
+    font-family: $Poppins;
+    font-weight: 600;
+    font-size: $titleSize-S;
+    line-height: 120%;
+    z-index: 1;
+    padding: 198px 0 24px;
+
+    @include onTablet {
+      font-size: $titleSize-L;
+      line-height: 150%;
+    }
+  }
+
+  &__subtitle {
+    font-family: $OpenSans;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: $paragraphColor;
+    margin-bottom: 64px;
+    z-index: 1;
+
+    @include onTablet {
+      font-size: 24px;
+      line-height: 150%;
+    }
+  }
+
+  &__button {
+    margin-bottom: 198px;
+    z-index: 1;
+  }
+
+  &__oval {
+    @include oval;
+    border: 2px solid;
+
+    &:nth-child(1) {
+      left: 27%;
+      top: 11%;
+    }
+  
+    &:nth-child(2) {
+      left: 30%;
+      bottom: 25%;
+    }
+  
+    &:nth-child(3) {
+      right: 35%;
+      bottom: 18%;
+    }
+  
+    &:nth-child(4) {
+      right: 7%;
+      top: 16%;
+    }
+  
+    &:nth-child(5) {
+      left: 5%;
+      bottom: 36%;
+    }
+
+    &:nth-child(6) {
+      left: 15%;
+      top: 11%;
+    }
+  
+    &:nth-child(7) {
+      left: 8%;
+      bottom: 11%;
+    }
+  
+    &:nth-child(8) {
+      right: 7%;
+      top: 40%;
+    }
+  
+    &:nth-child(9) {
+      right: 20%;
+      bottom: 31%;
+    }
+
+    &:nth-child(10) {
+      left: 17%;
+      top: 41%;
+    }
+  
+    &:nth-child(11) {
+      right: 14%;
+      top: 19%;
+    }
+  
+    &:nth-child(12) {
+      right: 9%;
+      bottom: 16%;
+    }
+    
+    &--xs {
+      @include ovalSizeXS;
+    }
+
+    &--s {
+      @include ovalSizeS;
+    }
+
+    &--m {
+      @include ovalSizeM;
+    }
+
+    &--l {
+      border: 3px solid;
+      @include ovalSizeL;
+
+      @include onTablet {
+        display: unset;
+      }
+    }
+
+    &--xl {
+      border: 3px solid;
+      @include ovalSizeM;
+
+      @include onScreen {
+        @include ovalSizeXL;
+      }
+    }
+
+    &--xxl {
+      display: none;
+      border: 4px solid;
+      @include ovalSizeXXL;
+
+      @include onScreen {
+        display: unset;
+      }
+    }
+
+    @each $name, $color in $rectangleColors {
+      &--#{$name} {
+        border-color: $color;
+        z-index: 0;
+        transition: background-color 0.5s;
+
+        &:hover {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}
