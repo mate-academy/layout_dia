@@ -1,0 +1,173 @@
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(54px, 1fr)
+    minmax(468px, 684px) minmax(448px, 460px) 1fr;
+  align-items: center;
+  padding-top: 48px;
+  background-color: $c-main;
+  border-radius: 0 0 30px 30px;
+
+  @include onTablet {
+    padding-top: 56px;
+  }
+
+  @include onDesktop {
+    padding-top: 38px;
+    border-radius: 0 0 0 200px;
+  }
+
+  @include onDesktop-big {
+    grid-template-columns: minmax(54px, 1fr) 685px 460px 1fr;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__heading-content {
+    grid-column: 2 / 3;
+    margin-top: -32px;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 40px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    @include accentFont(600, 52px, 120%);
+
+    margin-bottom: 32px;
+    letter-spacing: -2px;
+    color: $c-white;
+    
+    @include onTablet {
+      @include accentFont(600, 64px, 68px);
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      width: 490px;
+    }
+  }
+  
+  &__description {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 72px;
+    max-width: 362px;
+    color: $c-white;
+    
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+    
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
+  }
+  
+  &__button {
+    height: 50px;
+    margin-bottom: 48px;
+    
+    @include onTablet {
+      margin-bottom: 148px;
+      width: 264px;
+    }
+    
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__main-content {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    position: relative;
+    grid-column: 3 / end;
+    background-image: url(../images/slider/first-slider-photo.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 390px;
+    border-radius: 100px 0 30px 30px;
+
+    @include onDesktop {
+      height: 680px;
+      border-radius: 100px 0 0;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    @include onTablet {
+      bottom: 32px;
+      left: 40px;
+    }
+
+    @include onDesktop {
+      bottom: 48px;
+      left: 76px;
+    }
+  }
+
+  &__slider-arrows {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  &__slider-left {
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    height: 32px;
+    width: 32px;
+    background-color: $c-white;
+    border-radius: 50%;
+  }
+
+  &__slider-right {
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    background-color: $c-white;
+    border-radius: 50%;
+  }
+
+  &__slider-arrow {
+    filter: invert(20%) sepia(11%) saturate(2423%)
+      hue-rotate(180deg) brightness(30%) contrast(95%);
+    width: 5px;
+  }
+
+  &__slider-heading {
+    @include accentFont(bold, 13px, 20px);
+
+    margin-bottom: 8px;
+    color: $c-white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__slider-text {
+    color: $c-white;
+  }
+}
