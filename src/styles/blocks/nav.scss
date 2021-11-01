@@ -1,69 +1,68 @@
 .nav {
-  display: flex;
-  align-items: center;
-
-  &__icon {
+    &__icon {
     position: absolute;
     left: 113px;
+    top: 50%;
+    transform: translateY(-50%);
     
     background-image: url(../images/Menu.svg);
     height: 24px;
     width: 24px;
     cursor: pointer;
     
+    @include medium {
+      left: 130px;
+    }
+
     @include large {
       display: none;
     }
   }
-  
+
   &__list {
     display: flex;
     gap: 48px;
+
+    &--hidden {
+      display: none;
+    }
+
+    @include large {
+      display: flex;
+    }
+
+    &--footer {
+      flex-direction: column;
+
+      @include medium {
+        flex-direction: row;
+      }
+    }
   }
 
   &__item {
-    display: none;
-
     transition: transform $transitionDuration;
 
     &:hover {
       transform: scale(1.2);
     }
-
-    @include large {
-      display: block;
-    }
   }
 
   &__link {
-    font-family: Poppins;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-
-    padding-bottom: 8px;
-    border-radius: 4px;
-    transition: border-bottom $transitionDuration;
-
+      font-family: Poppins;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    
+      padding-bottom: 8px;
+      border-radius: 4px;
+      transition: border-bottom $transitionDuration;
+    
     &:hover {
       border-bottom: 2px $colorMain solid;
     }
-  }
-
-  &__list--footer  {
-    flex-direction: column;
-    gap: 24px;
-
-    @include medium {
-      flex-direction: row;
-      gap: 40px;  
-    }
-  }
-
-  &__item--footer {
-    display: block;
   }
 }
