@@ -3,7 +3,7 @@
 @import "typography";
 
 body {
-  background: $c-gray;
+  background-color: #e5e5e5;;
 }
 
 * {
@@ -31,8 +31,9 @@ body {
 }
 
 .container {
-  max-width: 1600px;
   padding: 0 20px 0;
+  max-width: 1144px;
+  margin: 0 auto;
 
   @include onTablet() {
     padding: 0 40px 0;
@@ -41,40 +42,56 @@ body {
   @include onNotebook() {
     padding: 0 56px 0;
   }
-
-  @include theDesign() {
-    padding: 0 227px 0;
-  }
 }
 
 .header {
   background-color: #2c2c2c;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  &__content {
+    background-color: #2c2c2c;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 
   @include onNotebook() {
     display: grid;
-    grid-template-columns: repeat(12, minmax(58px, 1fr));
-    column-gap: 20px;
-    grid-template-rows: 120px 1fr;
-  }
-
-  @include theDesign() {
-    grid-template-columns: repeat(12, minmax(68px, 1fr));
+    grid-template-columns: 1fr repeat(12, 68px) 1fr;
     column-gap: 30px;
+    grid-template-rows: 1fr;
+   }
+  
+  @include theDesign() {
+    grid-template-columns: 1fr repeat(12, 68px) 1fr;
+    column-gap: 30px;
+   }
   }
 
   &__startegic {
     display: flex;
     flex-direction: column;
     margin-bottom: 48px;
+    padding: 58px 20px 0;
 
     @include onTablet() {
-      margin-bottom: 147px;
+      padding: 58px 40px 0;
+      margin-bottom: 148px;
+    }
+
+    @include onNotebook() {
+      width: max-content;
+      padding: 58px 56px 0;
+      grid-column: 2 / 4;
+      grid-row: 1 / 2;
+      align-self: center;
+    }
+
+    @include theDesign() {
+      grid-column: 2 / 5;
     }
   }
 
@@ -133,35 +150,21 @@ body {
   }
 }
 
-.nav__grid {
-  @include onNotebook() {
-    grid-column: 1 / 13;
-    grid-row: 1 / 2;
-  }
-}
-
-.main__grid {
-  @include onNotebook() {
-    grid-column: 1 / 8;
-    grid-row: 2 / 3;
-    align-self: center;
-  }
-}
-
 .nav {
   position: relative;
-  margin-bottom: 48px;
+  padding-bottom: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0 0;
 
   @include onTablet() {
-    margin-bottom: 56px;
+    // margin-bottom: 56px;
   }
 
   @include onNotebook() {
-    padding-top: 48px;
+    // margin-bottom: 38px;
+    padding: 48px 0 48px;
   }
 
   &__logo {
@@ -243,20 +246,22 @@ body {
 
 .intro {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   flex-basis: 390px;
   border-radius: 30px;
   background: url(../images/watchbig.jpg) no-repeat center / cover;
 
   @include onNotebook() {
-    grid-column: 7 / -1;
-    grid-row: 2 / 3;
+    // margin-top: 58px;
+    grid-column: 8 / -1;
+    grid-row: 1 / 2;
     border-bottom-left-radius: 0%;
     border-top-right-radius: 0%;
   }
 
   @include theDesign() {
-    grid-column: 8 / -1;
+    grid-column: 9 / -1;
   }
 
   &__content {
@@ -333,10 +338,10 @@ body {
 }
 
 .who-we-are {
-  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
 
   &__content {
-    margin: 0 auto;
     padding: 120px 0;
     max-width: 754px;
     display: flex;
@@ -379,13 +384,12 @@ body {
 .our-expertise {
   background-color: #fff;
   border-radius: 30px;
+  display: flex;
+  justify-content: center;
 
   &__content {
     padding: 72px 0;
     max-width: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   &__title {
@@ -406,10 +410,20 @@ body {
     display: grid;
     grid-template-columns: 1;
     gap: 56px;
+    justify-content: center;
+
+    @include onTablet() {
+      gap: 72px;
+    }
 
     @include onNotebook() {
       grid-template-columns: repeat(3, max-content);
       align-content: center;
+      gap: 136px;
+    }
+
+    @include theDesign() {
+      gap: 176px;
     }
   }
 
@@ -425,6 +439,12 @@ body {
     @include onNotebook() {
       margin-bottom: 40px;
     }
+  }
+
+  &__photo {
+    width: 164px;
+    height: 164px;
+    border-radius: 15px;
   }
 
   &__subtitle {
@@ -448,5 +468,117 @@ body {
     @include onNotebook() {
       max-width: 212px;
     }
+  }
+}
+
+.process {
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    padding: 120px 0;
+    margin: 0 auto;
+  }
+
+  &__main {
+    width: 280px;
+    margin-bottom: 48px;
+
+    @include onTablet() {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    // text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C0CDD7;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+    color: #253757;
+  }
+
+  &__paragraph {
+    display: block;
+    font-family: Open Sans;
+    font-size: 14px;
+    line-height: 21px;
+    color: #6C788B;
+
+    &:not(:last-child) {
+      margin-bottom: 22px;
+    }
+  }
+}
+
+.boxes {
+  &__box {
+    width: 280px;
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__number {
+    font-family: Poppins;
+    font-size: 13px;
+    line-height: 20px;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 26px;
+    line-height: 24px;
+    text-align: center;
+    color: #2060f6;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    color: #6C788B;
+  }
+
+  &__learn {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #2060F6;
+  }
+
+  &__subtitle {
+    align-self: center;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
   }
 }
