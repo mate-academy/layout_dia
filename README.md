@@ -1,12 +1,13 @@
 # Air landing page
 
-This is my second landing page where I implemented principles of responsive and adaptive layout.
+This is my second landing page where I implemented principles of responsive and adaptive layout, as well as BEM methodology.
 The page was tested to work correctly on mobile, tablet, laptop and high-resolution screens.
 
 # Technologies used
 
 - HTML
 - CSS with SASS preprocessor (SCSS)
+- BEM methodology
 - JavaScript
 
 # Mockup
