@@ -1,6 +1,9 @@
 .process {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 120px;
 
   padding: $processMobilePad;
 
@@ -10,10 +13,18 @@
 
   @include onDesktop {
     padding: $processDesktopPad;
+    flex-direction: row;
   }
 
   &__info {
     margin-bottom: 24px;
+    
+    @include onTablet {
+      max-width: 50%;
+      align-self: flex-start;
+
+      margin-bottom: 56px;
+    }
   }
 
   &__title {
@@ -53,7 +64,27 @@
   &__cards {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
 
+    @include onTablet {
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      gap: 20px;
+    }
+  }
+
+  &__card {
+    width: 264px;
+
+    @include onTablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
   }
 }
