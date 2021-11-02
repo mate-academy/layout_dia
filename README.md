@@ -11,7 +11,7 @@ The page was tested to work correctly on mobile, tablet, laptop and high-resolut
 
 # Mockup
 
-Page mockup can be found [here](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia))?node-id=0%3A1).
+Page mockup can be found [here](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=0%3A1).
 
 # Demo
 
