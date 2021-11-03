@@ -3,21 +3,53 @@
   border-radius: $sliderBorderRadius;
   overflow: hidden;
 
+  @include screen-md {
+    height: unset;
+    border-radius: 0;
+    border-top-left-radius: 30px;
+  }
+
+  &__slides {
+    height: 100%;
+  }
+
   &__arrows {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
+
+    @include screen-md {
+      margin-bottom: 0;
+      margin-right: 24px;
+    }
   }
 
-  &__content {
+  &__content-wrap {
     position: absolute;
-    top: 24px;
-    left: 24px;
-    right: 24px;
-    bottom: 24px;
+    inset: 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+
+    @include screen-sm {
+      inset: 32px 40px;
+    }
+
+    @include screen-md {
+      inset: 48px 78px;
+
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+
+  &__content {
+    @include screen-md {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__nav {
@@ -25,16 +57,16 @@
     height: 32px;
     background-color: #fff;
     border-radius: 50%;
-    background-size: 8px;
+    background-size: 6px;
     background-position: center;
     background-repeat: no-repeat;
 
     &--left {
-      background-image: url(../images/slider/arrow-left.svg);
+      background-image: url(../icons/arr-left.svg);
     }
 
     &--right {
-      background-image: url(../images/slider/arrow-right.svg);
+      background-image: url(../icons/arr-right.svg);
     }
   }
 

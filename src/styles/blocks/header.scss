@@ -3,15 +3,52 @@
   padding-bottom: $headerSliderPadding;
   background-color: #2c2c2c;
 
-  &__nav {
+  @include screen-md() {
+    padding-bottom: 205px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    overflow: hidden;
+  }
+
+  &__content {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 28px;
     padding: 20px 0;
+
+    @include screen-sm() {
+     margin-bottom: 36px;
+    }
+
+    @include screen-md() {
+     margin-bottom: 104px;
+     padding: 34px 0;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include screen-md() {
+      display: flex;
+      gap: 48px;
+    }
   }
 
   &__menu-opener {
     margin-left: 36px;
+    width: 18px;
+    height: 8px;
+
+    background-image: url(../icons/menu.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include screen-md() {
+      display: none;
+    }
   }
 
   &__hire-us {
@@ -34,6 +71,16 @@
       background-color: #2060f6;
       border-radius: 4px;
     }
+
+    @include screen-md() {
+      margin: unset;
+    }
+  }
+
+  &__hero {
+    @include screen-md() {
+      max-width: 360px;
+    }
   }
 
   &__title {
@@ -43,6 +90,13 @@
     color: #fff;
     margin-bottom: 32px;
     @extend %font-poppins-semi-bold;
+
+    @include screen-sm {
+      margin-bottom: 24px;
+
+      font-size: 64px;
+      line-height: 68px;
+    }
   }
 
   &__slogan {
@@ -51,11 +105,28 @@
     color: #fff;
     margin-bottom: 72px;
     @extend %font-open-sans;
+
+    @include screen-sm {
+      max-width: 362px;
+      margin-bottom: 56px;
+    }
+
+    @include screen-md {
+      margin-bottom: 84px;
+    }
   }
 
   &__button {
     margin-bottom: 48px;
     @extend %font-poppins-semi-bold;
+
+    @include screen-sm {
+      margin-bottom: 148px;
+    }
+
+    @include screen-md {
+      margin-bottom: 0;
+    }
   }
 
   &__slider {
@@ -63,5 +134,13 @@
     left: 0;
     right: 0;
     bottom: $siderBottomMargin;
+
+    @include screen-md {
+      top: 97px;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      left: unset;
+    }
   }
 }
