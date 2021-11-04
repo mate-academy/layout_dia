@@ -1,0 +1,81 @@
+.nav {
+  &__logo {
+    &__image {
+      display: block;
+      height: 24px;
+      width: 44px;
+    }
+  }
+
+  &__menu-opener {
+    position: absolute;
+    left: 80px;
+    top: 32px;
+    display: block;
+    height: 8px;
+    width: 18px;
+    background: url(../images/logo/menu.svg) no-repeat top / cover;
+
+    @include onNotebook() {
+      display: none;
+    }
+  }
+
+  &__list--header {
+    display: none;
+  }
+
+  &__list {
+
+    @include onNotebook() {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__item {
+    list-style: none;
+ 
+    &--header {
+      margin-left: 48px;
+
+      &:first-child {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %nav-text;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $colorWhite;
+    text-decoration: none;
+  }
+
+  &__hire-us {
+    @extend %nav-text;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    color: $colorWhite;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include onNotebook() {
+      padding-top: 8px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 67px;
+      margin-top: 8px;
+      background-color: $mainBlue;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.boxes {
+  width: 280px;
+
+  @include onTablet() {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    min-width: 558px;
+  }
+
+  @include onNotebook() {
+    transform: translateY(5%);
+  }
+
+  &__box {
+    max-width: 264px;
+    padding: 32px;
+    background-color: $colorWhite;
+    border-radius: 16px;
+    transition: transform $transitionDuration, box-shadow $transitionDuration;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    @include onTablet() {
+      width: 264px;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 14px 20px $shadowFirst, 0 10px 10px $shadowSecond;
+    }
+  }
+
+  &__number {
+    font-family: Poppins;
+    font-size: $fontSizeMain;
+    line-height: 20px;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 26px;
+    line-height: 24px;
+    text-align: center;
+    color: $mainBlue;
+    background-color: $backNumber;
+    border-radius: 23px;
+  }
+
+  &__text { 
+    @extend %main-text;
+    margin-bottom: 32px;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    color: $mainTextColor;
+  }
+
+  &__learn {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    @include square(40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $mainBlue;
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__subtitle {
+    @extend %title-text;
+    align-self: center;
+    font-size: $fontSizeAverage;
+    line-height: 22px;
+    color: $greyDark;
+  }
+}

@@ -1,0 +1,168 @@
+.testimonials {
+
+  @include onNotebook() {
+    padding-bottom: 38px;
+  }
+
+  &__contant {
+    @include onNotebook() {
+      display: block;
+    }
+  }
+
+  &__main {
+    margin-bottom: 48px;
+
+    @include onTablet() {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook() {
+      margin-bottom: 86px;
+    }
+  }
+
+  &__subtitle {
+    @extend %text-bold;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $mainSubtitleColor;
+  }
+
+  &__title {
+    @extend %title-text;
+    font-size: $fontSizeTitle;
+    line-height: 48px;
+    color: $titleColor;
+
+    @include onTablet() {
+      max-width: 200px;
+    }
+  }
+
+  &__boxes {
+    @include onNotebook() {
+      display: flex;
+      gap: 20px;
+    }
+  }
+
+  &__box {
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 76px 42px 32px;
+    background: $colorWhite;
+    box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    @include onNotebook() {
+      flex-basis: 292px;
+      flex-grow: 1;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__image--container {
+    @include square(108px);
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    z-index: 2;
+    transition: transform $transitionDuration;
+
+    @include onTablet() {
+      @include square(140px);
+    }
+
+      &::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      bottom: 35px;
+      left: -10px;
+      width: 44px;
+      display: block;
+      border-radius: 12px;
+      transform: rotate(30deg);
+      z-index: -1;
+      background-color: $mainBlue;
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      z-index: -1;
+      top: 35px;
+      bottom: -40px;
+      right: -10px;
+      border-radius: 12px;
+      transform: rotate(30deg);
+      width: 44px;
+      content: "";
+      background-color: $mainBlue;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__image {
+    @include square(100%);
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    @extend %main-text;
+    position: relative;
+    margin: 0 auto 16px;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    text-align: center;
+    color: $mainTextColor;
+    max-width: 362px;
+
+    &::before {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -150%);
+      content: "";
+      background: url(../images/“.svg) no-repeat center / contain;
+      display: block;
+      width: 20px;
+      height: 16px;
+    }
+  }
+
+  &__name {
+    @extend %main-text;
+    margin-bottom: 4px;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    text-align: center;
+    color: $titleColor;
+  }
+
+  &__position {
+    @extend %secondary-text-bold;
+    margin: 0 auto;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $mainSubtitleColor;
+  }
+}

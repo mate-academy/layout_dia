@@ -1,0 +1,81 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-basis: 390px;
+  border-radius: 30px;
+  background: url(../images/watchbig.jpg) no-repeat center / cover;
+
+
+  @include onNotebook() {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+
+  @include theDesign() {
+    grid-column: 9 / -1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 24px;
+
+    @include onTablet() {
+      padding: 32px 40px 32px;
+    }
+  
+    @include onNotebook() {
+      flex-direction: row;
+      padding: 0 0 48px 78px;
+    }
+
+    @include theDesign() {
+      padding: 0 0 48px 48px;
+    }
+  }
+
+  &__arrows {
+    display: grid;
+    margin: 0 24px 16px 0;
+    grid-template-columns: repeat(2, 32px);
+    gap: 16px;
+
+    @include onNotebook() {
+      margin-bottom: 0;
+      align-self: center;
+    }
+  }
+  
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    background-color: $colorWhite;
+    border-radius: 50%;
+  
+    &--color {
+      height: 9px;
+      filter: invert(100%);
+    }
+  }
+  
+  &__subtitle {
+    @extend %text-bold;
+    margin-bottom: 8px;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorWhite;
+  }
+  
+  &__text {
+    display: block;
+    max-width: 266px;
+    font-family: Open Sans;
+    font-size: $fontSizeSecondary;
+    line-height: 20px;
+    color: $colorWhite;
+  }
+}
