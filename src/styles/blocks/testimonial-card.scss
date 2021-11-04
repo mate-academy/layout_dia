@@ -4,8 +4,29 @@
   align-items: center;
   background-color: #fff;
   border-radius: 16px;
-  max-width: 362px;
+  width: 300px;
   padding: 87px 32px 56px;
+  position: relative;
+
+  &__blue-block {
+    top: 20%;
+    position: absolute;
+    width: 139px;
+    height: 56px;
+    background-color: #2060f6;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+    z-index: 1;
+
+    &--left {
+      left: 10%;
+    }
+
+    &--right {
+      right: 10%;
+      transform: translateY(80%) rotate(-60deg);
+    }
+  }
 
   &__image {
     position: relative;
@@ -15,36 +36,16 @@
     background-position: top center;
     background-size: 150%;
     z-index: 2;
+    margin-bottom: 82px;
+    transition: 300ms;
+
+    &:hover {
+      transform: scale(110%);
+    }
 
     @include onTablet {
       width: 110px;
       height: 110px;
-    }
-
-    &::before {
-      display: block;
-      position: relative;
-      content: "";
-      width: 139px;
-      height: 56px;
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: rotate(-60deg);
-      margin-left: -40%;
-      z-index: 1;
-    }
-
-    &::after {
-      display: block;
-      position: relative;
-      content: "";
-      width: 139px;
-      height: 56px;
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: rotate(-60deg);
-      margin-left: 40%;
-      z-index: 1;
     }
   }
 
@@ -61,7 +62,9 @@
 
   &__symbol {
     font-size: 50px;
+    line-height: 1px;
     color: #2060f6;
+    margin-bottom: 12px;
   }
 
   &__testimonial {
