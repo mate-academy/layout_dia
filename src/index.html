@@ -55,25 +55,39 @@
             <a href="#expertises" class="button">Learn more</a>
           </div>
           <div class="slider">
+            <img
+              src="./images/slider/slide-img-1.jpg"
+              alt="slider image"
+              class="slider-img"
+            >
+            <img
+              src="./images/slider/slide-img-2.jpg"
+              alt="slider image"
+              class="slider-img hidden-image"
+            >
+            <img
+              src="./images/slider/slide-img-3.jpg"
+              alt="slider image"
+              class="slider-img hidden-image"
+            >
+
             <div class="slider__container">
               <div class="arrow-container slider__buttons">
-                <div class="slider__circle">
+                <div class="slider__circle" onclick="plusSlides(-1)">
                   <div class="slider__arrow-left arrow"></div>
                 </div>
 
-                <div class="slider__circle">
+                <div class="slider__circle" onclick="plusSlides(1)">
                   <div class="slider__arrow-right arrow"></div>
                 </div>
               </div>
               <div class="slider__text-container">
-                <h2 class="slider__title">INtro</h2>
+                <h2 class="slider__title">Intro</h2>
                 <p class="slider__text">By the same illusion which lifts the horizon.</p>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
 
     </header>
@@ -400,7 +414,32 @@
       </div>
 
     </footer>
-    <h1></h1>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script>
+
+      let slideIndex = 0;
+      const slides = document.querySelectorAll('.slider-img');
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+
+        if (n >= slides.length) {
+          slideIndex = 0;
+        };
+
+        if (n < 0) {
+          slideIndex = slides.length - 1;
+        }
+
+        for (let slide of slides) {
+          slide.style.display = 'none';
+        }
+      slides[slideIndex].style.display = 'block';
+      }
+    </script>
+    <h1></h1>
   </body>
 </html>

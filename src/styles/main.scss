@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.hidden-image {
+  display: none;
+}
+
 .page {
   scroll-behavior: smooth;
   background-color: #f2f9ff;
@@ -268,32 +272,28 @@ body {
 
 .slider {
   position: absolute;
-  display: flex;
-  justify-content: start;
-  align-items: flex-end;
   bottom: 0;
   right: 0;
   box-sizing: border-box;
   width: 100%;
   height: 390px;
-  padding: 24px 20px;
- 
-
-  background-image: url(../images/slider/slide-img-1.jpg);
-  background-position: center;
-  background-size: cover;
-  border-radius: 30px;
-
-  @include w_640 {
-    padding: 32px 41px;
-  }
 
   @include w_1024 {
     width: 43%;
     height: 680px;
-    padding: 48px 78px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+  }
+
+  &-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+
+    @include w_1024 {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
   &__circle {
@@ -315,7 +315,6 @@ body {
     margin-bottom: 16px;
 
     @include w_1024 {
-      margin-bottom: 0;
       display: flex;
       align-items: center;
       margin-right: 24px;
@@ -348,8 +347,18 @@ body {
   }
 
   &__container {
-    @include w_1024 {
-      display: flex;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    @include w_640 {
+      bottom: 32px;
+      left: 41px;
+    }
+
+    @include w-1024 {
+      bottom: 48px;
+      left: 78px;
     }
   }
 
