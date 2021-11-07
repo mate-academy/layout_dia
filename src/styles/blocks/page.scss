@@ -2,6 +2,11 @@
   scroll-behavior: smooth;
   background-color: $pageColor;
 
+  &__body--with-menu {
+    z-index: 3;
+    overflow: hidden;
+  }
+
   &__section {
     margin-bottom: $sectionMarginPhone;
 
@@ -15,6 +20,21 @@
 
     @include onTablet() {
       margin-bottom: -20px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    transform: translateX(-100%);
+    transition: transform $transitionDuration;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 }

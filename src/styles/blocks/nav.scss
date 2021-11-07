@@ -1,10 +1,15 @@
 .nav {
-  &__logo {
-    &__image {
-      display: block;
-      height: 24px;
-      width: 44px;
-    }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0;
+
+  @include onTablet() {
+  }
+
+  @include onNotebook() {
+    padding: 48px 0 48px;
   }
 
   &__menu-opener {
@@ -21,39 +26,22 @@
     }
   }
 
-  &__list--header {
-    display: none;
+  &__item {
+    list-style: none;
+    margin-left: 48px;
+
+    &:first-child {
+      margin-left: 20px;
+    }
   }
 
   &__list {
+    display: none;
 
     @include onNotebook() {
       display: flex;
       align-items: flex-start;
     }
-  }
-
-  &__item {
-    list-style: none;
- 
-    &--header {
-      margin-left: 48px;
-
-      &:first-child {
-        margin-left: 20px;
-      }
-    }
-  }
-
-  &__link {
-    @extend %nav-text;
-    font-size: $fontSizeMain;
-    line-height: 19px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: $colorWhite;
-    text-decoration: none;
   }
 
   &__hire-us {
