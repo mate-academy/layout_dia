@@ -4,3 +4,155 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin burger-menu {
+  content: "";
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition-duration: 0.3s;
+  transform-origin: center left;
+}
+
+@mixin tablet {
+  @media (max-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin tablet-small {
+  @media (max-width: 1600px) {  //
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 320px) { // font size change
+    @content;
+  }
+}
+
+@mixin mobile-big {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin centeredContainer($maxWidth: 1146px) {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@mixin slider-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: $slider-button-size;
+  width: $slider-button-size;
+
+  background-color: $white-text;
+  border-radius: 50%;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  @include shadow;
+}
+
+@mixin vpr-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: $vpr-button-height;
+  width: $vpr-button-width;
+
+  background-color: $interactive-color;
+  border-radius: 64px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  @include shadow;
+}
+
+@mixin send-button {
+  @include vpr-button;
+}
+
+@mixin shadow {
+  &:hover {
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.2);
+  }
+}
+
+@mixin card-picture (
+  $picture-width: 184px, $picture-height: 166px, $picture-radius: 24px) {
+  width: $picture-width;
+  height: $picture-height;
+  border-radius: $picture-radius;
+}
+
+@mixin process-card-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 24px;
+  border-radius: 23px;
+
+  margin-bottom: 32px;
+
+  opacity: 0.1;
+  outline: none;
+}
+
+@mixin process-learn-button($size: 40px) {
+  // padding-top: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 16px;
+  outline: none;
+
+  &::after {
+    content: url(../images/process/arrow-learn.svg);
+  }
+}
+
+@mixin input-form {
+  padding-bottom: 16px;
+
+  font-family: $font-poppins;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: $white-text;
+
+  border: none;
+  background-color: transparent;
+  outline: none;
+  &::placeholder {
+    @include placeholder;
+  }
+}
+
+@mixin placeholder {
+  color: $white-text;
+  opacity: 0.7;
+}
+
+@mixin focus {
+  &:focus::placeholder {
+    opacity: 1;
+  }
+}
