@@ -1,0 +1,156 @@
+.header {
+  box-sizing: border-box;
+  position: relative;
+  padding: 20px;
+  background: $colorBgBlack;
+  color: $colorWhite;
+  min-height: 893px;
+  width: 100%;
+  border-radius: 0 0 30px 30px;
+
+  @include onTablet {
+    padding: 20px 40px;
+  }
+
+  @include onLaptop {
+    padding: 48px 40px;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding-bottom: 40px;
+
+    @include onLaptop {
+      padding-bottom: 164px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    gap: 35px;
+  }
+
+  &__logo-img {
+    @extend %logo;
+
+    @include btn-hov(1.3);
+  }
+
+  &__menu {
+    @include onLaptop {
+      display: none;
+    }
+  }
+
+  &__title {
+    max-width: 280px;
+    padding-bottom: 32px;
+
+    @include onTablet {
+      max-width: max-content;
+      font-size: 64px;
+      line-height: 68px;
+      padding-bottom: 24px;
+    }
+
+    @include onLaptop {
+      max-width: 400px;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 150%;
+    color: $colorWhite;
+    padding-bottom: 72px;
+    max-width: 280px;
+
+    @include onLaptop {
+      padding-bottom: 147px;
+      max-width: 362px;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @extend %link-hover-blue;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 30px;
+      content: "";
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $colorBlue;
+    }
+  }
+  
+
+  &__button {
+    @extend %btn;
+
+    margin-bottom: 48px;
+  }
+
+  &__slider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 390px;
+    border-radius: 30px;
+    transition: all 0.3s;
+
+    @keyframes slidet-run {
+      0% {
+        background-image: url(../images/slider/slider-img-1.png);
+      }
+
+      50% {
+        background-image: url(../images/slider/slider-img-2.png);
+      }
+
+      100% {
+        background-image: url(../images/slider/slider-img-3.png);
+      }
+    }
+
+    &--auto {
+      animation: slidet-run 8s infinite alternate;
+      
+    }
+
+    &--1 {
+      background-image: url(../images/slider/slider-img-1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slider-img-2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/slider-img-3.png);
+    }
+
+    @include onLaptop {
+      top: 120px;
+      left: 52%;
+    }
+  }
+}
