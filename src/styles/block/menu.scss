@@ -1,20 +1,25 @@
 .menu {
-  display: none;
-  padding: 20px;
+  box-sizing:border-box;
   position: absolute;
-  height: max-content;
+  padding: 100px 20px 20px;
+  height: 100vh;
   width: 200px;
   background-color: #505050;
+  border-radius: 0 20px 20px 20px;
+
+  visibility: hidden;
+  opacity: 0;
+  
   z-index: 50;
+  transition: opacity 0.3s;
+
+  
 
 
-  @include onMobile {
-    display: block;
+  @include onDesctop {
+    display: none;
   }
 
-  &__img {
-    margin-bottom: 30px;
-  }
 
   &__item {
     margin-bottom: 20px;
@@ -22,14 +27,13 @@
 
   &__link {
     text-transform: uppercase;
-    font-size: 20px;
-  }
-
-  transform: translateX(-100%);
-  transition: transform 0.3s;
-
-  &:target {
-    transform: translateX(0);
+    font-size: 18px;
   }
   
+}
+
+.menu.open {
+  transition: .2s visibility linear, .2s opacity linear;
+  visibility: visible;
+  opacity: 1;
 }
