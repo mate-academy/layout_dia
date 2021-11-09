@@ -1,15 +1,61 @@
 .strategicAgency {
   position: relative;
   overflow: hidden;
+  display: flex;
 
   height: 680px;
   border-radius: 0 0 0 200px;
   background-color: $dark-blue;
   color: $white-text;
 
+  @include mobile {
+    border-radius: 0 0 0 100px;
+    height: max-content;
+  }
+
+  @include mobile-big {
+    margin: 0;
+    height: max-content;
+  }
+
   &__content {
     display: flex;
+    height: 993px;
     @include centeredContainer;
+
+    @include mobile {
+      // height: 993px;
+      display: flex;
+      flex-direction: column;
+      max-height: auto;
+      margin: 0;
+    }
+
+    @include mobile-big {
+      display: flex;
+      flex-direction: column;
+      max-height: max-content;
+    }
+  }
+
+  &__left-side {
+    @include tablet-small {
+      position: absolute;
+      left: 0;
+      margin-left: 54px;
+    }
+
+    @include tablet {
+      position: absolute;
+      left: 0;
+      margin-left: 226px;
+    }
+
+    @include large-screen {
+      position: absolute;
+      left: 0;
+      margin-left: 706px;
+    }
   }
 
   &__title {
@@ -20,6 +66,24 @@
     font-size: 64px;
     line-height: 68px;
     letter-spacing: -2px;
+
+    @include mobile {
+      margin: 36px 0 32px;
+      font-size: 52px;
+      line-height: 120%;
+      width: 280px;
+    }
+
+    @include mobile-big {
+      width: 558px;
+      height: 68px;
+      margin: 0;
+      padding-top: 15px;
+    }
+
+    @include tablet-small {
+      width: 362px;
+    }
   }
 
   &__slogan {
@@ -29,6 +93,24 @@
     font-family: $font-open-sans;
     font-size: 18px;
     line-height: 150%;
+
+    @include mobile {
+      font-size: 18px;
+      line-height: 26px;
+      margin: 0 0 72px;
+      width: 280px;
+      height: 82px;
+    }
+
+    @include mobile-big {
+      height: 54px;
+      width: 362px;
+      margin: 24px 0 56px;
+    }
+
+    @include tablet-small {
+      width: 342px;
+    }
   }
 
   &__button {
@@ -47,6 +129,14 @@
     font-size: 15px;
     line-height: 22px;
 
+    @include mobile {
+      margin-bottom: 48px;
+    }
+
+    @include mobile-big {
+      margin: 0 0 147px;
+    }
+
     @include hover(transform, scale(1.1));
     @include shadow;
     outline: none;
@@ -56,8 +146,11 @@
   }
 
   &__interactive {
-    padding: 564px 0 0 48px;
-    transform: translate(196px);
+    display: flex;
+    // padding: 564px 0 0 0px;
+    // transform: translate(265px);
+    position: relative;
+    // right: 0;
 
     height: 680px;
     width: 680px;
@@ -65,11 +158,128 @@
 
     background-image: url(../images/slider/slide-img-2.png);
     background-repeat: no-repeat;
+    background-size: cover;
+
+    @include mobile {
+      // height: max-content;
+      display: flex;
+      padding: 0;
+      position: relative;
+      left: -25px;
+      // position: absolute;
+      // transform: scale(0.8) translate(-122px);
+      border-radius: 150px 0 0;
+    }
+
+    @include mobile-big {
+      display: flex;
+      // height: max-content;
+      // transform: translate(-24px);
+      border-radius: 150px 0 0;
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      background-size: contain;
+
+      // @media (min-width: 639px) {
+      //   position: absolute;
+      //   right: 0;
+      //   width: 100%;
+      // }
+    }
+
+    @include tablet-small {
+      position: absolute;
+      // display: flex;
+      // transform: translateX(320px) translateY(-458px);
+      // position: absolute;
+      right: 0;
+      width: 502px;
+      // bottom: -40px;
+      border-radius: 150px 0 0;
+    }
+
+    @include tablet {
+      position: absolute;
+      right: 0;
+      width: 688px;
+    }
+
+    @include large-screen {
+      position: absolute;
+      right: 0;
+      width: 1166px;
+    }
   }
 
   &__sliders-part {
     display: flex;
     align-items: center;
+    position: relative;
+    // right: 0;
+    // top: 585px;
+    // left: 50px;
+
+    @include mobile {
+      // flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+      top: 450px;
+      left: 50px;
+    }
+
+    @include mobile-big {
+      flex-direction: column;
+      position: relative;
+      align-items: flex-start;
+      top: 490px;
+      left: 200px;
+    }
+
+    // @include tablet-small {
+    //   position: relative;
+    //   right: 270px;
+    //   // height: 116px;
+    //   // width: 280px;
+    // }
+
+    @include tablet-small {
+      width: 370px;
+      height: 68px;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      top: 590px;
+      margin-left: 70px;
+    }
+
+    @include tablet {
+      width: 370px;
+      height: 68px;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      top: 590px;
+      margin-left: 40px;
+    }
+
+    @include large-screen {
+      width: 370px;
+      height: 68px;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      top: 590px;
+      margin-left: 40px;
+    }
+  }
+
+  &__sliders-buttons {
+    @include mobile-big {
+      position: relative;
+      right: 130px;
+      bottom: -30px;
+    }
   }
 
   &__slider-left {
@@ -81,7 +291,29 @@
     &::after {
       content: url(../images/slider/arrow-left.svg);
       transform: translate(0, 1px);
+    }
 
+    @include mobile {
+      // @include slider-button;
+      position: relative;
+      bottom: 32px;
+    }
+
+    @include mobile-big {
+      position: relative;
+      bottom: -32px;
+    }
+
+    @include tablet-small {
+      position: relative;
+      bottom: -12px;
+      right: 10px;
+    }
+
+    @include tablet {
+      position: relative;
+      bottom: -12px;
+      right: 10px;
     }
   }
 
@@ -94,6 +326,53 @@
     &::after {
       content: url(../images/slider/arrow-right.svg);
       transform: translate(1px, 1px);
+    }
+    
+    @include mobile {
+      position: relative;
+      bottom: 64px;
+      right: -48px;
+    }
+
+    @include mobile-big {
+      position: relative;
+      right: -48px;
+    }
+
+    @include tablet-small {
+      position: relative;
+      bottom: 20px;
+      right: -32px;
+    }
+
+    @include tablet {
+      position: relative;
+      bottom: 20px;
+      right: -32px;
+    }
+  }
+
+  &__slider-text {
+    @include mobile {
+      position: relative;
+      // bottom: -30px;
+      left: -55px;
+    }
+
+    @include mobile-big {
+      position: relative;
+      bottom: -30px;
+      left: -125px;
+    }
+
+    @include tablet-small {
+      position: relative;
+      left: 20px;
+    }
+
+    @include tablet {
+      position: relative;
+      left: 20px;
     }
   }
 
@@ -113,5 +392,9 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
+
+    @include mobile {
+      width: 280px;
+    }
   }
 }
