@@ -1,0 +1,71 @@
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0;
+
+  @include onNotebook() {
+    padding: 48px 0 48px;
+  }
+
+  &__menu-opener {
+    position: absolute;
+    left: 80px;
+    top: 32px;
+    display: block;
+    height: 8px;
+    width: 18px;
+    background: url(../images/logo/menu.svg) no-repeat top / cover;
+
+    @include onNotebook() {
+      display: none;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin-left: 48px;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onNotebook() {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__hire-us {
+    @extend %nav-text;
+    font-size: $fontSizeMain;
+    line-height: 19px;
+    letter-spacing: 3px;
+    color: $colorWhite;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onNotebook() {
+      padding-top: 8px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 67px;
+      margin-top: 8px;
+      background-color: $mainBlue;
+    }
+  }
+}

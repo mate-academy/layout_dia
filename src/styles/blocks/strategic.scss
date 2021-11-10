@@ -1,0 +1,84 @@
+.strategic {
+  background-color: $backgroundDark;
+  border-radius: 0 0 30px 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  @include onNotebook() {
+    display: grid;
+    grid-template-columns: 1fr minmax(512px, 572px) minmax(512px, 572px) 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  @include theDesign() {
+    grid-template-columns: 1fr repeat(12, 68px) 1fr;
+    column-gap: 30px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    padding: 36px 20px 0;
+
+    @include onTablet() {
+      padding: 58px 40px 0;
+      margin-bottom: 148px;
+    }
+
+    @include onNotebook() {
+      width: max-content;
+      grid-area: 1 / 2 / 2 / 3;
+      align-self: center;
+    }
+
+    @include theDesign() {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__title {
+    @extend %title-text;
+    margin-bottom: 32px;
+    font-size: $fontSizeBig;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: $colorWhite;
+
+    @include onTablet() {
+      margin-bottom: 24px;
+    }
+
+    @include onNotebook() {
+      max-width: min-content;
+    }
+  }
+
+  &__info {
+    margin-bottom: 72px;
+    font-family: Open Sans, sans-serif;
+    font-weight: 300;
+    max-width: 360px;
+    font-size: $fontSizeInfo;
+    line-height: 27px;
+    color: $colorWhite;
+
+    @include onTablet() {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook() {
+      margin-bottom: 84px;
+    }
+  }
+
+  &__button {
+
+    @include onTablet() {
+      width: 264px;
+    }
+  }
+}
