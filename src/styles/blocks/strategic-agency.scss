@@ -1,21 +1,38 @@
 .strategic-agency {
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
   // width: 100vw;
+  &__grid--desktop {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr minmax(468px, 684px) minmax(448px, 460px) 1fr;
 
-  @include onTablet {
-    flex-direction: column;
-    justify-content: space-between;
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 
   &__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     margin: 0 auto;
-    max-width: 362px;
-    padding: 0 54px;
+    width: 100%;
+    grid-column: 2/3;
+    padding-left: 20px;
 
     @include onTablet {
+      padding: 0;
       margin-bottom: 48px;
+    }
+  }
+
+  &__content {
+    max-width: 362px;
+
+    @include onTablet {
       padding: 0 20px;
     }
   }
