@@ -1,0 +1,89 @@
+.nav {
+    &__icon {
+    position: absolute;
+    left: 113px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background-image: url(../images/Menu.svg);
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    
+    @include medium {
+      left: 130px;
+    }
+
+    @include large {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+
+    &--hidden {
+      display: none;
+    }
+
+    @include large {
+      display: flex;
+    }
+
+    &-footer {
+      flex-direction: column;
+
+      @include medium {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__list-menu {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    @include medium {
+      gap: 40px;
+    }
+    
+    &:after {
+      content: '';
+      height: 2px;
+      background-color: $colorMain;
+      width: 100%;
+      opacity: 0.6;
+    }
+  }
+
+  &__item {
+    transition: transform $transitionDuration;
+
+    &:hover {
+      @include medium {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__link {
+      font-family: Poppins;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    
+      padding-bottom: 8px;
+      border-radius: 4px;
+      transition: border-bottom $transitionDuration;
+    
+    &:hover {
+      border-bottom: 2px $colorMain solid;
+    }
+  }
+}
