@@ -20,6 +20,10 @@
     }
   }
 
+  &:focus {
+    box-shadow: 0 0 0 2px rgb(2, 117, 216);
+  }
+
   &__icon {
     height: $serviceButtonSize;
     width: $serviceButtonSize;
@@ -87,21 +91,22 @@
       z-index: 2;
     }
 
-    @include onPhone {
-      @include wideButton;
-
-      &:hover {
-        @include wideButtonActive;
-      }
-    }
-
     &:hover {
-      @include wideButton;
-      @include wideButtonActive;
+      &:before {
+        background-color: darken($colorBlueForm, 10%);
+      }
 
       .link__icon {
         background-color: darken($colorBlueForm, 10%);
       }
+
+      .link__text {
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &:focus {
+      box-shadow: none;
     }
   }
 }
