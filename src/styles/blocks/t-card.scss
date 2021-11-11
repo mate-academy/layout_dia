@@ -2,18 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 456px;
   width: 292px;
   background-color: $white-text;
   box-shadow: 0.01px 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
 
+  @include mobile-big {
+    width: $t-card-width-text-continer-mobile-big;
+  }
+
+  @include tablet {
+    width: 362px;
+    height: 494px;
+  }
+
   @include shadow;
   @include hover(transform, scale(1.1));
 
   &__decorations {
     position: relative;
-
     width: 100%;
   }
 
@@ -26,6 +35,14 @@
     height: 56px;
     border-radius: 12px;
     transform: rotate(-60deg);
+
+    @include mobile-big {
+      left: 156px;
+    }
+
+    @include tablet {
+      left: 64px;
+    }
   }
 
   &__photo {
@@ -34,7 +51,6 @@
     border-radius: 50%;
     overflow: hidden;
     z-index: 1;
-    // margin-bottom: 70px;
     margin-top: 70px;
   }
 
@@ -57,6 +73,22 @@
     color: $dark-grey-color;
 
     height: 80px;
+
+    @include mobile {
+      width: 196px;
+      height: 80px;
+      margin: 10px 0 16px;
+    }
+
+    @include mobile-big {
+      width: 362px;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-small {
+      width: 196px;
+    }
   }
 
   &__name {
@@ -67,6 +99,7 @@
     text-align: center;
 
     margin-bottom: 4px;
+    margin-top: 0;
   }
 
   &__role {
@@ -109,5 +142,13 @@ $quote-colors: (
   .t-card__decor--bot-#{$num} {
     left: 130px;
     top: 150px;
+
+    @include mobile-big {
+      left: 260px;
+    }
+
+    @include tablet {
+      left: 164px;
+    }
   }
 }
