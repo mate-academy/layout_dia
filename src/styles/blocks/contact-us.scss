@@ -2,26 +2,61 @@
   position: relative;
   background-color: $dark-blue;
   border-radius: 0 200px 0 0;
-  height: 867px;
+  height: max-content;
+
+  display: flex;
+  justify-content: center;
+
+  @include mobile {
+    border-radius: 0 75px;
+  }
+
+  @include mobile-big {
+    justify-content: start;
+  }
 
   &::before {
     background-color: #fff;
     content: "";
-
   }
 
   &__container {
     display: flex;
+    align-items: center;
+    flex-direction: column;
     padding: 180px 140px 212px 54px;
 
+    @include mobile {
+      padding: 72px 20px 80px;
+      flex-direction: column;
+    }
+
+    @include mobile-big {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 41px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      gap: 98px;
+      align-items: flex-start;
+      padding-bottom: 104px;
+    }
   }
 
   &__left-side {
     display: flex;
     flex-direction: column;
-    margin-right: 98px; //226px
-    width: 370px;
-    height: 475px;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+      margin-bottom: 80px;
+    }
+
+    @include mobile-big {
+      margin-bottom: 120px;
+    }
   }
 
   &__title {
@@ -30,12 +65,34 @@
     font-size: 32px;
     line-height: 150%;
     color: $white-text;
+    margin-top: 0;
 
-    margin-bottom: 56px;
+    margin-bottom: 48px;
+
+    @include tablet-small {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__input-line {
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+    }
+
+    @include mobile-big {
+      width: 362px;
+    }
+
+    @include tablet-small {
+      width: 370px;
+    }
+
+    @media (min-width: 1600px) {
+      width: 460px;
+    }
   }
 
   &__email {
-    width: 370px;
     margin-bottom: 48px;
     @include input-form;
     @include focus;
@@ -43,14 +100,12 @@
   }
 
   &__name {
-    width: 370px;
     margin-bottom: 48px;
     @include input-form;
     @include focus;
   }
 
   &__message {
-    width: 370px;
     margin-bottom: 80px;
     resize: none;
 
@@ -72,12 +127,17 @@
   &__right-side {
     display: flex;
     flex-direction: column;
-    margin-right: 140px;
+
     width: 362px;
     height: 415px;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+    }
   }
 
   &__right-title {
+    display: flex;
     font-family: $font-poppins;
     font-weight: 600;
     font-size: 32px;
@@ -85,6 +145,11 @@
     color: $white-text;
 
     margin-bottom: 56px;
+    margin-top: 0;
+
+    @include mobile {
+      margin-top: 0;
+    }
   }
 
   &__call-subtitle {
@@ -94,7 +159,6 @@
     font-weight: bold;
     font-size: 13px;
     line-height: 19px;
-
     letter-spacing: 3px;
     text-transform: uppercase;
 
@@ -121,7 +185,6 @@
     font-weight: bold;
     font-size: 13px;
     line-height: 19px;
-
     letter-spacing: 3px;
     text-transform: uppercase;
 
@@ -135,7 +198,17 @@
 
     font-family: $font-open-sans;
     font-size: 24px;
+    line-height: 36px;
     width: 362px;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+      height: 72px;
+    }
+
+    @include tablet-small {
+      margin-bottom: 48px;
+    }
   }
 
   &__links {
