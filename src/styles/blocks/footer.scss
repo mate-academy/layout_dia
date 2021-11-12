@@ -1,4 +1,5 @@
 .footer {
+  display: flex;
   font-family: $font-poppins;
   background-color: $dark-blue;
   font-weight: 700;
@@ -7,28 +8,124 @@
   text-decoration: none;
   color: $white-text;
 
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
   &__content {
-    @include centeredContainer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1146px;
-    margin: 0 auto;
-    padding: 0 24px;
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: max-content;
+      width: 113px;
+    }
+
+    @include mobile-big {
+      margin: 0;
+      padding-top: 41px;
+      padding-bottom: 41px;
+      padding-left: 41px;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100px;
+    }
+
+    @include tablet {
+      margin: 0 227px;
+    }
+
+    @include large-screen {
+      margin: 0 707px;
+    }
   }
 
   &__link-logo {
     display: flex;
     align-items: center;
-    left: 0;
-    // margin-right: 340px;
+
+    @include mobile {
+      margin: 21px 54px 50px 21px;
+
+      @media (min-width: 1024px) {
+        position: relative;
+        left: -104px;
+      }
+    }
 
     @include hover(transform, scale(1.2));
   }
 
   &__img {
-    max-width: 100%;
+
+    display: flex;
+    height: 26px;
     cursor: pointer;
-    overflow: hidden;
+  }
+
+  &__nav {
+    display: flex;
+    height: max-content;
+  }
+
+  &__nav-list {
+    display: flex;
+
+    @include mobile {
+      flex-direction: column;
+
+      width: max-content;
+      height: max-content;
+
+      gap: 24px;
+    }
+
+    @include mobile-big {
+      gap: 32px;
+      margin-top: 24px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__nav-li {
+    display: flex;
+
+    @include mobile {
+      position: relative;
+      left: 21px;
+    }
+  }
+
+  &__nav-link {
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    @include mobile {
+      padding: 0;
+    }
+
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: $interactive-color;
+        border-radius: 3px;
+        margin-bottom: -3px;
+      }
+    }
   }
 }
