@@ -1,0 +1,257 @@
+.header {
+  position: relative;
+  box-sizing: border-box;
+  height: 800px;
+  background-color: $dark-bg-color;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  overflow: hidden;
+
+  @include _900 {
+    min-height: 100vh;
+  }
+
+  &__logo {
+    @include _900 {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    @include _900 {
+      flex-direction: column;
+      margin-bottom: 20px;
+      height: 124px;
+    }
+
+    &-container {
+      width: 477px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+
+      @include _900 {
+        display: block;
+        position: absolute;
+        top: 20px;
+        transform: translateY(-140px);
+      }
+
+      &--is-opened {
+        @include _900 {
+          transform: translateY(-20px);
+        }
+      }
+    }
+
+    &-item {
+      display: block;
+      position: relative;
+      color: #fff;
+      font-family: $poppins;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 60px;
+      letter-spacing: 3px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.3s;
+
+      @include _900 {
+        font-size: 10px;
+        line-height: 30px;
+      }
+
+      &:hover {
+        transform: scale(1.2) translateY(-2px);
+      }
+
+      &--marked {
+        @include _900 {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 80%;
+          transform: translateX(-105%);
+          width: 67px;
+          height: 2px;
+          border-radius: 4px;
+          background-color: #2060f6;
+  
+          @include _900 {
+            transform: translateX(-98%);
+          }
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__learn-more {
+    padding: 120px 0 0;
+    display: flex;
+    flex-direction: column;
+
+    @include _900 {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    padding-top: 20px;
+    margin: 0 0 32px;
+    font-family: $poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: #fff;
+
+    @include _900 {
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+
+  &__info {
+    margin-bottom: 83px;
+    font-family: $open-sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0;
+    color: #fff;
+  }
+
+  &__learn-more-link {
+    width: 264px;
+    height: 50px;
+
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    width: 687px;
+    height: 680px;
+    border-top-left-radius: 30px;
+
+    @include _1280 {
+      right: -10%;
+    }
+
+    @include _900 {
+      display: none;
+    }
+
+    &-images {
+      display: flex;
+      transition: 0.3s;
+    }
+
+    &-image {
+      width: 100%;
+    }
+
+    &-actions {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 80px;
+    }
+
+    &-button {
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &--left {
+        background-image: url(../images/slideleft.png);
+      }
+
+      &--right {
+        background-image: url(../images/slideright.png);
+      }
+    }
+
+    &-info {
+      margin-left: 24px;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-family: $poppins;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &-slogan {
+      font-family: $open-sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      color: #fff;
+    }
+  }
+
+  &__toggler {
+    height: 30px;
+    width: 100px;
+    background-color: #fff;
+    display: none;
+    border-radius: 0 0 10px 10px;
+
+    @include _900 {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
