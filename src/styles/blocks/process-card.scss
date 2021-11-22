@@ -1,0 +1,96 @@
+.process-card {
+  display: flex;
+  flex-direction: column;
+  // margin: 24px 48px 32px 32px;
+
+  width: $process-cards-size;
+  height: $process-cards-size;
+  background: #fff;
+  box-shadow: 0.01px 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 24px;
+
+  @include mobile {
+    height: 280px;
+  }
+
+  @include tablet-small {
+    width: 214px;
+  }
+
+  &__code {
+    margin: 32px 0 0 32px;
+    @include process-card-code;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 80px;
+
+    // margin-bottom: 32px;
+    margin: 24px 48px 32px 32px;
+  }
+
+  &__paragraph {
+    margin: 0;
+    // display: flex;
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $dark-grey-color;
+  }
+
+  &__learn-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 0 32px 32px;
+
+    &:hover {
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__learn-button {
+    @include process-learn-button;
+    @include shadow;
+  }
+
+  &__learn-text {
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: $learn-color;
+    cursor: pointer;
+  }
+}
+
+$card-color: (
+  "1" $card-1-color-code $card-1-color,
+  "2" $card-2-color-code $card-2-color,
+  "3" $card-3-color-code $card-3-color,
+  "4" $card-4-color-code $card-4-color,
+);
+
+@each $number, $code-bg-color, $color in $card-color {
+  .process-card__code--#{$number} {
+    background-color: $code-bg-color;
+
+    &::after {
+      content: "00#{$number}";
+
+      font-family: $font-poppins;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 19px;
+      text-transform: uppercase;
+      color: $color;
+    }
+  }
+
+  .process-card__learn-button--#{$number} {
+    background-color: $color;
+  }
+}

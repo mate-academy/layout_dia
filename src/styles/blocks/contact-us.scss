@@ -1,0 +1,253 @@
+.contact-us {
+  position: relative;
+  background-color: $dark-blue;
+  border-radius: 0 200px 0 0;
+  height: max-content;
+
+  display: flex;
+  justify-content: center;
+
+  @include mobile {
+    border-radius: 0 75px 0 0;
+  }
+
+  @include mobile-big {
+    justify-content: start;
+  }
+
+  &::before {
+    background-color: #fff;
+    content: "";
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 180px 140px 212px 54px;
+
+    @include mobile {
+      padding: 72px 20px 80px;
+      flex-direction: column;
+    }
+
+    @include mobile-big {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 41px;
+      padding-bottom: 119px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      gap: 98px;
+      align-items: flex-start;
+      padding-bottom: 104px;
+    }
+  }
+
+  &__left-side {
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+      margin-bottom: 80px;
+    }
+
+    @include mobile-big {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__title {
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $white-text;
+    margin-top: 0;
+
+    margin-bottom: 48px;
+
+    @include tablet-small {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__input-line {
+    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+    }
+
+    @include mobile-big {
+      width: 362px;
+    }
+
+    @include tablet-small {
+      width: 370px;
+    }
+
+    @media (min-width: 1600px) {
+      width: 460px;
+    }
+  }
+
+  &__email {
+    margin-bottom: 48px;
+    @include input-form;
+    @include focus;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    margin-bottom: 48px;
+    @include input-form;
+    @include focus;
+  }
+
+  &__message {
+    margin-bottom: 80px;
+    resize: none;
+
+    @include input-form;
+    @include focus;
+  }
+
+  &__button {
+    @include send-button;
+    @include hover(transform, scale(1.2));
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    color: $white-text;
+  }
+
+  &__right-side {
+    display: flex;
+    flex-direction: column;
+
+    width: 362px;
+    height: 415px;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+    }
+  }
+
+  &__right-title {
+    display: flex;
+    font-family: $font-poppins;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $white-text;
+
+    margin-bottom: 56px;
+    margin-top: 0;
+
+    @include mobile {
+      margin-top: 0;
+    }
+  }
+
+  &__call-subtitle {
+    margin: 0 0 8px;
+
+    font-family: $font-poppins;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $white-text;
+
+    opacity: 0.5;
+  }
+
+  &__phone-number {
+    margin-bottom: 48px;
+
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $white-text;
+    text-decoration: none;
+  }
+
+  &__visit-subtitle {
+    margin: 0 0 8px;
+
+    font-family: $font-poppins;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $white-text;
+
+    opacity: 0.5;
+  }
+
+  &__map-link {
+    margin-bottom: 88px;
+
+    font-family: $font-open-sans;
+    font-size: 24px;
+    line-height: 36px;
+    width: 362px;
+
+    @include mobile {
+      width: $contact-us-container-width-mobile;
+      height: 72px;
+    }
+
+    @include tablet-small {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__links {
+    display: flex;
+  }
+}
+
+$input-line: "email", "name", "message";
+
+@each $tag-end-name in $input-line {
+  .contact-us__#{$tag-end-name} {
+    border-bottom: 1px solid $white-text;
+
+    &:focus {
+      border-bottom: 2px solid $white-text;
+    }
+  }
+}
+
+$soc-link-size: 32px;
+
+$social-links: (
+  "fb" $soc-link-size url(../images/social-links/fb.svg),
+  "twit" $soc-link-size url(../images/social-links/twit.svg),
+  "inst" $soc-link-size url(../images/social-links/inst.svg)
+);
+
+@each $name, $link-size, $icon in $social-links {
+  .contact-us__#{$name} {
+    margin-right: 32px;
+    width: $link-size;
+    height: $link-size;
+    background: $icon center no-repeat;
+    @include hover(transform, scale(1.2));
+  }
+}

@@ -1,0 +1,154 @@
+.t-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 456px;
+  width: 292px;
+  background-color: $white-text;
+  box-shadow: 0.01px 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  @include mobile-big {
+    width: $t-card-width-text-continer-mobile-big;
+  }
+
+  @include tablet {
+    width: 362px;
+    height: 494px;
+  }
+
+  @include shadow;
+  @include hover(transform, scale(1.1));
+
+  &__decorations {
+    position: relative;
+    width: 100%;
+  }
+
+  &__decor {
+    position: absolute;
+    left: 30px;
+    bottom: -120px;
+
+    width: 140px;
+    height: 56px;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+
+    @include mobile-big {
+      left: 156px;
+    }
+
+    @include tablet {
+      left: 64px;
+    }
+  }
+
+  &__photo {
+    width: $t-card-img-size;
+    height: $t-card-img-size;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 70px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__quotes {
+    margin-top: 40px;
+  }
+
+  &__paragraph {
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: $dark-grey-color;
+
+    height: 80px;
+
+    @include mobile {
+      width: 196px;
+      height: 80px;
+      margin: 10px 0 16px;
+    }
+
+    @include mobile-big {
+      width: 362px;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+
+    @include tablet-small {
+      width: 196px;
+    }
+  }
+
+  &__name {
+    font-family: $font-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+
+    margin-bottom: 4px;
+    margin-top: 0;
+  }
+
+  &__role {
+    font-family: $font-poppins;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $light-grey-color;
+  }
+}
+
+$decoration-colors: (
+  "1": $t-card-decor-1,
+  "2": $t-card-decor-2,
+  "3": $t-card-decor-3,
+);
+
+@each $num, $decor-color in $decoration-colors {
+  .t-card__decor--top-#{$num},
+  .t-card__decor--bot-#{$num} {
+    background-color: $decor-color;
+  }
+}
+
+$quote-colors: (
+  "1" url(../images/quotes/q1.svg),
+  "2" url(../images/quotes/q2.svg),
+  "3" url(../images/quotes/q3.svg),
+);
+
+@each $num, $element in $quote-colors {
+  .t-card__quotes--#{$num}::after {
+    content: $element;
+  }
+
+  .t-card__decor--bot-#{$num} {
+    left: 130px;
+    top: 150px;
+
+    @include mobile-big {
+      left: 260px;
+    }
+
+    @include tablet {
+      left: 164px;
+    }
+  }
+}
