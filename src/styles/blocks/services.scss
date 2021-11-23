@@ -1,0 +1,173 @@
+.services {
+  padding: 120px 0;
+
+  @include onTablet {
+    padding: 148px 0;
+  }
+
+  @include onLaptop {
+    padding: 250px 0 150px;
+  }
+
+  &__content {
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include onLaptop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      max-width: 262px;
+    }
+
+    @include onLaptop {
+      max-width: 292px;
+    }
+
+    @include onDesktop {
+      max-width: 362px;
+    }
+  }
+
+  &__subtitle {
+    @extend %poppins-700;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    color: $c-light-text;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @extend %poppins-600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $c-text-title;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    @extend %openSans-400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $c-text;
+    margin-bottom: 20px;
+
+    &--down {
+      margin-bottom: 48px;
+
+      @include onTablet {
+        margin-bottom: 56px;
+      }
+
+      @include onLaptop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__cards {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(264px, 1fr));
+      gap: 30px;
+    }
+
+    @include onLaptop {
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    @extend %flex-column;
+    padding: 32px;
+    background-color: $c-white;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    transition: all 2s;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      grid-column: 1 / 2;
+
+      &:nth-child(2n) {
+        grid-column: 2 / 3;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__card-title {
+    @extend %poppins-600;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 24px;
+    width: 46px;
+    height: 24px;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+    color: $c-blue;
+    margin-bottom: 24px;
+  }
+
+  &__card-description {
+    @extend %openSans-600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-text;
+    margin-bottom: 32px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: gap 0.5s;
+
+    &-button {
+      display: block;
+      width: 32px;
+      height: 32px;
+      background: url(../images/icons/arrow-link.svg), $c-blue;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $c-blue;
+      border-radius: 50%;
+      transition: transform $trasition-duration;
+    }
+
+    &-text {
+      @extend %poppins-600;
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
+    }
+
+    &:hover {
+      gap: 20px;
+    }
+
+    &:hover &-button {
+      transform: rotate(360deg) scale(1.2);
+    }
+  }
+}
+
+.services__link:hover .services-button {
+  transform: scale(1.2);
+}
