@@ -1,0 +1,150 @@
+.people {
+  padding: 76px 37px 32px;
+
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 16px;
+  min-width: 280px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  @include onTablet {
+    padding: 88px 98px 32px;
+    min-width: 33%;
+    height: 456px;
+    max-width: 490px;
+  }
+
+  @include onDesktop {
+    padding: 76px 48px 32px;
+    max-width: 362px;
+
+    &:nth-child(2) &__description {
+      margin-bottom: 32px;
+    }
+  }
+
+  @include onLargeDesktop {
+    padding: 88px 52px 32px;
+  }
+
+  &__img {
+    position: relative;
+
+    margin: 0 auto 70px;
+
+    height: 108px;
+    width: 108px;
+    border-radius: 50%;
+
+    transition: transform 0.3s;
+
+    &--1 {
+      background: center / cover no-repeat url(../images/testimonials/testimonial-ava-1.jpg);
+    }
+
+    &--2 {
+      background: center / cover no-repeat url(../images/testimonials/testimonial-ava-2.jpg);
+    }
+
+    &--3 {
+      background: center / cover no-repeat url(../images/testimonials/testimonial-ava-3.jpg);
+    }
+
+    @include onTablet {
+      margin-bottom: 82px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 82px;
+    }
+
+    &::before {
+      position: absolute;
+
+      content: "";
+      z-index: -1;
+
+      height: 44px;
+      width: 108px;
+      background-color: $buttonBgrColor;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      right: 35%;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      z-index: -1;
+
+      height: 44px;
+      width: 108px;
+      background-color: $buttonBgrColor;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      left: 35%;
+      top: 65%;
+    }
+
+    &:hover {
+      transform: scale(120%);
+    }
+
+    &:hover::after {
+      display: none;
+    }
+
+    &:hover::before {
+      display: none;
+    }
+  }
+
+  &__stuff {
+    background: center / cover no-repeat url(../images/testimonials/stuff.svg);
+    width: 20px;
+    height: 18px;
+    margin: 0 auto 10px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__description {
+    @extend %peopleDescription;
+    text-align: center;
+
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    @extend %textStyle;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #c0cdd7;
+  }
+}

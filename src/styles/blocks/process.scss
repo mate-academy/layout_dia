@@ -1,0 +1,93 @@
+.process {
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    margin-bottom: 120px;
+  
+    padding: $processMobilePad;
+
+    @include onTablet {
+      padding: $processTabletPad;
+    }
+  
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
+
+  &__info {
+    margin-bottom: 24px;
+    
+    @include onTablet {
+      max-width: 50%;
+      align-self: flex-start;
+
+      margin-bottom: 56px;
+    }
+  }
+
+  &__title {
+    position: relative;
+
+    @extend %blockTitle;
+
+    margin-bottom: 24px;
+
+    &::before {
+      content: "Services";
+      font-family: Poppins, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c0cdd7;
+      position: absolute;
+      top: -36px;
+    }
+  }
+
+  &__description {
+    @extend %textStyle;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $paragraphsColor;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 30px;
+      justify-content: flex-end;
+      align-self: flex-end;
+      max-width: 600px;
+    }
+
+    @include onDesktop {
+      gap: 20px;
+      justify-content: flex-end;
+    }
+  }
+
+  &__card {
+    width: 264px;
+
+    @include onTablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

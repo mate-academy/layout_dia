@@ -1,0 +1,24 @@
+.grid {
+  @include onDesktop {
+    display: grid;
+
+    justify-content: center;
+    column-gap: 24px;
+
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @for $start from 1 through 13 {
+    @for $end from $start through 13 {
+      &__item--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end};
+      }
+
+      @include onDesktop {
+        &__item--desktop-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+}
