@@ -1,2 +1,2 @@
 - [DEMO LINK](https://i-stanko.github.io/layout_dia/)
-- [Figma layout](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia))?node-id=0%3A1)
+- [Figma layout](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)))
