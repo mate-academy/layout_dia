@@ -4,3 +4,174 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onWideScreen {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin button($width, $height) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: $width;
+  height: $height;
+  text-decoration: none;
+  border-radius: 8px;
+  
+  background-color: $c-accent-blue-dark-theme;
+  color: $c-white;
+
+  @include Poppings600;
+  font-size: 15px;
+  line-height: 22px;
+  @content;
+}
+
+@mixin Poppings {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  @content;
+}
+
+@mixin Poppings600 {
+  @include Poppings;
+  font-weight: 600;
+  @content;
+}
+
+@mixin OpenSans {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  @content;
+}
+
+@mixin title-0 {
+  @extend %title;
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: -2px;
+  color: $c-white;
+
+  @include onTablet {
+    font-size: 64px;
+    line-height: 68px;
+  }
+  @content;
+}
+
+@mixin title-1 {
+  @extend %title;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+  @content;
+}
+
+@mixin title-2 {
+  @extend %title;
+  font-size: 44px;
+  line-height: 120%;
+  text-align: center;
+
+  @include onTablet {
+    font-size: 52px;
+    line-height: 120%;
+  }
+  @include onDesktop {
+    line-height: 150%;
+  }
+  @content;
+}
+
+@mixin title-3 {
+  @extend %title;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  @content;
+}
+
+@mixin title-4 {
+  @extend %title;
+  font-size: 32px;
+  line-height: 130%;
+  @content;
+}
+
+@mixin title-5 {
+  @extend %title;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $c-section-title-text;
+  @content;
+}
+
+@mixin menu-link {
+  @extend %title;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $c-white;
+  @content;
+}
+
+@mixin input-text {
+  @include Poppings600 {
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-white;
+  }
+  @content;
+}
+
+@mixin square($side) {
+  width: $side;
+  height: $side;
+}
+
+@mixin circle($side, $radius) {
+  @include square($side);
+  border-radius: $radius;
+  @content;
+}
+
+@mixin shape($width) {
+  width: $width;
+  height: $width * 0.4;
+  transform: rotate(-60deg);
+  border-radius: 12px;
+  @content;
+}
+
+@mixin shape-left($width) {
+  @include shape($width);
+
+  position: relative;
+  left: -($width * 0.36);
+  top: $width * 0.4;
+  @content;
+}
+
+@mixin shape-right($width) {
+  @include shape($width);
+
+  position: relative;
+  left: $width * 0.36;
+  top: -($width * 0.4);
+  @content;
+}
