@@ -1,0 +1,50 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin input-style {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fff;
+  }
+
+  &:focus {
+    border-bottom: 1px solid $colorDarkBlue;
+  }
+
+  @include onTablet {
+    width: 360px;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
