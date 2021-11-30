@@ -3,6 +3,14 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
+  &__mobile {
+    display: block;
+
+    @include onMobile {
+      display: grid;
+    }
+  }
+
   &__tablet {
     display: block;
 
@@ -37,6 +45,12 @@
 
         &--tablet-#{$start}-#{$end} {
           @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--laptop-#{$start}-#{$end} {
+          @include onLaptop {
             grid-column: #{$start} / #{$end + 1};
           }
         }
