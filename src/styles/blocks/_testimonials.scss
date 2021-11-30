@@ -1,0 +1,181 @@
+.testimonials {
+  padding: 0 0 148px;
+
+  &__block {
+    margin: 0 0 56px;
+  }
+
+  @include on-notebook() {
+    padding: 0 0 181px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+
+    @include on-notebook() {
+      margin: 0 -10px;
+    }
+
+    @include on-tablet() {
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin: 0 -15px -30px;
+    }
+  }
+
+  &__card {
+    width: 362px;
+    background-color: #fff;
+    border-radius: $box-border-radius;
+    box-shadow: $box-shadow;
+    padding: 87px 56px 32px;
+    margin: 0 15px;
+    transition: box-shadow 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include open-sans(13, 600);
+    line-height: 150%;
+    text-align: center;
+
+    @include on-notebook() {
+      width: 292px;
+      padding: 75px 44px 32px;
+      margin: 0 10px 20px;
+    }
+
+    @include on-tablet {
+      width: 100%;
+      padding: 87px 98px 32px;
+      margin: 0 0 30px;
+    }
+
+    @include on-phone {
+      padding: 75px 42px 32px;
+      margin: 0 0 24px;
+    }
+
+    &-img-wrapper {
+      position: relative;
+      top: 0;
+      display: block;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 0 82px;
+
+      @include on-notebook() {
+        margin: 0 0 70px;
+        width: 110px;
+        height: 110px;
+      }
+
+      @include on-tablet() {
+        margin: 0 0 82px;
+        width: 140px;
+        height: 140px;
+      }
+
+      @include on-phone() {
+        margin: 0 0 70px;
+        width: 110px;
+        height: 110px;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        width: 139px;
+        height: 56px;
+        display: block;
+        background-color: $color-blue;
+        border-radius: 12px;
+        position: absolute;
+        transform: rotate(-60deg);
+
+        @include on-notebook() {
+          width: 109px;
+          height: 44px;
+        }
+
+        @include on-tablet() {
+          width: 139px;
+          height: 56px;
+        }
+
+        @include on-phone() {
+          width: 109px;
+          height: 44px;
+        }
+      }
+
+      &::before {
+        top: -2%;
+        left: -35%;
+      }
+
+      &::after {
+        bottom: -2%;
+        right: -35%;
+      }
+    }
+
+    &-image {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      z-index: 2;
+      transition: border-color 0.3s;
+    }
+
+    &-quote {
+      display: inline-block;
+      width: 20.6px;
+      height: 18.5px;
+      background-image: url(../images/testimonials/“.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0 0 10.5px;
+
+      @include on-tablet() {
+        margin: 0 0 19px;
+      }
+
+      @include on-phone() {
+        margin: 0 0 10px;
+      }
+    }
+
+    &-text {
+      color: $gray-text;
+      margin: 0 0 16px;
+    }
+
+    &-person {
+      color: $denim-text;
+      margin: 0 0 4px;
+    }
+
+    &-prof {
+      line-height: inherit;
+    }
+
+    &:hover {
+      box-shadow: $box-shadow-hover;
+    }
+
+    &:hover .testimonials__card-image {
+      border-color: $color-blue;
+    }
+  }
+}

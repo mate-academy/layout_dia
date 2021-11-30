@@ -1,0 +1,53 @@
+.card {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    @include on-tablet() {
+      margin: 0 0 72px;
+    }
+
+    @include on-phone() {
+      margin: 0 0 56px;
+    }
+  }
+
+  &__image {
+    width: 166px;
+    height: 166px;
+    margin: 0 0 32px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  &__img {
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  &__title {
+    @include poppins(20, 600);
+    text-align: center;
+    line-height: 140%;
+    color: $denim-text;
+    margin: 0 0 16px;
+  }
+
+  &__text {
+    line-height: 150%;
+    text-align: center;
+    color: $gray-text;
+    transition: color 0.3s;
+  }
+
+  &:hover .card__text {
+    color: $denim-text;
+  }
+
+  &:hover .card__img {
+    transform: scale(1.1);
+  }
+}
