@@ -1,0 +1,61 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__input-container {
+    display: block;
+    width: 100%;
+
+    margin-bottom: 58px;
+
+    @include onTablet {
+      margin-bottom: 66px;
+    }
+
+    &:nth-last-child(2) {
+      margin-bottom: 74px;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: $c-white;
+
+      margin-top: 16px;
+    }
+
+    &:hover, &:active {
+      &::after {
+        height: 2px;
+        background-color: $c-accent-blue-dark-theme;
+       }
+    }
+  }
+
+  &__input-field {
+    width: 100%;
+    @include input-text;
+    border-style: none; 
+    overflow: auto;
+
+    background-color: $c-header-footer-background-dark-theme;
+
+    &::placeholder {
+      @include input-text {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__button {
+    @include button(100%, 56px);
+
+    @include onTablet {
+      @include button(264px, 56px);
+    }
+  }
+}

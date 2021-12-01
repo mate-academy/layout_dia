@@ -1,0 +1,161 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 456px;
+
+  @include hover(transform, scale(1.1));
+
+  @include onTablet {
+    height: 478px;
+  }
+
+  @include onDesktop {
+    height: 456px;
+  }
+
+  @include onWideScreen {
+    height: 494px;
+  }
+
+  background: $c-white;
+  box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  $image-size: 110px;
+  $image-size-tablet: 140px;
+
+  $borer-radius: $image-size / 2;
+  $borer-radius-tablet: $image-size-tablet / 2;
+
+
+  &__top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__picture {
+    @include square($image-size);
+    padding-top: 30px;
+    margin-bottom: 130px;
+
+    @include onTablet {
+      @include square($image-size-tablet);
+    }
+
+    @include onDesktop {
+      @include square($image-size);
+    }
+
+    &-image {
+      @include circle($image-size, $borer-radius);
+
+      @include onTablet {
+        @include circle($image-size-tablet, $borer-radius-tablet);
+      }
+
+      @include onDesktop {
+        @include circle($image-size, $borer-radius);
+      }
+
+      object-fit: cover;
+      object-position: top;
+      text-align: center;
+
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__shape-left {
+    @include shape-left($image-size);
+    background: $c-accent-blue-dark-theme;
+
+    @include onTablet {
+      @include shape-left($image-size-tablet);
+    }
+
+    @include onDesktop {
+      @include shape-left($image-size);
+    }
+  }
+
+  &__shape-right {
+    @include shape-right($image-size);
+    background: $c-accent-blue-dark-theme;
+    
+    @include onTablet {
+      @include shape-right($image-size-tablet);
+    }
+
+    @include onDesktop {
+      @include shape-right($image-size);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    padding: 0 42px 0;
+
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      padding: 0 98px 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 16px;
+      padding: 0 48px 0;
+      min-width: 196px;
+    }
+
+    @include onWideScreen {
+      max-width: 240px;
+      flex-grow: 1;
+    }
+    
+    &:before {
+      position: relative;
+      left:50%;
+      transform:translate(-50%,-50%);
+
+      display: block;
+      width: 21px;
+      content: "";
+      width: 21px;
+      height: 18px;
+      background-image: url("../images/testimonials/shape-quote-mark.svg");
+
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    color: $c-title-text;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    @include title-5;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 32px;
+  }
+}
