@@ -1,6 +1,41 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin grid(
+  $mobile-starting-column,
+  $mobile-ending-column,
+  $tablet-starting-column,
+  $tablet-ending-column,
+  $laptop-starting-column,
+  $laptop-ending-column,
+  $desktop-starting-column,
+  $desktop-ending-column) {
+  grid-column: #{$mobile-starting-column} / #{$mobile-ending-column + 1};
+
+  @include onTablet {
+    grid-column: #{$tablet-starting-column} / #{$tablet-ending-column + 1};
+  }
+
+  @include onLaptop {
+    grid-column: #{$laptop-starting-column} / #{$laptop-ending-column + 1};
+  }
+
+  @include onDesktop() {
+    grid-column: #{$desktop-starting-column} / #{$desktop-ending-column + 1};
   }
 }
