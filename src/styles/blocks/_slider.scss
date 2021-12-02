@@ -1,0 +1,112 @@
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 55%;
+
+  @include on-tablet() {
+    position: static;
+  }
+
+  &__item {
+    height: 100%;
+    &-img {
+      font-size: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      @include border-radius(top-left);
+
+      @include on-tablet() {
+        width: 100vw;
+        @include border-radius(top-right);
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+
+    display: flex;
+    align-items: center;
+
+    @include on-tablet() {
+      bottom: 32px;
+      left: 41px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include on-phone() {
+      bottom: 24px;
+      left: 20px;
+    }
+
+    &-title {
+      @include poppins(13, 700);
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    &-text {
+      line-height: 140%;
+      color: #fff;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    margin: 0 24px 0 0;
+
+    @include on-tablet() {
+      margin: 0 0 16px;
+    }
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    color: $denim-text;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    &-symbol {
+      width: 5.5px;
+      height: 9px;
+      display: block;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &--left {
+        background-image: url(../images/slider/arrow-left.svg);
+      }
+
+      &--right {
+        background-image: url(../images/slider/arrow-right.svg);
+      }
+    }
+  }
+
+  &__description {
+    max-width: 265px;
+  }
+}
