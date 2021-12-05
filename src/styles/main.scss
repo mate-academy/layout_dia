@@ -3,6 +3,7 @@
 
 .page {
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,14 +28,31 @@ body {
   background: #2c2c2c;
   width: 100%;
   z-index: 1;
-  transform: translateX(1050px);
+  transform: translateX(-110%);
   transition: all 1s;
+
+  &:target {
+    transform: translateX(-21px);
+  }
 
   @media (min-width: 1024px) {
     width: initial;
     height: initial;
     transform: translateX(0);
     background: none;
+  }
+
+  &__close {
+    position: relative;
+    top: 22px;
+    left: 95px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
   }
 
   &__list {
@@ -77,8 +95,9 @@ body {
     }
   }
 
-  &:target {
-    transform: translateX(0);
+  &__link {
+    color: #fff;
+    text-decoration: none;
   }
 }
 
@@ -129,15 +148,14 @@ body {
   }
 
   &__menu-toggler {
-    position: absolute;
-    visibility: hidden;
+    position: relative;
+    margin: 4px 0 0 25px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 
-    &:checked ~ .nav {
-      transform: translateX(-21px);
-    }
-
-    &:checked ~ .header__menu-opener::before {
-      content: "X";
+    @media (min-width: 1024px) {
+      display: none;
     }
   }
 
@@ -163,17 +181,21 @@ body {
   }
 
   &__learn-more {
+    display: flex;
     width: 100%;
-    background-color: #2060f6;
-    border-radius: 8px;
     height: 50px;
+    border-radius: 8px;
     border: 0;
+    background-color: #2060f6;
     box-sizing: border-box;
     color: #fff;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 15px;
     line-height: 22px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     text-align: center;
     cursor: pointer;
 
@@ -382,10 +404,6 @@ body {
   padding: 72px 0;
 
   @media (min-width: 640px) {
-    padding: 128px 0;
-  }
-
-  @media (min-width: 640px) {
     padding: 128px 0 134px;
   }
 
@@ -403,21 +421,19 @@ body {
     flex-direction: column;
     align-items: center;
 
-    &:not(:last-child) {
-      margin: 0 0 56px;
-    }
-
-    @media (min-width: 640px) {
-      &:not(:last-child) {
-        margin: 0 0 72px;
-      }
-    }
-
     @media (min-width: 1024px) {
       margin: 0;
+    }
 
-      &:not(:first-child) {
-        margin-left: 137px;
+    &--not-last {
+      margin: 0 0 56px;
+
+      @media (min-width: 640px) {
+        margin: 0 0 72px;
+      }
+
+      @media (min-width: 1024px) {
+        margin: 0 137px 0 0;
       }
     }
   }
