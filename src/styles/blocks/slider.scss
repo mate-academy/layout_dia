@@ -1,0 +1,140 @@
+.slider-container {
+  position: relative;
+  background-color: $colorBlack;
+  height: 390px;
+  width: 100%;
+
+  @include onDesktop {
+    position: absolute;
+    height: 680px;
+    left: calc(50% + 20px / 2);
+    right: 0;
+    bottom: 0;
+  }
+  
+  @include onDesktop-1600 {
+    left: calc(50% + 30px / 2 + 30px + 68px);
+  }
+}
+
+.slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  &__photo {
+    position: absolute;
+
+    background-color: $colorBlack;
+    border-radius: 30px;
+
+    object-position: center;
+    object-fit: cover;
+
+    height: 100%;
+    width: 100%;
+
+    @include onDesktop {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 50%;
+    }
+
+    opacity: 0;
+    transition: opacity 0.7s;
+
+    &--is-active {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    @include onTablet {
+      left: 42px;
+      bottom: 32px;
+    }
+
+    @include onDesktop {
+      left: 78px;
+      bottom: 48px;
+
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__buttons {
+    margin: 0 0 16px;
+
+    @include onDesktop {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 32px;
+    width: 32px;
+    
+    border-radius: 50%;
+    border: none;
+
+    font-family: 'Poppins';
+    font-size: 18px;
+
+
+    background-color: rgba(255,255,255, 0.5);
+    transition: all .3s;
+
+    &:hover {
+      background-color: rgba(255,255,255, .9);
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+  }
+
+  &__subtitle {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+  }
+}

@@ -1,0 +1,100 @@
+.menu-page {
+  position: fixed;
+  
+  z-index: 1;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: $colorBlack;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    padding: 22px 0 48px;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: block;
+    height: 26px;
+    width: 44px;
+    background-image: url(../images/logo/air-logo.svg);
+  }
+
+  .icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__cross {
+    display: block;
+
+    background-image: url(../images/menu/cross.svg);
+
+    height: 18px;
+    width: 18px;
+  }
+
+  &__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    margin: 0 0 24px;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    align-items: center;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+    
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: $colorBlue;
+      left: 0;
+      top: calc(100% + 4px);
+      width: 0;
+
+      transition: width .3s;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
+
+    // &:hover {
+    //   border-color: $colorBlue;
+    // }
+  }
+}

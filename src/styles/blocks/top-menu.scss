@@ -1,0 +1,118 @@
+.top-menu {
+
+  display: block;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__content {
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @include onDesktop {
+      padding-top: 50px;
+      align-items: center;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  &__logo {
+    background-image: url(../images/logo/air-logo.svg);
+
+    height: 26px;
+    width: 44px;
+  };
+
+  &__menu-opener {
+    display: block;
+    height: 18px;
+    width: 18px;
+
+    background-image: url(../images/menu/menu.svg);
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__desktop-menu {
+    display: none;
+    
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    display: flex;
+    gap: 48px;
+    margin: 0;
+
+    align-items: center;
+  }
+
+  &__item {
+    align-items: center;
+  }
+
+
+  &__link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+    
+    text-decoration: none;
+
+    &::after {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      width: 0;
+      display: block;
+      content: "";
+      height: 2px;
+      background-color: $colorBlue;
+      transition: width .3s ease-out;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
+    
+    &--active {
+      position: relative;
+      &::after {
+        display: block;
+        content: "";
+        height: 2px;
+        background-color: $colorBlue;
+
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+      }
+    }
+  }
+}
