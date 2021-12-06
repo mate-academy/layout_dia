@@ -1,4 +1,5 @@
 .page {
+  position: relative;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   background-color: $background;
@@ -10,5 +11,81 @@
 
   &__wrapper {
     overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}
+
+.menu {
+  height: 100vh;
+  background-color: $dark;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-cross {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 40px;
+    padding-top: 50px;
+    margin-left: 13%;
+
+    @include onMobile {
+      margin-left: 10%;
+    }
+
+    &__link {
+
+      &-item {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: $white;
+        margin-bottom: 5px;
+
+        &:first-child {
+          transform: rotate(-135deg);
+        }
+        &:last-child {
+          transform: translateX(-1px) translateY(-7px) rotate(136deg);
+        }
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &-link {
+      text-decoration: none;
+      color: $white;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      border-bottom: 2px solid $blue;
+      padding-bottom: 20px;
+
+      &:active {
+        color: $blue;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
