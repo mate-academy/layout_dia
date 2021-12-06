@@ -1,0 +1,64 @@
+.page {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  scroll-behavior: smooth;
+
+  &__body {
+    box-sizing: border-box;
+    background: $colorGray;
+    margin: 0;
+
+    @include onNotebook {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+    
+    @include onMobile-large {
+      margin-bottom: 148px;
+     
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      &--margin-large {
+        margin-bottom: 251px;
+      }
+    }
+  }
+
+  &__footer {
+    @include onMobile-large {
+      margin-top: -56px;
+    }
+  }
+}
