@@ -1,0 +1,145 @@
+.services {
+
+  &-wrap {
+      display: flex;
+      flex-direction: column;
+
+    @include onDesktopTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    justify-content: flex-start;
+    padding-top: 148px;
+
+    @include onDesktop640px {
+      width: 264px;
+    }
+
+    @include onDesktopTablet {
+      width: 292px;
+      padding-top: 251px;
+    }
+
+    &-subnav{
+
+      @include onDesktopTablet {
+        width: 292px;
+      }
+    }
+
+    &-title {
+      text-align: left;
+      padding-top: 16px;
+    }
+  
+
+    &-description {
+    @extend %OpenSans400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $colorTextContent;
+    padding-top: 24px;
+    }
+  }
+
+  &__cards {
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    gap: 24px;
+
+    @include onDesktop640px {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end
+      ;
+    }
+
+    @include onDesktopTablet {
+      width: 500px;
+      padding-top: 287px;
+    }
+  }
+
+  &__card {
+    background-color: $colorWhite;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid $colorWhite;
+
+    @include hover (background-color, $c-gray);
+    @include hover (border, 1px solid $colorBlue);
+
+    @include onDesktop640px {
+      width: 264px;   
+      &:nth-child(even) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include onDesktopTablet {
+      width: 214px;
+    }
+
+    &-container {
+      padding: 32px;
+    }
+
+    &-number-wrap {
+      display: flex;
+      justify-content: center;
+      width: 46px;
+      height: 24px;
+      border-radius: 23px;
+      background-color: $c-gray;
+      
+
+      &-item {
+        @extend %Poppins600;
+        font-size: 13px;
+        line-height: 19px;
+        text-transform: uppercase;
+        color: $colorBlue;
+        align-self: center;
+      }
+    }
+
+    &-description {
+      @extend %OpenSans600;
+      font-size: 13px;
+      line-height: 19px;
+      color: $colorTextContent;
+      padding-top: 26px;
+    }
+
+    &-link {
+      display: flex;
+      align-content: center;
+      padding-top: 32px;
+
+      &-btn {
+        display: flex;
+        justify-content: center;
+        margin-right: 16px;
+      }
+      &-info {
+        @extend %Poppins600;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;    
+        color: $colorLearnMore;
+        align-self: center;
+
+        @include hover (color, $colorBlue);
+      }
+    }
+  }
+}
