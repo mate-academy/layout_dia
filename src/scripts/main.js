@@ -7,7 +7,9 @@ const textarea = document.querySelector('.form-field__textarea');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  inputs.forEach(function (elem) { elem.value = '' });
+  inputs.forEach(function(elem) {
+    elem.value = '';
+  });
 
   textarea.value = '';
 });
