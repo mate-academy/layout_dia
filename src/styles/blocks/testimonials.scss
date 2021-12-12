@@ -1,0 +1,121 @@
+.testimonials {
+  &__cards {
+    margin-bottom: 148px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+  &__card {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 362px;
+    height: 494px;
+    border-radius: 16px;
+    padding: 87px 42px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onNotebook {
+      width: 292px;
+      padding: 75px 36px 42px;
+    }
+
+    @include onTablet {
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    width: max-content;
+    z-index: 1;
+    margin-bottom: 100px;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: #2060f6;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      position: absolute;
+      right: -45px;
+      bottom: 3px;
+      z-index: -1;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: #2060f6;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      position: absolute;
+      top: -3px;
+      left: -45px;
+      z-index: -1;
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+  }
+  &__title {
+    width: 200px;
+    margin: 16px 0 85px;
+  }
+
+  &__description {
+    max-width: 250px;
+    width: 100%;
+    text-align: center;
+
+    @include onNotebook {
+      width: 191px;
+    }
+
+    @include onTablet {
+      max-width: 362px;
+      width: 100%;
+    }
+
+    &::before {
+      content: "";
+      background-image: url(../images/testimonials/quotes.svg);
+      display: block;
+      width: 20px;
+      height: 19px;
+      position: relative;
+      left: calc(50% - 10px);
+      top: -18px;
+    }
+  }
+
+  &__name {
+    color: #253757;
+    padding: 16px 0 4px;
+  }
+}
