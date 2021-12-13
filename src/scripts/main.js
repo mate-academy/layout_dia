@@ -25,6 +25,7 @@ window.addEventListener('hashchange', () => {
   } else {
     menuOpener.setAttribute('href', '#menu');
     body.style.overflow = 'visible';
+    menu.classList.add('menu--hidden');
     menuOpener.classList.add('logo__menu--open');
     menu.classList.remove('menu--dont-hidden');
     menuOpener.classList.remove('logo__menu--close');
