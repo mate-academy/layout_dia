@@ -1,13 +1,567 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dia</title>
+    <title>Air</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <link
+      rel="shortcut icon"
+      href="./images/sub-title/sub-title-icon-dark.svg"
+      type="image/png"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    >
+    <script type="text/javascript">
+      'use strict';
+
+      let count = 1;
+      let image = document.getElementsByClassName('header__slider-image');
+
+      function e() {
+        if (count < image.length) {
+          image[count].style.transform = 'translateX(' + 0 + ')';
+          if (count !== 0) {
+            image[count - 1].style.transform = 'translateX(' + 100 + '%' +')';
+          }
+          count++;
+          return;
+        }
+
+        if (count === image.length) {
+          image[count - 1].style.transform = 'translateX(' + 100 + '%' +')';
+          count = 0;
+          image[count].style.transform = 'translateX(' + 0 + ')';
+        }
+      }
+
+      function s() {
+        if (count > 1) {
+          count--;
+          image[count].style.transform = 'translateX(' + 100 + '%' + ')';
+          image[count - 1].style.transform = 'translateX(' + 0 + ')';
+          return;
+        }
+
+        if (count === 1) {
+          image[count + 1].style.transform = 'translateX(' + 0 + ')';
+          image[0].style.transform = 'translateX(' + 100 + '%' + ')';
+          count = image.length;
+          return;
+        }
+      }
+
+    </script>
   </head>
-  <body>
-    <h1>Dia</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
+  <body class="page__body" id="home">
+    <header class="page__header header">
+      <div class="header__container">
+        <div class="header__content">
+          <a href="#home" class="header__logo">
+            <img src="./images/logo/dia-logo.svg" alt="">
+          </a>
+
+          <a href="#nav" class="header__menu-toggler">=</a>
+
+          <nav class="header__nav nav" id="nav">
+            <a href="#" class="nav__close">X</a>
+            <ul class="nav__list nav__list--with-menu">
+              <li class="nav__item">
+                <a href="#about-us" class="nav__link">
+                  About us
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#services" class="nav__link">
+                  Services
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#work" class="nav__link">
+                  Work
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#contact-us" class="nav__link">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#form" class="hire-us">Hire&nbsp;us</a>
+        </div>
+
+        <h1 class="header__title">
+          Strategic<br>Agency
+        </h1>
+
+        <p class="header__paragraph">
+          We believe in the power of bold ideas that
+          can solve business challenges.
+        </p>
+
+        <a href="#our-expertise" class="header__learn-more">Learn more</a>
+      </div>
+
+      <div class="header__slider">
+        <div class="header__slider-image header__slider-image--1" id="image-one"></div>
+        <div class="header__slider-image header__slider-image--2" id="image-two"></div>
+        <div class="header__slider-image header__slider-image--3" id="image-three"></div>
+        <div class="header__slider-container">
+          <div class="header__slider-control">
+            <button class="header__slider-button" onclick="s()">
+              <div class="header__slider-arrow header__slider-arrow--left"></div>
+            </button>
+            <button class="header__slider-button" onclick="e()">
+              <div class="header__slider-arrow header__slider-arrow--right"></div>
+            </button>
+          </div>
+
+          <h3 class="header__slider-title">Intro</h3>
+          <p class="header__slider-text">
+            By the same illusion which lifts the
+            <br>
+            horizon.
+          </p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="about-us" id="about-us">
+        <h1 class="about-us__title">Who we are</h1>
+        <p class="about-us__paragraph">
+          We embrace a strategic approach to creative ideas.
+          We are interested in people and human relationships.
+          This is the main thing you need to know about us.
+          We believe in the power of bold ideas that can solve business challenges.
+        </p>
+      </section>
+      <section class="our-expertise" id="our-expertise">
+        <h1 class="our-expertise__title">
+          Our expertise
+        </h1>
+        <div class="our-expertise__container">
+          <div class="our-expertise__card our-expertise__card--not-last">
+            <img
+              src="./images/what-we-do/what-we-do-1.jpg"
+              alt="Branding"
+              class="our-expertise__card-image"
+            >
+            <h2 class="our-expertise__card-title">Branding</h2>
+            <p class="our-expertise__card-description">
+              We create additional value for companies,
+              products, services as well as verbal and
+              visual ways to deliver it to the audience.
+            </p>
+          </div>
+          <div class="our-expertise__card our-expertise__card--not-last">
+            <img
+              src="./images/what-we-do/what-we-do-2.jpg"
+              alt="Communication"
+              class="our-expertise__card-image"
+            >
+            <h2 class="our-expertise__card-title">Communication</h2>
+            <p class="our-expertise__card-description">
+              We strive to create communications that
+              can increase media performance.
+              We use everything — words, meanings,
+              stories, art, movies.
+            </p>
+          </div>
+          <div class="our-expertise__card">
+            <img
+              src="./images/what-we-do/what-we-do-3.jpg"
+              alt="Strategy"
+              class="our-expertise__card-image"
+            >
+            <h2 class="our-expertise__card-title">Strategy</h2>
+            <p class="our-expertise__card-description">
+              We create business growth strategies,
+              from the moment of its birth to the
+              achievement of the necessary business
+              indicators.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="services" id="services">
+        <div class="services__text">
+          <h3 class="services__sub-title sub-title">
+            Services
+          </h3>
+          <h1 class="services__title">
+            Air is a full service creative agency
+          </h1>
+          <p class="services__paragraph">Deep analytics, strong strategy
+            and bright creative ideas.
+            <br>
+            <br>
+            We are sure that first-rate
+            job is possible only if
+            all three components are united.
+          </p>
+        </div>
+        <div class="services__card-container">
+          <div class="services__card">
+            <div class="services__card-number">
+              001
+            </div>
+            <p class="services__card-paragraph">
+              Brand Development
+              Copywriting
+              <br>
+              Logo & Webite Design
+              Packaging
+            </p>
+            <a href="#" class="services__card-link">
+              <div class="services__card-button">
+                <img
+                  src="./images/Vector1.png"
+                  alt=""
+                  class="services__card-arrow"
+                >
+              </div>
+              Learn more
+            </a>
+          </div>
+          <div class="services__card">
+            <div class="services__card-number">
+              002
+            </div>
+            <p class="services__card-paragraph">
+              Сontent Production
+              Graphic Design
+              <br>
+              Video Production
+              <br>
+              Post Production
+            </p>
+            <a href="#" class="services__card-link">
+              <div class="services__card-button">
+                <img
+                  src="./images/Vector1.png"
+                  alt=""
+                  class="services__card-arrow"
+                >
+              </div>
+              Learn more
+            </a>
+          </div>
+          <div class="services__card">
+            <div class="services__card-number">
+              003
+            </div>
+            <p class="services__card-paragraph">
+              Marketing Strategy
+              <br>
+              Email Marketing
+              <br>
+              Paid Advertising
+              <br>
+              Blog Content & SEO
+            </p>
+            <a href="#" class="services__card-link">
+              <div class="services__card-button">
+                <img
+                  src="./images/Vector1.png"
+                  alt=""
+                  class="services__card-arrow"
+                >
+              </div>
+              Learn more
+            </a>
+          </div>
+          <div class="services__card">
+            <div class="services__card-number">
+              004
+            </div>
+            <p class="services__card-paragraph">
+              Digital Communications
+              Influencer Marketing
+              Product Placements
+              Strategic Partnerships
+            </p>
+            <a href="#" class="services__card-link">
+              <div class="services__card-button">
+                <img
+                  src="./images/Vector1.png"
+                  alt=""
+                  class="services__card-arrow"
+                >
+              </div>
+              Learn more
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="testimonials" id="testimonials">
+        <div class="testimonials__container">
+          <h3 class="testimonials__sub-title sub-title">
+            Testimonials
+          </h3>
+
+          <h1 class="testimonials__title">
+            What people say
+          </h1>
+
+          <div class="testimonials__card-container">
+            <div class="testimonials__card">
+              <div class="testimonials__photo">
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--left"></div>
+
+                <img
+                  src="./images/testimonials/testimonial-ava-1.jpg"
+                  alt=""
+                  class="testimonials__face"
+                >
+
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--right"></div>
+              </div>
+              <img
+                src="./images/text.svg"
+                alt=""
+                class="testimonials__icon"
+              >
+              <p class="testimonials__paragraph">
+                AIR’s ideas are refreshing and
+                out of the box. Authentic team
+                that focuses on the important
+                path of the brand.
+              </p>
+              <h5 class="testimonials__name">
+                Tal Gilad
+              </h5>
+              <h3 class="testimonials__role">
+                Teach for America
+              </h3>
+            </div>
+            <div class="testimonials__card">
+              <div class="testimonials__photo">
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--left"></div>
+
+                <img
+                  src="./images/testimonials/testimonial-ava-2.jpg"
+                  alt=""
+                  class="testimonials__face"
+                >
+
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--right"></div>
+              </div>
+              <img
+                src="./images/text.svg"
+                alt=""
+                class="testimonials__icon"
+              >
+              <p class="testimonials__paragraph">
+                AIR is an exceptional agency that
+                leads with creative talent,
+                first-class account servicing.
+              </p>
+              <h5 class="testimonials__name">
+                Azadeh Hawkins
+              </h5>
+              <h3 class="testimonials__role">
+                Hawkins Consulting
+              </h3>
+            </div>
+            <div class="testimonials__card">
+              <div class="testimonials__photo">
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--left"></div>
+
+                <img
+                  src="./images/testimonials/testimonial-ava-3.jpg"
+                  alt=""
+                  class="testimonials__face"
+                >
+
+                <div class="testimonials__photo-decoration testimonials__photo-decoration--right"></div>
+              </div>
+              <img
+                src="./images/text.svg"
+                alt=""
+                class="testimonials__icon"
+              >
+              <p class="testimonials__paragraph">
+                AIR raises the agency bar to
+                stratospheric heights on both
+                creative output and client service.
+              </p>
+              <h5 class="testimonials__name">
+                Michel Grover
+              </h5>
+              <h3 class="testimonials__role">
+                Hulu
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="vpr" id="work">
+        <div class="vpr__container">
+          <h1 class="vpr__title">
+            Vision, Passion, Results
+          </h1>
+          <p class="vpr__paragraph">
+            We are sure that first-rate
+            job is possible only if all
+            three components are united.
+          </p>
+          <a href="#form" class="vpr__link">
+            Apply
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="page__footer footer">
+      <div class="footer__content">
+        <div class="footer__container">
+          <div class="footer__part">
+            <div class="footer__form-wrapper">
+              <h1 class="footer__form-title">
+                Send us a message
+              </h1>
+
+              <form
+                action=""
+                class="footer__form"
+                id="form"
+              >
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  class="footer__email footer__input"
+                  required
+                >
+
+                <div class="footer__form-container">
+                </div>
+
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  class="footer__name footer__input"
+                  required
+                >
+
+                <div class="footer__form-container">
+                </div>
+
+                <textarea
+                  placeholder="Your message"
+                  class="footer__message footer__input"
+                  required
+               ></textarea>
+
+                <div class="footer__form-container footer__form-container--last">
+                </div>
+
+                <button class="footer__submit" type="submit">Send</button>
+              </form>
+            </div>
+            <div class="footer__contact-us">
+              <h1 class="footer__links-title" id="contact-us">
+                Contact us
+              </h1>
+
+              <h4 class="footer__sub-title">
+                Call us
+              </h4>
+
+              <a href="tel:654 321 987" class="footer__link">
+                654 321 987
+              </a>
+
+              <h4 class="footer__sub-title">
+                Visit us
+              </h4>
+
+              <a
+                rel="noopener"
+                href="https://goo.gl/maps/fRTRUGbkLMjDxtzQ8"
+                class="footer__link"
+                target="_blank"
+              >
+                2905 West Drive, Buffalo Grove
+              </a>
+
+              <h4 class="footer__sub-title footer__sub-title--last">
+                Our socials
+              </h4>
+
+              <div class="footer__socials-container">
+                <a href="#" class="footer__socials">
+                  <img
+                    src="./images/Vector2.svg"
+                    alt=""
+                    class="footer__socials-icon"
+                  >
+                </a>
+                <a href="#" class="footer__socials">
+                  <img
+                    src="./images/Vector3.svg"
+                    alt=""
+                    class="footer__socials-icon"
+                  >
+                </a>
+                <a href="#" class="footer__socials">
+                  <img
+                    src="./images/Vector4.svg"
+                    alt=""
+                    class="footer__socials-icon"
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__part footer__part--nav">
+            <a href="#home" class="footer__logo">
+              <img
+                src="./images/logo/dia-logo.svg"
+                alt=""
+                class="footer__logo-image"
+              >
+            </a>
+
+            <nav class="footer__nav nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#about-us" class="nav__link">
+                    About us
+                  </a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#home" class="nav__link">
+                    Home
+                  </a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#work" class="nav__link">
+                    Work
+                  </a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#services" class="nav__link">
+                    Services
+                  </a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#contact-us" class="nav__link">
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./scripts/main.js" type="text/javascript"></script>
   </body>
 </html>
