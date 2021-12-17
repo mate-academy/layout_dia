@@ -1,6 +1,7 @@
 .cards {
   display: flex;
   gap: 20px;
+  
 
   @include onTablet {
     flex-direction: column;
@@ -28,14 +29,10 @@
     }
 
     @include onTablet {
-      margin-right: 40px;
-      margin-left: 40px;
       width: auto;
     }
 
     @include onMobile {
-      margin-right: 20px;
-      margin-left: 20px;
       width: auto;
     }
   }
@@ -56,6 +53,12 @@
     font-size: 13px;
     line-height: 150%;
     color: #6c788b;
+
+    @include onTablet {
+      max-width: 362px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &__name {
@@ -77,48 +80,41 @@
     color: #c0cdd7;
   }
 
-  &__image-block-1 {
-    margin: 0 -10px;
-    position: absolute;
-    width: 110px;
-    height: 40px;
-    background-color: #2060f6;
-    border-radius: 12px;
-    transform: rotate(-60deg);
-
-    @include onBigDesktop {
-      margin: 0 auto;
-      width: 140px;
-      height: 56px;
-    }
-    @include onTablet {
-      left: 30%;
-    }
-  }
-
-  &__image-block-2 {
-    top: 65px;
-    left: 60px;
-    position: absolute;
-    width: 110px;
-    height: 40px;
-    background-color: #2060f6;
-    border-radius: 12px;
-    transform: rotate(-60deg);
-
-    @include onBigDesktop {
-      top: 95px;
-      left: 90px;
-      width: 140px;
-      height: 56px;
-    }
-    @include onTablet {
-      left: 45%;
-    }
-  }
-
-  &__decoration {
+  &__image-block {
     position: relative;
+    width: max-content;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: #2060f6;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      position: absolute;
+      right: -45px;
+      bottom: 3px;
+      top: 35%;
+      z-index: -1;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: #2060f6;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      position: absolute;
+      top: -3px;
+      left: -45px;
+      z-index: -1;
+      transform: rotate(-60deg);
+    }
   }
 
   &__block {
