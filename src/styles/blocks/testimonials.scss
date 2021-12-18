@@ -1,0 +1,198 @@
+.testimonials {
+  padding-bottom: 120px;
+
+  @include onTablet {
+    padding-bottom: 148px;
+  }
+
+  &__title {
+    @extend %titleFont;
+    color: $c-section-title;
+  }
+
+  &__heading {
+    @include accentFont(600, 32px, 150%);
+    color: $c-accent-text;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__cards {
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 76px 38px 32px;
+    background-color: $c-white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    transition: box-shadow $transition-duration;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    @include onTablet {
+      height: 478px;
+
+      &:not(:last-child) {
+        margin: 0 0 30px;
+      }
+    }
+
+    @include onDesktop {
+      height: 456px;
+      width: 362px;
+
+      &:not(:last-child) {
+        margin: 0 20px 0 0;
+      }
+    }
+
+    @include onDesktop-big {
+      height: 494px;
+
+      &:not(:last-child) {
+        margin: 0 30px 0 0;
+      }
+    }
+
+    &--blue {
+      &:hover {
+        box-shadow: 0 9px 18px rgba(86, 204, 242, 0.3);
+      }
+    }
+
+    &--yellow {
+      &:hover {
+        box-shadow: 0 9px 18px rgba(252, 201, 29, 0.3);
+      }
+    }
+
+    &--red {
+      &:hover {
+        box-shadow: 0 9px 18px rgba(243, 99, 99, 0.3);
+      }
+    }
+  }
+
+  &__photo {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 70px;
+    transform: rotate(30deg);
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 40%;
+      bottom: 15%;
+      left: -15%;
+      border-radius: 12px;
+      z-index: 1;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 40%;
+      top: 15%;
+      right: -15%;
+      border-radius: 12px;
+      background-color: $c-accent-blue;
+      z-index: 1;
+    }
+
+    &--blue::before,
+    &--blue::after {
+      background-color: $c-accent-blue;
+    }
+
+    &--yellow::before,
+    &--yellow::after {
+      background-color: $c-accent-yellow;
+    }
+
+    &--red::before,
+    &--red::after {
+      background-color: $c-accent-red;
+    }
+  }
+
+  &__image {
+    position: relative;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    transform: rotate(-30deg);
+    z-index: 2;
+
+    @include onTablet {
+      height: 140px;
+      width: 140px;
+    }
+
+    @include onDesktop {
+      height: 110px;
+      width: 110px;
+    }
+
+    @include onDesktop-big {
+      height: 140px;
+      width: 140px;
+    }
+  }
+
+  &__bracket {
+    width: 21px;
+    height: 19px;
+    margin-bottom: 10px;
+
+    &--blue {
+      background-image: url(../images/testimonials/bracket-blue.svg);
+    }
+
+    &--yellow {
+      background-image: url(../images/testimonials/bracket-yellow.svg);
+    }
+
+    &--red {
+      background-image: url(../images/testimonials/bracket-red.svg);
+    }
+  }
+
+  &__testimonial {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: $c-accent-text;
+  }
+
+  &__company {
+    @extend %titleFont;
+
+    text-align: center;
+    color: $c-section-title;
+  }
+}
