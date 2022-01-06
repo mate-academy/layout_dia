@@ -28,7 +28,7 @@ Adapt the page to the following screens:
 
 ## Checklist for preparing a portfolio project for HR review
 
-1. Don’t forget to add the title “Air” for the whole web page https://prnt.sc/rcw40
+1. Don’t forget to add the title “Air” for the whole web page
 2. A landing page is implemented strictly according to the design in Figma
 4. Links in the header and footer menus should lead to the corresponding blocks of the landing page
 5. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
