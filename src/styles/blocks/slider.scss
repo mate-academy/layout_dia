@@ -1,0 +1,91 @@
+.slider {
+  &__content {
+    position: relative;
+  }
+  
+  &__slide {
+    width: 100%;
+    padding-bottom: 320px;
+    border-radius: 30px;
+    background: linear-gradient(transparent 40%, rgba(32, 96, 246, 1) 100%),
+      url("../images/slider/slide-img-1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    @include onDesktop {
+      padding-bottom: 0;
+      height: calc(100vh - #{$headerHeightDesktop});
+      border-radius: 30px 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      right: 41px;
+      bottom: 32px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      left: 48px;
+      right: 48px;
+      bottom: 48px;
+    }
+  }
+  
+  &__arrows {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-family: $secondFont;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    max-width: 240px;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 240px;
+  }
+
+  &__arrow {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-size: 5px 9px;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 50%;
+
+    &--left {
+      background-image: url("../images/slider/arrow-left.svg");
+      left: 20px;
+      bottom: 108px;
+    }
+    &--right {
+      background-image: url("../images/slider/arrow-right.svg");
+      left: 68px;
+      bottom: 108px;
+    }
+  }
+}
