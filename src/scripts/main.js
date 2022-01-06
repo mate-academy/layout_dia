@@ -4,6 +4,7 @@ const slider = document.querySelector('.slider');
 const sliderButtons = slider.querySelectorAll('.slider__button');
 const navBurger = document.querySelector('.nav__burger');
 const navItems = document.querySelector('.nav__items');
+const formBtn = document.querySelector('.button--form');
 let sliderNumber = 1;
 
 sliderButtons.forEach(button => {
@@ -44,4 +45,8 @@ navBurger.addEventListener('click', () => {
   }
 
   navBurger.classList.toggle('nav__burger--opened');
+});
+
+formBtn.addEventListener('click', e => {
+  e.preventDefault();
 });
