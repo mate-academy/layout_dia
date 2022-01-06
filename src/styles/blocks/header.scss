@@ -1,47 +1,100 @@
 .header {
-  font-family: Poppins;
-  min-height: $header-height;
-  // background-color: $blue;
-  background-image: url("/images/BG.svg");
+  position: relative;
+  height: $header-height;
+  background-color: $blue;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  border-bottom-left-radius: $border-radius;
+  overflow: hidden;
+
+  @include onTablet {
+    height: 894px;
+    border-radius: 0 0 30px 30px;
+  }
+
+  &__container {
+    @extend %container;
+  }
+
+  &__main {
+    @include onTablet {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+    }
+  }
 
   &__top {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 50px 0 45px 0;
+
+    @include onTablet {
+      justify-content: left;
+    }
   }
 
   &__hire {
+    @extend %small-text;
     display: flex;
     align-items: center;
     position: relative;
-    font-weight: bold;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #fff;
+    color: $white;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include onTablet {
+      margin-left: auto;
+    }
 
     &:before {
       position: absolute;
-      content: "";
+      content: '';
       width: 100%;
       border-radius: 4px;
       bottom: -8px;
       height: 2px;
-      background: #ff9c8e;
+      background: $orange;
+      transition: 0.4s;
+    }
+
+    &:hover:before {
+      bottom: 8px;
     }
   }
 
-  &__slider {
-    float: right;
-    width: 680px;
-    height: 688px;
-    background-image: url("/images/slider-1.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 0px 200px 0px 0px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+  &__content {
+    width: 362px;
+    margin-top: 120px;
+
+    @include onTablet {
+      width: 100%;
+      margin-top: 6px;
+    }
+  }
+
+  &__title {
+    @extend %big-title;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: $white;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__subtitle {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    line-height: 150%;
+    color: $white;
+    margin-bottom: 83px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
   }
 }
