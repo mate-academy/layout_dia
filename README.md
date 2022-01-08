@@ -22,7 +22,7 @@ Adapt the page to the following screens:
      - each card should have a fixed width and on the small screens the whole block should switch to column layout
 8. Implement `Vision, Passion, Results` block.
     - use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
-9. Implement `Send us  a message` block.
+9. Implement `Send us a message` block.
 10. Implement `Contact us` block.
 11. Implement the footer.
 
