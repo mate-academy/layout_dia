@@ -1,0 +1,54 @@
+$themes: (
+  black: (
+    header-bgc: #2c2c2c,
+    page-bgc: #e5e5e5,
+    section-bgc: #fff,
+    button-bgc: #2060f6,
+    button-hover-bgc: #144ed4,
+    text-header: #fff,
+    text-color: #253757,
+    text-subcolor: #6c788b,
+  ),
+  blue: (
+    page-bgc: #e5e5e5,
+    header-bgc: #008aff,
+    section-bgc: #fff,
+    button-bgc: #ff9c8e,
+    button-hover-bgc: #ff7e6c,
+    text-header: #fff,
+    text-color: #253757,
+    text-subcolor: #6c788b,
+  ),
+);
+
+@each $theme, $theme-set in $themes {
+  [color-scheme="#{$theme}"] {
+    @each $name, $color in $theme-set {
+      --color-#{$name}: #{$color};
+    }
+  }
+}
+
+@mixin getTheme($color) {
+  @each $theme, $theme-set in $themes {
+    @if $theme == $color {
+      html {
+        @each $name, $color in $theme-set {
+          --color-#{$name}: #{$color};
+        }
+      }
+    }
+  }
+}
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+@media (prefers-color-scheme: light) {
+  @include getTheme(blue);
+}
+
+@media (prefers-color-scheme: dark) {
+  @include getTheme(black);
+}
