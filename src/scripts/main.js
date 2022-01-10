@@ -74,7 +74,7 @@ slider.addEventListener('click', (obj) => {
   obj.preventDefault();
 
   if (obj.target === slider.querySelector('.slider__img-left')) {
-    slider.style.backgroundImage = 'url(../images/slider/slider_photo_2.jpg)';
+    slider.style.backgroundImage = `url('../images/slider/slider_photo_2.jpg')`;
     slider.style.backgroundSize = 'cover';
     slider.style.backgroundPosition = 'center';
 
