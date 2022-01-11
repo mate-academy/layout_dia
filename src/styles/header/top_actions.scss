@@ -3,6 +3,18 @@
   flex-direction: row;
   justify-content: space-between;
 
+  &--mobile {
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    padding: 40px 0;
+    background-color: $gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   &__container {
     display: flex;
     flex-direction: row;
@@ -21,6 +33,22 @@
     display: block;
     width: 18px;
     height: 18px;
+    background-image: url(../images/menu/menu.svg);
+    background-size: contain;
+    background-position: center;
+
+    &:hover {
+      background-image: url(../images/menu/menu_hover.svg);
+    }
+
+    &--cross {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      background-image: url(../images/menu/cross.svg);
+      background-size: contain;
+      background-position: center;
+    }
 
     @include tablet {
       display: none;
@@ -29,6 +57,23 @@
 
   &__menu-list {
     display: none;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      // height: 100%;
+      // width: 100%;
+
+      & * {
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 26px;
+        letter-spacing: 3px;
+        color: $colorWhite;
+        text-decoration: none;
+      }
+    }
 
     @include tablet {
       display: flex;

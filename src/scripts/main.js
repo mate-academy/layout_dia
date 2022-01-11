@@ -1,39 +1,9 @@
 'use strict';
 
-const iconsContact = document.querySelector('.contacts__icon-item');
 const services = document.querySelector('.services__list');
 const slider = document.querySelector('.slider');
-const arrayOfLinks = [
-  'images/contacts/facebook_active.svg',
-  'images/contacts/twitter_active.svg',
-  'images/contacts/instagram_active.svg',
-];
-
-// const arraySliderPhotos = [
-//   '../images/slider/slider_photo_1.jpg',
-//   '../images/slider/slider_photo_2.jpg',
-//   '../images/slider/Slider_img.jpg',
-// ];
-
-function getNewSrc(array, parentBlock, target) {
-  [...parentBlock.querySelectorAll('img')].forEach((el, i) => {
-    if (target === el) {
-      const prevSrc = el.src;
-
-      el.src = array[i];
-
-      array[i] = prevSrc;
-    }
-  });
-}
-
-iconsContact.addEventListener('mouseover', (obj) => {
-  getNewSrc(arrayOfLinks, iconsContact, obj.target);
-});
-
-iconsContact.addEventListener('mouseout', (obj) => {
-  getNewSrc(arrayOfLinks, iconsContact, obj.target);
-});
+const menu = document.querySelector('.top-actions__menu-icon');
+const menuList = document.querySelector('.top-actions--mobile');
 
 function resize(parentBlock, target, size, zIndex, position, f) {
   [...parentBlock.querySelectorAll('li')].forEach(el => {
@@ -73,12 +43,35 @@ services.addEventListener('mouseout', (obj) => {
 slider.addEventListener('click', (obj) => {
   obj.preventDefault();
 
-  if (obj.target === slider.querySelector('.slider__img-left')) {
-    slider.style.backgroundImage = `url('../images/slider/slider_photo_2.jpg')`;
-    slider.style.backgroundSize = 'cover';
-    slider.style.backgroundPosition = 'center';
+  const arraySliders = [...slider.children];
 
-    // eslint-disable-next-line no-console
-    console.log(slider);
+  if (obj.target.classList.contains('slider__img-left')) {
+    getNewSlider(obj.target, arraySliders, 'left');
   }
+
+  if (obj.target.classList.contains('slider__img-right')) {
+    getNewSlider(obj.target, arraySliders, 'right');
+  }
+});
+
+function getNewSlider(target, arraySliders, side) {
+  const currentSlider = target.closest('.slider__background');
+
+  const i = arraySliders.indexOf(currentSlider);
+
+  const maxIndex = arraySliders.length - 1;
+  const nextSlider = side === 'left' ? (
+    i > 0 ? arraySliders[i - 1] : arraySliders[maxIndex])
+    : (i < maxIndex ? arraySliders[i + 1] : arraySliders[0]);
+
+  currentSlider.style.visibility = 'hidden';
+  currentSlider.style.position = 'absolute';
+
+  nextSlider.style.visibility = 'visible';
+  nextSlider.style.position = 'static';
+}
+
+menu.addEventListener('click', (obj) => {
+  obj.preventDefault();
+  menuList.style.visibility = 'visible';
 });
