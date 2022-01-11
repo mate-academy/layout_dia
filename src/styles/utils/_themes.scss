@@ -1,28 +1,40 @@
 $themes: (
   black: (
-    header-bgc: #2c2c2c,
     page-bgc: #e5e5e5,
+    header-bgc: #2c2c2c,
+    header-border-radius: 0 0 30px 30px,
+    header-hight-mobile: 68px,
+    header-hight-desktop: 120px,
     section-bgc: #fff,
     button-bgc: #2060f6,
     button-hover-bgc: #144ed4,
+    button-active-bgc: #2060f6,
+    button-border-radius: 8px,
     text-on-dark: #fff,
     text-color: #253757,
     text-subcolor: #6c788b,
+    transition-time: 0.3s,
   ),
   blue: (
     page-bgc: #e5e5e5,
     header-bgc: #008aff,
+    header-border-radius: 0 0 200px 0,
+    header-hight-mobile: 42px,
+    header-hight-desktop: 120px,
     section-bgc: #fff,
     button-bgc: #ff9c8e,
     button-hover-bgc: #ff7e6c,
+    button-active-bgc: #b56f65,
+    button-border-radius: 64px,
     text-on-dark: #fff,
     text-color: #253757,
     text-subcolor: #6c788b,
+    transition-time: 0.5s,
   ),
 );
 
 @each $theme, $theme-set in $themes {
-  [color-scheme="#{$theme}"] {
+  [color-scheme='#{$theme}'] {
     @each $name, $color in $theme-set {
       --color-#{$name}: #{$color};
     }
@@ -34,15 +46,15 @@ $themes: (
     @if $theme == $color {
       html {
         @each $name, $color in $theme-set {
-          --color-#{$name}: #{$color};
+          --#{$name}: #{$color};
         }
       }
     }
   }
 }
 
-@function getColor($name) {
-  @return var(--color-#{$name});
+@function getTheme($name) {
+  @return var(--#{$name});
 }
 
 @media (prefers-color-scheme: light) {
