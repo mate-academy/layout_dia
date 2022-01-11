@@ -1,10 +1,18 @@
+// if you want to create costom style, 
+// just set properties in $themes map;
+// todo
+// i need to rename some mixins nad functions
+
 $themes: (
   black: (
     page-bgc: #e5e5e5,
+    container-horizontal-padding: 41px,
     header-bgc: #2c2c2c,
     header-border-radius: 0 0 30px 30px,
     header-hight-mobile: 68px,
     header-hight-desktop: 120px,
+    slider-border-radius: 30px,
+    slider-border-radius-desktop: 30px 0 30px 0,
     section-bgc: #fff,
     button-bgc: #2060f6,
     button-hover-bgc: #144ed4,
@@ -17,10 +25,17 @@ $themes: (
   ),
   blue: (
     page-bgc: #e5e5e5,
+    container-horizontal-padding: 41px,
     header-bgc: #008aff,
-    header-border-radius: 0 0 200px 0,
+    header-border-radius: 0 0 0 200px,
     header-hight-mobile: 42px,
     header-hight-desktop: 120px,
+    /* 30px @ 320px increasing to 120px @ 1024px */ 
+    slider-border-radius:
+    clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
+    clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0
+    clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px),
+    slider-border-radius-desktop: 120px 0 0 0,
     section-bgc: #fff,
     button-bgc: #ff9c8e,
     button-hover-bgc: #ff7e6c,
@@ -33,28 +48,28 @@ $themes: (
   ),
 );
 
+// this will make all color-schemes
+
 @each $theme, $theme-set in $themes {
-  [color-scheme='#{$theme}'] {
+  [color-scheme="#{$theme}"] {
     @each $name, $color in $theme-set {
       --color-#{$name}: #{$color};
     }
   }
 }
 
+// this is needed to seting up prefers-color-scheme
+
 @mixin getTheme($color) {
   @each $theme, $theme-set in $themes {
     @if $theme == $color {
       html {
         @each $name, $color in $theme-set {
-          --#{$name}: #{$color};
+          --color-#{$name}: #{$color};
         }
       }
     }
   }
-}
-
-@function getTheme($name) {
-  @return var(--#{$name});
 }
 
 @media (prefers-color-scheme: light) {
@@ -63,4 +78,10 @@ $themes: (
 
 @media (prefers-color-scheme: dark) {
   @include getTheme(black);
+}
+
+// use this to declare variable in your scss
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
 }

@@ -1,31 +1,55 @@
 .about {
   &__hero {
-    height: calc(50vh - #{getTheme(header-hight-mobile)});
+    height: 50vh;
+
+    @include onTablet {
+      padding-top: 53px;
+      height: calc(100vh - #{getColor(header-hight-desktop)});
+      width: calc(50vw - #{getColor(container-horizontal-padding)});
+    }
 
     @include onDesktop {
-      height: calc(100vh - #{getTheme(header-hight-desktop)});
-      width: 50vw;
+      padding-top: 0;
     }
+  }
+
+  &__hero-wrapper {
+    height: 100%;
   }
 
   &__title {
     @include headingsH1;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+    }
   }
 
   &__text {
     @include openSans;
-    color: getTheme(text-on-dark);
+    color: getColor(text-on-dark);
   }
 
   &__slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
     overflow: hidden;
-    &__slider {
-      height: calc(50vh - #{getTheme(header-hight-mobile)});
+    height: calc(50vh - #{getColor(header-hight-mobile)});
+    transition: border-radius getColor(transition-time);
+    border-radius: getColor(slider-border-radius);
 
-      @include onDesktop {
-        height: calc(100vh - #{getTheme(header-hight-desktop)});
-        width: 50vw;
-      }
+    @include onTablet {
+      height: calc(100vh - #{getColor(header-hight-desktop)});
+      width: 50vw;
+      left: 50vw;
+      border-radius: getColor(slider-border-radius-desktop);
     }
   }
 
