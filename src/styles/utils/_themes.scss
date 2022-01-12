@@ -1,4 +1,4 @@
-// if you want to create costom style, 
+// if you want to create costom style,
 // just set properties in $themes map;
 // todo
 // i need to rename some mixins nad functions
@@ -17,6 +17,9 @@ $themes: (
     experiance-card-image-border-radius: 16px,
     section-bgc: #fff,
     section-border-radius: 30px,
+    testimonial-color1: #2060f6,
+    testimonial-color2: #2060f6,
+    testimonial-color3: #2060f6,
     button-bgc: #2060f6,
     button-hover-bgc: #144ed4,
     button-active-bgc: #2060f6,
@@ -24,6 +27,7 @@ $themes: (
     text-on-dark: #fff,
     text-color: #253757,
     text-subcolor: #6c788b,
+    text-color-superlight: #c0cdd7,
     transition-time: 0.3s,
   ),
   blue: (
@@ -33,13 +37,9 @@ $themes: (
     header-border-radius: 0 0 0 200px,
     header-hight-mobile: 42px,
     header-hight-desktop: 120px,
-    footer-border-radius: 
-    0
-    clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
-    0
-    0,
-    /* 30px @ 320px increasing to 120px @ 1024px */ 
-    slider-border-radius:
+    footer-border-radius: 0
+    clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0 0,
+    /* 30px @ 320px increasing to 120px @ 1024px */ slider-border-radius:
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px),
@@ -47,6 +47,9 @@ $themes: (
     experiance-card-image-border-radius: 16px,
     section-bgc: #fff,
     section-border-radius: 0 0 0 0,
+    testimonial-color1: #56ccf2,
+    testimonial-color2: #fcc304,
+    testimonial-color3: #f25656,
     button-bgc: #ff9c8e,
     button-hover-bgc: #ff7e6c,
     button-active-bgc: #b56f65,
@@ -54,6 +57,7 @@ $themes: (
     text-on-dark: #fff,
     text-color: #253757,
     text-subcolor: #6c788b,
+    text-color-superlight: #c0cdd7,
     transition-time: 0.5s,
   ),
 );
@@ -61,7 +65,7 @@ $themes: (
 // this will make all color-schemes
 
 @each $theme, $theme-set in $themes {
-  [color-scheme="#{$theme}"] {
+  [color-scheme='#{$theme}'] {
     @each $name, $color in $theme-set {
       --color-#{$name}: #{$color};
     }
