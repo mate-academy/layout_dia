@@ -1,44 +1,8 @@
 'use strict';
 
-const services = document.querySelector('.services__list');
 const slider = document.querySelector('.slider');
 const menu = document.querySelector('.top-actions__menu-icon');
 const menuList = document.querySelector('.top-actions--mobile');
-
-function resize(parentBlock, target, size, zIndex, position, f) {
-  [...parentBlock.querySelectorAll('li')].forEach(el => {
-    if (target === el.querySelector('img')) {
-      f(target);
-      target.style.width = `${size}px`;
-      target.style.height = `${size}px`;
-      target.style.zIndex = zIndex;
-      target.style.position = position;
-      target.style.transitionDuration = '0.5s';
-    }
-  });
-}
-
-function addElement(target) {
-  const p = document.createElement('p');
-
-  p.style.width = '56px';
-
-  target.parentElement.prepend(p);
-}
-
-function removeElement(target) {
-  const p = target.parentElement.querySelector('p');
-
-  p.remove();
-}
-
-services.addEventListener('mouseover', (obj) => {
-  resize(services, obj.target, 48, 2000, 'absolute', addElement);
-});
-
-services.addEventListener('mouseout', (obj) => {
-  resize(services, obj.target, 40, 'auto', 'static', removeElement);
-});
 
 slider.addEventListener('click', (obj) => {
   obj.preventDefault();
