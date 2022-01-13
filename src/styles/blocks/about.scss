@@ -1,20 +1,34 @@
 .about {
-  &__hero {
-    height: 50vh;
+  height: 100%;
+  // &__wrapper {
+  //   display: flex;
+  //   flex-direction: column;
+  //   // height: calc(
+  //   //   100% - #{getColor(header-hight-mobile)} - #{getColor(
+  //   //       header-margin-bottom
+  //   //     )}
+  //   // );
 
-    @include onTablet {
-      padding-top: 53px;
-      height: calc(100vh - #{getColor(header-hight-desktop)});
-      width: calc(50vw - #{getColor(container-horizontal-padding)});
-    }
+  //   @include onDesktop {
+  //     @include grid;
+  //     // height: calc(
+  //     //   100% - #{getColor(header-hight-desktop)} - #{getColor(
+  //     //       header-margin-bottom
+  //     //     )}
+  //     // );
+  //   }
+  // }
+
+  // #region card
+
+  &__card {
+    grid-column: 1 / 6;
+    padding-bottom: min(48px);
+    margin: 0;
 
     @include onDesktop {
       padding-top: 120px;
     }
-  }
-
-  &__hero-wrapper {
-    height: 100%;
   }
 
   &__title {
@@ -33,30 +47,36 @@
   &__text {
     @include openSans;
     color: getColor(text-on-dark);
+    margin-bottom: max(56px);
+    max-width: 35ch;
   }
+
+  // #endregion
 
   &__slider {
     position: absolute;
     bottom: 0;
+    right: 0;
     left: 0;
-    width: 100vw;
-    overflow: hidden;
-    height: calc(50vh - #{getColor(header-hight-mobile)});
-    transition: border-radius getColor(transition-time);
-    border-radius: getColor(slider-border-radius);
+    top: 80vh;
+    display: block;
 
-    @include onTablet {
-      height: calc(100vh - #{getColor(header-hight-desktop)});
-      width: 50vw;
-      left: 50vw;
-      border-radius: getColor(slider-border-radius-desktop);
+    @include onDesktop {
+      left: 55%;
+      top: getColor(header-hight-desktop);
     }
   }
 
-  &__image {
+  &__slider-image {
+    border-radius: getColor(slider-border-radius);
+    top: getColor(header-hight-mobile);
     object-fit: cover;
     object-position: center;
     height: 100%;
     width: 100%;
+
+    @include onDesktop {
+      border-radius: getColor(slider-border-radius-desktop);
+    }
   }
 }

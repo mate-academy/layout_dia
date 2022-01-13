@@ -9,3 +9,19 @@
     @content;
   }
 }
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(20px, calc(1.25rem + ((1vw - 10.24px) * 1.74)), 30px);
+  }
+}
