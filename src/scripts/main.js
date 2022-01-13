@@ -5,11 +5,11 @@ const togglers = document.querySelectorAll('.menu__toggler');
 const menu = document.querySelector('.menu__list-container');
 const notabs = document.querySelectorAll('.notab *');
 const noDefault = document.querySelector('.noDefault');
-const featureMenuToggler = document.querySelector('.feature-menu-toggler');
-const featureContainer = document.querySelector('.feature__container');
-const darkFeature = document.querySelector('.feature-dark');
-const blueFeature = document.querySelector('.feature-blue');
-const specialFeature = document.querySelector('.feature-special');
+const featureMenuTogglers = document.querySelectorAll('.feature-menu-toggler');
+const featureContainers = document.querySelectorAll('.feature__container');
+const darkFeatures = document.querySelectorAll('.feature-dark');
+const blueFeatures = document.querySelectorAll('.feature-blue');
+const specialFeatures = document.querySelectorAll('.feature-special');
 
 noDefault.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -34,18 +34,28 @@ togglers.forEach((toggler) => {
   });
 });
 
-featureMenuToggler.addEventListener('click', function() {
-  featureContainer.classList.toggle('feature__container--on');
+featureMenuTogglers.forEach(featureMenuToggler => {
+  featureContainers.forEach(featureContainer => {
+    featureMenuToggler.addEventListener('click', function() {
+      featureContainer.classList.toggle('feature__container--on');
+    });
+  });
 });
 
-darkFeature.addEventListener('click', function() {
-  page.setAttribute('color-scheme', 'dark');
+darkFeatures.forEach(darkFeature => {
+  darkFeature.addEventListener('click', function() {
+    page.setAttribute('color-scheme', 'dark');
+  });
 });
 
-blueFeature.addEventListener('click', function() {
-  page.setAttribute('color-scheme', 'blue');
+blueFeatures.forEach(blueFeature => {
+  blueFeature.addEventListener('click', function() {
+    page.setAttribute('color-scheme', 'blue');
+  });
 });
 
-specialFeature.addEventListener('click', function() {
-  page.setAttribute('color-scheme', 'special');
+specialFeatures.forEach(specialFeature => {
+  specialFeature.addEventListener('click', function() {
+    page.setAttribute('color-scheme', 'special');
+  });
 });
