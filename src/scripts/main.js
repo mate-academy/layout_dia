@@ -10,6 +10,29 @@ const featureContainers = document.querySelectorAll('.feature__container');
 const darkFeatures = document.querySelectorAll('.feature-dark');
 const blueFeatures = document.querySelectorAll('.feature-blue');
 const specialFeatures = document.querySelectorAll('.feature-special');
+const swiperLeftArrow = document.querySelector('.swiper__toggler-left');
+const swiperRightArrow = document.querySelector('.swiper__toggler-right');
+const swiperContainer = document.querySelector('.swiper__wrapper');
+
+let currentSwiperPosition = 0;
+
+swiperLeftArrow.addEventListener('click', function() {
+  if (currentSwiperPosition === 0) {
+    currentSwiperPosition = -200;
+  } else {
+    currentSwiperPosition += 100;
+  }
+  swiperContainer.style.transform = `translateX(${currentSwiperPosition}%)`;
+});
+
+swiperRightArrow.addEventListener('click', function() {
+  if (currentSwiperPosition === -200) {
+    currentSwiperPosition = 0;
+  } else {
+    currentSwiperPosition -= 100;
+  }
+  swiperContainer.style.transform = `translateX(${currentSwiperPosition}%)`;
+});
 
 noDefault.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -34,27 +57,27 @@ togglers.forEach((toggler) => {
   });
 });
 
-featureMenuTogglers.forEach(featureMenuToggler => {
-  featureContainers.forEach(featureContainer => {
+featureMenuTogglers.forEach((featureMenuToggler) => {
+  featureContainers.forEach((featureContainer) => {
     featureMenuToggler.addEventListener('click', function() {
       featureContainer.classList.toggle('feature__container--on');
     });
   });
 });
 
-darkFeatures.forEach(darkFeature => {
+darkFeatures.forEach((darkFeature) => {
   darkFeature.addEventListener('click', function() {
     page.setAttribute('color-scheme', 'dark');
   });
 });
 
-blueFeatures.forEach(blueFeature => {
+blueFeatures.forEach((blueFeature) => {
   blueFeature.addEventListener('click', function() {
     page.setAttribute('color-scheme', 'blue');
   });
 });
 
-specialFeatures.forEach(specialFeature => {
+specialFeatures.forEach((specialFeature) => {
   specialFeature.addEventListener('click', function() {
     page.setAttribute('color-scheme', 'special');
   });
