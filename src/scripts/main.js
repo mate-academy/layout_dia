@@ -7,9 +7,6 @@ const notabs = document.querySelectorAll('.notab *');
 const noDefault = document.querySelector('.noDefault');
 const featureMenuTogglers = document.querySelectorAll('.feature-menu-toggler');
 const featureContainers = document.querySelectorAll('.feature__container');
-const darkFeatures = document.querySelectorAll('.feature-dark');
-const blueFeatures = document.querySelectorAll('.feature-blue');
-const specialFeatures = document.querySelectorAll('.feature-special');
 const swiperLeftArrow = document.querySelector('.swiper__toggler-left');
 const swiperRightArrow = document.querySelector('.swiper__toggler-right');
 const swiperContainer = document.querySelector('.swiper__wrapper');
@@ -65,20 +62,20 @@ featureMenuTogglers.forEach((featureMenuToggler) => {
   });
 });
 
-darkFeatures.forEach((darkFeature) => {
-  darkFeature.addEventListener('click', function() {
-    page.setAttribute('color-scheme', 'dark');
-  });
-});
+// setting themes
 
-blueFeatures.forEach((blueFeature) => {
-  blueFeature.addEventListener('click', function() {
-    page.setAttribute('color-scheme', 'blue');
-  });
-});
+const themes = ['dark', 'blue', 'special', 'squere'];
 
-specialFeatures.forEach((specialFeature) => {
-  specialFeature.addEventListener('click', function() {
-    page.setAttribute('color-scheme', 'special');
+const setPageTheme = function(name) {
+  const featureSelectors = document.querySelectorAll(`.feature-${name}`);
+
+  featureSelectors.forEach(feature => {
+    feature.addEventListener('click', function() {
+      page.setAttribute('color-scheme', `${name}`);
+    });
   });
+};
+
+themes.forEach(theme => {
+  return setPageTheme(theme);
 });
