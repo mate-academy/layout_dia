@@ -5,6 +5,24 @@
   overflow: hidden;
   bottom: -1px;
 
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(141deg, rgba(118,187,245,0)
+    0%, rgba(0,138,255,0.58) 100%);
+    border-radius: getColor(slider-border-radius);
+    z-index: 1;
+
+    @include onDesktop {
+      border-radius: getColor(slider-border-radius-desktop);
+    }
+  }
+
   @include onDesktop {
     bottom: 0;
   }
@@ -53,6 +71,7 @@
     @include onTablet {
       bottom: clamp(32px, calc(2rem + ((1vw - 6.4px) * 4.16)), 48px);
       left: clamp(41px, calc(2.56rem + ((1vw - 6.4px) * 9.63)), 78px);
+      z-index: 1;
     }
 
     @include onDesktop {

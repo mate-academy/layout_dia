@@ -5,6 +5,7 @@
   -webkit-box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
   -moz-box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
   box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
+  transition: transform getColor(transition-time);
 
   & * {
     transition: background-color getColor(transition-time);
@@ -29,28 +30,27 @@
       margin-bottom: 70px;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      width: 56px;
-      height: 139px;
-      background-color: getColor(testimonial-color1);
-      border-radius: 12px;
-      transform: translateY(-31%) rotate(30deg) translatex(-15%);
-    }
-
+    &:before,
     &:after {
       content: "";
       position: absolute;
       width: 56px;
       height: 139px;
       background-color: getColor(testimonial-color1);
-      border-radius: 12px;
+      border-radius: getColor(testimonial-pseudo-border-radius);
+      transition: border-radius getColor(transition-time);
+    }
+
+    &:before {
+      transform: translateY(-31%) rotate(30deg) translatex(-15%);
+    }
+
+    &:after {
       transform: translateY(53%) rotate(30deg) translatex(-107%);
     }
   }
 
-  //   #region before and after color
+  //  #region before and after color
   &:nth-child(1) > .testimonial__container > .testimonial__image-wrapper {
     &::after,
     &::before {
@@ -72,7 +72,7 @@
     }
   }
 
-  //   #endregion
+  //  #endregion
 
   &__image {
     position: relative;
@@ -133,4 +133,18 @@
     color: getColor(text-color-superlight);
     font-weight: 600;
   }
+
+  // #region some transition animation
+
+  &:hover {
+    transform: scale(1.04);
+    & > .testimonial__container > .testimonial__image-wrapper {
+      &::after,
+      &::before {
+        border-radius: getColor(testimonial-pseudo-border-radius-hover);
+      }
+    }
+  }
+
+  // #endregion
 }

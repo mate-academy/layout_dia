@@ -4,17 +4,25 @@
   color: getColor(text-on-dark);
   text-decoration: none;
   position: relative;
-
+  
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: -1px;
+    height: 3px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 1px;
+    transition: transform getColor(transition-time),
+      background-color getColor(transition-time);
+  }
+  
   &:hover {
     &:after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      left: -1px;
-      height: 2px;
-      width: 100%;
+      transform: scaleX(100%);
       background-color: getColor(button-hover-bgc);
-      border-radius: 1px;
     }
   }
 
