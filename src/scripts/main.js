@@ -5,32 +5,32 @@ const togglers = document.querySelectorAll('.menu__toggler');
 const menu = document.querySelector('.menu__list-container');
 const notabs = document.querySelectorAll('.notab *');
 const noDefault = document.querySelector('.noDefault');
-const featureMenuTogglers = document.querySelectorAll('.feature-menu-toggler');
-const featureContainers = document.querySelectorAll('.feature__container');
-const swiperLeftArrow = document.querySelector('.swiper__toggler-left');
-const swiperRightArrow = document.querySelector('.swiper__toggler-right');
-const swiperContainer = document.querySelector('.swiper__wrapper');
 
-let currentSwiperPosition = 0;
+// swiper section
+document.querySelectorAll('.swiper__button').forEach((button) => {
+  let currentSwiperPosition = 0;
+  const swiperItemsCount
+    = document.querySelector('.swiper__wrapper').children.length;
+  const SwiperWidth = (swiperItemsCount - 1) * 100;
 
-swiperLeftArrow.addEventListener('click', function() {
-  if (currentSwiperPosition === 0) {
-    currentSwiperPosition = -200;
-  } else {
-    currentSwiperPosition += 100;
-  }
-  swiperContainer.style.transform = `translateX(${currentSwiperPosition}%)`;
+  button.addEventListener('click', function() {
+    if (button.classList.contains('swiper__toggler-left')) {
+      currentSwiperPosition === 0
+        ? (currentSwiperPosition -= SwiperWidth)
+        : (currentSwiperPosition += 100);
+    } else if (button.classList.contains('swiper__toggler-right')) {
+      currentSwiperPosition === SwiperWidth * -1
+        ? (currentSwiperPosition = 0)
+        : (currentSwiperPosition -= 100);
+    }
+
+    document.querySelector(
+      '.swiper__wrapper'
+    ).style.transform = `translateX(${currentSwiperPosition}%)`;
+  });
 });
 
-swiperRightArrow.addEventListener('click', function() {
-  if (currentSwiperPosition === -200) {
-    currentSwiperPosition = 0;
-  } else {
-    currentSwiperPosition -= 100;
-  }
-  swiperContainer.style.transform = `translateX(${currentSwiperPosition}%)`;
-});
-
+// preventing defaul action for form
 noDefault.addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -39,6 +39,7 @@ noDefault.addEventListener('submit', function(e) {
   document.getElementsByName('message')[0].value = '';
 });
 
+// making anable to tab if menu is opened
 togglers.forEach((toggler) => {
   toggler.addEventListener('click', function() {
     page.classList.toggle('page--with-modal');
@@ -54,28 +55,19 @@ togglers.forEach((toggler) => {
   });
 });
 
-featureMenuTogglers.forEach((featureMenuToggler) => {
-  featureContainers.forEach((featureContainer) => {
-    featureMenuToggler.addEventListener('click', function() {
-      featureContainer.classList.toggle('feature__container--on');
-    });
-  });
-});
-
 // setting themes
-
 const themes = ['dark', 'blue', 'special', 'squere'];
 
 const setPageTheme = function(name) {
   const featureSelectors = document.querySelectorAll(`.feature-${name}`);
 
-  featureSelectors.forEach(feature => {
+  featureSelectors.forEach((feature) => {
     feature.addEventListener('click', function() {
       page.setAttribute('color-scheme', `${name}`);
     });
   });
 };
 
-themes.forEach(theme => {
+themes.forEach((theme) => {
   return setPageTheme(theme);
 });
