@@ -6,29 +6,51 @@ const menu = document.querySelector('.menu__list-container');
 const notabs = document.querySelectorAll('.notab *');
 const noDefault = document.querySelector('.noDefault');
 
-// swiper section
-document.querySelectorAll('.swiper__button').forEach((button) => {
-  let currentSwiperPosition = 0;
-  const swiperItemsCount
-    = document.querySelector('.swiper__wrapper').children.length;
-  const SwiperWidth = (swiperItemsCount - 1) * 100;
+// slider section
 
-  button.addEventListener('click', function() {
-    if (button.classList.contains('swiper__toggler-left')) {
-      currentSwiperPosition === 0
-        ? (currentSwiperPosition -= SwiperWidth)
-        : (currentSwiperPosition += 100);
-    } else if (button.classList.contains('swiper__toggler-right')) {
-      currentSwiperPosition === SwiperWidth * -1
-        ? (currentSwiperPosition = 0)
-        : (currentSwiperPosition -= 100);
+function initSlider(sliderId) {
+  const sliderBody = sliderId.querySelector('.slider__wrapper');
+  const count = sliderBody.children.length;
+  const leftButton = sliderId.querySelector('.slider__toggler-left');
+  const rightButton = sliderId.querySelector('.slider__toggler-right');
+
+  let currentPosition = 0;
+
+  function moveTo(position) {
+    currentPosition = position % count;
+
+    if (currentPosition < 0) {
+      currentPosition += count;
     }
 
-    document.querySelector(
-      '.swiper__wrapper'
-    ).style.transform = `translateX(${currentSwiperPosition}%)`;
-  });
-});
+    sliderBody.style.transform = `translateX(${-currentPosition * 100}%)`;
+  }
+
+  function moveNext() {
+    moveTo(currentPosition + 1);
+  }
+
+  function movePrev() {
+    moveTo(currentPosition - 1);
+  }
+
+  rightButton.addEventListener('click', moveNext);
+  leftButton.addEventListener('click', movePrev);
+
+  moveTo(currentPosition);
+
+  return {
+    moveTo: moveTo,
+    moveNext: moveNext,
+    movePrev: movePrev,
+  };
+}
+
+const slider1 = initSlider(document.getElementById('slider1'));
+
+setInterval(function() {
+  slider1.moveNext();
+}, 3000);
 
 // preventing defaul action for form
 noDefault.addEventListener('submit', function(e) {
