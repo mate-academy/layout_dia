@@ -8,7 +8,7 @@
 // https://web.dev/building-a-color-scheme/
 
 $themes: (
-  black: (
+  dark: (
     page-bgc: #e5e5e5,
     container-horizontal-padding: 41px,
     header-bgc: #2c2c2c,
@@ -49,7 +49,7 @@ $themes: (
     header-margin-bottom: 30px,
     footer-border-radius: 0
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0 0,
-    /* 30px @ 320px increasing to 120px @ 1024px */ slider-border-radius:
+    slider-border-radius:
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px),
@@ -83,7 +83,7 @@ $themes: (
     header-hight-desktop: 120px,
     header-margin-bottom: 30px,
     footer-border-radius: 60px 15px,
-    /* 30px @ 320px increasing to 120px @ 1024px */ slider-border-radius:
+    slider-border-radius:
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px),
@@ -117,7 +117,7 @@ $themes: (
     header-hight-desktop: 120px,
     header-margin-bottom: 30px,
     footer-border-radius: 75px 75px,
-    /* 30px @ 320px increasing to 120px @ 1024px */ slider-border-radius:
+    slider-border-radius:
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px)
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px) 0
     clamp(30px, calc(1.88rem + ((1vw - 3.2px) * 12.78)), 120px),
@@ -156,7 +156,7 @@ $themes: (
 
 // this is needed to seting up prefers-color-scheme
 
-@mixin getTheme($color) {
+@mixin setTheme($color) {
   @each $theme, $theme-set in $themes {
     @if $theme == $color {
       html {
@@ -169,15 +169,14 @@ $themes: (
 }
 
 @media (prefers-color-scheme: light) {
-  @include getTheme(blue);
+  @include setTheme(blue);
 }
 
 @media (prefers-color-scheme: dark) {
-  @include getTheme(black);
+  @include setTheme(black);
 }
-
 // use this to declare variable in your scss
 
-@function getColor($color-name) {
+@function getTheme($color-name) {
   @return var(--color-#{$color-name});
 }

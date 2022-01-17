@@ -50,7 +50,7 @@ const slider1 = initSlider(document.getElementById('slider1'));
 
 setInterval(function() {
   slider1.moveNext();
-}, 3000);
+}, 5000);
 
 // preventing defaul action for form
 noDefault.addEventListener('submit', function(e) {
@@ -91,5 +91,5 @@ const setPageTheme = function(name) {
 };
 
 themes.forEach((theme) => {
-  return setPageTheme(theme);
+  setPageTheme(theme);
 });
