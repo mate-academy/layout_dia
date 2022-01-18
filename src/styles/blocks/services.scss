@@ -3,7 +3,7 @@
   &__main-title {
     @include forDesktop {
       transform: translateY(100px);
-      position: absolute;
+      // position: absolute;
       width: 300px;
     }
   }
@@ -14,11 +14,11 @@
     font-weight: 700;
     line-height: 20px;
     letter-spacing: 3px;
-    text-transform: uppercase;
 
     color: rgb(192, 205, 215);
 
     margin: 0 0 16px;
+    text-transform: uppercase;
   }
 
   &__title {
@@ -47,12 +47,11 @@
 
   &__block {
     justify-self: center;
-    width: 300px;
+    width: 100%;
 
     @include forTablet {
       justify-self: stretch;
-      min-width: 250px;
-      max-width: 320px;
+      min-width: 240px;
     }
 
     background-color: #fff;
@@ -123,6 +122,13 @@
     text-align: center;
     text-decoration: none;
     top: 8px;
+    transform-origin: bottom left;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      color: $main-blue;
+    }
 
     &::before {
       content: "";
@@ -133,11 +139,12 @@
       height: 40px;
       left: 0;
       bottom: -8px;
-      transition: transform 0.3s;
+
+      transition: 0.3s;
     }
 
     &:hover::before {
-      transform: scale(1.2) rotate(-180deg);
+      transform: rotate(-180deg);
     }
   }
 }
