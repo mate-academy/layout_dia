@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @for $start from 1 to 3 {
+    @for $end from $start to 3 {
+      &__mobile--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+
+    @for $start from 1 to 7 {
+      @for $end from $start to 7 {
+        &__tablet--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &__desktop--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
