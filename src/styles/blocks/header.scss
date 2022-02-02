@@ -13,9 +13,17 @@
     align-items: center;
   }
 
+  &__nav {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+
   &__link {
     @extend %setPoppin;
     @extend %header__top-text;
+    transition: color $transition-duration, transform $transition-duration;
     &::after {
       content: "";
       display: block;
@@ -24,15 +32,22 @@
       height: 2px;
       background-color: #2060f6;
     }
-  }
-  &__logoAndButton-container {
-    display: flex;
-    gap: 35px;
-    align-items: center;
+    &:hover {
+      color: #32a4a8;
+      transform: scale(1.2);
+    }
   }
 
   &__menu-button-image {
-    transition: transform 0.3s;
+    fill: white;
+    transition: transform $transition-duration;
+    height: 22px;
+  }
+
+  &__menu-button-link {
+    @include tablet {
+      display: none;
+    }
   }
 
   &__menu-button-link:hover &__menu-button-image {

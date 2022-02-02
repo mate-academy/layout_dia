@@ -1,16 +1,33 @@
 .nav {
   &__list {
     display: flex;
-    align-items: center;
-    gap: 48px;
+    flex-direction: column;
     list-style: none;
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+      gap: 48px;
+    }
   }
+
+  &__item:not(:last-child) {
+    margin-bottom: 60px;
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
   &__link {
     @extend %setPoppin;
     @extend %header__top-text;
-    @include navClickZone ($header-top-padding,24px);
+    font-size: 22px;
+    transition: color $transition-duration;
     @include tablet {
+      font-size: 13px;
       @include navClickZone (50px,24px);
+    }
+    &:hover {
+      color: #32a4a8;
     }
   }
 }
