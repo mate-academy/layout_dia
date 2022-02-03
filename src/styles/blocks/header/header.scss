@@ -1,0 +1,44 @@
+.header {
+  padding: 29px 0 80px;
+  height: 100vh;
+  background-color: $c-dark-gray;
+
+  @include onSmallScreen {
+    padding: 41px 0 84px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__top-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+  }
+
+  @include hasNoMouth {
+    &__burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include rectangle(24px, 24px);
+
+      &-part {
+        display: block;
+        background-color: #fff;
+        float: left;
+
+        @include rectangle(100%, 2px);
+        @include transitions(width);
+
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

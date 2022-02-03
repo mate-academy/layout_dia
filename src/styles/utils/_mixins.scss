@@ -4,3 +4,55 @@
     #{$property}: $to-value;
   }
 }
+
+@mixin transitions($properties) {
+  $transitions: "";
+
+  @each $property in $properties {
+    $transitions: $transitions + $property;
+  }
+
+  transition-property: $transitions;
+  transition-duration: 300ms;
+}
+
+@mixin setFont($fs, $lh, $ls) {
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin rectangle($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hasNoMouth {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallScreen {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onRegularScreen {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}

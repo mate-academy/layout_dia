@@ -6,7 +6,8 @@
 1. Here is a fully adaptive landing page, maintainable on the following screens:
    - large screen `2560px`
    - the design for `1600px`
-   - tablet `1024px`
+   - the design for `1024px`
+   - tablet `640px`
    - mobile (> `320px`)
 2. BEM and SASS have been used while implementing the page
 
