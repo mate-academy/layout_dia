@@ -4,9 +4,13 @@
 
 ## Description
 1. Here is a fully adaptive landing page, maintainable on the following screens:
-- Large screen `2560px`
-- The design `1600px`
-- Tablet `1024px`
-- Mobile (> `320px`)
-
+   - large screen `2560px`
+   - the design for `1600px`
+   - tablet `1024px`
+   - mobile (> `320px`)
 2. BEM and SASS have been used while implementing the page
+
+## Local development
+### Dependencies
+* Node v14.18.2
+* NPM v6.14.15
