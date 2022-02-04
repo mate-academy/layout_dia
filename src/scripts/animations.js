@@ -5,20 +5,23 @@ const colorBlue = '#2060f6ff';
 const transitionDuration = 300;
 
 const link = document.querySelector('.link');
-const linkScaleDown = 0.995;
+const linkScaleDown = 0.985;
 
 link.onclick = function() {
   this.animate([
     {
-      color: '#fff', transform: 'scale(1)',
+      color: '#fff',
+      transform: 'scale(1)',
     },
     {
-      color: colorGray, transform: `scale(${linkScaleDown})`,
+      color: colorGray,
+      transform: `scale(${linkScaleDown})`,
     },
     {
-      color: '#fff', transform: 'scale(1)',
+      color: '#fff',
+      transform: 'scale(1)',
     }],
-  { duration: transitionDuration * 2 });
+  { duration: transitionDuration });
 };
 
 const burger = document
@@ -33,17 +36,17 @@ burger.onclick = () => {
     { width: '100%' },
     { width: '60%' },
     { width: '100%' },
-  ], { duration: transitionDuration * 2 });
+  ], { duration: transitionDuration });
 
   burgerPartLast.animate([
     { width: '100%' },
     { width: '40%' },
     { width: '100%' },
-  ], { duration: transitionDuration * 2 });
+  ], { duration: transitionDuration });
 };
 
 const button = document.querySelector('.button');
-const buttonScaleDown = 0.995;
+const buttonScaleDown = 0.985;
 
 button.onclick = function() {
   this.animate([
@@ -63,5 +66,24 @@ button.onclick = function() {
       background: colorBlue,
       transform: 'scale(1)',
     }],
-  { duration: transitionDuration * 2 });
+  { duration: transitionDuration });
+};
+
+const arrowButtonLeft = document.querySelector('.slider__arrow--left');
+const arrowButtonRight = document.querySelector('.slider__arrow--right');
+
+arrowButtonLeft.onclick = function() {
+  this.animate([
+    { transform: 'scale(1)' },
+    { transform: `scale(${linkScaleDown})` },
+    { transform: 'scale(1)' }],
+  { duration: transitionDuration });
+};
+
+arrowButtonRight.onclick = function() {
+  this.animate([
+    { transform: 'scale(1)' },
+    { transform: `scale(${linkScaleDown})` },
+    { transform: 'scale(1)' }],
+  { duration: transitionDuration });
 };
