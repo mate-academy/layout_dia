@@ -1,0 +1,46 @@
+.icon {
+  display: block;
+  width: $icon-width;
+  height: $icon-width;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 3px;
+
+    transition: width 1.3s;
+
+    @include onNotebook {
+      display: none;
+    }
+
+    &:hover .span--up {
+      width: 12px;
+    }
+    &:hover .span--down {
+      width: 16px;
+    }
+
+    &:active .span--up {
+      transform: translate(0, 4px) rotate(45deg);
+      transform-origin: center;
+    }
+    &:active .span--down {
+      transform: translate(0, -2px) rotate(-45deg);
+      transform-origin: center;
+    }
+  }
+
+  &__span {
+    width: 18px;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s;
+  }
+}
