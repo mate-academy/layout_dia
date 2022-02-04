@@ -69,8 +69,10 @@ button.onclick = function() {
   { duration: transitionDuration });
 };
 
-const arrowButtonLeft = document.querySelector('.slider__arrow--left');
-const arrowButtonRight = document.querySelector('.slider__arrow--right');
+const arrowButtonLeft = document
+  .querySelector('.slider__arrow--left');
+const arrowButtonRight = document
+  .querySelector('.slider__arrow--right');
 
 arrowButtonLeft.onclick = function() {
   this.animate([
