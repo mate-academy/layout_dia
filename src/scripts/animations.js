@@ -89,3 +89,13 @@ arrowButtonRight.onclick = function() {
     { transform: 'scale(1)' }],
   { duration: transitionDuration });
 };
+
+const cross = document.querySelector('.icon--cross');
+
+cross.onclick = function() {
+  this.animate([
+    { transform: 'rotate(0)' },
+    { transform: 'rotate(2turn)' },
+    { transform: 'rotate(4turn)' }],
+  { duration: transitionDuration / 2 });
+};

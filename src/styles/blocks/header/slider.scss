@@ -1,46 +1,62 @@
 .slider {
-  @include onMobile {
-    transform: scale(getScaleValue($vw-mobile));
-  }
+  padding-top: 2px;
+  position: relative;
+  height: 100%;
 
-  @include onTablet {
-    transform: scale(getScaleValue($vw-tablet));
-  }
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: #fff;
 
-  height: 390px;
-  border-radius: 30px;
-  overflow: hidden;
+  @include onSmallScreen {
+    overflow: hidden;
+  }
 
   &__image {
-    width: 100%;
-    height: 100%;
+    transform: scaleY(10.45 / 10);
     object-fit: cover;
     object-position: center;
+    border-radius: 30px;
+    @include square(100%);
+
+    @include onSmallScreen {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 
   &__content {
     position: absolute;
-    left: 20px;
-    bottom: 108px;
+    left: 5%;
+    bottom: 15%;
+
+    @include onSmallScreen {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
   }
 
   &__arrows {
+    margin-bottom: 16px;
     display: flex;
     gap: 20px;
-    margin-bottom: 16px;
+
+    @include onSmallScreen {
+      margin-bottom: 0;
+    }
   }
 
   &__arrow {
     display: flex;
     justify-content: center;
     align-items: center;
-    @include rectangle(32px, 32px);
 
-    border-radius: 50%;
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: 25%;
+    border-radius: 50%;
 
+    @include square(32px);
     @include transitions(transform);
 
     @include onSmallScreen {
@@ -62,10 +78,9 @@
 
   &__title {
     margin-bottom: 8px;
-
+    text-transform: uppercase;
     @extend %poppins-700;
     @include setFont(13px, 19.5px, 3px);
-    text-transform: uppercase;
   }
 
   &__text {

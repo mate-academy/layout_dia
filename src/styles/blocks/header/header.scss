@@ -1,9 +1,16 @@
 .header {
   padding: 29px 0 0;
-  height: 100vh;
+  width: 100vw;
+  height: max-content;
+
   background-color: $c-dark-gray;
 
+  border-bottom-left-radius: 30px;
+  /*necessary as scrollbar damaging layout*/
+  border-bottom-right-radius: 70px;
+
   @include onSmallScreen {
+    height: 100vh;
     padding: 41px 0 84px;
   }
 
@@ -14,31 +21,48 @@
 
   &__top-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 35px;
   }
 
-  @include hasNoMouth {
-    &__burger {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-      @include rectangle(24px, 24px);
+    @include square(24px);
 
-      &-part {
-        display: block;
-        background-color: #fff;
-        float: left;
+    @include onSmallScreen {
+      display: none;
+    }
 
-        @include rectangle(100%, 2px);
-        @include transitions(width);
+    &-part {
+      display: block;
+      float: left;
 
-        &:not(:last-child) {
-          margin-bottom: 4px;
-        }
+      background-color: #fff;
+
+      @include rectangle(100%, 2px);
+      @include transitions(width);
+
+      &:not(:last-child) {
+        margin-bottom: 4px;
       }
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__link {
+    display: none;
+    text-decoration: none;
+
+    @include onSmallScreen {
+      display: block;
     }
   }
 
@@ -50,35 +74,55 @@
       padding: 56px 0 0;
     }
 
+    @include onSmallScreen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include rectangle(50%, 100%);
+    }
+
     &-title {
       margin-bottom: 32px;
-
+      height: max-content;
       @extend %poppins-600;
       @include setFont(52px, 120%, -2px);
 
       @include onTablet {
+        margin-bottom: 24px;
         font-size: 64px;
         line-height: 68px;
       }
 
-      @include onTablet {
-        margin-bottom: 24px;
-      }
-
       @include onSmallScreen {
         margin-bottom: 32px;
+        width: 490px;
       }
     }
 
     &-text {
       margin-bottom: 72px;
-      
       @extend %open-sans-400;
       @include setFont(18px, 150%, inherit);
+
+      @include onTablet {
+        width: 362px;
+      }
     }
   }
 
   &__slider {
-    margin-top: 100px; //TODO make it flexible
+    margin-top: 48px;
+
+    @include onTablet {
+      margin-top: 147px;
+    }
+
+    @include onSmallScreen {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-top: 0;
+      @include rectangle(45vw, 85vh);
+    }
   }
 }
