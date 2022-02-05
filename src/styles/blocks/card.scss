@@ -4,6 +4,12 @@
 
   @extend %card-definition;
 
+  transition: transform $animation-duration;
+
+  &:hover {
+    transform: scale(110%);
+  }
+
   &__number {
     @extend %centring-position;
 
@@ -31,12 +37,6 @@
     margin-bottom: 32px;
   }
 
-  &__bottom-section {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
   &__arrow-link {
     @extend %centring-position;
 
@@ -51,6 +51,7 @@
     line-height: 22px;
 
     color: $c-dark-gray;
+    transition: color $animation-duration;
 
   }
 
@@ -61,10 +62,24 @@
     background-image: url(../images/icons/right-arrow.svg);
   }
 
+  &__bottom-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &:hover > .card__link {
+      color: $c-light-red;
+    }
+  }
+
   &--2,
   &--4 {
     @include onTablet {
       transform: translateY(-50%);
+
+      &:hover {
+        transform: scale(110%) translateY(-50%);
+      }
     }
   }
 }
