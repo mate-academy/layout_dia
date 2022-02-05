@@ -1,6 +1,74 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
   height: 264px;
+
   background-color: #fff;
+  border-radius: 16px;
+
+  @include transitions(box-shadow);
+
+  @include onSmallScreen {
+    &:hover {
+      box-shadow: 0 3px 6px rgba(0, 117, 255, 0.46);
+    }
+
+    &:hover &__button-arrow {
+      transform: rotate(1turn);
+    }
+  }
+
+  &__number {
+    text-align: center;
+    color: $c-blue-int1;
+    background-color: $c-gray-int1;
+    border-radius: 25px;
+
+    @include rectangle(46px, 24px);
+    @include setFont(13px, 200%, inherit);
+  }
+
+  &__content {
+    @extend %open-sans-600;
+    @include setFont(13px, 150%, inherit);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    color: $c-blue-int2;
+    text-decoration: none;
+    @include transitions(transform);
+
+    &-arrow {
+      display: block;
+
+      background-color: $c-blue-int1;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("../images/learn-more/arrow.svg");
+      border-radius: 50%;
+
+      @include square(40px);
+      @include transitions(transform);
+    }
+
+    &-text {
+      @extend %poppins-600;
+      @include setFont(15px, 22.5px, inherit);
+    }
+
+    @include onSmallScreen {
+      &:hover {
+        color: $c-blue-int1;
+        transform: scale($scale-std);
+      }
+    }
+  }
 
   &--to-translate {
     @include onTablet {

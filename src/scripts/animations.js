@@ -1,11 +1,51 @@
 'use strict';
 
 const colorGray = '#9d9d9d';
-const colorBlue = '#2060f6ff';
 const transitionDuration = 300;
+const scaleDown = 0.985;
+
+function transformOnClick(item, rule, states, duration) {
+  item.onclick = function() {
+    this.animate([
+      { transform: `${rule}(${states[0]})` },
+      { transform: `${rule}(${states[1]})` },
+      { transform: `${rule}(${states[2]})` }],
+    { duration: duration });
+  };
+}
+
+function applyToAll(items, func, midVal) {
+  for (const item of items) {
+    func(item, 'scale', [1, midVal, 1], transitionDuration);
+  }
+}
+
+function animateButton(button) {
+  const colorBlue = '#2060f6ff';
+
+  button.onclick = function() {
+    this.animate([
+      {
+        color: '#fff',
+        background: colorBlue,
+        transform: 'scale(1)',
+      },
+      {
+        border: 'none',
+        color: colorBlue,
+        background: '#fff',
+        transform: `scale(${scaleDown})`,
+      },
+      {
+        color: '#fff',
+        background: colorBlue,
+        transform: 'scale(1)',
+      }],
+    { duration: transitionDuration });
+  };
+}
 
 const link = document.querySelector('.link');
-const linkScaleDown = 0.985;
 
 link.onclick = function() {
   this.animate([
@@ -15,7 +55,7 @@ link.onclick = function() {
     },
     {
       color: colorGray,
-      transform: `scale(${linkScaleDown})`,
+      transform: `scale(${scaleDown})`,
     },
     {
       color: '#fff',
@@ -24,8 +64,7 @@ link.onclick = function() {
   { duration: transitionDuration });
 };
 
-const burger = document
-  .querySelector('.header__burger');
+const burger = document.querySelector('.header__burger');
 const burgerPartFirst = document
   .querySelector('.header__burger-part:first-child');
 const burgerPartLast = document
@@ -45,57 +84,22 @@ burger.onclick = () => {
   ], { duration: transitionDuration });
 };
 
-const button = document.querySelector('.button');
-const buttonScaleDown = 0.985;
+const headerButton = document.querySelector('.button');
 
-button.onclick = function() {
-  this.animate([
-    {
-      color: '#fff',
-      background: colorBlue,
-      transform: 'scale(1)',
-    },
-    {
-      border: 'none',
-      color: colorBlue,
-      background: '#fff',
-      transform: `scale(${buttonScaleDown})`,
-    },
-    {
-      color: '#fff',
-      background: colorBlue,
-      transform: 'scale(1)',
-    }],
-  { duration: transitionDuration });
-};
-
-const arrowButtonLeft = document
-  .querySelector('.slider__arrow--left');
-const arrowButtonRight = document
-  .querySelector('.slider__arrow--right');
-
-arrowButtonLeft.onclick = function() {
-  this.animate([
-    { transform: 'scale(1)' },
-    { transform: `scale(${linkScaleDown})` },
-    { transform: 'scale(1)' }],
-  { duration: transitionDuration });
-};
-
-arrowButtonRight.onclick = function() {
-  this.animate([
-    { transform: 'scale(1)' },
-    { transform: `scale(${linkScaleDown})` },
-    { transform: 'scale(1)' }],
-  { duration: transitionDuration });
-};
+animateButton(headerButton);
 
 const cross = document.querySelector('.icon--cross');
 
-cross.onclick = function() {
-  this.animate([
-    { transform: 'rotate(0)' },
-    { transform: 'rotate(2turn)' },
-    { transform: 'rotate(4turn)' }],
-  { duration: transitionDuration / 2 });
-};
+transformOnClick(cross,
+  'rotate', [0, '1turn', '2turn'],
+  transitionDuration);
+
+const arrowButtons = document.querySelectorAll('.slider__arrow');
+
+applyToAll(arrowButtons,
+  transformOnClick, scaleDown);
+
+const learnButtons = document.querySelectorAll('.card__button');
+
+applyToAll(learnButtons,
+  transformOnClick, scaleDown);
