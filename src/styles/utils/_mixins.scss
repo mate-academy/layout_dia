@@ -1,7 +1,7 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $value, $time) {
+  transition: #{$property} #{$time};
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $value;
   }
 }
 
@@ -26,5 +26,21 @@
 @mixin onFullHD {
   @media (min-width: 1920px) {
     @content;
+  }
+}
+
+@mixin button {
+  transition: transform 0.4s, box-shadow 0.5s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 1px 4px 16px rgba(238, 255, 130, 0.2);
+  }
+
+  &:active {
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    transform: scale(0.98);
+    box-shadow: 1px 4px 16px rgba(238, 255, 130, 0.4);
   }
 }
