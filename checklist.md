@@ -4,16 +4,16 @@
 3. Implement the header with `nav`.
 4. Implement `Strategic agency` block.
 5. Implement slider (You may start with a single picture).
-- implement slider block as absolutely positioned element with `right: 0` and `bottom: 0` position inside the black container
-- on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
+    - implement slider block as absolutely positioned element with `right: 0` and `bottom: 0` position inside the black container
+    - on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
 6. Implement `Who we are` block.
 7. Implement `Our expertise` block with the card reused 3 times.
 8. Implement `Process` block with 4 process cards.
-- use `trasnlateY(-50%)` to move cards up
+    - use `trasnlateY(-50%)` to move cards up
 9. Implement `Testimonials` block.
-- each card should have a fixed width and on the small screens the whole block should switch to column layout
+    - each card should have a fixed width and on the small screens the whole block should switch to column layout
 10. Implement `Vision, Passion, Results` block.
-- use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
+    - use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
 11. Implement `Send us  a message` block.
 12. Implement `Contact us` block.
 13. Implement the footer.
