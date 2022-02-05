@@ -5,6 +5,16 @@
   }
 }
 
+@mixin buildGrid($col-num) {
+  @for $start from 1 through $col-num {
+    @for $end from $start through $col-num {
+      &-#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+
 @mixin transitions($properties) {
   $transitions: "";
 

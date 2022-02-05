@@ -1,0 +1,36 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 24px 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 68px);
+    gap: 30px;
+  }
+
+  @include onSmallScreen {
+    grid-template-columns: repeat(12, 58px);
+    gap: 20px;
+  }
+
+  @include onRegularScreen {
+    column-width: 68px;
+    gap: 45px;
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+
+    &--tab {
+      @include onTablet {
+        @include buildGrid(6);
+      }
+    }
+
+    &--desk {
+      @include onSmallScreen {
+        @include buildGrid(12);
+      }
+    }
+  }
+}
