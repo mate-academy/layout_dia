@@ -1,17 +1,17 @@
 'use strict';
 
-const colorGray = '#9d9d9d';
+const colorBlue = '#2060f6ff';
 const transitionDuration = 300;
 const scaleDown = 0.985;
 
 function transformOnClick(item, rule, states, duration) {
-  item.onclick = function() {
+  item.addEventListener('click', function() {
     this.animate([
       { transform: `${rule}(${states[0]})` },
       { transform: `${rule}(${states[1]})` },
       { transform: `${rule}(${states[2]})` }],
     { duration: duration });
-  };
+  });
 }
 
 function applyToAll(items, func, midVal) {
@@ -21,9 +21,7 @@ function applyToAll(items, func, midVal) {
 }
 
 function animateButton(button) {
-  const colorBlue = '#2060f6ff';
-
-  button.onclick = function() {
+  button.addEventListener('click', function() {
     this.animate([
       {
         color: '#fff',
@@ -42,27 +40,8 @@ function animateButton(button) {
         transform: 'scale(1)',
       }],
     { duration: transitionDuration });
-  };
+  });
 }
-
-const link = document.querySelector('.link');
-
-link.onclick = function() {
-  this.animate([
-    {
-      color: '#fff',
-      transform: 'scale(1)',
-    },
-    {
-      color: colorGray,
-      transform: `scale(${scaleDown})`,
-    },
-    {
-      color: '#fff',
-      transform: 'scale(1)',
-    }],
-  { duration: transitionDuration });
-};
 
 const burger = document.querySelector('.header__burger');
 const burgerPartFirst = document
@@ -70,7 +49,7 @@ const burgerPartFirst = document
 const burgerPartLast = document
   .querySelector('.header__burger-part:last-child');
 
-burger.onclick = () => {
+burger.addEventListener('click', function() {
   burgerPartFirst.animate([
     { width: '100%' },
     { width: '60%' },
@@ -82,19 +61,33 @@ burger.onclick = () => {
     { width: '40%' },
     { width: '100%' },
   ], { duration: transitionDuration });
-};
+});
 
 const blueButtons = document.querySelectorAll('.button');
-const cross = document.querySelector('.icon--cross');
+const crossIcon = document.querySelector('.icon--cross');
 const arrowButtons = document.querySelectorAll('.slider__arrow');
 const learnButtons = document.querySelectorAll('.card__button');
 
 animateButton(blueButtons[0]);
 animateButton(blueButtons[1]);
 
-transformOnClick(cross,
+transformOnClick(crossIcon,
   'rotate', [0, '1turn', '2turn'],
   transitionDuration);
 
 applyToAll(arrowButtons, transformOnClick, scaleDown);
 applyToAll(learnButtons, transformOnClick, scaleDown);
+
+const instButton = document.querySelector('.contact-us__instagram');
+
+instButton.addEventListener('mouseover', function() {
+  this.animate([
+    { fill: '#fff' },
+    { fill: '#515bd4' },
+    { fill: '#8134af' },
+    { fill: '#feda77' },
+    { fill: '#f58529' },
+    { fill: '#dd2a7d' },
+  ],
+  { duration: transitionDuration * 3 });
+});

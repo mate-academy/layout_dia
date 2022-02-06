@@ -10,29 +10,65 @@
 
   &__info {
     display: block;
+    width: 100%;
     margin-top: 8px;
+
     color: #fff;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
 
     @extend %open-sans-600;
-    @include setFont(24px, 36px, inherit);
+    @include setFont(20px, 36px, inherit);
+    @include transitions(border-color);
+
+    @include onTablet {
+      width: max-content;
+    }
+
+    @include onSmallScreen {
+      @include hover(border-color, $c-blue-int1);
+    }
   }
 
   &__socials {
     display: flex;
     gap: 32px;
     margin-top: 16px;
-    /*
-        &-facebook {
+  }
 
-        }
+  &__facebook {
+    fill: #fff;
+    @include transitions(fill transform);
 
-        &-twitter {
+    @include onSmallScreen {
+      &:hover {
+        fill: #3b5998;
+        transform: scale($scale-std);
+      }
+    }
+  }
 
-        }
+  &__twitter {
+    fill: #fff;
+    @include transitions(fill transform);
 
-        &-instagram {
+    @include onSmallScreen {
+      &:hover {
+        fill: #00acee;
+        transform: scale($scale-std);
+      }
+    }
+  }
 
-        }*/
+  &__instagram {
+    fill: #fff;
+    @include transitions(fill transform);
+
+    @include onSmallScreen {
+      &:hover {
+        fill: #dd2a7d;
+        transform: scale($scale-std);
+      }
+    }
   }
 }

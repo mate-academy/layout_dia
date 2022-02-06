@@ -17,15 +17,16 @@
   &__field {
     display: block;
     width: 100%;
-    padding: 17px 0 0;
+    padding: 3em 0 17px;
 
     color: #fff;
     background-color: $c-gray-int5;
-    line-height: 5em;
 
     border: none;
     border-bottom: 2px solid $c-gray-int4;
+    outline: none;
 
+    @include setFont(15px, 22.5px, inherit);
     @include transitions(border-bottom-color transform);
 
     @include onTablet {
@@ -33,14 +34,18 @@
     }
 
     @include onSmallScreen {
+      cursor: pointer;
+
       &:hover {
         border-bottom-color: #fff;
       }
 
       &:focus {
         border-bottom-color: $c-blue-int1;
-        transform: translateX(5px) scale(1.01);
+        transform: scale(0.99);
         outline: none;
+
+        cursor: initial;
         caret-color: #fff;
       }
     }

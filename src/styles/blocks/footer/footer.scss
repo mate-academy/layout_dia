@@ -6,8 +6,6 @@ $p-horiz-small: 54px;
   background-color: #fff;
 
   &__container {
-    display: flex;
-    flex-direction: column;
     padding: 72px 20px 80px;
 
     background-color: $c-gray-int5;
@@ -21,19 +19,29 @@ $p-horiz-small: 54px;
     }
 
     @include onSmallScreen {
-      flex-direction: row;
-      align-items: start;
-      gap: 98px;
-
       padding-left: $p-horiz-small;
       padding-right: $p-horiz-small;
     }
 
     @include onRegularScreen {
-      justify-content: center;
-      gap: 226px;
       padding-left: 0;
       padding-right: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallScreen {
+      flex-direction: row;
+      justify-content: center;
+      align-items: start;
+      gap: 98px;
+    }
+
+    @include onRegularScreen {
+      gap: 226px;
     }
   }
 
@@ -55,6 +63,48 @@ $p-horiz-small: 54px;
 
     @include onSmallScreen {
       margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 50px 0;
+    margin-top: 81px;
+
+    @include onTablet {
+      margin-top: 140px;
+    }
+
+    @include onSmallScreen {
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-top: 121px;
+    }
+
+    @include onRegularScreen {
+      justify-content: center;
+      gap: 463px;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px 0;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 0 40px;
+      }
+
+      @include onSmallScreen {
+        row-gap: 64px;
+      }
+    }
+
+    &-link {
+      width: max-content;
     }
   }
 }
