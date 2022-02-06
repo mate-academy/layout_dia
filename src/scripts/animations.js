@@ -84,22 +84,17 @@ burger.onclick = () => {
   ], { duration: transitionDuration });
 };
 
-const headerButton = document.querySelector('.button');
-
-animateButton(headerButton);
-
+const blueButtons = document.querySelectorAll('.button');
 const cross = document.querySelector('.icon--cross');
+const arrowButtons = document.querySelectorAll('.slider__arrow');
+const learnButtons = document.querySelectorAll('.card__button');
+
+animateButton(blueButtons[0]);
+animateButton(blueButtons[1]);
 
 transformOnClick(cross,
   'rotate', [0, '1turn', '2turn'],
   transitionDuration);
 
-const arrowButtons = document.querySelectorAll('.slider__arrow');
-
-applyToAll(arrowButtons,
-  transformOnClick, scaleDown);
-
-const learnButtons = document.querySelectorAll('.card__button');
-
-applyToAll(learnButtons,
-  transformOnClick, scaleDown);
+applyToAll(arrowButtons, transformOnClick, scaleDown);
+applyToAll(learnButtons, transformOnClick, scaleDown);
