@@ -1,0 +1,93 @@
+.card {
+  box-sizing: border-box;
+  background-color: $main-white;
+  border-radius: 16px;
+  padding: 75px 42px 32px;
+  transition: transform $transition-duration;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  &__image-container {
+    position: relative;
+
+    ::before {
+      content: "";
+      position: absolute;
+      top: -38px;
+      left: -8px;
+
+      transform: rotate(30deg);
+
+      width: 44px;
+      height: 110px;
+      border-radius: 12px;
+      background-color: $main-blue;
+    }
+
+    ::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 68px;
+
+      transform: rotate(30deg);
+
+      width: 44px;
+      height: 110px;
+      border-radius: 12px;
+      background-color: $main-blue;
+    }
+  }
+  &__image {
+    height: 110px;
+    border-radius: 50%;
+    margin-bottom: 70px;
+    @include bigPhone {
+      height: 140px;
+      margin-bottom: 82px;
+    }
+    @include tablet {
+      height: 110px;
+    }
+    @include desktop {
+      height: 140px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @extend %setOpenSans;
+    @extend %testemonials-card-text;
+    margin-bottom: 16px;
+    min-height: 108px;
+    max-width: 362px;
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 18px;
+      background-image: url(../images/testemonials-card-bg.svg);
+      margin-bottom: 10px;
+    }
+  }
+  &__name-and-role-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  &__name {
+    @extend %setOpenSans;
+    @extend %testemonials-card-text;
+    color: $title-color;
+  }
+
+  &__role {
+    @extend %sections-h4;
+    margin: 0;
+    width: max-content;
+  }
+}
