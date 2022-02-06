@@ -15,6 +15,20 @@
   }
 }
 
+@mixin changeOnResize($property, $val-1, $val-2, $val-3) {
+  @include onTablet {
+    $property: $val-1;
+  }
+
+  @include onSmallScreen {
+    $property: $val-2;
+  }
+
+  @include onRegularScreen {
+    $property: $val-3;
+  }
+}
+
 @mixin transitions($properties) {
   $transitions: "";
 
@@ -25,6 +39,22 @@
   transition-property: $transitions;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+}
+
+@mixin adaptiveRectangle($prop-a, $prop-b) {
+  @include rectangle($prop-a * $img-r-def, $prop-b * $img-r-def);
+
+  @include onTablet {
+    @include rectangle($prop-a * $img-r-big, $prop-b * $img-r-big);
+  }
+
+  @include onSmallScreen {
+    @include rectangle($prop-a * $img-r-def, $prop-b * $img-r-def);
+  }
+
+  @include onRegularScreen {
+    @include rectangle($prop-a * $img-r-big, $prop-b * $img-r-big);
+  }
 }
 
 @mixin setFont($fs, $lh, $ls) {

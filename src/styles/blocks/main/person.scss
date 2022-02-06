@@ -1,0 +1,116 @@
+$pt-def: 75px;
+$pt-spec: 87px;
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: $pt-def 35px 32px;
+
+  @include onTablet {
+    padding-top: $pt-spec;
+  }
+
+  @include onSmallScreen {
+    padding-top: $pt-def;
+  }
+
+  @include onRegularScreen {
+    padding-top: $pt-spec;
+
+  }
+
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    @include adaptiveRectangle(4, 2);
+
+    &-image {
+      z-index: 2;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+
+      @include square(2 * $avatar-img-r-def);
+
+      @include onTablet {
+
+        @include square(2 * $avatar-img-r-big);
+      }
+
+      @include onSmallScreen {
+        @include square(2 * $avatar-img-r-def);
+      }
+
+      @include onRegularScreen {
+        @include square(2 * $avatar-img-r-big);
+      }
+    }
+
+    &-box {
+      background-color: $c-blue-int1;
+      border-radius: 10px;
+      @include adaptiveRectangle(0.8, 2);
+
+      $trans-origin: 50%;
+      $trans-x: 75%;
+      $trans-y: 12.5%;
+      $trans-ang: 25deg;
+
+      &--1 {
+        z-index: 1;
+        transform-origin: (100% + $trans-origin) center;
+        transform: translate($trans-x, -$trans-y) rotate($trans-ang);
+      }
+
+      &--2 {
+        z-index: 1;
+        transform-origin: -$trans-origin center;
+        transform: translate(-$trans-x, $trans-y) rotate($trans-ang);
+      }
+    }
+  }
+
+  &__quotes {
+    margin-top: 70px;
+    background-image: url("../images/testimonials/quotes.svg");
+    @include square(24px);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__description {
+    margin-top: 10px;
+    max-width: 362px;
+
+    text-align: center;
+    @extend %open-sans-600;
+    @include setFont(13px, 19.5px, inherit);
+  }
+
+  &__name {
+    color: $c-blue-int2;
+    margin-top: 32px;
+    text-align: center;
+    @extend %open-sans-600;
+    @include setFont(13px, 19.5px, inherit);
+
+    @include onTablet {
+      margin-top: 16px;
+    }
+
+    @include onSmallScreen {
+      margin-top: 32px;
+    }
+
+    @include onRegularScreen {
+      margin-top: 16px;
+    }
+  }
+
+  &__title {
+    margin: 4px 0 0;
+  }
+}
