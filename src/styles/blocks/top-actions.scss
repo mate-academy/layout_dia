@@ -5,6 +5,10 @@
 
   padding-top: 18px;
 
+  @include onNotebook {
+    display: none;
+  }
+
   &__left-part {
     display: flex;
     align-items: center;
@@ -27,6 +31,9 @@
     text-transform: uppercase;
     color: #fff;
 
+    transition: color $animation-duration,
+      transform $animation-duration;
+
     &::after {
       position: absolute;
       bottom: 0;
@@ -36,6 +43,16 @@
       height: 2px;
       background-color: $c-dark-blue;
       border-radius: 4px;
+      transition: background-color $animation-duration;
+    }
+
+    &:hover {
+      color: $c-light-red;
+      transform: scale(110%);
+
+      &::after {
+        background-color: $c-light-red;
+      }
     }
 
     &--menu {
@@ -49,5 +66,20 @@
         background-color: $c-light-red;
       }
     }
+  }
+
+  // notebook section
+  &--notebook {
+    display: none;
+
+    @include onNotebook {
+      display: flex;
+      padding-top: 48px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 48px;
   }
 }

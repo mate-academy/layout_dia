@@ -11,14 +11,24 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+
+    @include onNotebook {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+    }
   }
 
   &__form-container {
-    padding-bottom: 72px;
+    padding-bottom: 80px;
 
     @include onTablet {
       width: 60%;
-      padding-bottom: 112px;
+      padding-bottom: 118px;
+    }
+
+    @include onNotebook {
+      width: 75%;
     }
   }
 
@@ -27,6 +37,10 @@
 
     @include onTablet {
       margin-bottom: 24px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 0;
     }
   }
 
@@ -42,8 +56,6 @@
   }
 
   &__contacts {
-    padding: 8px 0;
-
     margin-bottom: 80px;
 
     @include onTablet {
@@ -89,25 +101,10 @@
     padding: 0 4px;
   }
 
-  &__menu-list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    @include onTablet {
-      flex-direction: row;
-      gap: 40px;
+  &__menu {
+    @include onNotebook {
+      display: flex;
+      justify-content: space-between;
     }
-  }
-
-  &__menu-link {
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 150%;
-
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    color: inherit;
   }
 }

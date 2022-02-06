@@ -8,11 +8,48 @@
   background-size: cover;
   background-position: center left;
 
+  @include onNotebook {
+    display: none;
+  }
+
+  &--notebook {
+    display: none;
+
+    @include onNotebook {
+      display: block;
+      height: 100%;
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+    }
+  }
+
   &__content {
     position: absolute;
-    top: $header-top-offset;
     left: 20px;
-    right: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include onNotebook {
+      left: 78px;
+      bottom: 48px;
+
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__wrapper {
+    @include onNotebook {
+      transform: translateY(-8px);
+    }
   }
 
   &__arrows {

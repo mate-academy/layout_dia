@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background-color: $c-light-black;
   border-radius: 0 0 $header-image-angle $header-image-angle;
   color: #fff;
@@ -9,6 +10,21 @@
     @include onTablet {
       margin-bottom: 56px;
     }
+
+    @include onNotebook {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__section-wrapper {
+    display: none;
+
+    @include onNotebook {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      justify-content: center;
+    }
   }
 
   &__content {
@@ -16,6 +32,25 @@
 
     @include onTablet {
       margin-bottom: 150px;
+    }
+
+    @include onNotebook {
+      display: none;
+    }
+
+    &--notebook {
+      @include onNotebook {
+        grid-column: 1 / 6;
+        padding: 166px 0 205px;
+      }
+    }
+  }
+
+  &__slider {
+    @include onNotebook {
+
+      position: relative;
+      grid-column: 6 / 13;
     }
   }
 
