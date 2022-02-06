@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    display: block;
+
+    &:last-of-type {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    padding: 17px 0 0;
+
+    color: #fff;
+    background-color: $c-gray-int5;
+    line-height: 5em;
+
+    border: none;
+    border-bottom: 2px solid $c-gray-int4;
+
+    @include transitions(border-bottom-color transform);
+
+    @include onTablet {
+      width: 362px;
+    }
+
+    @include onSmallScreen {
+      &:hover {
+        border-bottom-color: #fff;
+      }
+
+      &:focus {
+        border-bottom-color: $c-blue-int1;
+        transform: translateX(5px) scale(1.01);
+        outline: none;
+        caret-color: #fff;
+      }
+    }
+
+    &::placeholder {
+      color: $c-gray-int2;
+    }
+  }
+}

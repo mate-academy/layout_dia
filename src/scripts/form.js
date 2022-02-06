@@ -1,7 +1,6 @@
+'use strict';
 /*
-import {animateButton} from "./module";
-
-const form = document.querySelector('.form');
+const form = document.querySelector('.footer__form');
 const button = document.querySelector('.button--submit');
 
 form.addEventListener('submit', (event) => {
