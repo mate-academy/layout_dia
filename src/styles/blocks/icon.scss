@@ -5,6 +5,13 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  @include active (transform, scale(1.1), 0.3s);
+
+  &__span {
+    width: 18px;
+    height: 2px;
+    background-color: #fff;
+  }
 
   &__menu {
     display: flex;
@@ -20,20 +27,16 @@
       display: none;
     }
 
-    &:active .span--up {
-      transform: translate(0, 4px) rotate(45deg);
-      transform-origin: center;
-    }
-    &:active .span--down {
-      transform: translate(0, -2px) rotate(-45deg);
-      transform-origin: center;
+    &--cross {
+      .span--up {
+        transform: translate(0, 4px) rotate(45deg);
+        transform-origin: center;
+      }
+      .span--down {
+        transform: translate(0, -2px) rotate(-45deg);
+        transform-origin: center;
+      }
     }
   }
 
-  &__span {
-    width: 18px;
-    height: 2px;
-    background-color: #fff;
-    transition: width 0.3s;
-  }
 }

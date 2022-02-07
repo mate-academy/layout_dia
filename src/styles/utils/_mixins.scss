@@ -5,6 +5,13 @@
   }
 }
 
+@mixin active($property, $value, $time) {
+  &:active {
+    transition: #{$property} #{$time};
+    #{$property}: $value;
+  }
+}
+
 @mixin onTablet {
   @media (min-width: 1024px) {
     @content;
@@ -38,7 +45,7 @@
   }
 
   &:active {
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.1s, box-shadow 0.2s;
 
     transform: scale(0.98);
     box-shadow: 1px 4px 16px rgba(238, 255, 130, 0.4);
