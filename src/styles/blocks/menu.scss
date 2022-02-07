@@ -1,6 +1,10 @@
 .menu {
   background-color: $C-dark-grey;
 
+  @include onNotebook {
+    display: none;
+  }
+
   &__content {
     box-sizing: border-box;
     height: 100vh;
@@ -8,7 +12,7 @@
   }
 
   &__top {
-    margin-bottom: 44px;
+    margin-bottom: 60px;
   }
 
   &__list {
@@ -18,12 +22,14 @@
   }
 
   &__item {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     width: min-content;
 
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include hover (transform, translateX(10px) scale(1.04), 0.5s);
   }
 
   &__link {
@@ -34,9 +40,5 @@
 
     @extend %link;
     font-size: 20px;
-  }
-
-  @include onNotebook {
-    display: none;
   }
 }
