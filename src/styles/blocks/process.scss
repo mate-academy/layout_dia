@@ -25,10 +25,10 @@
     font-size: 32px;
     line-height: 130%;
     @include bigPhone {
-      max-width: 264px;
+      width: 264px;
     }
     @include tablet {
-      max-width: 292px;
+      width: 292px;
     }
   }
 
@@ -41,14 +41,18 @@
       max-width: 260px;
     }
     @include tablet {
-      max-width: max-content;
+      max-width: none;
     }
   }
 
   &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     @include bigPhone {
-      display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
+      min-width: 546px;
       max-width: 600px;
       gap: 30px;
     }
@@ -62,16 +66,12 @@
     }
     display: flex;
     flex-direction: column;
-    &:not(:last-child) {
-      margin-bottom: 24px;
-    }
     padding: 32px;
     background-color: $main-white;
 
     border-radius: 16px;
     @include bigPhone {
       max-width: 280px;
-      margin-bottom: 0;
     }
     &-number {
       color: $main-blue;
