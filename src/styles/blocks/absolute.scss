@@ -18,16 +18,10 @@
       height: 680px;
       border-radius: 0;
 
-      transform: scaleX(2);
+      object-fit: cover;
+      object-position: center;
     }
 
-    @include onHighRes {
-      transform: scaleX(1.5);
-    }
-
-    @include on2k {
-      transform: scaleX(1);
-    }
   }
 
   &__text {
@@ -84,5 +78,18 @@
     background-color: #fff;
 
     border-radius: 50%;
+
+    transition: transform 0.3s linear;
+
+    @include onNotebook {
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: 1px 1px 30px rgba(32, 96, 246, 0.9);
+      }
+
+      &:hover .absolute__arrow-icon {
+        fill: #2060F6;
+      }
+    }
   }
 }

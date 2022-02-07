@@ -105,6 +105,10 @@
 
     @include onNotebook {
       width: 214px;
+
+      &:hover {
+        box-shadow: 1px 1px 20px rgba(32, 96, 246, 0.5);
+      }
     }
 
     @include onHighRes {
@@ -142,12 +146,6 @@
     color: #6C788B;
   }
 
-  &__links {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
   &__icon {
     display: block;
   }
@@ -162,12 +160,34 @@
     border-radius: 50%;
   }
 
-  &__link {
+  &__link-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 15px;
     line-height: 22px;
 
     color: #334563;
+
+    background-color: transparent;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    transition:
+      transform 0.3s linear,
+      color 0.3s linear;
+
+    @include onNotebook {
+      &:hover{
+        transform: scale(1.1);
+      }
+
+      &:hover .process__link-text {
+        color: #2060F6;
+      }
+    }
   }
 }
