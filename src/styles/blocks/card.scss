@@ -1,0 +1,79 @@
+.card {
+  padding: 32px;
+
+  background: $c-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  transition: transform 0.5s, box-shadow 0.5s;
+
+  @include onTablet {
+    $scale: 1.05;
+
+    &:hover {
+      transform: scale($scale);
+      box-shadow: 0 9px 18px #2060f633;
+    }
+
+    &--translateY-50 {
+      transform: translateY(-50%);
+    }
+
+    &--translateY-50:hover {
+      transform: translateY(-50%) scale($scale);
+    }
+  }
+
+  &__title {
+    display: block;
+
+    width: 46px;
+    margin-bottom: 24px;
+    border-radius: 23px;
+    background-color: rgba(32, 96, 246, 0.1);
+
+    @extend %card-title;
+  }
+
+  &__list {
+    margin: 0 0 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    @extend %card-text;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @extend %card-button;
+
+    &::before {
+      content: "";
+      @include circle (40px);
+      background-image: url(../images/services/mdi_arrow_forward.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: $c-main-blue;
+      transition: transform 0.4s;
+    }
+
+    &:hover {
+      color: $c-lite-grey;
+      &::before {
+        transform: scale(1.2);
+      }
+    }
+
+    &:active::before {
+      transition: transform 0.2s, opacity 0.15s;
+
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+}
