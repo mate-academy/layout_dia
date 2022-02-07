@@ -1,9 +1,24 @@
 .header {
   height: 100%;
 
+  @include onNotebook {
+    padding-bottom: 205px;
+  }
+
   &__nav {
     padding-top: 20px;
     margin-bottom: 50px;
+
+    @include onNotebook {
+      padding-top: 50px;
+    }
+  }
+
+  &__content {
+    @include onNotebook {
+      width: 40%;
+      position: relative;
+    }
   }
 
   &__title {
@@ -23,10 +38,14 @@
       font-size: 64px;
       line-height: 68px;
     }
+
+    @include onNotebook {
+      margin: 158px 0 32px;
+    }
   }
 
   &__sub-title {
-    margin: 0 0 72px;
+    margin-bottom: 72px;
 
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -34,6 +53,14 @@
     line-height: 150%;
 
     color: #FFFFFF;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 84px;
+    }
   }
 
   &__button {
@@ -53,14 +80,22 @@
 
     color: #FFFFFF;
 
+    @include onTablet {
+      width: 50%;
+    }
+
+    @include onNotebook {
+      width: 75%;
+    }
+
     &--vpr {
       @include onTablet {
         margin: 0 auto;
       }
-    }
 
-    @include onTablet {
-      width: 50%;
+      @include onNotebook {
+        width: 25%;
+      }
     }
   }
 
@@ -70,5 +105,14 @@
     left: 0;
 
     margin-bottom: 120px + $translete-Y;
+
+    @include onNotebook {
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      margin-bottom: 0;
+    }
   }
+
+
 }

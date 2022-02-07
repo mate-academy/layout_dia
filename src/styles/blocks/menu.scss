@@ -1,14 +1,31 @@
 .menu {
   background-color: #2C2C2C;
 
+  &--high-res {
+    display: none;
+
+    @include onNotebook {
+      display: contents;
+    }
+  }
+
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include onNotebook {
+      display: flex;
+      gap: 48px;
+    }
   }
 
   &__item {
     margin-bottom: 24px;
+
+    @include onNotebook {
+      margin-bottom: 0;
+    }
   }
 
   &__link {
@@ -22,5 +39,26 @@
     text-transform: uppercase;
 
     color: white;
+
+    @include onNotebook {
+      font-size: 13px;
+
+      &::after {
+        margin-top: 8px;
+
+        display: block;
+        content: "";
+        height: 2px;
+        background-color: #2060F6;
+
+        opacity: 0;
+
+        transition: 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
   }
 }
