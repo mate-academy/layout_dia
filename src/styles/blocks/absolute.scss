@@ -1,4 +1,17 @@
 .absolute {
+  @include onNotebook {
+    overflow: hidden;
+    border-top-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+  }
+
+
+  @include onHighRes {
+    overflow: hidden;
+    border-top-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+  }
+
   &__image {
     display: block;
     width: 100%;
@@ -7,16 +20,19 @@
 
     @include onNotebook {
       height: 680px;
-      width: min-content;
-      
+      border-radius: 0;
+
+      transform: scaleX(2);
+    }
+
+    @include onHighRes {
+      transform: scaleX(1.5);
+    }
+
+    @include on2k {
+      transform: scaleX(1);
     }
   }
-
-  // &__container {
-  //   // @include onNotebook {
-  //   //   padding: 0 78px;
-  //   // }
-  // }
 
   &__text {
     margin-bottom: 24px;
