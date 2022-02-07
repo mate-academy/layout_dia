@@ -23,8 +23,6 @@ function removeRequired() {
 submitButton.addEventListener('click', setRequired);
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
   submitButton.animate([
     {
       color: '#fff',
@@ -43,6 +41,7 @@ form.addEventListener('submit', (event) => {
       transform: 'scale(1)',
     }],
   { duration: transitionDuration });
+  event.preventDefault();
   form.reset();
   removeRequired();
 });
