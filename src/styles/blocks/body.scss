@@ -1,8 +1,26 @@
 .body {
 
+  &--with-menu {
+    overflow: hidden;
+  }
+
   &__header {
     background-color: $gray-bg-main;
     margin-bottom: -30px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      z-index: 1;
+    }
   }
 
   &__who {
@@ -11,6 +29,10 @@
     padding-bottom: 150px;
     margin-bottom: -30px;
     padding-top: 150px;
+
+    @include onTablet {
+      padding: 180px 0;
+    }
   }
 
   &__title {
@@ -25,6 +47,10 @@
       font-size: 44px;
       line-height: 120%;
       margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 64px;
+      }
     }
 
     &--left {
@@ -55,6 +81,13 @@
     border-radius: 30px;
     margin-bottom: -30px;
     position: relative;
+  }
+
+  &__cards {
+
+    @include onDesktop {
+      display: flex;
+    }
   }
 
   &__air {
