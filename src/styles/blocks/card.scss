@@ -1,79 +1,133 @@
 .card {
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  background: $c-white;
-  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
-  border-radius: 16px;
+  padding: 32px 40px;
+  @include card;
 
   transition: transform 0.5s, box-shadow 0.5s;
 
   @include onTablet {
-    $scale: 1.05;
-
     &:hover {
-      transform: scale($scale);
+      transform: scale($card-scale);
       box-shadow: 0 9px 18px #2060f633;
     }
-
-    &--translateY-50 {
-      transform: translateY(-50%);
-    }
-
-    &--translateY-50:hover {
-      transform: translateY(-50%) scale($scale);
-    }
   }
 
-  &__title {
-    display: block;
+  &__photo-container {
+    $card-container-size:196px;
 
-    width: 46px;
-    margin-bottom: 24px;
-    border-radius: 23px;
-    background-color: rgba(32, 96, 246, 0.1);
-
-    @extend %card-title;
-  }
-
-  &__list {
-    margin: 0 0 32px;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__item {
-    @extend %card-text;
-  }
-
-  &__button {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    justify-content: center;
+    position: relative;
 
-    @extend %card-button;
+    @include square ($card-container-size);
+    padding: $card-container-size/4.5;
+    margin-bottom: 24px;
+  }
 
-    &::before {
-      content: "";
-      @include circle (40px);
-      background-image: url(../images/services/mdi_arrow_forward.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: $c-main-blue;
+  &__photo {
+    @include photo (50%);
+    z-index: 1;
+    cursor: zoom-in;
+
+    @include onTablet {
       transition: transform 0.4s;
-    }
 
-    &:hover {
-      color: $c-lite-grey;
-      &::before {
-        transform: scale(1.2);
+      &:hover {
+        transform: scale(1.1);
+
+        & + .card__rectangle-container {
+          transform: rotate(-330deg) translate(-50%, -50%);
+        }
       }
     }
+  }
 
-    &:active::before {
-      transition: transform 0.2s, opacity 0.15s;
+  &__rectangle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    gap: 58px;
 
-      transform: scale(3);
-      opacity: 0;
+    transform: rotate(30deg) translate(-50%, -50%);
+    transform-origin: 0% 0%;
+
+    transition: transform 2s;
+
+    @include onTablet {
+      gap: 74px;
     }
+
+    @include onNotebook {
+      gap: 58px;
+    }
+
+    @include onTheDesign {
+      gap: 74px;
+    }
+  }
+
+  &__rectangle {
+    @include rectangle (44px, 109px);
+    z-index: 0;
+
+    background-color: $c-main-blue;
+    border-radius: 12px;
+
+    @include onTablet {
+      @include rectangle (56px, 139px);
+    }
+
+    @include onNotebook {
+      @include rectangle (44px, 109px);
+    }
+
+    @include onTheDesign {
+      @include rectangle (56px, 139px);
+    }
+
+    &--left {
+      transform: translate(0, -18px);
+    }
+
+    &--right {
+      transform: translate(0, +18px);
+
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__quotes {
+    margin: 0 0 11px;
+    width: 21px;
+    height: 19px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
+    margin: 0 0 16px;
+
+    @extend %ticket-text;
+    text-align: center;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+
+    @extend %ticket-text;
+    color: $c-dark-blue;
+  }
+
+  &__profession {
+    @extend %h2;
   }
 }
