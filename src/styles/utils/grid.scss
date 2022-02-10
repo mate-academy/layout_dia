@@ -1,107 +1,106 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  
+  @include onTablet () {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onDesktop() {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onFullHD() {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+
+  }
+  
+  @include onLargeScreens () {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    
+  }
+
+  &--Tablet,
+  &--Desktop,
+  &--FullHD,
+  &--LargeScreens {
+      
     display: block;
   
     @include onTablet () {
-      grid-template-columns: repeat(6, 1fr);
-      column-gap: 24px;
+      display: grid;
     }
 
-    @include onDesktop() {
-        grid-template-columns: repeat(12, 1fr);
-        column-gap: 24px;
-      }
-
-    @include onFullHD() {
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 24px; 
-    }
-
-    @include onLargeScreens () {
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 24px; 
+    @include onDesktop () {
+      display: grid;
     }
   
-    &--Tablet,
-    &--Desktop,
-    &--FullHD,
-    &--LargeScreens {
-      
-      display: block;
-  
-      @include onTablet () {
-        display: grid;
-      }
-
-      @include onDesktop () {
-        display: grid;
-      }
-  
-      @include onFullHD () {
-        display: grid;
-      }
-  
-  
-      @include onLargeScreens () {
-        display: grid;
-      }
-    }
-  
-    @include onTablet() {
-  
-      &__item {
-        @for $start from 1 to 7 {
-          @for $end from $start to 7 {
-            &--Tablet--#{$start}-#{$end} {
-              grid-column: #{$start} / #{$end + 1};
-            }
-          }
-        }
-      }
-    }
-   
-    @include onDesktop() {
-      &__item {
-        @for $start from 1 to 13 {
-          @for $end from $start to 13 {
-            &--#{$start}-#{$end} {
-              grid-column: #{$start} / #{$end + 1};
-            }
-            &--Desktop--#{$start}-#{$end} {
-              grid-column: #{$start} / #{$end + 1};
-            }
-          }
-        }
-      }
-    }
-
     @include onFullHD () {
-      @for $start from 1 to 13 {
-        @for $end from $start to 13 {
-          &--#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-          &--FullHD--#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-        }
-      }
+      display: grid;
     }
-
-    @include onLargeScreens () {
-      @for $start from 1 to 13 {
-        @for $end from $start to 13 {
-          &--#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-          &--LargeScreens--#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
-        }
-      }
-    }
-}
-
   
+  
+    @include onLargeScreens () {
+      display: grid;
+    }
+  }
+  
+  @include onTablet() {
+  
+    &__item {
+      @for $start from 1 to 7 {
+        @for $end from $start to 7 {
+          &--Tablet--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+   
+  @include onDesktop() {
+    &__item {
+      @for $start from 1 to 13 {
+        @for $end from $start to 13 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+          &--Desktop--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onFullHD () {
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+        &--FullHD--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include onLargeScreens () {
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+        &--LargeScreens--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
