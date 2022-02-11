@@ -1,6 +1,87 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover ($property, $value, $time) {
+  transition: #{$property} #{$time};
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $value;
   }
+}
+
+@mixin active($property, $value, $time) {
+  &:active {
+    transition: #{$property} #{$time};
+    #{$property}: $value;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onNotebook {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTheDesign {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onFullHD {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin button {
+  transition: transform 0.4s, box-shadow 0.5s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 9px 18px #2060f633;
+  }
+
+  &:active {
+    transition: transform 0.1s, box-shadow 0.2s;
+
+    transform: scale(0.98);
+    box-shadow: 0 9px 18px #2362f666;
+  }
+}
+
+@mixin square ($dim) {
+  box-sizing: border-box;
+  width: $dim;
+  height: $dim;
+}
+
+@mixin rectangle ($w, $h) {
+  box-sizing: border-box;
+  width: $w;
+  height: $h;
+}
+
+@mixin circle ($radius) {
+  display: block;
+  width: $radius;
+  height: $radius;
+  border-radius: 50%;
+}
+
+@mixin photo ($radius) {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin card {
+  background: $c-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
 }

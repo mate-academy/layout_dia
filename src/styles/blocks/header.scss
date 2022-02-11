@@ -1,0 +1,43 @@
+.header {
+  background-color: $c-dark-grey;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    height: 100vh;
+    padding: $headerTopPadding 0 48px;
+
+    @include onTablet {
+      padding: $headerTopPadding 0 148px;
+    }
+
+    @include onNotebook {
+      padding: $headerTopPaddingNotebook 0 206px;
+    }
+  }
+
+  &__link {
+    @extend %link;
+    padding: 0 0 8px;
+    text-decoration: none;
+    border-bottom: 2px solid $c-main-blue;
+
+    @include hover (transform, scale(1.15), 0.5s);
+    @include active (transform, scale(1.1), 0.1s);
+  }
+
+  &__slider {
+    margin: 0;
+
+    @include onNotebook {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      @include rectangle(45vw, 85vh);
+    }
+  }
+}

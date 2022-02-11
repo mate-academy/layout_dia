@@ -1,0 +1,87 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 30px;
+  }
+
+  @include onNotebook {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 20px;
+  }
+
+  @include onTheDesign {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+  }
+
+  @include onFullHD {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 30px;
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--notebook {
+    display: block;
+
+    @include onNotebook {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @include onTablet {
+      &--tablet {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+
+    @include onNotebook {
+      &--notebook {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+
+    @include onTheDesign {
+      &--onTheDesign {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+  }
+}

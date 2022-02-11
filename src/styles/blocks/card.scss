@@ -1,0 +1,133 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 32px 40px;
+  @include card;
+
+  transition: transform 0.5s, box-shadow 0.5s;
+
+  @include onTablet {
+    &:hover {
+      transform: scale($card-scale);
+      box-shadow: 0 9px 18px #2060f633;
+    }
+  }
+
+  &__photo-container {
+    $card-container-size:196px;
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include square ($card-container-size);
+    padding: $card-container-size/4.5;
+    margin-bottom: 24px;
+  }
+
+  &__photo {
+    @include photo (50%);
+    z-index: 1;
+    cursor: zoom-in;
+
+    @include onTablet {
+      transition: transform 0.4s;
+
+      &:hover {
+        transform: scale(1.1);
+
+        & + .card__rectangle-container {
+          transform: rotate(-330deg) translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  &__rectangle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    gap: 58px;
+
+    transform: rotate(30deg) translate(-50%, -50%);
+    transform-origin: 0% 0%;
+
+    transition: transform 2s;
+
+    @include onTablet {
+      gap: 74px;
+    }
+
+    @include onNotebook {
+      gap: 58px;
+    }
+
+    @include onTheDesign {
+      gap: 74px;
+    }
+  }
+
+  &__rectangle {
+    @include rectangle (44px, 109px);
+    z-index: 0;
+
+    background-color: $c-main-blue;
+    border-radius: 12px;
+
+    @include onTablet {
+      @include rectangle (56px, 139px);
+    }
+
+    @include onNotebook {
+      @include rectangle (44px, 109px);
+    }
+
+    @include onTheDesign {
+      @include rectangle (56px, 139px);
+    }
+
+    &--left {
+      transform: translate(0, -18px);
+    }
+
+    &--right {
+      transform: translate(0, +18px);
+
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__quotes {
+    margin: 0 0 11px;
+    width: 21px;
+    height: 19px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
+    margin: 0 0 16px;
+
+    @extend %ticket-text;
+    text-align: center;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+
+    @extend %ticket-text;
+    color: $c-dark-blue;
+  }
+
+  &__profession {
+    @extend %h2;
+  }
+}

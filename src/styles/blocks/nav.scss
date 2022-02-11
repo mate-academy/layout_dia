@@ -1,0 +1,41 @@
+.nav {
+  display: none;
+
+  @include onNotebook {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--footer {
+      flex-direction: column;
+      align-items: start;
+
+      @include onTablet {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin: 0;
+
+    @include hover (transform, translateY(-6px) scale(1.04), 0.5s);
+
+    @include active (transform, translateY(-4px) scale(1.02), 0.1s);
+  }
+
+  &__link {
+    @extend %link;
+  }
+}

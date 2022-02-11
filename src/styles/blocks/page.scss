@@ -1,0 +1,55 @@
+.page {
+  @extend %page;
+
+  scroll-behavior: smooth;
+  &__body {
+    margin: 0;
+    background-color: $c-gray;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin: 0 0 120px;
+
+    @include onTablet {
+      margin: 0 0 148px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translate(-100%);
+    transition: transform 0.5s cubic-bezier(0.82, 0.25, 0.14, 0.73);
+
+    &:target {
+      transform: translate(0%);
+    }
+  }
+
+  &__section {
+    margin: 0 0 120px;
+
+    @include onTablet {
+      margin: 0 0 148px;
+    }
+  }
+
+  &__section-title {
+    margin: 0 0 24px;
+
+    @extend %h3;
+
+    &--first {
+      @include onTablet {
+        margin: 0 0 16px;
+      }
+    }
+  }
+}
