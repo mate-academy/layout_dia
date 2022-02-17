@@ -3,6 +3,7 @@
 - [FIGMA DESIGN LINK](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35)
 
 ## Description
+### General information
 1. Here is a fully responsive landing page, maintainable on the following screens:
    - large screen `2560px`
    - the design for `1600px`
