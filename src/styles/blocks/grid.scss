@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+  }
+
+  &--desktop {
+    display: grid;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--large-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
