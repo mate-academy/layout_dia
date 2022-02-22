@@ -6,6 +6,18 @@
   background: #e5e5e5;
   padding: 0 227px 148px;
 
+  @include mobile {
+    padding: 120px 20px;
+  }
+
+  @include tablet {
+    padding: 148px 41px;
+  }
+
+  @include laptop {
+    padding: 151px 54px;
+  }
+
   &__suptitle {
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -24,6 +36,25 @@
     justify-items: center;
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr 1fr;
+    }
+
+  }
+
+  &__info {
+    @include mobile {
+      grid-column: 1 / 3;
+    }
+
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include laptop {
+      grid-column: 1 / 4;
     }
   }
 
@@ -51,11 +82,46 @@
   display: block;
   transition: $transition;
 
+  @include mobile {
+    grid-column: 1 / 3;
+    width: 280px;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include tablet {
+    grid-column: 1 / 7;
+    width: 100%;
+    margin-bottom: 30px;
+    height: 478px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include laptop {
+    width: 292px;
+    padding: 75px 48px 32px;
+
+  }
+
   &:hover {
     transform: scale(1.1);
-    // box-shadow: 1px 4px 16px rgb(232 232 240 / 40%);
-    box-shadow: 1px 4px 16px rgba(32, 96, 246, 0.64);
+    box-shadow: 1px 4px 16px rgba(32, 96, 246, 0.3);
+  }
 
+  &__mobile {
+    
+    @include tablet {
+      display: flex;
+      margin: 0 auto;
+      width: fit-content;
+      position: relative;
+    }
   }
 
   &__img {
@@ -64,22 +130,75 @@
     z-index: 50;
     position: absolute;
     left: 111px;
+
+    @include mobile {
+      width: 109px;
+      height: 109px;
+      left: 85px;
+    }
+
+    @include tablet {
+      width: 140px;
+      height: 140px;
+      // left: 85px;
+      margin: 0 auto;
+      position: static;
+    }
+
+    @include laptop {
+      width: 109px;
+      height: 109px;
+      left: 91px;
+    }
     
   }
 
   &__rect {
     position: absolute;
-    
     z-index: 1;
+
+    @include mobile {
+      top: 35px;
+    }
 
     &--1 {
       top: 36px;
       left: 75px;
+
+      @include mobile {
+        left: 56px;
+      }
+
+      @include tablet {
+        top: -55px;
+        left: -40px;
+      }
+
+      @include laptop {
+        top: 28px;
+        left: 62px;
+      }
+
     }
 
     &--2 {
       top: 129px;
       left: 170px;
+
+      @include mobile {
+        left: 120px;
+        top: 110px;
+      }
+
+      @include tablet {
+        left: 70px;
+        top: 55px;
+      }
+
+      @include laptop {
+        top: 101px;
+        left: 130px;
+      }
     }
   }
 
@@ -91,6 +210,10 @@
     text-align: center;
     margin-bottom: 5px;
     line-height: 10px;
+
+    @include tablet {
+      margin-top: 100px;
+    }
   }
 
   &__text {
