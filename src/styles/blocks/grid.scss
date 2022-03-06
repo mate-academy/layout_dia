@@ -4,23 +4,30 @@
   gap: 20px;
 
   @include Tablet() {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
   }
 
-  &--laptop {
+  @include Notebook() {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--Tablet {
     display: block;
 
-    @include onLaptop() {
+    @include Tablet() {
       display: grid;
     }
   }
 
-  &--desktop {
+  &--Notebook {
     display: block;
 
-    @include onDesktop() {
+    @include Notebook() {
       display: grid;
+    }
+
+    &--gray {
+      background-color: $c-gray;
     }
   }
 
@@ -31,18 +38,15 @@
           grid-column: #{$start} / #{$end + 1};
         }
 
-        &--laptop-#{$start}-#{$end} {
-          @include onLaptop() {
+        &--tablet-#{$start}-#{$end} {
+          @include Tablet() {
             grid-column: #{$start} / #{$end + 1};
           }
         }
 
-        &--desktop-#{$start}-#{$end} {
-          @include onDesktop() {
+        &--notebook-#{$start}-#{$end} {
+          @include Notebook() {
             grid-column: #{$start} / #{$end + 1} /* !important */;
-            /* единтственное решение !important,
-            с которым работает @include onDesktop() */
-
           }
         }
       }

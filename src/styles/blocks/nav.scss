@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
 
+  &--footer {
+    flex-direction: column;
+
+    @include Notebook {
+      flex-direction: row;
+    }
+  }
+
   &__left-side {
     display: flex;
   }
@@ -15,12 +23,20 @@
   &__list {
     display: flex;
     justify-content: space-between;
-    color: $c-white;
+
+    &--footer {
+      flex-direction: column;
+    }
+
+    @include Tablet {
+      flex-direction: row;
+      width: 560px;
+    }
 
     @include Notebook {
       display: flex;
       align-items: center;
-      width: 500px;
+      width: 630px;
     }
 
     @include Full {
@@ -34,10 +50,35 @@
     @include Notebook {
       display: block;
     }
+
+    &--footer {
+      display: block;
+      margin-bottom: 24px;
+
+      &:last-child() {
+        margin-bottom: 0;
+      }
+
+      @include Tablet {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__right-side {
     width: 120px;
+  }
+
+  &__link {
+    color: $c-white;
+    text-decoration: none;
+    @include hover(font-size, 15px);
+    @include hover(color, rgb(172, 190, 184));
+  
+    &:hover {
+      font-size: 18px;
+      color: rgb(172, 190, 184);
+    }
   }
 
   &__hire-us {
@@ -48,6 +89,13 @@
     font-size: 13px;
     line-height: 150%;
     letter-spacing: 3px;
+    @include hover(font-size, 15px);
+    @include hover(color, rgb(172, 190, 184));
+    
+    &:hover {
+      color: rgb(172, 190, 184);
+      font-size: 15px;
+    }
 
     &::after {
       content: "";
@@ -61,5 +109,17 @@
 
   &__logo {
     padding-right: 40px;
+
+    &--footer {
+      margin-bottom: 50px;
+
+      @include Tablet {
+        margin-bottom: 25px;
+      }
+
+      @include Notebook {
+        margin-bottom: 0;
+      }
+    }
   }
 }
