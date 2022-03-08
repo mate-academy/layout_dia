@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
 
+  &--menu {
+    flex-direction: column;
+  }
+
   &--footer {
     flex-direction: column;
 
@@ -18,11 +22,25 @@
     @include Notebook {
       display: none;
     }
+
+    &--menu {
+      display: block;
+      margin-bottom: 24px;
+
+      @include Tablet {
+        margin-bottom: 48px;
+      }
+    }
   }
 
   &__list {
     display: flex;
     justify-content: space-between;
+
+    &--menu {
+      margin: 0 auto;
+      flex-direction: column;
+    }
 
     &--footer {
       flex-direction: column;
@@ -46,6 +64,21 @@
 
   &__item {
     display: none;
+
+    &--menu {
+      display: block;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 48px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include Tablet {
+        font-size: 36px;
+      }
+    }
 
     @include Notebook {
       display: block;
@@ -72,11 +105,9 @@
   &__link {
     color: $c-white;
     text-decoration: none;
-    @include hover(font-size, 15px);
     @include hover(color, rgb(172, 190, 184));
   
     &:hover {
-      font-size: 18px;
       color: rgb(172, 190, 184);
     }
   }
