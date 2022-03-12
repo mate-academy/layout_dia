@@ -1,0 +1,137 @@
+.header {
+  padding-top: 20px;
+  height: 894px;
+  background-color: $colorBackDarkGray;
+  border-bottom-left-radius: $sectionBorderRadius;
+  border-bottom-right-radius: $sectionBorderRadius;
+  position: relative;
+
+  @include onSmallScreen {
+    padding-top: 48px;
+    height: 800px;
+
+    &__container {
+      height: 100%;
+      display: grid;
+      align-content: space-between;
+    }
+
+    &__title-container {
+      margin-bottom: 205px;
+    }
+  }
+
+  &__menu {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+    @include onSmallScreen {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onSmallScreen {
+      display: flex;
+    }
+  }
+
+  &__drop-button {
+    @include onSmallScreen {
+      display: none;
+    }
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: $colorLight;
+
+    @include onTablet {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+    @include onSmallScreen {
+      margin-bottom: 32px;
+      width: max(10ch);
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 72px;
+    font-family: $secondFontFamily;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $colorLight;
+
+    @include onTablet {
+      margin-bottom: 56px;
+      width: max(36ch);
+    }
+    @include onSmallScreen {
+      margin-bottom: 84px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__drop-menu {
+    // display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transition: $transition;
+    z-index: 2;
+
+    &:target {
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+.drop-button {
+  height: 26px;
+  width: 38px;
+  background-image: url(../images/Menu.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.drop-menu {
+  padding-top: 20px;
+  background-color: $colorBackDarkGray;
+  width: 100%;
+  height: 100vh;
+
+  &__drop-button {
+    background-image: url(../images/close_white_24dp.svg);
+  }
+
+  &__nav > .nav__list {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

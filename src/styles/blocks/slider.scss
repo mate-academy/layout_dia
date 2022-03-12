@@ -1,0 +1,116 @@
+.slider {
+  height: 390px;
+  width: 100%;
+  border-radius: $sectionBorderRadius;
+
+  background-position: center;
+  background-size: cover;
+
+  &--1 {
+    background-image: linear-gradient(350deg,
+    rgba(27,109,159,1) 0%,
+    rgba(84,183,254,0.7) 25%,
+    rgba(100,100,100,0.4) 90%),
+      url(../images/slider/slide-img-1.jpg);
+  }
+  &--2 {
+    background-image: linear-gradient(350deg,
+    rgba(27,109,159,1) 0%,
+    rgba(84,183,254,0.7) 25%,
+    rgba(100,100,100,0.4) 90%),
+      url(../images/slider/slide-img-2.jpg);
+  }
+  &--3 {
+    background-image: linear-gradient(350deg,
+    rgba(27,109,159,1) 0%,
+    rgba(84,183,254,0.7) 25%,
+    rgba(100,100,100,0.4) 90%),
+      url(../images/slider/slide-img-3.jpg);
+  }
+
+  @include onSmallScreen {
+    height: 680px;
+    width: 50%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  @include onWideScreen {
+    width: 43%;
+  }
+
+  &__nav-container {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      left: 40px;
+    }
+    @include onSmallScreen {
+      left: 78px;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+    @include onWideScreen {
+      left: 48px;
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: none;
+    padding: 11px;
+    background-color: $colorLight;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:active {
+      background-color: $colorBackDarkGray;
+    }
+  }
+
+  &__button-arrow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(0) saturate(100%);
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorLight;
+  }
+
+  &__text {
+    font-family: $secondFontFamily;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $colorLight;
+    width: 270px;
+  }
+}

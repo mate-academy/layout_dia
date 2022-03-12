@@ -1,6 +1,24 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallScreen {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onWideScreen {
+  @media (min-width: 1600px) {
+    @content;
   }
 }
