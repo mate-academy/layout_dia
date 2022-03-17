@@ -1,10 +1,19 @@
 .slider {
   height: 390px;
   width: 100%;
-  border-radius: $sectionBorderRadius;
-
   background-position: center;
   background-size: cover;
+  border-radius: $sectionBorderRadius;
+
+  @include onSmallScreen {
+    width: calc(50% - #{$column-gap-small} / 2);
+    height: $header-content-height;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  @include onWideScreen {
+    width: calc(55% - (#{$column-gap-wide} / 2));
+  }
 
   &--1 {
     background-image: linear-gradient(350deg,
@@ -28,20 +37,10 @@
       url(../images/slider/slide-img-3.jpg);
   }
 
-  @include onSmallScreen {
-    height: 680px;
-    width: 50%;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  @include onWideScreen {
-    width: 43%;
-  }
-
-  &__nav-container {
+  &__content {
     position: absolute;
-    left: 20px;
-    bottom: 24px;
+    left: 30px;
+    bottom: 30px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -59,17 +58,10 @@
       left: 48px;
     }
   }
-
-  &__title-container {
-    display: flex;
-    flex-direction: column;
-  }
-
   &__arrows {
     display: flex;
     gap: 16px;
   }
-
   &__button {
     height: 32px;
     width: 32px;
@@ -87,14 +79,11 @@
       background-color: $colorBackDarkGray;
     }
   }
-
-  &__button-arrow {
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: brightness(0) saturate(100%);
+  &__info {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
   }
-
   &__title {
     margin-bottom: 8px;
     font-weight: 700;
@@ -104,13 +93,11 @@
     text-transform: uppercase;
     color: $colorLight;
   }
-
   &__text {
     font-family: $secondFontFamily;
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
     color: $colorLight;
-    width: 270px;
   }
 }

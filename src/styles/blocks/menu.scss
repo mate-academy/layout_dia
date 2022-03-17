@@ -1,0 +1,48 @@
+.menu {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onSmallScreen {
+    height: $header-menu-desktop-height;
+  }
+
+  &__nav {
+    &--desktop {
+      display: none;
+      @include onSmallScreen {
+        display: flex;
+      }
+    }
+  }
+  &__logo {
+    padding: 10px 0;
+    transition: $transition;
+    &:hover {
+      transform: $transform-scale-icon;
+    }
+  }
+  &__logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 36px;
+  }
+  &__drop-button {
+    height: 26px;
+    width: 38px;
+    background-image: url(../images/Menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onSmallScreen {
+      display: none;
+    }
+
+    &--close {
+      display: block;
+      background-image: url(../images/close_white_24dp.svg);
+    }
+  }
+}

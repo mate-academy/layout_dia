@@ -1,7 +1,7 @@
 'use strict';
 
 window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#drop-menu') {
+  if (window.location.hash === '#page__drop-menu') {
     document.body.classList.add('page__body--scroll');
   } else {
     document.body.classList.remove('page__body--scroll');
@@ -30,7 +30,7 @@ const sliderText = [
 
 function changer() {
   const findSlider = document.getElementById('slider');
-  const findSliderTitle = document.getElementsByClassName('slider__title')[0];
+  const findSliderTitle = document.querySelector('.slider__title');
   const findSliderText = document.getElementsByClassName('slider__text')[0];
 
   findSlider.classList.remove(bgArr[prevCount]);

@@ -36,9 +36,16 @@
     }
   }
 
-  &__nav-container {
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+
     @include onSmallScreen {
-      display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
@@ -151,6 +158,7 @@
 
     &:focus,
     &:hover {
+      transition: background-color 5000s ease-in-out 0s;
       border-bottom: 2px solid $colorBlueHover;
     }
   }
@@ -160,14 +168,10 @@
   }
 
   &__logo {
-    margin-bottom: 48px;
-
-    @include onTablet {
-      margin-bottom: 24px;
-    }
-
-    @include onSmallScreen {
-      margin-bottom: 0;
+    padding: 10px 0;
+    transition: $transition;
+    &:hover {
+      transform: $transform-scale-icon;
     }
   }
 }
