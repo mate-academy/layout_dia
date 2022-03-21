@@ -1,0 +1,46 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include onDesktop {
+      & {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 48px;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    color: $text-color-button;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+    letter-spacing: 3px;
+  }
+
+  &__link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    width: calc(100% - 3px);
+    height: 2px;
+    background-color: #2060f6;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.3s ease-out;
+  }
+
+  &__link:hover::after {
+    opacity: 1;
+  }
+}
