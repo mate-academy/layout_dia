@@ -1,0 +1,83 @@
+.activity {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include onDesktop {
+    gap: $gap-grid-onDesktop;
+  }
+
+  @include onMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  &__block {
+    background-color: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    padding: 32px 0 0 32px;
+
+    &--displaced {
+      transform: translateY(-50%);
+
+      @include onMobile {
+        transform: none;
+      }
+    }
+
+    &-number-container {
+      width: 46px;
+      height: 24px;
+      background: $button-bg-opa;
+      border-radius: 23px;
+      margin-bottom: 24px;
+
+      &--number {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 26px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $button-bg;
+      }
+    }
+
+    &-description {
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 150%;
+      color: $text-col;
+      margin-bottom: 32px;
+    }
+
+    &-more-container {
+      display: inline-flex;
+      gap: 16px;
+      margin-bottom: 32px;
+
+      &--button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: $button-bg;
+        background-image: url(../images/WhiteArrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include hover (transform, scale(1.1) rotate(180deg));
+      }
+
+      &--text {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 38px;
+        color: $text-col-dark;
+      }
+    }
+  }
+}
