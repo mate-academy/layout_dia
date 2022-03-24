@@ -1,3 +1,9 @@
+@mixin onDesktop-1600 {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
 @mixin onDesktop-1024 {
   @media (min-width: 1024px) {
     @content;
@@ -15,6 +21,10 @@
   background: #2c2c2c;
   height: 890px;
   border-radius: 0 0 30px 30px;
+
+  @include onDesktop-1024 {
+    height: fit-content;
+  }
 }
 
 .text-poppins {
@@ -144,6 +154,17 @@
     max-width: fit-content;
   }
 
+  @include onDesktop-1024 {
+    max-width: 360px;
+    padding-right: 106px;
+    padding-bottom: 205px;
+    justify-content: flex-end;
+  }
+
+  @include onDesktop-1600 {
+    padding-right: 324px;
+  }
+
   &__h1 {
     margin: 0 0 32px;
     font-weight: 600;
@@ -155,6 +176,10 @@
     @include onDesktop-640 {
       margin-bottom: 24px;
       font-size: 64px;
+    }
+
+    @include onDesktop-1024 {
+      margin-bottom: 32px;
     }
   }
 
@@ -168,6 +193,10 @@
 
     @include onDesktop-640 {
       margin-bottom: 56px;
+    }
+
+    @include onDesktop-1024 {
+      margin-bottom: 82px;
     }
   }
 }
@@ -212,10 +241,19 @@
   background-size: cover;
   border-radius: 30px;
 
+  @include onDesktop-1024 {
+    position: relative;
+    height: 680px;
+  }
+
   &__wrap {
     position: absolute;
     top: 250px;
     left: 20px;
+
+    @include onDesktop-1024 {
+      position: relative;
+    }
   }
 
   &__button--left {
