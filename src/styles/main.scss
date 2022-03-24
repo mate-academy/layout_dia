@@ -1,7 +1,279 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@mixin onDesktop-1024 {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
 
-body {
-  background: $c-gray;
+@mixin onDesktop-640 {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+.header {
+  position: relative;
+  background: #2c2c2c;
+  height: 890px;
+  border-radius: 0 0 30px 30px;
+}
+
+.text-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.page {
+  &__body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+.logo {
+  display: flex;
+  width: 100%;
+  background-size: contain;
+}
+
+.container {
+  max-width: 280px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include onDesktop-640 {
+    padding: 0 42px;
+    max-width: 640px;
+  }
+
+  @include onDesktop-1024 {
+    padding: 0 56px;
+    max-width: 1024px;
+  }
+}
+
+.text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+
+  &::after {
+    visibility: hidden;
+    content: "";
+    display: block;
+    position: relative;
+    height: 2px;
+    width: 100%;
+    border-radius: 4px;
+    top: 8px;
+    background-color: #2060f6;
+  }
+
+  &:hover::after {
+    visibility: visible;
+  }
+}
+
+.top-actions {
+  padding: 20px 0 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  @include onDesktop-640 {
+    // padding: 20px 42px 58px 42px;
+  }
+
+  @include onDesktop-1024 {
+    // padding: 48px 54px 0 54px;
+  }
+}
+
+.icon {
+  visibility: visible;
+  display: flex;
+
+  @include onDesktop-1024() {
+    visibility: hidden;
+  }
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: none;
+  gap: 48px;
+
+  &__li {
+    list-style: none;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+  }
+
+  @include onDesktop-1024 {
+    display: flex;
+  }
+}
+
+.strategic-agency {
+  display: flex;
+  flex-direction: column;
+
+  @include onDesktop-640 {
+    max-width: fit-content;
+  }
+
+  &__h1 {
+    margin: 0 0 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: #fff;
+
+    @include onDesktop-640 {
+      margin-bottom: 24px;
+      font-size: 64px;
+    }
+  }
+
+  &__desc {
+    max-width: 280px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #fff;
+    margin-bottom: 72px;
+
+    @include onDesktop-640 {
+      margin-bottom: 56px;
+    }
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 280px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+  background: #2060f6;
+  border-radius: 8px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #0649e6;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 83, 181, 0.46);
+  }
+
+  &:active {
+    box-shadow: 0 0 20px rgba(27, 125, 238, 0.48);
+  }
+}
+
+.picture {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(0deg, #2c2c2c 1%,rgba(19, 10, 10, 0.4) 50%),
+    url(../images/header-slide/photo-2.png);
+  background-position: 50%;
+  width: 100%;
+  height: 390px;
+  background-size: cover;
+  border-radius: 30px;
+
+  &__wrap {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+  }
+
+  &__button--left {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  &__button--right {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  &__intro {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+}
+
+.wrap {
+  display: block;
+
+  @include onDesktop-640 {
+    display: block;
+  }
+
+  @include onDesktop-1024 {
+    display: flex;
+  }
+}
+
+.arrow-wrap {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.arrow {
+  display: flex;
 }
