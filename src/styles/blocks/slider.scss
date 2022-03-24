@@ -1,11 +1,35 @@
+@keyframes sliderOpacity {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .slider {
+  position: relative;
   display: flex;
   align-items: flex-end;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px 0;
+
+    animation: sliderOpacity 3s;
+  }
 
   &__content {
     display: flex;
     gap: 24px;
     margin: 0 0 32px 41px;
+    z-index: 1;
 
     height: 68px;
 
@@ -30,9 +54,16 @@
   &__button {
     width: 32px;
     height: 32px;
+    cursor: pointer;
 
     background-color: #fff;
     border-radius: 50%;
+
+    transition: all $transitionSpeed;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__arrow {

@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
 
-  background-color: #2c2c2c;
+  background-color: $backgroundColor;
   border-radius: 0 0 30px 30px;
   overflow: hidden;
 
@@ -41,8 +41,6 @@
   }
 
   &__link {
-    position: relative;
-
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
@@ -52,14 +50,19 @@
     text-decoration: none;
     color: #fff;
 
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      margin-top: 8px;
-      background-color: #2060f6;
+    &:hover {
+      position: relative;
+      color: $secondColor;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        margin-top: 8px;
+        background-color: $secondColor;
+      }
     }
   }
 
@@ -92,7 +95,7 @@
       padding: 0 42px 147px;
     }
 
-    @include phone {
+    @include tablet {
       max-width: 280px;
       padding: 0 0 48px;
     }
@@ -100,21 +103,14 @@
 
   &__slider-container {
     grid-column: 4 / 6;
+    height: 680px;
 
     border-radius: 30px 0 0;
-    background-image: url(../images/slider/slide-img-1.jpg);
-    background-repeat: no-repeat;
-
-    @include notebook {
-      border-radius: 30px;
-    }
-  }
-
-  &__slider {
-    height: 680px;
 
     @include notebook {
       height: 390px;
+
+      border-radius: 30px;
     }
   }
 }
