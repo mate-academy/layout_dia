@@ -1,0 +1,100 @@
+.slider {
+  background-image: linear-gradient(350deg,
+  #1b6d9f,
+  rgba(84,183,254,0.7) 25%,
+  hsla(0,0%,39.2%,0.4) 90%),
+    url(../images/slider/slide-img-1.jpg);
+  width: 100%;
+  height: 390px;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 30px;
+
+  @include onStandart() {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  @include onStandart() {
+    height: calc(85% - 48px);
+    width: calc(502 / 1024 * 100%);
+  }
+
+  @include onDesktop() {
+    height: calc(85% - 48px);
+    width: 50%;
+  }
+
+  @include onLargeScreen() {
+    height: calc(85% - 48px);
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    @include onStandart() {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      left: 50%;
+      bottom: 48px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    margin: 16px 0 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #fff;
+  }
+
+  &__paragraph {
+    margin: 8px 0 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+
+  &__text {
+    @include onStandart() {
+      margin-left: 20px;
+    }
+  }
+
+  &__switcher {
+    display: flex;
+
+  }
+}
