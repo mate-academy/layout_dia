@@ -15,8 +15,11 @@
   &__item {
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
-        &--screen320-#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+
+        &--screen1024-#{$start}-#{$end} {
+          @include screen1024 {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
 
         &--screen640-#{$start}-#{$end} {
@@ -25,10 +28,8 @@
           }
         }
 
-        &--screen1024-#{$start}-#{$end} {
-          @include screen1024 {
-            grid-column: #{$start} / #{$end + 1};
-          }
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
         }
       }
     }
