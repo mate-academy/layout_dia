@@ -3,6 +3,10 @@
     display: flex;
     gap: 36px;
 
+    & .nav--open::after {
+      content: "x";
+    }
+
     &--logo {
       display: block;
     }
@@ -13,11 +17,29 @@
       text-decoration: none;
       line-height: 30px;
       color: #fff;
+      
+
+      &::after {
+        content: "=";
+        color: #fff;
+        transition: color 0.3s;
+      }
+
+      &:hover::after {
+        color: $button-bg;
+      }
 
       @include onDesktop {
         display: none;
       }
     }
+  }
+
+  &--open {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 2;
+    margin-bottom: 24px;
   }
 
   &__main {
