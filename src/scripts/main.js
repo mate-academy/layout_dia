@@ -27,11 +27,13 @@ const sliderText = [
   'Some text description for the SECOND slide of slider.',
   'And the THIRD text desctiption for my own slider.',
 ];
+const nextButton = document.querySelector('.slider__button--next');
+const prevButton = document.querySelector('.slider__button--prev');
 
 function changer() {
-  const findSlider = document.getElementById('slider');
+  const findSlider = document.querySelector('.slider');
   const findSliderTitle = document.querySelector('.slider__title');
-  const findSliderText = document.getElementsByClassName('slider__text')[0];
+  const findSliderText = document.querySelector('.slider__text');
 
   findSlider.classList.remove(bgArr[prevCount]);
   findSliderTitle.innerHTML = sliderTitle[counter];
@@ -39,7 +41,7 @@ function changer() {
   findSlider.classList.add(bgArr[counter]);
 }
 
-document.getElementById('prevSlide').onclick = function bgNext() {
+prevButton.addEventListener('click', () => {
   if (counter === 0) {
     counter = bgArr.length - 1;
   } else {
@@ -47,9 +49,9 @@ document.getElementById('prevSlide').onclick = function bgNext() {
   }
   changer();
   prevCount = counter;
-};
+});
 
-document.getElementById('nextSlide').onclick = function bgNext() {
+nextButton.addEventListener('click', () => {
   if (counter === bgArr.length - 1) {
     counter = 0;
   } else {
@@ -57,4 +59,4 @@ document.getElementById('nextSlide').onclick = function bgNext() {
   }
   changer();
   prevCount = counter;
-};
+});
