@@ -1,5 +1,5 @@
 .footer {
-  padding: 72px 20px 80px;
+  padding-top: 72px;
   background-color: $color-of-header-footer;
   border-radius: 30px 30px 0 0;
 
@@ -55,13 +55,13 @@
     &::placeholder {
       @extend %poppins600_15_22;
       color: $color-text-header-footer;
-
     }
-
   }
 
   &__button {
     margin-bottom: 80px;
+    cursor: pointer;
+    outline: 0;
 
     @include screen640 {
       margin-bottom: 120px;
@@ -105,6 +105,14 @@
     @include screen640 {
       margin-bottom: 48px;
     }
+
+    transition: transform 0.3s,
+      border-bottom 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      border-bottom: 2px solid $color-button;
+    }
   }
 
   &__cocial {
@@ -116,33 +124,45 @@
 
     @include screen640 {
       width: 162px;
-      margin-bottom: 164px;
+      margin-bottom: 144px;
     }
 
     @include screen1024 {
-      margin-bottom: 190px;
+      margin-bottom: 191px;
     }
   }
 
-  &__facebook {
-    background-image: url(../images/download/facebook_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: fit;
-  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    transition: background-color 0.3s,
+      transform  0.3s;
 
-  &__twitter {
-    background-image: url(../images/download/twitter_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: fit;
-  }
+    &:hover {
+      background-color: $color-button;
+      transform: scale(1.4);
+    }
 
-  &__insta {
-    background-image: url(../images/download/insta_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: fit;
+    &--facebook {
+      background-image: url(../images/download/facebook_logo.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: fit;
+    }
+
+    &--twitter {
+      background-image: url(../images/download/twitter_logo.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: fit;
+    }
+
+    &--insta {
+      background-image: url(../images/download/insta_logo.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: fit;
+    }
   }
 
   &__nav-minilogo {
@@ -169,8 +189,13 @@
 
   &__nav-item {
     list-style: none;
+    padding-bottom: 24px;
 
     margin-right: 40px;
+
+    @include screen640 {
+      padding-bottom: 0;
+    }
 
     @include screen1024 {
       margin-right: 64px;
@@ -178,22 +203,19 @@
 
     &:last-child {
       margin-right: 0;
-      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
-    margin-bottom: 24px;
+    transition: transform 0.3s,
+      border-bottom 0.3s;
 
-    @include screen640 {
-      margin-bottom: 0;
+    &:hover {
+      transform: scale(1.2);
+      border-bottom: 2px solid $color-button;
     }
   }
 
   &__nav-point {
     @extend %poppinsNav;
   }
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
 }
