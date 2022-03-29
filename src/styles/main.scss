@@ -19,11 +19,11 @@
 .header {
   position: relative;
   background: #2c2c2c;
-  height: 890px;
+  height: 893px;
   border-radius: 0 0 30px 30px;
 
   @include onDesktop-1024 {
-    height: fit-content;
+    height: 800px;
   }
 }
 
@@ -32,6 +32,8 @@
 }
 
 .page {
+
+  scroll-behavior: smooth;
   &__body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
@@ -103,11 +105,7 @@
   }
 
   @include onDesktop-640 {
-    // padding: 20px 42px 58px 42px;
-  }
-
-  @include onDesktop-1024 {
-    // padding: 48px 54px 0 54px;
+    padding-top: 48px;
   }
 }
 
@@ -156,9 +154,9 @@
   }
 
   @include onDesktop-1024 {
-    max-width: 360px;
-    padding-bottom: 205px;
     justify-content: flex-end;
+    width: 340px;
+    margin-bottom: 205px;
   }
 
   &__h1 {
@@ -240,7 +238,7 @@
 
   @include onDesktop-1024 {
     position: absolute;
-    height: 560px;
+    height: 680px;
     left: 50%;
     top: 120px;
     width: 50%;
@@ -252,11 +250,15 @@
     top: 250px;
     left: 20px;
 
+    @include onDesktop-640 {
+      left: 40px;
+    }
+
     @include onDesktop-1024 {
       display: inline-flex;
       position: relative;
-      left: 48px;
-      top: 444px;
+      left: 78px;
+      top: 560px;
       align-items: center;
       width: fit-content;
     }
@@ -309,8 +311,6 @@
   }
 }
 
-$maxW: 100px;
-
 .wrap {
   display: block;
   max-width: 280px;
@@ -327,6 +327,7 @@ $maxW: 100px;
     margin: 0 auto;
     max-width: 1024px;
     padding: 0;
+    height: 680px;
   }
 }
 
@@ -603,7 +604,7 @@ $maxW: 100px;
         transition: 0.3s ease;
 
         &:hover {
-          transform: scale(1.2);
+          transform: scale(1.4);
           cursor: pointer;
           filter: invert(40%);
         }
@@ -611,11 +612,18 @@ $maxW: 100px;
     }
 
     &__tel-num {
+      display: inline-flex;
       font-weight: 600;
       font-size: 24px;
       line-height: 150%;
       color: #fff;
       text-decoration: none;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        filter: invert(40%);
+      }
     }
 
     &__visit-adress {
@@ -625,6 +633,12 @@ $maxW: 100px;
       line-height: 150%;
       color: #fff;
       text-decoration: none;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        filter: invert(40%);
+      }
     }
 
     &__tel-desc {
@@ -853,6 +867,7 @@ $maxW: 100px;
 
   @include onDesktop-1024 {
     margin: 0 auto;
+    margin-top: 56px;
     flex-direction: row;
     width: 916px;
     justify-content: space-between;
@@ -869,6 +884,11 @@ $maxW: 100px;
   flex-direction: column;
   width: 280px;
   transition: transform 0.3s ease;
+  height: 334px;
+
+  @include onDesktop-1024() {
+    margin: 0;
+  }
 
   &:hover {
     cursor: pointer;
@@ -1269,4 +1289,12 @@ $maxW: 100px;
   &__button {
     width: 280px;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: "color 999s ease-out, background-color 999s ease-out";
+  transition-delay: 999s;
 }
