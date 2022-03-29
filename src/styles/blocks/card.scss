@@ -1,0 +1,140 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(3, 264px);
+  justify-content: space-between;
+
+  &--mod {
+    grid-template-columns: repeat(3, minmax(280px, 560px));
+    column-gap: 30px;
+    margin-top: 85px;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(1, minmax(280px, 560px));
+    row-gap: 72px;
+    justify-content: center;
+
+    &--mod {
+      row-gap: 30px;
+    }
+  }
+
+  @include smallerLarge {
+    row-gap: 56px;
+
+    &--mod {
+      row-gap: 30px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    justify-items: center;
+    @include transition(transform);
+    $colors: "blue2" #56ccf2, "yellow2" #fcc304, "pink2" #f25656;
+
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) .card__img {
+        background: url("../images/image_#{$i}.jpg");
+        @include optimizeImage;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--mod {
+      background-color: #fff;
+      padding: 85px 56px 32px;
+      box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+      border-radius: 16px;
+      @include smallerLarge {
+        padding-top: 75px;
+      }
+    }
+  }
+
+  &__img {
+    width: 184px;
+    height: 166px;
+    display: inline-block;
+    border-radius: 16px;
+
+    &--mod {
+      position: relative;
+      border-radius: 50%;
+      background: none;
+      width: 140px;
+      height: 140px;
+      $colors: "blue2" #56ccf2, "yellow2" #fcc304, "pink2" #f25656;
+
+      @each $word, $color in $colors {
+        &.#{$word} span {
+          background: $color;
+        }
+      }
+
+      span {
+        position: absolute;
+        width: 139px;
+        height: 56px;
+        background: #2060f6;
+        border-radius: 12px;
+        transform: rotate(-60deg);
+        display: block;
+        top: 100px;
+        right: -55px;
+
+        &:first-child {
+          left: -63px;
+          top: -8px;
+        }
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 2;
+    position: relative;
+    border-radius: 50%;
+  }
+
+  &__quote {
+    margin: 80px 0 15px;
+    $colors: "blue2" #56ccf2, "yellow2" #fcc304, "pink2" #f25656;
+
+    @each $word, $color in $colors {
+      &.#{$word} path {
+        fill: $color;
+      }
+    }
+  }
+
+  &__title {
+    @extend %PoppinsSemi;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    color: #253757;
+
+    @include smallerLarge {
+      margin: 32px 0 16px;
+    }
+
+    &--mod {
+      font-size: 13px;
+      line-height: 150%;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 16px;
+    position: relative;
+  }
+}
