@@ -17,13 +17,19 @@
      - hamburger menu icon gets alternated with navigation links on resizing to `1024px`
 
 ### Tech stack:
-  - HTML/CSS
-  - JavaScript (form validation, animations for button-links, menu dropdown)
-  - SASS
+  - HTML5
+  - CSS3
+  - Sass (SCSS)
   - BEM methodology
   - Flexbox/Grid
+  - JavaScript (form validation, animations for button-links, menu dropdown)
 
 ## Local development
 ### Dependencies
 * Node v14.18.2
 * NPM v6.14.15
+
+### How to install
+* Fork and clone repo
+* Run `npm install`
+* Run `npm start`
