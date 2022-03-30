@@ -18,7 +18,7 @@
 
 ### Tech stack:
   - HTML/CSS
-  - JavaScript (form validation, animations for button-links, menu rollout)
+  - JavaScript (form validation, animations for button-links, menu dropdown)
   - SASS
   - BEM methodology
   - Flexbox/Grid
