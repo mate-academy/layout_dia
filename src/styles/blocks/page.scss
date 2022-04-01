@@ -3,18 +3,27 @@
   background-color: $page-background-color;
   scroll-behavior: smooth;
 
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
   &__menu {
-    position: fixed;
-    z-index: 5;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 
+    overflow-y: auto;
+
     transform: translateY(-100%);
-    transition: all 0.5s;
+    transition: opacity 0.3s, transform 0.5s;
+    opacity: 0;
 
     &:target {
+      opacity: 1;
       transform: translate(0);
     }
   }
