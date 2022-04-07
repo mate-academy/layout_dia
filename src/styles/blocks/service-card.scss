@@ -1,0 +1,112 @@
+.service-card {
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  @include transition(all);
+
+  &:hover {
+    box-shadow: 0 9px 18px $main-blue;
+  }
+
+  @include mobile {
+    grid-column: 1 / 4;
+  }
+
+  @include smallerLarge {
+    grid-column: 1 / 3;
+  }
+
+  &--mod {
+    transform: translateY(-50%);
+
+    @include mobile {
+      grid-column: 4 / 7;
+    }
+
+    @include smallerLarge {
+      grid-column: 1 / 3;
+      transform: translateY(0);
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) .service-card__header::before {
+      content: "00#{$i}";
+      display: block;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #2060f6;
+      @extend %PoppinsSemi;
+    }
+  }
+
+  &__header {
+    width: 46px;
+    height: 24px;
+    background: #f2f6fa;
+    border-radius: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__body {
+    font-weight: 600;
+    text-align: start;
+    margin: 24px 0 32px;
+  }
+
+  &__arrow {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/arrow.svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: #2060f6;
+    border-radius: 50%;
+    margin-right: 16px;
+    @include transition(transform);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .service-card__arrow {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__link {
+    @extend %PoppinsSemi;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
+    text-decoration: none;
+  }
+
+  $colors: "blue" #56ccf2, "yellow" #fcc91d, "green" #15d850, "pink" #f36363;
+
+  @each $word, $color in $colors {
+    &.#{$word} {
+      .service-card__arrow {
+        background-color: $color;
+      }
+
+      &:hover {
+        box-shadow: 0 9px 18px $color;
+      }
+
+      .service-card__header::before {
+        color: $color;
+      }
+    }
+  }
+}
