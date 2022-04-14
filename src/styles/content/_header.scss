@@ -28,21 +28,20 @@
       padding: 21px 20px 0;
     }
 
+   
+
   }
 
 
   &__title {
     color: $primary_color;
 
-    @include Mobile {
-      &::after {
-        content: url("../images/menu.png");
-        display: flex;
-        float: right;
-        margin-top: -5px;
-        margin-left: 35px;
-      }
+
+
+    &-slide{
+      color: $primary_color;
     }
+    
   }
 
   &__navigation {
@@ -52,6 +51,14 @@
 
     @include Mobile {
       display: none;
+    }
+
+    &-slide{
+      display: flex;
+      margin-top: 45px;
+      row-gap: 50px;
+      flex-direction: column;
+
     }
   }
 
@@ -67,6 +74,15 @@
     &:hover {
       color: $blue_color;
     }
+
+    &-slide{
+    @include popins;
+    transition-property: color;
+    transition-duration: 0.3s;
+    &:hover {
+      color: $blue_color;
+    }
+    }
   }
 
   &__hire {
@@ -74,8 +90,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-
-
 
     &::after {
       content: "";
@@ -278,6 +292,61 @@
   &__intro_text {
     @include open_sans;
     font-size: 14px;
+  }
+
+  &__slider{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    box-sizing: border-box;
+    height: 100vh;
+    background: $header_footer;
+    transition: transform 0.3s;
+
+    &:target{
+      transform: translateX(0);
+    }
+
+    @include BigScreen {
+      padding: 32px 227px 0;
+    }
+
+    @include Desktop {
+      padding: 32px 54px 0;
+    }
+
+    @include Note {
+      padding: 32px 41px 0;
+    }
+
+    @include Mobile {
+      padding: 21px 20px 0;
+    }
+  }
+
+
+
+  &__menu-container{
+    display: flex;
+    
+  }
+
+  &__menu-container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__opener{
+    display: none;
+
+    @include Mobile{
+      display: flex;
+      margin-top: 5px;
+      margin-left: 35px;
+    }
   }
 
 }
