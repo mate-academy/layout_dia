@@ -1,7 +1,25 @@
 .header {
-  display: flex;
-  justify-content: space-between;
   padding: 21px 21px 0;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include onSmallTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onTablet {
+      margin-bottom: 165px;
+    }
+  }
+
+  &__menu-container {
+    display: flex;
+    align-items: center;
+  }
 
   &__logo {
     height: 25px;
@@ -14,10 +32,79 @@
     justify-content: space-between;
     height: 8px;
 
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
     &-line {
       width: 18px;
       height: 2px;
       background-color: #fff;
     }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 67px;
+      height: 2px;
+      background-color: #2060f6;
+      border-radius: 4px;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+    }
+  }
+  
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    margin: 0 0 12px;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    margin: 0 0 52px;
+  }
+
+  &__button {
+    width: 264px;
+    margin: 0 auto 48px;
+
+    @include onSmallTablet {
+      width: 264px;
+      margin: 0 0 48px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__list {
+    width: 550px;
   }
 }
