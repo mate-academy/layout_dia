@@ -6,8 +6,22 @@
 }
 
 .header-body-wrapper {
-  // max-width: 1145px;
-  // padding: 21px 19px 0 21px;
+  max-width: 1145px;
+  padding: 21px 19px 0 var(--header-paddingX);
+
+  @include above640 {
+    --header-paddingX: 41px;
+    padding-right: var(--header-paddingX);
+  }
+
+  @include above1024 {
+    --header-paddingX: 56px;
+    padding-top: 48px;
+  }
+
+  @include above1600 {
+    --header-paddingX: 0;
+  }
 }
 
 .header-content-wrapper {
@@ -17,6 +31,7 @@
 
   @include above640 {
     flex-direction: row;
+    min-height: 680px;
   }
 }
 
@@ -81,7 +96,7 @@
     border-radius: 12px;
     transform: rotate(30deg);
   }
-  
+
   &::after {
     content: "";
     position: absolute;
