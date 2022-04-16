@@ -58,7 +58,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 75px 0 0;
+    position: relative;
+    padding: 75px 0 32px;
     width: $mobileWidth;
     height: 456px;
     background-color: #fff;
@@ -67,12 +68,14 @@
 
     @include onTablet {
       margin-top: 56px;
+      padding-top: 87px;
       width: $tabletWidth;
       height: 478px;
     }
 
     @include onDesktop {
       margin-top: 0;
+      padding-top: 75px;
       margin-right: 30px;
       width: 362px;
       height: 494px;
@@ -92,47 +95,99 @@
   }
 
   &__box-photo {
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
+    width: 168px;
+  }
+
+  &__box-photo-background {
+    display: flex;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 12px;
+      left: -5%;
+      transform: rotate(-60deg);
+      width: 108px;
+      height: 44px;
+      background-color: $colorBlue;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 12px;
+      right: -2%;
+      bottom: 0;
+      transform: rotate(-60deg);
+      width: 108px;
+      height: 44px;
+      background-color: $colorBlue;
+    }
+  }
+
+  &__box-photo-image {
+    z-index: 1;
     width: 110px;
     height: 110px;
+    object-fit: cover;
     border-radius: 50%;
     transition: all 0.3s;
 
-    @include hover (transform, scale(1.5, 1.5));
+    @include hover (transform, scale(1.2, 1.2));
   }
 
-  &__box-photo--1 {
-    background-image: url(../images/testimonials/testimonial-ava-1.jpg);
+  &__box-photo-image--1 {
+    object-position: 50% 20%;
   }
-
-  &__box-photo--2 {
-    background-image: url(../images/testimonials/testimonial-ava-2.jpg);
-  }
-
-  &__box-photo--3 {
-    background-image: url(../images/testimonials/testimonial-ava-3.jpg);
-  }
-
+  
   &__box-icon {
-    margin-top: 50px;
+    margin-top: 70px;
     width: 20px;
     height: 20px;
+
+    @include onTablet {
+      margin-top: 82px;
+    }
+
+    @include onDesktop {
+      margin-top: 70px;
+    }
   }
 
   &__box-content {
-    margin-top: 20px;
+    margin: 0;
     width: 196px;
     font-weight: 600;
     font-size: 13px;
     line-height: 20px;
     text-align: center;
     color: $contentColor;
+
+    margin-top: 11px;
+
+    @include onTablet {
+      margin-top: 19px;
+      width: 362px;
+    }
+
+    @include onDesktop {
+      margin-top: 11px;
+      width: 196px;
+    }
+  }
+
+  &__box-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 32px;
   }
 
   &__box-name {
-    margin-top: 16px;
+    margin: 0;
     font-weight: 600;
     font-size: 13px;
     line-height: 20px;
@@ -140,7 +195,7 @@
   }
 
   &__box-occupation {
-    margin-top: 4px;
+    margin: 4px 0 0;
     font-family: $secondFont;
     font-weight: 700;
     font-size: 13px;
