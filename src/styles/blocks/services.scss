@@ -1,0 +1,117 @@
+.services {
+  background-color: $main-bg;
+  padding: 120px 0;
+
+  &__container {
+
+    @include onSmallTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+      grid-template-rows: 186px 63px 118px 120px 144px 180px 130px;
+    }
+
+    @for $start from 1 through 7 {
+      @for $end from $start through 7 {
+        &-col--#{$start}-#{$end} {
+          grid-column-start: #{$start};
+          grid-column-end: #{$end + 1};
+        }
+      
+      }
+    }
+  }
+
+  &__top {
+
+    &-header {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c0cdd7;
+      margin-bottom: 16px;
+    }
+
+    &-description {
+      margin-bottom: 48px;
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+
+  &__block {
+    background: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    margin: 0 auto 24px;
+    padding: 80px 48px 41px 32px;
+    width: 280px;
+    box-sizing: border-box;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-name {
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 150%;
+      margin-bottom: 40px;
+      position: relative;
+
+      &::after {
+        width: 46px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        transform: translateY(-100%);
+        left: 0;
+        top: -24px;
+        position: absolute;
+        background: rgba(32, 96, 246, 0.1);
+        border-radius: 23px;
+        color: #2060f6;
+      }
+    }
+
+    @for $var from 2 through 5 {
+      &:nth-child(#{$var}) {
+        .services__block-name {
+          &::after {
+            content: "00#{$var - 1}";
+          }
+        }
+      }
+      
+    }
+
+    &-link {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      text-align: center;
+      color: #334563;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-image: url(../images/features/arrow.svg);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        background-color: #2060f6;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
