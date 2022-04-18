@@ -12,10 +12,15 @@
   &__controls {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 48px;
 
     @include above320 {
       margin-bottom: 56px;
+    }
+
+    @include above980 {
+      align-items: center;
     }
   }
 
@@ -31,7 +36,7 @@
       border-radius: 4px;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: -8px;
     }
   }
 
@@ -86,10 +91,10 @@
 
   &__slider {
     position: relative;
-    width: calc(100% + var(--header-paddingX) * 2);
+    width: calc(100% + var(--paddingX) * 2);
     border-radius: 30px;
     overflow: hidden;
-    left: calc(var(--header-paddingX) * -1);
+    left: calc(var(--paddingX) * -1);
 
     @include above640 {
       width: fit-content;
@@ -99,7 +104,7 @@
     }
 
     @media (min-width: 821px) {
-      right: -41px;
+      right: calc(var(--paddingX) * -1);
     }
 
     @include above1024 {
@@ -109,7 +114,7 @@
     @media (min-width: 2312px) {
       right: -407px;
     }
-
+    
     &-button {
       display: flex;
       column-gap: 16px;
