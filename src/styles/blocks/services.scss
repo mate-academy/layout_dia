@@ -6,17 +6,14 @@
 
   height: 986px;
 
-  &__right {
-    display: grid;
-    grid-template-columns: repeat(2, 264px);
-    margin-top: 148px;
-
-    height: 690px;
-
-    gap: 30px;
+  @include deskSmall {
+    padding: 0 56px;
   }
 
   &__card {
+    display: flex;
+    flex-direction: column;
+
     width: 296px;
     margin-top: 251px;
   }
@@ -44,6 +41,21 @@
     color: $text-light;
   }
 
+  &__right {
+    display: grid;
+    grid-template-columns: repeat(2, 264px);
+    margin-top: 148px;
+
+    height: 690px;
+
+    gap: 30px;
+
+    @include deskSmall {
+      grid-template-columns: repeat(2, 214px);
+      gap: 20px;
+    }
+  }
+
   &__box {
     display: flex;
     flex-direction: column;
@@ -58,6 +70,10 @@
 
     box-shadow: 0 9px 18px 0 #252931;
 
+    @include deskSmall {
+      width: 214px;
+    }
+
     &-1,
     &-3 {
       transform: translateY(132px);
@@ -69,10 +85,13 @@
 
   &__number {
     @include fontParams(13px, 20px, 600);
-    width: 42px;
-    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    text-align: center;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
 
     background: rgba(32, 96, 246, 0.1);
     border-radius: 23px;
