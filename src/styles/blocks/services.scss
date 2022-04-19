@@ -4,10 +4,21 @@
   padding: 0 224px;
   box-sizing: border-box;
 
-  height: 986px;
-
   @include deskSmall {
+    justify-content: space-around;
     padding: 0 56px;
+  }
+
+  @include forTablet {
+    flex-direction: column;
+    padding: 0 40px;
+  }
+
+  @include forPhone {
+    padding: 0 20px;
+
+    justify-content: center;
+    align-items: center;
   }
 
   &__card {
@@ -15,7 +26,15 @@
     flex-direction: column;
 
     width: 296px;
-    margin-top: 251px;
+    margin-top: 252px;
+
+    @include forTablet {
+      margin-top: 148px;
+    }
+
+    @include forPhone {
+      width: 280px;
+    }
   }
 
   &__subtitle {
@@ -45,6 +64,7 @@
     display: grid;
     grid-template-columns: repeat(2, 264px);
     margin-top: 148px;
+    margin-bottom: 156px;
 
     height: 690px;
 
@@ -53,6 +73,23 @@
     @include deskSmall {
       grid-template-columns: repeat(2, 214px);
       gap: 20px;
+    }
+
+    @include forTablet {
+      grid-template-columns: repeat(2, 264px);
+      margin-top: -63px;
+
+      gap: 30px;
+    }
+
+    @include forPhone {
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 48px;
+      margin-bottom: 520px;
+
+      gap: 24px;
     }
   }
 
@@ -74,12 +111,28 @@
       width: 214px;
     }
 
+    @include forTablet {
+      width: 264px;
+    }
+
+    @include forPhone {
+      width: 280px;
+    }
+
     &-1,
     &-3 {
       transform: translateY(132px);
+
+      @include forPhone {
+        transform: none;
+      }
     }
     &-4 {
       margin-bottom: 132px;
+
+      @include forPhone {
+        margin-bottom: 0;
+      }
     }
   }
 

@@ -9,6 +9,11 @@
     padding-left: 56px;
   }
 
+  @include forTablet {
+    height: auto;
+    padding-left: 0;
+  }
+
   &__navbar {
     display: flex;
     justify-content: space-between;
@@ -22,6 +27,30 @@
     @include deskSmall {
       padding-right: 56px;
     }
+
+    @include forTablet {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @include forPhone {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__toggler {
+    display: none;
+
+    @include forTablet {
+      display: block;
+      margin-left: 32px;
+    }
   }
 
   &__site {
@@ -30,6 +59,10 @@
     letter-spacing: 3px;
 
     gap: 48px;
+
+    @include forTablet {
+      display: none;
+    }
   }
 
   &__hire {
@@ -60,25 +93,53 @@
     justify-content: space-between;
 
     color: #fff;
+
+    @include forTablet {
+      flex-direction: column;
+    }
   }
 
   &__left {
     display: flex;
     flex-direction: column;
 
-    width: 100%;
     padding-top: 120px;
+
+    @include forTablet {
+      padding: 9px 40px 147px;
+    }
+
+    @include forPhone {
+      padding: 0 20px 48px;
+      align-items: center;
+    }
   }
 
   &__title {
     @include fontParams(64px, 64px, 600);
     margin-bottom: 32px;
+    width: 362px;
+
+    @include forTablet {
+      width: 556px;
+    }
+
+    @include forPhone {
+      @include fontParams(52px, 120%, 600);
+      width: 280px;
+    }
   }
 
   &__text {
     @include fontParams(18px, 150%, 400);
     font-family: "Open Sans", sans-serif;
     margin-bottom: 80px;
+    width: 362px;
+
+    @include forPhone {
+      width: 280px;
+      text-align: left;
+    }
   }
 
   &__button-wrapper {
@@ -92,6 +153,10 @@
 
     background-color: $button-blue;
     border-radius: 8px;
+
+    @include forPhone {
+      width: 280px;
+    }
   }
 
   &__image {
@@ -103,5 +168,10 @@
     background-size: cover;
 
     border-radius: 30px 0;
+
+    @include forTablet {
+      height: 390px;
+      border-radius: 30px;
+    }
   }
 }
