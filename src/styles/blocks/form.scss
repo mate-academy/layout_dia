@@ -17,6 +17,20 @@
     display: block;
     width: 100%;
 
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: #144ed4;
+      height: 2px;
+      width: 100%;
+      transform: scale(0);
+      left: 0;
+      right: 0;
+      bottom: -16px;
+      z-index: 1;
+      transition: transform $transition-duration;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -28,8 +42,8 @@
       bottom: -16px;
     }
 
-    .form__field:focus + &::after {
-      height: 2px;
+    .form__field:focus + &::before {
+      transform: scale(1);
       background-color: #144ed4;
     }
   }
@@ -39,6 +53,8 @@
     width: 100%;
     font-size: 15px;
     line-height: 22px;
+    padding: 16px 0;
+    margin: -16px 0;
     color: $white;
 
     &:focus {

@@ -18,6 +18,7 @@
   }
 
   &__link {
+    position: relative;
     display: inline-block;
     font-family: $sans;
     font-weight: 600;
@@ -25,5 +26,38 @@
     line-height: 150%;
     color: $white;
     margin-bottom: 40px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      background-color: $c-blue;
+      transform: scale(0);
+      transition: transform $transition-duration;
+    }
+
+    &:hover.contact-info__link::after {
+      transform: scale(1);
+    }
+  }
+}
+
+.social-logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+
+  &-vector {
+    transition: fill $transition-duration;
+  }
+
+  &:hover > .social-logo-vector {
+    fill: $c-blue;
   }
 }

@@ -56,11 +56,15 @@
     display: grid;
     row-gap: 24px;
 
-    @include above880 {
+    @include above640 {
       column-gap: 30px;
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas: "one two"
         "three four";
+    }
+
+    @include above980 {
+      grid-template-columns: repeat(2, 264px);
     }
   }
 
@@ -72,7 +76,7 @@
     flex-direction: column;
     align-items: center;
 
-    @include above880 {
+    @include above640 {
       &--position--001 {
         grid-area: one;
       }
@@ -131,6 +135,11 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      transition: transform $transition-duration;
+
+      &:hover {
+        transform: scale(1.18);
+      }
     }
 
     &-link {

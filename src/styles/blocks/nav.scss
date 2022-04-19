@@ -41,7 +41,27 @@
   }
 
   &__link {
+    position: relative;
     @include link;
     white-space: nowrap;
+    padding: 8px 0;
+    margin: -8px 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: $c-blue;
+      border-radius: 4px;
+      transform: scale(0);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: transform $transition-duration;
+    }
+
+    &:hover.nav__link::after {
+      transform: scale(1);
+    }
   }
 }
