@@ -1,8 +1,14 @@
 .header {
+  position: relative;
   --header-paddingX: 21px;
   background-color: $c-black;
   border-radius: 0 0 30px 30px;
+  min-height: 893px;
   overflow-x: hidden;
+
+  @include above640 {
+    min-height: 800px;
+  }
 
   @include above1024 {
     display: flex;
@@ -80,6 +86,14 @@
   &__content {
     min-height: 360px;
 
+    @include above640 {
+      max-width: 300px;
+    }
+
+    @include above980 {
+      max-width: 362px;
+    }
+
     &-button {
       @include page-button;
 
@@ -90,29 +104,22 @@
   }
 
   &__slider {
-    position: relative;
-    width: calc(100% + var(--paddingX) * 2);
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
     border-radius: 30px;
     overflow: hidden;
-    left: calc(var(--paddingX) * -1);
 
     @include above640 {
-      width: fit-content;
-      border-radius: 0;
+      width: initial;
       overflow: initial;
       left: initial;
+      right: -110px * 2;
     }
 
-    @media (min-width: 821px) {
-      right: calc(var(--paddingX) * -1);
-    }
-
-    @include above1024 {
-      right: -283px;
-    }
-
-    @media (min-width: 2312px) {
-      right: -407px;
+    @include above880 {
+      right: 0;
     }
 
     &-button {
