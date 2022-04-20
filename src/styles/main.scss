@@ -1,7 +1,249 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+* {
+  box-sizing: border-box;
+}
 
-body {
-  background: $c-gray;
+$navheight: 125px;
+
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+.menu {
+  visibility: hidden;
+
+  @include mobile {
+    visibility: visible;
+    margin-left: 100px;
+  }
+}
+
+.page {
+  font-family: 'Poppins', sans-serif;
+
+  &__body {
+    margin: 0;
+    background-color: #e5e5e5;
+  }
+}
+
+@import "./blocks/grid.scss";
+
+.header {
+  background-color: #2c2c2c;
+  height: 100vh;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__container {
+    padding: 0 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__nav {
+    height: $navheight;
+    max-width: 100%;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    height: 25px;
+    width: 44px;
+    cursor: pointer;
+
+    background-size: contain;
+    background-position: center;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 20px;
+    gap: 48px;
+
+    @include mobile {
+      visibility: hidden;
+    }
+  }
+
+  &__link {
+    width: max-content;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:last-child {
+      padding-left: 66px;
+
+      &::after {
+        content: "";
+        display: block;
+        position: relative;
+        top: 8px;
+        height: 2px;
+        width: 100%;
+        background-color: #2060f6;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.intro {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: #fff;
+
+    @include mobile {
+      font-size: 52px;
+
+      position: relative;
+      bottom: 50px;
+    }
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    width: max-content;
+    line-height: 150%;
+    color: #fff;
+  }
+
+  &__image {
+    position: relative;
+    left: 455px;
+
+    background-position: center;
+    background-size: contain;
+
+    @include mobile {
+      position: relative;
+      left: -86px;
+      top: 270px;
+    }
+  }
+
+  &__photo {
+    max-width: 671px;
+    min-height: 596px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    @include mobile {
+      max-width: 530px;
+      min-height: 300px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 265px;
+    height: 50px;
+  }
+
+  &__sliders {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+
+    position: relative;
+    bottom: 66px;
+    padding-left: 48px;
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    color: #000;
+    background-color: #000;
+
+    background-size: contain;
+    background-position: center;
+
+    &:hover {
+      border: 1px solid #fff;
+    }
+  }
+
+  &__slider-text {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    bottom: 30px;
+  }
+
+  &__slider-text-title {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-align: start;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+  }
+
+  &__slider-text-description {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #FFFFFF;
+  }
+}
+
+.button {
+  background: #2060F6;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  transition: transform 0.3s;
+
+  &:hover {
+    border: 1px solid #fff;
+    transform: scale(1.05);
+  }
 }
