@@ -1,0 +1,86 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 18px;
+
+  @include onNotebook {
+    display: none;
+  }
+
+  &__left-part {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__clicking-zone {
+    padding: 10px 12px;
+  }
+
+  &__hire-link {
+    position: relative;
+    display: block;
+    
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    padding: 8px 0;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+
+    transition: color $animation-duration,
+      transform $animation-duration;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 3px;
+      content: "";
+      height: 2px;
+      background-color: $c-dark-blue;
+      border-radius: 4px;
+      transition: background-color $animation-duration;
+    }
+
+    &:hover {
+      color: $c-light-red;
+      transform: scale(110%);
+
+      &::after {
+        background-color: $c-light-red;
+      }
+    }
+
+    &--menu {
+      &::after {
+        background-color: $c-light-red;
+      }
+    }
+
+    &--light {
+      &::after {
+        background-color: $c-light-red;
+      }
+    }
+  }
+
+  // notebook section
+  &--notebook {
+    display: none;
+
+    @include onNotebook {
+      display: flex;
+      padding-top: 48px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 48px;
+  }
+}

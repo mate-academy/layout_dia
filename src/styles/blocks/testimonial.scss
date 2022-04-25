@@ -1,0 +1,109 @@
+.testimonial {
+  padding: 0 32px 32px;
+  text-align: center;
+
+  @extend %card-definition;
+
+  @include onNotebook {
+    position: relative;
+  }
+
+  &__image-container {
+    position: relative;
+    width: max-content;
+    margin: 72px auto;
+
+    @include onTablet {
+      margin: 82px auto;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -38px;
+      left: -8px;
+
+      transform: rotate(30deg);
+
+      width: 44px;
+      height: 110px;
+      border-radius: 12px;
+      background-color: $c-dark-blue;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 68px;
+
+      transform: rotate(30deg);
+
+      width: 44px;
+      height: 110px;
+      border-radius: 12px;
+      background-color: $c-dark-blue;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    width: 110px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: transform $animation-duration;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  &__quotes {
+    width: 21px;
+    height: 19px;
+    margin: 0 auto;
+    background-image: url(../images/icons/quotes.svg);
+
+    margin-bottom: 12px;
+
+    @include onTablet {
+      margin-bottom: 18px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__description {
+    font-weight: 600;
+
+    @extend %article;
+
+    margin-bottom: 16px;
+
+    @include onNotebook {
+      position: absolute;
+      top: 316px;
+      left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  &__name {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: $c-black;
+
+    margin-bottom: 4px;
+  }
+
+  &__profession {
+    @extend %section-title;
+  }
+}

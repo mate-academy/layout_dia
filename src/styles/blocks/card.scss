@@ -1,0 +1,85 @@
+.card {
+  flex-grow: 1;
+  padding: 32px;
+
+  @extend %card-definition;
+
+  transition: transform $animation-duration;
+
+  &:hover {
+    transform: scale(110%);
+  }
+
+  &__number {
+    @extend %centring-position;
+
+    width: 46px;
+    height: 24px;
+    border-radius: 24px;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    color: $c-dark-blue;
+    background-color: $c-gray;
+
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+
+    color: $c-article;
+
+    margin-bottom: 32px;
+  }
+
+  &__arrow-link {
+    @extend %centring-position;
+
+    padding: 12px;
+    border-radius: 50%;
+    background-color: $c-dark-blue;
+  }
+
+  &__link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: $c-dark-gray;
+    transition: color $animation-duration;
+
+  }
+
+  &__arrow {
+    width: 16px;
+    height: 16px;
+
+    background-image: url(../images/icons/right-arrow.svg);
+  }
+
+  &__bottom-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &:hover > .card__link {
+      color: $c-light-red;
+    }
+  }
+
+  &--2,
+  &--4 {
+    @include onTablet {
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: scale(110%) translateY(-50%);
+      }
+    }
+  }
+}
