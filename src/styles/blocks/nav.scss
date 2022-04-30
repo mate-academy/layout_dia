@@ -1,19 +1,35 @@
 .nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
   align-items: center;
 
-  position: relative;
+  &__list {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+    }
+  }
 
   &__menu-icon {
     display: block;
-    margin-left: 35px;
+    margin: 0 35px;
     width: 18px;
     height: 8px;
 
     background-image: url("/images/Strategic-Agency/menu-icon.svg");
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
   }
 
   &__link {
+    display: inline-flex;
+    padding: 10px 0;
+
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 13px;
@@ -23,21 +39,20 @@
     text-decoration: none;
     color: inherit;
     
-
     &--active {
-      position: absolute;
-      right: 0;
+      position: relative;
     }
 
     &--active::after {
+      position: absolute;
       content: "";
       display: block;
-      height: 4px;
+      height: 2px;
       width: 100%;
       background-color: #2060f6;
       border-radius: 4px;
 
-      margin-top: 8px;
+      bottom: 0;
     }
   }
 }
