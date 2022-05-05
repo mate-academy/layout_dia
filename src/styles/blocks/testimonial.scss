@@ -1,0 +1,154 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 280px;
+  height: 456px;
+
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  @include hover(transform, scale(1.1));
+
+  @include onTablet {
+    width: 558px;
+    height: 478px;
+  }
+
+  @include onNotebook {
+    width: 292px;
+    height: 494px;
+  }
+
+  @include onLargeScreens {
+    width: 362px;
+    height: 494px;
+  }
+
+  &__photo-container {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 24px;
+
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 82px;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -5%;
+      left: 10%;
+
+      display: inline-block;
+      width: 139px;
+      height: 56px;
+
+      background-color: $colorBlue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include onTablet {
+        left: 28%;
+      }
+
+      @include onNotebook {
+        left: 10%;
+      }
+
+      @include onLargeScreens {
+        left: 18%;
+      }
+    }
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      right: 10%;
+      bottom: -5%;
+
+      display: inline-block;
+      width: 139px;
+      height: 56px;
+
+      background-color: $colorBlue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include onTablet {
+        right: 28%;
+      }
+
+      @include onNotebook {
+        right: 10%;
+      }
+
+      @include onLargeScreens {
+        right: 18%;
+      }
+    }
+  }
+
+  &__photo {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    grid-column: 2 / 4;
+    width: 100%;
+    max-width: 140px;
+    border-radius: 50%;
+    transform-origin: center;
+  }
+
+  &__quotes {
+    background-image: url(../images/quotes.svg);
+
+    width: 20px;
+    height: 18px;
+    margin: 0 auto 10px;
+
+    @include onTablet {
+      margin-bottom: 18px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__about {
+    margin: 0 0 16px;
+
+    @extend %textBold;
+
+    text-align: center;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+
+    @extend %textBold;
+
+    text-align: center;
+    color: $colorTitle;
+  }
+
+  &__role {
+    margin: 0 0 32px;
+
+    @extend %textUppercase;
+
+    text-align: center;
+    color: $colorLightText;
+  }
+}
