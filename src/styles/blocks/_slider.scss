@@ -1,0 +1,114 @@
+$backgrounds:
+  url(../images/slider/slide-img-1.jpg) 1,
+  url(../images/slider/slide-img-2.png) 2,
+  url(../images/slider/slide-img-3.png) 3,
+  url(../images/slider/slide-img-4.png) 4;
+
+.slider {
+  height: 390px;
+  overflow: hidden;
+  border-radius: 30px;
+
+  @include media1024 {
+    height: calc(100% - 120px);
+  }
+
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%);
+
+  transition: background-image $transition-time;
+
+  @include media1024 {
+    position: absolute;
+    left: initial;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    border-radius: 30px 0;
+  }
+  
+  @include media1600 {
+    width: 42%;
+  }
+
+  @include media2560 {
+    width: 45%;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    padding: 24px 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+      190deg, rgba(2,0,36,0.9) 0%,
+      rgba(9,9,121,0) 0%,
+      rgba(0,212,255,1) 180%);
+  
+    @include media640 {
+      padding: 32px 40px;
+    }
+
+    @include media1024 {
+      padding: 48px 54px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: $c-white;
+    border-radius: 50%;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    @include hover(transform, scale(1.05));
+    @include hover(box-shadow, rgba(0, 0, 0, 0.35) 0 5px 15px);
+
+    &:active {
+      transform: scale(0.98);
+      background-color: $c-sick-blue;
+    }
+  }
+
+  &__title {
+    @extend .poppins-700;
+    line-height: 20px;
+    font-size: 13px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $c-white;
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    @extend .open-sans-400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: $c-white;
+  }
+
+  @each $bckgrnd, $number in $backgrounds {
+    &--bckgrnd-#{$number} {
+      background-image: #{$bckgrnd};
+    }
+  }
+}
