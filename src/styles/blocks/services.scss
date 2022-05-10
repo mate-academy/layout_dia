@@ -54,15 +54,15 @@
       &:not(:last-child) {
         margin-bottom: 30px;
       }
+ 
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
 
-      &:nth-child(3),
-      &:nth-child(5) {
+      &:nth-child(2n + 3) {
         transform: translateY(-50%);
       }
 
-      &:nth-child(4) {
-        margin-bottom: 0;
-      }
     }
 
     @media (min-width: 1024px) {
@@ -70,8 +70,16 @@
         margin-bottom: 20px;
       }
 
-      &:nth-child(4) {
+      &:nth-last-child(2) {
         margin-bottom: 0;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+  
+      &:nth-child(2n + 3):hover {
+        transform: translateY(-50%) scale(1.1);
       }
     }
 
@@ -80,7 +88,7 @@
         margin-bottom: 30px;
       }
 
-      &:nth-child(4) {
+      &:nth-last-child(2) {
         margin-bottom: 0;
       }
     }
@@ -128,6 +136,7 @@
     &::after {
       content: "Learn more";
       height: 100%;
+      width: max-content;
       display: flex;
       align-items: center;
 
@@ -140,8 +149,18 @@
       white-space: nowrap;
     
       color: #334563;
+      border-bottom: 1px solid $butonsColor;
+      border-width: 0;
+    }
 
-      pointer-events: none;
+    &:hover {
+      background-color: rgb(7, 38, 109);
+    }
+
+    &:hover::after {
+      color: $butonsColor;
+      border-bottom: 1px solid $butonsColor;
+      border-width: 100%;
     }
 
   }
