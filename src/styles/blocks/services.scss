@@ -73,14 +73,6 @@
       &:nth-last-child(2) {
         margin-bottom: 0;
       }
-
-      &:hover {
-        transform: scale(1.1);
-      }
-  
-      &:nth-child(2n + 3):hover {
-        transform: translateY(-50%) scale(1.1);
-      }
     }
 
     @media (min-width: 1600px) {
@@ -122,46 +114,38 @@
   }
 
   &__link {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__button {
     display: block;
     height: 40px;
     width: 40px;
     background-color: $butonsColor;
     border-radius: 50%;
-    text-decoration: none;
+    border: none;
 
     background-image: url("/images/Vector.svg");
     background-repeat: no-repeat;
     background-position: center;
 
-    &::after {
-      content: "Learn more";
-      height: 100%;
-      width: max-content;
-      display: flex;
-      align-items: center;
-
-      position: relative;
-      left: 56px;
-
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      white-space: nowrap;
-    
-      color: #334563;
-      border-bottom: 1px solid $butonsColor;
-      border-width: 0;
+    @media (min-width: 1024px) {
+      &:hover {
+        transform: scale(1.2);
+      }
     }
+  }
 
-    &:hover {
-      background-color: rgb(7, 38, 109);
-    }
+  &__link-text {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  
+    color: #334563;
 
-    &:hover::after {
-      color: $butonsColor;
-      border-bottom: 1px solid $butonsColor;
-      border-width: 100%;
-    }
-
+    pointer-events: none;
   }
 }
