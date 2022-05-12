@@ -17,17 +17,22 @@
     }
   }
 
+  &-dia--top {
+    margin-bottom: 50px;
+  }
+
   &--footer {
-    display: flex;
-    justify-content: start;
-    padding-bottom: 80px;
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 3px;
-    text-align: start;
+    @include onTablet {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-bottom: 85px;
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 3px;
+    }
   }
 
   &__content {
@@ -41,22 +46,24 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding: 0;
     margin: 0;
-    gap: 24px;
+    padding: 0;
+    list-style: none;
 
     @include onMobile {
+      display: flex;
       flex-direction: row;
-      margin-top: 10px;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
       gap: 40px;
     }
 
     @include onTablet {
       flex-direction: row;
       align-items: center;
+      text-align: center;
+      margin: 0;
     }
 
     &--top {
@@ -78,16 +85,44 @@
         margin: 0;
         gap: 48px;
       }
+    }
 
-      &--footer {
+    &--footer {
+      @include onTablet {
         justify-content: space-between;
       }
     }
+
+    &--opener {
+      display: block;
+      text-align: start;
+    }
+    
   }
 
   &__item {
     display: block;
     list-style-type: none;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: #2060f6;
+      border-bottom: 2px solid #2060f6;
+    }
+    &--top {
+      margin-bottom: 0;
+    }
+    &--footer {
+      display: block;
+      list-style: none;
+      margin-bottom: 24px;
+      @include onMobile {
+        margin: 0;
+      }
+    }
   }
 
   &__link {
@@ -101,5 +136,9 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #fff;
+
+    &:hover {
+      color: #2060f6;
+    }
   }
 }
