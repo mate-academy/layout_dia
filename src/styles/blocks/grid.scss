@@ -13,6 +13,11 @@
     gap: 20px;
   }
 
+  @include onLargeScreens {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
   &--notebook {
     display: block;
 
@@ -42,6 +47,16 @@
       @for $start from 1 through 12 {
         @for $end from $start through 12 {
           &--notebook-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onLargeScreens {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--largeScreens-#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
         }
