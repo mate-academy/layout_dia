@@ -1,0 +1,80 @@
+.menu {
+  &--dropdown {
+    display: inline-block;
+  }
+
+  &__dropdown {
+    display: none;
+    background-color: $color-black;
+    padding: 20px;
+    box-shadow: 1px 1px 2px 4px rgba(255, 255, 255, 0.5) inset;
+    position: absolute;
+    left: 20px;
+    z-index: 10;
+
+    @include onTablet {
+      left: 40px;
+      right: 40px;
+    }
+  }
+
+  &__icon {
+    padding: 12px 40px;
+  }
+
+  &:hover .menu__dropdown {
+    display: block;
+  }
+
+  &__list {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &--last {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onNotebook {
+      margin-right: 44px;
+
+      &--fotter {
+        margin-right: 60px;
+      }
+
+      &--last {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    color: $color-white;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include hover(
+      color $color-blue,
+      border-color $color-blue,
+      transform scale(1.2)
+    );
+  }
+}
