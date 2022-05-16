@@ -1,14 +1,15 @@
 .header {
   min-height: 100vh;
   background-color: #2c2c2c;
+  border-radius: 0 0 $border-radius $border-radius;
   overflow: hidden;
 
   &__content {
-
+    max-width: 1145px;
+    margin: 0 auto;
     position: relative;
     left: 0;
     right: 0;
-
   }
 
   &__header-top {
@@ -24,24 +25,33 @@
   }
 
   &__left-sidebar {
-    padding-right: 0;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 42px;
+    }
+
+    @include onDesktop {
+      padding-left: 54px;
+    }
   }
 
   &__right-sidebar {
-    position: absolute;
-    left: 0;
+    width: 100%;
     height: 390px;
 
     @include onDesktop {
+      position: absolute;
+      left: 0;
+
       height: 680px;
       width: 50vw;
     }
 
-    border-radius: 30px;
+    border-radius: $border-radius;
     background-image: url("../images/header.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
+    @include bg-center;
+
   }
 
   &__title {
@@ -49,6 +59,11 @@
 
     @include onTablet {
       margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      padding-top: 127px;
+      margin-bottom: 32px;
     }
 
     @include font-popins;
@@ -65,7 +80,6 @@
 
     @include onTablet {
       margin-bottom: 56px;
-
     }
 
     @include onDesktop {
@@ -79,4 +93,15 @@
     color: #fff;
   }
 
+  &__button {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 147px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 205px;
+    }
+  }
 }
