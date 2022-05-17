@@ -3,22 +3,19 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
-  @include onTablet {
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 30px;
+  &--services-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
   }
 
   @include onDesktop {
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 20px;
+    column-gap: 30px;
   }
 
-  &--mobile {
+  &--desktop {
     display: block;
-
-    @include onTablet {
-      display: grid;
-    }
 
     @include onDesktop {
       display: grid;
@@ -26,20 +23,14 @@
   }
 
   &__item {
-    @include onTablet {
-      @for $start from 1 through 6 {
-        @for $end from 1 through 6 {
-          &--tablet-#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
         }
-      }
-    }
 
-    @include onDesktop {
-      @for $start from 1 through 12 {
-        @for $end from 1 through 12 {
-          &--desktop-#{$start}-#{$end} {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
           }
         }
