@@ -1,20 +1,43 @@
 .menu {
-  height: 100vh;
-  box-sizing: border-box;
-  // background-color: $color-blue;
 
   &__content {
-    // padding: $header-top-padding 0;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__top {
     margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
   }
 
   &__list {
     list-style-type: none;
     padding: 0;
-    margin: 0 0 48px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+      }
+    }
   }
 
   &__item {
@@ -23,25 +46,43 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-right: 64px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &--margin {
+      margin-right: 48px;
+    }
   }
 
   &__link {
     display: inline-block;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 8px;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
 
     text-decoration: none;
+
+    @include font-popins;
     font-weight: 700;
-    font-size: 22px;
-    line-height: 22px;
-    letter-spacing: 2px;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #fff;
 
     transition: border-color 0.3s;
 
     &:hover {
-      border-color: #fff;
+      border-color: $blue;
     }
   }
 }
