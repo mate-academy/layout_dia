@@ -4,3 +4,53 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin make-blue {
+  filter: brightness(0)
+    saturate(100%)
+    invert(36%)
+    sepia(71%)
+    saturate(5852%)
+    hue-rotate(218deg)
+    brightness(97%)
+    contrast(98%);
+}
+
+@mixin moving-underline {
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent 95%,
+    $button-lineHoverColor 95%,
+    $button-lineHoverColor 100%
+  );
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position-x: left;
+
+  transition: background-size $transition-duration;
+
+  &:hover {
+    background-size: 0% 100%;
+    background-position-x: right;
+  }
+
+}
