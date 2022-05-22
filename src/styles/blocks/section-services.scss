@@ -88,9 +88,7 @@
   }
 
   &__number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-row-center;
 
     width: 46px;
     height: 24px;
@@ -126,10 +124,12 @@
     line-height: 22px;
     text-align: center;
     color: #334563;
+    text-decoration: none;
+    transition: all 0.4s;
 
     &::before {
       content: "";
-      display: inline-block;
+      display: block;
 
       width: 40px;
       height: 40px;
@@ -140,7 +140,15 @@
       border-radius: 50%;
       margin-right: 16px;
       background-color: $blue;
+      transition: all 0.4s;
+    }
 
+    &:hover::before {
+      transform: rotate(360deg);
+    }
+
+    &:hover {
+      color: $blue;
     }
   }
 }

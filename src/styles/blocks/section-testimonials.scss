@@ -13,7 +13,7 @@
   }
 
   &__sub-title {
-    margin-bottom: 56px;
+    margin-bottom: 48px;
 
     font-size: 32px;
     line-height: 150%;
@@ -34,13 +34,18 @@
 }
 
 .column-testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 32px 39px;
   margin-bottom: 24px;
 
   background-color: #fff;
+  border: 2px solid transparent;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
+  transition: all 0.4s ease;
 
   @include onTablet {
     max-width: 500px;
@@ -51,33 +56,33 @@
     margin-bottom: 0;
   }
 
-  &__images {
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &:hover {
+    transform: scale(1.1);
+    border-color: $blue;
   }
 
-  &__photo {
-    width: 140px;
-    height: 140px;
+  &__image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
 
-    @include bg-center;
-    border-radius: 50%;
-
-    &--img-1 {
-      background-image: url("../images/people/people_1.jpg");
+    @include onTablet {
+      width: 250px;
+      height: 250px;
     }
 
-    &--img-2 {
-      background-image: url("../images/people/people_2.jpg");
+    @include bg-center(center);
+
+    &--1 {
+      background-image: url("../images/people/people_1.png");
     }
 
-    &--img-3 {
-      background-image: url("../images/people/people_3.jpg");
+    &--2 {
+      background-image: url("../images/people/people_2.png");
+    }
+
+    &--3 {
+      background-image: url("../images/people/people_3.png");
     }
   }
 
@@ -87,11 +92,15 @@
     margin: 0 auto 10px;
 
     background-image: url("../images/people/people-img.png");
-    @include bg-center;
+    @include bg-center(center);
   }
 
   &__about {
     margin-bottom: 16px;
+
+    @include onTablet {
+      max-width: 362px;
+    }
 
     @include font-open;
     font-size: 13px;
