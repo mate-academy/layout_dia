@@ -1,15 +1,33 @@
 .slider {
   height: 390px;
-  width: 100%;
   background-position: 50%;
+  overflow: hidden;
   background-size: cover;
   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-position: center;
+  background-size: cover;
+  transition: background-image $transition-duration;
+
+
+  $bckgrnds:
+  url(../images/slider/slide-img-1.jpg) 1,
+  url(../images/slider/slide-img-2.jpg) 2,
+  url(../images/slider/slide-img-3.jpg) 3,
+  url(../images/slider/slide-img-4.jpg) 4;
 
   @include onDesktop {
     width: calc(50% - 10px);
     height: calc(100% - 120px);
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
+    position: absolute;
+    left: initial;
+    right: 0;
+    bottom: 0;
   }
 
   &--1 {
@@ -18,34 +36,23 @@
   }
 
   &__content {
-    position: absolute;
-    left: 20px;
-    bottom: 24px;
+    height: 100%;
     display: flex;
+    padding: 24px 20px;
     flex-direction: column;
+    justify-content: flex-end;
     gap: 16px;
 
-
     @include onTablet {
-      position: absolute;
-      left: 40px;
-      bottom: 32px;
+      padding: 32px 40px;
     }
 
     @include onDesktop {
-      flex-direction: row;
-      position: absolute;
-      left: 78px;
-      bottom: 48px;
-      align-items: center;
+      padding: 48px 54px;
     }
 
     @include onLargeScreen {
-      flex-direction: row;
-      position: absolute;
-      left: 48px;
-      bottom: 48px;
-      align-items: center;
+      padding: 48px 54px;
     }
   }
 
@@ -71,7 +78,8 @@
   }
 
   &__button:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    box-shadow: rgba($color: #000, $alpha: 0.35) 0 5px 15px;
   }
 
   &__title {
@@ -90,6 +98,12 @@
     font-size: 14px;
     line-height: 140%;
     color: #fff;
+  }
+
+  @each $bckgrnd, $number in $bckgrnds {
+    &--bckgrnd-#{$number} {
+      background-image: #{$bckgrnd};
+    }
   }
 
 }
