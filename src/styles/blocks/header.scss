@@ -1,24 +1,82 @@
 .header {
-  position: relative;
   background-color: #2c2c2c;
-  height: 893px;
+  height: 840px;
   border-radius: 0 0 30px 30px;
 
+  @include onNotebook {
+    height: 800px;
+  }
+
+  &__top-actions {
+    margin-bottom: 38px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 38px;
+    }
+  }
+
+  &__net {
+    display: block;
+
+    @include onNotebook {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+      column-gap: 20px;
+    }
+  }
+
+  &__col-1 {
+    grid-column: 1 /6;
+  }
+
+  &__col-2 {
+    grid-column: 7 / 13;
+
+    @include onDesign {
+      grid-column: 8 /13;
+    }
+  }
+
   &__title {
-    margin-top: 50px;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;
     color: white;
     margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 32px;
+      font-size: 64px;
+      line-height: 68px;
+    }
   }
 
   &__phrase {
+    max-width: 362px;
+    font-family: "Open sans", serif;
     font-size: 18px;
     line-height: 150%;
     color: white;
     margin-bottom: 72px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 83px;
+    }
   }
 
   &__button {
@@ -34,69 +92,91 @@
     line-height: 22px;
     background-color: #2060f6;
     border-radius: 8px;
-    margin-bottom: 48px;
+    margin-bottom: 61px;
+
+    @include onTablet {
+      margin-bottom: 147px;
+    }
+
+    @include onNotebook {
+      width: 264px;
+    }
   }
 
   &__intro {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+
     background-image: url(../../src/images/header/image.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 390px;
+    margin: 0 -$body-padding;
     border-radius: 30px;
-  }
 
-  &__pointer {
-    position: absolute;
-    top: 250px;
-    left: 68px;
-    display: inline-block;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 11px 13px;
+    @include onTablet {
+      margin: 0 calc(-1 * (#{$body-padding} + 20px));
+    }
 
-    &:first-child {
-      left: 20px;
+    @include onNotebook {
+      height: 679px;
+      margin: 0 calc(-1 * (#{$body-padding} + 33px));
+      border-radius: 30px 0 30px 0;
+    }
+
+    @include onDesign {
+      margin: 0 calc(-1 * (#{$body-padding} + 207px));
     }
   }
 
-  &__pointer-left {
-    background-image: url(../../src/images/slider/arrow-left.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 6px;
-    height: 10px;
+  &__intro-container {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onNotebook {
+      left: 78px;
+      bottom:  66px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
   }
 
-  &__pointer-right {
-    background-image: url(../../src/images/slider/arrow-right.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 6px;
-    height: 10px;
+  &__slider {
+    height: 32px;
+    margin-bottom: 16px;
+  }
+
+  &__pointer {
+    display: inline-block;
+    background-color: #fff;
+    padding: 11px;
+    border-radius: 50%;
+
+    &:first-child() {
+      margin-right: 16px;
+    }
   }
 
   &__intro-title {
-    position: absolute;
-    top: 300px;
-    left: 20px;
+    display: block;
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    margin-bottom: 8px;
   }
 
   &__intro-phrase {
-    position: absolute;
-    top: 325px;
-    left: 20px;
-    width: 280px;
-    font-family: "Open Sans", sans-serif;
+    max-width: 280px;
+    font-family: "Open Sans", serif;
     font-size: 14px;
     line-height: 140%;
     color: white;

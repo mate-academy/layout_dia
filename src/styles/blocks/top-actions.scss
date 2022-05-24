@@ -2,12 +2,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding-top: 21px;
+
+  @include onNotebook {
+    padding-top: 51px;
+  }
 
   &__container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 35px;
+    gap: 18px;
+
+    @include onNotebook {
+      gap: 136px;
+    }
+
+    @include onDesign {
+      gap: 251px;
+    }
+  }
+
+  &__toggler {
+    background-color: rgba(0%, 0%, 0%, 0);
+    border: 0px;
+
+    @include onNotebook {
+      display: none;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+
+    @include onNotebook {
+      position: static;
+        display: flex;
+        gap: 48px;
+        height: auto;
+    }
+  }
+
+  &--open &__list {
+    height: auto;
   }
 
   &__link {
@@ -17,7 +60,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
 
-    &:after {
+    &:nth-child(2)::after {
       content: "";
       display: block;
       height: 2px;

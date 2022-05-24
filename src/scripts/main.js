@@ -1,8 +1,8 @@
 'use strict';
 
-const icon = document.querySelector('.top-actions__list');
+const topActions = document.querySelector('.top-actions__nav');
 const toggler = document.querySelector('.top-actions__toggler');
 
 toggler.addEventListener('click', () => {
-  icon.classList.toggle('top-actions--open');
+  topActions.classList.toggle('top-actions--open');
 });
