@@ -1,6 +1,5 @@
 .top-actions {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   padding-top: 21px;
@@ -12,7 +11,6 @@
   &__container {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 18px;
 
     @include onNotebook {
@@ -26,7 +24,7 @@
 
   &__toggler {
     background-color: rgba(0%, 0%, 0%, 0);
-    border: 0px;
+    border: 0;
 
     @include onNotebook {
       display: none;
@@ -34,7 +32,7 @@
   }
 
   &__list {
-    position: absolute;
+    // position: absolute;
     height: 0;
     margin: 0;
     padding: 0;
@@ -43,14 +41,19 @@
 
     @include onNotebook {
       position: static;
-        display: flex;
-        gap: 48px;
-        height: auto;
+      display: flex;
+      gap: 48px;
+      height: auto;
     }
   }
 
   &--open &__list {
-    height: auto;
+    transition: height, background-color 1s;
+    box-sizing: border-box;
+    background-color: #fff2;
+    width: 550px;
+    transform: translateX(20px);
+    height: 200px;
   }
 
   &__link {
