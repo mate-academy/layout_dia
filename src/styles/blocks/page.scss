@@ -1,9 +1,28 @@
 .page {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
+  scroll-behavior: smooth;
 
-  &__section {
-    margin-bottom:  120px;
+  &--with-menu {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+    transition: 1s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__section:not(:last-child) {
+    margin-bottom: 120px;
 
     @include onTablet {
       margin-bottom: 148px;

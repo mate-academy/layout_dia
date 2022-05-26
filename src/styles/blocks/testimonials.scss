@@ -1,1 +1,73 @@
- 
+.testimonials {
+
+  &__content {
+
+    @include onNotebook {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+    }
+
+    @include onDesign {
+      column-gap: 30px;
+    }
+  }
+
+  &__cell {
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 30px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 0;
+      }
+    }
+
+    &--left {
+      grid-column: 1 / 5;
+    }
+
+    &--center {
+      grid-column: 5 / 9;
+    }
+
+    &--right {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #253757;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      width: 200px;
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 85px;
+    }
+
+    &::before {
+      content: "Testimonials";
+      display: flex;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #C0CDD7;
+      margin-bottom: 16px;
+
+    }
+  }
+}
