@@ -114,7 +114,7 @@
   &__button {
     background-color: $buttonfooterColor;
     display: grid;
-    width: 100%;
+    width: 280px;
     height: 50px;
     border-radius: 8px;
     color: #fff;
@@ -129,6 +129,7 @@
 
     @include onTablet {
       margin-bottom: 120px;
+      width: 264px;
     }
 
     &:hover {
@@ -144,6 +145,39 @@
   }
 
   &__form {
+
+    &--block {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+
+      &--last {
+        margin-bottom: 48px;
+
+        @include onTablet {
+          margin-bottom: 80px;
+        }
+      }
+
+      &:hover::after {
+        border-bottom: 2px solid $button-lineHoverColor;
+      }
+
+      &:active::after {
+        border-bottom: 2px solid $button-lineHoverColor;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        border-bottom: 2px solid #fff;
+        border-radius: 4px;
+        @include hover(border-color, $button-lineHoverColor);
+      }
+    }
+
     margin-bottom: 80px;
 
     @include onTablet {
@@ -155,36 +189,35 @@
     }
 
     &--field {
-      display: block;
-      width: 100%;
-      margin-bottom: 40px;
-      transition: border-color $transition-duration;
-      background: none;
-      outline: none;
-      padding-bottom: 16px;
-      border: none;
-      border-bottom: 1px solid #fff;
-      @extend %poppins-600;
+      @extend %open-sans-600;
+      background-color: transparent;
+      font-style: normal;
+      font-weight: 600;
       font-size: 15px;
+      line-height: 22px;
       color: #fff;
-
-      &--textarea {
-        resize: none;
-        padding: 0 0 17px 0;
-        margin-bottom: 56px;
-      }
+      border: none;
+      height: 40px;
+      width: 100%;
+      transition: all 0.3s;
 
       &::placeholder {
-        @extend %poppins-600;
+        font-style: normal;
+        font-weight: 600;
         font-size: 15px;
+        line-height: 22px;
         color: #fff;
         opacity: 0.7;
       }
 
-      &:hover,
       &:focus {
-        border-bottom: 2px solid $button-lineHoverColor;
-        padding-bottom: 15px;
+        outline: none;
+      }
+
+      &--textarea {
+        resize: none;
+        background-color: transparent;
+        height: 35px;
       }
     }
   }
