@@ -1,27 +1,39 @@
 .actions {
   display: grid;
   grid-template-columns: min-content min-content 1fr;
-  justify-content: space-between;
-  align-items: center;
   justify-items: end;
-  gap: 35px;
-  padding-top: 18px;
+  column-gap: 35px;
+
+  &--bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include onNotebook {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 
   @include onNotebook {
     display: flex;
     justify-content: space-between;
-    padding-top: 52px;
   }
 
   &__list {
     list-style: none;
+    display: grid;
+    gap: 24px;
+
+    @include onTablet {
+      grid-template-columns: repeat(5, min-content);
+      justify-content: space-between;
+      gap: 40px;
+      white-space: nowrap;
+    }
 
     &--visibility {
       display: none;
-
-      @include onNotebook {
-        display: block;
-      }
     }
 
     @include onNotebook {
@@ -36,14 +48,14 @@
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
-    padding: 1px;
 
-    &:nth-child(4):after {
+
+    &--hover::after {
       content: "";
       display: block;
       margin-top: 8px;
-      background-color: #fff;
-      height: 1px;
+      background-color: #2060f6;
+      height: 2px;
     }
   }
 }

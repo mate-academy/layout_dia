@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 window.addEventListener('hashchange', () => {
@@ -8,6 +9,8 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-undef
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
