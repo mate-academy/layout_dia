@@ -72,6 +72,36 @@
     padding-top: 131px;
   }
 
+  &__button {
+    display: flex;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    color: #334563;
+    text-decoration: none;
+    transition: all 0.4s;
+
+    &::before {
+      content: "";
+      display: block;
+
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
+
+      background-image: url(../images/card-arrow.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      border-radius: 50%;
+      background-color: $blue;
+      transition: all 0.4s;
+    }
+  }
+
   &__item {
     padding: 32px;
     margin-bottom: 24px;
@@ -84,6 +114,10 @@
       @include onTablet {
         transform: translateY(-50%);
       }
+    }
+
+    &:hover .cards__button {
+      transform: scale(1.1);
     }
   }
 
@@ -115,40 +149,12 @@
     color: $gray-text;
   }
 
-  &__button {
-    display: flex;
-    align-items: center;
-
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 22px;
-    text-align: center;
-    color: #334563;
-    text-decoration: none;
-    transition: all 0.4s;
-
-    &::before {
-      content: "";
-      display: block;
-
-      width: 40px;
-      height: 40px;
-
-      background-image: url(../images/card-arrow.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 50%;
-      margin-right: 16px;
-      background-color: $blue;
-      transition: all 0.4s;
-    }
-
-    &:hover::before {
-      transform: rotate(360deg);
-    }
-
-    &:hover {
-      color: $blue;
-    }
+  &:hover {
+    color: $blue;
   }
+
+  &:hover::before {
+    transform: rotate(360deg);
+  }
+
 }
