@@ -11,10 +11,11 @@ window.addEventListener('hashchange', () => {
 
 const rectangle = document.querySelectorAll('.testimonial__rectangle');
 const shape = document.querySelectorAll('.testimonial__shape');
-const bgColor = document.querySelectorAll('.header, .footer');
+const bgColor = document.querySelectorAll('.header, .footer, .menu, .slider');
 const button = document.querySelectorAll('.button');
 const id = document.querySelectorAll('.services__id');
 const buttonArrow = document.querySelectorAll('.services__button');
+const link = document.querySelectorAll('.actions__link');
 const toggler = document.querySelector('.actions__button');
 const bgVision = document.querySelector('.vision');
 
@@ -28,8 +29,16 @@ toggler.addEventListener('click', () => {
   shape[2].classList.toggle('testimonial__shape--pink');
 
   bgColor[0].classList.toggle('header--blue');
-  bgColor[1].classList.toggle('footer--blue');
+  bgColor[1].classList.toggle('slider--blue');
+  bgColor[2].classList.toggle('footer--blue');
+  bgColor[3].classList.toggle('menu--blue');
   bgVision.classList.toggle('vision--colorful');
+
+  toggler.classList.toggle('actions__button--pink');
+
+  for (let i = 0; i < link.length; i++) {
+    link[i].classList.toggle('actions__link--pink');
+  }
 
   for (let i = 0; i < button.length; i++) {
     button[i].classList.toggle('button--pink');
