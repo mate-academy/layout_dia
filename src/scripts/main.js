@@ -30,8 +30,8 @@ toggler.addEventListener('click', () => {
 
   bgColor[0].classList.toggle('header--blue');
   bgColor[1].classList.toggle('slider--blue');
-  bgColor[2].classList.toggle('footer--blue');
-  bgColor[3].classList.toggle('menu--blue');
+  bgColor[2].classList.toggle('menu--blue');
+  bgColor[3].classList.toggle('footer--blue');
   bgVision.classList.toggle('vision--colorful');
 
   toggler.classList.toggle('actions__button--pink');
