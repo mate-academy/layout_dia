@@ -1,5 +1,9 @@
 'use strict';
 
+document.getElementById('form').addEventListener('click', function(event) {
+  event.preventDefault();
+});
+
 const slider = document.querySelector('.slider');
 const sliderLeft = document.querySelector('.btn-left');
 const sliderRight = document.querySelector('.btn-right');
