@@ -1,35 +1,28 @@
+@import "./variables.scss";
+@import "./mixins.scss";
 @import "utils";
 @import "fonts";
 @import "typography";
-
-$primaryBlue: #2060f6;
-$primaryBlueHover: #1545b7;
-$textColorWhite: #fff;
-$bgWhite: #f2f6fa;
-$bgBlack: #2c2c2c;
-$borderRadius: 30px;
-
-@mixin tablet {
-  @media (min-width: 640px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin largeDesktop {
-  @media (min-width: 1600px) {
-    @content;
-  }
-}
+@import "./blocks/header.scss";
+@import "./blocks/about.scss";
+@import "./blocks/logo.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/expertise.scss";
+@import "./blocks/services.scss";
+@import "./blocks/element.scss";
+@import "./blocks/menu.scss";
+@import "./blocks/swiper.scss";
+@import "./blocks/testimonials.scss";
+@import "./blocks/vision.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/feedback.scss";
+@import "./blocks/contact.scss";
 
 * {
   text-decoration: none;
   margin: 0;
+  list-style: none;
+  outline: none;
 }
 
 body {
@@ -37,127 +30,48 @@ body {
   background: $bgWhite;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  font-style: normal;
   scroll-behavior: smooth;
 }
 
-.header {
-  box-sizing: border-box;
-  background-color: $bgBlack;
-  padding: 18px 20px 25px;
-  margin-bottom: 120px;
-  border-radius: 0 0 $borderRadius $borderRadius;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  column-gap: 20px;
+  margin: 0 auto;
+
+  &--desktop {
+    display: block;
+
+    @include desktop {
+      display: grid;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(6, 68px);
+    column-gap: 30px;
+  }
 
   @include desktop {
-    height: 800px;
-    margin-bottom: 148px;
+    grid-template-columns: repeat(12, 58px);
+    column-gap: 20px;
+    width: 916px;
   }
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 48px;
-
-    @include tablet {
-      margin-bottom: 56px;
-    }
-
-    @include desktop {
-      margin-bottom: 158px;
-    }
+  @include largeDesktop {
+    grid-template-columns: repeat(12, 68px);
+    column-gap: 30px;
+    width: 1146px;
   }
 
-  &__box {
-    display: flex;
-  }
-
-  &__menu-close {
-    margin-left: 35px;
-    height: 8px;
-    width: 18px;
-    text-align: center;
-    @include hover(transform, scale(130%));
-
-    @include desktop {
-      display: none;
-    }
-  }
-
-  &__menu-open {
-    display: none;
-
-    @include desktop {
-      display: flex;
-    }
-  }
-
-  &__hire-us {
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $textColorWhite;
-    line-height: 150%;
-    text-align: center;
-    transition: 00.5s;
-
-    &:hover {
-      color: $primaryBlue;
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      height: 2px;
-      margin-top: 8px;
-      background-color: $primaryBlue;
-      border-radius: 1px;
-    }
-  }
-
-  &__title {
-    margin-bottom: 32px;
-    font-size: 52px;
-    line-height: 120%;
-    letter-spacing: -2px;
-    color: $textColorWhite;
-
-    @include tablet {
-      font-size: 64px;
-      line-height: 68px;
-    }
-  }
-
-  &__text {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
-    color: $textColorWhite;
-    margin-bottom: 72px;
-  }
-
-  &__button {
-    box-sizing: border-box;
-    display: flex;
-    height: 50px;
-    width: 280px;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    background: $primaryBlue;
-    border-radius: 8px;
-    color: #fff;
-    margin-bottom: 48px;
-    transition: 00.5s;
-
-    &:hover {
-      background-color: $primaryBlueHover;
-    }
-  }
-
-  .logo {
-    &__img {
-      width: 44.82px;
-      height: 25.63px;
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
     }
   }
 }
