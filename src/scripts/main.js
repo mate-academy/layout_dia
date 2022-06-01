@@ -14,10 +14,12 @@ const shape = document.querySelectorAll('.testimonial__shape');
 const bgColor = document.querySelectorAll('.header, .footer, .menu, .slider');
 const button = document.querySelectorAll('.button');
 const id = document.querySelectorAll('.services__id');
+const contact = document.querySelectorAll('.contact-us__value-contact');
 const buttonArrow = document.querySelectorAll('.services__button');
 const link = document.querySelectorAll('.actions__link');
 const toggler = document.querySelector('.actions__button');
 const bgVision = document.querySelector('.vision');
+const theme = document.querySelector('.icon--theme');
 
 toggler.addEventListener('click', () => {
   rectangle[0].classList.toggle('testimonial__rectangle--pale-blue');
@@ -33,11 +35,14 @@ toggler.addEventListener('click', () => {
   bgColor[2].classList.toggle('menu--blue');
   bgColor[3].classList.toggle('footer--blue');
   bgVision.classList.toggle('vision--colorful');
-
-  toggler.classList.toggle('actions__button--pink');
+  theme.classList.toggle('icon--theme_blue');
 
   for (let i = 0; i < link.length; i++) {
     link[i].classList.toggle('actions__link--pink');
+  }
+
+  for (let i = 0; i < contact.length; i++) {
+    contact[i].classList.toggle('contact-us__value-contact--blue');
   }
 
   for (let i = 0; i < button.length; i++) {
