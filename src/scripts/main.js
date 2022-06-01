@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 window.addEventListener('hashchange', () => {
@@ -13,4 +14,16 @@ const form = document.getElementById('form');
 form.addEventListener('submit', (event) => {
   form.reset();
   event.preventDefault();
+});
+
+// eslint-disable-next-line no-undef
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
