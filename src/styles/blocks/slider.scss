@@ -3,80 +3,75 @@
   flex-direction: column;
   justify-content: end;
   box-sizing: border-box;
-  padding: 0 20px 24px;
-
-  @include tablet {
-    padding: 0 40px 32px;
-  }
 
   &__image {
-    position: absolute;
-    height: 390px;
     width: 100%;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 0 $borderRadius $borderRadius;
-    z-index: 0;
-    object-fit: cover;
+    border-radius: $borderRadius;
 
-    @include desktop {
-      border-radius: 0;
-      border-radius: $borderRadius 0 $borderRadius;
+    @include tablet {
       height: 680px;
     }
-  }
 
-  &__buttons {
-    display: flex;
-    margin-bottom: 16px;
-
-    &--1,
-    &--2 {
-      font-size: 28px;
-      font-weight: 100;
-      text-align: center;
-      height: 38px;
-      width: 38px;
-      color: #fff;
-      transition: 0.3s;
-      margin-right: 16px;
-      z-index: 1;
+    @include desktop {
+      border-top-left-radius: $borderRadius;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
-  }
-
-  &__caption {
-    position: relative;
-    padding: 5px;
   }
 
   &__intro {
     position: relative;
-    font-size: 13px;
+    font-size: 14px;
+    color: #fff;
     letter-spacing: 3px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #fff;
     margin-bottom: 8px;
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(0, 0, 0, 0.5);
   }
 
   &__info {
     position: relative;
-    font-weight: 400;
     font-size: 14px;
-    line-height: 140%;
     color: #fff;
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    line-height: 140%;
   }
 
   &__elements {
-    @include desktop {
-      display: flex;
-      align-items: flex-end;
-      height: 68px;
-      width: 368px;
+    position: absolute;
+    z-index: 1;
+    padding: 0 20px 24px;
+
+    @include tablet {
+      padding: 0 40px 32px;
     }
+  }
+}
+
+.swiper {
+  width: 100%;
+  border-radius: $borderRadius;
+  left: -20px;
+
+
+
+  @include desktop {
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    left: 0;
+  }
+
+  &-button-prev::after,
+  &-button-next::after {
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  &-button-prev:hover::after,
+  &-button-next:hover::after {
+    color: $primaryBlueHover;
   }
 }
