@@ -38,7 +38,6 @@ select:-webkit-autofill:focus {
   border-width: 0 0 1px;
   border-color: white;
   -webkit-text-fill-color: $bgWhite;
-  -webkit-box-shadow: 0 0 0 1000px $bgBlack inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -56,4 +55,65 @@ body {
   font-weight: 600;
   font-style: normal;
   scroll-behavior: smooth;
+}
+
+.navigation {
+  position: fixed;
+  z-index: 9;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  padding: 18px 20px 48px;
+  transform: translateX(-100%);
+  background-color: $bgBlack;
+  transition: 00.3s;
+
+  &__list {
+    padding: 0;
+  }
+
+  &__back {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    margin-left: 32px;
+  }
+
+  .top-actions {
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    max-width: 67px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    @include hover(transform, scale(110%));
+  }
+
+  &__link {
+    padding: 20px 0 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 60px;
+    &:hover {
+      color: $primaryBlue;
+    }
+  }
+
+  &:target {
+    transform: translateX(0);
+
+    .page {
+      display: none;
+    }
+  }
 }
