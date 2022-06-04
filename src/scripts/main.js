@@ -20,6 +20,7 @@ const swiperBody = new Swiper('.swiper__body', {
   },
 
   loop: true,
+  
   speed: 1500,
 
   autoplay: {
@@ -27,5 +28,4 @@ const swiperBody = new Swiper('.swiper__body', {
     stopOnLastSlide: true,
     disableOnInteraction: true,
   },
-
 });
