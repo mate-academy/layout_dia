@@ -1,12 +1,29 @@
 .testimonials {
-  display: inline;
-  justify-content: start;
+  margin: 0 20px;
+
+  margin-bottom: 120px;
+
+  @include onTablet {
+    padding: 0 53px;
+  }
+
+  @include theDesign {
+    padding: 0 227px;
+  }
+
+  &__container {
+    gap: 30px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 
   &__title {
     font-size: 32px;
     line-height: 150%;
 
-    padding: 0 20px;
     margin-bottom: 48px;
     &::before {
       content: "Testimonials";
@@ -23,22 +40,30 @@
   }
 
   &__block {
+    position: relative;
     display: flex;
     flex-direction: column;
+    flex-shrink: 1;
+
     align-items: center;
     text-align: center;
     min-width: 280px;
     height: 456px;
 
-    margin: 0 20px 24px;
+    margin-bottom: 24px;
 
     background-color: #fff;
-    box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
-  }
 
-  &__box1 {
-    
+    @include onTablet {
+      display: flex;
+      flex-basis: 100%;
+    }
+
+    @include onNotebook {
+      max-width: 362px;
+    }
   }
 
   &__img {
@@ -48,10 +73,19 @@
     height: 110px;
 
     border-radius: 50%;
+    z-index: 1;
   }
 
-  &__box2 {
+  &__box {
+    position: absolute;
+    top: 36px;
 
+    display: block;
+    background-image: url("../images/rectangle.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 161px;
+    height: 182px;
   }
 
   &__sub-img {
@@ -62,10 +96,11 @@
   }
 
   &__text {
-    margin-top: 10px;
+    margin: 10px 42px 0;
 
-    width: 196px;
-    height: 80px;
+    @include onTablet {
+      margin: 10px 48px 0;
+    }
 
     font-weight: 600;
     font-size: 13px;
