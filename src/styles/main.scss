@@ -1,7 +1,331 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@mixin on640 {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
 
-body {
-  background: $c-gray;
+@mixin on1024 {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on1600 {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on2560 {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+.page {
+  font-family: "Poppins", sans-serif;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background-color: #f2f6fa;
+  }
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1146px;
+  padding: 18px 20px 0;
+
+  @include on640 {
+    padding: 18px 41px 0;
+  }
+
+  @include on1024 {
+    padding: 49px 54px 0;
+  }
+
+  @include on1600 {
+    padding: 49px 227px 0;
+  }
+
+  @include on2560 {
+    padding: 49px 707px 0;
+  }
+}
+
+.header {
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 893px;
+
+  @include on1024 {
+    min-height: 800px;
+  }
+
+  &__background {
+    background-color: #2c2c2c;
+    width: 100%;
+    max-width: 1600px;
+    border-radius: 0 0 30px 30px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__nav {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on640 {
+      margin-bottom: 56px;
+    }
+
+    @include on1024 {
+      margin-bottom: 164px;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include on1024 {
+      display: contents;
+    }
+
+    &-list {
+      list-style: none;
+      display: flex;
+      gap: 48px;
+    }
+
+    &-link {
+      display: block;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+  }
+
+  &__menu-opener {
+    display: block;
+    margin-right: auto;
+    margin-left: 36px;
+    background-image: url(../images/menu/menu-opener.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 8px;
+
+    @include on1024 {
+      display: none;
+    }
+  }
+
+  &__hire-button {
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+
+    &::after {
+      margin-top: 8px;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 2px;
+      background: #2060f6;
+      border-radius: 4px;
+
+      @include on1024 {
+        position: absolute;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: #fff;
+
+    @include on640 {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include on1024 {
+      margin-bottom: 32px;
+      width: 490px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 72px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fff;
+
+    @include on640 {
+      margin-bottom: 56px;
+      width: 362px;
+    }
+
+    @include on1024 {
+      margin-bottom: 83px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
+    color: #fff;
+    background: #2060f6;
+    border-radius: 8px;
+
+    @include on1024 {
+      width: 264px;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    min-height: 390px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background-image: url(../images/slider/slider-img-01.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+
+    @include on1024 {
+      min-height: 680px;
+      border-radius: 30px 0 ;
+      width: calc(50% - 10px);
+    }
+
+    @include on1600 {
+      width: calc(50% - 113px);
+    }
+
+    &-contents {
+      margin-bottom: 24px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      @include on640 {
+        margin-bottom: 32px;
+        padding-left: 41px;
+      }
+
+      @include on1024 {
+        margin-bottom: 48px;
+        padding-left: 78px;
+        flex-direction: row;
+        gap: 24px;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      @include on1600 {
+        padding-left: 48px;
+      }
+    }
+
+    &-nav-buttons {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+
+      @include on1024 {
+        margin-bottom: 0;
+      }
+    }
+
+    &-nav-btn {
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
+      border-radius: 50%;
+
+      &--l {
+        background-image: url(../images/slider/btn-l.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &--r {
+        background-image: url(../images/slider/btn-r.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-text-title {
+      margin-bottom: 8px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &-text-description {
+      width: 264px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      color: #fff;
+    }
+  }
+}
+
+.logo {
+  &__img {
+    display: block;
+    width: 44px;
+    height: 26px;
+  }
 }
