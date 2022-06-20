@@ -46,6 +46,8 @@
   }
 
   &__link {
+    position: relative;
+
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 13px;
@@ -57,7 +59,30 @@
     color: #fff;
 
     @include onDesktop {
-      padding: 24px;
+      margin: 24px;
+    }
+
+    &::after {
+      content: "";
+
+      display: block;
+      height: 2px;
+
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+
+      border-radius: 1px;
+
+      background-color: $blue-color;
+
+      transition: 500ms;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
     }
   }
 
@@ -92,9 +117,17 @@
         gap: 40px;
       }
     }
+  }
 
-    .nav__link {
-      margin-left: -24px;
+  &--menu {
+    padding: 40px;
+
+    .nav__list {
+      display: flex;
+      margin: 0 auto;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
     }
   }
 }
