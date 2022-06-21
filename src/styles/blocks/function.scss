@@ -31,6 +31,7 @@
   }
 
   &__part {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +39,14 @@
     width: 280px;
     margin: 0 auto;
     padding-bottom: 56px;
+    transition: all $speed;
+
+    &:hover {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-left: 8px solid $subtitle-color;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 
     @include bigMobile {
       width: 362px;
@@ -75,14 +84,5 @@
   &__description {
     @extend %description;
     text-align: center;
-  }
-
-  &:hover &__part {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    animation-name: example;
-    animation-duration: 0.3s;
-    border-left: 8px solid $subtitle-color;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 }
