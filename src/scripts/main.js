@@ -40,6 +40,23 @@ window.onload = () => {
   };
 };
 
+const opener = document.querySelector('#opener');
+let openMenu = false;
+
+opener.addEventListener('click', toogleMenu);
+
+function toogleMenu() {
+  if (!openMenu) {
+    opener.classList.add('close');
+
+    openMenu = true;
+  } else {
+    opener.classList.remove('close');
+
+    openMenu = false;
+  }
+}
+
 document.querySelector('#form').addEventListener('submit', function() {
   const checkForm = document.querySelector('#form').reportValidity();
 
