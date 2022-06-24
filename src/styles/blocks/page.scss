@@ -1,0 +1,53 @@
+.page {
+  scroll-behavior: smooth;
+  &__body {
+    font-family: "opensans", sans-serif;
+    background: $c-bg;
+    color: $t-300;
+    @extend %text;
+    // overflow: hidden;
+  }
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+    &-title {
+      @extend %h2;
+      @include onTablet {
+        font-size: 52px;
+        line-height: 78px;
+      }
+    }
+    &--black {
+      background-color: $c-bg-black;
+    }
+    &--white {
+      background-color: $c-w;
+    }
+    &--radius {
+      border-radius: 30px;
+    }
+    &--radius-bottom {
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    &--radius-up {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+  }
+}
