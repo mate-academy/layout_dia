@@ -30,7 +30,7 @@ function moveSlider(slide) {
     .setAttribute('data-current-slide', slide);
 }
 
-window.onload = () => {
+/* window.onload = () => {
   document.getElementById('opener').onclick = function() {
     myFunction();
   };
@@ -38,9 +38,11 @@ window.onload = () => {
   function myFunction() {
     document.getElementById('touchscreen').classList.toggle('show');
   };
-};
+}; */
 
 const opener = document.querySelector('#opener');
+const nav = document.querySelector('#touchscreen');
+const button = document.querySelector('.top__button');
 let openMenu = false;
 
 opener.addEventListener('click', toogleMenu);
@@ -48,10 +50,14 @@ opener.addEventListener('click', toogleMenu);
 function toogleMenu() {
   if (!openMenu) {
     opener.classList.add('close');
+    nav.classList.add('show');
+    button.classList.add('close');
 
     openMenu = true;
   } else {
     opener.classList.remove('close');
+    nav.classList.remove('show');
+    button.classList.remove('close');
 
     openMenu = false;
   }
