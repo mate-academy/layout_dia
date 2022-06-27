@@ -1,4 +1,6 @@
 .page {
+  scroll-behavior: smooth;
+
   &__body {
     background-color: $c-bg-body-color;
   }
@@ -12,6 +14,24 @@
 
     @include onDesktop {
       position: relative;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+
+    background-color: $c-bg-color;
+
+    z-index: 9999;
+    transition: transform 0.4s linear;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 
