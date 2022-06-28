@@ -1,0 +1,205 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  width: 280px;
+  height: 456px;
+
+  background-color: $col_white;
+  box-shadow: 4px 5px 5px $col_accentGray;
+  border-radius: 20px;
+
+  @include hover(transform, scale(1.05));
+
+  @include onTablet {
+    width: 558px;
+    height: 478px;
+  }
+
+  @include onLaptop {
+    width: 292px;
+    height: 494px;
+  }
+
+  @include onDesktop {
+    width: 362px;
+    height: 494px;
+  }
+
+  &__photo-container {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 24px;
+
+    margin-bottom: 70px;
+
+    @include onTablet {
+      margin-bottom: 82px;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: -5%;
+      left: 10%;
+
+      display: inline-block;
+      width: 139px;
+      height: 56px;
+
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include onTablet {
+        left: 28%;
+      }
+
+      @include onLaptop {
+        left: 10%;
+      }
+
+      @include onDesktop {
+        left: 18%;
+      }
+    }
+
+    &--blue {
+      &::after {
+        background-color: $col_lightBlue;
+      }
+    }
+    &--yellow {
+      &::after {
+        background-color: $col_yellow;
+      }
+    }
+    &--red {
+      &::after {
+        background-color: $col_red;
+      }
+    }
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      right: 10%;
+      bottom: -5%;
+
+      display: inline-block;
+      width: 139px;
+      height: 56px;
+
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include onTablet {
+        right: 28%;
+      }
+
+      @include onLaptop {
+        right: 10%;
+      }
+
+      @include onDesktop {
+        right: 18%;
+      }
+    }
+    &--blue {
+      &::before {
+        background-color: $col_lightBlue;
+      }
+    }
+    &--yellow {
+      &::before {
+        background-color: $col_yellow;
+      }
+    }
+    &--red {
+      &::before {
+        background-color: $col_red;
+      }
+    }
+  }
+
+  &__photo {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    grid-column: 2 / 4;
+    width: 100%;
+    max-width: 140px;
+    border-radius: 50%;
+    transform-origin: center;
+  }
+
+  &__quotes {
+
+    width: 20px;
+    height: 18px;
+    margin: 0 auto 10px;
+
+    @include onTablet {
+      margin-bottom: 18px;
+    }
+
+    @include onLaptop {
+      margin-bottom: 10px;
+    }
+
+    &--blue {
+      background-image: url(/images/testimonials/quotes_blue.svg);
+    }
+
+    &--yellow {
+      background-image: url(/images/testimonials/quotes_yellow.svg);
+    }
+
+    &--red {
+      background-image: url(/images/testimonials/quotes_red.svg);
+    }
+  }
+
+  &__about {
+    margin: 0 0 16px;
+
+    font-family: $fontSecond;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+
+    color: $col_accentGray;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+
+    font-family: $fontSecond;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+
+    color: $col_mainGray;
+  }
+
+  &__role {
+    margin: 0 0 32px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $col_lightGray;
+  }
+}
