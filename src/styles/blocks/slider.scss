@@ -1,10 +1,57 @@
 .slider {
   width: 100%;
   height: 390px;
-  position: relative;
+
+  &__sub {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include desktop {
+      bottom: 150px;
+      right: 140px;
+    }
+  }
+
+  &__p {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include desktop {
+      right: 140px;
+      bottom: 110px;
+    }
+  }
+
 
   @include desktop {
-    height: 680px;
+    position: absolute;
+    height: 630px;
+    width: 500px;
+    top: 120;
+    right: 0;
+    bottom: 0;
+  }
+
+  @include fullHD {
+    height: 640px;
+    width: 680px;
+  }
+
+  @include large {
+    width: 1100px;
   }
 
   &__slide {
@@ -18,16 +65,29 @@
     &--1 {
       background-image: url(../images/slide1.jpeg);
       border-radius: $radius-section;
+      position: relative;
+
+      @include desktop {
+        border-radius: 200px 0px 0px 0px;
+      }
     }
 
     &--2 {
       background-image: url(../images/2slide.svg);
       border-radius: $radius-section;
+
+      @include desktop {
+        border-radius: 200px 0px 0px 0px;
+      }
     }
 
     &--3 {
       background-image: url(../images/3slide.svg);
       border-radius: $radius-section;
+
+      @include desktop {
+        border-radius: 200px 0px 0px 0px;
+      }
     }
   }
 
@@ -38,6 +98,10 @@
     height: 32px;
     border-radius: 50%;
     background-color: #fff;
+    transition: background-color $trans-duration;
+    &:hover {
+      background-color: $blue-bg;
+    }
 
     &--left {
       position: absolute;
@@ -85,5 +149,5 @@
 }
 
 .fade {
-  animation: fade 0.1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: fade $trans-duration cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
