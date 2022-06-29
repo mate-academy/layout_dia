@@ -49,13 +49,25 @@ a {
   background-color: #2C2C2C;
   color: #fff;
   padding: 21px 42px;
+  margin-bottom: 120px;
 
+  @include onTablet {
+    margin-bottom: 140px;
+  }
 
   &__content {
     height: 50vh;
     // display: flex;
     // flex-direction: column;
     // justify-content: space-around;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onNotebook {
+      display: inline;
+    }
   }
 
   &__top {
@@ -146,10 +158,22 @@ a {
 
 
 .container {
-  padding: 20px;
+  padding: 0 20px;
 
   @include onTablet {
-    padding: 41px;
+    padding: 0 41px;
+  }
+
+  @include onNotebook {
+    padding: 0 54px;
+  }
+
+  @include onDesign {
+    padding: 0 227px;
+  }
+
+  @include onLarge {
+    padding: 0 707px;
   }
 }
 
@@ -161,12 +185,13 @@ a {
 
     @include onTablet {
       grid-template-columns: repeat(6, 1fr);
-      column-gap: 40px;
+      column-gap: 20px;
     }
 
-    // @include onDesktop {
-    //   grid-template-columns: repeat(12, 1fr);
-    //   column-gap: $gridGapTabletAndDesktop;
+    @include onNotebook {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 30px;
+    }
 
     &--tablet {
       display: block;
@@ -177,6 +202,11 @@ a {
       }
     }
 
+    &--notebook {
+      @include onNotebook {
+        display: grid;
+      }
+    }
     &__item {
       @for $start from 1 through 6 {
         @for $end from $start through 6 {
@@ -187,18 +217,18 @@ a {
           }
         }
       }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--notebook-#{$start}-#{$end} {
+          @include onNotebook {
+            grid-column: #{$start} / #{$end+1};
+          }
+        }
+      }
     }
   }
-    //   @for $start from 1 through 12 {
-    //     @for $end from $start through 12 {
-    //       &--desktop-#{$start}-#{$end} {
-    //         @include onDesktop {
-    //           grid-column: #{$start} / #{$end+1};
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+}
 
 
 .agency {
@@ -273,8 +303,16 @@ a {
     font-weight: 600;
     line-height: 33px;
     letter-spacing: 0px;
-    text-align: center;
     color: #6C788B;
+
+    @include onTablet {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: 0px;
+      text-align: center;
+
+    }
   }
 }
 
@@ -355,7 +393,6 @@ a {
     letter-spacing: 0px;
     text-align: left;
     margin-bottom: 24px;
-    max-width: 280px;
   }
 
   &__paragraph {
@@ -372,6 +409,15 @@ a {
   &__card--up {
     @include onTablet {
       transform: translateY(-50%);
+    }
+    @include onNotebook {
+      transform: translateY(0);
+    }
+  }
+
+  &__card--down {
+    @include onNotebook {
+      transform: translateY(50%);
     }
   }
 }
@@ -468,6 +514,10 @@ a {
         @include onTablet {
           right: 30%;
         }
+
+        @include onNotebook {
+          right: 10%;
+        }
       }
 
       &::after {
@@ -484,6 +534,10 @@ a {
 
         @include onTablet {
           left: 30%;
+        }
+
+        @include onNotebook {
+          left: 10%;
         }
       }
     }
@@ -573,6 +627,10 @@ a {
     background-size: 150%;
   }
 
+  @include onNotebook {
+    background-size: cover;
+  }
+
   &__title {
     font-size: 44px;
     font-weight: 600;
@@ -653,13 +711,34 @@ a {
     color: #fff;
     padding-top: 72px;
     margin-bottom: 48px;
+
+    @include onNotebook {
+      padding: 180px 0 0 0;
+    }
+  }
+
+  &__navigation {
+    @include onTablet {
+      padding-top: 144px;
+    }
+
+    @include onNotebook {
+      padding-top: 121px;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__nav {
     &--list {
       display: flex;
       flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+      }
     }
+
 
     &--item {
       margin-bottom: 24px;
@@ -693,4 +772,6 @@ a {
     margin-bottom: 20px;
   }
 }
+
+
 
