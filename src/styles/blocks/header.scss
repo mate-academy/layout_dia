@@ -1,19 +1,29 @@
 .header {
   background-color: $c-blue;
-  position: absolute;
+  height: 100vh;
+  border-radius: 0 0 25% 25%;
+  position: relative;
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-    border-radius: 0 0 45% 45%;
   }
 
+  &__main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
   &__container {
     display: flex;
     gap: 114px;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__menu {
@@ -36,8 +46,13 @@
   }
 
   &__intro {
-    display: grid;
-    grid-template-columns: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      max-width: 50%;
+      padding-top: 120px;
+    }
   }
 
   &__text {
@@ -46,7 +61,7 @@
     font-size: 64px;
     line-height: 68px;
     letter-spacing: -2px;
-    color:$c-white;
+    color: $c-white;
 
     @include onipad {
       margin-bottom: 24px;
@@ -63,7 +78,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    color:$c-white;
+    color: $c-white;
 
     @include onipad {
       margin-bottom: 56px;
@@ -95,12 +110,4 @@
     }
   }
 
-  &__carousel {
-    display: grid;
-    grid-column: auto;
-    width: 100%;
-    right: 0;
-    bottom: -100%;
-  }
 }
-
