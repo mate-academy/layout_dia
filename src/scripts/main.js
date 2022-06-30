@@ -40,3 +40,21 @@ form.addEventListener('submit', function(event) {
 
   window.location.href = '#navigation';
 });
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
+window.addEventListener('hashchangeon', () => {
+  const elem = document.getElementById('p');
+
+  if (window.location.hash === '#menu') {
+    elem.className += 'header__burger-on';
+  } else {
+    elem.className -= 'header__burger-on';
+  }
+});
