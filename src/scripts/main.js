@@ -30,3 +30,13 @@ const prev = () => {
 
 document.querySelector('.slider__arrow--right').addEventListener('click', next);
 document.querySelector('.slider__arrow--left').addEventListener('click', prev);
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  form.reset();
+
+  window.location.href = '#navigation';
+});
