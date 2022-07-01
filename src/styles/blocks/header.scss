@@ -1,3 +1,8 @@
+%bgi-propertys {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .header {
   height: 100%;
   background-color: $blue-bg;
@@ -7,7 +12,7 @@
 
   @include desktop {
     height: 100vh;
-    border-radius: 0px 0px 0px 200px;
+    border-radius: 0px 0px 0px $header-footer-radius;
   }
 
   &__nav {
@@ -62,8 +67,7 @@
 
   &__logo {
     background-image: url(../images/Air_logo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
+    @extend %bgi-propertys;
     height: 25px;
     width: 45px;
     margin-right: 35px;
@@ -81,16 +85,16 @@
     background-image: url(../images/burger.svg);
     height: 8px;
     width: 18px;
-    background-repeat: no-repeat;
-    background-position: center;
     justify-content: center;
     align-items: center;
+    @extend %bgi-propertys;
     padding-top: 32px;
     transition: transform 0.5s;
     cursor: pointer;
     padding: 15px 15px;
 
-    &-on {
+    &-on,
+    &-off  {
       transform: rotate(90deg);
     }
 

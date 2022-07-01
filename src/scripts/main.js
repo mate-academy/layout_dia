@@ -49,12 +49,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-window.addEventListener('hashchangeon', () => {
-  const elem = document.getElementById('p');
+const burgerOpen = document.getElementById('open');
+const burgerClose = document.getElementById('close');
 
-  if (window.location.hash === '#menu') {
-    elem.className += 'header__burger-on';
-  } else {
-    elem.className -= 'header__burger-on';
-  }
+burgerOpen.addEventListener('click', () => {
+  burgerOpen.classList.add('header__burger-on');
+});
+
+burgerClose.addEventListener('click', () => {
+  burgerOpen.classList.remove('header__burger-on');
 });
