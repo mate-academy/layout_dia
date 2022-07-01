@@ -3,7 +3,7 @@
 let position = 0;
 const slidesToshow = 1;
 const slidesToScroll = 1;
-const container = document.querySelector('.slider-content');
+const container = document.querySelector('.slider-container');
 const track = document.querySelector('.slider-content-wrapper');
 const items = document.querySelectorAll('.slider-item');
 const btnPrev = document.querySelector('.slider__arrow-prev');
@@ -17,7 +17,7 @@ items.forEach((item) => {
 });
 
 btnNext.addEventListener('click', () => {
-  const itemsLeft = itemsCount - (Math.abs (position) + slidesToshow * itemWidth) / itemWidth;
+  const itemsLeft = itemsCount - (Math.abs (position) + slidesToshow * container.clientWidth / slidesToshow) / itemWidth;
   position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
   setPosition();
   checkBtns();
