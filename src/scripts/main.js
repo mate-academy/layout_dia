@@ -7,15 +7,35 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
+const slides = ['newSlide--1', 'newSlide--2', 'newSlide--3'];
+let slideIndex = 0;
+const sPicture = document.getElementById('slide');
+
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 
-prev.onclick = () => {
-  document.getElementById('slide').classList.remove('slide__picture-two');
+next.onclick = () => {
+  sPicture.classList.remove(slides[slideIndex]);
+
+  if (slideIndex === slides.length - 1) {
+    slideIndex = 0;
+  } else {
+    slideIndex += 1;
+  }
+
+  sPicture.classList.add(slides[slideIndex]);
 };
 
-next.onclick = () => {
-  document.getElementById('slide').classList.add('slide__picture-two');
+prev.onclick = () => {
+  sPicture.classList.remove(slides[slideIndex]);
+
+  if (slideIndex === 0) {
+    slideIndex = slides.length - 1;
+  } else {
+    slideIndex -= 1;
+  }
+
+  sPicture.classList.add(slides[slideIndex]);
 };
 
 window.addEventListener('hashchange', () => {
