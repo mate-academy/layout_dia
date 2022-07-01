@@ -49,10 +49,12 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+const header = document.getElementById('header');
 const form = document.querySelector('.page__section-form');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   form.reset();
+  header.scrollIntoView({block: "center", behavior: "smooth"});
 });
