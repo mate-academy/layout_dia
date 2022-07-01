@@ -37,8 +37,6 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   form.reset();
-
-  window.location.href = '#navigation';
 });
 
 window.addEventListener('hashchange', () => {
@@ -58,4 +56,10 @@ burgerOpen.addEventListener('click', () => {
 
 burgerClose.addEventListener('click', () => {
   burgerOpen.classList.remove('header__burger-on');
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash !== '#menu') {
+    burgerOpen.classList.remove('header__burger-on');
+  }
 });
