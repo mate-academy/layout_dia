@@ -3,7 +3,6 @@ import { Box, useTheme } from '@mui/material';
 
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
-import './Layout.scss';
 
 export interface LayoutProps {
   readonly children: ReactNode;

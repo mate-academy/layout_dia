@@ -58,10 +58,10 @@ export const Slider = () => {
         <Grid item sx={{ height: 680, pt: 15, bgcolor: '#2C2C2C' }}>
             <Grid item xs={7}>
               <Typography variant="h1">
-                {t('app.headerContent.title')}
+                {t('landings.sliderContent.title')}
               </Typography>
               <Typography variant="h2" sx={{ pt: 4, pb: 10 }}>
-                {t('app.headerContent.description')}
+                {t('landings.sliderContent.description')}
               </Typography>
               <Button variant="contained">
                 <Typography variant="subtitle2" sx={{ color: 'white' }}>
