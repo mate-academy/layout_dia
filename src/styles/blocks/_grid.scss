@@ -1,0 +1,40 @@
+.grid {
+  &--6-columns {
+    @include desk-640 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+  }
+
+  @include desk-1024 {
+    display: grid;
+    column-gap: 24px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__item {
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 12 {
+        @include desk-640 {
+          &-6-columns-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        @include desk-1024 {
+          &-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    
+  }
+}
