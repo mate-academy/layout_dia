@@ -1,0 +1,76 @@
+.grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  &--disable {
+    display: block;
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--up {
+    align-items: flex-end;
+  }
+
+  &__item {
+    // &-row {
+    //   @include gridRow;
+    // }
+  }
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+    &__item-tablet {
+      @include grid;
+    }
+  }
+  @include onLaptop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    column-gap: 20px;
+    &__item-laptop {
+      @include grid;
+    }
+  }
+  @include onDecktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    &__item-decktop {
+      @include grid;
+    }
+  }
+  &__row {
+    @include onTablet {
+      grid-template-rows: repeat(12, 132px);
+      &-tablet {
+        @include gridRow;
+      }
+    }
+    @include onLaptop {
+      grid-template-rows: repeat(5, 1fr);
+      &-laptop {
+        @include gridRow;
+      }
+    }
+    @include onDecktop {
+      &-decktop {
+        @include gridRow;
+      }
+    }
+  }
+  // @include onDecktop {
+  //   grid-template-columns: repeat(12, 1fr);
+  //   &__item-decktop {
+  //     @for $start from 1 through 12 {
+  //       @for $end from $start through 12 {
+  //         &--#{$start}-#{$end} {
+  //           grid-column: #{$start} / #{$end + 1};
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
