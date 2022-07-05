@@ -125,10 +125,10 @@ export const Slider = () => {
                 <Grid item sx={{ p: 2 }}>
                   <Grid>
                     <Typography variant="h6" sx={{ pb: 2, color: palette.common.white }}>
-                      {t('app.slider.title')}
+                      {t('landings.sliderContent.subtitle')}
                     </Typography>
                     <Typography variant="subtitle1" sx={{ maxWidth: 264, color: palette.common.white }}>
-                      {t('app.slider.description')}
+                      {t('landings.sliderContent.subtext')}
                     </Typography>
                   </Grid>
                 </Grid>
