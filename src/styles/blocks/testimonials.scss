@@ -1,0 +1,129 @@
+.testimonials {
+  $photo-size: 110px;
+  $photo-size-big: 140px;
+  margin: 0 20px;
+
+  @include on640px {
+    margin: 0 40px;
+  }
+
+  &__name {
+    margin: 60px 0 16px;
+    @include block-name;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $colorBlack;
+    margin-bottom: 48px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 32px 42px;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 24px;
+
+    @include hover (transform, scale(110%));
+
+    @include on1024px {
+      margin-bottom: 148px;
+    }
+
+    @each $number, $color in $colors {
+      &--#{$number} .testimonials__item {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+    width: 110px;
+    height: 44px;
+
+    &--1 {
+      left: -40px;
+      top: 40px;
+    }
+
+    &--2 {
+      left: 40px;
+      top: -40px;
+    }
+
+    @include on640px {
+      width: 140px;
+      height: 56px;
+
+      &--1 {
+        left: -50px;
+        top: 50px;
+      }
+
+      &--2 {
+        left: 50px;
+        top: -50px;
+      }
+    }
+  }
+
+  &__photo {
+    position: relative;
+    object-fit: cover;
+    width: $photo-size;
+    height: $photo-size;
+    border-radius: 50%;
+    z-index: 1;
+
+    @include on640px {
+      width: $photo-size-big;
+      height: $photo-size-big;
+    }
+  }
+
+  &__symbol {
+    @each $number, $color in $colors {
+      &--#{$number} {
+        color: $color;
+        font-size: 60px;
+        margin-bottom: -40px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    max-width: 362px;
+    color: $colorText;
+    margin-bottom: 32px;
+  }
+
+  &__names {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $colorBlack;
+    margin-bottom: 4px;
+  }
+
+  &__from {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorGray;
+  }
+}
