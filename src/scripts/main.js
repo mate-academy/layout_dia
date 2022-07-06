@@ -56,6 +56,10 @@ document.querySelector('#opener').addEventListener('click', function() {
   const cross = open.classList.contains('close');
 
   if (cross === true) {
-    window.location.replace('/');
+    document.getElementById('opener').href = '#';
   };
+
+  if (cross === false) {
+    document.getElementById('opener').href = '#touchscreen';
+  }
 });
