@@ -1,0 +1,212 @@
+@import "utils";
+@import "fonts";
+@import "typography";
+
+.navigation {
+  padding-top: 20px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 0;
+    width: 700px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: $laptop-width) {
+    width: 900px;
+  }
+
+  @media (min-width: $laptop-large-width) {
+    width: 1146px;
+  }
+
+  @media (min-width: $ultrawide-width) {
+    width: 100%;
+  }
+
+  &__menu-wrapper {
+    position: absolute;
+    top: 0;
+    background-color: $c-header-footer;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    transition: $transition-time ease-in-out;
+    padding: 10px 0;
+
+    @media (min-width: $tablet-width) {
+      height: unset;
+      position: static;
+      display: block;
+      width: auto;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      padding: 0;
+    }
+  }
+
+  &__mobile-wrapper {
+    display: flex;
+    width: 260px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
+  }
+
+  &__list {
+    @include list-style-reset;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+
+    @media (min-width: $tablet-width) {
+      @include list-style-reset;
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-self: flex-start;
+      margin-left: 50px;
+      height: unset;
+    }
+
+    @media (min-width: $laptop-width) {
+      width: 500px;
+      margin-left: 78px;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      width: 637px;
+      margin-left: 78px;
+    }
+  }
+
+  &__item {
+    &--mobile {
+      @media (min-width: $tablet-width) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
+
+    padding: 10px 0;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+
+    transition: $transition-time ease-in-out;
+    outline: none;
+
+    @media (min-width: $tablet-width) {
+      font-size: 13px;
+      line-height: 19px;
+      text-align: left;
+    }
+
+    @media (min-width: $laptop-large-width) {
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+
+      border-radius: 2px;
+      background-color: $c-button;
+
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+      transform: translateY(10px);
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active::after {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &--main {
+      display: none;
+
+      @media (min-width: $tablet-width) {
+        position: relative;
+        display: block;
+        padding: 8px 0;
+        width: 50px;
+        margin-left: 100px;
+      }
+
+      @media (min-width: $laptop-width) {
+        margin-left: 200px;
+      }
+
+      @media (min-width: $laptop-large-width) {
+        width: 70px;
+        margin-left: 300px;
+      }
+
+      @media (min-width: $ultrawide-width) {
+        margin-left: 550px;
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 260px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $tablet-width) {
+      width: 45px;
+      margin: 0;
+    }
+  }
+
+  &__sandwich {
+    display: block;
+    width: 18px;
+    height: 12px;
+    background-image: url(../images/sandwich.svg);
+    background-position: center;
+  }
+
+  &__close {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/close.svg);
+
+    @media (min-width: $tablet-width) {
+      display: none;
+    }
+  }
+}
