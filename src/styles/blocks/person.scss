@@ -1,0 +1,94 @@
+.person {
+  display: flex;
+  flex-direction: column;
+  max-width: 362px;
+  padding: 32px 56px;
+  background-color: #fff;
+  border-radius: 30px;
+  align-items: center;
+
+  @media (max-width: 1200px) {
+    & {
+      padding: 10px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: 2s;
+
+    @media (max-width: 1200px) {
+      & {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      & {
+        margin-bottom: 0;
+      }
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      width: 140px;
+      height: 56px;
+      position: absolute;
+      border-radius: 16px;
+      transform: rotate(-65deg);
+      transform-origin: center;
+      background-color: #2060f6;
+    }
+
+    &::after {
+      top: 65px;
+      left: 0;
+    }
+
+    &::before {
+      bottom: 50px;
+      right: 0;
+    }
+  }
+
+  &__photo > img {
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #6c788b;
+    max-width: 240px;
+    line-height: 19px;
+  }
+
+  &__name {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #253757;
+    line-height: 19px;
+  }
+
+  &__job {
+    text-transform: uppercase;
+    color: #c0cdd7;
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .person__photo:hover {
+    transform: scale(1.2);
+  }
+}
