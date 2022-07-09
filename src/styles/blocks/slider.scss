@@ -1,4 +1,6 @@
 .slider {
+  overflow: hidden;
+
   &__button {
     border-radius: 50%;
     border-color: transparent;
@@ -9,15 +11,20 @@
     transition: transform 0.3s;
     text-align: center;
     position: absolute;
-  
+
     &:hover {
       transform: scale(1.2);
+    }
+
+    &:focus {
+      background-color: $color-blue;
+      color: #fff;
     }
 
     &--prev {
       left: 20px;
       bottom: 108px;
-  
+
       @include onTablet {
         left: 40px;
         bottom: 116px;
@@ -32,12 +39,12 @@
     &--next {
       left: 68px;
       bottom: 108px;
-  
+
       @include onTablet {
         left: 90px;
         bottom: 116px;
       }
-  
+
       @include onDesctop {
         left: 96px;
         bottom: 66px;
@@ -86,6 +93,26 @@
     @include onDesctop {
       bottom: 48px;
       left: 152px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    width: 100%;
+    height: 390px;
+    position: relative;
+    transition: transform 0.3s ease-out;
+
+    @media (min-height: 870px) {
+      height: 50vh;
+    }
+
+    @include onDesctop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 80vh;
+      width: 45vw;
     }
   }
 }
