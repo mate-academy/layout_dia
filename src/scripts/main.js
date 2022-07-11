@@ -8,10 +8,13 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-function stopDefAction(evt) {
-  evt.preventDefault();
-}
+const form = document.querySelector('.form__form');
+const inputs = document.querySelectorAll('.form__input');
 
-document.getElementById('my-form').addEventListener(
-  'click', stopDefAction, false
-);
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  inputs.forEach(elem => {
+    elem.value = '';
+  });
+});
