@@ -1,0 +1,71 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onNotebook-LargeScreen {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  &--mobile-off {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--tablet-margin-30px {
+    @media (min-width:1024px) and (max-width: 1280px) {
+      row-gap: 30px;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      @for $start from 1 to 7 {
+        @for $end from $start to 7 {
+          &--tablet--#{$start}--#{$end} {
+            grid-column: #{$start} / #{($end + 1)};
+          }
+        }
+      }
+    }
+
+    @include onNotebook {
+      @for $start from 1 to 13 {
+        @for $end from $start to 13 {
+          &--notebook-largescreen--#{$start}--#{$end} {
+            grid-column: #{$start} / #{($end + 1)};
+          }
+        }
+      }
+    }
+
+    @include onFullHD {
+      @for $start from 1 to 13 {
+        @for $end from $start to 13 {
+          &--fullHD-largescreen--#{$start}--#{$end} {
+            grid-column: #{$start} / #{($end + 1)};
+          }
+        }
+      }
+    }
+  }
+
+  &--6-columns {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+  }
+}
