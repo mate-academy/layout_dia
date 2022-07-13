@@ -1,0 +1,111 @@
+.nav {
+
+  &__list {
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__list:first-child {
+    display: none;
+
+    @media screen and (max-width: 1024px) {
+      & {
+        display: inherit;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    & {
+      position: absolute;
+      top: 20vh;
+      left: 15vw;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    & {
+      left: 10vw;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Poppins", Arial, Helvetica, sans-serif ;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    color: $whitish;
+    z-index: 2;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+
+    @media screen and (max-width: 1024px) {
+      & {
+        display: flex;
+        font-size: 18px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: white;
+      
+    }
+  }
+  
+  &__ul {
+    list-style: none;
+    display: flex;
+    gap: 48px;
+
+    @media screen and (max-width: 1024px) {
+      & {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  }
+
+  &__background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: $darkGray;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.4s;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  .appear {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  @for $index from 1 through 6 {
+
+    .nav__list:nth-child(#{$index}) {
+      transition-delay: 0.07s * $index;
+      transform: translateX((-250px));
+      opacity: 0;
+      z-index: 2;
+    }
+  }
+  
+  @for $index from 1 through 6 {
+  
+    .slide:nth-child(#{$index}) {
+      transition-delay: 0.07s * $index;
+      transform: none;
+      opacity: 1;
+    }
+  }
+}

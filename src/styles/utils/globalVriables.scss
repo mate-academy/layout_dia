@@ -1,0 +1,50 @@
+$darkGray:rgb(44, 44, 44);
+$darkBlue: #253757;
+$lightGray: #6c788b;
+$blue:#2060f6;
+$whiteGray: #c0cdd7;
+$whitish: #d3d3d3;
+
+.button__global {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  --x: 0;
+  --y: 0;
+  transition: all 0.4s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: var(--Y);
+    left: var(--x);
+    transform: translate(-50% , -50%) scale(0);
+    background: $blue;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  &:hover ,
+  &:focus {
+    border: 2px solid $blue;
+    background: white;
+    color: $blue;
+    cursor: pointer;
+  }
+}
+
+.rippleButton:after {
+  animation: rippleButton;
+  animation-duration: 0.5s;
+
+}
+
+@keyframes rippleButton {
+  100% {
+    transform: translate(-50% , -50%) scale(1);
+    opacity: 0;
+  }
+}
