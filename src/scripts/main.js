@@ -1,4 +1,5 @@
 'use strict';
+/*eslint-disable*/
 // nav and menu
 
 const contuctsMessage = document.querySelector(`.contucts__message`);
@@ -22,6 +23,14 @@ const imgRight = document.querySelector('.slider__rightBtn');
 const image = document.querySelector('.slider__image');
 const sliderDescription = document.querySelector(`.slider__description`);
 const sliderText = document.querySelector(`.slider__text`);
+
+const imagesArray = [
+  'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  'https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+  'https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80',
+  'https://images.unsplash.com/photo-1544006659-f0b21884ce1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  'https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+];
 
 contuctsMessage.addEventListener('input', function(e) {
   e.target.style.height = 'auto';
@@ -112,7 +121,7 @@ const quatesArray = [
   `It is never too late to be what you might have been.`,
   `When you change your thoughts, remember to also change your world.`];
 
-let imageCount = 1;
+let imageCount = 0;
 let nextSlide = true;
 
 imgLeft.addEventListener('click', function(e) {
@@ -122,15 +131,18 @@ imgLeft.addEventListener('click', function(e) {
 
   nextSlide = false;
 
-  if (imageCount <= 1) {
-    imageCount = 5;
+  if (imageCount <= 0) {
+    imageCount = 4;
   } else {
     imageCount--;
   }
 
   sliderDescription.style.setProperty('opacity', '0');
 
-  image.style.setProperty('background', `url('/slider-1.jpg')`);
+  image.style
+    .setProperty('background', `center/cover no-repeat url(
+      ${imagesArray[imageCount]}
+    )`);
 });
 
 imgRight.addEventListener('click', function(e) {
@@ -140,20 +152,22 @@ imgRight.addEventListener('click', function(e) {
 
   nextSlide = false;
 
-  if (imageCount >= 5) {
-    imageCount = 1;
+  if (imageCount >= 4) {
+    imageCount = 0;
   } else {
     imageCount++;
   }
   sliderDescription.style.setProperty('opacity', '0');
 
   image.style
-    .setProperty('background', `center/cover no-repeat url('/slider-2.jpg')`);
+    .setProperty('background', `center/cover no-repeat url(
+      ${imagesArray[imageCount]}
+    )`);
 });
 
 sliderDescription.addEventListener(`transitionend`, function() {
   sliderDescription.style.setProperty('opacity', '1');
-  sliderText.textContent = quatesArray[imageCount - 1];
+  sliderText.textContent = quatesArray[imageCount];
 });
 
 image.addEventListener(`transitionend`, function() {
