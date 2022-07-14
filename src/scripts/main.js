@@ -8,9 +8,9 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-
 const form = document.querySelector('.send');
-const inputs = document.querySelectorAll('.send__input');
+const inputs
+      = document.querySelectorAll('.send__input--textarea, .send__input');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
