@@ -4,6 +4,7 @@ Implement landing page according to [Figma design](https://www.figma.com/file/7q
 Adapt the page to the following screens:
 - The design 1440px
 - Desktop 1280px
+- Small desktop 1024px
 - Tablet 640px
 - Mobile (> 320px)
 
