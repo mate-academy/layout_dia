@@ -3,10 +3,10 @@ Implement landing page according to [Figma design](https://www.figma.com/file/7q
 
 Adapt the page to the following screens:
 - Large screens 2560px
-- Full HD 1920px
 - The design 1600px
-- Notebook 1280px
-- Tablet 1024
+- Desktop 1280px
+- Small desktop 1024px
+- Tablet 640px
 - Mobile (> 320px)
 
 1. Implement the header with `nav`.
