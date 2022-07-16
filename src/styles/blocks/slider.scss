@@ -1,0 +1,209 @@
+.slider {
+  display: flex;
+  align-items: end;
+
+  width: 100%;
+  height: 390px;
+
+  @include onNotebook {
+    width: 50%;
+    height: 680px;
+  }
+
+  &__arrow-r {
+    position: absolute;
+    bottom: 108px;
+    left: 80px;
+    z-index: 2;
+
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+
+    line-height: 32px;
+    text-align: center;
+    color: $colorTitle;
+
+    background-color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include onTablet {
+      bottom: 116px;
+      left: 90px;
+    }
+
+    @include onNotebook {
+      bottom: 66px;
+      left: 96px;
+    }
+  }
+
+  &__arrow-l {
+    position: absolute;
+    bottom: 108px;
+    left: 20px;
+    z-index: 2;
+
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+
+    line-height: 32px;
+    text-align: center;
+    color: $colorTitle;
+
+    background-color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include onTablet {
+      bottom: 116px;
+      left: 40px;
+    }
+
+    @include onNotebook {
+      bottom: 66px;
+      left: 48px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: 20px;
+    z-index: 3;
+
+    @include onTablet {
+      left: 40px;
+    }
+
+    @include onNotebook {
+      left: 152px;
+    }
+  }
+
+  &__title {
+    z-index: 3;
+    margin-bottom: 8px;
+
+    @extend %textUppercase;
+  }
+
+  &__paragraph {
+    z-index: 3;
+    margin: 0 0 24px;
+
+    font-family: $fontSecondary;
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__control {
+    &-label {
+      display: none;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 390px;
+
+    background-position: center;
+    background-size: cover;
+
+    transition: transform 0.8s;
+
+    @include onNotebook {
+      width: 100%;
+      height: 680px;
+    }
+
+    &--1 {
+      left: 0;
+      background-image: url(../images/slider/slide_1.jpg);
+      border-radius: 30px;
+
+      @include onNotebook {
+        border-radius: 30px 0;
+      }
+    }
+
+    &--2 {
+      left: 100%;
+      background-image: url(../images/slider/slide_2.jpg);
+      border-radius: 200px 0 0;
+    }
+
+    &--3 {
+      left: 200%;
+      background-image: url(../images/slider/slide_3.jpg);
+      border-radius: 200px 0 0;
+    }
+
+    &--4 {
+      left: 300%;
+      background-image: url(../images/slider/slide_4.jpg);
+      border-radius: 200px 0 0;
+
+      @include onTablet {
+        background-position: bottom;
+      }
+    }
+  }
+
+  &__radio {
+    visibility: hidden;
+
+    &--1:checked ~ .slider__control--next .slider__control--numb2,
+    &--2:checked ~ .slider__control--next .slider__control--numb3,
+    &--3:checked ~ .slider__control--next .slider__control--numb4,
+    &--2:checked ~ .slider__control--previous .slider__control--numb1,
+    &--3:checked ~ .slider__control--previous .slider__control--numb2,
+    &--4:checked ~ .slider__control--previous .slider__control--numb3,
+    &--1:checked ~ .slider__control--previous .slider__control--numb1 {
+      display: block;
+    }
+
+    &--1:checked ~ .slider__slide {
+      transform: translateX(0);
+    }
+
+    &--2:checked ~ .slider__slide {
+      transform: translateX(-100%);
+    }
+
+    &--3:checked ~ .slider__slide {
+      transform: translateX(-200%);
+    }
+
+    &--4:checked ~ .slider__slide {
+      transform: translateX(-300%);
+    }
+  }
+}

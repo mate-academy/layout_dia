@@ -1,0 +1,71 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include onNotebook {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include onLargeScreens {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  &--notebook {
+    display: block;
+
+    @include onNotebook {
+      display: grid;
+    }
+  }
+
+  &--tablet {
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onNotebook {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--notebook-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onLargeScreens {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--largeScreens-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--services {
+      grid-row: 1 / 4;
+      align-self: center;
+    }
+  }
+}
