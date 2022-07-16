@@ -1,0 +1,112 @@
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--footer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (min-width: 830px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    &--footer {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__logo {
+    height: 25px;
+    margin-right: 35px;
+
+    svg {
+      path {
+        fill: white;
+        transition: fill 0.3s;
+      }
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $indigo;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 8px;
+
+    @media (min-width: 860px) {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-line {
+      width: 18px;
+      height: 2px;
+      background-color: #fff;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @media (min-width: 860px) {
+      display: block;
+    }
+
+    &--footer {
+      display: flex;
+      width: 100%;
+
+      @media (min-width: 860px) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    position: relative;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $indigo;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        width: 67px;
+        height: 2px;
+        background-color: $indigo;
+        border-radius: 4px;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+      }
+    }
+  }
+}
