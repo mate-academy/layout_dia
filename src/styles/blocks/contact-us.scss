@@ -1,25 +1,42 @@
 .contact-us {
+  display: flex;
   background-color: $c-main-blue;
+  border-radius: 0 120px 0 0;
+  padding-top: 72px;
+
+  @include tablet {
+    padding-top: 180px;
+  }
+
+  &__wrap {
+    display: block;
+
+    @include laptop {
+      display: flex;
+      gap: 98px;
+    }
+
+    @include design {
+      display: flex;
+      gap: 226px;
+    }
+  }
 
   &__title {
+    display: flex;
     padding-bottom: 48px;
     font-size: 32px;
     line-height: 130%;
     font-weight: 600;
-    display: flex;
     align-items: center;
     color: #fff;
   }
 
   &__form {
-    max-width: 362px;
     display: flex;
+    max-width: 362px;
     flex-direction: column;
     gap: 24px;
-
-    input:-webkit-autofill {
-      transition: all 5000s ease-in-out 0s;
-    }
 
     @include tablet {
       max-width: 370px;
@@ -54,24 +71,13 @@
       }
 
       &:focus {
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid $c-red;
       }
 
       &::placeholder {
         color: #fff;
         opacity: 0.7;
       }
-    }
-
-    &__button {
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      line-height: 22px;
-
-      text-align: center;
-
-      color: #fff;
     }
   }
 
@@ -115,26 +121,30 @@
         transform: scale(1.05);
         transition-duration: 0.3s;
       }
-
     }
 
     &-icons {
       padding: 12px 8px 85px;
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
 
     &-icon {
       display: block;
-      height: 26px;
-      width: 26px;
       transition-duration: 0.3s;
 
       &:hover {
         transform: scale(1.2);
-        transition-duration: 0.3s;
       }
+    }
+  }
+
+  &__button {
+    margin-bottom: 80px;
+
+    @include tablet {
+      margin-bottom: 120px;
     }
   }
 }
