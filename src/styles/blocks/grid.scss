@@ -1,0 +1,64 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  grid-auto-flow: column;
+
+  @include bigMobile {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include notebook {
+    grid-template-columns: repeat(12, fr);
+    column-gap: 30px;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include bigMobile {
+      display: grid;
+    }
+  }
+
+  &__item {
+    all: inherit;
+    grid-template-columns: repeat(6, 1fr);
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        @include bigMobile {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--tablet-#{$start}-#{$end} {
+          @include tablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include notebook {
+      &--notebook-3-11 {
+        grid-column: 3 / 11;
+      }
+
+      &--notebook-8-12 {
+        grid-column: 8 / 12;
+      }
+    }
+  }
+}

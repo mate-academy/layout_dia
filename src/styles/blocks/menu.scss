@@ -1,0 +1,40 @@
+.menu {
+  position: relative;
+  display: inline-block;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    background-color: $back-ground-white;
+    z-index: 1;
+
+    &:first-child {
+      transform-origin: 5px 1px;
+    }
+
+    &:last-child {
+      transform-origin: 7px 2px;
+    }
+  }
+
+  &__opener {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 18px;
+    background-color: transparent;
+
+    &.close .menu__line:first-child {
+      transform: rotate(45deg);
+    }
+
+    &.close .menu__line:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}
