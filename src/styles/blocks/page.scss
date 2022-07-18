@@ -1,0 +1,52 @@
+.page {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: $text-color;
+
+  background-color: $background-gray;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    @include onSmartphone {
+      margin-bottom: 148px;
+    }
+
+    &--big {
+      @include onTablet {
+        margin-bottom: 250px;
+      }
+    }
+
+    &--none {
+      @include onSmartphone {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
