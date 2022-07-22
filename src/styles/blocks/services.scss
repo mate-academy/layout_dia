@@ -1,0 +1,161 @@
+.services-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 180px;
+
+  @include onMobile {
+    flex-direction: column;
+  }
+
+  &__left-side {
+    width: 33.33%;
+
+    @include onMobile {
+      width: 45%;
+      margin-bottom: 56px;
+    }
+
+    @include onSmall {
+      width: 100%;
+    }
+  }
+
+  &__rigth-side {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    position: relative;
+    @include title;
+    line-height: 130%;
+    margin-bottom: 24px;
+
+    &::before {
+      content: "Services";
+      position: absolute;
+      top: -36px;
+      left: 0;
+      @include title;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c0cdd7;
+    }
+  }
+
+  &__description {
+    @include description;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+$bg-colors: ("1" #56ccf2, "2" #fcc91d, "3" #15d850, "4" #f36363);
+
+.services-card {
+  position: relative;
+  width: 45%;
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  font-size: 13px;
+  padding: 32px;
+  margin-bottom: 20px;
+
+  &:nth-child(2n+1) {
+    margin-right: 30px;
+
+    @include onSmall {
+      margin-right: 0;
+    }
+  }
+
+  &:nth-child(2n) {
+    transform: translateY(-50%);
+
+    @include onSmall {
+      transform: translateY(0);
+    }
+  }
+
+  @include onSmall {
+    width: 100%;
+  }
+
+  &__number {
+    @include title;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 2px 12px;
+    border-radius: 23px;
+    background-color: #2060f61a;
+    margin-bottom: 24px;
+
+    @each $var, $bg-color in $bg-colors {
+      &--#{$var}[data-theme="dark"] {
+        color: $blueColor;
+      }
+
+      &--#{$var}[data-theme="ligth"] {
+        color: $bg-color;
+      }
+
+      &--#{$var}::after {
+        content: "00#{$var}";
+      }
+    }
+  }
+
+  &__description {
+    @include description;
+    padding-bottom: 32px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    @include title;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
+    color: #334563;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translate(12px) scale(1.1);
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+    background-image: url(../images/icons/arrow-rigth.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @each $var, $bg-color in $bg-colors {
+      &--#{$var}[data-theme="dark"] {
+        background-color: $blueColor;
+      }
+
+      &--#{$var}[data-theme="ligth"] {
+        background-color: $bg-color;
+      }
+    }
+  }
+}
