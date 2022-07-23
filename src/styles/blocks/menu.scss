@@ -1,0 +1,252 @@
+.menu {
+
+  &__icon {
+    position: absolute;
+    right: calc(100% - 86px);
+    width: 18px;
+    min-width: 18px;
+    height: 8px;
+    z-index: 2;
+
+    transition: all 0.9s;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      background-color: $g-color-defoult-light;
+    }
+
+    &::before {
+      animation: 0.3s ease-in-out top-back-start forwards,
+        0.3s ease-in-out 0.9s top-back-end forwards;
+    }
+
+    &::after {
+      animation: 0.3s ease-in-out bottom-back-start forwards,
+        0.3s ease-in-out 0.9s bottom-back-end forwards;
+    }
+
+    &--is-active {
+      right: 0;
+
+      &::before {
+        animation: 0.3s ease-in-out top-start forwards,
+          0.3s ease-in-out 0.9s top-end forwards;
+      }
+
+      &::after {
+        animation: 0.3s ease-in-out bottom-start forwards,
+          0.3s ease-in-out 0.9s bottom-end forwards;
+      }
+    }
+
+    @include xl-device {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: top 1.2s ease-in-out;
+
+    &--footer {
+      gap: 24px;
+
+      @include md-device {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include xl-device {
+        gap: 64px;
+      }
+    }
+
+    &--burger-list {
+      position: fixed;
+      justify-content: center;
+      align-items: center;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $g-color-defoult-dark;
+    }
+
+    &--is-open {
+      overflow: auto;
+      top: 0;
+    }
+
+    @include xl-device {
+      position: relative;
+      flex-direction: row;
+      width: max-content;
+      background-color: transparent;
+    }
+  }
+
+  &__item {
+
+    &--is-hidden {
+      opacity: 0;
+      animation: 0.3s ease opacity-end forwards;
+    }
+
+    &--is-visible {
+      animation: 0.3s ease 0.9s opacity-start forwards;
+    }
+
+    @include xl-device {
+      animation: 0.3s ease opacity-start forwards;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    font-size: 13px;
+    color: $g-color-defoult-light;
+
+    &--font-size--18px {
+      font-size: 18px;
+
+      @include xl-device {
+        font-size: 13px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $g-color-state-defoult;
+
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+$top: 3px;
+@keyframes top-start {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  100% {
+    top: $top;
+    transform: rotate(0);
+  }
+}
+
+@keyframes top-end {
+  0% {
+    top: $top;
+    transform: rotate(0);
+  }
+  100% {
+    top: $top;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-back-start {
+  0% {
+    top: $top;
+    transform: rotate(45deg);
+  }
+  100% {
+    top: $top;
+    transform: rotate(0);
+  }
+}
+
+@keyframes top-back-end {
+  0% {
+    top: $top;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes bottom-start {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: $top;
+    transform: rotate(0);
+  }
+}
+
+@keyframes bottom-end {
+  0% {
+    bottom: $top;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: $top;
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes bottom-back-start {
+  0% {
+    bottom: $top;
+    transform: rotate(135deg);
+  }
+  100% {
+    bottom: $top;
+    transform: rotate(0);
+  }
+}
+
+@keyframes bottom-back-end {
+  0% {
+    bottom: $top;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes opacity-start {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-end {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

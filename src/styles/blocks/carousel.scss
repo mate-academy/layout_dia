@@ -1,0 +1,100 @@
+.carousel {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  height: 390px;
+
+  overflow: hidden;
+  border-radius: 30px;
+
+  @include xl-device {
+    flex: 0 0 50%;
+    height: 680px;
+
+    border-radius: 30px 0 0;
+    transform: translate(-100%, 0);
+  }
+
+  @media (min-width: 1600px) {
+    flex: 0 0 calc((100% - 1146px) / 2 + 450px);
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    max-width: 298px;
+    left: 20px;
+    bottom: 24px;
+    flex-direction: column;
+    gap: 16px;
+
+    z-index: 2;
+
+    @include md-device {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include xl-device {
+      flex-direction: row;
+      align-items: center;
+      left: 78px;
+      bottom: 48px;
+      gap: 24px;
+    }
+
+    @media (min-width: 1600px) {
+      left: 48px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    position: relative;
+    gap: 16px;
+    z-index: 2;
+  }
+
+  &__button {
+    display: block;
+    position: relative;
+    background-color: $g-color-defoult-light;
+    border-radius: 50%;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    color: $g-color-defoult-light;
+  }
+
+  &__description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $g-color-defoult-light;
+  }
+
+  &__items {
+    position: relative;
+    display: flex;
+    height: 100%;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex: 1 0 100%;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
