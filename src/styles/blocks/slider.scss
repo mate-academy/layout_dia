@@ -1,0 +1,93 @@
+$backgrounds:
+  url(../images/slider/slide-img-1.jpg) 1,
+  url(../images/slider/slide-img-2.jpg) 2,
+  url(../images/slider/slide-img-3.jpg) 3;
+
+.slider {
+  height: 390px;
+  overflow: hidden;
+  border-radius: 30px;
+
+  @include media1024 {
+    height: calc(100% - 120px);
+  }
+
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  @include media1024 {
+    position: absolute;
+    left: initial;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    border-radius: 30px 0;
+  }
+
+  @include media1600 {
+    width: 42%;
+  }
+
+  @include media2560 {
+    width: 45%;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px 20px;
+
+    @include media640 {
+      padding: 32px 40px;
+    }
+
+    @include media1024 {
+      padding: 48px 54px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  &__button-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $c-white;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+
+  &__title {
+    @extend .poppins_700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    @extend .opensans_400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $c-white;
+  }
+
+  @each $backgr, $number in $backgrounds {
+    &--backgr-#{$number} {
+      background-image: #{$backgr};
+    }
+  }
+}

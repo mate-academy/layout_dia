@@ -1,0 +1,119 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+
+  padding: 75px 32px 48px;
+
+  background: $c-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  &:hover {
+    box-shadow: 0 -3px 15px 13px rgba(32,96,246,0.75);
+    -webkit-box-shadow: 0 -3px 15px 13px rgba(32,96,246,0.75);
+    -moz-box-shadow: 0 -3px 15px 13px rgba(32,96,246,0.75);
+  }
+
+  &__photo-wrap {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 30px;
+
+    margin: 0 auto 70px;
+    position: relative;
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 110px;
+      height: 44px;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      background-color: $c-navi;
+
+      transition: background-color 300ms;
+
+      @include media640 {
+        width: 140px;
+        height: 56px;
+      }
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: -10%;
+      content: "";
+      width: 110px;
+      height: 44px;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      background-color: $c-navi;
+
+      transition: background-color 300ms;
+
+      @include media640 {
+        width: 140px;
+        height: 56px;
+      }
+    }
+  }
+
+  &__photo {
+    grid-column: 2 / 8;
+    width: 100%;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  &__text {
+    max-width: 196px;
+    margin-bottom: 24px;
+
+    @extend .opensans_600;
+    font-size: 13px;
+    text-align: center;
+    color: $c-text;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 8px;
+
+      background-image: url(../images/icons/quote.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__name {
+    @extend .opensans_600;
+    font-size: 13px;
+    line-height: 20px;
+    color: $c-title;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    @extend .poppins_700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    color: $c-grey;
+  }
+}
