@@ -7,6 +7,10 @@
     padding: 128px 0;
   }
 
+  @include onSmallDesktop {
+    padding: 128px 0 134px;
+  }
+
   &__block {
     padding-top: 56px;
 
@@ -14,14 +18,10 @@
       padding-top: 72px;
     }
   }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
+  
   &__title {
+    text-align: center;
+
     font-weight: 600;
     font-size: 44px;
     line-height: 120%;
@@ -34,8 +34,29 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 137px;
+    }
+
+    @include onDesign {
+      gap: 177px;
+    }
+  }
+
   &__image {
     border-radius: 30px;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 
   &__text {
@@ -58,6 +79,10 @@
     @include onTablet {
       margin: auto;
       width: 362px;
+    }
+
+    @include onSmallDesktop {
+      width: 214px;
     }
   }
 }
