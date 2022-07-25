@@ -1,0 +1,228 @@
+body.lock {
+  overflow: hidden;
+
+  @include onSmallDesctop {
+    overflow: auto;
+  }
+}
+
+[class*="__container"] {
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include onTablet {
+    max-width: 598px;
+  }
+
+  @include onSmallDesctop {
+    max-width: 956px;
+  }
+
+  @include onDesctop {
+    max-width: 1186px;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 264px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: $hover-link-color;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: $light-color;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    box-shadow: 5px 5px 10px $hover-link-color;
+  }
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+  color: $title-color;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 150%;
+  text-align: center;
+  color: $text-color;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__image {
+    width: 166px;
+    height: 166px;
+  }
+
+  &__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  &__subtitle {
+    margin: 32px 0 0;
+    font-size: 20px;
+    line-height: 140%;
+
+    @include onSmallDesctop {
+      margin: 40px 0 0;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin: 24px 0 0;
+    font-size: 14px;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--mtop {
+      margin: 16px 0 0;
+
+      @include onTablet {
+        padding: 0 50px;
+      }
+
+      @include onSmallDesctop {
+        padding: 0;
+      }
+    }
+  }
+
+  &__number {
+    width: 46px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $hover-link-color;
+    background: #2060f620;
+    border-radius: 23px;
+  }
+
+  &__link {
+    position: relative;
+    margin: 32px 0 0;
+    padding: 0 0 0 56px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
+    transition: color 0.3s ease 0s;
+
+    &:hover {
+      color: $hover-link-color;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: url(../images/services/arrow-services.svg) center no-repeat, rgb(32, 96, 246);
+      transform: translateY(-20%);
+    }
+  }
+
+  &__image--testimonials {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 139px;
+      height: 56px;
+      background-color: $hover-link-color;
+      border-radius: 12px;
+      z-index: -1;
+      transition: transform 0.3s ease 0s;
+    }
+
+    &::before {
+      top: 0;
+      transform: translate(-35%, 0%) rotate(-60deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: translate(-65%, 0%) rotate(-60deg);
+    }
+
+    .card:hover &::before {
+      transform: translate(-35%, 73%) rotate(-90deg);
+    }
+    .card:hover &::after {
+      transform: translate(-65%, -73%) rotate(-90deg);
+    }
+  }
+
+  &__image--testimonials img {
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  &__name {
+    margin: 16px 0 4px;
+
+    @include onSmallDesctop {
+      margin: 32px 0 4px;
+    }
+  }
+}
+
+.subtitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0cdd7;
+}
+
+.contacts-svg {
+  width: 32px;
+  height: 32px;
+  transition: fill 0.3s ease 0s;
+
+  &:hover {
+    fill: $hover-link-color;
+  }
+}
