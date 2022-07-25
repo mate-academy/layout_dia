@@ -1,0 +1,50 @@
+.page {
+  scroll-behavior: smooth;
+  
+  &__body {
+    background-color: $c-light-blue;
+    overflow-x: hidden;
+
+    &--with-menu {
+      overflow-y: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    overflow: hidden;
+
+    transform: translateY(-100%);
+    transition: transform $transition-time, opacity $transition-time;
+    opacity: 0;
+     
+    &:target {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 120px;
+      
+      @include media640 {
+        margin-bottom: 148px;
+      }
+    }
+  }
+
+  &__section-title {
+    margin-bottom: 24px;
+
+    @extend .poppins-600;
+    font-size: 32px;
+    text-align: center;
+
+    color: #253757;
+  }
+}

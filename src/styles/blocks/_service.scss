@@ -1,0 +1,127 @@
+.service {
+  display: block;
+  width: 100%;
+  background-color: $c-white;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  transition: box-shadow $transition-time;
+
+  padding: 32px;
+  
+  &:hover {
+    box-shadow: $c-blue 0 2px 5px -1px;
+  }
+
+  &__number {
+    width: 46px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @extend .poppins-600;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    
+    color: $c-blue;
+
+    background-color: #e9effe;
+    border-radius: 23px;
+
+    margin-bottom: 24px;
+
+    transition: color $transition-time, background-color $transition-time;
+  }
+
+  &:hover &__number {
+    color: #e9effe;
+  
+    background-color: $c-blue;
+  }
+
+  &__text {
+    @extend .open-sans-600;
+    font-size: 13px;
+    
+    color: $c-gray;
+    
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    
+    @extend .poppins-600;
+    font-size: 15px;
+    line-height: 22px;
+    
+    text-decoration: none;
+    color: #334563;
+
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 32px;
+      border-radius: 50px;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 5;
+      background-color: $c-blue;
+      transition: width $transition-time, border-radius $transition-time;
+
+      position: absolute;
+    }
+
+    &:hover:before {
+      border-radius: 50px 20px 20px 50px;
+      width: 100%;
+    }
+  }
+
+  &__button-arrow {
+    background-image: url(../images/icons/arrow.svg);
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $c-blue;
+    margin-right: 16px;
+    z-index: 10;
+    
+    transition: transform $transition-time ease-in-out;
+  }
+
+  &__button:hover &__button-arrow {
+    transform: rotate(360deg) scale(1.1);
+  }
+  
+  &__button-text {
+    transition: font-weight $transition-time,
+      color $transition-time,
+      transform $transition-time;
+    z-index: 10;
+  }
+  
+  &__button:hover &__button-text {
+    transform: translateX(30%);
+    
+    @include media1024 {
+      transform: translateX(0);
+    }
+    
+    color: $c-white;
+    font-weight: bolder;
+  }
+}
