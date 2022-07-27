@@ -1,0 +1,124 @@
+.top-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  &--mobile {
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    padding: 40px 0;
+    background-color: $gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    width: 66px;
+    height: 39px;
+    padding-right: 34px;
+  }
+
+  &__logo-image {
+    width: 44px;
+    height: 26px;
+    transition: 0.3s;
+
+    &:hover {
+      z-index: 1000;
+      width: 66px;
+      height: 39px;
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/menu/menu.svg);
+    background-size: contain;
+    background-position: center;
+
+    &:hover {
+      background-image: url(../images/menu/menu_hover.svg);
+    }
+
+    &--cross {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      background-image: url(../images/menu/cross.svg);
+      background-size: contain;
+      background-position: center;
+      
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__menu-list {
+    display: none;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      & * {
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 26px;
+        letter-spacing: 3px;
+        color: $colorWhite;
+        text-decoration: none;
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      & * {
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 26px;
+        letter-spacing: 3px;
+        color: $colorWhite;
+        text-decoration: none;
+
+        &:not(:last-child) {
+          padding-right: 48px;
+        }
+      }
+    }
+  }
+
+  &__call {
+    text-align: center;
+    line-height: 26px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 8px;
+      height: 2px;
+      width: 67px;
+      background-color: $colorBlueLight;
+    }
+  }
+}
