@@ -4,3 +4,80 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin wHight($width, $hight) {
+  width: $width;
+  height: $hight;
+}
+
+@mixin fontLine ($fontSize, $lineHight) {
+  font-size: $fontSize;
+  line-height: $lineHight;
+}
+
+@mixin widthHight ($blockWidth,$blockHight) {
+  width: $blockWidth;
+  height: $blockHight;
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onTabletMore {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop1024more {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesctop1024 {
+  @media (min-width: 1024px) and (max-width: 1599px){
+    @content;
+  }
+}
+
+@mixin onDesctop1600 {
+  @media (min-width: 1600px) and (max-width: 1919px){
+    @content;
+  }
+}
+
+@mixin onDesctop1600more {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onDesctop1920 {
+  @media (min-width: 1920px) and (max-width: 2299px) {
+    @content;
+  }
+}
+
+@mixin onDesctop2560 {
+  @media (min-width: 2300px) and (max-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin contacts {
+  &::before {
+    @content;
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    @include fontLine (13px, 20px);
+    color: $white;
+    text-transform: uppercase;
+    opacity: 50%;
+    letter-spacing: 3px;
+  }
+}
