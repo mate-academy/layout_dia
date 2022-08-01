@@ -25,10 +25,16 @@
   &__hereUs {
     @extend %link-style;
     align-self: center;
+    justify-self: unset;
+    width: max-content;
     padding: 0 5px 8px;
     @include on640 {
       padding: 0 8px 8px;
     }
+    @include on1024 {
+      justify-self: right;
+    }
+
     transition: transform 0.3s;
     &::after {
       content: "";
@@ -107,11 +113,12 @@
     @include on320 {
       position: absolute;
       top: 13px;
-      left: 101px;
+      // left: 101px;
+      right: 20px;
     }
-    @include on640 {
-      left: 122px;
-    }
+    // @include on640 {
+    //   left: 122px;
+    // }
   }
 
   font-size: calc(10px + 1vmin);
@@ -448,17 +455,33 @@
   }
 }
 
+.logo {
+  position: absolute;
+  left: 47%;
+  z-index: 0;
+
+  @include on1024 {
+    position: unset;
+    left: unset;
+  }
+}
+
 #toggle:checked ~ .wrapper {
   display: none;
 }
 
 #toggle:checked ~ .mobile-nav {
   position: fixed;
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 18px 20px 88px;
   margin: 0 auto;
-
   @include on640 {
     padding: 18px 41px 147px;
   }
+}
+
+#toggle:checked ~ .mobile-nav .logo {
+  position: fixed;
+  z-index: 1;
 }
