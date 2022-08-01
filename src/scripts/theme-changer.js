@@ -1,4 +1,3 @@
-'use strict';
 
 const themeButton = document.querySelector('.theme-changer');
 const header = document.querySelector('.header');
