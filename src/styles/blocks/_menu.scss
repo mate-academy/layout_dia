@@ -2,10 +2,14 @@
   background-color: $dark-background;
 
   &__container {
-    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 
     @include onDesktop {
       height: 100%;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 
@@ -26,6 +30,14 @@
     }
   }
 
+  &__logo {
+    margin: 0 20px 48px;
+
+    @include onTablet {
+      margin: 0 40px 24px;
+    }
+  }
+
   &__cross {
     height: 16px;
     width: 16px;
@@ -34,16 +46,22 @@
   }
 
   &__list {
-    list-style: none;
     padding: 20px 20px 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
 
     @include onTablet {
       padding: 20px 40px 0;
+      flex-direction: row;
+      gap: 40px;
     }
 
     @include onDesktop {
+      flex-direction: row;
+      gap: 40px;
       padding: 0;
-      display: flex;
     }
   }
 
@@ -57,6 +75,10 @@
 
   &__link {
     @extend %menu-text;
+
+    @include onTablet {
+      font-size: 13px;
+    }
 
     @include onDesktop {
       font-size: 13px;

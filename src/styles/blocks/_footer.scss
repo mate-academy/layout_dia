@@ -1,6 +1,7 @@
 .footer {
   padding: 72px 20px;
 
+  position: relative;
   display: flex;
   justify-content: center;
 
@@ -17,17 +18,20 @@
 
   &__container {
     width: 100%;
+    margin-bottom: $footer-menu-height-mobile;
 
     display: flex;
     flex-direction: column;
     gap: 80px;
 
     @include onTablet {
+      margin-bottom: 0;
       gap: 120px;
     }
 
     @include onDesktop {
       max-width: $max-content-width;
+      margin-bottom: $footer-menu-height-desktop;
 
       flex-direction: row;
       gap: 100px;
@@ -86,6 +90,25 @@
       @include onDesktop {
         margin-bottom: 80px;
       }
+    }
+  }
+
+  &__menu {
+    height: $footer-menu-height-mobile;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    @include onTablet {
+      height: $footer-menu-height-tablet;
+    }
+
+    @include onDesktop {
+      height: $footer-menu-height-desktop;
+      max-width: $max-content-width;
+      margin: 0 auto;
     }
   }
 }
