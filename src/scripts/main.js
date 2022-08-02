@@ -7,12 +7,15 @@ window.addEventListener('hashchange', () => {
 });
 
 // eslint-disable-next-line no-new, no-undef, no-unused-vars
-const swiper = new Swiper('.slider', {
+const swiper = new Swiper('.swiper', {
+  // eslint-disable-next-line no-undef
+  modules: [Navigation],
+
   loop: true,
 
   navigation: {
-    nextEl: '.button-next',
-    prevEl: '.button-prev',
+    nextEl: '.button-prev',
+    prevEl: '.button-next',
   },
 
   autoplay: {
