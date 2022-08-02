@@ -1,6 +1,10 @@
 .testimonials {
   padding-bottom: 120px;
 
+  @include onTablet {
+    padding-bottom: 148px;
+  }
+
   &__title {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -21,16 +25,26 @@
 
     color: $titleColor;
     margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
   }
 
   &__item {
     margin-bottom: 24px;
-    &:last-child {
-      margin-bottom: 0;
+
+    @include onTablet {
+      margin-bottom: 30px;
     }
   }
 
   &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
     box-sizing: border-box;
     height: 456px;
 
@@ -38,10 +52,23 @@
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
 
-    padding: 33px 37px 32px;
+    padding: 75px 42px 32px;
 
     @include onTablet {
+      box-sizing: border-box;
+      padding: 87px 98px 32px ;
       height: 478px;
+    }
+
+    @include onDesktop {
+      padding: 75px 48px 32px;
+      height: 456px;
+      width: 292px;
+    }
+
+    @include onDesign {
+      width: 362px;
+      height: 494px;
     }
 
     &-photo {
@@ -49,8 +76,6 @@
       height: 110px;
       width: 110px;
       z-index: 1;
-
-      margin: 43px 0 70px;
     }
 
     &-about {
@@ -82,6 +107,8 @@
       font-weight: 700;
       font-size: 13px;
 
+      width: 205px;
+
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -89,38 +116,27 @@
     }
   }
 
-  &__photo-container {
+  &__photo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
     position: relative;
 
-    &::before {
-      display: block;
-      content: "";
-      width: 109px;
-      height: 44px;
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: rotate(-60deg);
-      position: absolute;
-      left: 0;
-      top: 35px;
+    margin-bottom: 70px;
+  }
+
+  &__photo-rectangle {
+    position: absolute;
+    top: 36px;
+    width: 109px;
+    height: 44px;
+    background-color: #2060f6;
+    border-radius: 12px;
+
+    &--1 {
+      transform: translateX(-30%) translateY(-90%) rotate(-60deg);
     }
 
-    &::after {
-      display: block;
-      content: "";
-      width: 109px;
-      height: 44px;
-      background-color: #2060f6;
-      border-radius: 12px;
-      transform: rotate(-60deg);
-
-      position: absolute;
-      right: 0;
-      top: 50%;
+    &--2 {
+      transform: translateX(35%) translateY(70%) rotate(-60deg);
     }
   }
 
