@@ -1,6 +1,3 @@
-// eslint-disable-next-line strict
-'use strict';
-
 import Swiper, { Autoplay, Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
