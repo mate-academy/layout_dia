@@ -1,0 +1,100 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--footer {
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 48px;
+
+    @include middle {
+      gap: 24px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include desktop {
+      display: flex;
+      gap: 48px;
+    }
+
+    &--hidden {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      @include middle {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include desktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    text-decoration: none;
+    color: #fff;
+   
+    &:hover {
+      color: $color-blue;
+    }
+
+    &--active {
+      &::after {
+        content: "";
+        display: block;
+        position: relative;
+        top: 8px;
+        border-bottom: 2px solid $color-blue;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__menu {
+    &--hidden {
+      display: block;
+
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+}
