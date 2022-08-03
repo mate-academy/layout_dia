@@ -1,7 +1,12 @@
 .slider {
+  position: relative;
+
   &__wrapper {
     height: 390px !important;
-    width: 100%;
+
+    @include onDesktop {
+      height: 680px !important;
+    }
   }
 
   &__slide {
@@ -24,5 +29,84 @@
     &--4 {
       background-image: url(../images/slider/slide4.png);
     }
+  }
+
+  &__container {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include onDesktop {
+      left: 48px;
+      bottom: 48px;
+
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__buttons {
+    width: 80px !important;
+    height: 32px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    margin-top: 0 !important;
+    position: static !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+
+    &--prev {
+      &::after {
+        color: transparent;
+        background-image: url(../images/slider/arrow-left.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &--next {
+      &::after {
+        color: transparent;
+        background-image: url(../images/slider/arrow-right.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__text-container {
+    z-index: 1;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    @extend %menu-text;
+    color: $header-text-color;
+    font-size: 13px;
+  }
+
+  &__text {
+    @extend %secondary-text;
+    color: $header-text-color;
+    font-size: 14px;
+
   }
 }
