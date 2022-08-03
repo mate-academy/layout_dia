@@ -23,23 +23,27 @@
   }
 
   &__mark {
-    color: #c0cdd7;
+    color: $mark-color;
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    grid-row: 1 / 2;
   }
 
   &__title {
     @extend %title-decoration;
     text-align: unset;
-    grid-row: 2 / 3;
     margin-top: 16px;
+    & > br:nth-child(even) {
+      display: none;
+    }
     @include on1024 {
-      & > br {
+      & > br:nth-child(odd) {
         display: none;
+      }
+      & > br:nth-child(even) {
+        display: unset;
       }
     }
   }
@@ -49,7 +53,6 @@
     font-weight: 400;
     font-size: 14px;
     margin-top: 24px;
-    grid-row: 3 / 4;
   }
 }
 
@@ -79,11 +82,8 @@
 
   &__description {
     margin: 24px 0;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
+    @extend %description-decoration;
     font-size: 13px;
-    line-height: 150%;
-    color: $description-color;
   }
 
   &__learn-container {
