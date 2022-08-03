@@ -1,18 +1,22 @@
 // eslint-disable-next-line strict
 'use strict';
 
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Autoplay, Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
 // eslint-disable-next-line no-unused-vars
 const swiper = new Swiper('.swiper', {
-  modules: [Navigation],
+  modules: [Navigation, Autoplay],
 
   loop: true,
 
   navigation: {
     nextEl: '.slider__button-next',
     prevEl: '.slider__button-prev',
+  },
+
+  autoplay: {
+    delay: 3000,
   },
 });
 
