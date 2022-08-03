@@ -64,3 +64,32 @@
     }
   }
 }
+
+.grid-container {
+  gap: 24px;
+  @include on640 {
+    grid-template-columns: repeat (6, 80px);
+    column-gap: 30px;
+  }
+
+  @include on1024 {
+    gap: 20px;
+  }
+
+  @include on1600 {
+    gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+
+        &--640-#{$start}-#{$end} {
+          @include on640 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
