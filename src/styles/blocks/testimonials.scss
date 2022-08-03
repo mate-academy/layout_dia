@@ -9,26 +9,79 @@
 
   &__tittle {
     @include textTittle;
+
+    max-width: 200px;
+
+    padding-left: 227px;
+
+    @include onLargeScreen {
+      padding-left: 707px;
+    }
+
+    @include onMobile {
+      padding-left: 20px;
+
+      max-width: 280px;
+      width: max-content;
+    }
+    @include onTablet {
+      padding-left: 41px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+
+    gap: 30px;
+
+    padding-bottom: 148px;
+
+    @include onSmallScreen {
+      flex-direction: column;
+
+      padding-bottom: 0;
+
+      &:last-child {
+        padding-bottom: 148px;
+      }
+    }
   }
 }
 
 .testimonial-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 82px;
 
-  padding-top: 87px;
+  padding-top: 37px;
 
   width: 362px;
   height: 494px;
 
+  @include onMobile {
+    width: 280px;
+
+    margin-left: 20px;
+  }
+
   background-color: #fff;
   border-radius: 16px;
+
+  transition: 500ms;
+
+  &__photo {
+    display: flex;
+  }
 
   &__photo-container {
     position: relative;
     z-index: 2;
 
     padding: 0;
+    margin: 0;
 
     &::before {
       content: "";
@@ -73,8 +126,6 @@
     width: 140px;
     height: 140px;
 
-    object-fit: contain;
-
     border-radius: 50%;
 
     z-index: 2;
@@ -84,7 +135,53 @@
     display: block;
     height: 18px;
     width: 20px;
+  }
 
-    background-image: url(.././images/testimonial/dot.svg);
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    max-width: 250px;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-align: center;
+
+    color: $c-text;
+  }
+
+  &__person {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-align: center;
+
+    color: $c-tittle;
+  }
+
+  &__person-profecion {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #c0cdd7;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
