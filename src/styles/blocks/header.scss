@@ -1,11 +1,57 @@
 .header {
   background-color: #2c2c2c;
+  @include onDesktop {
+    position: relative;
+    max-width: 1300px;
+    padding-bottom: 205px;
+  }
 
   &__container {
     padding: 21px 20px 0;
 
     @include onTablet {
       padding: 21px 42px 0;
+    }
+
+    @include onDesktop {
+      padding: 49px 55px 0;
+    }
+
+    &--strategic-agency {
+      padding-top: 0;
+    }
+  }
+
+  &__flex-content {
+    @include onDesktop {
+      margin-top: 120px;
+    }
+  }
+
+  &__slider-container {
+    background: linear-gradient(#2c2c2c 50%, #e5e5e5 50%);
+
+    @include onDesktop {
+      height: 680px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__logo {
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__burger {
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
@@ -45,8 +91,14 @@
       height: 2px;
       margin-top: 8px;
 
-      background: #2060f6;
+      background-color: #2060f6;
       border-radius: 4px;
+      transition: background-color 300ms, transform 300ms;
+    }
+
+    &:hover:after {
+      background-color: #fff;
+      transform: scale(0.9);
     }
   }
 }
