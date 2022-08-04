@@ -1,0 +1,100 @@
+.grid {
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesign {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onLargeScreen {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onTablet {
+
+    &__item {
+      @for $start from 1 to 7 {
+        @for $end from $start to 7 {
+          &--tablet--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onDesktop() {
+    &__item {
+      @for $start from 1 to 13 {
+        @for $end from $start to 13 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+          &--desktop--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onDesign () {
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+        &--design--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include onLargeScreen () {
+    @for $start from 1 to 13 {
+      @for $end from $start to 13 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+        &--largescreen--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
+
+.grid-tablet,
+.grid-desktop,
+.grid-design,
+.grid-largescreen {
+
+  display: block;
+
+  @include onTablet {
+    display: grid;
+  }
+
+  @include onDesktop {
+    display: grid;
+  }
+
+  @include onDesign {
+    display: grid;
+  }
+
+  @include onLargeScreen {
+    display: grid;
+  }
+}
