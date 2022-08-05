@@ -1,0 +1,27 @@
+.grid {
+  display: none;
+
+  &__container {
+    padding: 0 55px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+
+        &--#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+}
