@@ -39,3 +39,11 @@ document.addEventListener('click', e => {
     document.body.classList.remove('page__body--hidden');
   }
 });
+
+const form = document.querySelector('.footer__form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  form.reset();
+});
