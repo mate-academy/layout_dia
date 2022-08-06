@@ -1,7 +1,6 @@
 'use strict';
 
 document.getElementById('toggle').addEventListener('click', () => {
-  // document.getElementById('toggle').checked = true;
   document.body.classList.toggle('fixed-position');
 });
 
