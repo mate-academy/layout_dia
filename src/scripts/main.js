@@ -1,5 +1,10 @@
 'use strict';
 
+document.getElementById('toggle').addEventListener('click', () => {
+  // document.getElementById('toggle').checked = true;
+  document.body.classList.toggle('fixed-position');
+});
+
 document.getElementById('mob-link-1').addEventListener('click', () => {
   document.getElementById('toggle').checked = false;
   document.body.classList.remove('fixed-position');
