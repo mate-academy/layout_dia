@@ -1,10 +1,12 @@
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import Swiper, { Navigation } from 'swiper';
+import 'swiper/swiper-bundle.min.css';
 
 const swiper = new Swiper('.swiper', {
+  modules: [Navigation],
+
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.slider__button--right',
+    prevEl: '.slider__button--left',
   },
 });
 
@@ -16,4 +18,12 @@ window.addEventListener('hashchange', () => {
   } else {
     document.body.classList.remove('page__body--with-menu');
   }
+});
+
+const checker = document.querySelector('.form');
+
+checker.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  checker.reset();
 });

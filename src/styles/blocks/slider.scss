@@ -1,57 +1,46 @@
 .slider {
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    height: 390px;
+    border-radius: 30px;
+    object-fit: cover;
+    width: 100%;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesktop {
+      height: 680px;
+      border-radius: 30px 0;
+    }
+  }
+
   &__slide {
     height: 390px;
     width: 100%;
     border-radius: 30px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
-    position: absolute;
-    bottom: 0;
-
-    @include onDesktop {
-      height: 680px;
-      width: 50%;
-      right: 0;
-      border-radius: 30px 0;
-    }
-
-    @include onBigScreen {
-      width: 45%;
-    }
-
-    @include onHugeScreen {
-      width: 46%;
-    }
-
-    &--1 {
-      background-image: url(../images/slider-1.jpg);
-    }
-
-    &--2 {
-      background-image: url(../images/slider-2.jpg);
-      display: none;
-    }
-
-    &--3 {
-      background-image: url(../images/slider-3.jpg);
-      display: none;
-    }
   }
 
   &__buttons {
+    z-index: 1;
     margin-bottom: 16px;
 
     @include onDesktop {
-      display: flex;
-      align-items: center;
       margin-bottom: 0;
       margin-right: 24px;
     }
   }
 
   &__text {
+    z-index: 1;
+
     @include onDesktop {
       display: flex;
       flex-direction: column;
@@ -85,6 +74,7 @@
     text-transform: uppercase;
     color: #fff;
     margin-bottom: 8px;
+    z-index: 1;
   }
 
   &__description {
@@ -92,30 +82,48 @@
     font-size: 14px;
     line-height: 140%;
     color: #fff;
+    z-index: 1;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    padding: 250px 20px 24px;
+    height: 390px;
+    position: absolute;
+    top: 265px;
+    padding: 0 20px;
 
     @include onTablet {
-      padding: 242px 319px 32px 41px;
+      padding: 0 41px;
     }
 
     @include onDesktop {
+      top: 550px;
       flex-direction: row;
-      padding: 564px 54px 48px 78px;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0 54px;
     }
+  }
+}
 
-    @include onBigScreen {
-      padding: 564px 271px 48px 48px;
-    }
+.header__slider {
+  position: absolute;
+  width: 100%;
+  height: 390px;
+  bottom: 0;
 
-    @include onHugeScreen {
-      padding-right: 751px;
-    }
+  @include onDesktop {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 680px;
+  }
+
+  @include onBigScreen {
+    width: 44%;
+  }
+
+  @include onHugeScreen {
+    width: 46%;
   }
 }
