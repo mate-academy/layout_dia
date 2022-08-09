@@ -2,6 +2,9 @@
 
 const form = document.getElementById('contacts-data');
 
-form.addEventListener('submit', (event) => {
+function handleForm(event) {
   event.preventDefault();
-});
+  form.reset();
+}
+
+form.addEventListener('submit', handleForm);
