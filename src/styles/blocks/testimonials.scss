@@ -91,6 +91,22 @@
     display: inline-block;
   }
 
+  &__rectangle {
+    position: relative;
+
+    &::before {
+      @extend %rectangle;
+      top: -40px;
+      right: 15px;
+    }
+
+    &::after {
+      @extend %rectangle;
+      top: 40px;
+      left: 15px;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -101,9 +117,7 @@
     padding: 75px 0 32px;
     transition: top left right 0.3s;
     transition-duration: 2s;
-    
 
-    
     @include onTablet {
       padding-top: 87px;
     }
@@ -111,7 +125,6 @@
     @include onDesctop1024 {
       padding-top: 75px;
     }
-
 
     @include onDesctop1600more {
       padding-top: 87px;
@@ -129,41 +142,39 @@
       }
     }
 
-    &:hover >
-      .testimonials__rectangle::before {
+    &:hover > .testimonials__rectangle::before {
+      top: -20px;
+      right: 15px;
+
+      @include onTablet {
+        top: -24px;
+      }
+
+      @include onDesctop1024 {
         top: -20px;
-        right: 15px;
+      }
+    
+      @include onDesctop1600more {
+        top: -24px;
+      }
+    }
 
-        @include onTablet {
-          top: -24px;
-        }
+    &:hover > .testimonials__rectangle::after {
+      top: 20px;
+      left: 15px;
 
-        @include onDesctop1024 {
-          top: -20px
-        }
-      
-        @include onDesctop1600more {
-          top: -24px
-        }
+      @include onTablet {
+        top: 24px;
       }
 
-    &:hover >
-      .testimonials__rectangle::after {
+      @include onDesctop1024 {
         top: 20px;
-        left: 15px;
-
-        @include onTablet {
-          top: 24px;
-        }
-
-        @include onDesctop1024 {
-          top: 20px;
-        }
-      
-        @include onDesctop1600more {
-          top: 24px;
-        }
       }
+    
+      @include onDesctop1600more {
+        top: 24px;
+      }
+    }
   }
 
   &__paragraph {
@@ -197,21 +208,5 @@
     text-transform: uppercase;
     margin: 0;
     letter-spacing: 3px;
-  }
-
-  &__rectangle {
-    position: relative;
-
-    &::before {
-      @extend %rectangle;
-      top: -40px;
-      right: 15px;
-    }
-
-    &::after {
-      @extend %rectangle;
-      top: 40px;
-      left: 15px;
-    }
   }
 }
