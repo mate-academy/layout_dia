@@ -39,3 +39,11 @@ menu.addEventListener('click', (obj) => {
   obj.preventDefault();
   menuList.style.visibility = 'visible';
 });
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  form.reset();
+});
