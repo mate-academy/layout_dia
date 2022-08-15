@@ -1,0 +1,97 @@
+.slider {
+  height: 390px;
+  position: relative;
+  background-color: $dark-gray-color;
+  border-radius: 0 0 30px 30px;
+
+  @include onDesktop {
+    position: inherit;
+    height: 100%;
+
+    top: 120px;
+  }
+
+  &__content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    box-sizing: border-box;
+    padding: 24px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/slider/slide-img-1.jpg);
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 30px;
+
+    @include onDesktop {
+      width: 50%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--left::after {
+      content: url(../images/slider/arrow-left.svg);
+    }
+
+    &--right::after {
+      content: url(../images/slider/arrow-right.svg);
+    }
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #fff;
+
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    line-height: 20px;
+    color: #fff;
+  }
+
+  &--page {
+    margin: 0 -20px 120px;
+  }
+
+  @include onTablet {
+    &--page {
+      margin: 0 -40px 120px;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.testimonials-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  padding: 76px 0 32px;
+  margin-bottom: 24px;
+
+  &__photo {
+    border-radius: 50%;
+
+    height: 108px;
+    width: 108px;
+
+    transition: 500ms;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onTablet {
+      height: 140px;
+      width: 140px;
+    }
+
+    position: relative;
+    z-index: 1;
+
+    &-container {
+      position: relative;
+
+      margin-bottom: 68px;
+
+      &::after,
+      &::before {
+        content: "";
+
+        display: block;
+        height: 44px;
+        width: 108px;
+
+        @include onDesktop {
+          height: 56px;
+          width: 140px;
+        }
+
+        position: absolute;
+
+        transform: rotate(-60deg);
+
+        background-color: $blue-color;
+        border-radius: 12px;
+      }
+
+      &::after {
+        left: -33%;
+        top: 0;
+      }
+
+      &::before {
+        right: -33%;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 42px;
+
+    color: $gray-color;
+
+    margin-bottom: 16px;
+
+    &::before {
+      content: url(../images/double_quotes.svg);
+
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+
+    margin-bottom: 4px;
+  }
+
+  &__origin {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: $light-gray-color;
+  }
+}
