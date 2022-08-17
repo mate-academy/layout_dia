@@ -1,0 +1,151 @@
+.services {
+  background-color: $c-skyblue;
+  padding: 120px var(--paddingX);
+  max-width: 1145px;
+  width: 100%;
+
+  @include above640 {
+    padding-top: 251px;
+    padding-bottom: 151px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+
+    @include above980 {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__promo {
+
+    @include above320 {
+      max-width: 264px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-lightgray;
+    margin-bottom: 16px;
+  }
+
+  &__slogan {
+    font-size: 32px;
+    line-height: 130%;
+    color: $c-navy;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-family: $sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $c-darkgray;
+  }
+
+  &__cards {
+    display: grid;
+    row-gap: 24px;
+
+    @include above640 {
+      column-gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "one two"
+        "three four";
+    }
+
+    @include above980 {
+      grid-template-columns: repeat(2, 264px);
+    }
+  }
+
+  &__card {
+    background-color: $white;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include above640 {
+      &--position--001 {
+        grid-area: one;
+      }
+
+      &--position--002 {
+        position: relative;
+        transform: translateY(-50%);
+        grid-area: two;
+      }
+
+      &--position--003 {
+        grid-area: three;
+      }
+
+      &--position--004 {
+        position: relative;
+        transform: translateY(-50%);
+        grid-area: four;
+      }
+    }
+
+    &-title {
+      background-color: $c-skyblue;
+      border-radius: 23px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 46px;
+      height: 24px;
+      line-height: 20px;
+      font-size: 13px;
+      color: $c-blue;
+      margin-bottom: 24px;
+    }
+
+    &-list {
+      font-family: $sans;
+      font-size: 13px;
+      line-height: 150%;
+      color: $c-darkgray;
+      margin-bottom: 32px;
+    }
+
+    &-buttons {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+    }
+
+    &-button {
+      display: inline-block;
+      background-color: $c-blue;
+      background-image: url("/images/features/link-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform $transition-duration;
+
+      &:hover {
+        transform: scale(1.18);
+      }
+    }
+
+    &-link {
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
+    }
+  }
+}

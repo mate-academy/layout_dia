@@ -1,0 +1,165 @@
+.header {
+  position: relative;
+  --header-paddingX: 21px;
+  background-color: $c-black;
+  border-radius: 0 0 30px 30px;
+  min-height: 893px;
+  overflow-x: hidden;
+
+  @include above640 {
+    min-height: 800px;
+  }
+
+  @include above1024 {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+
+    @include above320 {
+      margin-bottom: 56px;
+    }
+
+    @include above980 {
+      align-items: center;
+    }
+  }
+
+  &__button {
+    @include link;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: $c-blue;
+      border-radius: 4px;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include above980 {
+      &--visible {
+        display: block;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+
+    @include above320 {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  &__slogan {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    margin-bottom: 72px;
+
+    @include above320 {
+      max-width: 362px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__content {
+    min-height: 360px;
+
+    @include above640 {
+      max-width: 300px;
+    }
+
+    @include above980 {
+      max-width: 362px;
+    }
+
+    &-button {
+      @include page-button;
+
+      @include above320 {
+        max-width: 264px;
+      }
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @include above640 {
+      width: initial;
+      overflow: initial;
+      left: initial;
+      right: -110px * 2;
+    }
+
+    @include above880 {
+      right: 0;
+    }
+
+    &-button {
+      display: flex;
+      column-gap: 16px;
+    }
+
+    &-button-prev {
+      @include slider-button;
+      background-image: url(/images/features/prev-button.svg);
+    }
+
+    &-button-next {
+      @include slider-button;
+      background-image: url(/images/features/next-button.svg);
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    &-text {
+      font-family: $sans;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+
+  &__image-slider {
+    display: block;
+  }
+}
