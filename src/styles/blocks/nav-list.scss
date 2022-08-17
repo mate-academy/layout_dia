@@ -1,0 +1,55 @@
+.nav-list {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+
+    transition: all $transitionSpeed;
+
+    &:hover {
+      position: relative;
+      color: $secondColor;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        margin-top: 8px;
+        background-color: $secondColor;
+      }
+    }
+  }
+
+  &--header {
+    gap: 48px;
+
+    @include notebook {
+      display: none;
+    }
+  }
+
+  &--footer {
+    gap: 64px;
+
+    @include notebook {
+      gap: 40px;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+}
