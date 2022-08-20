@@ -7,8 +7,10 @@
   @include onSmallDesktop {
     padding-top: 48px;
     height: 100vh;
+  }
 
-    &__content {
+  &__content {
+    @include onSmallDesktop {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -16,56 +18,30 @@
   }
 
   &__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
     margin-bottom: 48px;
   }
 
-  &__logo {
-    display: flex;
-    align-items: center;
-  }
+  &__nav {
+    @media (max-width: 1023px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
 
-  &__menu-button {
-    margin-left: 36px;
-    height: 18px;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
 
-    @include onSmallDesktop {
-      display: none;
-    }
-  }
-
-  &__hamburger {
-    padding: 5px;
-  }
-
-  &__hire-us {
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $c-white;
-
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      margin-top: 8px;
-      width: calc(100% - 5px);
-
-      border: 1px solid $c-blue;
-      border-radius: 2px;
+      &:target {
+        transform: translateX(0);
+      }
     }
   }
 
   &__title {
     margin-bottom: 32px;
 
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;

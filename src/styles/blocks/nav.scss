@@ -1,27 +1,53 @@
 .nav {
-  display: none;
+  @media (max-width: 1023px) {
+    background-color: $c-darkgrey;
+    height: 100vh;
+    z-index: 1;
+    padding: 20px;
+  }
 
+  &__top {
+    margin-bottom: 36px;
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+  
+  &__link {
+    padding: 5px 0;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-white;
+
+    @include onSmallDesktop {
+      font-size: 13px;
+    }
+  }
+
+  &__element {
+    list-style: none;
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+    }
+  }
+    
   @include onSmallDesktop {
-    display: initial;
-
     &__list {
       display: flex;
       gap: 48px;
-    }
-  
-    &__element {
-      list-style: none;
-    }
-    
-    &__link {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 150%;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $c-white;
     }
   }
 }
