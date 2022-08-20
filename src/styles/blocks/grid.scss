@@ -1,0 +1,35 @@
+.grid {
+
+  display: block;
+
+  @include onTablet {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    justify-content: space-between;
+    column-gap: 20px;
+
+  }
+
+  &--slim {
+    grid-template-columns: repeat(3, max-content);
+  }
+
+  @include onLarge {
+    column-gap: 30px;
+  }
+
+  &__item {
+
+    @for $start from 1 through 3 {
+      @for $end from 1 through 3 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+  }
+
+}
