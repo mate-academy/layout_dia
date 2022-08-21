@@ -1,0 +1,42 @@
+.page {
+  box-sizing: border-box;
+  font-family: "Popins", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    background-color: $pageMainBackGroundColor;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: all $transitionPageTime;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}
