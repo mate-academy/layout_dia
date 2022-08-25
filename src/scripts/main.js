@@ -20,9 +20,9 @@ submit.addEventListener('click', function handleClick(event) {
   const messageInput = document.getElementById('message');
 
   // Send value to server
-  console.log(emailInput.value);
-  console.log(nameInput.value);
-  console.log(messageInput.value);
+  // console.log(emailInput.value);
+  // console.log(nameInput.value);
+  // console.log(messageInput.value);
 
   // clear input field
   emailInput.value = '';
