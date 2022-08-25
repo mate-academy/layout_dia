@@ -1,0 +1,24 @@
+$socials: "facebook", "twitter", "instagram";
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(3, 32px);
+  column-gap: 32px;
+
+  &__link {
+    @include flex-center;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s;
+
+    @each $netw in $socials {
+      &--#{$netw} {
+        background-image: url("/images/socials/#{$netw}.svg");
+
+        &:hover {
+          background-image: url("/images/socials/#{$netw}-hover.svg");
+        }
+      }
+    }
+  }
+}

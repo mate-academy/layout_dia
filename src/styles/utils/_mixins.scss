@@ -1,6 +1,39 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin gridWithSides {
+  margin: auto;
+}
+
+@mixin drawColumns($number) {
+  display: grid;
+  grid-template-columns: repeat($number, 1fr);
+}
+
+@mixin font-param($size: 14px, $weight: 400, $color: black, $spacing: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  letter-spacing: $spacing;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mobileAdapt {
+  @media (max-width: $mobileBreakpoint) {
+    @content;
+  }
+}
+
+@mixin narrowMobileAdapt {
+  @media (max-width: $secondMobileBreakpoint) {
+    @content;
+  }
+}
+
+@mixin desktopAdapt {
+  @media (min-width: $mobileBreakpoint + 1) {
+    @content;
   }
 }

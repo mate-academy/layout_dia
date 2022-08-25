@@ -1,0 +1,51 @@
+.footer {
+  @include drawColumns(12);
+  grid-template-rows: 1fr 188px;
+  align-items: center;
+  height: 100%;
+  padding-top: 180px;
+
+  @include narrowMobileAdapt {
+    padding-top: $minSidePadding;
+    padding-bottom: $minSidePadding;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 20px;
+  }
+
+  &__form {
+    grid-column: 1 / span 5;
+    align-self: start;
+
+    @include narrowMobileAdapt {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__contact {
+    grid-column: 8 / span 5;
+    align-self: start;
+
+    @include narrowMobileAdapt {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+
+    @include mobileAdapt {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    grid-column: 2 / span 11;
+    justify-items: end;
+
+    @include mobileAdapt {
+      display: none;
+    }
+  }
+}
