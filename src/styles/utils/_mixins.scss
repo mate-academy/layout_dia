@@ -1,6 +1,56 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on320 {
+  @media (min-width: 320px) {
+    @content;
   }
+}
+
+@mixin on640 {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on1024 {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on1600 {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on2560 {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $containerWidth;
+  margin: 0 auto;
+  padding: 0 $containerPaddingMob;
+
+  @include on640 {
+    padding: 0 $containerPaddingTab;
+  }
+
+  @include on1024 {
+    padding: 0 $containerPaddingSmallDesk;
+  }
+
+  @include on1600 {
+    padding: 0 $containerPaddingDesk;
+  }
+}
+
+@mixin card {
+  background-color: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 32px;
 }
