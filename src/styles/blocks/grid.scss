@@ -1,0 +1,56 @@
+.grid {
+  display: grid;
+  justify-content: space-between;
+
+  @include on320 {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &__item--320-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include on640 {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &__item--640-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include on1024 {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &__item--1024-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include on1600 {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &__item--320-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+}
