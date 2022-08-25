@@ -1,0 +1,119 @@
+.slider {
+
+  @include on1024 {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  @include on1024 {
+    width: 50%;
+  }
+
+  @include on2560 {
+    width: calc((100% - 1146px) / 2 + 460px);
+  }
+  
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__slide-container {
+    height: 390px;
+    width: 100%;
+
+    @include on1024 {
+      height: 680px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    @include on1024 {
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    @include on2560 {
+      border-top-left-radius: 30px;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: block;
+
+    @include on640 {
+      display: flex;
+    }
+  }
+
+  &__button {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #253757;
+    cursor: pointer;
+
+    transition-property: transform, box-shadow;
+    transition-duration: 0.3s;
+
+    &--left {
+      background-image: url("../images/slider/arrow_left.png");
+    }
+
+    &--right {
+      background-image: url("../images/slider/arrow_right.png");
+    }
+
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    &-wrap {
+      margin-bottom: 16px;
+
+      @include on640 {
+        margin-right: 24px;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+
+      box-shadow: 0 0 10px $color-blue;
+    }
+  }
+
+  &__caption {
+    margin-bottom: 8px;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__description {
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+}
