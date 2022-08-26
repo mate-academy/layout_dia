@@ -1,0 +1,78 @@
+.services {
+
+  @include onSmallDesktop {
+    transform: translateY(103px);
+  }
+
+  &__content {
+    @include onSmallDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__label {
+    @extend %sectionLabel;
+  }
+
+  &__title {
+    @extend %poppins600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $titleColor;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    @extend %openSans400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $textColor;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__description {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      display: block;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__cards {
+    display: grid;
+
+    @include onTablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__card {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
