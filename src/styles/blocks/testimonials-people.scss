@@ -29,10 +29,10 @@
   }
   
   &__rectangle {
+    position: absolute;
+
     width: 108px;
     height: 44px;
-
-    position: absolute;
 
     background: $c-blue;
     border-radius: 12px;
@@ -44,32 +44,39 @@
     }
 
     &--first {
-      left: calc(50% - 92px);
+      left: calc(50% - 93px);
 
       @include onTablet {
-        left: calc(50% - 120px);
+        left: calc(50% - 123px);
       }
     }
 
     &--second {
-      left: calc(50% - 16px);
+      left: calc(50% - 15px);
       top: calc(var(--padding-top) + 64px);
 
       @include onTablet {
-        top: calc(var(--padding-top) + 88px);
+        top: calc(var(--padding-top) + 83px);
       }
     }
   }
 
   &__image {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 1;
 
     width: 108px;
     height: 108px;
-
     border-radius: 50%;
+
+    transition: transform $time-transition;
+
+    &:hover {
+      transform: scale(1.4);
+    }
 
     @include onTablet {
       width: 140px;
