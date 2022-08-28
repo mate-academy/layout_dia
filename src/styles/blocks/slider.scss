@@ -1,0 +1,88 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-width: 320px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 500px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(./images/slider/slide-img.jpg);
+  border-radius: 30px;
+  margin: 0;
+  padding: 24px 20px;
+
+  @include onTablet {
+    padding: 32px 40px;
+  }
+
+  @include onNotebook {
+    height: calc(100vh - 120px);
+    border-radius: 30px 0;
+    left: 50%;
+    padding: 48px 0 48px 70px;
+  }
+
+  @include onDesktop {
+    left: 55%;
+    padding: 48px;
+  }
+
+  &__items {
+    @include onNotebook {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__buttons {
+    margin: 0 0 16px;
+
+    @include onNotebook {
+      margin: 0 24px 0 0;
+    }
+  }
+
+  &__button {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+
+    @include hover (transform scale(1.2));
+
+    &--left {
+      background-image: url(./images/slider/arrow-left.svg);
+      margin-right: 16px;
+    }
+
+    &--right {
+      background-image: url(./images/slider/arrow-right.svg);
+    }
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorWhite;
+    margin: 0 0 8px;
+  }
+
+  &__paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: $colorWhite;
+  }
+}
