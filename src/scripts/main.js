@@ -1,8 +1,10 @@
 'use strict';
+
 const form = document.getElementById('form');
+
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-})   
+});
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#burger-menu') {
