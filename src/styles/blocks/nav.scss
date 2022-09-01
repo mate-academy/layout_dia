@@ -1,0 +1,156 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  &--menu {
+    flex-direction: column;
+  }
+
+  &--footer {
+    flex-direction: column;
+
+    @include Notebook {
+      flex-direction: row;
+    }
+  }
+
+  &__left-side {
+    display: flex;
+  }
+
+  &__burger-menu {
+    @include Notebook {
+      display: none;
+    }
+
+    &--menu {
+      display: block;
+      margin-bottom: 24px;
+
+      @include Tablet {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    &--menu {
+      margin: 0 auto;
+      flex-direction: column;
+    }
+
+    &--footer {
+      flex-direction: column;
+    }
+
+    @include Tablet {
+      flex-direction: row;
+      width: 560px;
+    }
+
+    @include Notebook {
+      display: flex;
+      align-items: center;
+      width: 630px;
+    }
+
+    @include Full {
+      margin-right: 60px;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    &--menu {
+      display: block;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 48px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include Tablet {
+        font-size: 36px;
+      }
+    }
+
+    @include Notebook {
+      display: block;
+    }
+
+    &--footer {
+      display: block;
+      margin-bottom: 24px;
+
+      &:last-child() {
+        margin-bottom: 0;
+      }
+
+      @include Tablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__right-side {
+    width: 120px;
+  }
+
+  &__link {
+    color: $c-white;
+    text-decoration: none;
+    @include hover(color, rgb(172, 190, 184));
+  
+    &:hover {
+      color: rgb(172, 190, 184);
+    }
+  }
+
+  &__hire-us {
+    text-decoration: none;
+    color: $c-white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    @include hover(font-size, 15px);
+    @include hover(color, rgb(172, 190, 184));
+    
+    &:hover {
+      color: rgb(172, 190, 184);
+      font-size: 15px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 67px;
+      transform: translateY(8px);
+      border-bottom: 2px solid #2060f6;
+      border-radius: 4px;
+    }
+  }
+
+  &__logo {
+    padding-right: 40px;
+
+    &--footer {
+      margin-bottom: 50px;
+
+      @include Tablet {
+        margin-bottom: 25px;
+      }
+
+      @include Notebook {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

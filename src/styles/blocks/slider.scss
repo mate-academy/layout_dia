@@ -1,0 +1,123 @@
+.slider {
+  background-image: url(../images/slider/Photo.png);
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+    padding-left: 20px;
+    gap: 16px;
+
+    @include Tablet {
+      padding-bottom: 32px;
+      padding-left: 41px;
+    }
+
+    @include Notebook {
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 48px;
+      padding-left: 78px;
+      gap: 24px;
+    }
+
+    @include Full {
+      padding-left: 48px;
+    }
+  }
+
+  &__circles {
+    display: flex;
+    gap: 16px;
+    height: 32px;
+    width: 80px;
+  }
+
+  &__cirecle {
+    display: grid;
+    justify-content: space-between;
+    background-color: $c-white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    @include hover (background-color, rgb(240, 238, 238));
+    @include hover (transform, scale(1.1));
+
+    &:hover {
+      background-color: rgb(240, 238, 238);
+      transform: scale(1.2);
+    }
+
+    &--left {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+
+      &::after {
+        content: "";
+        background-image: url(../images/slider/left-arrow.png);
+        display: block;
+        width: 5.5px;
+        height: 9px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &--right {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      top: 250px;
+      left: $right-shift-circle;
+
+      &::after {
+        content: "";
+        background-image: url(../images/slider/right-arrow.png);
+        display: block;
+        width: 5.5px;
+        height: 9px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 70px;
+  }
+
+  &__title {
+    color: $c-white;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__info {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: $c-white;
+  }
+}
