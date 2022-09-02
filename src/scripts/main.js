@@ -4,6 +4,7 @@ const form = document.getElementById('form');
 
 form.addEventListener('submit', evt => {
   evt.preventDefault();
+  form.reset();
 });
 
 window.addEventListener('hashchange', () => {
