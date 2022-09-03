@@ -1,0 +1,76 @@
+.header {
+  background-color: $fooder-bg-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      min-height: 72px;
+      margin-bottom: 32px;
+    }
+  
+    @include onDesktop {
+      min-height: 120px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__burger {
+    background-image: url(/images/icons/burger.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 8px;
+    margin-left: 32px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__hire-us {
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 300%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    transition: text-shadow $animationSpeed;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $button-color;
+      border-radius: 4px;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &:hover {
+      text-shadow: 0 0 14px #fff;
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__menu-list {
+    flex-direction: row;
+  }
+}
