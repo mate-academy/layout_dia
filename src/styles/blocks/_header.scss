@@ -1,0 +1,154 @@
+.header {
+  height: 893px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 0 0 30px 30px;
+  background-color: $dark-background;
+
+  @include onDesktop {
+    height: 800px;
+  }
+
+  &__top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 0;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      padding: 20px 40px 0;
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      max-width: $max-content-width;
+      padding-top: 50px;
+      margin-bottom: 40px;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: $menu-icons-gap;
+    }
+  }
+
+  &__menu-opener {
+    height: 14px;
+    width: 18px;
+
+    background-image: url(../images/icons/menu_opener.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      position: static;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  &__hire-us-link {
+    @extend %menu-text;
+    font-size: 13px;
+
+    &::after {
+      margin-top: 8px;
+      content: "";
+      display: block;
+      height: 2px;
+      width: 67px;
+      background-color: $color-blue;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    @include onDesktop {
+      max-width: $max-content-width;
+      flex-direction: row;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 40px;
+    }
+
+    @include onDesktop {
+      padding-top: 158px;
+    }
+  }
+
+  &__title {
+    @extend %title-text;
+    font-size: 52px;
+    letter-spacing: -2px;
+    color: $header-text-color;
+
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    @extend %secondary-text;
+    color: $header-text-color;
+
+    margin-bottom: 72px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+      width: 364px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 82px;
+      width: 364px;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+
+    @include onDesktop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+    }
+  }
+}
