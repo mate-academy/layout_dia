@@ -1,0 +1,70 @@
+.header {
+  overflow: hidden;
+  position: relative;
+
+  height: 700px;
+  background-color: $header-footer-bgColor;
+  border-radius: 0 0 30px 30px;
+
+  @include onSmallDesktop {
+    height: 800px;
+  }
+
+  &__top {
+    padding: $headerTopPadding 0 0;
+    @include top-actions;
+  }
+
+  &__link {
+    display: block;
+    padding-bottom: 8px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    color: $header-footer-textColor;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    border-bottom: 2px solid $blueColor;
+
+    @include hover (transform, scale(1.2));
+  }
+
+  &__nav {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 48px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &-item {
+      @include hover(transform, scale(1.2));
+    }
+
+    &-link {
+      display: inline-block;
+      padding-bottom: 8px;
+      border-bottom: 2px solid transparent;
+
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      color: $header-footer-textColor;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      @include hover(border-color, $blueColor);
+    }
+  }
+}

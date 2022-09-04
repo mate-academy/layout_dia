@@ -1,6 +1,51 @@
+@mixin onMobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transitionTime;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin top-actions {
+  --icon-width: 24px;
+  display: grid;
+  grid-template-columns: max-content var(--icon-width) 1fr;
+  gap: 32px;
+  justify-items: end;
+  align-items: center;
+
+  @include onSmallDesktop {
+    grid-template-columns: max-content 1fr max-content;
+    justify-items: center;
   }
 }
