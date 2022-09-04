@@ -42,7 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 456px;
+    margin: 0 0 24px;
+    height: 100%;
     background-color: $color-text-white;
     box-shadow: 0 9px 18px
       rgba(37, 41, 49, 0.03);
@@ -55,7 +56,6 @@
 
     @include onDesktop {
       margin: 0 20px;
-      width: 292px;
     }
 
     &:hover {
@@ -66,12 +66,14 @@
       margin: 24px 0;
 
       @include onDesktop {
-        margin: 0;
+        margin: 24px 0;
       }
     }
   }
 
-  &__client {
+  &__avatar {
+    position: relative;
+    margin: 0 auto;
     width: 110px;
     height: 110px;
     background-image: url(../images/testimonials/testemonial-1.jpg);
@@ -80,11 +82,8 @@
     background-repeat: no-repeat;
     border-radius: 50%;
     z-index: 1;
-
-    @include onDesktop {
-      width: 110px;
-      height: 110px;
-    }
+    transform-origin: center center;
+    transform: rotate(-30deg);
 
     &--two {
       background-image: url(../images/testimonials/testemonial-2.jpg);
@@ -93,34 +92,51 @@
     &--three {
       background-image: url(../images/testimonials/testemonial-3.jpg);
     }
-  }
 
-  &__elements {
-    width: 108px;
-    height: 44px;
-    background: #2060f6;
-    border-radius: 12px;
-    transform-origin: left;
-    transform: translate(-10px, 85px) rotate(-60deg);
-    z-index: 0;
-
-    &--two {
-      transform-origin: right;
-      transform: translate(10px, -85px) rotate(-60deg);
+    @include onTable {
+      width: 140px;
+      height: 140px;
     }
   }
 
-  &__element {
-    margin: 82px 0 10px;
-    width: 20px;
-    height: 18px;
-    background-image: url(../images/testimonials/before-text.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  &__image {
+    position: relative;
+    width: 150px;
+    transform-origin: center center;
+    transform: rotate(30deg);
+    margin-top: 65px;
+
+    @include onTable {
+      width: 200px;
+      margin-top: 88px;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 44px;
+      border-radius: 12px;
+      background-color: #2060f6;
+
+      @include onTable {
+        width: 56px;
+      }
+    }
+
+    &::after {
+      left: 0;
+    }
+
+    &::before {
+      right: 0;
+    }
   }
 
   &__text {
+    margin-top: 100px;
     margin-bottom: 16px;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -128,6 +144,12 @@
     text-align: center;
     line-height: 150%;
     color: #6c788b;
+
+    &::before {
+      content: url(../images/testimonials/before-text.jpg);
+      display: block;
+      padding-bottom: 10px;
+    }
   }
 
   &__name {

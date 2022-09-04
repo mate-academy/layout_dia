@@ -18,3 +18,20 @@ sendButton.addEventListener('click', function(event) {
 });
 
 myForm.addEventListener('clicks', sendButton);
+
+// function validateForm() {
+//   let userEmail = document.getElementById('email').value;
+//   let userName = document.getElementById('name').value;
+
+//   if (userEmail == '') {
+//     return false;
+//   }
+//   if (userName == '') {
+//     return false;
+//   }
+
+//   return true;
+// }
+
+// userEmail.addEventListener('clicks', sendButton);
+// userName.addEventListener('clicks', sendButton);
