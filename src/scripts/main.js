@@ -25,7 +25,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('.form');
+const form = document.querySelector('.contact-us__form');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
