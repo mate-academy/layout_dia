@@ -1,0 +1,97 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  width: 100%;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    max-width: 1260px;
+  }
+
+  @include onDesktop {
+    margin: 0 120px;
+  }
+
+  @include theDesign {
+    column-gap: 40px;
+  }
+
+  &--process,
+  &--testimonials {
+    row-gap: 30px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    &--modified {
+      justify-content: start;
+    }
+
+    &--strategy {
+      align-items: start;
+    }
+
+    &--footer {
+      align-items: start;
+    }
+  }
+
+  @include onMobile {
+    display: grid;
+    &__itemMobile {
+      @for $start from 1 through 2 {
+        @for $end from $start through 2 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &--tablet {
+    display: block;
+  }
+
+  &--header {
+    display: grid;
+  }
+
+  @include onTablet {
+    display: grid;
+    &__itemTablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onSmallDesktop {
+    display: grid;
+    &__itemDesktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
