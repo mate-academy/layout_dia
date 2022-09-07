@@ -13,7 +13,7 @@ leftButton.onclick = function() {
 };
 
 window.onload = function() {
-  slider[0].style.backgroundImage = 'url(slide0.1791bc2e.jpg)';
+  slider[0].style.backgroundImage = 'url("https://i.imgur.com/3rOgkhR.jpeg")';
 };
 
 window.addEventListener('hashchange', () => {
@@ -33,21 +33,27 @@ function handleForm(event) {
 form.addEventListener('submit', handleForm);
 
 function moveLeft() {
-  if (slider[0].style.backgroundImage === 'url("slide0.1791bc2e.jpg")') {
-    slider[0].style.backgroundImage = 'url(slide2.7870cb4a.png)';
-  } else if (slider[0].style.backgroundImage === 'url("slide2.7870cb4a.png")') {
-    slider[0].style.backgroundImage = 'url(slide1.e43f618d.png)';
-  } else if (slider[0].style.backgroundImage === 'url("slide1.e43f618d.png")') {
-    slider[0].style.backgroundImage = 'url("slide0.1791bc2e.jpg")';
+  // eslint-disable-next-line max-len
+  if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/3rOgkhR.jpeg")') {
+    slider[0].style.backgroundImage = 'url(https://i.imgur.com/6VjpieG.png)';
+    // eslint-disable-next-line max-len
+  } else if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/6VjpieG.png")') {
+    slider[0].style.backgroundImage = 'url("https://i.imgur.com/dAm4EwC.png")';
+    // eslint-disable-next-line max-len
+  } else if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/dAm4EwC.png")') {
+    slider[0].style.backgroundImage = 'url("https://i.imgur.com/3rOgkhR.jpeg")';
   }
 }
 
 function moveRight() {
-  if (slider[0].style.backgroundImage === 'url("slide0.1791bc2e.jpg")') {
-    slider[0].style.backgroundImage = 'url(slide1.e43f618d.png)';
-  } else if (slider[0].style.backgroundImage === 'url("slide1.e43f618d.png")') {
-    slider[0].style.backgroundImage = 'url(slide2.7870cb4a.png)';
-  } else if (slider[0].style.backgroundImage === 'url("slide2.7870cb4a.png")') {
-    slider[0].style.backgroundImage = 'url("slide0.1791bc2e.jpg")';
+  // eslint-disable-next-line max-len
+  if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/3rOgkhR.jpeg")') {
+    slider[0].style.backgroundImage = 'url(https://i.imgur.com/dAm4EwC.png)';
+    // eslint-disable-next-line max-len
+  } else if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/dAm4EwC.png")') {
+    slider[0].style.backgroundImage = 'url(https://i.imgur.com/6VjpieG.png)';
+    // eslint-disable-next-line max-len
+  } else if (slider[0].style.backgroundImage === 'url("https://i.imgur.com/6VjpieG.png")') {
+    slider[0].style.backgroundImage = 'url("https://i.imgur.com/3rOgkhR.jpeg")';
   }
 }
