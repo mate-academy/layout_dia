@@ -1,0 +1,189 @@
+.services {
+  display: flex;
+  padding: 120px 20px;
+  justify-content: center;
+  align-items: center;
+
+  @include on640 {
+    padding: 148px 40px;
+  }
+
+  @include on1024 {
+    padding: 280px 54px 148px;
+  }
+
+  @include on1600 {
+    padding: 280px 228px 148px;
+  }
+
+  @include on2560 {
+    padding: 280px 708 px 148px;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+
+    @include on640 {
+      width: 558px;
+    }
+
+    @include on1024 {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 916px;
+    }
+
+    @include on1600 {
+      width: 1144px;
+    }
+  }
+
+  &-info {
+    width: 280px;
+
+    @include on640 {
+      width: 264px;
+    }
+
+    @include on1024 {
+      width: 292px;
+    }
+
+    @include on1600 {
+      width: 362px;
+    }
+  }
+
+  &__name {
+    @include section-name;
+    color: $name;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @include PopNorm600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $title-dark;
+    margin-bottom: 24px;
+  }
+
+  &__paragraph {
+    @include OpenNorm;
+    font-size: 14px;
+    line-height: 150%;
+    color: $paragraph;
+    margin-bottom: 48px;
+
+    @include on640 {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__blocks {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+
+    @include on640 {
+      display: grid;
+      grid-template-columns: repeat(2, 264px);
+    }
+
+    @include on1024 {
+      width: 448px;
+      grid-template-columns: repeat(2, 214px);
+    }
+
+    @include on1600 {
+      width: 558px;
+      grid-template-columns: repeat(2, 264px);
+    }
+  }
+
+  &__block {
+    box-sizing: border-box;
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 280px;
+    height: 264px;
+
+    @include on640 {
+      width: 264px;
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include on1024 {
+      width: 214px;
+    }
+
+    @include on1600 {
+      width: 264px;
+    }
+
+    &--number {
+      background-color: $light;
+      width: 46px;
+      height: 24px;
+      border-radius: 24px;
+      text-align: center;
+      @include PopNorm600;
+      font-size: 13px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: $blue;
+      margin-bottom: 24px;
+    }
+
+    &--info {
+      @include OpenNorm600;
+      font-size: 13px;
+      line-height: 20px;
+      color: $paragraph;
+      margin-bottom: 32px;
+    }
+
+    &--action {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 16px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(105%);
+        cursor: pointer;
+      }
+
+      &-arrow {
+        background-image: url(/images/features/arrow-white.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $blue;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      &-more {
+        @include PopNorm600;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+        color: #334563;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
