@@ -1,47 +1,9 @@
 'use strict';
 
-// onload = () => {
-//   var currentIndex = 1;
-  
-//   displaySlides(currentIndex);
-  
-//   function setSlides(num) {
-//     displaySlides(currentIndex += num)
-//   }
-  
-//   function displaySlides(num) {
-//     var x;
-//     var slides = document.getElementsByClassName("slide");
-//     if (num > slides.length) {currentIndex = 1};
-//     if (num <1) {currentIndex = slides.length};
-//     for (x = 0; x < slides.length; x++) {
-//       slides[x].styles.display = "none";
-//     }
-  
-//     slides[currentIndex - 1].styles.display = "block"
-//   }
-// }
-
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("dropdown__content--show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropdown__button')) {
-    var dropdowns = document.getElementsByClassName("dropdown__content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('dropdown__content--show')) {
-        openDropdown.classList.remove('dropdown__content--show');
-      }
-    }
-  }
-}
-
 const form = document.querySelector('.form');
 const inputs = document.querySelectorAll('.form-field');
 const textarea = document.querySelector('.form-field--textarea');
+const dropdownButton = document.querySelector('.dropdown__button');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -53,3 +15,44 @@ form.addEventListener('submit', function(event) {
   textarea.value = '';
 });
 
+const dropdownMenu = document.querySelector('.dropdown__content');
+
+dropdownButton.addEventListener('click', e => {
+  dropdownMenu.classList.toggle('dropdown__content--show');
+});
+
+const dropdownItems = document.querySelectorAll('.dropdown__item');
+
+[...dropdownItems].forEach(item => {
+  item.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('dropdown__content--show');
+  });
+});
+
+const sliderButtons = document.querySelector('.slider__buttons');
+
+sliderButtons.addEventListener('click', e => {
+  const slider = document.querySelector('.slider__photo-container');
+  const currentImage = document.querySelector('.slider__photo--visible');
+
+  if (e.target.matches('.slider__button--next')) {
+    if (currentImage.nextElementSibling) {
+      currentImage.nextElementSibling.classList.add('slider__photo--visible');
+    } else {
+      slider.firstElementChild.classList.add('slider__photo--visible');
+    }
+
+    currentImage.classList.remove('slider__photo--visible');
+  }
+
+  if (e.target.matches('.slider__button--prev')) {
+    if (currentImage.previousElementSibling) {
+      currentImage.previousElementSibling.classList
+        .add('slider__photo--visible');
+    } else {
+      slider.lastElementChild.classList.add('slider__photo--visible');
+    }
+
+    currentImage.classList.remove('slider__photo--visible');
+  }
+});
