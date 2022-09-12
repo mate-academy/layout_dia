@@ -1,0 +1,58 @@
+.nav-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1;
+  background-color: $c-main-black;
+  border-radius: 0 0 $section-border-radius $section-border-radius;
+  transition: transform $transition-duration;
+  transform: translateY(-100%);
+
+  &__top {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__cross {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/menu-toggler.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include for-laptop {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin-right: 32px;
+  }
+
+  &__list {
+    margin-top: 72px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    row-gap: 48px;
+    list-style: none;
+  }
+
+  &__link {
+    @extend %poppins-bold;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-main-white;
+    text-decoration: none;
+  }
+
+  &--opened {
+    transform: translateY(0);
+  }
+}
