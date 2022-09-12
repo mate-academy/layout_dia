@@ -1,0 +1,64 @@
+.menu {
+  &__burger-wrapper {
+    display: inline;
+    line-height: 24px;
+  }
+
+  &__burger {
+    margin-top: 2px;
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 11rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__list-container {
+    z-index: 1;
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 9.5rem 16px 0;
+    justify-content: center;
+    background-color: getTheme(header-bgc);
+    transform: scale(0);
+    opacity: 0;
+    transition: getTheme(transition-time) transform,
+      getTheme(transition-time) border-radius,
+      getTheme(transition-time) opacity;
+    border-radius: 50%;
+    transform-origin: top center;
+
+    &--open {
+      transform: scale(1);
+      border-radius: 0;
+      opacity: 0.95;
+      z-index: 2;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01rem;
+    text-decoration: none;
+    color: getTheme(text-on-dark);
+  }
+}

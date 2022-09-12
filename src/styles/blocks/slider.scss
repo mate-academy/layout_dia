@@ -1,0 +1,133 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  bottom: -1px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      141deg,
+      rgba(118, 187, 245, 0) 0%,
+      rgba(0, 138, 255, 0.58) 100%
+    );
+    border-radius: getTheme(slider-border-radius);
+    z-index: 1;
+
+    @include onDesktop {
+      border-radius: getTheme(slider-border-radius-desktop);
+    }
+  }
+
+  @include onDesktop {
+    bottom: 0;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform getTheme(transition-time),
+      border-radius getTheme(transition-time);
+  }
+
+  &__slide {
+    right: left;
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: getTheme(slider-border-radius);
+    background-position: center;
+    transition: border-radius getTheme(transition-time);
+
+    @include onDesktop {
+      border-radius: getTheme(slider-border-radius-desktop);
+      background-position: unset;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/headphones.png);
+    }
+    &--2 {
+      background-image: url(../images/slider/laptop.png);
+    }
+    &--3 {
+      background-image: url(../images/slider/slide-img-1.jpg);
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: clamp(24px, calc(1.5rem + ((1vw - 3.2px) * 2.5)), 32px);
+    left: clamp(20px, calc(1.25rem + ((1vw - 3.2px) * 6.56)), 41px);
+    z-index: 1;
+
+    @include onTablet {
+      bottom: clamp(32px, calc(2rem + ((1vw - 6.4px) * 4.16)), 48px);
+      left: clamp(41px, calc(2.56rem + ((1vw - 6.4px) * 9.63)), 78px);
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    display: grid;
+    place-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: getTheme(text-on-dark);
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid getTheme(button-hover-bgc);
+    }
+  }
+
+  &__info {
+    width: 280px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: getTheme(text-on-dark);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    @include openSans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    color: getTheme(text-on-dark);
+  }
+}

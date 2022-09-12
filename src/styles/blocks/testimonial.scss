@@ -1,0 +1,150 @@
+.testimonial {
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
+  -moz-box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
+  box-shadow: 0 4px 52px 8px rgba(34, 60, 80, 0.21);
+  transition: transform getTheme(transition-time);
+
+  & * {
+    transition: background-color getTheme(transition-time);
+  }
+
+  @include onDesktop {
+    width: 362px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 75px 42px 32px;
+  }
+
+  &__image-wrapper {
+    margin-bottom: clamp(70px, calc(4.37rem + ((1vw - 3.2px) * 3.75)), 82px);
+    position: relative;
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 56px;
+      height: 139px;
+      background-color: getTheme(testimonial-color1);
+      border-radius: getTheme(testimonial-pseudo-border-radius);
+      transition: border-radius getTheme(transition-time);
+    }
+
+    &:before {
+      transform: translateY(-31%) rotate(30deg) translatex(-15%);
+    }
+
+    &:after {
+      transform: translateY(53%) rotate(30deg) translatex(-107%);
+    }
+  }
+
+  //  #region before and after color
+  &:nth-child(1) > .testimonial__container > .testimonial__image-wrapper {
+    &::after,
+    &::before {
+      background-color: getTheme(testimonial-color1);
+    }
+  }
+
+  &:nth-child(2) > .testimonial__container > .testimonial__image-wrapper {
+    &::after,
+    &::before {
+      background-color: getTheme(testimonial-color2);
+    }
+  }
+
+  &:nth-child(3) > .testimonial__container > .testimonial__image-wrapper {
+    &::after,
+    &::before {
+      background-color: getTheme(testimonial-color3);
+    }
+  }
+
+  //  #endregion
+
+  &__image {
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__icon {
+    margin-bottom: clamp(8px, calc(0.5rem + ((1vw - 3.2px) * 2.5)), 16px);
+
+    @include onDesktop {
+      margin-bottom: 8px;
+    }
+  }
+
+  // #region icons color chaging rules
+
+  &:nth-child(1) > .testimonial__container > .icon > .testimonial__icon path {
+    fill: getTheme(testimonial-color1);
+  }
+
+  &:nth-child(2) > .testimonial__container > .icon > .testimonial__icon path {
+    fill: getTheme(testimonial-color2);
+  }
+
+  &:nth-child(3) > .testimonial__container > .icon > .testimonial__icon path {
+    fill: getTheme(testimonial-color3);
+  }
+
+  // #endregion
+
+  &__text {
+    @include openSans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      margin-bottom: clamp(16px, calc(1rem + ((1vw - 6.4px) * 2.08)), 24px);
+    }
+  }
+
+  &__name {
+    @include openSans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: getTheme(text-color);
+    margin-bottom: 4px;
+  }
+
+  &__text-under {
+    @include headerTextWide;
+    color: getTheme(text-color-superlight);
+    font-weight: 600;
+  }
+
+  // #region some transition animation
+
+  &:hover {
+    transform: scale(1.04);
+    & > .testimonial__container > .testimonial__image-wrapper {
+      &::after,
+      &::before {
+        border-radius: getTheme(testimonial-pseudo-border-radius-hover);
+      }
+    }
+  }
+
+  // #endregion
+}

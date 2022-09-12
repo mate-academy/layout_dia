@@ -1,0 +1,43 @@
+.expertise-card {
+  /* 280px @ 320px increasing to 362px @ 640px */
+  width: clamp(280px, calc(17.5rem + ((1vw - 3.2px) * 25.62)), 362px);
+
+  @include onDesktop {
+    /* 214px @ 640px increasing to 264px @ 1024px */
+    width: clamp(214px, calc(13.37rem + ((1vw - 6.4px) * 13.02)), 264px);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    /* 32px @ 640px increasing to 40px @ 1024px */
+    margin-bottom: 32px;
+    border-radius: getTheme(expertise-card-image-border-radius);
+    transition: transform getTheme(transition-time);
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include onTablet {
+      margin-bottom: clamp(32px, calc(2rem + ((1vw - 6.4px) * 2.08)), 40px);
+      transition: transform getTheme(transition-time);
+    }
+  }
+
+  &__title {
+    @include headingsH4;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    @include openSans;
+    text-align: center;
+    font-size: 14px;
+    line-height: 150%;
+  }
+}

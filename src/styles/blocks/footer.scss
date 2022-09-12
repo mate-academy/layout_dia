@@ -1,0 +1,43 @@
+.footer {
+  background-color: getTheme(header-bgc);
+  border-radius: getTheme(footer-border-radius);
+  transition: border-radius getTheme(transition-time);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    /* 80px @ 320px increasing to 120px @ 640px */
+    gap: clamp(80px, calc(5rem + ((1vw - 3.2px) * 12.5)), 120px);
+    /* 72px @ 320px increasing to 180px @ 640px */
+    padding: clamp(72px, calc(4.5rem + ((1vw - 3.2px) * 33.75)), 180px) 0 80px;
+
+    @include onDesktop {
+      /* 98px @ 1024px increasing to 226px @ 1600px */
+      gap: clamp(98px, calc(6.12rem + ((1vw - 10.24px) * 22.22)), 226px);
+      flex-direction: row;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 80px;
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+
+    & .logo {
+      margin-bottom: 49px;
+
+      @include onTablet {
+        margin-bottom: 25px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+        margin-right: auto;
+      }
+    }
+  }
+}

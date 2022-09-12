@@ -1,0 +1,58 @@
+.contact-us {
+  max-width: 362px;
+
+  @include onDesktop {
+    width: 460px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      /* 40px @ 320px increasing to 48px @ 640px */
+      margin-bottom: clamp(40px, calc(2.5rem + ((1vw - 3.2px) * 2.5)), 48px);
+    }
+  }
+
+  &__title {
+    /* 48px @ 320px increasing to 56px @ 640px */
+    margin-bottom: clamp(48px, calc(3rem + ((1vw - 3.2px) * 2.5)), 56px);
+    @include headingsH3;
+    color: getTheme(text-on-dark);
+    text-align: left;
+  }
+
+  &__link-title {
+    margin-bottom: 8px;
+    @include headerTextWide;
+    color: getTheme(text-subcolor);
+    font-size: 13px;
+    line-height: 100%;
+  }
+
+  &__link {
+    @include openSans;
+    font-size: 24px;
+    line-height: 150%;
+    color: getTheme(text-on-dark);
+    text-decoration: none;
+    transition: color getTheme(transition-time);
+
+    &:hover {
+      color: getTheme(button-hover-bgc);
+
+      &:after {
+        background-color: getTheme(button-hover-bgc);
+      }
+    }
+
+    &:active {
+      color: getTheme(button-active-bgc);
+    }
+  }
+
+  &__icon-container {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: 32px;
+  }
+}

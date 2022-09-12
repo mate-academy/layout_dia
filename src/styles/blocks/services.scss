@@ -1,0 +1,57 @@
+.services {
+  // padding is needed to position cards because thay 
+  // are translated by Y by that amount
+  &__container {
+    @include grid;
+    gap: 24px;
+  }
+  
+  @include onDesktop {
+    padding-top: 132px;
+    
+  }
+
+  &__item {
+    grid-column: 1 / 3;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    &:first-child {
+      &:hover {
+        transform: scale(1);
+      }
+    }
+    
+    @include onTablet {
+      grid-column: 1 / 4;
+      
+      &:nth-child(3),
+      &:nth-child(5) {
+        grid-column: 4 / 7;
+        transform: translateY(-132px);
+
+        &:hover {
+          transform: translateY(-132px) scale(1.04);
+        }
+      }
+    }
+
+    @include onDesktop {
+      &:nth-child(1) {
+        grid-column: 1 / 6;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        grid-column: 7 / 10;
+      }
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+}

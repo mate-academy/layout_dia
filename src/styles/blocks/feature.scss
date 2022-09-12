@@ -1,0 +1,37 @@
+.feature {
+  z-index: 2;
+
+  &--on-mobile {
+    margin-top: 4px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__container {
+    position: absolute;
+    height: 0;
+    transform: scaleY(0);
+    border-radius: 5px;
+    transition: transform getTheme(transition-time);
+  }
+
+  &__item {
+    color: getTheme(text-on-dark);
+    cursor: pointer;
+    background-color: getTheme(button-bgc);
+    transition: background-color getTheme(transition-time);
+    &:hover {
+      background-color: getTheme(button-hover-bgc);
+    }
+
+    &:active {
+      background-color: getTheme(button-active-bgc);
+    }
+  }
+
+  &:hover .feature__container {
+    transform: scaleY(100%);
+  }
+}

@@ -1,0 +1,55 @@
+.contact-form {
+  max-width: 362px;
+
+  @include onDesktop {
+    width: 460px;
+  }
+
+  &__title {
+    /* 32px @ 320px increasing to 40px @ 640px */
+    margin-bottom: clamp(32px, calc(2rem + ((1vw - 3.2px) * 2.5)), 40px);
+    @include headingsH3;
+    color: getTheme(text-on-dark);
+    text-align: left;
+  }
+
+  &__label-container {
+    &:not(:last-of-type) {
+      /* 24px @ 320px increasing to 32px @ 640px */
+      margin-bottom: clamp(24px, calc(1.5rem + ((1vw - 3.2px) * 2.5)), 32px);
+    }
+
+    &:last-of-type {
+      /* 56px @ 320px increasing to 80px @ 640px */
+      margin-bottom: clamp(56px, calc(3.5rem + ((1vw - 3.2px) * 7.5)), 80px);
+    }
+  }
+  &__input-field {
+    width: 100%;
+    padding: 16px 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: getTheme(text-on-dark);
+    background-color: transparent;
+    outline: none;
+    outline-width: 0;
+    border-bottom: 1px solid getTheme(text-on-dark);
+    transition: border-color getTheme(transition-time);
+
+    &::placeholder {
+      font-family: "Poppins", sans-serif;
+      color: getTheme(text-on-dark);
+      opacity: 0.7;
+      font-weight: 600;
+    }
+
+    &:hover {
+      border-color: getTheme(button-hover-bgc);
+    }
+
+    &:active,
+    &:focus {
+      border-color: getTheme(button-active-bgc);
+    }
+  }
+}

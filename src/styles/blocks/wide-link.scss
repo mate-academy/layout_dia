@@ -1,0 +1,34 @@
+.wide-link {
+  display: block;
+  @include headerTextWide;
+  color: getTheme(text-on-dark);
+  text-decoration: none;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: -1px;
+    height: 3px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 1px;
+    transition: transform getTheme(transition-time),
+      background-color getTheme(transition-time);
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(100%);
+      background-color: getTheme(button-hover-bgc);
+    }
+  }
+
+  &:active {
+    &:after {
+      background-color: getTheme(button-active-bgc);
+    }
+  }
+}

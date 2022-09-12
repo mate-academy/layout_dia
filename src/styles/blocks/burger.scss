@@ -1,0 +1,46 @@
+.burger {
+  display: none;
+
+  &__dash {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: getTheme(text-on-dark);
+    left: 3px;
+    transition: transform getTheme(transition-time),
+      background-color getTheme(transition-time);
+
+    &:nth-child(1) {
+      top: 8px;
+    }
+    &:nth-child(2) {
+      bottom: 8px;
+    }
+  }
+
+  &__label {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    &:hover .burger__dash {
+      background-color: getTheme(button-hover-bgc);
+    }
+
+    &:active .burger__dash {
+      background-color: getTheme(button-active-bgc);
+    }
+  }
+
+  &:checked ~ .burger__label .burger__dash {
+    &:nth-child(1) {
+      transform: translateY(3px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+  }
+}
