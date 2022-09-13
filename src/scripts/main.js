@@ -60,3 +60,11 @@ const menuClose = () => {
 
 menuOpener.addEventListener('click', menuOpen);
 menuCloser.addEventListener('click', menuClose);
+
+const form = document.querySelector('.footer__form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+  window.scrollTo(0, 0);
+});
