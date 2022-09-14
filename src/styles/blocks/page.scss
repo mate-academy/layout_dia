@@ -4,14 +4,27 @@
   &__body {
     margin: 0;
     background-color: #f2f6fa;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__menu {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     transform: translateX(-100%);
+
+    @include onLaptop {
+      transform: translate(0, 35px);
+      padding-left: 200px;
+    }
+
+    @include onDesktop {
+      padding-left: 350px;
+    }
 
     &:target {
       transform: translateX(0);
@@ -22,11 +35,12 @@
     background: #2c2c2c;
     border-radius: 0 0 30px 30px;
     color: #fff;
-    padding: 50px 0 100px;
-    margin-bottom: -50px;
+    padding-top: 50px;
 
-    @include onTablet {
-      padding: 50px 0 200px;
+    @include onLaptop {
+      display: flex;
+      padding-top: 165px;
+      margin-bottom: 148px;
     }
 
     &-title {
@@ -39,6 +53,11 @@
 
       @include onTablet {
         font-size: 64px;
+      }
+
+      @include onLaptop {
+        width: 490px;
+        line-height: 68px;
       }
     }
 
@@ -70,6 +89,11 @@
       text-decoration: none;
       color: #fff;
       width: 260px;
+      margin-bottom: 48px;
+
+      @include onTablet {
+        margin-bottom: 148px;
+      }
     }
   }
 }
