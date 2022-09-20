@@ -1,0 +1,136 @@
+.wrapper {
+  position: relative;
+  height: 390px;
+  margin-left: -30px;
+
+  @include onDesktop {
+    position: absolute;
+    height: 687px;
+    width: 50%;
+    max-width: 680px;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__labels {
+    position: absolute;
+    left: 48px;
+    bottom: 66px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    width: 80px;
+    z-index: 3;
+  
+    @include onDesktop {
+      position: absolute;
+      z-index: 3;
+      bottom: 66px;
+      left: 48px;
+      margin: 0;
+      gap: 16px;
+    }
+  }
+
+  &__label {
+    background-color: $c-gray;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 9px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+  
+    &-arrow-left {
+      background-image: url(/images/slider/arrow-left.svg);
+    }
+  
+    &-arrow-right {
+      background-image: url(/images/slider/arrow-right.svg);
+    }
+  }
+
+  &__information {
+    position: absolute;
+    bottom: 48px;
+    left: 150px;
+    width: max-content;
+    z-index: 3;
+    padding-left: 24px;
+
+    @include onDesktop {
+      position: absolute;
+      z-index: 3;
+      padding: 0;
+      left: 152px;
+      bottom: 48px;
+    }
+  }
+
+  &__tittle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #fff;
+  }
+
+  &__text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    color: #fff;
+    margin-top: 8px;
+  }
+  
+  &__slider {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 390px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+  
+    @include onDesktop {
+      position: absolute;
+      height: 687px;
+      width: 50vw;
+      max-width: 680px;
+      right: 0;
+      bottom: 0;
+      margin-top: 0;
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+  
+  &__slider-slide1 {
+    background-image: url(/images/slider/slide-img-1.jpg);
+    z-index: 1;
+  }
+  
+  &__slider-slide2 {
+    background-image: url(/images/slider/slide-img-2.jpeg);
+  }
+  
+  #arrow-left:checked ~ &__sliders > &__slider-slide1,
+  #arrow-right:checked ~ &__sliders > &__slider-slide2 {
+    opacity: 2;
+    z-index: 2;
+  }
+}
