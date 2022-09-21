@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  
+  @include OnLaptop {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include AfterLaptop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &--desctop {
+    display: block;
+  
+    @include AfterPhone {
+      display: grid;
+    }
+  }
+  
+  &--footer {
+    margin-bottom: 80px;
+  
+    @include OnLaptop {
+      margin-bottom: 120px;
+    }
+  
+    @include AfterLaptop {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__item {
+    @include OnPhone {
+      @for $start from 1 through 2 {
+        @for $end from $start through 2 {
+          &--on-phone-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  
+    @include OnDesctop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desctop-big-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include AfterDesctop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--after-desctop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  
+    @include OnLaptop {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--desctop-small-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
