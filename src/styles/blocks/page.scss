@@ -1,0 +1,109 @@
+.page {
+  scroll-behavior: smooth ;
+
+  &__body {
+    margin: 0;
+    background-color: #f2f6fa;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onLaptop {
+      transform: translate(0, 35px) !important;
+      padding-left: 200px;
+    }
+
+    @include onDesktop {
+      padding-left: 20%;
+    }
+  }
+
+  &__section {
+    background: #2c2c2c;
+    border-radius: 0 0 30px 30px;
+    color: #fff;
+    padding-top: 50px;
+
+    @include onLaptop {
+      display: flex;
+      padding-top: 165px;
+      margin: 0 auto 148px;
+      max-width: 1600px;
+    }
+
+    &-title {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 60px;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+
+      @include onTablet {
+        font-size: 64px;
+      }
+
+      @include onLaptop {
+        width: 490px;
+        line-height: 68px;
+      }
+    }
+
+    &-paragraph {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      min-width: 280px;
+      max-width: 360px;
+
+      margin: 0;
+      margin-bottom: 70px;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+
+      height: 50px;
+      background: #2060f6;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      max-width: 540px;
+      margin-bottom: 48px;
+
+      @include hover(all, 0.3s);
+
+      &:hover {
+        background-color: #2060f6;
+        transform: scale(1.1);
+      }
+
+      @include onTablet {
+        width: 260px;
+        margin-bottom: 148px;
+      }
+    }
+  }
+}
