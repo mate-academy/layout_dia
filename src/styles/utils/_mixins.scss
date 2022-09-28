@@ -1,6 +1,109 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin ScrollSize {
+  height: 32px;
+  width: 32px;
+}
+
+@mixin PhotoSize {
+  height: 166px;
+  width: 166px;
+}
+
+@mixin ButtonSize {
+  height: 40px;
+  width: 40px;
+}
+
+@mixin TestimonialSize {
+  height: 110px;
+  width: 110px;
+
+  @include OnLaptop {
+    height: 140px;
+    width: 140px;
+  }
+}
+
+@mixin OnPhone {
+  @media (max-width: 690px) {
+    @content;
+  }
+}
+
+@mixin OnLaptop {
+  @media (min-width: 690px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin OnSmallDesctop {
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin OnLargeDesctop {
+  @media (min-width: 1280px) and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin OnDesign {
+  @media (min-width: 1600px) and (max-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin OnLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin AfterPhone {
+  @media (min-width: 690px) {
+    @content;
+  }
+}
+
+@mixin AfterLaptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin AfterDesctop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin OnDesctop {
+  @media (min-width: 1024px) and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin button {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  background-color: $colorBlue;
+  height: 50px;
+  border-radius: 8px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins-SemiBold", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+
+  transition: 0.5s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    background-color: #fff;
+    border: 3px solid $colorBlue;
+    color: $colorBlue;
   }
 }

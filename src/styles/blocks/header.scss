@@ -1,0 +1,222 @@
+.header {
+  position: relative;
+  background-color: $colorDarkGrey;
+  height: fit-content;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__photo {
+    position: relative;
+    height: 390px;
+    background-image: url(../images/photos/1.jpg);
+    border-radius: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+
+    @include AfterLaptop {
+      height: 680px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__photo-next {
+    height: 390px;
+    border-radius: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/photos/0.jpg);
+    background-size: 150%;
+    z-index: 4;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    @include AfterLaptop {
+      height: 680px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: $headerTopPadding 0 0 0;
+    margin-bottom: 48px;
+    
+    @include AfterPhone {
+      padding: 48px 0 0;
+    }
+
+    @include OnLaptop {
+      margin-bottom: 56px;
+    }
+
+    @include AfterLaptop {
+      margin-bottom: 44px;
+    }
+  }
+    
+  &__top {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    display: none;
+    font-family: "Poppins-Bold", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 48px;
+
+    transition: text-shadow 0.3s;
+
+    @include AfterLaptop {
+      display: flex;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      text-shadow: 1px 1px 15px white;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -2px;
+      width: calc(100% - 3px);
+      height: 2px;
+      border-radius: 4px;
+      background-color: $colorBlue;
+    }
+  }
+
+  &__text {
+    display: flex;
+    font-family: "Poppins-Bold", sans-serif;
+    font-size: 13px;
+    margin: auto 0;
+    text-align: center;
+    letter-spacing: 3px;
+    min-width: max-content;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+
+    transition: text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 1px 1px 15px white;
+    }
+  }
+
+  &__slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 690px;
+    padding: 0 21px;
+    z-index: 5;
+      
+    @include OnLaptop {
+      padding: 0 40px;
+    }
+
+    @include OnDesctop {
+      padding: 0 78px;
+    }
+
+    @include AfterDesctop {
+      padding: 0 48px;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    padding-top: 242px;
+
+    @include AfterLaptop {
+      flex-direction: row;
+      padding-top: 564px;
+    }
+  }
+
+  &__scrolls {
+    display: flex;
+    margin: auto 0;
+    padding-bottom: 16px;
+
+    @include AfterLaptop {
+      padding-bottom: 0;
+      padding-right: 24px;
+    }
+  }
+
+  &__scroll {
+    @include ScrollSize;
+
+    background-color: #fff;
+    background-image: url(../images/slider/arrow_left_black.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    margin-right: 16px;
+
+    &:last-child {
+      background-image: url(../images/slider/arrow_right_black.svg);
+      margin-right: 0;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-family: "Poppins-bold", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    &-text {
+      font-family: "OpenSans-Regular", sans-serif;
+      font-size: 14px;
+      line-height: 140%;
+      color: #fff;
+    }
+  }
+}
