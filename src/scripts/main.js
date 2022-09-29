@@ -31,3 +31,9 @@ const rightBtn = document.getElementsByClassName('slider__link--right')[0];
 
 leftBtn.addEventListener('click', () => plusDivs(-1));
 rightBtn.addEventListener('click', () => plusDivs(1));
+
+const forButton = document.getElementById('form-button');
+
+forButton.addEventListener('click', function(e) {
+  e.preventDefault();
+});
