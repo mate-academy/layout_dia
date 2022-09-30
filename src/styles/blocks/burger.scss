@@ -1,0 +1,79 @@
+.burger {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      position: relative;
+      @include transition(all);
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        bottom: 0;
+      }
+    }
+
+    &.active span:nth-child(1) {
+      position: relative;
+      top: 50%;
+      transform: rotate(-45deg) translate(0, -50%);
+    }
+
+    &.active span:nth-child(2) {
+      position: relative;
+      bottom: 50%;
+      transform: rotate(45deg) translate(0, 50%);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $main-dark;
+    transform: translateY(-400%);
+    @include transition(transform);
+  }
+
+  &__menu.active {
+    transform: translateY(0);
+    overflow: auto;
+    z-index: 100;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 46px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .nav__link {
+      font-size: 20px;
+    }
+  }
+}

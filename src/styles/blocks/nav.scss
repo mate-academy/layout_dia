@@ -1,0 +1,111 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $nav-height;
+
+  @include smallerLarge {
+    padding-top: 20px;
+    height: auto;
+  }
+
+  &--mod-block {
+    @include mobile {
+      display: block;
+    }
+
+    @media(max-width: 767px) {
+      height: auto;
+    }
+  }
+
+  &--position-sticky {
+    position: sticky;
+  }
+
+  &__menu {
+    flex: 2 0 auto;
+
+    &--flex-0 {
+      flex: none;
+
+      @include mobile {
+        margin-top: 25px;
+      }
+
+      @include smallerLarge {
+        margin-top: 50px;
+      }
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @media(min-width: 992px) {
+      display: flex;
+      justify-content: center;
+    }
+
+    &--mod-display {
+      display: flex;
+
+      @include smallerLarge {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    @extend %PoppinsBold;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: 3px;
+    margin-right: 48px;
+    @include transition(color);
+
+    &:hover {
+      color: $main-blue;
+    }
+
+    &--margin-0 {
+      margin-right: 0;
+    }
+
+    &--color-mod:hover {
+      color: $main-pink;
+    }
+
+    &--decoration::after {
+      content: "";
+      width: 100%;
+      display: block;
+      height: 2px;
+      background-color: $main-blue;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    &--color-mod::after {
+      background-color: $main-pink;
+    }
+  }
+
+  &__li {
+    @include smallerLarge {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__li:last-child .nav__link {
+    margin-right: 0;
+  }
+
+  &__burger {
+    margin-left: 35px;
+  }
+}
