@@ -25,6 +25,10 @@
     white-space: owrap;
   }
 
+  &__slides-image {
+    transition: all 800ms cubic-bezier(0.77, 0, 0.17, 1);
+  }
+
   &__slides &__slides-image {
     width: 300%;
     line-height: 0;
@@ -49,18 +53,33 @@
     }
   }
 
-  #switch1:checked ~ &__controls &__controls-left &__controls-label:nth-child(3),
-  #switch2:checked ~ &__controls &__controls-left &__controls-label:nth-child(1),
-  #switch3:checked ~ &__controls &__controls-left &__controls-label:nth-child(2) {
+  &__controls-label {
+    transition: opacity 0.2s ease-out;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 6px;
+    background-color: #fff;
+
+    cursor: pointer;
+    display: block;
+  }
+
+  &__controls-label:hover {
+    opacity: 0.6;
+  }
+
+  #switch1:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(3),
+  #switch2:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(1),
+  #switch3:checked ~ &__#{$c} &__#{$c}-left &__#{$c}-label:nth-child(2) {
     background-image: url(../images/slider/arrow-left.svg);
     height: 32px;
     width: 32px;
     border-radius: 50%;
   }
 
-  #switch1:checked ~ &__controls &__controls-right &__controls-label:nth-child(2),
-  #switch2:checked ~ &__controls &__controls-right &__controls-label:nth-child(3),
-  #switch3:checked ~ &__controls &__controls-right &__controls-label:nth-child(1) {
+  #switch1:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(2),
+  #switch2:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(3),
+  #switch3:checked ~ &__#{$c} &__#{$c}-right &__#{$c}-label:nth-child(1) {
     background-image: url(../images/slider/arrow-right.svg);
     height: 32px;
     width: 32px;
@@ -99,25 +118,6 @@
 
   &__controls-left {
     margin-right: 16px;
-  }
-
-  &__slides-image {
-    transition: all 800ms cubic-bezier(0.77, 0.00, 0.17, 1.00);
-  }
-
-  &__controls-label:hover {
-    opacity: 0.6;
-  }
-
-  &__controls-label {
-    transition: opacity 0.2s ease-out;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 6px;
-    background-color: #fff;
-
-    cursor: pointer;
-    display: block;
   }
 
   &__text {
