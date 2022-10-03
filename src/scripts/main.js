@@ -32,8 +32,14 @@ const rightBtn = document.getElementsByClassName('slider__link--right')[0];
 leftBtn.addEventListener('click', () => plusDivs(-1));
 rightBtn.addEventListener('click', () => plusDivs(1));
 
-const forButton = document.getElementById('form-button');
+// const forButton = document.getElementById('form-button');
 
-forButton.addEventListener('click', function(e) {
-  e.preventDefault();
+const form = document.getElementById('form');
+
+form.addEventListener('submit', function handleSubmit(event) {
+  event.preventDefault();
+
+  form.reset();
+
+  window.location.href = '/';
 });
