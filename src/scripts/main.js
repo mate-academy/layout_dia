@@ -32,8 +32,6 @@ const rightBtn = document.getElementsByClassName('slider__link--right')[0];
 leftBtn.addEventListener('click', () => plusDivs(-1));
 rightBtn.addEventListener('click', () => plusDivs(1));
 
-// const forButton = document.getElementById('form-button');
-
 const form = document.getElementById('form');
 
 form.addEventListener('submit', function handleSubmit(event) {
@@ -41,5 +39,5 @@ form.addEventListener('submit', function handleSubmit(event) {
 
   form.reset();
 
-  window.location.href = '/';
+  window.location.href = window.location.host;
 });
