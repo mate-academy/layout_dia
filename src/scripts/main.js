@@ -39,5 +39,5 @@ form.addEventListener('submit', function handleSubmit(event) {
 
   form.reset();
 
-  window.location.href = window.location.host;
+  window.location.href = window.location.hostname;
 });
