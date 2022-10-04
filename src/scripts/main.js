@@ -35,9 +35,9 @@ rightBtn.addEventListener('click', () => plusDivs(1));
 const form = document.getElementById('form');
 
 form.addEventListener('submit', function handleSubmit(event) {
-  event.preventDefault();
-
   form.reset();
 
-  window.location.href = window.location.hostname;
+  window.location.replace(window.location.origin + window.location.pathname);
+
+  event.preventDefault();
 });
