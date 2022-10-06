@@ -11,6 +11,7 @@
   }
 
   &__content {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +34,66 @@
 
   &__nav-item:not(:last-child) {
     margin-right: 48px;
+  }
+
+  &__nav--small-screen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+
+    &:target {
+      background-color: rgba(44, 44, 44, 0.97);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @include on-tablet {
+      padding: 30px 40px;
+    }
+
+    @include on-mobile {
+      padding: 30px 20px;
+    }
+
+    @media (max-width: 320px) {
+      padding: 30px 20px;
+    }
+  }
+
+  &__nav-list--small-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__nav-item--small-screen {
+    margin-bottom: 20px;
+  }
+
+  &__nav-icon-cross {
+    display: block;
+    background-image: url(../images/icon-close.svg);
+    height: 24px;
+    width: 24px;
+    @include image-look;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: rgba(32, 96, 246, 0.3);
+      border-radius: 8px;
+    }
   }
 
   &__icon-container {

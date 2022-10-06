@@ -35,9 +35,21 @@ rightBtn.addEventListener('click', () => plusDivs(1));
 const form = document.getElementById('form');
 
 form.addEventListener('submit', function handleSubmit(event) {
+  event.preventDefault();
+
   form.reset();
 
-  window.location.replace(window.location.origin + window.location.pathname);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
+});
 
-  event.preventDefault();
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#nav-small-screen') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });
