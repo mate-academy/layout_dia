@@ -1,0 +1,45 @@
+.nav {
+  display: none;
+  @include onDesktop {
+    display: block;
+  }
+
+  &--footer {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &--footer {
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+      @include onTablet {
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      @include onDesktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__item {
+    list-style: none;
+    display: block;
+  }
+
+  &__link {
+    @extend .hire-us;
+    &::after {
+      background-color: transparent;
+    }
+    @include hoverPseudo(after, background-color, $c-lBlue);
+  }
+}
