@@ -1,0 +1,94 @@
+.slider {
+  height: 390px;
+  overflow: hidden;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include onNotebook {
+    height: calc(100% - 120px);
+  }
+
+  position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%);
+
+  @include onNotebook {
+    position: absolute;
+    left: initial;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    border-radius: 30px 0;
+  }
+
+  &--image {
+    background-image: url(../images/header-photo-tablet.jpg);
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 50%;
+    border-color: transparent;
+    cursor: pointer;
+
+    margin: 0;
+    position: absolute;
+
+    &--left {
+      left: 20px;
+      bottom: 108px;
+      margin-right: 16px;
+      background-image: url(../images/slider/slider-left.svg);
+      background-size: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &--right {
+      left: 68px;
+      bottom: 108px;
+      background-image: url(../images/slider/slider-right.svg);
+      background-size: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+
+    position: absolute;
+    left: 20px;
+    bottom: 72px;
+  }
+
+  &__paragraph {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+  }
+}
