@@ -1,0 +1,108 @@
+.page {
+  font-family: "Poppins", "Open Sans", sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    padding: 0;
+    margin: 0;
+    background-color: #e5e5e5;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin: 0 auto;
+    margin-bottom: 120px;
+
+    &--header {
+      @include onSmall-desktop {
+        margin-bottom: $section-interval-expectMobile;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: $section-interval-expectMobile;
+    }
+
+    &--testimonials {
+      @include onSmall-desktop {
+        margin-bottom: 186px;
+      }
+    }
+
+    &--our-expertise {
+      @include onSmall-desktop {
+        margin-bottom: calc(
+          #{$section-interval-expectMobile} + 0.5 * #{$card-service-height}
+        );
+      }
+    }
+
+    &--vision-passion-results {
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--contact {
+      background-color: $clolr-backgraund-black;
+      margin-bottom: 0;
+    }
+  }
+
+  &__top-menu {
+    margin: 0 auto;
+  }
+
+  &__header-content {
+    margin: 0 auto;
+  }
+
+  &__menu {
+    @include onMobile {
+      position: fixed;
+      top: 21px;
+      right: 0;
+      left: 0;
+
+      transform: translateX(100%);
+      transition: transform 0.3s;
+
+      &:target {
+        transform: translateX(0);
+
+      }
+    }
+  }
+
+  &__hidden-before1024px {
+    @include before-1024px {
+      height: 360px;
+      width: 100%;
+      background-color: $clolr-backgraund-black;
+    }
+  }
+
+  &__hidden-after1024px {
+    @include after-1024px {
+      position: absolute;
+      top: $hight-menu;
+      right: 0;
+      bottom: 0;
+      width: calc(
+        502px + (1167 - 502) * ((100vw - 1024px) / (2560 - 1024))
+      );
+      height: calc(100vh - #{$hight-menu});
+      min-height: 300px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $color-title;
+  }
+}
