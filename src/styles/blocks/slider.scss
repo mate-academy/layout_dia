@@ -1,0 +1,131 @@
+.slider {
+  display: flex;
+  width: 100%;
+  height: 390px;
+  box-sizing: content-box;
+  overflow-x: hidden;
+
+  @include onSmallDesktop() {
+    height: 680px;
+    max-width: 502px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  @include onDesktop() {
+    max-width: 600px;
+  }
+
+  @include onDesign() {
+    max-width: 687px;
+  }
+
+  @include onLargeScreen() {
+    max-width: 1167px;
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+    transition: transform $animationSpeed;
+
+    @include onSmallDesktop() {
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    bottom: 0;
+    margin-left: 20px;
+    margin-bottom: 24px;
+    width: 280px;
+
+    @include onTablet() {
+      margin-bottom: 32px;
+    }
+
+    @include onSmallDesktop() {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 78px;
+      margin-bottom: 48px;
+      width: 370px;
+    }
+
+    @include onDesign() {
+      margin-left: 48px;
+    }
+
+    &-clicker {
+      display: flex;
+      margin-bottom: 16px;
+
+      @include onSmallDesktop() {
+        margin-bottom: 0;
+      }
+
+      &-prev {
+        margin-right: 16px;
+        background-image: url(../images/slider/arrow-left.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &-next {
+        background-image: url(../images/slider/arrow-right.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include onSmallDesktop() {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+
+    &-title {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    &-text {
+      @include openSansFont;
+      line-height: 140%;
+      margin: 0;
+    }
+  }
+}
+
+.slide {
+  flex-direction: column;
+  align-content: flex-end;
+  flex-shrink: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+
+  &__first {
+    background-image: url(../images/header_images/header1.png);
+  }
+
+  &__second {
+    background-image: url(../images/header_images/header2.png);
+  }
+
+  &__third {
+    background-image: url(../images/header_images/header3.png);
+  }
+}
