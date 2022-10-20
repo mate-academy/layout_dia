@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 'use strict';
 
 window.addEventListener('hashchange', () => {
@@ -51,6 +50,4 @@ slider.addEventListener('click', (e) => {
   if (indexSlide <= 0) {
     slider.style.transform = `translateX(${indexSlide * 100}%)`;
   }
-
-  console.log(indexSlide);
 });
