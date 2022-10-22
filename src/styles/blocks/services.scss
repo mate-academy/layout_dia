@@ -1,0 +1,170 @@
+.services {
+  padding-top: 120px;
+
+  @include for-tablet {
+    padding-top: 148px;
+  }
+
+  &__content {
+    display: grid;
+
+    @include for-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 30px;
+    }
+
+    @include for-laptop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__description {
+    @include for-tablet {
+      grid-column: 1 / 2;
+    }
+
+    @include for-laptop {
+      grid-column: 1 / 5;
+      max-width: 362px;
+    }
+  }
+
+  &__soft-title {
+    @extend %poppins-bold;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-soft-title-grey;
+  }
+
+  &__title {
+    margin-top: 16px;
+    @extend %poppins-semibold;
+    font-size: 32px;
+    line-height: 130%;
+    color: $c-title-black;
+  }
+
+  &__text {
+    margin-top: 24px;
+    @extend %open-sans-reg;
+    font-size: 14px;
+    line-height: 150%;
+    color: $c-text-grey;
+  }
+
+  &__cards {
+    margin-top: 56px;
+    display: grid;
+    gap: 24px;
+
+    @include for-tablet {
+      margin-top: 56px;
+      grid-column: 1 / 3;
+
+      grid-template-areas: "card-1 card-3"
+        "card-2 card-4";
+      gap: 30px;
+    }
+
+    @include for-laptop {
+      margin-top: 16px;
+      grid-column: 7 / 13;
+      gap: 20px;
+    }
+
+    @include for-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    background-color: $c-main-white;
+
+    &--1 {
+      @include for-tablet {
+        grid-area: card-1;
+      }
+    }
+
+    &--2 {
+      @include for-tablet {
+        grid-area: card-2;
+      }
+    }
+
+    &--3 {
+      @include for-tablet {
+        grid-area: card-3;
+      }
+    }
+
+    &--4 {
+      @include for-tablet {
+        grid-area: card-4;
+      }
+    }
+
+    &--3,
+    &--4 {
+      @include for-tablet {
+        transform: translateY(-45%);
+      }
+    }
+  }
+
+  &__card-number {
+    @extend %poppins-semibold;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $c-main-blue;
+  }
+
+  &__card-text {
+    margin-top: 24px;
+    @extend %open-sans-semibold;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-text-grey;
+  }
+
+  &__btn {
+    display: inline;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $c-main-blue;
+    background-image: url(../images/right-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: $c-main-white;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__learn-more {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  &__learn-more-link {
+    @extend %poppins-semibold;
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-dark-grey;
+    text-decoration: none;
+  }
+}
