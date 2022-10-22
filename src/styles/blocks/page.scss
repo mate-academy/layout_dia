@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.page {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $c-lowGray;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: $c-liteGray;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+    }
+
+    &--withoutMargin {
+      margin-bottom: 0;
+    }
+
+    &--withoutMarginExMobile {
+      margin-bottom: 120px;
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--autoCenter {
+      @include onLargeScreen {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  &__section-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: $c-dBlue;
+  }
+
+}

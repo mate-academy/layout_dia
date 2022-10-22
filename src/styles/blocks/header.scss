@@ -1,0 +1,93 @@
+.header {
+  position: relative;
+  background-color: $c-darkBrown;
+  min-height: 893px;
+  height: 100vh;
+  border-radius: 0 0 30px 30px;
+
+  @include onDesktop {
+    max-height: 800px;
+  }
+
+  @include onLargeScreen {
+    max-width: 1600px;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding-top: $headerTopPadding;
+
+    @include onDesktop {
+      padding-top: 50px;
+    }
+  }
+
+  &__top {
+    @include top-action;
+  }
+}
+
+.hire-us {
+  @extend %title-link;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 97%;
+    background-color: $c-lBlue;
+    border-radius: 4px;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+  }
+
+  &--brown {
+    color: $c-darkBrown;
+  }
+}
+
+.bottom {
+  &__box {
+    @include onDesktop {
+      max-width: 362px;
+    }
+  }
+
+  &__title {
+    @extend %h-title;
+    line-height: 68px;
+    padding-bottom: 32px;
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  &__subtitle {
+    --pad-bot: 72px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    max-width: 362px;
+    padding-bottom: var(--pad-bot);
+
+    @include onTablet {
+      --pad-bot: 56px;
+    }
+
+    @include onDesktop {
+      --pad-bot: 96px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+}
