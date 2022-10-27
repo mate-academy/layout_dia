@@ -1,0 +1,91 @@
+.header {
+  background-color: #2c2c2c;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: relative;
+  min-height: 800px;
+
+  &__nav {
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px 0 0;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 45px 18px 1fr;
+    justify-items: right;
+    align-items: center;
+    column-gap: 35px;
+
+    @include onSmallDesktop {
+      grid-template-columns: 45px 10fr 1fr;
+    }
+  }
+
+  &__button {
+    
+  @include onTablet {
+    max-width: 264px;
+  }
+}
+
+  &__slider {
+    background-image: url(../images/slider/slide-img-1-phone.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    min-height: 300px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding: 0 20px;
+
+    animation: 
+    10s ease-in-out 0s infinite alternate slider;
+
+    @keyframes slider {
+      0% {
+        background-image: url(../images/slider/slide-img-1-phone.png);
+      }
+
+      50% {
+        background-image: url(../images/slider/slider_photo.png);
+      }
+
+      100%{
+        background-image: url(../images/slider/slider_photo2.png);
+      }
+    }
+
+    @include onTablet {
+      background-image: url(../images/slider/Photo640.png);
+      width: 100%;
+    }
+
+    @include onSmallDesktop {
+      background-image: url(../images/slider/Photo1024.png);
+      max-width: 50%;
+      height: 680px;
+    }
+
+    @include onDesign {
+      background-image: url(../images/slider/Photo1600.png);
+    }
+
+    @include onlargeScreens {
+      background-image: url(../images/slider/Photo2560.png);
+    }
+  }
+}
