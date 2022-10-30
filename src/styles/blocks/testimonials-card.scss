@@ -1,0 +1,125 @@
+.testimonials__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 87px 56px 0;
+  background-color: #fff;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  transition: 0.3s;
+
+  @media (max-width: 1024px) {
+    padding: 75px 48px 0;
+  }
+
+  @media (max-width: 450px) {
+    padding: 75px 42px 0;
+  }
+}
+
+.testimonials__image {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 82px;
+
+  @media (max-width: 450px) {
+    margin-bottom: 70px;
+  }
+
+  &::before,
+  &::after {
+    transition: 1s;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    background-color: $blue;
+    border-radius: 12px;
+    width: 139px;
+    height: 56px;
+    content: "";
+  }
+
+  &::before {
+    transform: rotate(-60deg);
+    left: -48px;
+  }
+
+  &::after {
+    transform: rotate(-60deg);
+    right: -48px;
+    bottom: 0;
+  }
+}
+
+.testimonials__img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+}
+
+.testimonials__quotes {
+  width: 21px;
+  height: 19px;
+  background-image: url(../images/quotes.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 1rem;
+
+  @media (max-width: 450px) {
+    margin-bottom: 10px;
+  }
+}
+
+.testimonials__text {
+  @include open-sans;
+  color: $text;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 150%;
+  margin-bottom: 1rem;
+}
+
+.testimonials__name {
+  @include open-sans;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 150%;
+  color: $title;
+  margin-bottom: 4px;
+}
+
+.testimonials__post {
+  @include title-alt;
+  margin-bottom: 2rem;
+}
+
+.testimonials__card:hover {
+
+  box-shadow: 0 9px 15px rgba(37, 41, 49, 0.33);
+
+  .testimonials__image::before {
+    transition: 1s;
+    transform: rotate(60deg);
+    left: 48px;
+    top: 0;
+  }
+
+  .testimonials__image::after {
+    transition: 1s;
+    transform: rotate(60deg);
+    right: 48px;
+    bottom: 0;
+  }
+
+  .testimonials__name {
+    font-size: 16px;
+    line-height: 19.5px;
+    color: #fff;
+    text-shadow: 0 0 5px $blue, 0 0 2px #000;
+  }
+}

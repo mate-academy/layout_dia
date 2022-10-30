@@ -1,0 +1,98 @@
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  @include poppins;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 37px 0 0 20px;
+  height: 100vh;
+  width: 100%;
+  background-color: $darkgray;
+  transform: translateX(-100%);
+  transition: 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__logo {
+    margin-bottom: 50px;
+  }
+
+  .m-menu {
+    flex-direction: column;
+    justify-content: start;
+    width: 80%;
+
+    &__item {
+      justify-content: flex-start;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 50px;
+      }
+    }
+
+    &__link {
+      display: block;
+      position: relative;
+      white-space: nowrap;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 15px 0;
+
+      &::after {
+        @include link-pseudo;
+      }
+
+      &:hover {
+        &::after {
+          background-color: $blue;
+        }
+      }
+    }
+  }
+
+  .hire-us {
+    display: inline-block;
+    width: max-content;
+    position: relative;
+    color: #fff;
+    @include poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      @include link-pseudo;
+    }
+
+    &:hover {
+      &::after {
+        background-color: $blue;
+      }
+    }
+  }
+
+  &__close {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 50px;
+    top: 37px;
+    height: 24px;
+    width: 24px;
+    background-image: url(../images/cross.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
