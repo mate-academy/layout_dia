@@ -1,0 +1,82 @@
+.header {
+  box-sizing: border-box;
+  background-color: #2c2c2c;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    height: $headerHeight;
+
+    @include onDesktop {
+      height: $headerHeightDesktop;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 2;
+    margin-right: 35px;
+  }
+
+  &__menu {
+    grid-column: 2 / 12;
+    justify-self: start;
+
+    @include onDesktop {
+      justify-self: center;
+    }
+  }
+
+  &__icon {
+    @include onDesktop {
+      opacity: 0;
+    }
+  }
+
+  &__hire-us {
+    grid-column: 12 / 13;
+  }
+
+  &__link {
+    display: block;
+    width: max-content;
+    color: #fff;
+    text-decoration: none;
+    font-family: $secondFont;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: color $transformTime;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $blueColor;
+      margin-top: 8px;
+      transition: margin-top $transformTime;
+    }
+
+    &:hover::after {
+      margin-top: 6px;
+    }
+    &:hover {
+      color: $blueColor;
+    }
+  }
+
+  &__nav {
+    display: none;
+  
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    gap: 48px;
+  }
+}
