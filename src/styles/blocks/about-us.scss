@@ -1,0 +1,90 @@
+.about-us {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 72px 0;
+
+  @include onTablet {
+    padding: 128px 0;
+  }
+
+  &__content {
+    @include onNotebook {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: min-content;
+      column-gap: 137px;
+    }
+
+    @include onDesign {
+      column-gap: 177px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 56px;
+
+      @include onNotebook {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__card--left {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  &__card--center {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  &__card--right {
+    grid-row: 2;
+    grid-column: 3;
+  }
+
+  &__title {
+    @extend %h2;
+    text-align: center;
+    margin-bottom: 56px;
+
+    @include onNotebook {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__photo {
+    $width-photo: 184px;
+
+    width: $width-photo;
+    height: 166px;
+    border-radius: 30px;
+    margin: 0 calc(50% - (#{$width-photo} / 2)) 32px;
+    transition: $animations-during;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    text-decoration: none;
+    margin-bottom: 16px;
+  }
+
+  &__phrase {
+    @extend %phrase1;
+    text-align: center;
+
+    @include onTablet {
+      max-width: 362px;
+    }
+  }
+}
