@@ -1,0 +1,39 @@
+$colors:
+'red' #F36363,
+'green'#15D850,
+'blue' #56CCF2,
+'yellow' #FCC91D;
+
+@each $name, $color in $colors {
+  .block__#{$name} {
+    &:hover {
+      .block__number {
+          color: $color;
+      }
+    }
+  }
+}
+
+$images:
+'red' url(../images/slider/Arrow.red.svg),
+'green' url(../images/slider/Arrow.green.svg),
+'blue' url(../images/slider/Arrow.blue.svg),
+'yellow' url(../images/slider/Arrow.yellow.svg);
+
+@each $image, $color in $images {
+  .block__#{$image} {
+    &:hover {
+      .block__link {
+        &::before {
+          content: "";
+          display: inline-block;
+          background-image: $color;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
