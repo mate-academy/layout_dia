@@ -1,0 +1,81 @@
+.nav {
+  display: flex;
+}
+
+.menu {
+  height: 500px;
+  padding: 15px 0;
+  background-color: $colorBackgroundThird;
+  z-index: 1;
+
+  & > :not(:last-child) {
+    margin-bottom: 14px;
+  }
+
+  @include onSmallDesktop {
+    display: flex;
+    height: max-content;
+    margin-right: 114px;
+    padding: 0;
+    background-color: transparent;
+
+    & > :not(:last-child) {
+      margin-right: 48px;
+      margin-bottom: 0;
+    }
+  }
+
+  @include onDesktop {
+    margin-right: 229px;
+  }
+
+  &__link {
+    display: flex;
+    width: max-content;
+    padding-bottom: 8px;
+
+    font-family: $fontSecondary;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorSecondary;
+    text-decoration: none;
+
+    border-bottom: 2px solid transparent;
+    border-radius: 4px;
+
+    @include hover(border-color, $colorBackgroundFourth);
+
+    &--active {
+      border-color: $colorBackgroundFourth;
+    }
+
+    @include onSmallDesktop {
+      padding-top: 10px;
+    }
+  }
+
+  &--footer {
+    height: max-content;
+    padding: 0;
+
+    @include onTablet {
+      display: flex;
+
+      & > :not(:last-child) {
+        margin-right: 40px;
+        margin-bottom: 0;
+      }
+    }
+
+    @include onSmallDesktop {
+      margin-right: 0;
+      
+      & > :not(:last-child) {
+        margin-right: 64px;
+      }
+    }
+  }
+}
