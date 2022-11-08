@@ -14,6 +14,8 @@ form.addEventListener('submit', preventPost);
 
 function preventPost(event) {
   event.preventDefault();
+
+  form.reset();
 }
 
 window.addEventListener('click', (event) => {
