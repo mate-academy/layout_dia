@@ -6,9 +6,40 @@
   line-height: 150%;
   color: #6c788b;
   scroll-behavior: smooth;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+  border-bottom: 2px solid $colorBlue;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
   &__body {
     margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(+100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
   }
 
   &__section {
