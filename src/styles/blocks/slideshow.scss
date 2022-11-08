@@ -1,0 +1,93 @@
+
+.slideshow {
+
+  &-tooltip {
+    display: flex;
+
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    height: calc(100vh - 120px);
+
+    box-sizing: border-box;
+    padding: 48px;
+    overflow: hidden;
+
+    border-radius: 16px 0 16px 0;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      border-radius: 32px;
+      height: 60vh;
+    }
+
+    @include onMobile {
+      height: 50vh;
+    }
+
+    &--1 {
+      background-image: url(../images/header_cover.svg);
+    }
+  }
+
+  &-controls {
+    display: flex;
+    align-self: center;
+    margin-right: 24px;
+
+    @include onTablet {
+      align-self: flex-start;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+    background-color: $mainColor;
+
+    cursor: pointer;
+
+    @include hover(background-color, #ddd);
+
+    & + & {
+      margin-left: 16px;
+    }
+  }
+
+  &-title {
+    margin: 0;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &-desc {
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
