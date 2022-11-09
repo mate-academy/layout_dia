@@ -2,16 +2,15 @@
   --slider-height: 390px;
   --slider-button-size: 32px;
 
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-
   &__image-container {
     position: relative;
     overflow: hidden;
     min-height: var(--slider-height);
     max-height: var(--slider-height);
+
+    @include onSmallDesktop {
+      --slider-height: 680px;
+    }
 
     &::after {
       content: "";
@@ -29,6 +28,11 @@
     object-fit: cover;
     object-position: center;
     border-radius: 30px;
+
+    @include onSmallDesktop {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 
   &__bottom {
@@ -36,19 +40,39 @@
     bottom: 20px;
     left: 20px;
     z-index: 1;
+
+    @include onTablet {
+      left: 42px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      display: flex;
+      align-items: center;
+      left: 48px;
+      bottom: 48px;
+      gap: 24px;
+    }
   }
 
   &__button-container {
     display: flex;
+    width: max-content;
     gap: 16px;
     margin-bottom: 16px;
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+    }
   }
 
   &__button {
+    border: 1px solid transparent;
     position: relative;
     display: block;
     height: var(--slider-button-size);
     width: var(--slider-button-size);
+    outline: none;
 
     background-color: white;
     border-radius: 50%;
@@ -57,10 +81,18 @@
       position: absolute;
       display: block;
       content: "";
-      top: 11px;
-      left: 13px;
+      top: 10px;
+      left: 12px;
       width: 6px;
       height: 10px;
+    }
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+
+    &:focus {
+      border-color: $linkColor;
     }
 
     &--prev::after {
@@ -84,7 +116,7 @@
   }
 
   &__description {
-    font-family: 'Open Sans';
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

@@ -5,48 +5,36 @@
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 
+  @include onSmallDesktop {
+    height: 800px;
+  }
+
   &__top {
-    display: flex;
-    align-items: center;
-    padding: 20px 0 48px;
-    justify-content: space-between;
+    @include topActions;
   }
 
   &__top-left {
     display: flex;
     align-items: flex-end;
     gap: 32px;
+
+    @include onSmallDesktop {
+      align-items: center;
+    }
   }
 
-  &__checkbox {
+  &__list {
     display: none;
-  }
+    gap: 48px;
 
-  &__burger {
-    padding: 3px;
-  }
-
-  &__burger::before {
-    display: block;
-    width: $burgerSize;
-    height: $burgerSize;
-
-    content: "";
-
-    background-image: url(../images/burger.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-  }
-
-  &__checkbox:checked ~ &__burger {
-    background-image: none;
-    background-color: salmon;
+    @include onSmallDesktop {
+      display: flex;
+    }
   }
 
   &__link {
     position: relative;
-    padding-bottom: 8px;
+    padding: 10px 0;
 
     color: white;
 
@@ -57,7 +45,7 @@
     text-transform: uppercase;
   }
 
-  &__link::after {
+  &__link--underscore::after {
     position: absolute;
     bottom: 0;
     display: block;
@@ -69,12 +57,21 @@
   }
 
   &__title {
+    padding-bottom: 32px;
+
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;
 
-    padding-bottom: 32px;
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onSmallDesktop {
+      max-width: 292px;
+    }
   }
 
   &__description {
@@ -84,9 +81,35 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+    max-width: 360px;
   }
 
   &__button {
-    margin-bottom: 47px;
+    max-width: 280px;
+
+    @include onTablet {
+      max-width: 50%;
+    }
+
+    @include onSmallDesktop {
+      max-width: 264px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    @include onSmallDesktop {
+      right: 0;
+      bottom: 0;
+      left: 50%;
+    }
+
+    @include onDesktopDesign {
+      left: 56%;
+    }
   }
 }
