@@ -1,0 +1,89 @@
+.menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: $color-grey;
+  height: 100vh;
+  padding: $shift-mobile;
+  transform: translateY(-100%);
+  transition-duration: 1s;
+  
+  &:target {
+    transition-duration: 1s;
+    transform: translateY(0%);
+  
+    @include tablet {
+      padding: $shift-tablet;
+    }
+  
+    @include smallDesktop {
+      display: none;
+      padding: $shift-small-desktop;
+    }
+  }
+  
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  &__list {
+    list-style: none;
+    margin-top: 50px;
+  
+    &--footer {
+      padding-bottom: 80px;
+  
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+    }
+  }
+  
+  &__item {
+    padding: 10px 0;
+  }
+  
+  &__link {
+    text-transform: uppercase;
+    @extend %poppins;
+    font-weight: 500;
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    transition: color 300ms;
+  
+    &:hover {
+      color: $color-blue;
+    }
+  }
+  
+  &--footer {
+    padding: $shift-mobile;
+    height: max-content;
+    transform: padding 0s;
+    transition-duration: 0s;
+  
+    @include tablet {
+      padding: $shift-tablet 0;
+    }
+  
+    @include smallDesktop {
+      padding: $shift-small-desktop 0;
+    }
+  
+    @include desktop {
+      padding: $shift-desktop 0;
+    }
+  
+    @include bigDesktop {
+      padding: $shif-big-desktop 0;
+    }
+  }
+}
