@@ -34,10 +34,16 @@
 
     &:target {
       transform: translateX(0);
+      .page__body:has(&) {
+        overflow: hidden;
+      }
     }
 
-    &:target > .nav-close{
+
+    &:target > .nav-close {
       display: flex;
+
+      margin-top: 14px;
     }
 
     @include onTablet {
@@ -46,11 +52,18 @@
       left: 0;
       width: 100vw;
       height: 100vh;
+      margin: 0;
       padding: 16vh 16px;
       flex-direction: column;
 
       transform: translateX(-300%);
       background-color: $headerBackground;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      margin-left: 48px;
     }
   }
 
@@ -62,11 +75,6 @@
     }
   }
 
-  &__item {
-    @include onTablet {
-      margin-left: 48px;
-    }
-  }
   &__link {
     color: $headerMainColor;
     font-weight: 500;
