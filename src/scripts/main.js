@@ -8,7 +8,8 @@ window.addEventListener('load', () => {
     window.location.href = window.location.origin;
   });
 
-  const slideshowItem = document.getElementsByClassName('slideshow__item')[0];
+  const slideshowItem = document
+    .getElementsByClassName('slideshow__item')[0];
   const slideshowLeft = document.getElementById('slideshow_left');
   const slideshowRight = document.getElementById('slideshow_right');
 
@@ -26,7 +27,8 @@ window.addEventListener('load', () => {
 
     slideshowItem.classList.remove(currentClass);
 
-    const newClass = currentClass.substring(0, currentClass.length - 1) + newOrder.toString();
+    const newClass = currentClass
+      .substring(0, currentClass.length - 1) + newOrder.toString();
 
     slideshowItem.classList.add(newClass);
   };
