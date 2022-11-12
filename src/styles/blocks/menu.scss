@@ -1,32 +1,49 @@
-.nav {
-  display: flex;
-}
-
 .menu {
-  height: 500px;
-  padding: 15px 0;
-  background-color: $colorBackgroundThird;
-  z-index: 1;
+  display: flex;
 
-  & > :not(:last-child) {
-    margin-bottom: 14px;
-  }
+  &__nav {
+    --paddingSize: 20px;
 
-  @include onSmallDesktop {
-    display: flex;
-    height: max-content;
-    margin-right: 114px;
-    padding: 0;
-    background-color: transparent;
+    position: absolute;
+    top: 100%;
+    left: var(--paddingSize);
+    right: 0;
 
-    & > :not(:last-child) {
-      margin-right: 48px;
-      margin-bottom: 0;
+    transform: translateX(calc(-100% - var(--paddingSize)));
+    transition: transform 0.3s;
+
+    &--active {
+      transform: translateX(0);
     }
-  }
 
-  @include onDesktop {
-    margin-right: 229px;
+    height: 500px;
+    padding: 15px 0;
+    background-color: $colorBackgroundThird;
+    z-index: 1;
+
+    @include onTablet {
+      --paddingSize: 41px;
+    }
+
+    @include onSmallDesktop {
+      position: static;
+      transform: translateX(0);
+
+      display: flex;
+      height: max-content;
+      margin-right: 114px;
+      padding: 0;
+      background-color: transparent;
+
+      & > :not(:last-child) {
+        margin-right: 48px;
+        margin-bottom: 0;
+      }
+    }
+
+    @include onDesktop {
+      margin-right: 229px;
+    }
   }
 
   &__link {
@@ -46,6 +63,10 @@
     border-bottom: 2px solid transparent;
     border-radius: 4px;
 
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+
     @include hover(border-color, $colorBackgroundFourth);
 
     &--active {
@@ -54,12 +75,15 @@
 
     @include onSmallDesktop {
       padding-top: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
     }
   }
 
   &--footer {
-    height: max-content;
-    padding: 0;
+    display: inline-block;
 
     @include onTablet {
       display: flex;
@@ -72,7 +96,7 @@
 
     @include onSmallDesktop {
       margin-right: 0;
-      
+
       & > :not(:last-child) {
         margin-right: 64px;
       }
