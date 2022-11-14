@@ -1,11 +1,7 @@
 'use strict';
 
+// Open and close menu
 const page = document.querySelector('.page');
-const sliderImages = document.querySelectorAll('.header__slider-img');
-const imageWidth = sliderImages[0].getBoundingClientRect().width;
-const lowerThird = document.querySelector('.header__lower-third-container');
-const sliderLeftBtn = document.querySelector('.header__slider-button--left');
-const sliderRightBtn = document.querySelector('.header__slider-button--right');
 const nav = document.querySelector('.nav');
 const menuOpener = document.querySelector('.header__menu-opener');
 
@@ -20,6 +16,12 @@ menuOpener.addEventListener('click', () => {
 });
 
 // Slider
+const sliderImages = document.querySelectorAll('.header__slider-img');
+const imageWidth = sliderImages[0].getBoundingClientRect().width;
+const sliderLeftBtn = document.querySelector('.header__slider-button--left');
+const sliderRightBtn = document.querySelector('.header__slider-button--right');
+
+// Get transform value
 function getTranslateX(el) {
   const style = window.getComputedStyle(el);
   const matrix = new window.DOMMatrixReadOnly(style.transform);
@@ -27,6 +29,7 @@ function getTranslateX(el) {
   return matrix.m41;
 };
 
+// Left Slider Button Event
 sliderLeftBtn.addEventListener('click', () => {
   sliderImages.forEach((img) => {
     const translateX = getTranslateX(img);
@@ -39,6 +42,7 @@ sliderLeftBtn.addEventListener('click', () => {
   });
 });
 
+// Right Slider Button Event
 sliderRightBtn.addEventListener('click', () => {
   sliderImages.forEach((img) => {
     const translateX = getTranslateX(img);
@@ -50,6 +54,3 @@ sliderRightBtn.addEventListener('click', () => {
     }
   });
 });
-
-// lowerThird Positioning
-lowerThird.style.top = `${imageWidth - 135}px`;
