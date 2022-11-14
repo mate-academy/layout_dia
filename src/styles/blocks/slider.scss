@@ -2,20 +2,46 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  min-width: 100%;
+  width: 100%;
   height: 390px;
   color: $colorSecondary;
   z-index: 2;
 
   @include onSmallDesktop {
-    --widthSmallDesktop: 1024px;
-    --widthSlider: 502px;
-
-    min-width: var(--widthSlider);
-    max-width: 687px;
     height: 680px;
+  }
 
-    margin-left: calc(var(--widthSmallDesktop) - var(--widthSlider));
+  &__item {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    height: 390px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+    @include onSmallDesktop {
+      --widthSmallDesktop: 1024px;
+      --widthSlider: 502px;
+
+      min-width: var(--widthSlider);
+      max-width: 687px;
+      height: 680px;
+
+      margin-left: calc(var(--widthSmallDesktop) - var(--widthSlider));
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   &__image {
@@ -37,6 +63,7 @@
     position: absolute;
     left: 20px;
     bottom: 24px;
+    width: max-content;
 
     @include onTablet {
       left: 41px;
@@ -57,6 +84,27 @@
     @include onDesktop {
       left: 48px;
     }
+  }
+
+  &__content {
+    width: 230px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-family: $fontSecondary;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
   }
 
   &__buttons {
@@ -81,7 +129,12 @@
     background-repeat: no-repeat;
     background-color: $colorBackgroundSecondary;
     border-radius: 50%;
+    border: 0;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &__button-right {
@@ -93,27 +146,11 @@
     background-repeat: no-repeat;
     background-color: $colorBackgroundSecondary;
     border-radius: 50%;
+    border: 0;
     cursor: pointer;
-  }
 
-  &__content {
-    width: 230px;
-  }
-
-  &__title {
-    margin-bottom: 8px;
-
-    font-family: $fontSecondary;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  &__description {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }

@@ -8,12 +8,14 @@ const form = document.querySelector('.contact-form__form');
 
 form.addEventListener('submit', buttonClick, false);
 
-function buttonClick(event) {
-  event.preventDefault();
+function buttonClick(evt) {
+  evt.preventDefault();
   form.reset();
 };
 
-header.addEventListener('click', (evt) => {
+header.addEventListener('click', menu, false);
+
+function menu(evt) {
   if (evt.target.className === 'icon-menu'
       || evt.target.className === 'icon-menu icon-menu--active') {
     menuNav.classList.toggle('menu__nav--active');
@@ -25,4 +27,44 @@ header.addEventListener('click', (evt) => {
     menuNav.classList.remove('menu__nav--active');
     menuIcon.classList.remove('icon-menu--active');
   }
-});
+}
+
+const slider = document.querySelector('.slider');
+const slides = document.getElementsByClassName('slider__item');
+let slideIndex = 1;
+
+slider.addEventListener('click', buttonSlide, false);
+
+function buttonSlide(evt) {
+  if (evt.target.className === 'slider__button-left') {
+    plusSlides(-1);
+  }
+
+  if (evt.target.className === 'slider__button-right') {
+    plusSlides(1);
+  }
+}
+
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let i;
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  slides[slideIndex - 1].style.display = 'block';
+}
