@@ -1,0 +1,77 @@
+.menu {
+  overflow-y: auto;
+
+  &--footer {
+    overflow-y: visible;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &--head {
+      height: 30px;
+    }
+  }
+
+  &__item {
+    margin-right: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--footer {
+      margin-bottom: 24px;
+      margin-right: 0;
+    
+      @include onTablet {
+        margin-bottom: 0;
+        margin-right: 40px;
+      }
+
+      @include onDesktop {
+        margin-right: 64px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    @extend %link-menu;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s;
+
+    &:hover {
+      border-bottom: 2px solid $mainBlueColor;
+    }
+  }
+
+  &__logo-icon {
+    margin-bottom: 50px;
+  }
+
+  &__icon-cross {
+    @include block(18px);
+    background-image: url("/images/cross.svg");
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+    padding-top: 50px;
+  }
+
+  &__item-tablet {
+    margin-bottom: 24px;
+  }
+}

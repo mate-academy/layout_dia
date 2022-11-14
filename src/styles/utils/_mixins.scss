@@ -1,6 +1,67 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktopMax {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin block($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin photo-container($index) {
+  width: 210px * $index;
+  height: 240px * $index;
+  padding: 50px * $index 35px * $index;
+  
+  &:before {
+    @include blue-frame (-50px, $index);
+  }
+
+  &::after {
+    @include blue-frame (50px, $index);
+  }
+}
+
+@mixin blue-frame ($translate, $index) {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 139px * $index;
+  height: 56px * $index;
+
+  background: $mainBlueColor;
+  border-radius: 12px;
+  transform: translate($translate * $index, $translate * $index) rotate(-60deg);
+  z-index: -1;
+}
+
+@mixin grid-item($screen, $grid-columns) {
+  @for $start from 1 through $grid-columns {
+    @for $end from 1 through $grid-columns {
+      &--#{$screen}-#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
   }
 }

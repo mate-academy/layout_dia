@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  transition: all 0.5s;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesktopMax {
+    gap: 30px;
+  }
+
+  &__desktop {
+    display: none;
+  }
+
+  &__item {
+    min-width: 264px;
+    margin: 0 auto;
+    transition: all 0.5s;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    @include onTablet {
+      min-width: 100%;
+      @include grid-item("tablet", 6);
+    }
+
+    @include onDesktop {
+      @include grid-item("desktop", 12);
+    }
+  }
+}

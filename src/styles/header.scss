@@ -1,0 +1,100 @@
+.header {
+  position: relative;
+  height: 890px;
+  background-color: $headerBGColor;
+
+  @include onDesktop {
+    height: 800px;
+  }
+
+  &__container {
+    max-width: 1254px;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 40px;
+    }
+
+    @include onDesktop {
+      height: 800px;
+      padding: 0 55px;
+    }
+  }
+
+  &__icon-menu {
+    background-image: url("/images/menu.svg");
+    background-size: 18px 8px;
+    width: 28px;
+    height: 18px;
+    padding: 5px;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url("/images/menu_hover.svg");
+      background-position: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-top: 50px;
+  }
+
+  &__hire-us {
+    position: relative;
+    @extend %link-menu;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: "";
+
+      border-radius: 4px;
+      height: 2px;
+      background: $mainBlueColor;
+    }
+
+    &:hover {
+      color: $mainBlueColor;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__main {
+    overflow: hidden;
+    display: flex;
+    height: 680px;
+  }
+
+  &__photo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px 0;
+    height: 390px;
+
+    @include onDesktop {
+      left: 55vw;
+      height: 680px;
+    }
+  }
+}
