@@ -1,7 +1,69 @@
 .nav {
-  display: none;
+  // display: none;
+
+  &--open {
+    display: flex;
+  }
+
+  &--open &__list {
+    transform: translateX(0);
+  }
 
   &__list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding-left: 20px;
+
+    width: 100%;
+    height: calc(100vh - 59px);
+
+    background-color: $clr-dark;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.3s ease-in-out;
+
+  }
+
+  &__link {
+    position: relative;
+
+    font-family: $ff-alternate;
+    font-weight: $fw-bold;
+    font-size: $fs-xxs;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $clr-natural;
+
+    transition: color 0.3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background-color: $clr-accent;
+
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: $clr-light;
+
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
