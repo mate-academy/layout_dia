@@ -37,7 +37,6 @@
     }
   }
   &__name {
-    @extend %title;
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
@@ -56,6 +55,7 @@
 
   &__text {
     margin-top: 24px;
+    @extend %text;
     font-size: 14px;
     line-height: 150%;
     color: $grey-text;
@@ -113,9 +113,7 @@
 
   &__number {
     display: inline-block;
-    // width: 46px;
     padding: 2px 12px;
-    @extend %title;
     font-size: 13px;
     text-transform: uppercase;
     color: $blue;
@@ -137,6 +135,13 @@
     gap: 16px;
     margin-top: 32px;
 
+    &-link {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      text-decoration: none;
+    }
+
     &-button {
       display: flex;
       justify-content: center;
@@ -146,16 +151,15 @@
       width: 40px;
       height: 40px;
       border-color: transparent;
-
-    }
-
-    &-link {
-      @include madeIcon (16px);
-      background-size: contain;
+      cursor: pointer;
       background-image: url(../images/arrow.svg);
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     &-text {
+      @extend %text;
       font-weight: 600;
       font-size: 15px;
       line-height: 22px;
