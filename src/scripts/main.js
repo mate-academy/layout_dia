@@ -30,32 +30,70 @@ function getTranslateX(el) {
   return matrix.m41;
 };
 
-// Left Slider Button Event
-sliderLeftBtn.addEventListener('click', () => {
-  sliderImages.forEach((img) => {
-    const translateX = getTranslateX(img);
+const screenWidth = window.innerWidth;
 
-    if (translateX === (2 * imageWidth)) {
-      img.style.transform = `translateX(0)`;
-    } else {
-      img.style.transform = `translateX(${translateX + imageWidth}px)`;
-    }
+// Left Slider Button Event
+if (screenWidth < 1024) {
+  sliderLeftBtn.addEventListener('click', () => {
+    sliderImages.forEach((img) => {
+      const translateX = getTranslateX(img);
+
+      if (translateX === (2 * imageWidth)) {
+        img.style.transform = `translateX(0)`;
+      } else {
+        img.style.transform = `translateX(${translateX + imageWidth}px)`;
+      }
+    });
   });
-});
+} else {
+  sliderLeftBtn.addEventListener('click', () => {
+    sliderImages.forEach((img) => {
+      const translateX = getTranslateX(img);
+
+      if (translateX === (2 * imageWidth)) {
+        img.style.transform = `translateX(100%)`;
+      } else {
+        img.style.transform = `translateX(${translateX + imageWidth}px)`;
+      }
+    });
+  });
+}
 
 // Right Slider Button Event
-sliderRightBtn.addEventListener('click', () => {
-  sliderImages.forEach((img) => {
-    const translateX = getTranslateX(img);
+if (screenWidth < 1024) {
+  sliderRightBtn.addEventListener('click', () => {
+    sliderImages.forEach((img) => {
+      const translateX = getTranslateX(img);
 
-    if (translateX === -1 * (2 * imageWidth)) {
-      img.style.transform = `translateX(0)`;
-    } else {
-      img.style.transform = `translateX(${translateX - imageWidth}px)`;
-    }
+      if (translateX === -1 * (2 * imageWidth)) {
+        img.style.transform = `translateX(0)`;
+      } else {
+        img.style.transform = `translateX(${translateX - imageWidth}px)`;
+      }
+    });
   });
-});
+} else {
+  sliderRightBtn.addEventListener('click', () => {
+    sliderImages.forEach((img) => {
+      const translateX = getTranslateX(img);
+
+      if (translateX === (2 * imageWidth)) {
+        img.style.transform = `translateX(100%)`;
+      } else {
+        if (translateX - imageWidth <= 0) {
+          img.style.transform = `translateX(${translateX + imageWidth}px)`;
+        } else {
+          img.style.transform = `translateX(${translateX - imageWidth}px)`;
+        }
+      }
+    });
+  });
+}
 
 const lowerThird = document.querySelector('.header__lower-third-container');
 
-lowerThird.style.top = `${(imageHeight * 0.6)}px`;
+if (screenWidth < 1024) {
+  lowerThird.style.top = `${(imageHeight * 0.6)}px`;
+} else {
+  lowerThird.style.top = `${(imageHeight * 0.75)}px`;
+}
