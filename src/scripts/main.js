@@ -90,6 +90,7 @@ if (screenWidth < 1024) {
   });
 }
 
+// LowerThird Positioning
 const lowerThird = document.querySelector('.header__lower-third-container');
 
 if (screenWidth < 1024) {
@@ -97,3 +98,8 @@ if (screenWidth < 1024) {
 } else {
   lowerThird.style.top = `${(imageHeight * 0.75)}px`;
 }
+
+// Refresh page on resize
+window.addEventListener('resize', () => {
+  window.location.reload();
+});
