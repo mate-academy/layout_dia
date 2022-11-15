@@ -28,5 +28,5 @@ function changeSlide(moveTo) {
   slides[currentSlide].classList.toggle('header__slider-images--active');
   slides[theMove].classList.toggle('header__slider-images--active');
 
-  currentSlide = moveTo;
+  currentSlide = theMove;
 }
