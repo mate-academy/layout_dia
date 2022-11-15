@@ -16,8 +16,9 @@ menuOpener.addEventListener('click', () => {
 });
 
 // Slider
-const sliderImages = document.querySelectorAll('.header__slider-img');
+const sliderImages = document.querySelectorAll('.header__slider-item');
 const imageWidth = sliderImages[0].getBoundingClientRect().width;
+const imageHeight = sliderImages[0].getBoundingClientRect().height;
 const sliderLeftBtn = document.querySelector('.header__slider-button--left');
 const sliderRightBtn = document.querySelector('.header__slider-button--right');
 
@@ -54,3 +55,7 @@ sliderRightBtn.addEventListener('click', () => {
     }
   });
 });
+
+const lowerThird = document.querySelector('.header__lower-third-container');
+
+lowerThird.style.top = `${(imageHeight * 0.6)}px`;
