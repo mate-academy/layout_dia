@@ -3,7 +3,7 @@
 const element = document.getElementById('message');
 
 element.addEventListener('keyup', e => {
-  const scHeight = e.target.scrollHeight;
+  const scHeight = Math.max(40, e.target.scrollHeight);
 
   element.style.height = `${scHeight}px`;
 });
@@ -14,6 +14,8 @@ const nameInput = document.getElementById('name');
 const textareaInput = document.getElementById('message');
 
 sendButton.addEventListener('click', (event) => {
+  event.preventDefault();
+
   if (nameInput.value.trim() === '') {
     nameInput.value = '';
   }
@@ -25,9 +27,9 @@ sendButton.addEventListener('click', (event) => {
   if (emailInput.value.trim().length > 0
     && nameInput.value.trim().length > 0
     && textareaInput.value.trim().length > 0) {
-    window.scrollTo(0, 0);
     emailInput.value = '';
     nameInput.value = '';
     textareaInput.value = '';
+    textareaInput.style.height = '40px';
   }
 });

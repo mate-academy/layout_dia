@@ -15,7 +15,7 @@
 ~~10. The user must have the opportunity to conveniently write 2-3 lines of text in the message input field~~
 ~~11. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded~~
 ~~12. The form shouldn’t submit empty~~
-~~13. After autocomplete the form, change the [default styles](http://joxi.ru/EA4xgG8HXwL4lA). Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)~~
+~~13. After autocomplete the form, change the [default styles](http://joxi.ru/EA4xgG8HXwL4lA). Read more about [changing autocomplete styles](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/)~
 ~~14. OPTIONAL: After everything is done, you can implement the slider in the first section~~
 
 ## HR review
