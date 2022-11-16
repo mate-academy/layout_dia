@@ -6,12 +6,33 @@
 
   border-radius: 30px;
 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(../images/slider/Photo.jpg);
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   color: $c-white;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform $time-transition;
+
+    &--center {
+      position: absolute;
+    }
+
+    &--to-left {
+      position: absolute;
+      transform: translate(-100%);
+    }
+
+    &--to-right {
+      position: absolute;
+      transform: translate(100%);
+    }
+  }
 
   &--absolute {
     @include onSmallDesktop {
@@ -66,6 +87,10 @@
     &:hover {
       transform: scale(1.15);
     }
+
+    &:active {
+      transform: scale(0.95);
+    }
   }
 
   &__intro {
@@ -77,9 +102,11 @@
     line-height: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-shadow: 0 0 2px #000;
   }
 
   &__paragraph {
     line-height: 140%;
+    text-shadow: 0 0 2px #000;
   }
 }
