@@ -76,6 +76,7 @@
     border-radius: 16px;
     background-color: $clr-natural;
 
+
     padding: 32px;
 
     &--transform {
@@ -121,14 +122,23 @@
   &__card-link {
     background-color: $clr-accent;
 
+    border: 2px solid $clr-accent;
     border-radius: 50%;
     padding: 8px 12px;
     margin-right: 16px;
 
-    transition: background-color 0.3s ease;
+    cursor: pointer;
 
+    transition:
+        background-color 0.2s cubic-bezier(.91,-0.01,1,.45),
+        box-shadow 0.2s cubic-bezier(.91,-0.01,1,.45);
     &:hover {
-      background-color: lighten($clr-accent, $amount: 20%);
+      background-color: $clr-natural;
+      box-shadow: 10px 10px 29px -18px lighten($clr-dark, 40%);
+    }
+
+    &:hover .services__card-arrow {
+      filter: none;
     }
   }
 
@@ -136,7 +146,9 @@
     width: 16px;
     height: 16px;
 
-    fill: $clr-natural;
+    filter: brightness(0) invert(1);
+
+    transition: filter 0.2s cubic-bezier(.91,-0.01,1,.45);
   }
 
   &__card-subtext {
