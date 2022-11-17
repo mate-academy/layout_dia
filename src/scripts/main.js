@@ -32,9 +32,9 @@ function getTranslateX(el) {
 
 const screenWidth = window.innerWidth;
 
-// Left Slider Button Event
-if (screenWidth < 1024) {
-  sliderLeftBtn.addEventListener('click', () => {
+// Left Slider Button Event Listener
+sliderLeftBtn.addEventListener('click', () => {
+  if (screenWidth < 1024) {
     sliderImages.forEach((img) => {
       const translateX = getTranslateX(img);
 
@@ -44,9 +44,7 @@ if (screenWidth < 1024) {
         img.style.transform = `translateX(${translateX + imageWidth}px)`;
       }
     });
-  });
-} else {
-  sliderLeftBtn.addEventListener('click', () => {
+  } else {
     sliderImages.forEach((img) => {
       const translateX = getTranslateX(img);
 
@@ -56,12 +54,12 @@ if (screenWidth < 1024) {
         img.style.transform = `translateX(${translateX + imageWidth}px)`;
       }
     });
-  });
-}
+  }
+});
 
-// Right Slider Button Event
-if (screenWidth < 1024) {
-  sliderRightBtn.addEventListener('click', () => {
+// Right Slider Button Event Listener
+sliderRightBtn.addEventListener('click', () => {
+  if (screenWidth < 1024) {
     sliderImages.forEach((img) => {
       const translateX = getTranslateX(img);
 
@@ -71,9 +69,7 @@ if (screenWidth < 1024) {
         img.style.transform = `translateX(${translateX - imageWidth}px)`;
       }
     });
-  });
-} else {
-  sliderRightBtn.addEventListener('click', () => {
+  } else {
     sliderImages.forEach((img) => {
       const translateX = getTranslateX(img);
 
@@ -87,8 +83,8 @@ if (screenWidth < 1024) {
         }
       }
     });
-  });
-}
+  }
+});
 
 // LowerThird Positioning
 const lowerThird = document.querySelector('.header__lower-third-container');
