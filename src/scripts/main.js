@@ -17,74 +17,75 @@ menuOpener.addEventListener('click', () => {
 
 // Slider
 const sliderImages = document.querySelectorAll('.header__slider-item');
-const imageWidth = sliderImages[0].getBoundingClientRect().width;
+// const imageWidth = sliderImages[0].getBoundingClientRect().width;
 const imageHeight = sliderImages[0].getBoundingClientRect().height;
-const sliderLeftBtn = document.querySelector('.header__slider-button--left');
-const sliderRightBtn = document.querySelector('.header__slider-button--right');
+// const sliderLeftBtn = document.querySelector('.header__slider-button--left');
+// const sliderRightBtn =
+//  document.querySelector('.header__slider-button--right');
 
-// Get transform value
-function getTranslateX(el) {
-  const style = window.getComputedStyle(el);
-  const matrix = new window.DOMMatrixReadOnly(style.transform);
+// // Get transform value
+// function getTranslateX(el) {
+//   const style = window.getComputedStyle(el);
+//   const matrix = new window.DOMMatrixReadOnly(style.transform);
 
-  return matrix.m41;
-};
+//   return matrix.m41;
+// };
 
 const screenWidth = window.innerWidth;
 
-// Left Slider Button Event Listener
-sliderLeftBtn.addEventListener('click', () => {
-  if (screenWidth < 1024) {
-    sliderImages.forEach((img) => {
-      const translateX = getTranslateX(img);
+// // Left Slider Button Event Listener
+// sliderLeftBtn.addEventListener('click', () => {
+//   if (screenWidth < 1024) {
+//     sliderImages.forEach((img) => {
+//       const translateX = getTranslateX(img);
 
-      if (translateX === (2 * imageWidth)) {
-        img.style.transform = `translateX(0)`;
-      } else {
-        img.style.transform = `translateX(${translateX + imageWidth}px)`;
-      }
-    });
-  } else {
-    sliderImages.forEach((img) => {
-      const translateX = getTranslateX(img);
+//       if (translateX === (2 * imageWidth)) {
+//         img.style.transform = `translateX(0)`;
+//       } else {
+//         img.style.transform = `translateX(${translateX + imageWidth}px)`;
+//       }
+//     });
+//   } else {
+//     sliderImages.forEach((img) => {
+//       const translateX = getTranslateX(img);
 
-      if (translateX === (2 * imageWidth)) {
-        img.style.transform = `translateX(100%)`;
-      } else {
-        img.style.transform = `translateX(${translateX + imageWidth}px)`;
-      }
-    });
-  }
-});
+//       if (translateX === (2 * imageWidth)) {
+//         img.style.transform = `translateX(100%)`;
+//       } else {
+//         img.style.transform = `translateX(${translateX + imageWidth}px)`;
+//       }
+//     });
+//   }
+// });
 
-// Right Slider Button Event Listener
-sliderRightBtn.addEventListener('click', () => {
-  if (screenWidth < 1024) {
-    sliderImages.forEach((img) => {
-      const translateX = getTranslateX(img);
+// // Right Slider Button Event Listener
+// sliderRightBtn.addEventListener('click', () => {
+//   if (screenWidth < 1024) {
+//     sliderImages.forEach((img) => {
+//       const translateX = getTranslateX(img);
 
-      if (translateX === -1 * (2 * imageWidth)) {
-        img.style.transform = `translateX(0)`;
-      } else {
-        img.style.transform = `translateX(${translateX - imageWidth}px)`;
-      }
-    });
-  } else {
-    sliderImages.forEach((img) => {
-      const translateX = getTranslateX(img);
+//       if (translateX === -1 * (2 * imageWidth)) {
+//         img.style.transform = `translateX(0)`;
+//       } else {
+//         img.style.transform = `translateX(${translateX - imageWidth}px)`;
+//       }
+//     });
+//   } else {
+//     sliderImages.forEach((img) => {
+//       const translateX = getTranslateX(img);
 
-      if (translateX === (2 * imageWidth)) {
-        img.style.transform = `translateX(100%)`;
-      } else {
-        if (translateX - imageWidth <= 0) {
-          img.style.transform = `translateX(${translateX + imageWidth}px)`;
-        } else {
-          img.style.transform = `translateX(${translateX - imageWidth}px)`;
-        }
-      }
-    });
-  }
-});
+//       if (translateX === (2 * imageWidth)) {
+//         img.style.transform = `translateX(100%)`;
+//       } else {
+//         if (translateX - imageWidth <= 0) {
+//           img.style.transform = `translateX(${translateX + imageWidth}px)`;
+//         } else {
+//           img.style.transform = `translateX(${translateX - imageWidth}px)`;
+//         }
+//       }
+//     });
+//   }
+// });
 
 // LowerThird Positioning
 const lowerThird = document.querySelector('.header__lower-third-container');
