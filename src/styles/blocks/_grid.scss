@@ -1,0 +1,13 @@
+.grid {
+  @include onWidth(1024) {
+    @include useGrid(12);
+  }
+
+  @for $start from 1 through 12 {
+    @for $end from $start through 12 {
+      &__item--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
