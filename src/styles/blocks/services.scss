@@ -5,7 +5,7 @@
     line-height: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #c0cdd7;
+    color: $colorGreySubtitle;
 
     margin: 0 0 16px;
   }
@@ -15,14 +15,14 @@
     font-weight: 600;
     font-size: 32px;
     line-height: 130%;
-    color: #253757;
+    color: $colorTitle;
     width: 280px;
 
-    @include onTablet {
+    @include on640 {
       width: 264px;
     }
 
-    @include onNotebook {
+    @include on1024 {
       min-width: 292px;
     }
   }
@@ -32,15 +32,15 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
-    color: #6c788b;
+    color: $greyColorText;
 
     margin: 0 0 48px;
 
-    @include onTablet {
+    @include on640 {
       margin-bottom: 56px;
     }
 
-    @include onNotebook {
+    @include on1024 {
       margin-bottom: 0;
     }
   }
@@ -49,7 +49,7 @@
     box-sizing: border-box;
     height: 264px;
     padding: 32px 0 32px 32px;
-    background-color: #fff;
+    background-color: $colorWight;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
     margin: 0 auto;
@@ -62,7 +62,7 @@
       margin-bottom: 24px;
     }
 
-    @include onTablet {
+    @include on640 {
       &--1,
       &--2 {
         margin-bottom: 30px;
@@ -75,25 +75,21 @@
       }
     }
 
-    @include onNotebook {
+    @include on1024 {
       &--1,
       &--2 {
         margin-bottom: 20px;
       }
     }
 
-    @include onDesktop {
+    @include on1600 {
       &--1,
       &--2 {
         margin-bottom: 30px;
       }
     }
 
-    transition: transform 0.3s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+    @include hover(transform, scale(1.1));
   }
 
   &__number {
@@ -111,7 +107,7 @@
     line-height: 20px;
     text-transform: uppercase;
     text-align: center;
-    color: #2060f6;
+    color: $colorBlueText;
 
     margin: 0 0 24px;
   }
@@ -121,7 +117,7 @@
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
-    color: #6c788b;
+    color: $greyColorText;
 
     margin: 0 0 32px;
   }
@@ -138,13 +134,9 @@
     font-size: 15px;
     line-height: 22px;
     
-    color: #334563;
+    color: $greyColorLink;
     text-decoration: none;
 
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #2060f6;
-    }
+    @include hover(color, $c-blurHover);
   }
 }
