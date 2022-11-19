@@ -1,0 +1,70 @@
+.header {
+  position: relative;
+  height: 100vh;
+  background-color: $colorDarkGray;
+
+  &__content {
+    @include container(20px);
+
+    @include onMedium {
+      @include container(40px);
+    }
+
+    @include onLarge {
+      @include container(52px);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-top-height);
+    margin-bottom: 24px;
+
+    @include onMedium {
+      margin-bottom: 36px;
+    }
+
+    @include onMedium {
+      margin-bottom: 36px;
+    }
+
+    &-left {
+      display: flex;
+      gap: 30px;
+    }
+
+    &-right {
+      @extend %menuLinks;
+      position: relative;
+      display: block;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 2px;
+        width: calc(100% - 16px);
+        margin: 0 auto;
+        background-color: $colorBlue;
+      }
+    }
+  }
+  &__intro {
+    margin-bottom: 48px;
+
+    @include onMedium {
+      margin-bottom: 148px;
+    }
+
+    @include onLarge {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
