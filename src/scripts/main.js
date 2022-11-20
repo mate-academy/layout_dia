@@ -5,6 +5,17 @@ const page = document.querySelector('.page');
 const nav = document.querySelector('.nav');
 const menuOpener = document.querySelector('.header__menu-opener');
 
+const navLinks = document.querySelectorAll('.nav__link');
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    if (nav.classList.contains('nav--open')) {
+      nav.classList.remove('nav--open');
+      page.style.overflowY = 'visible';
+    }
+  });
+});
+
 menuOpener.addEventListener('click', () => {
   if (nav.classList.contains('nav--open')) {
     nav.classList.remove('nav--open');

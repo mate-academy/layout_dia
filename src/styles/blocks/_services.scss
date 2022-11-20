@@ -19,7 +19,7 @@
 
   &__top {
     @include mq(md) {
-     width: 50%;
+      width: 50%;
     }
 
     @include mq(lg) {
@@ -76,12 +76,21 @@
     border-radius: 16px;
     background-color: $clr-natural;
 
-
     padding: 32px;
+
+    transition: transform 0.3s cubic-bezier(0.91,-0.01,1,0.45);
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     &--transform {
       @include mq(md) {
         transform: translateY(-50%);
+
+        &:hover {
+          transform: translateY(-50%) scale(1.1);
+        }
       }
     }
   }
@@ -119,7 +128,37 @@
     align-items: center;
   }
 
+  &__card-subtext {
+    position: absolute;
+    top: 50%;
+    left: 75px;
+    width: 100px;
+
+    font-family: $ff-alternate;
+    font-size: $fs-sm;
+    font-weight: $fw-normal;
+    color: $clr-title;
+    line-height: $lh-lg;
+
+    transform: translateY(-50%);
+
+    transition: color 0.3s cubic-bezier(0.91,-0.01,1,0.45);
+
+    cursor: pointer;
+
+  }
+
+  &__card-arrow {
+    width: 16px;
+    height: 16px;
+
+    filter: brightness(0) invert(1);
+
+    transition: filter 0.3s cubic-bezier(0.91,-0.01,1,0.45);
+  }
+
   &__card-link {
+    position: relative;
     background-color: $clr-accent;
 
     border: 2px solid $clr-accent;
@@ -129,9 +168,8 @@
 
     cursor: pointer;
 
-    transition:
-        background-color 0.2s cubic-bezier(.91,-0.01,1,.45),
-        box-shadow 0.2s cubic-bezier(.91,-0.01,1,.45);
+    transition: background-color 0.3s cubic-bezier(0.91,-0.01,1,0.45),
+      box-shadow 0.3s cubic-bezier(0.91,-0.01,1,0.45);
     &:hover {
       background-color: $clr-natural;
       box-shadow: 10px 10px 29px -18px lighten($clr-dark, 40%);
@@ -140,22 +178,9 @@
     &:hover .services__card-arrow {
       filter: none;
     }
-  }
 
-  &__card-arrow {
-    width: 16px;
-    height: 16px;
-
-    filter: brightness(0) invert(1);
-
-    transition: filter 0.2s cubic-bezier(.91,-0.01,1,.45);
-  }
-
-  &__card-subtext {
-    font-family: $ff-alternate;
-    font-size: $fs-sm;
-    font-weight: $fw-normal;
-    color: $clr-title;
-    line-height: $lh-lg;
+    &:hover .services__card-subtext {
+      color: lighten($clr-dark, $amount: 20%);
+    }
   }
 }
