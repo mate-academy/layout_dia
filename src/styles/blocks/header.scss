@@ -44,6 +44,10 @@
       position: relative;
       display: block;
 
+      transition: color 0.3s;
+
+      @include hover(color, $colorHover);
+
       &::after {
         content: "";
         position: absolute;
@@ -55,6 +59,14 @@
         width: calc(100% - 16px);
         margin: 0 auto;
         background-color: $colorBlue;
+
+        transition: color 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          background-color: $colorHover;
+        }
       }
     }
   }
@@ -74,11 +86,10 @@
   }
 
   &__slider {
-    @include onLarge {
+    @include onMedium {
       position: absolute;
-      bottom: 0;
       right: 0;
-      top: 120px;
+      bottom: 0;
     }
   }
 }

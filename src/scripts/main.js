@@ -35,8 +35,8 @@ createSlider(document.querySelector('#slider'));
 function createSlider(slider) {
   // Find required parts inside a given slider element
   const list = slider.querySelector('.slider__list');
-  const prev = slider.querySelector('.slider__arrow-left');
-  const next = slider.querySelector('.slider__arrow-right');
+  const prev = slider.querySelector('.icon--arrow-left');
+  const next = slider.querySelector('.icon--arrow-right');
 
   // Find the number of slides
   const count = list.children.length;
