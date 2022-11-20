@@ -1,5 +1,13 @@
 'use strict';
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 const header = document.querySelector('.header');
 const menuNav = document.querySelector('.menu__nav');
 const menuIcon = document.querySelector('.icon-menu');
@@ -18,12 +26,14 @@ header.addEventListener('click', menu, false);
 function menu(evt) {
   if (evt.target.className === 'icon-menu'
       || evt.target.className === 'icon-menu icon-menu--active') {
+    document.body.classList.toggle('page__body--with-menu');
     menuNav.classList.toggle('menu__nav--active');
     menuIcon.classList.toggle('icon-menu--active');
   }
 
   if (evt.target.tagName === 'A'
       || evt.target.tagName === 'IMG') {
+    document.body.classList.remove('page__body--with-menu');
     menuNav.classList.remove('menu__nav--active');
     menuIcon.classList.remove('icon-menu--active');
   }
@@ -52,8 +62,6 @@ function plusSlides(n) {
 }
 
 function showSlides(n) {
-  let i;
-
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -62,7 +70,7 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
 
-  for (i = 0; i < slides.length; i++) {
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
 
