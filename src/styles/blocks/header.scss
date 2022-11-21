@@ -1,11 +1,19 @@
 .header {
   position: relative;
   background-color: $colorBlue;
-  border-radius: 0 0 0 70px;
-  height: 100vh;
+  border-radius: 0 0 0 $radius;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (max-width: 1023px) {
+    height: 893px;
+  }
+
+  @include onDesktopSmall {
+    height: 100vh;
+  }
 
   &__list {
     margin: 0;
@@ -31,8 +39,13 @@
     color: $colorWhite;
 
     @include onTablet() {
+      margin-bottom: 32px;
       font-size: 64px;
       line-height: 68px;
+    }
+
+    @include onDesktopSmall {
+      margin-bottom: 24px;
     }
   }
 
@@ -46,6 +59,11 @@
     @include onTablet() {
       max-width: 360px;
       margin: 0 0 56px;
+    }
+
+    @include onDesktopSmall() {
+      max-width: 360px;
+      margin: 0 0 83px;
     }
   }
 
@@ -66,9 +84,9 @@
     @include hover(border-color, $colorWhite);
   }
 
-  &__button {
-    margin-bottom: 48px;
-  }
+  // &__button {
+  //   margin-bottom: 48px;
+  // }
 
   &__slider {
     position: absolute;
