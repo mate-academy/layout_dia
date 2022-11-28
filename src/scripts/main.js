@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
 
   button.addEventListener('click', (e) => {
     e.preventDefault();
-    window.location.href = window.location.origin;
+    window.location.href = 'https://UmizDemud.github.io/layout_dia/';
   });
 
   const slideshowItem = document
