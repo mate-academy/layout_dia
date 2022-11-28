@@ -1,13 +1,6 @@
 'use strict';
 
 window.addEventListener('load', () => {
-  const button = document.getElementById('form-submit');
-
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'https://UmizDemud.github.io/layout_dia/';
-  });
-
   const slideshowItem = document
     .getElementsByClassName('slideshow__item')[0];
   const slideshowLeft = document.getElementById('slideshow_left');
