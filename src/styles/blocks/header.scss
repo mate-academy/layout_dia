@@ -1,0 +1,95 @@
+.header {
+  position: relative;
+  height: 100vh;
+  background-color: $colorDarkGray;
+  border-radius: 0 0 30px 30px;
+
+  &__content {
+    @include container(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onMedium {
+      @include container(40px);
+    }
+
+    @include onLarge {
+      @include container(52px);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-top-height);
+    margin-bottom: 24px;
+
+    @include onMedium {
+      margin-bottom: 36px;
+    }
+
+    @include onMedium {
+      margin-bottom: 36px;
+    }
+
+    &-left {
+      display: flex;
+      gap: 30px;
+    }
+
+    &-right {
+      @extend %menuLinks;
+      position: relative;
+      display: block;
+
+      transition: color 0.3s;
+
+      @include hover(color, $colorHover);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 2px;
+        width: calc(100% - 16px);
+        margin: 0 auto;
+        background-color: $colorBlue;
+
+        transition: color 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          background-color: $colorHover;
+        }
+      }
+    }
+  }
+
+  &__intro {
+    margin-bottom: 48px;
+
+    @include onMedium {
+      margin-bottom: 148px;
+    }
+
+    @include onLarge {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__slider {
+    @include onMedium {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

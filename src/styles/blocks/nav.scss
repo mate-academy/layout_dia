@@ -1,0 +1,52 @@
+.nav {
+  $blockName: &;
+
+  &__list {
+    list-style: none;
+
+    &--mobile {
+      position: fixed;
+      top: var(--header-top-height);
+      right: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+
+      height: calc(100vh - var(--header-top-height));
+
+      transform: translateX(-100%);
+
+      overflow: hidden;
+      z-index: 2;
+
+      background-color: $colorDarkGray;
+
+      transition: transform 0.3s;
+
+      #{$blockName}--active & {
+        transform: translateX(0);
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onLarge {
+        display: flex;
+        gap: 32px;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__link {
+    @extend %menuLinks;
+    transition: color 0.3s;
+
+    @include hover(color, $colorBlue);
+  }
+}

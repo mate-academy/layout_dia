@@ -1,6 +1,34 @@
+@mixin container($paddingX) {
+  margin: 0 auto;
+  padding: 0 $paddingX;
+  max-width: 1200px;
+}
+
+@mixin onMedium {
+  @media (min-width:640px) {
+    @content;
+  }
+}
+@mixin onLarge {
+  @media (min-width:1024px) {
+    @content;
+  }
+}
+
+@mixin onXLarge {
+  @media (min-width:1200px) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
   &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin active($_property, $_toValue) {
+  &:active {
     #{$_property}: $_toValue;
   }
 }
