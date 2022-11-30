@@ -4,6 +4,19 @@
 const page = document.querySelector('.page');
 const nav = document.querySelector('.nav');
 const menuOpener = document.querySelector('.header__menu-opener');
+const form = document.querySelector('.contact__form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  form.querySelectorAll('input').forEach((input) => {
+    input.value = '';
+  });
+
+  form.querySelectorAll('textarea').forEach((textarea) => {
+    textarea.value = '';
+  });
+});
 
 const navLinks = document.querySelectorAll('.nav__link');
 
