@@ -1,0 +1,171 @@
+.slider {
+  overflow: hidden;
+
+  #slide-1,
+  #slide-2,
+  #slide-3 {
+    @include onTablet {
+      scroll-margin-top: 120px;
+    }
+  }
+
+  &__items {
+    height: 100%;
+    font-size: 0;
+    white-space: nowrap;
+    transition: 0.5s;
+  }
+
+  &__item {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-1 {
+      background-image: url(../images/slider/photo-1.jpg);
+    }
+
+    &-2 {
+      background-image: url(../images/slider/photo-2.jpg);
+    }
+
+    &-3 {
+      background-image: url(../images/slider/photo-3.jpg);
+    }
+  }
+
+  &__action {
+    width: 100%;
+
+    & div + div {
+      visibility: hidden;
+    }
+
+    &-link {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s;
+
+      &-left {
+        left: 20px;
+        bottom: 108px;
+        background-image: url(../images/slider/arrow-left.svg);
+
+        @include onTablet {
+          left: 40px;
+          bottom: 116px;
+        }
+
+        @include onSmallDesktop {
+          left: 78px;
+          bottom: 66px;
+        }
+
+        @include onDesktop {
+          left: 48px;
+          bottom: 66px;
+        }
+      }
+
+      &-right {
+        left: 68px;
+        bottom: 108px;
+        background-image: url(../images/slider/arrow-right.svg);
+
+        @include onTablet {
+          left: 88px;
+          bottom: 116px;
+        }
+
+        @include onSmallDesktop {
+          left: 126px;
+          bottom: 66px;
+        }
+
+        @include onDesktop {
+          left: 96px;
+          bottom: 66px;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  & > div:target ~ .slider__action > * {
+    visibility: hidden;
+  }
+
+  #slide-1:target ~ .slider__action > *:nth-child(1) {
+    visibility: visible;
+  }
+
+  #slide-2:target ~ .slider__action > *:nth-child(2) {
+    visibility: visible;
+  }
+
+  #slide-3:target ~ .slider__action > *:nth-child(3) {
+    visibility: visible;
+  }
+
+  #slide-1:target ~ .slider__items {
+    transform: translateX(0%);
+  }
+
+  #slide-2:target ~ .slider__items {
+    transform: translateX(-100%);
+  }
+
+  #slide-3:target ~ .slider__items {
+    transform: translateX(-200%);
+  }
+
+  &__intro {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    user-select: none;
+
+    @include onTablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      left: 182px;
+      bottom: 48px;
+    }
+
+    @include onDesktop {
+      left: 152px;
+      bottom: 48px;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    &-description {
+      max-width: 264px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+}
