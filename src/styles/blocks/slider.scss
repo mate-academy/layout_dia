@@ -1,57 +1,59 @@
-.slider {
-  display: flex;
+.header__slider {
   position: relative;
   width: 100%;
   height: 390px;
-  
-  @include onDesktop(1024px) {
-    height: 680px;
-  }
-}
-
-.slider__items {
-  display: block;
-}
-
-.slider__item1 {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(../images/slider/Photo1b.jpeg);
-  width: 100%;
-  height: 390px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  box-sizing: border-box;
   border-radius: 30px;
-  z-index: 10;
+  overflow: hidden;
 
   @include onDesktop(1024px) {
+    margin-top: 0;
     height: 680px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 30px 0;
+  }
+
+  &--line {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%*3;
+    height: 390px;
+    left: 0;
+    background: #2C2C2C;
+    transition: all ease 0.3s;
+
+    @include onDesktop(1024px) {
+      height: 680px;
+      object-fit: fill;
+    }
+  }
+
+  &--items {
+    position: absolute;
+    bottom: 24px;
+    padding-left: 20px;
+  }
+
+  .img {
+    width: 100%;
+    height: 390px;
+    border-radius: 30px;
+    object-fit: cover;
+
+    @include onDesktop(1024px) {
+      height: 680px;
+      border-radius: 30px 0;
+    }
   }
 }
 
-.slider__item--arrow {
-  padding: 250px 21px 16px;
-  display: flex;
-  justify-content: flex-start;
-  gap: 16px;
-
-  @include onDesktop(640px) {
-    padding-left: 41px;
-  }
-
-  @include onDesktop(1024px) {
-    padding-top: 582px;
-    padding-left: 78px;
-    padding-bottom: 66px;
-  }
+.header__slider--arrow {
+  display: block;
+  padding-bottom: 16px;
 }
 
 .slider__control {
+  margin-right: 16px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -62,12 +64,6 @@
     background-image: url(../images/slider/arrow_left.svg);
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 11;
-
-    &:focus .slider__item1 {
-      background-image: url(../images/slider/photo2b.jpeg);
-      z-index: 11;
-    }
   }
 
   &-next {
@@ -75,27 +71,5 @@
     background-repeat: no-repeat;
     background-position: center;
     z-index: 11;
-
-    &:focus .slider__item1 {
-      background-image: url(../images/slider/photo2b.jpeg);
-      height: 100px;
-      z-index: 11;
-    }
-  }
-}
-
-.slider__item--content {
-  display: block;
-  padding-bottom: 24px;
-  width: 280px;
-  height: 68px;
-
-  @include onDesktop(640px) {
-    padding-left: 20px;
-  }
-
-  @include onDesktop(1024px) {
-    padding-left: 182px;
-    padding-bottom: 48px;
   }
 }

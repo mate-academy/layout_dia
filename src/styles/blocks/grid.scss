@@ -17,29 +17,50 @@
           grid-column: #{$start} / #{$end + 1};
         }
       }
-    }  
+    }
   }
-} 
+}
 
 .grid {
+  
   @include onDesktop(1024px) {
-    padding-bottom: 121px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 20px;
   }
 
   @include onDesktop(1600px) {
+    display: block;
+  }
+
+  &__item {
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          @include onDesktop (1024px) {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid__big {
+ 
+  @include onDesktop(1600px) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 30px;
   }
 
-  &__item {
+  &--item {
+    position: relative;
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
         &--#{$start}-#{$end} {
-          @include onDesktop (1024px) {
+          @include onDesktop (1600px) {
             grid-column: #{$start} / #{$end + 1};
           }
         }
