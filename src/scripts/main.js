@@ -72,12 +72,13 @@ arrowRight.addEventListener('click', () => {
   }
 });
 
-const buttonChangeTopic = document.querySelector('.logo');
+const buttonChangeTopic = document.querySelector('.header__themeToggle');
 const changedElements = document.querySelectorAll('[data-change]');
 
 buttonChangeTopic.addEventListener('click', () => {
-  if (buttonChangeTopic.getAttribute('href') === '#') {
-    buttonChangeTopic.setAttribute('href', '#blue');
+  if (buttonChangeTopic.classList.contains('header__themeToggle')) {
+    buttonChangeTopic.classList.remove('header__themeToggle');
+    buttonChangeTopic.classList.add('header__themeToggle--blue');
 
     changedElements.forEach(element => {
       if (element.dataset.change === 'theme') {
@@ -85,7 +86,8 @@ buttonChangeTopic.addEventListener('click', () => {
       }
     });
   } else {
-    buttonChangeTopic.setAttribute('href', '#');
+    buttonChangeTopic.classList.remove('header__themeToggle--blue');
+    buttonChangeTopic.classList.add('header__themeToggle');
 
     changedElements.forEach(element => {
       element.dataset.change = 'theme';

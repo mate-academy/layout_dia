@@ -32,6 +32,10 @@
       padding-bottom: 57px;
     }
 
+    &--right {
+      display: flex;
+    }
+
     &--hire {
       position: relative;
       @include subtitle;
@@ -62,6 +66,52 @@
 
     @include onDesktop {
       padding: 48px 0 47px;
+    }
+  }
+
+  &__themeToggle,
+  &__themeToggle--blue {
+    &[type="checkbox"] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    &--label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 50px;
+      height: 25px;
+      background: grey;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+      margin-right: 40px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+      }
+
+      &:active::after {
+        width: 30px;
+      }
+    }
+
+    &:checked + &--label {
+      background: $colorPink;
+    }
+
+    &:checked + &--label::after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
     }
   }
 
