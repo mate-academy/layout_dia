@@ -1,0 +1,82 @@
+.nav {
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    &--full-screen {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &--menu {
+      margin-left: 35px;
+      width: 18px;
+      height: 18px;
+      @extend %style-icon;
+
+      background-image: url(../images/icon/menu.svg);
+
+        @include onSmallDesktop {
+          display: none;
+        }
+
+        &:hover {
+          background-image: url(../images/icon/menu-hover.svg);
+        }
+    }
+
+    &--cross {
+      width: 18px;
+      height: 18px;
+      @extend %style-icon;
+
+      background-image: url(../images/icon/cross.svg);
+
+
+      transition: transform $transitionTime;
+        &:hover {
+          transform: rotate(180deg);
+        }
+    }
+  }
+
+  &__list {
+    display: none;
+    margin: 0;
+    padding: 0;
+
+    @include onSmallDesktop {
+      display: flex;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin-right: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @extend %menu-text;
+
+    &:hover {
+      color: #2060F6;
+    }
+
+    &--here {
+      &::after {
+        display: block;
+        margin-top: 8px;
+        content: "";
+        height: 2px;
+
+        background: #2060f6;
+        border-radius: 4px;
+      }
+    }
+  }
+}
