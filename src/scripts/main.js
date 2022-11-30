@@ -1,23 +1,22 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
-  window.addEventListener('hashchange', () => {
-    if (window.location.hash === '#menu') {
-      document.body.classList.add('page__body--with-menu');
-    } else {
-      document.body.classList.remove('page__body--with-menu');
-    }
-  });
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
   const images = document
-    .querySelectorAll('.header__slider.header__slider--line .img');
+    .querySelectorAll('.header__slider .header__slider--line .img');
   const sliderLine = document.querySelector('.header__slider--line');
   let count = 0;
   let width;
 
   function init() {
+  // console.log('resize');
     width = document.querySelector('.header__slider').offsetWidth;
     sliderLine.style.width = width * images.length + 'px';
 
