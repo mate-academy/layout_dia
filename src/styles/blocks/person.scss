@@ -1,0 +1,188 @@
+.person {
+  text-align: center;
+  border-radius: 16px;
+  background-color: $white;
+
+  &__photo-wrapper {
+    margin: 80px auto 100px;
+    transition: 0.3s;
+
+    &::before {
+      @include testimonials-pseudo-person;
+      transform: translate(-15%, -32%) rotate(30deg);
+
+      @include onTablet10 {
+        @include testimonials-pseudo-person-small;
+      }
+
+      @include onTablet7 {
+        @include testimonials-pseudo-person;
+      }
+
+      @include onPhone {
+        @include testimonials-pseudo-person-small;
+      }
+    }
+
+    &::after {
+      @include testimonials-pseudo-person;
+      transform: translate(-90%, 32%) rotate(30deg);
+
+      @include onTablet10 {
+        @include testimonials-pseudo-person-small;
+      }
+
+      @include onTablet7 {
+        @include testimonials-pseudo-person;
+      }
+
+      @include onPhone {
+        @include testimonials-pseudo-person-small;
+      }
+    }
+
+    &:hover {
+      &::before {
+        animation-name: person-animation-before;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+      }
+      &::after {
+        animation-name: person-animation-after;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    @include onTablet10 {
+      margin: 75px auto 90px;
+    }
+
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 8px $fontColorMain;
+    }
+
+    @include onTablet10 {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include onTablet7 {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include onPhone {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  &__description {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onTablet7 {
+      height: fit-content;
+    }
+  }
+
+  &__text {
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: $fontColorText;
+
+    @include onTablet10 {
+      width: 196px;
+    }
+
+    @include onTablet7 {
+      width: 362px;
+      margin-bottom: 16px;
+    }
+
+    @include onPhone {
+      width: fit-content;
+      margin: 42px auto 16px;
+    }
+
+    &::before {
+      position: absolute;
+      left: 50%;
+      top: -8px;
+      transform: translate(-50%, -100%);
+      font-size: 24px;
+    }
+  }
+
+  &__name {
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: $fontColorMain;
+  }
+
+  &__company {
+    @include titleH5;
+    @include onTablet7 {
+      margin-bottom: 32px;
+    }
+  }
+
+  &:nth-child(1) > &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $lightBlue;
+    }
+  }
+
+  &:nth-child(1) &__text {
+    &:before {
+      color: $lightBlue;
+    }
+  }
+
+  &:nth-child(2) > &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $yellow;
+    }
+  }
+
+  &:nth-child(2) &__text {
+    &:before {
+      color: $yellow;
+    }
+  }
+
+  &:nth-child(3) &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $coral;
+    }
+  }
+
+  &:nth-child(3) &__text {
+    &:before {
+      color: $coral;
+    }
+  }
+}

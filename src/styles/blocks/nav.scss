@@ -1,0 +1,166 @@
+.nav {
+  position: relative;
+  display: flex;
+  height: 120px;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onPhone {
+    height: fit-content;
+  }
+  
+  &--top {
+    
+    @include onTablet7 {
+      height: 86px;
+    }
+  }
+
+  &--bottom {
+    justify-content: space-between;
+    @include onTablet7 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__panel {
+    display: flex;
+  }
+
+  &__wrapper {
+    display: flex;
+    z-index: 2;
+    @include onPhone {
+      &--bottom {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__logo_img {
+    width: 46px;
+    height: 28px;
+  }
+
+  &__menu-wrapper {
+    position: relative;
+  }
+
+  &__menu {
+    display: none;
+    width: 18px;
+    height: 18px;
+    background-image: url("../../src/images/logo/menu-icon.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet7 {
+      display: block;
+      margin-left: 32px;
+      align-self: center;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &--top {
+      gap: 48px;
+      @include onTablet7 {
+        position: absolute;
+        top: 0;
+        height: 480px;
+        background-color: $colorPrimary;
+        transform: translateX(-100%);
+        justify-content: center;
+        align-content: flex-end;
+        flex-direction: column;
+        z-index: 1;
+      }
+    }
+
+    @include onTablet7 {
+      width: 558px;
+    }
+
+    @include onPhone {
+      width: 280px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__hire-us {
+    display: block;
+    position: relative;
+    padding: 20px 0;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 98%;
+      height: 2px;
+      bottom: 4px;
+      background-color: $colorSecondary;
+      transition: 0.3s;
+    }
+
+    &:hover::before {
+      background-color: $white;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 20px 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $white;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+
+    @include onPhone {
+      &:last-child {
+        padding-bottom: 80px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: 20px 0;
+    text-decoration: none;
+    color: #fff;
+  }
+}
