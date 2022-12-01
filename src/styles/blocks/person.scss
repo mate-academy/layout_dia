@@ -3,66 +3,11 @@
   border-radius: 16px;
   background-color: $white;
 
-  &:nth-child(1) > &__photo-wrapper{
-    &:before, &::after {
-      background-color: $lightBlue;
-    }
-  }
-
-  &:nth-child(1) &__text{
-    &:before {
-      color: $lightBlue;
-    }
-  }
-
-  &:nth-child(2) > &__photo-wrapper{
-    &:before, &::after {
-      background-color: $yellow
-    }
-  }
-
-  &:nth-child(2) &__text{
-    &:before {
-      color: $yellow;
-    }
-  }
-
-  &:nth-child(3) &__photo-wrapper{
-    &:before, &::after {
-      background-color: $coral
-    }
-  }
-
-  &:nth-child(3) &__text{
-    &:before {
-      color: $coral;
-    }
-  }
-
   &__photo-wrapper {
     margin: 80px auto 100px;
     transition: 0.3s;
-    &:hover {
-      // transition: 0.3s;
-      &::before {
-        animation-name: person-animation-before;
-        animation-duration: 0.8s;
-        animation-fill-mode: forwards;
-      }
-      &::after {
-        animation-name: person-animation-after;
-        animation-duration: 0.8s;
-        animation-fill-mode: forwards;
-      }
-    }
 
-
-    @include onTablet10 {
-      margin: 75px auto 90px;
-    }
-    
     &::before {
-      
       @include testimonials-pseudo-person;
       transform: translate(-15%, -32%) rotate(30deg);
 
@@ -95,6 +40,24 @@
         @include testimonials-pseudo-person-small;
       }
     }
+
+    &:hover {
+      &::before {
+        animation-name: person-animation-before;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+      }
+      &::after {
+        animation-name: person-animation-after;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    @include onTablet10 {
+      margin: 75px auto 90px;
+    }
+
   }
 
   &__image {
@@ -109,8 +72,7 @@
     &:hover {
       transform: scale(1.2);
       box-shadow: 0 0 8px $fontColorMain;
-      transition: 0.3s;
-  }
+    }
 
     @include onTablet10 {
       width: 110px;
@@ -182,6 +144,45 @@
     @include titleH5;
     @include onTablet7 {
       margin-bottom: 32px;
+    }
+  }
+
+  &:nth-child(1) > &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $lightBlue;
+    }
+  }
+
+  &:nth-child(1) &__text {
+    &:before {
+      color: $lightBlue;
+    }
+  }
+
+  &:nth-child(2) > &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $yellow;
+    }
+  }
+
+  &:nth-child(2) &__text {
+    &:before {
+      color: $yellow;
+    }
+  }
+
+  &:nth-child(3) &__photo-wrapper {
+    &:before,
+    &::after {
+      background-color: $coral;
+    }
+  }
+
+  &:nth-child(3) &__text {
+    &:before {
+      color: $coral;
     }
   }
 }
