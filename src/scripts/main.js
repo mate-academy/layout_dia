@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
   let width;
 
   function init() {
-  // console.log('resize');
     width = document.querySelector('.header__slider').offsetWidth;
     sliderLine.style.width = width * images.length + 'px';
 
