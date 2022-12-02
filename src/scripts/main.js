@@ -1,6 +1,13 @@
 'use strict';
 
 window.addEventListener('load', () => {
+  const contactForm = document.getElementById('contact-form');
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactForm.reset();
+  });
+
   const slideshowItem = document
     .getElementsByClassName('slideshow__item')[0];
   const slideshowLeft = document.getElementById('slideshow_left');
