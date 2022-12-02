@@ -4,3 +4,103 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover--bborder {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+
+    top: 28px;
+    left: -1.8%;
+
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    border-bottom: 2px solid $secondaryColor;
+  }
+}
+
+@mixin stdPaddings {
+  padding: 0 66px;
+
+  @include onLScreen {
+    padding: 0 100px;
+  }
+
+  @include onDesktop {
+    padding: 0 46px;
+  }
+
+  @include onSScreen {
+    padding: 0 40px;
+  }
+
+  @include onTablet {
+    padding: 0 30px;
+  }
+
+  @include onMobile {
+    padding: 0 20px;
+  }
+}
+
+@mixin stdHeaderPaddings {
+  padding: 0 0 0 200px;
+
+  @include onLScreen {
+    padding: 0 0 0 100px;
+  }
+
+  @include onDesktop {
+    padding: 0 0 0 54px;
+  }
+
+  @include onSScreen {
+    padding: 0 0 0 54px;
+  }
+
+  @include onTablet {
+    padding: 0;
+  }
+
+  @include onMobile {
+    padding: 0;
+  }
+}
+
+// Screen Adjusters
+@mixin onMobile {
+  @media (max-width: 570px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: 940px) {
+    @content;
+  }
+}
+
+@mixin onSScreen {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onLScreen {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}

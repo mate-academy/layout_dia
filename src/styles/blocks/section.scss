@@ -1,0 +1,181 @@
+.section {
+  $root: &;
+
+  box-sizing: border-box;
+  padding-top: 146px;
+  padding-bottom: 146px;
+
+  @include onMobile {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  background-color: $bodyBGColorTwo;
+
+  &:nth-child(even) {
+    background-color: $bodyBGColorOne;
+  }
+
+  &-testimonials {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  &-services {
+
+    display: grid;
+    justify-items: center;
+    grid-template-areas: "a a . . . c"
+      "a a . . b c"
+      ". . . . b c"
+      ". . . . b c"
+      ". . . . b .";
+
+    margin-bottom: 120px;
+
+    @include onTablet {
+      grid-template-areas: "a ."
+        "a c"
+        "b c"
+        "b c"
+        "b .";
+    }
+
+    &__cards:nth-child(2) {
+      grid-area: b;
+    }
+    &__cards:nth-child(3) {
+      grid-area: c;
+    }
+
+    &__intr {
+      grid-area: a;
+      max-height: 300px;
+      max-width: 260px;
+
+      margin-top: 100px;
+      margin-bottom: 48px;
+
+      @include onTablet {
+        margin-top: 0;
+        height: 270px;
+        max-width: 300px;
+      }
+    }
+
+    #{$root}__title {
+      &--xSmall,
+      &--small,
+      &--large {
+        text-align: start;
+      }
+
+      &--xSmall {
+        margin: 0 0 16px;
+      }
+
+      &--small {
+        margin: 0 0 24px;
+      }
+
+    }
+    #{$root}__desc {
+      &--small,
+      &--large {
+        text-align: start;
+      }
+    }
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__title {
+
+    &--xSmall {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $colorThree;
+    }
+
+    &--small {
+
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 140%;
+      text-align: center;
+
+      color: $primaryBodyColor;
+    }
+
+    &--testimonials {
+
+      margin-bottom: 85px;
+
+      @include onTablet {
+        margin-bottom: 56px;
+      }
+
+      @include onMobile {
+        margin-bottom: 48px;
+      }
+
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 140%;
+      text-align: start;
+
+      color: $primaryBodyColor;
+    }
+
+    &--large {
+      margin-bottom: 22px;
+
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 150%;
+
+      text-align: center;
+
+      color: $primaryBodyColor;
+
+      @include onMobile {
+        font-size: 44px;
+        line-height: 120%;
+      }
+    }
+  }
+
+  &__desc {
+
+    &--small {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+
+      color: $secondaryBodyColor;
+    }
+
+    &--large {
+      max-width: 750px;
+      margin: 0 auto;
+
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 150%;
+      text-align: center;
+
+      color: $secondaryBodyColor;
+
+      @include onTablet {
+        max-width: 716px;
+      }
+    }
+  }
+}

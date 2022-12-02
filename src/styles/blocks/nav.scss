@@ -1,0 +1,97 @@
+.nav {
+  position: relative;
+
+  &-icon {
+    position: absolute;
+    top: 0;
+    left: -20vw;
+    display: none;
+    height: 8px;
+    width: 18px;
+    background-image: url(../images/vectors/eq.svg);
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 30px;
+    height: 16px;
+    width: 16px;
+    background-image: url(../images/vectors/cross.svg);
+  }
+
+  &__list {
+    display: flex;
+    padding: 0;
+
+    list-style: none;
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      .page__body:has(&) {
+        overflow: hidden;
+      }
+    }
+
+    &:target > .nav-close {
+      display: flex;
+
+      margin-top: 14px;
+    }
+
+    @include onTablet {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 16vh 16px;
+      flex-direction: column;
+
+      transform: translateX(-300%);
+      background-color: $headerBackground;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      margin-left: 48px;
+    }
+  }
+
+  &__item + &__item {
+    margin-left: 48px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+  }
+
+  &__link {
+    color: $headerMainColor;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include hover--bborder;
+
+    &::before {
+      @include onTablet {
+        padding-bottom: 20px;
+      }
+    }
+
+    @include onTablet {
+      font-size: 26px;
+    }
+  }
+}
