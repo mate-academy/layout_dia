@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background: #2c2c2c;
+  background-color: $colorBackground;
   border-radius: 0 0 30px 30px;
   height: 893px;
 
@@ -41,7 +41,7 @@
       @include subtitle;
 
       text-align: center;
-      color: #fff;
+      color: $colorWhiteStandard;
       text-decoration: none;
 
       &::after {
@@ -53,7 +53,6 @@
         background-color: $colorBlue;
         margin-top: 8px;
         border-radius: 4px;
-
         transition: width 0.3s;
       }
 
@@ -95,9 +94,9 @@
         left: 5px;
         width: 15px;
         height: 15px;
-        background: #fff;
+        background: $colorWhiteStandard;
         border-radius: 90px;
-        transition: 0.3s;
+        transition: width 0.3s;
       }
 
       &:active::after {
@@ -120,14 +119,7 @@
 
     @include onDesktop {
       display: flex;
-      list-style-type: none;
-      font-family: Poppins, sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 20px;
-      text-align: center;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      @include headerMenuText;
 
       &--list {
         padding: 0;
@@ -140,13 +132,10 @@
 
       &--link {
         text-decoration: none;
-        color: #fff;
+        color: $colorWhiteStandard;
         border-bottom: 2px solid transparent;
         padding-bottom: 8px;
-
-        &:hover {
-          border-color: $colorBlue;
-        }
+        @include hover(border-color, $colorBlue);
       }
     }
   }
@@ -172,13 +161,8 @@
 
     &--title {
       max-width: 415px;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      font-size: 52px;
-      line-height: 63px;
-      color: #fff;
-      letter-spacing: -2px;
       margin: 0 0 32px;
+      @include headerTitle;
 
       @include exceptMob {
         max-width: none;
@@ -195,12 +179,7 @@
     &--content {
       margin-bottom: 72px;
       max-width: 309px;
-
-      font-family: "Open Sans", sans-serif;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 27px;
-      color: #fff;
+      @include headerText;
 
       @include exceptMob {
         margin-bottom: 56px;
