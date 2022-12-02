@@ -1,0 +1,161 @@
+.slider {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  &-hidden {
+    display: none;
+  }
+
+  @include onDesktop {
+    height: 680px;
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 390px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: 30px;
+    z-index: 10;
+
+    &--1 {
+      background-image: url(../images/header.jpg);
+      z-index: 16;
+    }
+
+    &--2 {
+      background-image: url(../images/slider/GwVmBgpP-PQ.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/qPojqUji_y4.png);
+    }
+
+    @include onDesktop {
+      height: 680px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__buttons {
+    padding: 250px 21px 16px;
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    gap: 16px;
+
+    @include onTablet {
+      padding-left: 41px;
+    }
+
+    @include onDesktop {
+      padding-top: 582px;
+      padding-left: 78px;
+      padding-bottom: 66px;
+    }
+
+    @include onLarge {
+      padding-left: 48px;
+    }
+  }
+
+  &--arrow-left {
+    z-index: 20;
+    height: 32px;
+    width: 32px;
+    border: 1px solid $colorWhiteStandard;
+    border-radius: 50%;
+
+    background-color: $colorWhiteStandard;
+    background-image: url(../images/arrow-left.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include hover(border-color, $colorBlue);
+  }
+
+  &--arrow-right {
+    z-index: 20;
+    height: 32px;
+    width: 32px;
+    border: 1px solid $colorWhiteStandard;
+    border-radius: 50%;
+
+    background-color: $colorWhiteStandard;
+    background-image: url(../images/arrow-left.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform: scale(-1, 1);
+    @include hover(border-color, $colorBlue);
+  }
+
+  &__text {
+    display: block;
+    padding-bottom: 24px;
+    width: 280px;
+    height: 68px;
+
+    @include onTablet {
+      padding-left: 20px;
+    }
+
+    @include onDesktop {
+      padding-left: 182px;
+      padding-bottom: 48px;
+    }
+
+    &--title {
+      position: absolute;
+      bottom: 0;
+      padding: 0 21px 8px;
+      padding-bottom: 72px;
+      z-index: 16;
+
+      @include subtitle;
+
+      color: $colorWhiteStandard;
+
+      @include onDesktop {
+        padding-bottom: 96px;
+      }
+
+      @include onLarge {
+        padding-left: 0;
+      }
+    }
+
+    &--paragraph {
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      padding: 0 21px 24px;
+      z-index: 16;
+
+      @include paragraph;
+
+      line-height: 20px;
+      color: $colorWhiteStandard;
+
+      @include onTablet {
+        padding-bottom: 32px;
+      }
+
+      @include onDesktop {
+        padding-bottom: 48px;
+      }
+
+      @include onLarge {
+        padding-left: 0;
+      }
+    }
+  }
+}

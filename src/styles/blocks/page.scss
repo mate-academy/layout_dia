@@ -1,0 +1,46 @@
+.page {
+  min-width: 320px;
+  font-family: "Open Sans", sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: rgba(32, 96, 246, 0.1);
+
+    @include onLarge {
+      right: 0;
+      margin: 0 auto;
+    }
+
+    &--with-menu {
+      overflow: hidden;
+
+      @include onDesktop {
+        overflow: visible;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+
+    background-color: $colorBackground;
+    border-radius: 30px;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

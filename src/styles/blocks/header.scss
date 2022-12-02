@@ -1,0 +1,216 @@
+.header {
+  position: relative;
+  background-color: $colorBackground;
+  border-radius: 0 0 30px 30px;
+  height: 893px;
+
+  @include onDesktop {
+    height: 800px;
+  }
+
+  @include onLarge {
+    padding: 0;
+  }
+
+  &__content {
+    display: block;
+
+    @include onDesktop {
+      height: 680px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    height: 25px;
+    align-items: center;
+    padding: 21px 0 50px;
+
+    @include onTablet {
+      padding-bottom: 57px;
+    }
+
+    &--right {
+      display: flex;
+    }
+
+    &--hire {
+      position: relative;
+      @include subtitle;
+
+      text-align: center;
+      color: $colorWhiteStandard;
+      text-decoration: none;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 67px;
+        height: 2px;
+        background-color: $colorBlue;
+        margin-top: 8px;
+        border-radius: 4px;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          width: 40px;
+        }
+      }
+    }
+
+    @include onDesktop {
+      padding: 48px 0 47px;
+    }
+  }
+
+  &__themeToggle,
+  &__themeToggle--blue {
+    &[type="checkbox"] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    &--label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 50px;
+      height: 25px;
+      background: grey;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+      margin-right: 40px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 15px;
+        height: 15px;
+        background: $colorWhiteStandard;
+        border-radius: 90px;
+        transition: width 0.3s;
+      }
+
+      &:active::after {
+        width: 30px;
+      }
+    }
+
+    &:checked + &--label {
+      background: $colorPink;
+    }
+
+    &:checked + &--label::after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      @include headerMenuText;
+
+      &--list {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 48px;
+        list-style-type: none;
+      }
+
+      &--link {
+        text-decoration: none;
+        color: $colorWhiteStandard;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 8px;
+        @include hover(border-color, $colorBlue);
+      }
+    }
+  }
+
+  &__text {
+    margin: 0 20px;
+
+    @include onTablet {
+      margin: 0 40px;
+    }
+
+    @include onDesktop {
+      margin: 0 55px;
+    }
+
+    @include onLarge {
+      margin-left: 225px;
+    }
+
+    @include onTooLarge {
+      margin-left: 707px;
+    }
+
+    &--title {
+      max-width: 415px;
+      margin: 0 0 32px;
+      @include headerTitle;
+
+      @include exceptMob {
+        max-width: none;
+        font-size: 64px;
+        line-height: 68px;
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        margin: 120px 0 32px;
+      }
+    }
+
+    &--content {
+      margin-bottom: 72px;
+      max-width: 309px;
+      @include headerText;
+
+      @include exceptMob {
+        margin-bottom: 56px;
+      }
+
+      @include onTablet {
+        max-width: 362px;
+      }
+
+      @include onDesktop {
+        margin: 0 0 83px;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__button {
+    margin-bottom: 48px;
+
+    width: 100%;
+    align-self: center;
+
+    flex-shrink: 0;
+
+    @include exceptMob {
+      width: 264px;
+      margin-bottom: 147px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+}

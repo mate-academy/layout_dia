@@ -1,0 +1,68 @@
+.icon {
+  display: flex;
+  position: relative;
+  width: 18px;
+  height: 100%;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  &--menu {
+    width: 20px;
+    height: 8px;
+    background-image: url(../images/logo/menu.svg);
+    transition: all 0.3s;
+
+    &:hover {
+      width: 20px;
+      height: 8px;
+      background-image: url(../images/logo/menu_hover.svg);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--cross {
+    align-self: center;
+    height: 18px;
+    width: 20px;
+    background-image: url(../images/cross.svg);
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--link {
+    position: relative;
+
+    @include subtitle;
+
+    text-align: center;
+    color: $colorWhiteStandard;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 67px;
+      height: 2px;
+      background-color: $colorBlue;
+      margin-top: 8px;
+      border-radius: 4px;
+
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 40px;
+      }
+    }
+  }
+}
