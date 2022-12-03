@@ -1,0 +1,106 @@
+.header {
+  background-color: #2c2c2c;
+  padding-bottom: 48px;
+
+  // #region mixins
+  @include onTablet {
+    padding-bottom: 56px;
+  }
+
+  @include onSmallDesktop {
+    padding-bottom: 38px;
+  }
+
+  @include onDesign {
+    padding-bottom: 38px;
+  }
+
+  @include onLargeDesktop {
+    padding-bottom: 38px;
+  }
+  // #endregion
+  
+  &__content {
+    padding-top: 49px;
+
+    @include onMobile {
+      padding-top: 21px;
+    }
+  }
+
+  &__top {
+    @include top-actions;
+
+    &--logo-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include onSmallDesktop {
+        width: min-content;
+      }
+      height: 100%;
+      width: $widthLogoIconForMobileAndTablet;
+    }
+  }
+
+  &__list {
+    @include onMobile {
+      display: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+    
+    @include onSmallDesktop {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+  
+      width: 554px;
+    }
+
+    &--link {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+
+      &:hover {
+        color: $colorBlue;
+      }
+    }
+  }
+
+  &__hire {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 8px;
+      width: 67px;
+      height: 2px;
+
+      background-color: #2060f6;
+      border-radius: 4px;
+    }
+  }
+}
