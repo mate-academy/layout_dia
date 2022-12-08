@@ -1,0 +1,91 @@
+.header {
+  &:nth-child(-n + 2) {
+    background-color: $header-color;
+  }
+
+  &__content {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 48px;
+  }
+
+  &__top {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: $logo-width + $logo-padding-on-mobile 1fr;
+    padding-bottom: 48px;
+
+    @include onSmallDesktop {
+      grid-template-columns: $logo-width + $logo-padding-on-small-desktop 1fr;
+    }
+
+    @include onDesktop {
+      grid-template-columns: $logo-width + $logo-padding-on-desktop 1fr;
+    }
+  }
+
+  &__hire {
+    @extend h1;
+    line-height: 150%;
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-white;
+    text-decoration: none;
+ 
+    &::after {
+      display: block;
+      content: "";
+      height: 1px;
+      margin-top: 8px;
+      background-color: $secondary-color;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+  }
+
+  &__bottom {
+    @include grid;
+  }
+
+  &__title {
+    @include on-mobile;
+
+    @extend h1;
+    line-height: 120%;
+    letter-spacing: -2;
+    font-size: 52px;
+    font-weight: 600;
+    color: $color-white;
+    padding-bottom: 32px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__paragraph {
+    @include on-mobile;
+
+    @extend %p;
+    line-height: 150%;
+    font-size: 18px;
+    font-weight: 400;
+    color: $color-white;
+    padding-bottom: 72px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__button {
+    @include on-mobile;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+  }
+}
