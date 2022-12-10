@@ -1,5 +1,17 @@
 'use strict';
 
+const formInputs = document.querySelectorAll('.form-field__field');
+
+document.querySelector('.form-field').addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  for (const input of formInputs) {
+    input.value = '';
+  }
+
+  window.scrollBy(-10000, -10000);
+}, false);
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
