@@ -14,3 +14,12 @@ contactUsForm.addEventListener('submit', ev => {
   ev.preventDefault();
   contactUsForm.reset();
 });
+
+/* global Swiper */
+/* eslint-disable-next-line no-new */
+new Swiper('.image-slider', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
