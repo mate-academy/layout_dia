@@ -1,0 +1,49 @@
+.image-slider {
+  &__slide {
+    overflow: hidden;
+    height: 390px;
+    width: 100%;
+    border-radius: 30px;
+    margin: 0;
+    object-fit: contain;
+
+    @include onTablet {
+      height: 450px;
+    }
+
+    @include onNotebook-LargeScreen {
+      height: 680px;
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.swiper-button {
+  width: calc(var(--swiper-navigation-size) / 27 * 27);
+
+  &::after {
+    color: transparent;
+    width: 32px;
+    height: 32px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+    background-size: auto;
+  }
+
+  &-prev::after {
+    background: url("/images/slider/Arrow--left.svg") no-repeat;
+  }
+
+  &-next::after {
+    background: url("/images/slider/Arrow--right.svg") no-repeat;
+  }
+}
