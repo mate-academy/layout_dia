@@ -1,13 +1,15 @@
 .header {
   &:nth-child(-n + 2) {
     background-color: $header-color;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 120px;
   }
 
   &__content {
     position: relative;
     display: block;
     padding-top: 20px;
-    padding-bottom: 48px;
   }
 
   &__top {
@@ -46,8 +48,28 @@
     }
   }
 
+  &__container-bottom {
+    @include onSmallDesktop {
+      align-items: center;
+      gap: 100px;
+      display: flex;
+    }
+    @include onDesktop {
+      gap: 324px;
+    }
+  }
+
   &__bottom {
-    @include grid;
+    @extend %container;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 48px;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+      margin-bottom: 148px;
+    }
   }
 
   &__title {
@@ -62,7 +84,11 @@
     padding-bottom: 32px;
 
     @include onTablet {
-      grid-column: 1 / 7;
+      grid-column: 1 / 6;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 4;
     }
   }
 
@@ -79,6 +105,18 @@
     @include onTablet {
       grid-column: 1 / 5;
     }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+
+    @include onDesign {
+      grid-column: 1 / 6;
+    }
   }
 
   &__button {
@@ -86,6 +124,10 @@
 
     @include onTablet {
       grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
     }
   }
 }
