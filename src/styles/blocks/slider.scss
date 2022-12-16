@@ -1,0 +1,109 @@
+.slider {
+  box-sizing: border-box;
+  height: 390px;
+  position: relative;
+
+  border-radius: $section-border-radius;
+  @include onSmallDesktop {
+    height: $slider-height-desktop;
+    width: 50%;
+    border-radius: $section-border-radius 0 $section-border-radius 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+
+  @include onLargeDesktop {
+    width: 45%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-bottom: 16px;
+
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #253757;
+
+    background-color: #fff;
+    border-radius: 50%;
+    border-color: transparent;
+
+    transition: transform $transitionTime;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__intro {
+    position: relative;
+    width: 280px;
+
+    @include onSmallDesktop {
+      width: 266px;
+    }
+  }
+
+  &__intro-title {
+    margin-bottom: 8px;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__intro-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+  }
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
