@@ -7,9 +7,12 @@
   padding: 32px 0 32px 32px;
   margin-bottom: 24px;
 
+  @include hover(transform, translateY(-5%));
+
   @include onTablet {
     &-transform {
       transform: translateY(-50%);
+      @include hover(transform, translateY(-55%));
     }
     &--1,
     &--3 {
@@ -61,10 +64,28 @@
     margin-bottom: 32px;
   }
 
-  &-container {
+  &__container {
     display: flex;
     align-items: center;
     gap: 16px;
+
+    &:hover {
+      #arrow-1,
+      #arrow-2,
+      #arrow-3,
+      #arrow-4 {
+        background-image: url(../images/services/services-arrow-blue.svg);
+        background-color: transparent;
+        border-color: $secondary-color;
+      }
+
+      #text-1,
+      #text-2,
+      #text-3,
+      #text-4 {
+        color: $secondary-color;
+      }
+    }
   }
 
   &__button {
@@ -81,12 +102,6 @@
     padding: 12px;
     border: 2px dashed transparent;
     transition: background-color $transition;
-
-    &:hover {
-      background-image: url(../images/services/services-arrow-blue.svg);
-      background-color: transparent;
-      border-color: $secondary-color;
-    }
   }
 
   &__learn-more {
@@ -96,5 +111,7 @@
     line-height: 22px;
     font-weight: 600;
     text-decoration: none;
+    
+    transition: color $transition;
   }
 }
