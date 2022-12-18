@@ -1,0 +1,216 @@
+.header {
+  background-color: $primaryBgColor;
+  border-radius: 0 0 30px 30px;
+  position: relative;
+
+  &__content {
+    height: 893px;
+    padding-top: 20px;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      padding-top: 48px;
+      height: 100vh;
+    }
+  }
+
+  &__top-action {
+    margin-bottom: 48px;
+
+    @include top-action;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 38px;
+    }
+  }
+
+  &__actions--left {
+    @include flex(center);
+  }
+
+  &__icon--menu {
+    margin-left: 32px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__nav--display {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__action {
+    height: 30px;
+    text-transform: uppercase;
+    line-height: 20px;
+    color: #fff;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 2px;
+      background-color: $primaryColor;
+      border-radius: 4px;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    @include font(13px, 700, 3px);
+  }
+
+  &__hero {
+    @include onDesktop {
+      height: 100%;
+    }
+  }
+
+  &__reading {
+    width: 100%;
+
+    @include onDesktop {
+      width: auto;
+      max-width: $maxWidthHeaderText;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    line-height: 68px;
+    color: #fff;
+
+    @include font(52px, 600, -2px);
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  &__subtitle {
+    max-width: $maxWidthHeaderText;
+    margin-bottom: 72px;
+    font-family: "open_sans", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fff;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 83px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @include onTablet {
+      width: 264px;
+    }
+  }
+
+  &__slider {
+    height: 390px;
+    width: 100%;
+    border-radius: 30px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-image: url("../images/slider/bgBlack.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onDesktop {
+      height: auto;
+      width: 50%;
+      top: 116px;
+      right: 0;
+      left: auto;
+      border-radius: 30px 0;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      left: 20px;
+      bottom: 24px;
+
+      @include onTablet {
+        left: 41px;
+        bottom: 32px;
+      }
+
+      @include onDesktop {
+        flex-direction: row;
+        align-items: center;
+        bottom: 50px;
+        left: 48px;
+      }
+    }
+
+    &-actions {
+      display: flex;
+      margin-bottom: 16px;
+
+      @include onDesktop {
+        margin: 0 24px 0 0;
+      }
+    }
+
+    &-arrows {
+      background-color: #fff;
+      border-radius: 50%;
+
+      @include flex(center, center);
+      @include square(32px);
+
+      &:not(:last-child) {
+        margin-right: 18px;
+      }
+    }
+
+    &-arrow {
+      @include square(18px);
+    }
+
+    &-name {
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: #fff;
+
+      @include font(13px, 700, 3px);
+    }
+
+    &-description {
+      max-width: 264px;
+      font-family: "open_sans", sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #fff;
+    }
+  }
+}
