@@ -23,7 +23,7 @@
     display: none;
 
     @include tablet() {
-      &:checked + .nav__list-header {
+      &:checked + .nav__list--header {
         display: flex;
       }
     }
@@ -40,7 +40,7 @@
     }
   }
 
-  &__list-header {
+  &__list--header {
     @include tablet() {
       position: absolute;
       top: 100px;
@@ -64,14 +64,21 @@
 
     &:last-child {
       margin-right: 0;
-
-      @include phone() {
-        margin: 0 auto;
-      }
     }
 
-    @include phone() {
-      margin: 0 auto;
+    &--header {
+      @include phone() {
+        margin: 0 auto;
+
+        &:last-child {
+          margin: 0 auto;
+        }
+      }
+    }
+    &--footer {
+      @include phone() {
+        margin-left: 0;
+      }
     }
   }
 
