@@ -1,8 +1,62 @@
 .nav {
   @include flex;
 
+  &__logo {
+    @include tablet() {
+      display: block;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__togler {
+    fill: $c-white;
+    display: none;
+
+    @include hover(fill, $c-hover-button-dark);
+
+    @include tablet() {
+      display: block;
+    }
+  }
+
+  &__togler-chek {
+    display: none;
+
+    @include tablet() {
+      &:checked + .nav__list-header {
+        display: flex;
+      }
+    }
+
+  }
+
   &__list {
     @include flex;
+    flex-wrap: wrap;
+
+    @include phone() {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__list-header {
+    @include tablet() {
+      position: absolute;
+      top: 100px;
+      left: 20%;
+      right: 20%;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      display: none;
+    }
+
+    @include phone() {
+      background-color: $c-background-dark;
+      opacity: 0.8;
+      z-index: 1;
+      flex-direction: column;
+    }
   }
 
   &__item {
@@ -10,11 +64,19 @@
 
     &:last-child {
       margin-right: 0;
+
+      @include phone() {
+        margin: 0 auto;
+      }
+    }
+
+    @include phone() {
+      margin: 0 auto;
     }
   }
 
   &__link {
-    display: inline-block;
+    display: block;
     padding: 8px 0;
 
     @include poppins;
