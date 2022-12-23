@@ -1,0 +1,137 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  height: 264px;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  @include transitions(box-shadow);
+
+  @include on1024Screen {
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0, 117, 255, 0.46);
+    }
+  }
+
+  &__number {
+    text-align: center;
+    background-color: $main-bg;
+    border-radius: 25px;
+
+    @include rectangle(46px, 24px);
+    @include setFont(13px, 200%, inherit);
+
+    &--blue {
+      color: $card-blue;
+    }
+
+    &--yellow {
+      color: $card-yellow;
+    }
+
+    &--green {
+      color: $card-green;
+    }
+
+    &--pink {
+      color: $card-pink;
+    }
+  }
+
+  &__content {
+    @extend %open-sans-600;
+    @include setFont(13px, 150%, inherit);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    color: $title-blue;
+    text-decoration: none;
+    @include transitions(transform);
+
+    &-arrow {
+      display: block;
+
+      &--blue {
+        @extend %default-background;
+        background-color: $card-blue;
+        background-size: initial;
+        background-image: url("../images/learn-more/arrow.svg");
+        border-radius: 50%;
+
+        @include square(40px);
+        @include transitions(transform);
+        &:hover {
+          transform: rotate(1turn);
+        }
+      }
+
+      &--yellow {
+        @extend %default-background;
+        background-color: $card-yellow;
+        background-size: initial;
+        background-image: url("../images/learn-more/arrow.svg");
+        border-radius: 50%;
+
+        @include square(40px);
+        @include transitions(transform);
+        &:hover {
+          transform: rotate(1turn);
+        }
+      }
+
+      &--green {
+        @extend %default-background;
+        background-color: $card-green;
+        background-size: initial;
+        background-image: url("../images/learn-more/arrow.svg");
+        border-radius: 50%;
+
+        @include square(40px);
+        @include transitions(transform);
+        &:hover {
+          transform: rotate(1turn);
+        }
+      }
+
+      &--pink {
+        @extend %default-background;
+        background-color: $card-pink;
+        background-size: initial;
+        background-image: url("../images/learn-more/arrow.svg");
+        border-radius: 50%;
+
+        @include square(40px);
+        @include transitions(transform);
+        &:hover {
+          transform: rotate(1turn);
+        }
+      }
+    }
+
+    &-text {
+      @extend %poppins-600;
+      @include setFont(15px, 22.5px, inherit);
+    }
+
+    @include on1024Screen {
+      &:hover {
+        color: $card-blue;
+        transform: scale($scale-standard);
+      }
+    }
+  }
+
+  &--to-translate {
+    @include onTablet {
+      transform: translateY(-50%);
+    }
+  }
+}

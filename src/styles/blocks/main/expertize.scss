@@ -1,0 +1,105 @@
+.expertize {
+  padding: 72px 0;
+  background-color: #fff;
+  border-radius: 30px;
+
+  @include onTablet {
+    padding: 128px 0;
+  }
+
+  @include on1024Screen {
+    padding-bottom: 140px;
+  }
+
+  &__title {
+    margin-bottom: 56px;
+    color: $title-blue;
+    text-align: center;
+    @include setFont(44px, 52px, inherit);
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__layout {
+    padding: 0 5vw;
+
+    @include on1024Screen {
+      display: flex;
+      gap: 100px;
+    }
+
+    @include on1600Screen {
+      padding: 0 15vw;
+      gap: 150px;
+    }
+
+    @include onLargeScreen {
+      padding: 0 25vw;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    border-radius: 30px;
+    text-align: center;
+
+    @include transitions(box-shadow);
+
+    @include on1024Screen {
+      &:hover {
+        cursor: pointer;
+
+        box-shadow: 0 3px 6px rgba(0, 117, 255, 0.46);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 72px;
+      }
+
+      @include on1024Screen {
+        margin-bottom: 0;
+      }
+    }
+
+    &-image {
+      margin-bottom: 32px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 15px;
+
+      @include rectangle(180px, 166px);
+
+      @include on1024Screen {
+        margin-bottom: 40px;
+      }
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      @include setFont(20px, 28px, inherit);
+    }
+
+    &-content {
+      @extend %open-sans-400;
+      @include setFont(14px, 21px, inherit);
+
+      @include onTablet {
+        max-width: 50vw;
+      }
+
+      @include on1024Screen {
+        max-width: initial;
+      }
+    }
+  }
+}

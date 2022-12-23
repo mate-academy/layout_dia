@@ -1,0 +1,123 @@
+.header {
+  width: 100vw;
+  height: max-content;
+  padding: 29px 0 0;
+
+  background-color: $main-blue;
+  border-bottom-left-radius: 200px;
+
+  @include on1024Screen {
+    height: 100vh;
+    padding: 41px 0 84px;
+    border-bottom-right-radius: 70px;
+  }
+
+  &__menu-events {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__top-left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include square(24px);
+
+    @include on1024Screen {
+      display: none;
+    }
+
+    &-part {
+      display: block;
+      float: left;
+      background-color: #fff;
+
+      @include rectangle(100%, 2px);
+      @include transitions(width);
+
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__link {
+    display: none;
+    text-decoration: none;
+
+    @include on1024Screen {
+      display: block;
+    }
+  }
+
+  &__content {
+    padding: 50px 0 0;
+
+    @include onTablet {
+      padding: 56px 0 0;
+    }
+
+    @include on1024Screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include rectangle(50%, 100%);
+    }
+
+    &-title {
+      margin-bottom: 32px;
+      height: max-content;
+      color: #fff;
+      @include setFont(52px, 120%, -2px);
+
+      @include onTablet {
+        margin-bottom: 24px;
+        @include setFont(64px, 68px, inherit);
+      }
+
+      @include on1024Screen {
+        margin-bottom: 32px;
+        width: 490px;
+      }
+    }
+
+    &-text {
+      margin-bottom: 72px;
+      color: #fff;
+      @extend %open-sans-400;
+      @include setFont(18px, 150%, inherit);
+
+      @include onTablet {
+        width: 362px;
+      }
+    }
+  }
+
+  &__slider {
+    margin-top: 48px;
+
+    @include onTablet {
+      margin-top: 147px;
+    }
+
+    @include on1024Screen {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin-top: 0;
+      @include rectangle(45vw, 85vh);
+    }
+  }
+}
