@@ -15,3 +15,8 @@ window.addEventListener('hashchange', () => {
     document.getElementById('slider').classList.remove('slider--slide2');
   }
 });
+
+document.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+});
