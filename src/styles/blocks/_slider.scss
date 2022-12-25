@@ -1,8 +1,8 @@
 .slider {
   height: 390px;
   width: 100%;
-  border-radius: $primaryBorderRadius;
-  background: center / cover no-repeat url("../images/slider/bgBlack.jpg");
+  border-radius: $mainBorderR;
+  background: center / cover no-repeat url("../images/slider/1_1.jpg");
 
   position: absolute;
   bottom: 0;
@@ -11,13 +11,14 @@
   @include onDesktop {
     height: auto;
     width: 50%;
+    border-radius: $mainBorderR 0;
+
     top: 116px;
     right: 0;
     left: auto;
-    border-radius: $primaryBorderRadius 0;
   }
 
-  &__info {
+  &__inner {
     display: flex;
     flex-direction: column;
 
@@ -33,13 +34,15 @@
     @include onDesktop {
       flex-direction: row;
       align-items: center;
-      bottom: 50px;
+
       left: 48px;
+      bottom: 50px;
     }
   }
 
-  &__actions {
+  &__pagination {
     display: flex;
+    gap: 16px;
     margin-bottom: 16px;
 
     @include onDesktop {
@@ -47,10 +50,8 @@
     }
   }
 
-  &__dot {
-    &:not(:last-child) {
-      margin-right: 16px;
-    }
+  &__button-icon {
+    @include square(32px);
   }
 
   &__name {
@@ -61,7 +62,7 @@
     @include font(13px, 700, 3px);
   }
 
-  &__description {
+  &__text {
     max-width: 264px;
     font-size: 14px;
     line-height: 20px;
