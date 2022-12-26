@@ -2,13 +2,20 @@
 
   &__box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     gap: 30px;
-
     text-align: center;
 
-    padding-bottom: 186px;
+    padding-bottom: 148px;
+
+    @include smallDesktop {
+      flex-direction: row;
+      gap: 20px;
+      max-width: 990px;
+
+      padding-bottom: 186px;
+    }
 
     @include Desktop {
       max-width: 922px;
@@ -16,52 +23,50 @@
       gap: 20px;
     }
 
-    @include smallDesktop {
-      max-width: 1024px;
-      gap: 20px;
-    }
-
-    @include Tablet {
+    @include theDesign {
       gap: 30px;
-      flex-direction: column;
-      padding-bottom: 148px;
+      max-width: 1146px;
     }
   }
 
   &__item {
-    width: 362px;
-    height: 494px;
+    width: 280px;
+    height: 456px;
 
     position: relative;
     display: flex;
     flex-direction: column;
+    align-self: center;
 
     background-color: #fff;
     border-radius: 16px;
     transition: transform 0.5s;
+
+    @include Tablet {
+      width: 558px;
+      height: 478px;
+    }
+
+    @include smallDesktop {
+      width: 292px;
+      height: 456px;
+    }
 
     @include Desktop {
       width: 292px;
       height: 456px;
     }
 
-    @include Tablet {
-      width: 558px;
-      height: 478px;
-      align-self: center;
-    }
-
-    @include Mobile {
-      width: 280px;
-      height: 456px;
+    @include theDesign {
+      width: 362px;
+      height: 496px;
     }
 
     &:hover {
-      transform: scale(1.1);
       box-shadow: 0 13px 27px 0 #2c2c2c;
 
-      @include Tablet {
-        transform: scale(1);
+      @include smallDesktop {
+        transform: scale(1.1);
       }
     }
   }
@@ -69,65 +74,65 @@
   &__rectangle {
     position: absolute;
 
-    width: 139px;
-    height: 56px;
+    width: 109px;
+    height: 44px;
 
     border-radius: 12px;
     transform: rotate(-60deg);
     background-color: #2060f6;
-
-    @include Desktop {
-      width: 109px;
-      height: 44px;
-    }
 
     @include Tablet {
       width: 139px;
       height: 56px;
     }
 
-    @include Mobile {
+    @include smallDesktop {
       width: 109px;
       height: 44px;
     }
 
-    &-one {
-      top: 82px;
-      left: 60px;
+    @include theDesign {
+      width: 139px;
+      height: 56px;
+    }
 
-      @include Desktop {
-        top: 73px;
-        left: 54px;
-      }
+    &-one {
+      top: 72px;
+      left: 47px;
 
       @include Tablet {
         top: 84px;
         left: 161px;
       }
 
-      @include Mobile {
-        top: 72px;
-        left: 47px;
+      @include smallDesktop {
+        top: 73px;
+        left: 54px;
+      }
+
+      @include theDesign {
+        top: 82px;
+        left: 60px;
       }
     }
 
     &-two {
-      top: 176px;
-      right: 62px;
+      top: 145px;
+      left: 125px;
 
-      @include Desktop {
-        top: 144px;
-        right: 56px;
-      }
- 
       @include Tablet {
         top: 175px;
         left: 259px;
       }
 
-      @include Mobile {
+      @include smallDesktop {
         top: 145px;
-        left: 125px;
+        left: 130px;
+      }
+
+      @include theDesign {
+        top: 178px;
+        left: 164px;
       }
     }
   }
@@ -137,36 +142,30 @@
     height: 18px;
     margin: 309px auto 0;
 
-    @include Desktop {
-      margin-top: 255px;
-    }
+    margin-top: 255px;
 
     @include Tablet {
       margin-top: 309px;
     }
 
-    @include Mobile {
+    @include smallDesktop {
       margin-top: 255px;
+    }
+
+    @include theDesign {
+      margin-top: 309px;
     }
   }
 
   &__photos {
-    height: 140px;
-    width: 140px;
+    height: 110px;
+    width: 110px;
 
     position: absolute;
-    top: 87px;
-    left: 111px;
+    top: 75px;
+    left: 85px;
 
     border-radius: 50%;
-
-    @include Desktop {
-      height: 109px;
-      width: 109px;
-
-      top: 75px;
-      left: 91px;
-    }
 
     @include Tablet {
       height: 140px;
@@ -176,12 +175,20 @@
       left: 209px;
     }
 
-    @include Mobile {
-      height: 110px;
-      width: 110px;
+    @include smallDesktop {
+      height: 109px;
+      width: 109px;
 
       top: 75px;
-      left: 85px;
+      left: 91px;
+    }
+
+    @include theDesign {
+      height: 140px;
+      width: 140px;
+
+      top: 87px;
+      left: 111px;
     }
   }
 
@@ -196,14 +203,15 @@
 
     margin: 0;
     margin-bottom: 16px;
+    margin-left: 20px;
+    text-align: left;
 
-    @include Desktop {
-      margin-left: 54px;
+    @include Tablet {
+      margin-left: 41px;
     }
 
-    @include Mobile {
-      margin-left: 20px;
-      text-align: left;
+    @include Desktop {
+      margin-left: 0;
     }
   }
 
@@ -216,19 +224,25 @@
     letter-spacing: normal;
     color: #253757;
 
-    width: 200px;
+    width: 280px;
     margin: 0;
-    margin-bottom: 85px;
+    margin-left: 20px;
+    margin-bottom: 48px;
 
-    @include Desktop {
-      margin-left: 54px;
+    @include Tablet {
       margin-bottom: 56px;
+      margin-left: 41px;
     }
 
-    @include Mobile {
-      width: 280px;
-      margin: 0 auto;
-      margin-bottom: 48px;
+    @include smallDesktop {
+      width: 200px;
+      margin: 0;
+      margin-bottom: 85px;
+      margin-left: 41px;
+    }
+
+    @include Desktop {
+      margin-left: 0;
     }
   }
 
@@ -236,6 +250,7 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 13px;
+    line-height: 19px;
     color: #6c788b;
     text-align: center;
 

@@ -2,21 +2,23 @@
 
   &__conteiner {
     margin: 0 auto;
-    height: 808px;
+    height: 1585px;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
 
     @include Tablet {
       height: 1074px;
-      flex-direction: column;
-      align-items: flex-end;
     }
 
-    @include Mobile {
-      height: 1585px;
-      justify-content: flex-start;
+    @include smallDesktop {
+      height: 808px;
+      margin-top: 148px;
+
+      flex-direction: row;
+      align-items: flex-start;
     }
   }
 
@@ -24,24 +26,32 @@
     display: flex;
     flex-direction: column;
 
-    width: 362px;
+    width: 280px;
+    margin: 120px auto;
+    margin-bottom: 48px;
+
+    @include Tablet {
+      margin: 0;
+      margin-bottom: 56px;
+      margin-top: 148px;
+      margin-left: 41px;
+      width: 263px;
+
+      align-self: flex-start;
+    }
+
+    @include smallDesktop {
+      width: 362px;
+    }
 
     @include Desktop {
       margin: 0 auto;
-      margin-left: 54px;
+      margin-left: 0;
       width: 292px;
     }
 
-    @include Tablet {
-      margin-bottom: 56px;
-      margin-top: 148px;
-      width: 263px;
-    }
-
-    @include Mobile {
-      width: 280px;
-      margin: 120px auto;
-      margin-bottom: 48px;
+    @include theDesign {
+      width: 328px;
     }
   }
 
@@ -86,32 +96,33 @@
 
   &__flex-item {
     display: flex;
+    margin: 0 auto;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 24px;
 
     height: 550px;
-    width: 49%;
+    width: 85%;
+
+    @include Tablet {
+      gap: 30px;
+    }
+
+    @include smallDesktop {
+      width: 49%;
+      gap: 30px;
+    }
 
     @include Desktop {
       width: 52%;
       gap: 20px;
-    }
-
-    @include Tablet {
-      width: 85%;
-      gap: 30px;
-      margin: 0 auto;
-      justify-content: center;
-    }
-
-    @include Mobile {
-      gap: 24px;
+      justify-content: right;
     }
   }
 
   &__item {
+    width: 280px;
     height: 264px;
-    width: 264px;
 
     display: flex;
     flex-direction: column;
@@ -121,61 +132,61 @@
     border-radius: 18px;
     transition: transform 0.5s;
 
-    @include Desktop {
-      width: 214px;
-    }
-
     @include Tablet {
       width: 246px;
     }
 
-    @include Mobile {
-      width: 280px;
+    @include smallDesktop {
       height: 264px;
+      width: 214px;
+    }
+
+    @include Desktop {
+      width: 214px;
+    }
+
+    @include theDesign {
+      height: 264px;
+      width: 264px;
     }
 
     &:hover {
-      transform: scale(1.1);
       box-shadow: 0 13px 27px 0 #2c2c2c;
-
-      @include Tablet {
-        transform: translateY(-50%);
-      }
-
-      @include Mobile {
-        transform: translateY(0%);
-      }
     }
 
-    &:nth-child(odd) {
-      transform: translateY(50%);
+    &:nth-child(even) {
+      transform: translateY(0%);
 
       @include Tablet {
-        transform: translateY(0%);
+        &:nth-child(even) {
+          transform: translateY(-50%) scale(1);
+        }
       }
 
-      @include Mobile {
-        transform: translateY(0%);
-      }
+      @include smallDesktop {
+        &:hover {
+          transform: scale(1.1);
+        }
 
-      &:hover {
-        transform: translateY(50%) scale(1.1);
-        box-shadow: 0 13px 27px 0 rgb(44, 44, 44);
-
-        @include Mobile {
+        &:nth-child(even) {
           transform: translateY(0%);
         }
       }
     }
 
-    @include Tablet {
-      &:nth-child(even) {
-        transform: translateY(-50%) scale(1);
+    &:nth-child(odd) {
+      transform: translateY(0%);
+
+      @include smallDesktop {
+        transform: translateY(50%);
       }
 
-      @include Mobile {
-        &:nth-child(even) {
-          transform: translateY(0%) scale(1);
+      &:hover {
+        transform: translateY(0%);
+        box-shadow: 0 13px 27px 0 rgb(44, 44, 44);
+
+        @include smallDesktop {
+          transform: translateY(50%) scale(1.1);
         }
       }
     }
