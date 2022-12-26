@@ -75,6 +75,7 @@
 
     @include desktop {
       gap: 20px;
+      justify-content: flex-end;
     }
 
     @include design {
@@ -86,29 +87,11 @@
   &__block {
     background-color: $colorWhite;
     border-radius: 16px;
-
     padding: 34px 48px 32px 32px;
+    transition: transform 0.3s;
 
-    &--001 {
-      @include desktop {
-        margin-top: 15%;
-      }
-    }
-
-    &--002 {
-      @include onTablet {
-        margin-top: -25%;
-      }
-
-      @include desktop {
-        margin-top: -10%;
-      }
-    }
-
-    &--004 {
-      @include onTablet {
-        margin-top: -25%;
-      }
+    &:hover {
+      transform: scale(105%);
     }
 
     @include onTablet {
@@ -116,6 +99,22 @@
       padding: 32px;
       width: 264px;
       height: 264px;
+
+      &:nth-child(2) {
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(4) {
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(2):hover {
+        transform: translateY(-50%) scale(105%);
+      }
+
+      &:nth-child(4):hover {
+        transform: translateY(-50%) scale(105%);
+      }
     }
 
     @include desktop {
@@ -158,20 +157,21 @@
     margin-bottom: 32px;
   }
 
-  &__buttons {
+  &__button {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 16px;
-  }
+    text-decoration: none;
 
-  &__button {
-    box-sizing: border-box;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    padding: 12px;
-    background-color: $colorBlue;
+    &-arrow {
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: 12px;
+      background-color: $colorBlue;
+    }
 
     &-text {
       @include poppins600;
@@ -180,4 +180,5 @@
       color: #334563;
     }
   }
+
 }
