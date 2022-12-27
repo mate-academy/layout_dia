@@ -1,22 +1,25 @@
 .menu {
-  padding: 40px 0;
-  background-color: $mainBgColor;
-  box-shadow: 2px 1px 5px -2px rgba(255,255,255,1);
   height: 100vh;
+  background-color: $primaryBgColor;
   overflow-y: auto;
 
-  &__actions-left {
-    margin-bottom: 44px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @include onDesktop {
-      margin-bottom: 48px;
-    }
+  @include onTablet {
+    padding: 36px 0;
   }
 
-  &__icon--cross {
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    padding: 29px 0;
+  }
+
+  &__top-actions {
+    margin-bottom: 44px;
+  }
+
+  &__icon {
     @include square(32px);
   }
 
@@ -26,12 +29,17 @@
   }
 
   &__list {
+    display: inline-flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 12px;
   }
 
   &__link {
+    display: block;
     padding: 10px 0;
+  }
+
+  &__action {
+    @include headerAction;
   }
 }

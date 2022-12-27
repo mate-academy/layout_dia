@@ -2,11 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 32px 42px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  @include cardsHover;
 
   @include onTablet {
     padding: 32px 98px;
@@ -14,6 +17,7 @@
 
   @include onDesktop {
     padding: 32px 48px;
+    width: 362px;
   }
 
   &__block-photo {
@@ -28,15 +32,23 @@
     @include onTablet {
       @include square(250px);
     }
+
+    @include onDesktop {
+      @include square(196px);
+    }
   }
 
   &__photo {
     border-radius: 50%;
 
-    @include square(110px);
+    @include square(112px);
 
     @include onTablet {
       @include square(142px);
+    }
+
+    @include onDesktop {
+      @include square(112px);
     }
   }
 
@@ -46,12 +58,17 @@
 
     @include square(24px);
 
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+
     @include onDesktop {
       margin-bottom: 8px;
     }
   }
 
   &__text {
+    max-width: 362px;
     font-size: 13px;
     font-weight: 600;
     line-height: 20px;
@@ -59,28 +76,30 @@
     text-align: center;
 
     @extend %fontOpenSans;
+
+    @include onDesktop {
+      max-width: none;
+    }
   }
 
   &__info {
     flex-grow: 1;
 
-    @include flex(center, flex-end, column);
+    flex-direction: column;
+
+    @include flex(center, flex-end);
   }
 
   &__name {
     margin-bottom: 4px;
     font-weight: 600;
     font-size: 13px;
-    color: #253757;
+    color: $titlesColor;
 
     @extend %fontOpenSans;
   }
 
   &__profession {
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $smallTextColor;
+    @extend %smallName;
   }
 }

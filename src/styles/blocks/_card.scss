@@ -4,10 +4,16 @@
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
 
+  @include cardsHover;
+
+  &:nth-child(even) {
+    @include onTablet {
+      position: relative;
+      top: -130px;
+    }
+  }
+
   &__index {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 24px;
     width: 46px;
     height: 24px;
@@ -18,6 +24,8 @@
     color: $primaryColor;
 
     position: relative;
+
+    @include flex(center, center);
 
     &::after {
       content: "";
@@ -56,17 +64,22 @@
 
     @include onDesktop {
       &:hover {
-        .card__icon-button {
+        .card__button-icon {
           transform: scale(1.2);
         }
       }
     }
   }
 
-  &__icon-button {
+  &__button-icon {
     margin-right: 16px;
     background-color: $primaryColor;
 
     @include square(40px);
+    @extend %buttonIcon;
+  }
+
+  &__icon {
+    @include square(16px);
   }
 }

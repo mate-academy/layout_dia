@@ -4,20 +4,14 @@
   flex-direction: column;
   align-items: center;
 
+  @include cardsHover;
+
   @include onDesktop {
-    width: 264px;
+    width: 214px;
   }
 
-  &:not(:last-child) {
-    margin-bottom: 56px;
-
-    @include onTablet {
-      margin-bottom: 72px;
-    }
-
-    @include onDesktop {
-      margin: 0;
-    }
+  @media (min-width: 1600px) {
+    width: 264px;
   }
 
   &__block-img {
@@ -33,21 +27,15 @@
   }
 
   &__img {
-    transition: transform $primaryDuration;
-
-    @include onDesktop {
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
+    @include hover(transform, scale(1.2));
   }
 
   &__name {
     margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
     line-height: 28px;
-    color: $pageTitleColor;
-
-    @include font(20px, 600);
+    color: $titlesColor;
   }
 
   &__text {
@@ -55,7 +43,6 @@
     line-height: 21px;
     text-align: center;
 
-    @include font(14px, 400);
     @extend %fontOpenSans;
 
     @include onDesktop {

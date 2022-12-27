@@ -12,8 +12,11 @@
 
 @mixin hover($_property, $_toValue, $_duration: $primaryDuration) {
   transition: #{$_property} $_duration;
-  &:hover {
-    #{$_property}: $_toValue;
+
+  @include onDesktop {
+    &:hover {
+      #{$_property}: $_toValue;
+    }
   }
 }
 
@@ -22,9 +25,8 @@
   height: $_size;
 }
 
-@mixin flex($_alignI, $_justifyC: normal, $_direction: row) {
+@mixin flex($_alignI, $_justifyC: normal) {
   display: flex;
-  flex-direction: $_direction;
   align-items: $_alignI;
   justify-content: $_justifyC;
 }
@@ -35,6 +37,33 @@
   letter-spacing: $_letterS;
 }
 
-@mixin top-action {
+@mixin top-actions {
   @include flex(center, space-between);
+}
+
+@mixin headerAction {
+  display: inline-block;
+  height: 30px;
+  line-height: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+
+  @include font(13px, 700, 3px);
+
+  &::after {
+    content: "";
+    height: 2px;
+    border-radius: 4px;
+    background-color: $primaryColor;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@mixin cardsHover {
+  @include hover(transform, scale(1.1));
 }

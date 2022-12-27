@@ -16,33 +16,31 @@
   }
 
   &__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     text-transform: uppercase;
     color: #fff;
 
     position: relative;
 
+    @include flex(center, center);
+    @include font(13px, 700, 3px);
+
     @include onDesktop {
-      &::after {
-        content: "";
-        width: 0;
-        height: 1px;
-        background-color: $primaryColor;
-        transition: width $primaryDuration;
-
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
-
       &:hover::after {
         width: 100%;
       }
     }
 
-    @include font(13px, 700, 3px);
+    &::after {
+      content: "";
+      width: 0;
+      height: 1px;
+      background-color: $primaryColor;
+      transition: width $primaryDuration;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 }

@@ -1,24 +1,39 @@
 .slider {
   height: 390px;
   width: 100%;
-  border-radius: $mainBorderR;
-  background: center / cover no-repeat url("../images/slider/1_1.jpg");
+  border-radius: $primaryBorderR;
+  overflow: hidden;
 
   position: absolute;
+  right: 0;
   bottom: 0;
-  left: 0;
 
   @include onDesktop {
     height: auto;
     width: 50%;
-    border-radius: $mainBorderR 0;
+    border-radius: $primaryBorderR 0;
 
-    top: 116px;
-    right: 0;
-    left: auto;
+    top: 120px;
   }
 
-  &__inner {
+  &__track {
+    height: 100%;
+    display: flex;
+  }
+
+  &__slide {
+    transition: margin-left $primaryDuration;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
     display: flex;
     flex-direction: column;
 
@@ -36,11 +51,11 @@
       align-items: center;
 
       left: 48px;
-      bottom: 50px;
+      bottom: 48px;
     }
   }
 
-  &__pagination {
+  &__buttons {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
@@ -50,8 +65,16 @@
     }
   }
 
-  &__button-icon {
+  &__button {
+    background-color: #fff;
+
+    @extend %buttonIcon;
     @include square(32px);
+
+    &--icon {
+      width: 6px;
+      height: 9px;
+    }
   }
 
   &__name {
@@ -64,7 +87,6 @@
 
   &__text {
     max-width: 264px;
-    font-size: 14px;
     line-height: 20px;
     color: #fff;
 
