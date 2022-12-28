@@ -1,8 +1,5 @@
-
 @mixin image {
-  position: absolute;
   width: 100%;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,20 +12,30 @@
 }
 
 .slider {
+  position: absolute;
   height: 390px;
+  width: 100%;
+  left: 0;
   @include onSmallDesktop {
     position: absolute;
     width: 502px;
     height: 680px;
-    top: 120px;
+    left: unset;
     right: 0;
     bottom: 0;
+    margin-bottom: unset;
+  }
+  @include onDesign {
+    width: 687px;
+  }
+  @include onBigScreens {
+    width: 1167px;
   }
   &__track {
     border-radius: 30px;
     position: absolute;
     width: 100%;
-    height: inherit;
+    height: 100%;
     transition: all 0.3s;
     @include onSmallDesktop {
       border-radius: unset;
@@ -40,6 +47,7 @@
   }
 
   &__block {
+    display: flex;
     min-width: 320px;
     height: inherit;
   }
@@ -49,12 +57,14 @@
     &--1 {
       background-image: url(../images/slider/slider-image-1.jpeg);
     }
-    // &--2 {
-    //   background-image: url(../images/slider/slider-image-2.jpeg);
-    // }
-    // &--3 {
-    //   background-image: url(../images/slider/slider-image-3.jpeg);
-    // }
+    &--2 {
+      background-image: url(../images/slider/slider-image-2.jpeg);
+      transform: translateX(0);
+    }
+    &--3 {
+      background-image: url(../images/slider/slider-image-3.jpeg);
+      transform: translateX(0);
+    }
   }
 
   &__content {
@@ -70,6 +80,9 @@
       align-items: center;
       margin-left: 78px;
       top: 80%;
+    }
+    @include onDesign {
+      margin-left: 48px;
     }
   }
 
