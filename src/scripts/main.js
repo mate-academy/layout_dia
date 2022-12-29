@@ -25,3 +25,11 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   form.reset();
 });
+
+const links = document.querySelectorAll('.services__link');
+
+for (const link of Array.from(links)) {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+  });
+}
