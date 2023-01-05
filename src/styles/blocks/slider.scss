@@ -1,0 +1,114 @@
+.slider {
+  height: 400px;
+  max-width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include onDesktop {
+    height: auto;
+    width: 50%;
+    border-radius: 30px 0;
+    top: 130px;
+  }
+
+  &__box {
+    height: 100%;
+    display: flex;
+  }
+
+  &__line {
+    display: flex;
+    transition: all 1s;
+  }
+
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__button {
+    position: absolute;
+    left: 8%;
+    bottom: 25%;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    @include onDesktop {
+      bottom: 10%;
+    }
+
+    &--prev {
+      background-image: url(../images/slider/slider-prev.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: all 0.5s;
+
+      &:hover {
+        @include slider-arrow-effects;
+      }
+
+      &:active {
+        @include slider-arrow-effects;
+      }
+    }
+
+    &--next {
+      background-image: url(../images/slider/slider-next.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        @include slider-arrow-effects;
+      }
+
+      &:active {
+        @include slider-arrow-effects;
+      }
+    }
+  }
+  &__text {
+    position: absolute;
+    left: 8%;
+    bottom: 10%;
+
+    @include onDesktop {
+      bottom: 9%;
+      left: 25%;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-default-white;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    font-family: $ff-secondary;
+    font-size: 14px;
+    line-height: 140%;
+    color: $c-default-white;
+    width: 37ch;
+  }
+}
