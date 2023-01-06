@@ -1,0 +1,29 @@
+.page {
+  background-color: $main-bg;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    overflow-x: hidden;
+
+    &--no-scroll {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    transform: translateX(-100%);
+    @include transitions(transform);
+
+    &:target {
+      z-index: 1;
+      transform: translateX(0);
+    }
+  }
+}

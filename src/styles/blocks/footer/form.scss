@@ -1,0 +1,71 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    display: block;
+
+    &:last-of-type {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    padding: 3em 0 17px;
+
+    color: #fff;
+    background-color: $main-blue;
+
+    border: none;
+    border-bottom: 1px solid $white-text;
+    outline: none;
+
+    @include setFont(15px, 22.5px, inherit);
+    @include transitions(border-bottom-color transform);
+
+    @include onTablet {
+      width: 362px;
+    }
+
+    @include on1024Screen {
+      cursor: pointer;
+
+      &:hover {
+        border-bottom-color: #fff;
+      }
+
+      &:focus {
+        border-bottom-color: $card-blue;
+        transform: scale(0.99);
+        outline: none;
+
+        cursor: initial;
+        caret-color: #fff;
+      }
+    }
+
+    &::placeholder {
+      color: $light-gray-color;
+    }
+
+    &--textarea {
+      padding-bottom: 0;
+      resize: none;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    @extend %open-sans-600;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    -webkit-box-shadow: 0 0 0 1000px $main-blue inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}

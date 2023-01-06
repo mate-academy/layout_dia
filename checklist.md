@@ -1,4 +1,3 @@
-
 # Checklist for preparing a portfolio project
 
 ## Tech review
@@ -8,8 +7,8 @@
 3. Logos in header and footer should be links to home page
 4. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
 5. In the PROCESS section add a hover effect to cards (for example, let them increase in size a little)
-6. In the Testimonials and Our expertise section add hover effects for each review
-7. All interactive elements(*links, buttons, pictures, icons*) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
+6. In the testimonials and Our expertize section add hover effects for each review
+7. All interactive elements(_links, buttons, pictures, icons_) **_should have a hover effect and cursor pointer_**. User must intuitively understand that he can interact with them
 8. When a user clicks on Address Google Maps is opened in a new tab (Use `target="_blank"`)
 9. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
 10. The user must have the opportunity to conveniently write 2-3 lines of text in the message input field
@@ -26,7 +25,7 @@
 4. The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
 5. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
 6. Make sure everything looks neat on mobile and without horizontal scrolling
-7. The "Learn more" button should lead to the closest block (Our expertise)
+7. The "Learn more" button should lead to the closest block (Our expertize)
 8. The "Hire Us" button in the header menu should lead to the contact form
 9. In the `Vision`, `Passion`, `Results` sections, the “Apply” button also should lead to the contact form
 10. All the social icons in the footer should be clickable and open the social networks in a new tab
