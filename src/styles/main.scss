@@ -2,6 +2,739 @@
 @import "fonts";
 @import "typography";
 
-body {
-  background: $c-gray;
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 340px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+$white-color: #fff;
+
+.logo {
+  margin-right: 35px;
+  width: 45px;
+  height: 25px;
+}
+
+.page {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #e5e5e5;
+
+  &__body {
+    margin: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #2c2c2c;
+  color: $white-color;
+
+  &__content {
+    padding-top: 20px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    @include tablet {
+      margin-bottom: 58px;
+    }
+
+    @include desktop {
+      margin-bottom: 166px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__link {
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white-color;
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #2060f6;
+      border-radius: 4px;
+      bottom: 0;
+    }
+  }
+
+  &__block {
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--about {
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+
+    @include tablet {
+      margin: 0 0 24px;
+    }
+  }
+
+  &__phrase {
+    margin: 0 0 70px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+
+    @include desktop {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__button {
+    margin-bottom: 48px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+    background-color: #2060f6;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    color: $white-color;
+
+    @include tablet {
+      width: 265px;
+    }
+
+    @include desktop {
+      width: 256px;
+    }
+  }
+}
+
+.slider {
+  position: relative;
+  border-radius: 30px;
+  width: 100%;
+  height: 390px;
+  background-color: #e5e5e5;
+
+  @include desktop {
+    height: 680px;
+    width: 500px;
+    background-color: #2c2c2c;
+  }
+
+  @include tablet {
+    padding-top: 146px;
+  }
+
+  #item-1,
+  #item-2,
+  #item-3 {
+    position: fixed;
+  }
+
+  &__content {
+    padding: 230px 20px 0;
+  }
+
+  &__item {
+    position: absolute;
+    border-radius: 30px;
+    width: 100%;
+    height: 390px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__item-1 {
+    z-index: 2;
+    opacity: 1;
+    background-image: url(../images/slider/slide1.png);
+  }
+
+  &__item-2 {
+    background-image: url(../images/slider/slide2.png);
+    background-position: bottom;
+  }
+
+  &__item-3 {
+    background-image: url(../images/slider/slide3.png);
+  }
+
+  *:target ~ &__item-1 {
+    opacity: 0;
+  }
+
+  #item-1:target ~ &__item-1 {
+    opacity: 1;
+  }
+
+  #item-2:target ~ &__item-2,
+  #item-3:target ~ &__item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+  }
+
+  &__paragraph {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
+
+.arrow {
+  display: flex;
+  margin-bottom: 16px;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    text-decoration: none;
+  }
+
+  &__image {
+    width: 5px;
+    height: 9px;
+  }
+}
+
+.who-we-are {
+  background-color: #e5e5e5;
+  padding: 120px 20px;
+  text-align: center;
+
+  @include tablet {
+    padding: 148px 40px;
+  }
+
+  &__content {
+    max-width: 754px;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #253757;
+    
+    @include tablet {
+      margin: 0 0 16px;
+    }
+
+    @include desktop {
+      margin: 0 0 16px;
+    }
+  }
+  
+  &__paragraph {
+    margin: 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: #6c788b;
+  }
+}
+
+.our-expertise {
+  border-radius: 30px;
+  padding: 72px 20px;
+  background-color: #fff;
+  text-align: center;
+  color: #253757;
+
+  &__content {
+    @include desktop {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &__branding {
+    @include desktop {
+      max-width: 264px;
+    }
+  }
+
+  &__communication {
+    @include desktop {
+      max-width: 264px;
+    }
+  }
+
+  &__strategy {
+    @include desktop {
+      max-width: 264px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 56px;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 120%;
+
+    @include tablet {
+      margin: 0 0 64px;
+      font-size: 52px;
+      line-height: 150%;
+    }
+
+    @include desktop {
+      margin: 0 0 64px;
+      font-size: 52px;
+      line-height: 150%;
+    }
+  }
+
+  &__image {
+    margin-bottom: 32px;
+    border-radius: 15px;
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
+
+    @include desktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__name {
+    margin: 0 0 16px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  &__paragraph {
+    margin: 0 0 56px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #6c788b;
+
+    @include tablet {
+      margin: 0 0 72px;
+    }
+
+    @include desktop {
+      margin: 0;
+    }
+  }
+}
+
+.services {
+  background-color: #e5e5e5;
+
+  &__content {
+    padding: 120px 20px;
+  }
+
+  &__name {
+    margin: 0 0 16px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: #253757;
+  }
+
+  &__paragraph {
+    margin: 0 0 48px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #6c788b;
+  }
+}
+
+.blocks {
+  &__item {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    max-width: 280px;
+    padding: 32px;
+    height: 264px;
+    background: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    @include desktop {
+      margin-bottom: 30px;
+    }
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    margin-bottom: 24px;
+    height: 24px;
+    background-color: rgba(13, 38, 96, 0.1);
+    border-radius: 23px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #2060f6;
+  }
+
+  &__paragraph {
+    margin: 0 0 32px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    margin-right: 16px;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    background: #2060f6;
+  }
+
+  &__button-text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    color: #334563;
+  }
+
+  &__image {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.testimonials {
+  padding: 0 20px;
+  &__name {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #253757;
+    text-align: center;
+
+    @include desktop {
+      text-align: start;
+      width: 160px;
+    }
+
+    @include tablet {
+      text-align: start;
+      width: 160px;
+    }
+  }
+}
+
+.cards {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &:last-child {
+    margin-bottom: 120px;
+
+    @include tablet {
+      margin-bottom: 148px;
+    }
+
+    @include desktop {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__item {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    width: 100%;
+    padding: 32px 42px;
+    max-height: 494px;
+    background-color: #fff;
+    text-align: center;
+
+    @include tablet {
+      padding: 32px 98px;
+      margin-bottom: 30px;
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__pictures {
+    margin: 0 0 30px;
+  }
+
+  &__symbol {
+    margin-bottom: 10px;
+
+    @include tablet {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+  }
+
+  &__name {
+    margin: 0 0 4px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #253757;
+  }
+
+  &__sub-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+}
+
+.vision {
+  padding: 72px 20px;
+  background-color: #fff;
+  text-align: center;
+
+  @include desktop {
+    padding: 198px 172px;
+    background-image: url(../images/Shapes.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  @include tablet {
+    background-image: url(../images/Shapes.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 120%;
+    text-align: center;
+    color: #253757;
+  }
+
+  @include tablet {
+    font-size: 52px;
+  }
+
+  @include desktop {
+    font-size: 52px;
+    line-height: 150%;
+  }
+
+  &__paragraph {
+    margin: 0 0 56px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+
+    @include tablet {
+      margin: 0 0 64px;
+    }
+
+    @include desktop {
+      margin: 0 0 64px;
+    }
+  }
+
+  &__button {
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 56px;
+    background: #2060f6;
+
+    @include tablet {
+      width: 264px;
+    }
+
+    @include desktop {
+      width: 264px;
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include desktop {
+      display: grid;
+    }
+
+    @include tablet {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+
+        &--desktop-#{$start}-#{$end} {
+          @include desktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--ipad-#{$start}-#{$end} {
+          @include tablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
 }
