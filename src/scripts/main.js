@@ -51,10 +51,12 @@ function rollSlider() {
 
 const form = document.getElementById('form');
 
-function handleForm(event) {
-  event.preventDefault();
-};
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+});
 
+// eslint-disable-next-line no-undef
 form.addEventListener('submit', handleForm);
 
 window.addEventListener('hashchange', () => {
