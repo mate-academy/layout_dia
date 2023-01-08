@@ -8,7 +8,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('qwer');
+const form = document.querySelector('.contact-us__form');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
