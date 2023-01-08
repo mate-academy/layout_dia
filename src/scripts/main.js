@@ -56,9 +56,6 @@ form.addEventListener('submit', (e) => {
   e.target.reset();
 });
 
-// eslint-disable-next-line no-undef
-form.addEventListener('submit', handleForm);
-
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
