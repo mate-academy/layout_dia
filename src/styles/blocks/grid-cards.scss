@@ -1,0 +1,115 @@
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 264px);
+  grid-template-rows: repeat(5, 118px);
+  gap: 30px;
+
+  @include onTablet {
+    margin-top: -100px;
+  }
+
+  @include onMobile {
+    margin-top: 48px;
+    grid-template-columns: 264px;
+    grid-template-rows: repeat(4, 264px);
+  }
+
+  &__card {
+    background-color: $white;
+    box-shadow: 0px 9px 18px $dark-blue-opacity;
+    border-radius: 24px;
+    padding: 32px;
+
+    &--1 {
+      grid-area: 2 / 1 / 4 / 2;
+    }
+
+    &--2 {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    &--3 {
+      grid-area: 4 / 1 / 6 / 2;
+    }
+
+    &--4 {
+      grid-area: 3 / 2 / 5 / 3;
+    }
+
+    @include onMobile {
+      &--1 {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+
+      &--2 {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+
+      &--3 {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+
+      &--4 {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+    }
+  }
+
+  &__num {
+    @extend %small-text;
+    letter-spacing: 0;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    padding: 2px 12px;
+
+    @each $name, $color in $box-colors {
+      &--#{$name} {
+        background-color: $color;
+      }
+    }
+
+    @each $name, $color in $text-colors {
+      &--#{$name} {
+        color: $color;
+      }
+    }
+  }
+
+  &__text {
+    font-family: 'Open Sans';
+    font-weight: $semi-bold;
+    font-size: 13px;
+    color: $blue-grey;
+    margin: 24px 0 32px;
+  }
+
+  &__button {
+    @extend %middle-text;
+    display: flex;
+    align-items: center;
+    color: $blue-text;
+    cursor: pointer;
+
+    &:hover .more-cards__arrow {
+      transform: rotate(360deg);
+      @include square(48px);
+    }
+  }
+
+  &__arrow {
+    @include square(40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 16px;
+    transition: 0.5s;
+
+    @each $name, $color in $text-colors {
+      &--#{$name} {
+        background-color: $color;
+      }
+    }
+  }
+}
