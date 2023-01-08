@@ -8,9 +8,10 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('.contact-us__form');
+const form = document.querySelector('qwer');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   e.target.reset();
+  form.reset();
 });
