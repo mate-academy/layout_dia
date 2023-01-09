@@ -1,13 +1,14 @@
 'use strict';
 
-/* eslint-disable no-unused-vars */
 const slider = new window.Swiper('.slider', {
+  init: false,
   navigation: {
     nextEl: '.slider__button-next',
     prevEl: '.slider__button-prev',
   },
 });
-/* eslint-disable no-unused-vars */
+
+slider.init();
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
