@@ -1,0 +1,114 @@
+.slider {
+  position: relative;
+
+  @include display-1024px {
+    position: absolute;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+  }
+
+  &__images {
+    height: 390px;
+    overflow: hidden;
+
+    @include display-1024px {
+      height: 680px;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 30px;
+
+    animation: sliderAnimation 3s;
+
+    @include display-1024px {
+      border-radius: 30px;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+
+    padding: 0 0 16px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 50%;
+    background-color: $c-white;
+    transition: all ease-in-out 0.5s;
+
+    &--prev {
+      background-image: url(../images/slider/left.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &--next {
+      background-image: url(../images/slider/right.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $c-white;
+
+    padding: 0 0 8px;
+  }
+
+  &__description {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: $c-white;
+  }
+}
+
+@keyframes sliderAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
