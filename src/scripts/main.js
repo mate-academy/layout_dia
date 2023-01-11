@@ -2,6 +2,7 @@
 
 const slider = new window.Swiper('.slider', {
   init: false,
+  speed: 1000,
   navigation: {
     nextEl: '.slider__button-next',
     prevEl: '.slider__button-prev',

@@ -8,16 +8,71 @@
     padding-bottom: 24px;
 
     height: 126px;
-    
-    @include onIPAD {
-      // width: 264px;
-    }
-
-    @include onIPAD {
-      // width: 292px;
-    }
-
   }
+
+  // #region section allocation at a resolution greater than 1024
+  @include onIPAD {
+    &__container {
+      display: flex;
+      flex-direction: column;
+
+      @include onDesktop {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &__text_area {
+      display: flex;
+      flex-direction: column;
+      width: 48%;
+
+      @include onDesktop {
+        width: 292px;
+      }
+
+      @include theDesign {
+        width: 362px;
+      }
+    }
+
+    &__card_area {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+
+      @include onDesktop {
+        grid-template-columns: repeat(2, 214px);
+        grid-template-rows: repeat(2, 264px);
+        grid-gap: 20px;
+      }
+
+      @include theDesign {
+        grid-template-columns: repeat(2, 264px);
+        grid-gap: 30px;
+        
+        &-column-1 {
+          grid-column: 1;
+        }
+
+        &-column-2 {
+          grid-column: 2;
+        }
+
+        &-row-1 {
+          grid-row: 1;
+        }
+
+        &-row-2 {
+          grid-row: 2;
+        }
+      }
+    }
+  }
+  // #endregion
+    
+
+  
 
   &__subtitle {
     font-family: "Open Sans", sans-serif;
@@ -42,15 +97,22 @@
     border-radius: 16px;
     margin-bottom: 24px;
     padding: 32px;
+    transition: $transition-dur;
+
+    &:hover {
+      transform: scale(1.05) translate( 0,-20px);
+      box-shadow: 0 10px 7px 5px rgba(15, 15, 15, 0.5);
+    }
 
     &-up {
       @include onIPAD {
         transform: translateY(-50%);
       }
-    }
 
-    &-container {
-      display: grid;
+      &:hover {
+        transform: translateY(-50%) scale(1.05);
+      }
+      
     }
 
     &_number {
@@ -74,6 +136,7 @@
         text-transform: uppercase;
 
         color: #2060f6;
+        
       }
     }
 
@@ -87,20 +150,33 @@
       /* or 20px */
       text-align: start;
       color: #6c788b;
+      transition: $transition-dur;
+
     }
 
     &_button {
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      text-decoration: none;
 
       &-arrow {
+        background-color: transparent;
         background-image: url(/images/sub-title/Arrow.svg);
         background-position: center;
         background-repeat: no-repeat;
         width: 40px;
         height: 40px;
         margin-right: 16px;
+        transition: $transition-dur;
+
+        &:hover {
+          width: 90px;
+          border-radius: 20px;
+          background-color: #2060f6;
+          transition: $transition-dur;
+          background-position: right;
+        }
       }
 
       &-text {
@@ -109,12 +185,8 @@
         font-weight: 600;
         font-size: 15px;
         line-height: 22px;
-        /* identical to box height */
 
         text-align: center;
-
-        /* Text/200 */
-
         color: #334563;
       }
     }
