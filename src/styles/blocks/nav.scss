@@ -1,0 +1,70 @@
+.nav {
+  &__container {
+    display: grid;
+    grid-template-columns: 44px 18px 1fr;
+    justify-items: right;
+    align-items: center;
+    gap: 20px;
+
+    @include onTablet {
+      grid-template-columns: 44px 1fr 68px;
+      justify-items: center;
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    @include square(18px);
+
+    background-image: url(../images/header_menu_icon.svg);
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--cross {
+      display: flex;
+      align-self: flex-end;
+      background-image: url(../images/cross.svg);
+    }
+  }
+
+  &__hire-us {
+    display: inline-block;
+    justify-items: end;
+    width: max-content;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 3px;
+    color: $white-color;
+    text-transform: uppercase;
+
+    @include hover(text-shadow, 3px 2px 10px rgba(255, 255, 255, 0.7));
+
+    &::after {
+      content: "";
+      position: relative;
+      display: block;
+      top: 8px;
+      right: 0;
+      left: 0;
+      height: 2px;
+      background-color: $blue-color;
+      border-radius: 4px;
+    }
+  }
+
+  &__container--footer {
+    display: block;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 500px;
+
+  width: 100%;
+  min-height: 184px;
+
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    top: 120px;
+    width: 50%;
+    border-radius: 30px 0;
+  }
+
+  @for $index from 1 through 3 {
+    &--#{$index} {
+      background-image: url(../images/slide-#{$index}.png);
+    }
+  }
+
+  &__container {
+    position: absolute;
+    bottom: 24px;
+    padding: 0 20px;
+
+    @include onSmartphone {
+      bottom: 32px;
+      padding: 0 40px;
+    }
+
+    @include onTablet {
+      bottom: 48px;
+      padding: 0 78px;
+    }
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__button-left {
+    display: inline-block;
+    margin-right: 16px;
+    background-image: url(../images/header_arrow_left.svg);
+
+    @include square(32px);
+    @include hover(transform, scale(110%));
+  }
+
+  &__button-right {
+    display: inline-block;
+    background-image: url(../images/header_arrow_right.svg);
+
+    @include square(32px);
+    @include hover(transform, scale(110%));
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 20px;
+    color: $white-color;
+  }
+}

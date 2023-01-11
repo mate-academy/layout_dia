@@ -1,0 +1,54 @@
+.form-field {
+  box-sizing: border-box;
+  display: block;
+  height: 42px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-bottom: 1px solid $white-color;
+  padding: 0 0 17px;
+  background-color: $background-dark;
+
+  transition: border-bottom-width 0.3s;
+
+  @include hover(border-bottom-color, $hover-blue);
+
+  &::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+
+    transition: color 0.3s;
+  }
+
+  &:hover::placeholder {
+    color: $white-color;
+  }
+
+  &:invalid {
+    color: rgb(246, 134, 134);
+  }
+
+  &:focus {
+    color: $white-color;
+    border-bottom-color: $hover-blue;
+    border-bottom-width: 2px;
+    outline: none;
+
+    &::placeholder {
+      color: $white-color;
+    }
+  }
+
+  &:valid {
+    color: $white-color;
+    border-bottom-width: 2px;
+  }
+
+  &--textarea {
+    min-height: 43px;
+    font-family: inherit;
+    resize: none;
+  }
+}
