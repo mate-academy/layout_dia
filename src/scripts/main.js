@@ -15,3 +15,36 @@ form.addEventListener('submit', function(event) {
 
   form.reset();
 });
+
+const slider = document.querySelector('.slider');
+const rightArrow = document.querySelector('.slider__button-right');
+const leftArrow = document.querySelector('.slider__button-left');
+let slideIndex = 1;
+const indexCount = 3;
+
+const chooseCurrentSlide = () => {
+  const indexes = [...Array(indexCount + 1).keys()].slice(1);
+
+  indexes.map(index => slider.classList.toggle(
+    `slider--${index}`,
+    slideIndex === index,
+  ));
+};
+
+rightArrow.addEventListener('click', () => {
+  if (slideIndex + 1 > indexCount) {
+    return;
+  }
+
+  slideIndex++;
+  chooseCurrentSlide();
+});
+
+leftArrow.addEventListener('click', () => {
+  if (slideIndex - 1 < 1) {
+    return;
+  }
+
+  slideIndex--;
+  chooseCurrentSlide();
+});
