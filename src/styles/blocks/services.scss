@@ -73,7 +73,7 @@
   }
 
   &__card {
-    padding: 32px 30px 32px 32px;
+    padding: 32px 30px 40px 32px;
 
     background-color: #fff;
     border-radius: 16px;
@@ -100,11 +100,10 @@
     text-transform: uppercase;
 
     color: #2060f6;
-
   }
 
   &__card-text {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -113,39 +112,39 @@
     color: $colorTextBlack;
   }
 
-  &__card-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #2060f6;
-
-    transition: transform 0.5s;
-  }
-
   &__card-link {
     font-weight: 600;
     font-size: 15px;
     line-height: 22px;
     color: #334563;
     text-decoration: none;
-
+    position: relative;
     transition: color 0.5s;
-  }
+    display: block;
+    padding-left: 56px;
 
-  &__card-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    &:hover .services__card-icon {
-      transform: scale(1.2);
+    &::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: 0;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-image: url(../images/services/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      background-color: #2060f6;
+      transition: transform 0.5s;
     }
 
-    &:hover .services__card-link {
+    &:hover {
       color: #2060f6;
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
     }
   }
 }
