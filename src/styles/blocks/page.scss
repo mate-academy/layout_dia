@@ -1,0 +1,54 @@
+.page {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+
+  box-sizing: border-box;
+
+  &__body {
+    background-color: $c-body;
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+
+    @include display-640px {
+      margin-bottom: 148px;
+
+      &:nth-child(n+5) {
+        margin-bottom: 0;
+      }
+
+    }
+
+    @include display-1024px {
+      &--expertise-margin {
+        margin-bottom: 250px;
+      }
+
+      &:--services-margin {
+        margin-bottom: 150px;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

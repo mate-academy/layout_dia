@@ -1,0 +1,161 @@
+.header {
+  box-sizing: border-box;
+  background-color: $c-dark;
+  position: relative;
+  height: 100vh;
+
+  @extend %flex-column;
+
+  border-radius: 0 0 30px 30px;
+
+  &__top {
+    @extend %flexing-space-between;
+    padding: 20px 0 48px;
+
+    @include display-640px {
+      padding-bottom: 64px;
+    }
+
+    @include display-1024px {
+      padding-bottom: 168px;
+    }
+  }
+
+  &__content {
+    @extend %flex-column;
+    padding: 0 0 48px;
+  }
+
+  &__row {
+    @extend %flexing-space-between;
+  }
+
+  &__menu {
+    @extend %flexing-center;
+
+    position: relative;
+    right: 0;
+    width: 18px;
+    height: 8px;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform ease-in-out 0.5s;
+
+    &-lines {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 2px;
+      background-color: $c-white;
+      transition: all ease-in-out 0.5s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        width: 100%;
+        height: 6px;
+        background-color: transparent;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        width: 100%;
+        height: 2px;
+        background-color: $c-white;
+        transition: all ease-in-out 0.5s;
+      }
+
+      &:hover {
+        background-color: $c-blue;
+      }
+
+      &:hover::after {
+        width: 50%;
+        background-color: $c-blue;
+      }
+    }
+
+    @include display-1024px {
+      display: none;
+    }
+
+  }
+
+  &__nav {
+    display: none;
+
+    @include display-1024px {
+      display: block;
+    }
+  }
+
+  &__hire {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+
+    position: relative;
+    padding: 0 0 8px;
+
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $c-blue;
+
+      transition: width ease-in-out 0.5s;
+    }
+
+    &:hover::after {
+      width: 0;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: $c-white;
+
+    padding: 0 0 30px;
+
+    @include display-640px {
+      font-size: 64px;
+      line-height: 68px;
+
+      padding-bottom: 24px;
+    }
+  }
+
+  &__paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $c-white;
+
+    padding: 0 0 72px;
+
+    @include display-640px {
+      padding-bottom: 56px;
+    }
+
+  }
+
+}
