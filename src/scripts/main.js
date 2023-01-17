@@ -1,7 +1,5 @@
 'use strict';
 
-const page = document.querySelector('.page');
-const menu = document.querySelector('.menu');
 const form = document.getElementById('form');
 const textArea = document.querySelector('#form-textarea');
 const textareaResizer = document.querySelector('#textarea-resizer');
@@ -63,29 +61,10 @@ textArea.addEventListener('input', () => {
   textareaResizer.innerText = textArea.value;
 });
 
-const getScrollbarWidth = () => {
-  const el = document.createElement('div');
-
-  el.style.cssText = 'overflow:scroll; visibility:hidden; position:absolute;';
-  document.body.appendChild(el);
-
-  const barWidth = el.offsetWidth - el.clientWidth;
-
-  el.remove();
-
-  return barWidth;
-};
-
-const scrollbarWidth = getScrollbarWidth();
-
-menu.style.paddingRight = `${scrollbarWidth}px`;
-
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    page.style.paddingRight = `${scrollbarWidth}px`;
-    page.style.overflowY = `hidden`;
+    document.body.classList.add('page__body--with-menu');
   } else {
-    page.style.paddingRight = `0`;
-    page.style.overflowY = `visible`;
+    document.body.classList.remove('page__body--with-menu');
   }
 });
