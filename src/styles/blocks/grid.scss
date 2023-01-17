@@ -1,0 +1,64 @@
+.grid {
+  // display: block;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  &__item {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--phone-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end +1};
+        }
+      }
+    }
+  }
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+
+    &__item {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onNotebook {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+
+    &__item {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--notebook-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end +1};
+          }
+        }
+      }
+    }
+
+    @include onDesign {
+      column-gap: 30px;
+
+      &__item {
+        @for $start from 1 through 12 {
+          @for $end from $start through 12 {
+            &--design-#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end +1};
+            }
+          }
+        }
+      }
+    }
+  }
+}
