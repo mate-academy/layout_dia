@@ -61,6 +61,10 @@ textArea.addEventListener('input', () => {
   textareaResizer.innerText = textArea.value;
 });
 
+if (window.location.hash === '#menu') {
+  document.body.classList.add('page__body--with-menu');
+}
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
