@@ -26,6 +26,16 @@
       type="mage/png"
       href="../src/images/Air.png"
     >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="attr-req-value"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500&family=Poppins:ital,wght@0,400;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    >
   </head>
   <body>
     <header class="header" id="Home">
@@ -39,7 +49,7 @@
                 class="header__Logo scale"
                 >
             </a>
-            <div class="header__content-container">
+            <nav class="header__content-container">
               <a
                 href="#About-Us"
                 class="header__content-links scale"
@@ -64,10 +74,10 @@
               >
                 Contact Us
               </a>
-            </div>
+            </nav>
             <a
               href="#Hire-Us"
-              class="header__content-links scale no-margins"
+              class="header__content-links scale no-margins header__line"
             >
               Hire us
             </a>
@@ -95,6 +105,9 @@
         </div>
       </div>
     </header>
+    <nav>
+
+    </nav>
     <main class="page" id="Services">
       <div class="container">
         <div class="page__section">
@@ -352,7 +365,7 @@
                 <p class="page__testimonials__cards-description">
                   AIR raises the agency bar to stratospheric heights on both creative output and client service.
                 </p>
-                <p class="page__testimonials__cards-biggerTitle second-and-third">
+                <p class="page__testimonials__cards-biggerTitle ">
                   Michel Grover
                 </p>
                 <p class="page__testimonials__cards-smallerTitle">
@@ -371,9 +384,11 @@
           <p class="page__apply__description">
             We are sure that first-rate job is possible only if all three components are united.
           </p>
-          <button class="page__apply__button scale">
+          <a rel="stylesheet" href="#form">
+            <button class="page__apply__button scale">
             Apply
-          </button>
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -391,29 +406,35 @@
               action="https://mate-academy-form-lesson.herokuapp.com/create-application"
               method="get"
               class="footer__form__form"
-              id="footer__form"
+              id="form"
             >
-              <input
-                type="text"
-                id="name"
-                name="name"
-                autocomplete="off"
-                placeholder="Name"
-                class="footer__form-elements pointer"
-              >
-              <input
+              <label for="name" class="line">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autocomplete="off"
+                  placeholder="Name"
+                  class="footer__form-elements pointer"
+                >
+              </label>
+              <label for="email" class="line">
+                <input
                 type="email"
                 id="email"
                 name="name"
                 autocomplete="off"
                 placeholder="Email"
                 class="footer__form-elements pointer"
-              >
-              <textarea
+                >
+              </label>
+              <label for="message" class="line-text">
+                <textarea
                 name="message"
                 class="footer__form-elements footer__message pointer"
                 placeholder="Message"
               ></textarea>
+              </label>
               <button
                 type="Submit"
                 value="Submit"
@@ -434,9 +455,11 @@
                 </p>
                 <a
                   href="tel: 654 321 987"
-                  class="footer__contact__details-link"
+                  class="footer__contact__details-link scale"
                 >
-                  654 321 987
+                  <p class="scale">
+                    654 321 987
+                  </p>
                 </a>
               </div>
               <div class="footer__contact__details-address">
@@ -445,9 +468,12 @@
                 </p>
                 <a
                   href="https://goo.gl/maps/tbUjFD7pB35KsRE36"
-                  class="footer__contact__details-link"
+                  class="footer__contact__details-link scale"
+                  target="_blank"
                 >
-                  2905 West Drive, Buffalo Grove
+                  <p class="scale">
+                    2905 West Drive, Buffalo Grove
+                  </p>
                 </a>
               </div>
               <p class="footer__contact__details-socialTitle">
@@ -457,20 +483,35 @@
                 <a
                   href="https://www.facebook.com"
                   class="footer__contact__details-link"
+                  target="_blank"
                 >
-                  <img src="../src/images/facebook.png" alt="facebook">
+                  <img
+                    src="../src/images/facebook.png"
+                    alt="facebook"
+                    class="scale"
+                    >
                 </a>
                 <a
                   href="https://twitter.com"
                   class="footer__contact__details-link"
+                  target="_blank"
                 >
-                  <img src="../src/images/twitter.png" alt="twitter">
+                  <img
+                    src="../src/images/twitter.png"
+                    alt="twitter"
+                    class="scale"
+                  >
                 </a>
                 <a
                   href="https://www.instagram.com"
                   class="footer__contact__details-link"
+                  target="_blank"
                 >
-                  <img src="../src/images/instagram.png" alt="instagram">
+                  <img
+                    src="../src/images/Vector.svg"
+                    alt="instagram"
+                    class="scale"
+                  >
                 </a>
               </div>
             </div>
@@ -515,4 +556,11 @@
 
     </footer>
   </body>
+  <script>
+    const form = document.getElementById('form')
+    form.addEventListener('submit', (event) =>{
+      event.preventDefault();
+      from.reset();
+    })
+  </script>
 </html>

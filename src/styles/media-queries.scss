@@ -28,7 +28,7 @@
     &__small-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
     }
 
@@ -45,8 +45,12 @@
       }
 
       &-links {
-        margin-top: 24px 0 48px 0;
+        margin-top: 24px;
       }
+    }
+
+    .no-margins {
+      margin: 24px 0 0;
     }
   }
 
@@ -95,7 +99,7 @@
 
         &__title-big-title {
           padding-top: 16px;
-          max-width: 280px;
+          width: 280px;
         }
 
         &__small-container {
@@ -198,7 +202,7 @@
     &__form {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: flex-start;
       width: 100%;
 
@@ -225,7 +229,11 @@
 
       &-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+      }
+
+      &-links {
+        margin-right: 40px;
       }
     }
   }
@@ -252,8 +260,8 @@
       &__squares {
 
         &__big-container {
-          max-width: 906px;
-          display: flex;
+          width: 90%;
+          display: grid;
           flex-direction: row;
           justify-content: flex-start;
           flex-wrap: wrap;
@@ -261,10 +269,10 @@
         }
 
         &__small-container {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          max-height: 800px;
+          display: grid;
+          grid-template-columns: auto auto;
+          grid-template-rows: 400px 300px;
+          gap: 50px;
         }
 
       }
@@ -333,6 +341,7 @@
     &__container-description {
       display: flex;
       flex-direction: column;
+      max-width: 90%;
     }
 
     &__big-photo {
@@ -350,7 +359,11 @@
 }
 
 @media (min-width: 1024px) {
+
   .footer {
+    .no-margins {
+      margin-top: 0;
+    }
 
     &__form {
       width: 45%;
@@ -424,16 +437,15 @@
     height: 800px;
 
     &__container-description {
-
-      display: flex;
-      flex-direction: row;
-      width: 90%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      max-width: 90%;
     }
 
     &__big-photo {
-      margin: 0;
       position: absolute;
-      top: 131px;
+      top: 83px;
+      margin: 0;
       right: 0;
       width: 50%;
       max-height: 688px;
@@ -455,29 +467,51 @@
           width: 100%;
           display: flex;
           flex-direction: row;
-          justify-content: space-around;
+          justify-content: space-between;
           flex-wrap: nowrap;
           align-items: flex-start;
         }
 
         &__small-container {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: auto auto;
+          grid-template-rows: 390px 290px;
+          gap: 25px;
+        }
+
+        &__title-big-title {
+          width: 360px;
         }
       }
     }
 
     &__testimonials {
+
+      &__titles {
+        margin-left: 20px;
+
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
       &__cards {
         &-container {
-
+          width: 100%;
+          box-sizing: border-box;
           display: flex;
+          flex-direction: row;
           justify-content: space-between;
           align-items: center;
         }
 
         &__cards {
+          width: 100%;
+          box-sizing: border-box;
 
           &-container {
             margin-top: 48px;
@@ -490,7 +524,8 @@
           }
 
           &-description {
-            padding-top: 10px;
+            margin-top: 10px;
+            height: 88px;
           }
 
           &-background {
@@ -533,21 +568,6 @@
   max-width: 90%;
 }
 
-.header {
-  &__container-description {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__big-photo {
-    top: 503px;
-  }
-
-  &__description-button {
-    max-width: 264px;
-  }
-}
-
 @media (min-width: 1260px) {
   .container {
     width: 1024px;
@@ -570,6 +590,7 @@
     &__container-description {
       display: flex;
       flex-direction: row;
+      max-width: 1024px;
     }
 
     &__description-title {
@@ -579,7 +600,7 @@
     &__big-photo {
       margin: 0;
       position: absolute;
-      top: 131px;
+      top: 83px;
       right: 0;
       width: 50%;
       max-height: 688px;
