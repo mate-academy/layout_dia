@@ -1,69 +1,87 @@
 .header {
-  padding-top: 20px;
+  position: relative;
+  height: 900px;
   background-color: $darkColor;
-  width: 100%;
-  border-radius: 0 0 var(--bord-radius) var(--bord-radius);
+  border-radius: 0 0 $borderRadius30 $borderRadius30;
 
-  @include onDesktopSmall {
-    padding-top: 50px;
+  @include onTablet {
+    height: 800px;
   }
 
   &__top {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    z-index: 4;
+    margin-bottom: 30px;
+
+    @include onDesktopSmall {
+      margin-bottom: 0;
+    }
+
+    & > :nth-child(n) {
+      margin-top: $headerMargineTop;
+      margin-bottom: $headerMargineTop;
+    }
+
+    & > :not(:first-child):not(:last-child) {
+      flex-grow: 1;
+    }
   }
 
   &__icon {
-    width: 18px;
-    height: 8px;
-    flex-grow: 1;
     margin-left: 35px;
   }
 
   &__here-us {
-    @extend %link;
     position: relative;
+    padding: 8px 0;
     font-weight: 700;
     font-size: 13px;
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      display: block;
-      width: calc(100% - 3px);
-      border: 1px solid $blueColor;
-      border-radius: 4px;
-    }
+    @extend %link;
+    @extend %blueLine;
   }
 
-  // &__wrapper {
-  //   // display: flex;
-
-  // }
-
   &__info {
-    padding: 50px 0;
-
-    @include onTablet {
-      padding-bottom: 140px;
-    }
+    max-width: 360px;
 
     @include onDesktopSmall {
-      padding: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: absolute;
+      bottom: 0;
+      top: 0;
     }
-    
+  }
+
+  &__menu {
+    padding: 80px 0 0 110px;
+    position: absolute;
+    z-index: 2;
+    background-color: $darkColor;
+    width: 100%;
+    inset: 0;
+    border-radius: $borderRadius30;
+    transform: translate(0, -120%);
+    transition: transform 500ms;
+
+    @include onTablet {
+      padding-left: 130px;
+    }
+
+    &--open {
+      transform: translate(0, 0);
+    }
   }
 
   &__title {
     margin: 0 0 32px;
-    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
