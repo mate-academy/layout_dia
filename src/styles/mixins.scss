@@ -1,3 +1,21 @@
+@mixin onPhone-big {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onIpad {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
 @mixin title {
   display: flex;
   font-family: "Poppins", sans-serif;
@@ -53,5 +71,10 @@
   font-size: 22px;
   line-height: 32px;
   text-align: center;
+
+  @include onPhone-big {
+    font-size: 24px;
+    line-height: 36px;
+  }
   @content;
 }

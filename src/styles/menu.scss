@@ -1,0 +1,86 @@
+.menu {
+  background-color: #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+
+  @include onIpad {
+    position: absolute;
+    margin-right: 130px;
+    margin-left: 136px;
+    margin-top: 52px;
+    background-color: $colorBlack;
+    transform: none;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__list {
+    @include onIpad {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include onIpad {
+        margin: 0;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: 16px;
+    list-style: none;
+  }
+
+  &__link {
+    @include before-title {
+      text-decoration: none;
+      color: $colorBlue;
+
+      @include onIpad {
+        color: #fff;
+        margin-right: 48px;
+
+        &--last {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin: 20px;
+
+    @include onIpad {
+      margin: 0;
+    }
+  }
+
+  &__cross {
+    display: flex;
+    justify-content: flex-end;
+
+    @include onIpad {
+      display: inline;
+    }
+
+    &__item {
+      margin-right: 20px;
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/features/cross.svg);
+      background-repeat: no-repeat;
+
+      @include onIpad {
+        background-image: none;
+        margin: 0;
+      }
+    }
+  }
+}

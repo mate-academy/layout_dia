@@ -18,15 +18,24 @@
   &__section {
     margin: 0 20px;
 
-    &__item { 
+    @include onIpad {
+      margin: 0 54px;
+    }
+
+    &__item {
       display: flex;
       justify-content: center;
-      align-items: center;
     }
 
     &__photo {
+      width: 184px;
+      height: 166px;
       margin-bottom: 32px;
       border-radius: 17px;
+
+      @include onIpad {
+        display: flex;
+      }
     }
 
     &__title {
@@ -37,13 +46,26 @@
       line-height: 28px;
       text-align: center;
       color: $colorTextTitle;
+
+      @include onIpad {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &__paragraph {
+    @include onIpad {
+      display: flex;
     }
 
-    &__paragraph {
-      @include paragraph {
-        padding-bottom: 56px;
-        text-align: center;
-      }
+    &__item {
+      @include paragraph;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 56px;
+      text-align: center;
     }
   }
 }

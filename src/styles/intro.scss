@@ -1,10 +1,24 @@
 .intro {
   background-color: $colorBeige;
   padding-bottom: 120px;
-  border-top-right-radius: 30px;
   border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  @include onPhone-big {
+    padding-bottom: 148px;
+  }
+
+  @include onIpad {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    background-color: $colorBlack;
+  }
 
   &__container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -15,8 +29,31 @@
     background-position: center;
     background-size: cover;
     border-radius: 30px;
+
+    @include onPhone-big {
+      padding: 32px 41px;
+    }
+
+    @include onIpad {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 48px 0 78px 48px;
+      background-image: url(../images/logo/Photo-header.svg);
+      height: 732px;
+      border-top-right-radius: 0%;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 0%;
+    }
   }
-    
+
+  &__list {
+    @include onIpad {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
   &__list__item {
     width: 6px;
     height: 6px;
@@ -25,8 +62,14 @@
     margin-bottom: 16px;
     border-radius: 50%;
     background-color: #fff;
+
+    @include onIpad {
+      &--right {
+        margin-right: 24px;
+      }
+    }
   }
-  
+
   &__head {
     margin-bottom: 8px;
     font-family: "Poppins", sans-serif;
@@ -36,7 +79,7 @@
     text-transform: uppercase;
     color: #fff;
   }
-  
+
   &__discription {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;

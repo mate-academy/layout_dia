@@ -1,0 +1,51 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onPhone-big {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onIpad {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--Phone-big {
+    display: block;
+
+    @include onPhone-big {
+      display: grid;
+    }
+  }
+
+  &--Ipad {
+    display: block;
+
+    @include onIpad {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--Ipad-#{$start}-#{$end} {
+          @include onIpad {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--Phone-big-#{$start}-#{$end} {
+          @include onPhone-big {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
