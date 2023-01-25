@@ -14,3 +14,17 @@ icon.addEventListener('click', (e) => {
   icon.classList.toggle('icon--close');
   menu.classList.toggle('header__menu--open');
 });
+
+const footerMenu = document.querySelector('#footer-list');
+
+changeFooterMenu(window.innerWidth);
+
+window.addEventListener('resize', (e) => changeFooterMenu(e.target.innerWidth));
+
+function changeFooterMenu(elem) {
+  if (elem < 640) {
+    footerMenu.classList.add('nav__list--column');
+  } else {
+    footerMenu.classList.remove('nav__list--column');
+  }
+}
