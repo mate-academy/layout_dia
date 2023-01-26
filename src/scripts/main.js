@@ -28,3 +28,11 @@ function changeFooterMenu(elem) {
     footerMenu.classList.remove('nav__list--column');
   }
 }
+
+const formReload = document.querySelector('.js-form');
+
+formReload.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formReload.reset();
+}
+);
