@@ -5,6 +5,8 @@
   right: 0;
   left: 0;
   bottom: 0;
+  overflow: hidden;
+  border-top-left-radius: $borderRadius30;
 
   @include onDesktopSmall {
     height: 680px;
@@ -14,14 +16,66 @@
     bottom: 0;
   }
 
-  &__image {
+  &__line {
+    position: relative;
+    display: flex;
     height: 100%;
-    width: 100%;
     object-fit: cover;
-    border-radius: $borderRadius30;
+    transition: transform 400ms;
+  }
 
-    @include onDesktopSmall {
-      border-radius: $borderRadius30 0;
+  &__image {
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    bottom: 50px;
+    left: 50px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.1);
     }
+
+    &--prev {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &--next {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+  }
+
+  &__text {
+    max-width: 260px;
+  }
+
+  &__title {
+    @include font (700, 13px, 20px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-family: "Open Sans", sans-serif;
+    @include font (400, 14px, 140%);
   }
 }

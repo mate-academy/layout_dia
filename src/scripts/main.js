@@ -3,6 +3,15 @@
 const icon = document.querySelector('.icon');
 const menu = document.querySelector('.header__menu');
 
+const images = document.querySelectorAll('.slider__image');
+const sliderLine = document.querySelector('.slider__line');
+const slider = document.querySelector('.slider');
+const sliderPrev = document.querySelector('.js-prev');
+const sliderNext = document.querySelector('.js-next');
+
+let count = 0;
+let width;
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash !== '#menu') {
     icon.classList.remove('icon--close');
@@ -19,7 +28,12 @@ const footerMenu = document.querySelector('#footer-list');
 
 changeFooterMenu(window.innerWidth);
 
-window.addEventListener('resize', (e) => changeFooterMenu(e.target.innerWidth));
+window.addEventListener('resize', (e) => {
+  changeFooterMenu(e.target.innerWidth);
+  init();
+});
+
+init();
 
 function changeFooterMenu(elem) {
   if (elem < 640) {
@@ -36,3 +50,35 @@ formReload.addEventListener('submit', (e) => {
   formReload.reset();
 }
 );
+
+sliderPrev.addEventListener('click', () => {
+  count--;
+
+  if (count < 0) {
+    count = images.length - 1;
+  }
+  rollSlider();
+});
+
+sliderNext.addEventListener('click', () => {
+  count++;
+
+  if (count >= images.length) {
+    count = 0;
+  }
+  rollSlider();
+});
+
+function init() {
+  width = slider.offsetWidth;
+  sliderLine.style.width = width * images.length + 'px';
+
+  images.forEach(i => {
+    i.style.width = width + 'px';
+  });
+  rollSlider();
+}
+
+function rollSlider() {
+  sliderLine.style.transform = 'translate(-' + count * width + 'px';
+}
