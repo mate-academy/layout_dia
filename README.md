@@ -20,4 +20,3 @@ Adapt the page to the following screens:
 9. Implemented `Send us  a message` block.
 10. Implemented `Contact us` block.
 11. Implemented the footer.
-
