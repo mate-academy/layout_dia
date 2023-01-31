@@ -1,0 +1,48 @@
+.page {
+  scroll-behavior: smooth;
+  scrollbar-color: $main-color;
+  scroll-margin-inline-start: 0;
+
+  &__section {
+    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+
+    &--last {
+      margin-bottom: -20px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    @extend %t;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__body {
+    background-color: #f2f9ff;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+}
+
+.page ::-webkit-scrollbar {
+  box-shadow: none;
+  width: 10px;
+}
+
+.page ::-webkit-scrollbar-thumb {
+  background-color: $main-color;
+}
