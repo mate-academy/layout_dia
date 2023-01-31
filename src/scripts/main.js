@@ -8,6 +8,7 @@ const sliderLine = document.querySelector('.slider__line');
 const slider = document.querySelector('.slider');
 const sliderPrev = document.querySelector('.js-prev');
 const sliderNext = document.querySelector('.js-next');
+const page = document.querySelector('.page__body');
 
 let count = 0;
 let width;
@@ -16,12 +17,14 @@ window.addEventListener('hashchange', () => {
   if (window.location.hash !== '#menu') {
     icon.classList.remove('icon--close');
     menu.classList.remove('header__menu--open');
+    page.classList.toggle('page__body--with-menu');
   }
 });
 
 icon.addEventListener('click', (e) => {
   icon.classList.toggle('icon--close');
   menu.classList.toggle('header__menu--open');
+  page.classList.toggle('page__body--with-menu');
 });
 
 const footerMenu = document.querySelector('#footer-list');
