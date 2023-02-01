@@ -1,7 +1,8 @@
 'use strict';
 
-const form = document.getElementById('top__form');
+const form = document.querySelector('.form');
 
-form.addEventListener('submit', function handleSubmit() {
-  form.reset();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
 });
