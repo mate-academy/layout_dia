@@ -1,135 +1,91 @@
 .slider {
   overflow: hidden;
 
-  #slide-1,
-  #slide-2,
-  #slide-3 {
+  &__box {
+    height: 100%;
+    display: flex;
+  }
+
+  &__line {
+    display: flex;
+    transition: all 1s;
+  }
+
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__button {
+    position: absolute;
+    left: 20px;
+    bottom: 108px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
     @include onTablet {
-      scroll-margin-top: 120px;
-    }
-  }
-
-  &__items {
-    height: 100%;
-    font-size: 0;
-    white-space: nowrap;
-    transition: 0.5s;
-  }
-
-  &__item {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    &-1 {
-      background-image: url(../images/slider/photo-1.jpg);
+      left: 40px;
+      bottom: 116px;
     }
 
-    &-2 {
-      background-image: url(../images/slider/photo-2.jpg);
+    @include onSmallDesktop {
+      left: 78px;
+      bottom: 66px;
     }
 
-    &-3 {
-      background-image: url(../images/slider/photo-3.jpg);
-    }
-  }
-
-  &__action {
-    width: 100%;
-
-    & div + div {
-      visibility: hidden;
+    @include onDesktop {
+      left: 48px;
+      bottom: 66px;
     }
 
-    &-link {
-      position: absolute;
+    &--prev {
+      background-image: url(../images/slider/arrow-left.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      cursor: pointer;
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: transform 0.3s;
-
-      &-left {
-        left: 20px;
-        bottom: 108px;
-        background-image: url(../images/slider/arrow-left.svg);
-
-        @include onTablet {
-          left: 40px;
-          bottom: 116px;
-        }
-
-        @include onSmallDesktop {
-          left: 78px;
-          bottom: 66px;
-        }
-
-        @include onDesktop {
-          left: 48px;
-          bottom: 66px;
-        }
-      }
-
-      &-right {
-        left: 68px;
-        bottom: 108px;
-        background-image: url(../images/slider/arrow-right.svg);
-
-        @include onTablet {
-          left: 88px;
-          bottom: 116px;
-        }
-
-        @include onSmallDesktop {
-          left: 126px;
-          bottom: 66px;
-        }
-
-        @include onDesktop {
-          left: 96px;
-          bottom: 66px;
-        }
-      }
+      border: 1px solid transparent;
+      transition: all 0.5s;
 
       &:hover {
-        transform: scale(1.05);
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+        transform: scale(1.2);
+      }
+
+      &:active {
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+        transform: scale(1.2);
+      }
+    }
+
+    &--next {
+      background-image: url(../images/slider/arrow-right.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+        transform: scale(1.2);
+      }
+
+      &:active {
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+        transform: scale(1.2);
       }
     }
   }
-
-  & > div:target ~ .slider__action > * {
-    visibility: hidden;
-  }
-
-  #slide-1:target ~ .slider__action > *:nth-child(1) {
-    visibility: visible;
-  }
-
-  #slide-2:target ~ .slider__action > *:nth-child(2) {
-    visibility: visible;
-  }
-
-  #slide-3:target ~ .slider__action > *:nth-child(3) {
-    visibility: visible;
-  }
-
-  #slide-1:target ~ .slider__items {
-    transform: translateX(0%);
-  }
-
-  #slide-2:target ~ .slider__items {
-    transform: translateX(-100%);
-  }
-
-  #slide-3:target ~ .slider__items {
-    transform: translateX(-200%);
-  }
-
-  &__intro {
+  &__text {
     position: absolute;
     bottom: 24px;
     left: 20px;
@@ -149,23 +105,24 @@
       left: 152px;
       bottom: 48px;
     }
+  }
 
-    &-title {
-      margin-bottom: 8px;
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 20px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+    margin-bottom: 8px;
+  }
 
-    &-description {
-      max-width: 264px;
-      font-family: "Open Sans", sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 140%;
-    }
+  &__description {
+    max-width: 264px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
   }
 }
