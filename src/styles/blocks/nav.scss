@@ -1,0 +1,45 @@
+.nav {
+  height: 100%;
+  @extend %fontPoppins;
+  @include font(13px, 20px, 700, 3px);
+
+  &__list {
+    height: 100%;
+    display: flex;
+    gap: 48px;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    height: 100%;
+    text-transform: uppercase;
+    color: $c-white;
+
+    position: relative;
+
+    @include onSmallDesktop {
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 1px;
+      background-color: $c-main;
+      transition: width 300ms;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  @include onTablet {
+    height: 30px;
+  }
+}
