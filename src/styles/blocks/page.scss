@@ -6,6 +6,10 @@
 
   &__body {
     margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__section {
@@ -14,5 +18,34 @@
     @include onTablet {
       margin-bottom: 148px;
     }
+  }
+  &__menu {
+    background-color: $color-background-dark;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+        transform: translateX(0);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 21px;
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
