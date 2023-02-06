@@ -1,0 +1,81 @@
+.card {
+  padding: 32px;
+  background: $c-white;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  
+  &:nth-child(even) {
+    @include onTablet {
+      position: relative;
+      top: -130px;
+    }
+  }
+
+  @include hover(transform, scale(1.1));
+
+  &__number {
+    margin-bottom: 24px;
+    width: 46px;
+    height: 24px;
+    text-transform: uppercase;
+    color: $c-main;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @extend %fontOpenSans;
+    @include font(13px, 20px, 600);
+
+    &::after {
+      content: "";
+      background-color: $c-main;
+      border-radius: 23px;
+      opacity: 0.1;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    color: $c-text;
+
+    @extend %fontOpenSans;
+    @include font(13px, 20px, 600);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    color: $c-title;
+
+    @extend %fontPoppins;
+    @include font(15px, 22px, 400);
+  }
+
+  &__button-icon {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $c-main;
+
+    @include hover(transform, scale(1.1));
+
+    @include square(40px);
+  }
+
+  &__icon {
+    @include square(16px);
+  }
+}
