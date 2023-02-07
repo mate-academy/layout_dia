@@ -1,0 +1,177 @@
+.testimonials {
+  padding-bottom: 120px;
+
+  @include on640 {
+    padding-bottom: 148px;
+  }
+
+  @include on1024 {
+    padding-bottom: 186px;
+  }
+
+  &__inscription {
+    margin: 0 0 16px;
+    @extend %inscription;
+  }
+
+  &__title {
+    @extend %title;
+    display: inline-block;
+    margin: 0 0 48px;
+
+    @include on640 {
+      margin: 0;
+    }
+
+    &:nth-of-type(2) {
+      @include on640 {
+        display: block;
+        margin-bottom: 56px;
+      }
+
+      @include on1024 {
+        margin-bottom: 85px;
+      }
+    }
+  }
+
+  &__cards {
+    @include on1024 {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    @include on1600 {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    position: relative;
+    --width: 110px;
+    --heigth: 44px;
+    --padding: 75px;
+    --paddingBottom: 32px;
+    flex-grow: 1;
+
+    padding: var(--padding) 42px 32px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    background-color: $white;
+    text-align: center;
+    transition: transform $duration;
+
+    margin-bottom: 24px;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on640 {
+      --paddingBottom: 100px;
+      --width: 140px;
+      --heigth: 55px;
+      --padding: 88px;
+      margin-bottom: 30px;
+    }
+
+    @include on1024 {
+      --paddingBottom: 48px;
+      --width: 110px;
+      --heigth: 44px;
+      --padding: 75px;
+      margin-bottom: 0;
+    }
+
+    @include on1600 {
+      --paddingBottom: 100px;
+      --width: 140px;
+      --heigth: 55px;
+      --padding: 88px;
+    }
+
+    &--bluebox {
+      position: absolute;
+      width: var(--width);
+      height: var(--heigth);
+      background: $blue;
+      border-radius: 12px;
+      margin: 0 auto;
+      transform: rotate(-60deg);
+      z-index: 0;
+
+      &-1 {
+        left: calc(50% - var(--width) / 2 - var(--heigth));
+      }
+
+      &-2 {
+        left: calc(50% - var(--width) / 2 + var(--heigth));
+        top: calc(var(--padding) * 2);
+      }
+    }
+
+    &--photo {
+      position: relative;
+      width: var(--width);
+      height: var(--width);
+      border-radius: 50%;
+      background: $blue;
+      background-position: center;
+      background-size: contain;
+      z-index: 2;
+      margin: 0 auto var(--padding);
+    }
+
+    &--photo1 {
+      background-image: url(../images/photo1.jpg);
+    }
+
+    &--photo2 {
+      background-image: url(../images/photo2.jpg);
+    }
+
+    &--photo3 {
+      background-image: url(../images/photo3.jpg);
+    }
+
+    &--symbol {
+      margin: 0 auto 10px;
+
+      @include on640 {
+        margin-bottom: 18px;
+      }
+
+      @include on1024 {
+        margin-bottom: 10px;
+      }
+    }
+
+    &--text {
+      @extend %cardText;
+      margin: 0 auto 16px;
+
+      @include on640 {
+        max-width: 362px;
+      }
+
+      @include on1600 {
+        max-width: 250px;
+      }
+    }
+
+    &--name {
+      @extend %cardText;
+      color: $grey-blue;
+      margin: 0 0 4px;
+    }
+
+    &--post {
+      @extend %inscription;
+      margin: 0;
+    }
+  }
+}
