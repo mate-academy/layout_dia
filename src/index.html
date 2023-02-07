@@ -487,8 +487,13 @@
               method="get"
               class="footer__form__form"
               id="forming"
+              onsubmit="myFunc()"
             >
-              <label for="name" class="line">
+              <label
+                for="name"
+                class="line"
+                id="line1"
+              >
                 <input
                   type="text"
                   id="name"
@@ -498,7 +503,11 @@
                   class="footer__form-elements pointer"
                 >
               </label>
-              <label for="email" class="line">
+              <label
+                for="email"
+                class="line"
+                id="line2"
+              >
                 <input
                 type="email"
                 id="email"
@@ -508,17 +517,22 @@
                 class="footer__form-elements pointer"
                 >
               </label>
-              <label for="message" class="line-text">
+              <label
+                for="message"
+                class="line-text"
+                id="line3"
+              >
                 <textarea
                 name="message"
                 class="footer__form-elements footer__message pointer"
-                placeholder="Message"
+                placeholder=" Your Message"
               ></textarea>
               </label>
               <button
                 type="Submit"
                 value="Submit"
                 class="footer__form-button scale"
+                id="submitButton"
               >
                   Send
               </button>
@@ -636,10 +650,16 @@
     </footer>
   </body>
   <script>
-    const form = Document.getElementById('forming')
-    form.addEventListener('submit', (event) =>{
+    function myFunc() {
       event.preventDefault();
-      from.reset();
+      form.reset();
+    }
+
+    let btnClear = document.getElementById('submitButton')
+    let inputs = document.querySelectorAll('input')
+
+    btnClear.addEventListener('click', () => {
+      inputs.forEach(input => input.value = '')
     })
   </script>
 </html>
