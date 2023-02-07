@@ -1,0 +1,75 @@
+.nav {
+  display: none;
+
+  @include onSmallDesktop {
+    display: block;
+  }
+
+  &--menu {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+
+    &--menu {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--footer {
+      flex-direction: column;
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include onSmallDesktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      margin-top: 8px;
+      height: 2px;
+      background-color: $c-blue;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &--menu {
+      font-size: 24px;
+
+      @include onSmallDesktop {
+        font-size: 30px;
+      }
+    }
+  }
+}
