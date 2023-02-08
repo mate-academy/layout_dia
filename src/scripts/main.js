@@ -10,7 +10,8 @@ let curSlide = 0;
 
 const nextSlide = document.querySelector('.slider__arrow-right');
 
-nextSlide.addEventListener('click', function() {
+nextSlide.addEventListener('click', function(event) {
+  event.preventDefault();
   curSlide++;
 
   slides.forEach((slide, indx) => {
@@ -36,7 +37,9 @@ nextSlide.addEventListener('click', function() {
 
 const prevSlide = document.querySelector('.slider__arrow-left');
 
-prevSlide.addEventListener('click', function() {
+prevSlide.addEventListener('click', function(event) {
+  event.preventDefault();
+
   if (curSlide === 0) {
     curSlide = 2;
   } else {
