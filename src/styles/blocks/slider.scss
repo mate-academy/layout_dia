@@ -1,0 +1,145 @@
+.slider {
+  --height: 390px;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: var(--height);
+  width: 100%;
+  border-radius: 30px;
+  background-image: url(../images/slider/photo1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: goNext 10s steps(1) 2s infinite normal;
+
+  @include on1600 {
+    max-width: 688px;
+  }
+
+  @include on1024 {
+    --height: 680px;
+    --width: calc(100vw / 2);
+    width: var(--width);
+    border-radius: 30px 0;
+  }
+
+  @keyframes goNext {
+    33.33% {
+      background-image: url(../images/slider/photo2.jpg);
+    }
+
+    66.66% {
+      background-image: url(../images/slider/photo3.jpg);
+    }
+
+    99.99% {
+      background-image: url(../images/slider/photo4.jpg);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 110px;
+    background-color: $white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+
+    &--next {
+      left: 68px;
+
+      @include on640 {
+        left: 90px;
+        bottom: 116px;
+      }
+
+      @include on1024 {
+        left: 126px;
+        bottom: 66px;
+      }
+
+      @include on1600 {
+        left: 96px;
+      }
+    }
+
+    &--prev {
+      left: 20px;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+
+      @include on640 {
+        left: 40px;
+        bottom: 116px;
+      }
+
+      @include on1024 {
+        left: 78px;
+        bottom: 66px;
+      }
+
+      @include on1600 {
+        left: 48px;
+        bottom: 66px;
+      }
+    }
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 72px;
+    left: 20px;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include on640 {
+      left: 40px;
+      bottom: 80px;
+    }
+
+    @include on1024 {
+      left: 182px;
+      bottom: 96px;
+    }
+
+    @include on1600 {
+      left: 152px;
+    }
+  }
+
+  &__subtitle {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white;
+
+    @include on640 {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include on1024 {
+      left: 182px;
+      bottom: 48px;
+    }
+
+    @include on1600 {
+      left: 152px;
+    }
+  }
+}
