@@ -32,7 +32,17 @@
   }
 
   &__message {
-    width: 50%;
+    padding-bottom: 80px;
+
+    @include on640 {
+      padding-bottom: 120px;
+    }
+
+    @include on1024 {
+      width: 50%;
+      padding-bottom: 0;
+    }
+
     &--field {
       color: $white;
       background-color: $gray;
@@ -45,8 +55,11 @@
       font-size: 15px;
       line-height: 22px;
 
+      box-shadow: inset 0 0 0 30px $gray;
+      -webkit-text-fill-color: $white;
+
       @include on640 {
-        max-width: 64%;
+        max-width: 80%;
         margin-bottom: 48px;
       }
 
@@ -77,6 +90,9 @@
   }
 
   &__info {
+    @include on1600 {
+      padding-left: 10%;
+    }
     &--inscription {
       @extend %inscription;
       font-size: 13px;
@@ -94,13 +110,27 @@
       color: $white;
       font-size: 24px;
       text-decoration: none;
-      margin: 0 0 48px;
+      margin: 0 0 40px;
+
+      @include on640 {
+        margin-bottom: 48px;
+      }
     }
 
     &--socials {
       text-decoration: none;
       margin: 0 35px 0 0;
     }
+
+    &--icon {
+      fill: $white;
+      transition: fill $duration;
+    }
+
+    &--icon:hover {
+      fill: $blue;
+    }
+
   }
 
   &__nav {
@@ -122,12 +152,15 @@
     }
 
     &--list {
-      text-align: left;
+      justify-content: space-between;
     }
 
     &--item {
-      margin-right: 40px;
-      flex-grow: 1;
+      display: block;
+
+      @include on1024 {
+        margin-right: 64px;
+      }
     }
 
     @media (max-width: 639px) {
