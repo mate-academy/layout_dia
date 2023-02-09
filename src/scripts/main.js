@@ -50,3 +50,8 @@ prevSlide.addEventListener('click', function(event) {
     slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
   });
 });
+
+document.getElementById('form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  document.getElementById('git commit -amform').reset();
+});
