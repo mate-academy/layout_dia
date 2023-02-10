@@ -1,15 +1,35 @@
 .nav {
 
   &__list {
-    display: none;
-    margin-left: 137px;
+    display: flex;
 
-    @include onSmallDesktop {
-      display: flex;
+    &--header {
+      display: none;
+
+      @include onSmallDesktop {
+        display: flex;
+        gap: 48px;
+      }
     }
 
-    @include onDesktop {
-      margin-left: 252px;
+    &--menu {
+      flex-direction: column;
+      gap: 24px;
+      margin: 40px 0 0;
+    }
+
+    &--footer {
+      flex-direction: column;
+      gap: 16px;
+    
+      @include onTablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+    
+      @include onSmallDesktop {
+        gap: 64px;
+      }
     }
   }
 
@@ -22,16 +42,11 @@
   }
 
   &__link {
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 1px solid transparent;
+    
     color: $color-text-header;
-    transition: color 0.5s;
-
-    &:hover {
-      color: #c3dddf;
-    }
+    @include navLink;
   }
 }
