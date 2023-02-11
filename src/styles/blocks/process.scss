@@ -5,8 +5,9 @@
   margin-bottom: 120px;
 
   &__content {
+
     @include onDesctop {
-      padding-top: 251px;
+      padding-top: 0;
       display: flex;
     }
   }
@@ -180,11 +181,18 @@
   }
 
   &__link-arrow {
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     &--blue {
       background-color: #57ccf2;
@@ -200,6 +208,21 @@
 
     &--red {
       background-color: #f36363;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -40%;
+      transform: translate(100%, -50%);
+      content: "Learn more";
+      display: block;
+      width: max-content;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
     }
   }
 
