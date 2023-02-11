@@ -32,3 +32,10 @@ buttons.forEach(button => {
     delete activeSlide.dataset.active;
   });
 });
+
+const form = document.querySelector('.contact__form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
+});
