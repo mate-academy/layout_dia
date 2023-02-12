@@ -489,7 +489,6 @@
               method="get"
               class="footer__form__form"
               id="form"
-              onsubmit="myFunc()"
             >
               <label
                 for="name"
@@ -498,6 +497,7 @@
               >
                 <input
                   type="text"
+                  required
                   id="name"
                   name="name"
                   autocomplete="off"
@@ -511,12 +511,13 @@
                 id="line2"
               >
                 <input
-                type="email"
-                id="email"
-                name="name"
-                autocomplete="off"
-                placeholder="Email"
-                class="footer__form-elements pointer"
+                  type="email"
+                  required
+                  id="email"
+                  name="name"
+                  autocomplete="off"
+                  placeholder="Email"
+                  class="footer__form-elements pointer"
                 >
               </label>
               <label
@@ -525,9 +526,10 @@
                 id="line3"
               >
                 <textarea
-                name="message"
-                class="footer__form-elements footer__message pointer"
-                placeholder=" Your Message"
+                  name="message"
+                  required
+                  class="footer__form-elements footer__message pointer"
+                  placeholder="Your Message"
               ></textarea>
               </label>
               <button
@@ -652,8 +654,21 @@
     </footer>
   </body>
   <script>
-   const form = document.getElementById('form')
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const form = document.getElementById('form')
     form.addEventListener('submit', (event) =>{
+      const messages = []
+      if (name === '' || name === null) {
+        messages.push('Name is requered');
+      }
+      if (email === '' || email === null) {
+        messages.push('email is requered');
+      }
+      if (messages.length > 0) {
+        event.preventDefault();
+      }
+
       event.preventDefault();
       form.reset();
     })
