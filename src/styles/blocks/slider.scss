@@ -3,15 +3,13 @@
   overflow: hidden;
 
   @include onSmallDesktop {
-    height: 680px;
+    height: auto;
   }
 
-  &__images {
-    position: relative;
-    height: 390px;
-
+  &__wrapper {
     @include onSmallDesktop {
-      height: 680px;
+      height: 100%;
+      display: flex;
     }
   }
 
@@ -30,18 +28,23 @@
 
   &__content {
     position: absolute;
-    bottom: 24px;
     left: 20px;
+    bottom: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
 
+    @include onTablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
     @include onSmallDesktop {
-      bottom: 48px;
-      left: 78px;
       flex-direction: row;
       align-items: center;
       gap: 24px;
+      left: 48px;
+      bottom: 48px;
     }
   }
 
@@ -78,13 +81,8 @@
     }
   }
 
-  &__bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
   &__title {
+    margin-bottom: 8px;
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
@@ -96,6 +94,7 @@
   }
 
   &__text {
+    max-width: 264px;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: 400;
