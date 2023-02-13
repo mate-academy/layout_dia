@@ -14,11 +14,12 @@
   }
 
   @include onDesign {
-    grid-template-columns: repeat(12, 1fr);
     column-gap: 40px;
   }
 
   &--tablet {
+    display: block;
+
     @include onTablet {
       display: grid;
     }
@@ -34,15 +35,7 @@
         }
       }
     }
-  }
 
-  &--desktop {
-    @include onSmallDesktop {
-      display: grid;
-    }
-  }
-
-  &__item {
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
         &--desktop-#{$start}-#{$end} {
@@ -52,15 +45,7 @@
         }
       }
     }
-  }
 
-  &--design {
-    @include onDesign {
-      display: grid;
-    }
-  }
-
-  &__item {
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
         &--design-#{$start}-#{$end} {
