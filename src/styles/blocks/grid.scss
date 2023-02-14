@@ -5,7 +5,7 @@
 
   @include onTablet {
     grid-template-columns: repeat(6, 1fr);
-    column-gap: 24px;
+    column-gap: 30px;
   }
 
   @include onSmallDesktop {
@@ -14,7 +14,7 @@
   }
 
   @include onDesktop {
-    column-gap: 24px;
+    column-gap: 30px;
   }
 
   &--tablet {
@@ -22,6 +22,19 @@
 
     @include onTablet {
       display: grid;
+    }
+  }
+
+  &--small-desktop {
+    display: block;
+
+    @include onSmallDesktop {
+      display: grid;
+    }
+  }
+  &--small-desktop-rows {
+    @include onSmallDesktop {
+      grid-template-rows: 100px 1fr;
     }
   }
 
@@ -50,6 +63,14 @@
         @for $end from $start through 12 {
           &--small-desktop-#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+
+      @for $start from 1 through 4 {
+        @for $end from $start through 4 {
+          &--small-desktop-row-#{$start}-#{$end} {
+            grid-row: #{$start} / #{$end + 1};
           }
         }
       }
