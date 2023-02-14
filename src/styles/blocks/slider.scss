@@ -1,0 +1,105 @@
+.slider {
+  height: 390px;
+  overflow: hidden;
+
+  @include onSmallDesktop {
+    height: auto;
+  }
+
+  &__wrapper {
+    @include onSmallDesktop {
+      height: 100%;
+      display: flex;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+
+    @include onSmallDesktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      left: 48px;
+      bottom: 48px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: $colorWhite;
+    border-radius: 50%;
+
+    @include hover(scale, 1.1);
+  }
+
+  &__arrow {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 6px;
+    height: 9px;
+
+    &--left {
+      background-image: url(/images/slider/arrow-left-icon.1221c002.svg);
+
+    }
+
+    &--right {
+      background-image: url(/images/slider/arrow-right-icon.9500f5c6.svg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $colorWhite;
+  }
+
+  &__text {
+    max-width: 264px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $colorWhite;
+  }
+}
