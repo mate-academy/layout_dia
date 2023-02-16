@@ -1,10 +1,32 @@
 .list {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
   padding: 0;
 
+  @include onTablet {
+    gap: 40px;
+  }
+
   @include onSmallDesktop {
-    display: flex;
-    gap: 48px;
+    gap: 64px;
+  }
+
+  &--header {
+    display: none;
+
+    @include onSmallDesktop {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &--footer {
+    @include onTablet {
+      flex-direction: row;
+    }
   }
 
   &__item {
@@ -23,5 +45,7 @@
     text-decoration: none;
 
     color: $c-white;
+
+    @include hover(color, $c-blue);
   }
 }
