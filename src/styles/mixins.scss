@@ -1,0 +1,80 @@
+@mixin onPhone-big {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onIpad {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin title {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: $colorTextTitle;
+  @content;
+}
+
+@mixin before-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  @content;
+}
+
+@mixin paragraph {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: $colorParagraph;
+  @content;
+}
+
+@mixin card-paragraph {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: $colorParagraph;
+  @content;
+}
+
+@mixin testimonial {
+  content: "";
+  position: absolute;
+  width: 108px;
+  height: 43px;
+  background-image: url(../images/people/Rectangle.svg);
+  background-color: $colorBlue;
+  border-radius: 12px;
+  transform: rotate(-60deg);
+  z-index: -1;
+  @content;
+}
+
+@mixin description {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+
+  @include onPhone-big {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  @content;
+}
