@@ -8,19 +8,29 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-// const arrows = document.querySelectorAll('.slider__arrow');
+const form = document.querySelector('form');
 
-// let counter = 1;
+function submit(event) {
+  event.preventDefault();
+  form.reset();
+}
 
-// arrows.forEach(arrow => {
-//   arrow.addEventListener('click', function() {
-//     const slider = arrow.closest('.slider');
-//     counter++;
+form.addEventListener('submit', submit);
 
-//     if (counter > 5) {
-//       counter = 1;
-//     }
+const arrows = document.querySelectorAll('.slider__arrow');
 
-//     slider.style.backgroundImage = `url(./images/slider/img-${counter}.png)`;
-//   });
-// });
+let counter = 1;
+
+arrows.forEach(arrow => {
+  arrow.addEventListener('click', function() {
+    const slider = arrow.closest('.slider');
+
+    counter++;
+
+    if (counter > 4) {
+      counter = 1;
+    }
+
+    slider.style.backgroundImage = `url(./images/slider/img-${counter}.png)`;
+  });
+});
