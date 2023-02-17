@@ -1,9 +1,14 @@
 .page {
+  scroll-behavior: smooth;
 
   &__body {
     margin: 0;
     padding: 0;
     background-color: $colorGray;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
   &__header {
@@ -11,6 +16,21 @@
 
     @include onTablet {
       margin-bottom: 148px;
+    }
+  }
+
+  &__side-menu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 
@@ -24,6 +44,14 @@
     &--vpr {
       @include onTablet {
         margin-bottom: 0;
+      }
+    }
+
+    &--contacts {
+      margin-bottom: 80px;
+
+      @include onTablet {
+        margin-bottom: 140px;
       }
     }
   }
