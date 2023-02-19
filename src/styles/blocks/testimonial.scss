@@ -1,0 +1,113 @@
+.testimonial {
+  padding: 76px 42px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  &__photo {
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+    
+    
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 110px;
+      height: 44px;
+      background-color: $mainBlue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include onTablet {
+        width: 140px;
+        height: 56px;
+      }
+    }
+
+    &::after {
+      left: 40px;
+      bottom: 10px;
+      z-index: -1;
+
+      @include onTablet {
+        left: 50px;
+      }
+    }
+
+    &::before {
+      right: 35px;
+      z-index: -1;
+
+      @include onTablet {
+        right: 50px;
+      }
+    }
+  }
+
+  &__img {
+    width: $imgSize-S;
+    height: $imgSize-S;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+
+    @include onTablet {
+      width: $imgSize-B;
+      height: $imgSize-B;
+    }
+
+  }
+
+  &__review {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    max-width: 26ch;
+    text-align: center;
+
+    @include onTablet {
+      max-width: 48ch;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: relative;
+      left: 50%;
+      bottom: 12px;
+      transform: translate(-50%, -50%);
+      background-image: url("../images/braces.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 22px;
+      height: 18px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: $titleColor;
+  }
+
+  &__company {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+}

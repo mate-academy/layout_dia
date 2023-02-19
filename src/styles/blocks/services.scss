@@ -1,0 +1,142 @@
+.services {
+  background-color: $sectionBackground;
+  padding-bottom: 10px;
+
+  @include onSmallDesktop {
+    padding-bottom: 148px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    @include titleFont;
+    font-size: 32px;
+    line-height: 42px;
+    max-width: 14ch;
+
+    @include onSmallDesktop {
+      max-width: 20ch;
+    }
+    
+    &::before {
+      content: "Services";
+      @include titleBeforeElement;
+    }
+  }
+
+  &__text {
+    margin-bottom: 48px;
+    line-height: 21px;
+    max-width: 40ch;
+
+    @include onTablet {
+      max-width: 30ch;
+    }
+
+    &--service {
+      margin-bottom: 40px;
+      max-width: 200px;
+      font-size: 14px;
+      line-height: 20px;
+
+      &::before {
+        counter-increment: card-counter;
+        content: "00" counter(card-counter);
+        width: max-content;
+        padding: 2px 12px;
+        display: block;
+        position: relative;
+        left: 0;
+        bottom: 26px;
+        background-color: $sectionBackground;
+        color: #2060f6;
+        border-radius: 23px;
+      }
+    }
+
+    @include onDesktop {
+      max-width: 45ch;
+    }
+  }
+
+  &__cards {
+    counter-reset: card-counter;
+
+    @include onTablet {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 560px;
+      gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      transform: translateY(30%);
+    }
+
+  }
+
+  &__card {
+    margin-bottom: 24px;
+    width: 100%;
+    padding: 60px 48px 42px 32px;
+    max-height: $cardSize;
+    border-radius: 16px;
+    font-weight: 600;
+    background-color: #fff;
+    transition: background-color 0.4s ease;
+    
+    @include onTablet {
+      margin-bottom: 0;
+      max-width: $cardSize;
+      
+      &:nth-child(2n) {
+        transform: translateY(-50%) ;
+      }
+    }
+
+    &:hover {
+      background-color: rgb(178, 235, 242);
+    }
+  }
+
+  &__link {
+    display: inline;
+    position: relative;
+    left: 18px;
+    bottom: 30px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
+    color: #334563;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      top: 14px;
+      left: -16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #2060f6;
+      background-image: url("../images/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    &:hover::before {
+      transform: scale(1.2);
+    }
+  }
+
+  &__content {
+
+    @include onSmallDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
