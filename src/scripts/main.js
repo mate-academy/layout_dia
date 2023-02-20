@@ -8,6 +8,7 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+//
 const form = document.querySelector('form');
 
 function submit(event) {
@@ -17,20 +18,34 @@ function submit(event) {
 
 form.addEventListener('submit', submit);
 
-const arrows = document.querySelectorAll('.slider__arrow');
+//
+const slider = document.querySelector('.slider');
+const leftArrow = document.querySelector('.slider__arrow--left');
+const rightArrow = document.querySelector('.slider__arrow--right');
 
-let counter = 1;
+const images = [
+  '../images/slider/img-1.png',
+  '../images/slider/img-2.png',
+  '../images/slider/img-3.png',
+  '../images/slider/img-4.png',
+];
 
-arrows.forEach(arrow => {
-  arrow.addEventListener('click', function() {
-    const slider = arrow.closest('.slider');
+let currentImageIndex = 0;
 
-    counter++;
+function changeImage(index) {
+  slider.style.backgroundImage = `url(${images[index]})`;
+}
 
-    if (counter > 4) {
-      counter = 1;
-    }
-
-    slider.style.backgroundImage = `url(./images/slider/img-${counter}.png)`;
-  });
+leftArrow.addEventListener('click', function() {
+  currentImageIndex = (currentImageIndex === 0) ? images.length - 1
+    : currentImageIndex - 1;
+  changeImage(currentImageIndex);
 });
+
+rightArrow.addEventListener('click', function() {
+  currentImageIndex = (currentImageIndex === images.length - 1) ? 0
+    : currentImageIndex + 1;
+  changeImage(currentImageIndex);
+});
+
+changeImage(currentImageIndex);
