@@ -24,16 +24,27 @@ const leftArrow = document.querySelector('.slider__arrow--left');
 const rightArrow = document.querySelector('.slider__arrow--right');
 
 const images = [
-  '../images/slider/img-1.png',
-  '../images/slider/img-2.png',
-  '../images/slider/img-3.png',
-  '../images/slider/img-4.png',
+  '/img-1.d096b9c9.png',
+  '/img-2.a07f1e80.png',
+  '/img-3.b5dd8f92.png',
+  '/img-4.efd83bb3.png',
 ];
 
 let currentImageIndex = 0;
 
 function changeImage(index) {
-  slider.style.backgroundImage = `url(${images[index]})`;
+  slider.style.backgroundImage = `url('${images[index]}')`;
+
+  const title = document.querySelector('.slider__title');
+  const text = document.querySelector('.slider__text');
+
+  if (index === 1 || index === 2 || index === 3) {
+    title.style.color = '#2060f6';
+    text.style.color = '#2060f6';
+  } else {
+    title.style.color = '';
+    text.style.color = '';
+  }
 }
 
 leftArrow.addEventListener('click', function() {
