@@ -24,10 +24,10 @@ const leftArrow = document.querySelector('.slider__arrow--left');
 const rightArrow = document.querySelector('.slider__arrow--right');
 
 const images = [
-  '/img-1.png',
-  '/img-2.png',
-  '/img-3.png',
-  '/img-4.png',
+  '/images/slider/img-1.png',
+  '/images/slider/img-2.png',
+  '/images/slider/img-3.png',
+  '/images/slider/img-4.png',
 ];
 
 let currentImageIndex = 0;
