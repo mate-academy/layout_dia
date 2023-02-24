@@ -9,6 +9,7 @@ let width;
 function init() {
   width = document.querySelector('.slider__box').offsetWidth;
   sliderLine.style.width = width * images.length + 'px';
+
   images.forEach(item => {
     item.style.width = width + 'px';
     item.style.height = 'auto';
