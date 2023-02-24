@@ -41,3 +41,11 @@ function nextImage(direction) {
   }
   images[index].classList.add('slideshow__slide--active');
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
