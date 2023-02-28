@@ -1,11 +1,171 @@
-@import "../styles/utils/reset.scss";
+@import "/styles/utils/reset.scss";
 @import "utils";
 @import "fonts";
 @import "typography";
 
-// body {
-//   background-color: #E5E5E5;
-// }
+$main-color-title: #253757;
+$main-color: #6c788b;
+$running-title: #c0cdd7;
+
+$link-blue: #2060f6;
+
+$main-bg-light: #e5e5e5;
+$main-bg-dark: #2c2c2c;
+
+%center {
+  display: flex;
+  justify-content: center;
+}
+
+%running-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+%title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+%subtitle {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+%main-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+.page {
+  background-color: $main-bg-light;
+
+  &__header {
+    margin-bottom: 120px;
+  }
+
+  &__about {
+    margin-bottom: 120px;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 320px;
+  padding: 0px 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.header {
+  background-color: $main-bg-dark;
+  height: 100vh;
+  padding-top: 20px;
+  @extend %center;
+
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__top-actions {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__hire {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 69px;
+      height: 2px;
+      top: 46px;
+      background: #00acdc;
+      border-radius: 8px;
+    }
+
+    &-link {
+      @extend %running-title;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  &__title {
+    color: #fff;
+    @extend %title;
+    font-size: 52px;
+    letter-spacing: -2px;
+    line-height: 120%;
+    margin-bottom: 32px;
+  }
+
+  &__description {
+    color: #fff;
+    @extend %subtitle;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 72px;
+  }
+
+  &__content {
+  }
+}
+
+.button {
+  &__link {
+    @extend %center;
+    align-items: center;
+    background-color: $link-blue;
+    width: 280px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 48px;
+    width: 280px;
+    height: 50px;
+    @extend %title;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+.logo {
+  height: 25px;
+  width: 45px;
+}
+
+.about {
+  @extend %center;
+  text-align: center;
+
+  &__title {
+    @extend %title;
+    color: $main-color-title;
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    @extend %subtitle;
+    color: $main-color;
+    font-size: 22px;
+    line-height: 33px;
+  }
+}
 
 // .page {
 //   &__header {
