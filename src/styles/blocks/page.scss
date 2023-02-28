@@ -6,7 +6,26 @@
 
   &__body {
     margin: 0;
-    background-color: #e5e5e5;
+    background-color: #f2f6fa;
+    overflow: auto;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.3s;
+    transform: translateY(-100%);
+
+    &:target {
+      transform: translateY(0);
+    }
   }
 
   &__section {
@@ -22,6 +41,17 @@
 
     &--last {
       margin-bottom: 0;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
+      @include onDesktopSmall {
+        margin-bottom: 0;
+      }
+    }
+
+    &--vision {
 
       @include onTablet {
         margin-bottom: 0;
