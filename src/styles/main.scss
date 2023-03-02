@@ -1,7 +1,194 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./reset.scss";
+@import "./normalize.scss";
 
-body {
-  background: $c-gray;
+@import "./utils/vars";
+@import "./utils/mixins";
+
+.page {
+  font-family: Poppins, sans-serif;
+
+  &__body {
+    background-color: $page-background--color;
+  }
+}
+
+.header {
+  padding-top: 18px;
+  background-color: $dark-grey--color;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  @include onDesktop {
+    padding-top: 49px;
+  }
+
+  &__nav {
+    display: flex;
+    margin-bottom: 48px;
+  }
+
+  &__logo {
+    margin-top: 2px;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__menu-opener {
+    display: block;
+    margin-top: 4px;
+    margin-left: 32px;
+
+    height: 24px;
+    width: 24px;
+
+    background-image: url(../images/icon-menu.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__call {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white--color;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+
+      background-color: $blue--color;
+      margin-top: 8px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+
+    color: $white--color;
+  }
+
+  &__description {
+    margin-bottom: 72px;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+
+    color: $white--color;
+  }
+
+  &__button {
+    margin-bottom: 48px;
+  }
+
+  &__imgs {
+    height: 390px;
+    border-radius: 30px;
+
+    background-image: url(../images/header-img1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1250px;
+  padding: 0 20px;
+
+  @include onTablet {
+    padding: 0 40px;
+  }
+
+  @include onDesktop {
+    padding: 0 54px;
+  }
+}
+
+// .logo {
+
+// }
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+
+  color: $white--color;
+
+  background-color: $blue--color;
+  border-radius: 8px;
+
+  @include onTablet {
+    width: 264px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__tablet {
+    @include onTablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &__desctop {
+    @include onDesktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
 }
