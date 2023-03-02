@@ -1,12 +1,10 @@
 .nav {
-  &__icon-menu-wrapper {
+  &__icon-menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 18px;
-    height: 18px;
-    padding: 3px;
-    margin-left: 32px;
+    height: 8px;
+    padding: 6px;
+    margin-left: 29px;
 
     border-radius: 4px;
     background-color: transparent;
@@ -23,24 +21,16 @@
     @include onScreen1024 {
       display: none;
     }
-  }
 
-  &__icon-menu {
-    display: flex;
-    width: 18px;
-    height: 8px;
-
-    background-image: url(../images/menu.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.3s;
-
-   
-
-    @include onScreen1024 {
+    @include onScreen1600 {
       display: none;
     }
+
+    @include onScreen2560 {
+      display: none;
+    }
+
+    transition: all 0.3s;
   }
 
   &__container {
@@ -61,7 +51,19 @@
 
     @include onScreen1024 {
       position: static;
-      height: max-content;
+      height: 100%;
+      transform: translateY(0);
+    }
+
+    @include onScreen1600 {
+      position: static;
+      height: 100%;
+      transform: translateY(0);
+    }
+
+    @include onScreen2560 {
+      position: static;
+      height: 100%;
       transform: translateY(0);
     }
   }
@@ -72,6 +74,16 @@
     padding: 40px;
 
     @include onScreen1024 {
+      padding: 0;
+      justify-content: center;
+    }
+
+    @include onScreen1600 {
+      padding: 0;
+      justify-content: center;
+    }
+
+    @include onScreen2560 {
       padding: 0;
       justify-content: center;
     }
@@ -87,12 +99,30 @@
       display: flex;
       gap: 48px;
     }
+
+    @include onScreen1600 {
+      display: flex;
+      gap: 48px;
+    }
+
+    @include onScreen2560 {
+      display: flex;
+      gap: 48px;
+    }
   }
 
   &__item {
     margin-bottom: 8px;
 
     @include onScreen1024 {
+      margin-bottom: 0;
+    }
+
+    @include onScreen1600 {
+      margin-bottom: 0;
+    }
+
+    @include onScreen2560 {
       margin-bottom: 0;
     }
   }
@@ -117,48 +147,42 @@
     &:hover {
       border-color: #2060f6;
     }
-    
+
     &:active {
       border-color: #fff;
     }
   }
 
   &__icon-cross {
-    height: 16px;
-    width: 16px;
-   
-    background-image: url(../images/cross.svg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #3f3f3f;
+    }
+
+    &:active {
+      background-color: #555;
+    }
 
     @include onScreen1024 {
       display: none;
     }
 
-    &-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 20px;
-      height: 20px;
-      padding: 2px;
+    @include onScreen1600 {
+      display: none;
+    }
 
-      border: 1px solid transparent;
-      border-radius: 4px;
-      transition: all 0.3s;
-      
-      &:hover {
-        background-color: #3f3f3f;
-      }
-       
-      &:active {
-        background-color: #555;
-      }
-
-      @include onScreen1024 {
-        display: none;
-      }
+    @include onScreen2560 {
+      display: none;
     }
   }
 }
