@@ -41,3 +41,16 @@ nextButton.addEventListener('click', () => {
 previousButton.addEventListener('click', () => {
   previousImage();
 });
+
+function disableContainer(width) {
+  const body = document.querySelector('body');
+
+  if (body.clientWidth >= width) {
+    const headerContainer = document.querySelector('.header__content')
+      .firstElementChild;
+
+    headerContainer.style.paddingRight = '0px';
+  }
+};
+
+disableContainer(1024);
