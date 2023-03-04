@@ -9,10 +9,19 @@
   }
 
   &__section-title {
-    padding: 16px 0 24px;
+    padding: 16px 0 48px;
     align-items: center;
     @include fontFamilyPoppins32;
     color: $section-color;
+
+    @include onTablet {
+      width: 180px;
+      padding: 16px 0 56px;
+    }
+
+    @include onSmaleDesktop {
+      padding: 16px 0 85px;
+    }
   }
 
   &__box {
@@ -28,11 +37,13 @@
     }
     @include onSmaleDesktop {
       flex-direction: row;
+      margin-bottom: 186px;
       gap: 20px;
     }
     @include onDesktop {
       gap: 30px;
       max-width: 1600px;
+      margin-bottom: 148px;
     }
   }
 
@@ -58,13 +69,13 @@
   &__image {
     border-radius: 50%;
     position: relative;
-    width: 109px;
+    width: 140px;
     z-index: 1;
-    transition: 0.3s;
+    transition: all 1.3s;
 
     &:hover {
       scale: (1.2);
-      transition: 0.3s;
+      transition: all 1.3s;
     }
   }
 
@@ -81,46 +92,55 @@
     }
 
     &::after {
-      left: -40px;
-      top: -2px;
+      left: -50px;
+      top: -5px;
       @include rectangle;
     }
 
     &:hover:after {
       @include rectangle;
-      animation: fly1 1s both;
+      animation: fly1 1.3s both;
     }
 
     &::before {
-      left: 40px;
-      top: 70px;
+      left: 50px;
+      top: 90px;
       @include rectangle;
     }
 
     &:hover::before {
       @include rectangle;
-      animation: fly2 1s both;
+      animation: fly2 1.3s both;
     }
     @keyframes fly1 {
-      from {
-        left: -40px;
-        top: -2px;
+      0% {
+        left: -50px;
+        top: -5px;
       }
-      to {
-        left: -45px;
-        top: -7px;
+      50% {
+        left: -60px;
+        top: -15px;
         background-color: $button-hover;
+      }
+      100% {
+        left: -50px;
+        top: -5px;
       }
     }
+    
     @keyframes fly2 {
-      from {
-        left: 40px;
-        top: 70px;
+      0% {
+        left: 50px;
+        top: 90px;
       }
-      to {
-        left: 45px;
-        top: 75px;
+      50% {
+        left: 60px;
+        top: 100px;
         background-color: $button-hover;
+      }
+      100% {
+        left: 50px;
+        top: 90px;
       }
     }
   }
@@ -128,7 +148,7 @@
   &__kov {
     &:hover {
       transform: rotate(-360deg);
-      transition: 0.3s;
+      transition: 1.3s;
     }
   }
 
