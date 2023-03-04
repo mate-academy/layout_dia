@@ -33,3 +33,12 @@ slideButtonLeft.addEventListener('click', function() {
   }
   document.querySelector(`.slider__image--${imageNumber}`).style.width = '100%';
 });
+
+const form = document.getElementById("form");
+
+function stopRefreshing(event) {
+  event.preventDefault();
+  form.reset();
+}
+
+form.addEventListener('submit', stopRefreshing);
