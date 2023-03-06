@@ -38,3 +38,11 @@ next.addEventListener('click', () => {
   countSlide += 1;
   sliders[countSlide].style.display = 'block';
 });
+
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  form.reset();
+});
