@@ -1,6 +1,5 @@
 'use strict';
 
-// меню бургер
 const iconMenu = document.querySelector('.header__burger');
 const menuBody = document.querySelector('.page__menu');
 
