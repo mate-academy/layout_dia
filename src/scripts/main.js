@@ -55,5 +55,5 @@ prevButton.addEventListener('click', (e) => {
 });
 
 function rollSlider() {
-  sliderLine.style.transform = 'translate(-' + count * width + 'px)';
+  sliderLine.style.transform = `translate(-${count * width}px)`;
 }
