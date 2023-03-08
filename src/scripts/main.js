@@ -42,9 +42,9 @@ previousButton.addEventListener('click', () => {
   previousImage();
 });
 
-function disableContainer(width) {
-  const body = document.querySelector('body');
+const body = document.querySelector('body');
 
+function disableContainer(width) {
   if (body.clientWidth >= width) {
     const headerContainer = document.querySelector('.header__content')
       .firstElementChild;
@@ -54,3 +54,16 @@ function disableContainer(width) {
 };
 
 disableContainer(1024);
+
+function changePosition(width) {
+  const element = document.querySelector('.contacts');
+
+  if (body.clientWidth >= width) {
+    element.classList
+      .replace(
+        'grid__item-desktop-7-12', 'grid__item-desktop-8-12'
+      );
+  };
+}
+
+changePosition(1600);

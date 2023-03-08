@@ -4,9 +4,12 @@
   &__running-title {
     @extend %running-title;
     color: $running-title;
-    margin-bottom: 16px;
+    font-size: 13px;
+    letter-spacing: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
+
+    margin-bottom: 16px;
   }
 
   &__title {
@@ -15,10 +18,25 @@
     font-size: 32px;
     line-height: 41px;
     margin-bottom: 24px;
+    width: 264px;
+
+    @include onDesktop-s {
+      width: 292px;
+      line-height: 48px;
+    }
   }
 
   &__description {
     margin-bottom: 48px;
+    height: 126px;
+    max-width: 280px;
+
+    @include onTablet {
+      max-width: 264px;
+    }
+    @include onDesktop-l {
+      // display: none;
+    }
 
     &-text {
       color: $main-color;
@@ -29,13 +47,68 @@
   }
 
   &__item {
+    margin: 0 auto;
+    max-width: 280px;
+    height: 264px;
     background-color: #fff;
-    margin-bottom: 24px;
     border-radius: 16px;
     box-shadow: 0px 9px 18px 0px #25293108;
 
+    margin-bottom: 24px;
+
     &:last-child {
       margin-bottom: 0px;
+    }
+
+    @include onTablet {
+      width: 264px;
+      height: 264px;
+      margin: 0 0;
+
+      &:nth-child(4n),
+      &:nth-child(5n) {
+        margin-bottom: 30px;
+      }
+
+      &:nth-child(odd) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include onDesktop-s {
+      width: 214px;
+
+      &:nth-child(4n),
+      &:nth-child(5n) {
+        margin-bottom: 20px;
+      }
+
+      &:nth-child(odd) {
+        transform: translateY(-95%);
+      }
+
+      &:nth-child(even) {
+        transform: translateY(-45%);
+      }
+    }
+
+    @include onDesktop-m {
+      width: 264px;
+
+      &:nth-child(4n),
+      &:nth-child(5n) {
+        margin-bottom: 30px;
+      }
+    }
+
+    @include onDesktop-l {
+      &:nth-child(odd) {
+        transform: translateY(-95%);
+      }
+
+      &:nth-child(even) {
+        transform: translateY(-45%);
+      }
     }
 
     &-number {

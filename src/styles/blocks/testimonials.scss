@@ -18,37 +18,105 @@
     font-size: 32px;
     line-height: 48px;
     margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+      width: 180px;
+    }
+
+    @include onDesktop-s {
+      margin-bottom: 85px;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onDesktop-s {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    @include onDesktop-m {
+      gap: 30px;
+    }
   }
 
   &__item {
     background-color: #fff;
     border-radius: 16px;
-    box-shadow: 0px 9px 18px 0px #25293108;
     text-align: center;
     padding-top: 32px;
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
-    &:last-child {
-      margin-bottom: 0px;
-    }
+    box-shadow: 0px 9px 18px 0px #25293108;
 
     &-image {
-      max-height: 196px;
-      max-width: 196px;
-      margin-bottom: 27px;
+      height: 196px;
+      width: 196px;
+
+      margin-bottom: 30px;
+
+      @include onTablet {
+        height: 250px;
+        width: 250px;
+      }
+
+      @include onDesktop-s {
+        width: 196px;
+        height: 196px;
+      }
+
+      @include onDesktop-m {
+        width: 250px;
+        height: 250px;
+      }
+
+      &-container {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     &-rectangle {
-      transform: translateX(10%);
+      z-index: 0;
+      transform: translateY(10%);
+
+      @include onTablet {
+        transform: translate(-10%, 10%);
+        scale: 1.27;
+      }
+
+      @include onDesktop-s {
+        transform: translate(10%, 0);
+        scale: 1;
+      }
+
+      @include onDesktop-m {
+        transform: translate(-10%, 10%);
+        scale: 1.27;
+      }
     }
 
     &-rectangle--last {
-      transform: translate(-10%, 55%);
-      top: 70px;
+      transform: translate(-5%, 80%);
       z-index: 0;
+
+      @include onTablet {
+        transform: translate(10%, 90%);
+      }
+
+      @include onDesktop-s {
+        transform: translate(-10%, 80%);
+      }
+
+      @include onDesktop-m {
+        transform: translate(10%, 90%);
+      }
     }
 
     &-photo {
@@ -56,8 +124,28 @@
       height: 110px;
       z-index: 1;
       border-radius: 50%;
-      position: relative;
-      bottom: 80px;
+      transform: translateY(-50%);
+
+      @include onTablet {
+        width: 140px;
+        height: 140px;
+
+        transform: translateY(-35%);
+      }
+
+      @include onDesktop-s {
+        width: 100px;
+        height: 110px;
+
+        transform: translateY(-50%);
+      }
+
+      @include onDesktop-m {
+        width: 140px;
+        height: 140px;
+
+        transform: translateY(-35%);
+      }
     }
 
     &-quotes {
@@ -65,6 +153,14 @@
       width: 20px;
 
       margin-bottom: 10px;
+
+      @include onTablet {
+        margin-bottom: 18px;
+      }
+
+      @include onDesktop-s {
+        margin-bottom: 10px;
+      }
     }
 
     &-review {
@@ -72,8 +168,22 @@
       color: $main-color;
       font-size: 13px;
       line-height: 19px;
+      padding: 0 42px;
+      max-width: 362px;
 
       margin-bottom: 16px;
+
+      @include onTablet {
+        padding: 0 98px;
+      }
+
+      @include onDesktop-s {
+        padding: 0 48px;
+      }
+
+      @include onDesktop-m {
+        padding: 0 56px;
+      }
     }
 
     &-author {

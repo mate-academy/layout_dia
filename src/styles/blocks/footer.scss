@@ -1,18 +1,39 @@
-
 .footer {
   background-color: $main-bg-dark;
-  @extend %center;
   padding-bottom: 80px;
+
+  &__content {
+    @include onDesktop-s {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 
   &__logo {
     display: block;
     margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+    }
   }
 
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include onDesktop-s {
+      gap: 64px;
+    }
 
     &-item {
-      margin-bottom: 24px;
+
     }
 
     &-link {
@@ -25,5 +46,4 @@
       text-transform: uppercase;
     }
   }
-
 }
