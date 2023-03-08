@@ -8,38 +8,46 @@ const galleryImage1 = document.querySelector('.header__gallery-image-1');
 const galleryImage2 = document.querySelector('.header__gallery-image-2');
 const galleryImage3 = document.querySelector('.header__gallery-image-3');
 
-function nextImage() {
-  if (galleryImage1.style.display === 'block') {
-    galleryImage1.style.display = 'none';
-    galleryImage2.style.display = 'block';
-  } else if (galleryImage2.style.display === 'block') {
-    galleryImage2.style.display = 'none';
-    galleryImage3.style.display = 'block';
-  } else {
-    galleryImage3.style.display = 'none';
-    galleryImage1.style.display = 'block';
-  };
-};
+function changeImage() {
+  const image = document.querySelector('.header__gallery');
 
-function previousImage() {
-  if (galleryImage1.style.display === 'block') {
-    galleryImage1.style.display = 'none';
-    galleryImage3.style.display = 'block';
-  } else if (galleryImage3.style.display === 'block') {
-    galleryImage3.style.display = 'none';
-    galleryImage2.style.display = 'block';
-  } else {
-    galleryImage2.style.display = 'none';
-    galleryImage1.style.display = 'block';
-  };
-};
+  image.style.backgroundImage = 'url(../images/gallery-2.jpg)';
+
+}
+
+// function nextImage() {
+//   if (galleryImage1.style.display === 'block') {
+//     galleryImage1.style.display = 'none';
+//     galleryImage2.style.display = 'block';
+//   } else if (galleryImage2.style.display === 'block') {
+//     galleryImage2.style.display = 'none';
+//     galleryImage3.style.display = 'block';
+//   } else {
+//     galleryImage3.style.display = 'none';
+//     galleryImage1.style.display = 'block';
+//   };
+// };
+
+// function previousImage() {
+//   if (galleryImage1.style.display === 'block') {
+//     galleryImage1.style.display = 'none';
+//     galleryImage3.style.display = 'block';
+//   } else if (galleryImage3.style.display === 'block') {
+//     galleryImage3.style.display = 'none';
+//     galleryImage2.style.display = 'block';
+//   } else {
+//     galleryImage2.style.display = 'none';
+//     galleryImage1.style.display = 'block';
+//   };
+// };
 
 nextButton.addEventListener('click', () => {
-  nextImage();
+  // nextImage();
+  changeImage();
 });
 
 previousButton.addEventListener('click', () => {
-  previousImage();
+  // previousImage();
 });
 
 const body = document.querySelector('body');
