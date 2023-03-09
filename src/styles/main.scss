@@ -1,7 +1,29 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "utils/vars";
+@import "utils/placeholders";
+@import "utils/normalize";
+@import "utils/mixins";
 
-body {
-  background: $c-gray;
+@import "blocks/page";
+@import "blocks/header";
+@import "blocks/top-nav";
+@import "blocks/slider";
+@import "blocks/menu";
+
+.grid {
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    // grid-template-rows: repeat(4, 1fr);
+    column-gap: 20px;
+  }
 }
