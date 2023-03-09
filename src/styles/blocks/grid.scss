@@ -1,36 +1,35 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesign {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
-        &--#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+    @for $start from 1 through $numbColTab {
+      @for $end from $start through $numbColTab {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
       }
     }
 
-    @for $row-start from 1 through 4 {
-      &--#{$row-start}-row {
-        grid-row-start: $row-start;
+    @for $start from 1 through $numbColDesktop {
+      @for $end from $start through $numbColDesktop {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
       }
     }
-  }
-
-  &--on-desktop {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @include on-desktop {
-      display: grid;
-      align-items: initial;
-    }
-  }
-
-  &--process {
-    grid-template-rows: repeat(3, 118px) 1fr;
   }
 }
