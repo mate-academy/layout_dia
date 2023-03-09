@@ -1,0 +1,59 @@
+.grid {
+  @include onScreen640 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onScreen1024 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onScreen1600 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onScreen2560 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--onScreen640-#{$start}-#{$end} {
+          @include onScreen640 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--onScreen1024-#{$start}-#{$end} {
+          @include onScreen1024 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--onScreen1600-#{$start}-#{$end} {
+          @include onScreen1600 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--onScreen2560-#{$start}-#{$end} {
+          @include onScreen2560 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
