@@ -18,7 +18,7 @@
     }
 
     @include onDesktop-s {
-      margin-bottom: 45px;
+      margin-bottom: 48px;
     }
   }
 
@@ -26,6 +26,8 @@
     display: flex;
     align-items: center;
     gap: 35px;
+
+    position: relative;
 
     @include onDesktop-s {
       gap: 136px;
@@ -37,24 +39,142 @@
   }
 
   &__menu {
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 1.2;
+    }
+
     @include onDesktop-s {
       display: none;
+    }
+
+    &-cross {
+      position: relative;
+      right: 21px;
+      top: 5px;
+
+      @include onDesktop-s {
+        display: none;
+      }
+    }
+
+    &-open {
+      text-decoration: none;
+    }
+
+    &-close {
+      text-decoration: none;
     }
   }
 
   &__nav {
     display: none;
 
+    &--opened {
+      display: flex;
+      flex-direction: column;
+
+      opacity: 0;
+      pointer-events: none;
+
+      position: absolute;
+      top: 150%;
+      left: 10%;
+
+      background-color: $main-bg-dark;
+      border: 1px solid white;
+
+      gap: 30px;
+      padding: 10px;
+
+      @include onDesktop-s {
+        display: none;
+      }
+    }
+
     @include onDesktop-s {
       display: flex;
+      flex-direction: row;
+      gap: 48px;
+
+      opacity: 1;
+      border: none;
+      position: static;
     }
   }
+
+  &__list {
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      transition: all 2s;
+
+      &::before {
+        content: "";
+        background: #00acdc;
+        position: absolute;
+        top: 125%;
+        width: 100%;
+        height: 2px;
+        border-radius: 8px;
+        opacity: 0;
+
+        transition: all 0.3s;
+
+        @include onDesktop-s {
+          top: 160%;
+        }
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      @include onDesktop-s {
+        margin-bottom: 0px;
+      }
+    }
+
+    &-link {
+      @extend %running-title;
+      text-decoration: none;
+
+      color: #fff;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
 
   &__hire {
     display: flex;
     align-items: center;
     justify-content: end;
     position: relative;
+
+    &:hover {
+      .header__hire-link {
+        scale: 1.1;
+      }
+
+      &:after {
+        scale: 1.1;
+      }
+    }
 
     &:after {
       content: "";
@@ -65,9 +185,7 @@
       height: 2px;
       border-radius: 8px;
 
-      @include onDesktop-s {
-        top: 38px;
-      }
+      transition: all 0.3s;
     }
 
     &-link {
@@ -77,6 +195,8 @@
       text-decoration: none;
       color: #fff;
       text-transform: uppercase;
+
+      transition: all 0.3s;
     }
   }
 
@@ -85,10 +205,6 @@
       display: flex;
       align-items: center;
     }
-  }
-
-  &-container {
-    max-width: 390px;
   }
 
   &__title {
@@ -143,59 +259,80 @@
   }
 
   &__gallery {
-    height: 390px;
     position: relative;
     width: 100%;
-    border-radius: 30px;
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    &-slider {
+      height: 390px;
+      overflow-x: hidden;
+      overflow-y: hidden;
 
-    background-image: url(../images/gallery-1.jpg);
+      @include onDesktop-s {
+        height: 680px;
+        min-width: 502px;
+      }
 
-    @include onTablet {
-    }
+      @include onDesktop-m {
+        min-width: 680px;
+      }
 
-    @include onDesktop-s {
-      border-radius: 30px 0;
-      min-width: 502px;
-      height: 680px;
-    }
-
-    @include onDesktop-m {
-      min-width: 680px;
-    }
-
-    @include onDesktop-l {
-      min-width: 1117px;
+      @include onDesktop-l {
+        min-width: 1117px;
+      }
     }
 
     &-image {
       border-radius: 30px;
       width: 100%;
-      height: 100%;
+      height: 390px;
       z-index: 0;
 
-      // scale: 1.7 1;
-    }
+      position: relative;
 
-    &-controls {
-      margin-bottom: 16px;
-      display: flex;
-      gap: 16px;
-      z-index: 1;
+      object-fit: cover;
+      object-position: center;
 
-      position: absolute;
-      top: 250px;
+      transition: right 2s;
 
-      @include onTablet {
-        top: 242px;
+      &:nth-child(1) {
+        right: 0%;
+      }
+
+      &:nth-child(2) {
+        right: -100%;
+        bottom: 100%;
+      }
+
+      &:nth-child(3) {
+        right: -200%;
+        bottom: 200%;
       }
 
       @include onDesktop-s {
+        height: 680px;
+        border-radius: 30px 0px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 1;
+      position: absolute;
+      left: 20px;
+      bottom: 24px;
+
+      @include onTablet {
+        left: 41px;
+        bottom: 32px;
+      }
+
+      @include onDesktop-s {
+        flex-direction: row;
+        gap: 24px;
         left: 78px;
-        top: 582px;
+        bottom: 48px;
       }
 
       @include onDesktop-m {
@@ -203,11 +340,21 @@
       }
     }
 
+    &-controls {
+      display: flex;
+      gap: 16px;
+    }
+
     &-button {
       width: 32px;
       height: 32px;
       border-radius: 50%;
       border: none;
+      transition: all 0.3s;
+
+      &:hover {
+        scale: 1.1;
+      }
     }
 
     &-title {
@@ -218,22 +365,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
 
-      position: absolute;
-      top: 298px;
-      z-index: 1;
-
-      @include onTablet {
-        top: 290px;
-      }
-
-      @include onDesktop-s {
-        top: 564px;
-        left: 182px;
-      }
-
-      @include onDesktop-m {
-        left: 152px;
-      }
+      margin-bottom: 8px;
     }
 
     &-description {
@@ -244,22 +376,8 @@
 
       width: 280px;
 
-      position: absolute;
-      top: 326px;
-      z-index: 1;
-
       @include onTablet {
-        top: 318px;
         max-width: 362px;
-      }
-
-      @include onDesktop-s {
-        top: 592px;
-        left: 182px;
-      }
-
-      @include onDesktop-m {
-        left: 152px;
       }
     }
   }
