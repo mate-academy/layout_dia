@@ -1,154 +1,111 @@
 .slider {
-  display: flex;
-
-  height: 390px;
-
-  background-position: center;
-  background-size: cover;
-  border-radius: 0 0 30px 30px;
-
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
   overflow: hidden;
 
   @include onDesktop {
-    height: 680px;
-    width: 680px;
-    border-radius: 30px 0;
-  }
-
-  // @include onTablet {
-  //   height: 680px;
-  //   width: 502px;
-  //   border-radius: 30px 0;
-  // }
-
-  @include onLargeScreen {
-    height: 680px;
-    width: 1167px;
-    border-radius: 30px 0;
-  }
-
-  // @media (min-width: 1024px) {
-  //   height: 663px;
-  //   width: 1167px;
-  // }
-
-  // @include onLargeScreen {
-  //   position: relative;
-
-  //   height: 500px;
-
-  //   border-radius: 30px;
-  // }
-
-  &__container {
-    display: flex;
-    width: 100%;
-    transition: transform 0.5s;
-  }
-
-  &__slide {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    background-size: cover;
-    background-position: center;
-
-    &--left {
-      background-image: url(../images/slider/slide-img-l.jpg);
-
-    }
-    &--center {
-      background-image: url(../images/slider/slide-img-c.jpg);
-
-    }
-    &--right {
-      background-image: url(../images/slider/slide-img-r.jpg);
-
-    }
+    max-width: 50%;
   }
 
   &__content {
+    position: relative;
+  }
+
+  &__button-wrapper {
     position: absolute;
-    bottom: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 10px;
-
-    @include onDesktop {
-      padding: 45px;
-      flex-direction: row;
-      justify-content: initial;
-    }
-  }
-
-  &__text {
-    padding: 3px;
-    margin-left: 20px;
-
-    text-shadow: 2px 4px 3px #0004;
-    border-radius: 3px;
-
-    @include hover (transform, scale(1.03));
-
-    @include onDesktop {
-      margin-left: 24px;
-    }
-  }
-
-  &__buttons {
+    left: $absoluteLeft;
+    bottom: 108px;
     display: flex;
     justify-content: space-between;
+    max-width: 80px;
     width: 100%;
-    padding: 10px;
-    margin: 0 0 50px;
-
-    @include onDesktop {
-      width: initial;
-      margin: 0;
-      padding: 0;
+    @include onTablet {
+      left: $absoluteLeft*2;
+      bottom: 116px;
     }
   }
 
   &__button {
-    display: block;
+    position: relative;
+    box-sizing: border-box;
     height: 32px;
     width: 32px;
-
-    background-color: #{$main-blue}cc;
     border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid transparent;
+    @include hover(border-color, $main-blue);
+    cursor: pointer;
 
-    background-position: center;
-    background-size: 8px;
-    background-repeat: no-repeat;
-
-    // @include hover (transform, scale(1.2)){
-    //   cursor: pointer;
-    // }
-
-    &--left {
-      margin-right: 16px;
-
-      background-image: url(../images/slider/arrow-left.svg);
+    &::after {
+      position: relative;
+      font-size: 16px;
+      align-items: center;
+      text-align: center;
+      color: $c-dBlue;
     }
-    &--right {
-      background-image: url(../images/slider/arrow-right.svg);
+
+    &--left::after {
+      content: "<";
+    }
+
+    &--right::after {
+      content: ">";
     }
   }
 
-  // &__heading {
-  //   margin: 0 0 8px 0;
-  //   @include popin-font (14px, 700, 20px);
-  //   color: $text-white;
-  //   text-transform: uppercase;
-  // }
+  &__images {
+    display: flex;
+    transition: all ease 0.3s;
+  }
 
-  // &__par {
-  //   margin: 0;
-  //   @include open-sans-font (14px, 400, 20px);
-  //   color: $text-white;
-  // }
+  &__image {
+    position: relative;
+    height: 390px;
+    width: 100%;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onDesktop {
+      height: 680px;
+      border-radius: 30px 0;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/slide-img-l.jpg);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slide-img-c.jpg);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/slide-img-r.jpg);
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 20px;
+    left: $absoluteLeft;
+
+    @include onTablet {
+      left: $absoluteLeft*2;
+    }
+  }
+
+  .text-slider {
+    &__title {
+      @extend %title-link;
+      padding-bottom: 8px;
+    }
+
+    &__subtitle {
+      line-height: 1.4;
+      color: #fff;
+      max-width: 250px;
+    }
+  }
 }
