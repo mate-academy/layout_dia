@@ -43,7 +43,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // height: 100%;
     padding: 75px 42px 32px;
 
     background-color: $colorWhite;
@@ -59,9 +58,6 @@
     }
 
     &_img {
-      position: relative;
-      z-index: 1;
-
       width: 110px;
       height: 110px;
       margin-bottom: 100px;
@@ -81,15 +77,64 @@
         margin-bottom: 82px;
       }
 
-      &::before {
-        content: "asdasdasd";
-        position: absolute;
-        top: -50px;
+      &-wrapper {
+        position: relative;
+        z-index: 0;
 
-        width: 200px;
-        height: 200px;
+        transition: transform $timeTransition;
 
-        background-color: $colorBlue;
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: -15%;
+  
+          width: 45px;
+          height: 110px;
+  
+          border-radius: 12px;
+          background-color: $colorBlue;
+          transform: rotate(30deg);
+
+          @include on640px {
+            width: 56px;
+            height: 140px;
+          }
+    
+          @include on1260px {
+            width: 56px;
+            height: 140px;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          right: 0;
+          top: 15%;
+  
+          width: 45px;
+          height: 110px;
+  
+          border-radius: 12px;
+          background-color: $colorBlue;
+          transform: rotate(30deg);
+
+          @include on640px {
+            width: 56px;
+            height: 140px;
+          }
+    
+          @include on1260px {
+            width: 56px;
+            height: 140px;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
 
