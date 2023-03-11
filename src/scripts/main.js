@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 'use strict';
 
 window.addEventListener('hashchange', () => {
@@ -9,10 +8,14 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const form = document.querySelector('.message-form');
+const submit = document.querySelector('.message-form__button');
 
-function handleForm(event) {
+submit.addEventListener('click', function handleClick(event) {
   event.preventDefault();
-}
 
-form.addEventListener('submit', handleForm);
+  const inputs = document.querySelectorAll('.message-form__input');
+
+  [...inputs].map(input => {
+    input.value = '';
+  });
+});
