@@ -1,0 +1,121 @@
+.process {
+
+  &__container {
+    padding: 120px 20px;
+
+    @include onTablet {
+      padding: 120px 40px;
+    }
+  
+    @include onDesktop {
+      padding: 248px 55px 148px;
+    }
+  
+    @include onDesktop-plus {
+      padding: 248px 190px 148px;
+    }
+  
+    @include onDesktop-plus-large {
+      padding: 248px 227px 148px;
+    }
+  
+    @include onDesktop-huge {
+      padding: 248px 707px 148px;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    max-width: 280px;
+    line-height: 130%;
+
+    @include onDesktop {
+      margin-bottom: 0;
+      min-width: 292px;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 48px;
+
+    font-size: 14px;
+    line-height: $main-lh;
+
+    @include onTablet {
+      margin-bottom: 56px;
+      max-width: 264px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+      max-width: 292px;
+    }
+  }
+
+  &__card {
+    margin: 0 auto 24px;
+
+    max-width: 280px;
+    transition: none;
+
+    &:hover {
+      @include onDesktop {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+    }
+
+    @include onTablet {
+      margin: 0 0 30px;
+      width: 264px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 20px;
+
+      width: 214px;
+      transition: transform $main-transition-duration;
+    }
+
+    @include onDesktop-plus {
+      width: 264px;
+    }
+
+    &--1{
+      &:hover {
+        @include onDesktop {
+          transform: $main-scale-ratio;
+        }
+      }
+    }
+
+    &--2 {
+      @extend %card-shift-onTablet;
+
+      @include onDesktop {
+        transform: translateY(0);
+        margin-bottom: 0;
+
+        &:hover {
+          transform: translateY(0) $main-scale-ratio;
+        }
+      }
+    }
+
+    &--3 {
+      @include onTablet {
+        margin-bottom: 0;
+      }
+      @extend %card-shift-onDesktop;
+    }
+
+    &--4 {
+      margin-bottom: 0;
+      @extend %card-shift-onTablet;
+      @extend %card-shift-onDesktop;
+    }
+  }
+}
