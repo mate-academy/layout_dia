@@ -1,5 +1,6 @@
 .header {
   padding-top: 21px;
+  height:100vh;
   background-color: $bcColor;
   color: $white;
   position: relative;
@@ -11,9 +12,12 @@
 
   &__title {
     @extend %h1;
-    @include fontLine (52px, 62px);
-   
+    @include fontLine (48px, 48px);
 
+    @include onPhone {
+      @include fontLine (40px, 40px);
+    }
+   
     @include onTabletMore {
       @include fontLine (64px, 68px);
     }
@@ -23,7 +27,12 @@
     @extend %openSuns;
     max-width: 362px;
     margin-top: 0;
-    margin-bottom: 72px;
+    margin-bottom: 50px;
+
+    @include onPhone {
+      @include fontLine (16px, 20px);
+      margin-bottom: 25px;
+    }
 
     @include onTablet {
       margin-bottom: 56px;
@@ -43,7 +52,7 @@
 
   &__slider-block {
     display: flex;
-    @include wHight(100%, 390px);
+    @include wHight(100%, 350px);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -51,6 +60,14 @@
     background-color: $bcrnd;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+
+    @include onPhone {
+      @include wHight(100%, 300px);
+    }
+
+    @include onTablet {
+      @include wHight(100%, 600px);
+    }
 
     @include onDesctop1024more {
       border-top-right-radius: 0;
