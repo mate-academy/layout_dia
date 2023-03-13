@@ -1,0 +1,391 @@
+.header {
+  background-color: $main-bg-dark;
+  width: 100%;
+  padding-top: 20px;
+  @extend %center;
+  flex-direction: column;
+
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__top {
+    display: grid;
+    grid-column-gap: 20px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop-s {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__top-actions {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    position: relative;
+
+    @include onDesktop-s {
+      gap: 136px;
+    }
+
+    @include onDesktop-m {
+      gap: 251px;
+    }
+  }
+
+  &__menu {
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 1.2;
+    }
+
+    @include onDesktop-s {
+      display: none;
+    }
+
+    &-cross {
+      position: relative;
+      right: 21px;
+      top: 5px;
+
+      @include onDesktop-s {
+        display: none;
+      }
+    }
+
+    &-open {
+      text-decoration: none;
+    }
+
+    &-close {
+      text-decoration: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    &--opened {
+      display: flex;
+      flex-direction: column;
+
+      opacity: 0;
+      pointer-events: none;
+
+      position: absolute;
+      top: 150%;
+      left: 10%;
+
+      background-color: $main-bg-dark;
+      border: 1px solid white;
+
+      gap: 30px;
+      padding: 10px;
+
+      @include onDesktop-s {
+        display: none;
+      }
+    }
+
+    @include onDesktop-s {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+
+      opacity: 1;
+      border: none;
+      position: static;
+    }
+  }
+
+  &__list {
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      transition: all 2s;
+
+      &::before {
+        content: "";
+        background: #00acdc;
+        position: absolute;
+        top: 125%;
+        width: 100%;
+        height: 2px;
+        border-radius: 8px;
+        opacity: 0;
+
+        transition: all 0.3s;
+
+        @include onDesktop-s {
+          top: 140%;
+        }
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      @include onDesktop-s {
+        margin-bottom: 0px;
+      }
+    }
+
+    &-link {
+      @extend %running-title;
+      text-decoration: none;
+
+      color: #fff;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+
+  &__hire {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+
+    &:hover {
+      .header__hire-link {
+        scale: 1.1;
+      }
+
+      &:before {
+        scale: 1.1;
+      }
+    }
+
+    &:before {
+      content: "";
+      background: #00acdc;
+      position: absolute;
+      top: 112%;
+      width: 69px;
+      height: 2px;
+      border-radius: 8px;
+
+      transition: all 0.3s;
+    }
+
+    &-link {
+      @extend %running-title;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+
+      transition: all 0.3s;
+    }
+  }
+
+  &__content {
+    @include onDesktop-s {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    color: #fff;
+    font-size: 52px;
+    letter-spacing: -2px;
+    line-height: 120%;
+
+    margin-bottom: 32px;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop-s {
+      max-width: 360px;
+    }
+  }
+
+  &__description {
+    @extend %subtitle;
+
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+
+    margin-bottom: 72px;
+
+    max-width: 362px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__button {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 147px;
+    }
+
+    @include onDesktop-s {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__gallery {
+    position: relative;
+    width: 100%;
+
+    &-slider {
+      height: 390px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      border-radius: 30px;
+
+      @include onDesktop-s {
+        height: 680px;
+        min-width: 502px;
+
+        border-radius: 30px 0px;
+      }
+
+      @include onDesktop-m {
+        min-width: 680px;
+      }
+
+      @include onDesktop-l {
+        min-width: 1117px;
+      }
+    }
+
+    &-image {
+      border-radius: 30px;
+      width: 100%;
+      height: 390px;
+      z-index: 0;
+
+      position: relative;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: right 2s;
+
+      &:nth-child(1) {
+        right: 0%;
+      }
+
+      &:nth-child(2) {
+        right: -100%;
+        bottom: 100%;
+      }
+
+      &:nth-child(3) {
+        right: -200%;
+        bottom: 200%;
+      }
+
+      @include onDesktop-s {
+        height: 680px;
+        border-radius: 30px 0px;
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 1;
+      position: absolute;
+      left: 20px;
+      bottom: 24px;
+
+      @include onTablet {
+        left: 41px;
+        bottom: 32px;
+      }
+
+      @include onDesktop-s {
+        flex-direction: row;
+        gap: 24px;
+        left: 78px;
+        bottom: 48px;
+      }
+
+      @include onDesktop-m {
+        left: 48px;
+      }
+    }
+
+    &-controls {
+      display: flex;
+      gap: 16px;
+    }
+
+    &-button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      transition: all 0.3s;
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
+
+    &-title {
+      @extend %running-title;
+      color: #fff;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
+    }
+
+    &-description {
+      @extend %main-text;
+      color: #fff;
+      font-size: 14px;
+      line-height: 19px;
+
+      width: 280px;
+
+      @include onTablet {
+        max-width: 362px;
+      }
+    }
+  }
+}
