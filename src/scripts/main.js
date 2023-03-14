@@ -8,6 +8,14 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  form.reset();
+});
+
 const sliderLine = document.querySelector('.slider-line');
 const images = [...sliderLine.children];
 const sliderBlock = document.querySelector('.header__slider-block');
