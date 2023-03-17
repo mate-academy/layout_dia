@@ -17,6 +17,7 @@ function showSlides(m) {
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
+
   slides[slideIndex - 1].style.display = 'flex';
 
   function plussSlides(n) {
@@ -153,12 +154,11 @@ changeTheme.onclick = function() {
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', function(e) {
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  // const name = document.getElementById('name').value;
+  // const email = document.getElementById('email').value;
+  // const message = document.getElementById('message').value;
+  // some code ...
 
-  if (name === '' && email === '' && message === '') {
-    e.preventDefault();
-    contactForm.reset();
-  }
+  e.preventDefault();
+  contactForm.reset();
 });
