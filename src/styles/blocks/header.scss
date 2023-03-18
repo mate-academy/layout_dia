@@ -1,0 +1,186 @@
+.header {
+  position: relative;
+  box-sizing: border-box;
+  height: 800px;
+  padding-top: 21px;
+  background: $colorBlue;
+  margin-bottom: 213px;
+
+  @include minScreen {
+    padding-top: 50px;
+    margin-bottom: 148px;
+    border-radius: 0 0 0 200px ;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include minScreen {
+      margin-bottom: 160px;
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__logo-image {
+    height: 26px;
+    width: 45px;
+  }
+
+  &__burger {
+    display: none;
+    width: 24px;
+    height: 24px;
+    margin-left: 35px;
+    transition: 0.33s;
+
+    background-image: url(../images/header/Menu.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (max-width: 1023px) {
+      & {
+        display: block;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    display: none;
+    list-style: none;
+    margin-right: 48px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include minScreen {
+      & {
+        display: block;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @include navStyle;
+  }
+
+  &__hire {
+    @include navStyle;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-top: 8px;
+      width: content;
+      height: 2px;
+      background-color: $colorPink;
+      border-radius: 4px;
+    }
+
+    @include minScreen {
+      padding-top: 10px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: $colorWhite;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include minScreen {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    &-br {
+      display: none;
+      @include minScreen {
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 72px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: $colorWhite;
+
+    @include minScreen {
+      margin-bottom: 83px;
+    }
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    &-br {
+      display: none;
+
+      @include minScreen {
+        display: block;
+      }
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      align-self: baseline;
+      width: 264;
+    }
+  
+    @include minScreen {
+      align-self: baseline;
+      width: 264;
+    }
+  }
+}
