@@ -6,8 +6,8 @@
   &__container {
     background-color: $dark;
   }
-  
-  &__row {
+
+  &__top {
     display: grid;
     grid-template-columns: auto auto 1fr auto;
     justify-items: start;
@@ -101,7 +101,7 @@
     @include onTablet {
       margin-bottom: 24px;
     }
-    @include  onSmall-desktop {
+    @include onSmall-desktop {
       grid-column: 1 / 5;
       margin-bottom: 32px;
     }
@@ -117,7 +117,7 @@
       max-width: 362px;
       margin-bottom: 56px;
     }
-    @include  onSmall-desktop {
+    @include onSmall-desktop {
       grid-column: 1 / 6;
       margin-bottom: 83px;
     }
@@ -159,15 +159,19 @@
   &__block-inside-slider {
     position: absolute;
     bottom: 24px;
-    left: 24px;
     display: flex;
+    left: 24px;
     flex-direction: column;
 
     @include onTablet {
       bottom: 32px;
       left: 41px;
     }
+
     @include onSmall-desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
       bottom: 48px;
       left: 78px;
     }
@@ -175,12 +179,15 @@
 
   &__control {
     margin-bottom: 16px;
+    @include onSmall-desktop {
+      margin: 0;
+    }
   }
 
   &__slider-btns {
     display: flex;
   }
-  
+
   &__slider-btn {
     display: flex;
     justify-content: center;
@@ -194,7 +201,6 @@
 
     &:hover {
       transform: scale(0.9);
-
     }
 
     &:active {
@@ -217,14 +223,11 @@
     text-transform: uppercase;
     color: $white;
     margin-bottom: 8px;
-    text-shadow: 1px 1px 3px rgba($color: #000, $alpha: 0.7);
   }
 
   &__text {
-    font-weight: 400;
     font-size: 14px;
     line-height: 140%;
     color: $white;
-    text-shadow: 1px 2px 3px rgba($color: #000, $alpha: 0.7);
   }
 }

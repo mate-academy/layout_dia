@@ -16,7 +16,7 @@ function init() {
   width = document.querySelector('.slider').offsetWidth;
   sliderLine.style.width = width * images.length + 'px';
 
-  images.forEach(item => {
+  images.forEach((item) => {
     item.style.width = width + 'px';
     item.style.height = 'auto';
   });
@@ -26,7 +26,7 @@ function init() {
 init();
 window.addEventListener('resize', init);
 
-document.querySelector('.slider-next').addEventListener('click', function() {
+document.querySelector('.slider-next').addEventListener('click', () => {
   count++;
 
   if (count >= images.length) {
@@ -35,7 +35,7 @@ document.querySelector('.slider-next').addEventListener('click', function() {
   rollSlider();
 });
 
-document.querySelector('.slider-prev').addEventListener('click', function() {
+document.querySelector('.slider-prev').addEventListener('click', () => {
   count--;
 
   if (count < 0) {
@@ -45,5 +45,5 @@ document.querySelector('.slider-prev').addEventListener('click', function() {
 });
 
 function rollSlider() {
-  sliderLine.style.transform = 'translate(-' + count * width + 'px)';
+  sliderLine.style.transform = `translate(-${count * width}px)`;
 }
