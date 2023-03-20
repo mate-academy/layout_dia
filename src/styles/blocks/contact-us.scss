@@ -87,14 +87,17 @@
       width: 370px;
     }
 
-    &:hover {
-      @include desktop {
-        border-bottom: 1px solid $button-send;
-      }
-
-      &:focus {
-        border-bottom: 1px solid $button-send;
-      }
+    &:hover,
+    &:focus,
+    &:active,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px $black-color inset;
+      -webkit-text-fill-color: #fff;
+      border: 1px solid $black-color;
+      border-bottom: 1px solid $button-send;
     }
 
     &::placeholder {
@@ -152,12 +155,18 @@
     line-height: 150%;
     color: #fff;
 
+    transition: color 1s;
+
     @include tablet {
       margin-bottom: 48px;
     }
 
     @include desktop {
       margin-bottom: 48px;
+
+      &:hover {
+        color: $active-color;
+      }
     }
   }
 
@@ -191,6 +200,7 @@
   }
 
   &__facebook {
+    display: block;
     width: 16px;
     height: 24px;
     background-image: url(../images/facebook.svg);
