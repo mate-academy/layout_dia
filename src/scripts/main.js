@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // form-reset
-const form = document.getElementById('form-reload');
+const form = document.querySelector('#form-reload');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  event.target.reset();
+  form.reset();
 });
