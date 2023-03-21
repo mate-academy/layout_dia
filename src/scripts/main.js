@@ -90,4 +90,5 @@ const submit = document.querySelector('.form__button');
 
 submit.addEventListener('click', (e) => {
   e.preventDefault();
+  document.querySelector('.form').reset();
 });
