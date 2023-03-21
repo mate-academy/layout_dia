@@ -1,0 +1,81 @@
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 87px 56px 32px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+  color: $text-color;
+  transition: transform $trans-duration;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__img-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 82px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 139px;
+      width: 56px;
+      background-color: $blue-color;
+      position: absolute;
+      border-radius: 12px;
+      top: 0;
+    }
+
+    &::before {
+      left: 0;
+      transform: translate(-5px, -45px) rotate(30deg);
+    }
+
+    &::after {
+      right: 0;
+      transform: translate(5px, 45px) rotate(30deg);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__message {
+    margin-bottom: 16px;
+
+    @include onTablet {
+      max-width: 362px;
+      margin: 0 auto 16px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 18px;
+      margin: 0 auto 10px;
+      background-image: url("../images/quote.svg");
+    }
+  }
+
+  &__name {
+    color: #253757;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  &__position {
+    @include subtitle;
+  }
+}
