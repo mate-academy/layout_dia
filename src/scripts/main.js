@@ -89,5 +89,15 @@ window.addEventListener('hashchange', () => {
 const submit = document.querySelector('.form__button');
 
 submit.addEventListener('click', (e) => {
+  const form = document.querySelector('.form');
+
+  for (const prop of form.elements) {
+    if (!prop.value && prop.type !== 'submit') {
+      return;
+    }
+  }
+
+  form.reset();
+
   e.preventDefault();
 });
