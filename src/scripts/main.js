@@ -100,4 +100,5 @@ submit.addEventListener('click', (e) => {
   form.reset();
 
   e.preventDefault();
+  document.querySelector('.form').reset();
 });
