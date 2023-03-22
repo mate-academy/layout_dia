@@ -1,26 +1,48 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(12, 63px);
-  max-width: 1024px;
-  gap: 24px;
-  margin: 0 auto;
-
-  &__strategic {
-    grid-template-rows: 158px 198px 137px 255px;
-    max-width: 1024px;
-    gap: 24px;
-    margin: 0 auto;
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
   }
 
-  &__expertize {
-    max-width: 1024px;
-    background-color: #fff;
-    margin: 0 auto;
+  @include onSmallDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
   }
 
-  &__process {
-    max-width: 1024px;
-    margin: 0 auto;
-    grid-template-columns: repeat(12, 63px);
+  @include onDesktop {
+    column-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--tablet--#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--smallDesktop--#{$start}-#{$end} {
+          @include onSmallDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop--#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
   }
 }

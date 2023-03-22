@@ -1,60 +1,109 @@
 .header {
-  height: fit-content;
-  padding-top: 50px;
+  position: relative;
 
-  &__logo {
-    width: 44.82px;
-    height: 25.63px;
-  }
+  border-radius: 0 0 30px 30px;
+  background-color: $dark-background-color;
 
-  &__nav {
-    grid-column: 3 / 9;
-    display: flex;
-    justify-content: space-between;
-    &--link {
-      font-family: "Poppins", sans-serif;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 13px;
-      line-height: 150%;
-      text-decoration: none;
-      color: #fff;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+  &__content {
+    padding-top: 20px;
+    height: 100vh;
 
-      &:hover:after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 2px;
-        border-radius: 4px;
-        background-color: #2060f6;
-        margin-top: 24px;
-      }
+    @include onSmallDesktop {
+      padding-top: 48px;
     }
   }
 
-  &__hire {
-    grid-column: 12 / 14;
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 150%;
-    text-decoration: none;
-    color: #fff;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    &:hover:after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 2px;
-      border-radius: 4px;
-      background-color: #2060f6;
+  &__logo-group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    display: none;
+    @include onSmallDesktop {
+      display: block;
+    }
+  }
+
+  &__hire-us {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__info {
+    @include onSmallDesktop {
+      max-width: 362px;
+    }
+  }
+
+  &__title {
+    margin-top: 48px;
+
+    @include onTablet {
+      margin-top: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 168px;
+    }
+
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+
+    letter-spacing: -2px;
+  }
+
+  &__description {
+    margin-top: 32px;
+
+    @include onTablet {
       margin-top: 24px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 32px;
+    }
+
+    @extend %OpenSans400;
+    font-size: 18px;
+    line-height: 150%;
+  }
+
+  &__button {
+    margin-top: 72px;
+    height: 50px;
+
+    @include onTablet {
+      margin-top: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 84px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 390px;
+
+    @include onSmallDesktop {
+      top: 120px;
+      bottom: 0;
+      height: auto;
+      left: 50%;
+    }
+
+    @include onDesktop {
+      left: 55%;
     }
   }
 }

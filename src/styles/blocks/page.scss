@@ -1,18 +1,55 @@
 .page {
-  font-family: "Open Sans", sans-serif;
+  @extend %Poppins;
+  color: $white-color;
+  scroll-behavior: smooth;
 
   &__body {
-    margin: 0;
-    padding: 0;
+    background-color: $light-background-color;
+    &--with-menu {
+      overflow: hidden;
+    }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    padding: 0;
-    margin: 0;
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform $transition-duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__section-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+
+    text-align: center;
+    color: $main-title-color;
+  }
+  
+  &__section-subtitle {
+    margin-bottom: 16px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
   }
 }
