@@ -41,12 +41,8 @@ function showSlides(n) {
 prevButton.addEventListener('click', () => plusSlide(-1));
 nextButton.addEventListener('click', () => plusSlide(1));
 
-// setInterval(function() {
-//   plusSlide(1);
-// }, 4000);
-
 // Form
-const form = document.querySelector('.contact__form');
+const form = document.querySelector('.footer__form');
 
 form.addEventListener('submit', handleSubmit);
 
