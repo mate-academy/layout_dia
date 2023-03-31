@@ -1,0 +1,36 @@
+.page {
+  font-family: $ffMain;
+  @include fontProp($fsNormal, $wgt: $fwMedium, $lh: 150%);
+  font-style: normal;
+  scroll-behavior: smooth;
+
+  &__header {
+    margin: 0 auto $margingMobY;
+
+    @include onTablet {
+      margin: 0 auto $margingTabY;
+    }
+  }
+
+  &__body {
+    background: $clrBG;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: all $actionTime;
+
+    &:target {
+      transform: translateX(0);
+      z-index: 2;
+    }
+  }
+}

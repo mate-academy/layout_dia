@@ -1,0 +1,140 @@
+.slider {
+  position: relative;
+  border-radius: $bRadiusPage;
+  overflow: hidden;
+
+  @include onSmDesktop {
+    position: absolute;
+    top: 120px;
+    bottom: 0;
+    left: 51%;
+    right: 0;
+    height: max-content;
+    border-radius: $bRadiusPage 0 $bRadiusPage 0;
+  }
+
+  @include onDesign {
+    left: 50%;
+    right: auto;
+    width: $scrDesign * 0.5;
+  }
+
+  &__images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    transition: all $actionTime;
+  }
+
+  &__image {
+    width: 100%;
+    height: 390px;
+
+    @include onSmDesktop {
+      width: 502px;
+      height: 680px;
+    }
+
+    @include bgImg(center);
+
+    &--1 {
+      background-image: url(./../images/slider/slider-01.jpg);
+    }
+
+    &--2 {
+      background-image: url(./../images/slider/slider-02.jpg);
+    }
+
+    &--3 {
+      background-image: url(./../images/slider/slider-03.jpg);
+    }
+  }
+
+  &__container {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onSmDesktop {
+      flex-direction: row;
+      gap: 24px;
+      left: 78px;
+      bottom: 48px;
+    }
+
+    @include onDesktop {
+      left: 48px;
+    }
+  }
+
+  &__control {
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 16px;
+
+    @include onSmDesktop {
+      align-items: center;
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border-style: none;
+
+    @include bgImg(center);
+    transition: all $actionTime;
+    cursor: url(./../images/cursor.webp), pointer;
+
+    &:hover {
+      box-shadow: 3px 3px 28px -10px $clrText;
+    }
+
+    &--left {
+      background-image: url(./../images/slider/arrow-left.svg);
+
+      &:hover {
+        background-image: url(./../images/slider/arrow-left-hover.svg);
+      }
+    }
+
+    &--right {
+      background-image: url(./../images/slider/arrow-right.svg);
+
+      &:hover {
+        background-image: url(./../images/slider/arrow-right-hover.svg);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-family: $ffSecond;
+    @include fontProp($fsNormal, $wgt: $fwBold, $lh: 150%);
+    font-style: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $clrWhite;
+  }
+
+  &__description {
+    font-family: $ffMain;
+    @include fontProp($fsDescription, $wgt: $fwNormal, $lh: 140%);
+    font-style: normal;
+    color: $clrWhite;
+  }
+}

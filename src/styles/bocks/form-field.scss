@@ -1,0 +1,55 @@
+.form-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 41px;
+  padding-bottom: 16px;
+  margin-bottom: 40px;
+
+  font-family: $ffSecond;
+  @include fontProp($fsMedium, $wgt: $fwMedium, $lh: 150%);
+
+  border: none;
+  border-bottom: 2px solid $clrWhite;
+
+  background-color: $clrBackDark;
+  color: $clrWhite;
+  opacity: 0.7;
+
+  @include onTablet {
+    margin-bottom: 48px;
+  }
+
+  &::placeholder {
+    font-family: $ffSecond;
+    @include fontProp($fsMedium, $wgt: $fwMedium, $lh: 150%);
+    font-style: normal;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $clrBlueForm;
+  }
+
+  &:hover::placeholder {
+    color: $clrWhite;
+  }
+
+  &:focus {
+    color: $clrWhite;
+    opacity: 1;
+    border-bottom: 2px solid $clrBlueForm;
+    outline: none;
+  }
+
+  &--textarea {
+    padding: 0;
+    resize: vertical;
+    font-family: $ffSecond;
+    font-weight: 600;
+  }
+
+  &--unvalid {
+    animation: emptyValue 2s linear $actionTime infinite alternate;
+  }
+}
