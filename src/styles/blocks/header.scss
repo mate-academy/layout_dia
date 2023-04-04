@@ -1,0 +1,73 @@
+.header {
+  background-color: $color-gray;
+
+  &__content {
+    box-sizing: border-box;
+    height: 72px;
+
+    display: grid;
+    grid-template-columns: $logo-width $icon-width 1fr;
+    align-items: center;
+    justify-items: end;
+    gap: 35px;
+    
+    @include onDesktop {
+      @include topActions;
+    }
+  }
+
+  &__icon {
+    @include icon;
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__special-link {
+    position: relative;
+    display: block;
+    padding-bottom: 8px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-white;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $color-blue;
+      border-radius: 4px;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 48px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+}
