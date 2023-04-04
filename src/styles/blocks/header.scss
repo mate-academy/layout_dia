@@ -1,7 +1,19 @@
 .header {
+  position: relative;
   background-color: $color-gray;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 
   &__content {
+    height: 920px;
+
+    @include onDesktop {
+      height: 800px;
+    }
+  }
+
+  &__top {
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     height: 72px;
 
@@ -10,9 +22,16 @@
     align-items: center;
     justify-items: end;
     gap: 35px;
+
+    margin-bottom: 36px;
     
     @include onDesktop {
-      @include topActions;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: var(--header-top-h-big);
+
+      margin-bottom: 120px;
     }
   }
 
@@ -44,6 +63,18 @@
       height: 2px;
       left: 0;
       bottom: 0;
+    }
+
+    &:hover {
+      &::after {
+        box-shadow: $hover-box-shadow;
+      }
+    }
+  
+    &:active {
+      &::after {
+        box-shadow: $active-box-shadow;
+      }
     }
   }
 
