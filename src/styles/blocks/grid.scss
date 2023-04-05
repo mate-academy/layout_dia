@@ -1,0 +1,139 @@
+.grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
+  &--margin-top {
+    @include onSmallDesktop {
+      margin-top: 45px;
+    }
+  }
+
+  @include onTablet {
+    column-gap: 41px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onSmallDesktop {
+    column-gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include onMedDesktop {
+    column-gap: 30px;
+  }
+
+  &__item {
+
+    &--center {
+      display: grid;
+      justify-items: center;
+    }
+
+    &--services-margins {
+
+      &:first-child {
+        margin: 120px 0 48px;
+
+        @include onTablet {
+          margin: 148px 0 56px;
+        }
+
+        @include onSmallDesktop {
+          margin: 251px 0 0;
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-bottom: 24px;
+
+        @include onTablet {
+          margin-bottom: 30px;
+
+          &:nth-child(3),
+          &:nth-child(4) {
+            margin-bottom: 0;
+          }
+        }
+
+        @include onSmallDesktop {
+          margin-bottom: 20px;
+        }
+      }
+
+      &:nth-child(3),
+      &:nth-child(5) {
+
+        @include onTablet {
+          margin-top: -108px;
+        }
+
+        @include onSmallDesktop {
+          margin-top: 0;
+        }
+      }
+
+      &:nth-child(2) {
+        @include onSmallDesktop {
+          margin-top: 287px;
+        }
+      }
+
+      &:nth-child(3) {
+        @include onSmallDesktop {
+          margin-top: 148px;
+        }
+      }
+
+      &:nth-child(5) {
+        @include onSmallDesktop {
+          margin-top: -143px;
+        }
+      }
+    }
+
+    &--testimonials-margins {
+      &:not(:first-child) {
+        margin-top: 24px;
+
+        @include onTablet {
+          margin-top: 30px;
+        }
+
+        @include onSmallDesktop {
+          margin-top: 0;
+        }
+      }
+    }
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onSmallDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

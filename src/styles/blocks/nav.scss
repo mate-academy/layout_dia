@@ -1,0 +1,58 @@
+.nav {
+  box-sizing: border-box;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include onSmallDesktop {
+      display: flex;
+    }
+
+    &--bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+
+    &--fortop {
+      &:not(:last-child) {
+        display: none;
+
+        @include onSmallDesktop {
+          display: block;
+        }
+      }
+
+      &:last-child {
+        @include onSmallDesktop {
+          margin-left: 114px;
+        }
+
+        @include onMedDesktop {
+          margin-left: 229px;
+        }
+      }
+
+      &:not(:first-child):not(:last-child) {
+        @include onSmallDesktop {
+          margin-left: 48px;
+        }
+      }
+    }
+
+    &--for-up {
+      margin: 0 0 24px 64px;
+    }
+  }
+
+  &__link {
+    @extend %poppins;
+    @extend %link-decoration;
+    @include text-decoration ($font-w-l, $font-s-xxs, $lh1, $white-color);
+    text-decoration: none;
+  }
+}

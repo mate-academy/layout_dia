@@ -1,0 +1,92 @@
+.slider {
+  --slider-h: 390px;
+  height: var(--slider-h);
+
+  @include onSmallDesktop {
+    --slider-h: 680px;
+    height: var(--slider-h);
+  }
+
+  &__line {
+    display: flex;
+    width: 100%;
+
+    @include onSmallDesktop {
+      width: auto;
+    }
+  }
+
+  &__element {
+    box-sizing: border-box;
+    width: 100%;
+    flex-direction: column;
+    justify-content: end;
+    height: var(--slider-h);
+    border-radius: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0 20px 24px;
+
+    @include onTablet {
+      padding: 0 41px 32px;
+    }
+
+    @include onSmallDesktop {
+      padding: 0 182px 48px;
+      border-radius: 30px 0;
+    }
+
+    @include onSmallDesktop {
+      padding: 0 152px 48px;
+    }
+
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        background-image: url(../images/slider/slide-img-#{$i}.jpg);
+      }
+    }
+  }
+
+  &__subtitle {
+    @extend %poppins;
+    @include text-decoration ($font-w-l, $font-s-xxs, $lh1, $white-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__description {
+    @extend %open-sans;
+    @include text-decoration ($font-w-s, $font-s-xs, $lh1, $white-color);
+    margin: 0;
+  }
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    background-color: $white-color;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: 50% center;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    &--prevBtn {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &--nextBtn {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+  }
+}
