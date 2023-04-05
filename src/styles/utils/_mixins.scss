@@ -38,3 +38,48 @@
   display: grid;
   grid-template-columns: 18px;
 }
+
+@mixin imageContainerSizeSmall {
+  width: 110px;
+  height: 110px;
+}
+
+@mixin imageContainerSizeBig {
+  width: 140px;
+  height: 140px;
+}
+
+@mixin decorationSmallSize {
+  height: 109px;
+  width: 44px;
+}
+
+@mixin decorationBigSize {
+  height: 139px;
+  width: 56px;
+}
+
+@mixin photoDecoration {
+  position: absolute;
+
+  @include decorationSmallSize;
+
+  background-color: $color-blue;
+  content: "";
+
+  transform: rotate(30deg);
+
+  border-radius: 12px;
+
+  @include onTablet {
+    @include decorationBigSize;
+  }
+
+  @include onDesktop {
+    @include decorationSmallSize;
+  }
+
+  @include onDesign {
+    @include decorationBigSize;
+  }
+}
