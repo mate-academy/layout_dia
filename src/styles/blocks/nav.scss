@@ -14,11 +14,15 @@
       width: 100%;
       height: max-content;
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
 
       @include onTablet {
         flex-direction: row;
+        justify-content: initial;
+      }
+
+      @include onSmallDesktop {
+        gap: 64px;
       }
     }
   }
@@ -60,7 +64,7 @@
     }
 
     &--for-menu {
-      margin-bottom: 34px;
+      margin-bottom: 44px;
 
       @include onTablet {
         margin-right: 24px;
@@ -71,8 +75,15 @@
   &__link {
     @extend %poppins;
     @extend %link-decoration;
-    @include text-decoration ($font-w-l, $font-s-xxs, $lh1, $white-color);
     text-decoration: none;
+
+    &--main {
+      @include text-decoration ($font-w-l, $font-s-xxs, $lh1, $white-color);
+    }
+
+    &--second {
+      @include text-decoration ($font-w-l, $font-s-m, $lh1, $white-color);
+    }
 
     &--border-bottom {
       border-bottom: 2px solid $secondary-bg;
