@@ -1,0 +1,56 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat($grid-column-t, 1fr);
+    column-gap: $grid-gap-sm;
+    row-gap: $grid-gap-sm;
+  }
+
+  @include onSmallDesktop {
+    display: grid;
+    grid-template-columns: repeat($grid-column-d, 1fr);
+    column-gap: $grid-gap-sm;
+    row-gap: $grid-gap-sm;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat($grid-column-d, 1fr);
+    column-gap: $grid-gap-big;
+  }
+
+  &__item {
+    @for $start from 1 through $grid-column-t {
+      @for $end from $start through $grid-column-t {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through $grid-column-d {
+      @for $end from $start through $grid-column-d {
+        &--smallDesktop-#{$start}-#{$end} {
+          @include onSmallDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through $grid-column-d {
+      @for $end from $start through $grid-column-d {
+        &--onDesktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

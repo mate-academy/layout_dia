@@ -1,0 +1,185 @@
+.components {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  background-color: $c-white;
+
+  &__element {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      position: absolute;
+      animation: move 15s linear infinite;
+
+      &--1 {
+        bottom: 40%;
+        right: 35%;
+        animation-duration: 12s;
+        animation-delay: 0.3s;
+      }
+
+      &--2 {
+        bottom: 0;
+        right: 10%;
+        animation-duration: 20s;
+      }
+
+      &--3 {
+        top: 15%;
+        left: 25%;
+        animation-duration: 10s;
+      }
+
+      &--4 {
+        @include onTablet {
+          display: none;
+        }
+
+        @include onDesktop {
+          display: block;
+          top: 30%;
+          right: 55%;
+        }
+      }
+
+      &--5 {
+        bottom: 0;
+        left: 10%;
+        animation-duration: 14s;
+      }
+
+      &--6 {
+        @include onTablet {
+          display: none;
+        }
+
+        @include onDesktop {
+          display: block;
+          top: 50%;
+          left: 20%;
+          animation-duration: 8s;
+        }
+      }
+
+      &--7 {
+        top: 20%;
+        animation-duration: 17s;
+      }
+
+      &--8 {
+        @include onTablet {
+          display: none;
+        }
+
+        @include onSmallDesktop {
+          display: block;
+          top: 80%;
+          right: 35%;
+          animation-duration: 15s;
+        }
+      }
+
+      &--9 {
+        top: 45%;
+        right: 5%;
+        animation-duration: 12s;
+        animation-delay: 0.3s;
+      }
+
+      &--10 {
+        top: 12%;
+        right: 22%;
+        animation-duration: 8s;
+      }
+
+      &--11 {
+        @include onTablet {
+          display: none;
+        }
+
+        @include onSmallDesktop {
+          display: block;
+          top: 55%;
+          right: 15%;
+          animation-duration: 13s;
+        }
+      }
+
+      &--12 {
+        top: 70%;
+        left: 30%;
+        animation-duration: 19s;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translate(0) rotate(0deg);
+          opacity: 0.3;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate(-700px, -400px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__title {
+    width: 75%;
+    margin: 0 auto 24px;
+    @extend %poppins;
+    font-size: 44px;
+    line-height: 53px;
+    color: $c-blue4;
+
+    @include onTablet {
+      font-size: 52px;
+      line-height: 62px;
+    }
+
+    @include onSmallDesktop {
+      line-height: 78px;
+    }
+  }
+
+  &__text {
+    width: 90%;
+    margin: 0 auto 64px;
+    @extend %open-sans2;
+    font-size: 22px;
+    line-height: 33px;
+    color: $c-blue5;
+
+    @include onTablet {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem 0;
+    height: 56px;
+    width: 264px;
+    @extend %poppins;
+    font-size: 15px;
+    color: $c-white;
+    border-radius: 8px;
+    background-color: $c-blue;
+    transition: all $trans-time;
+
+    &:hover {
+      transform: scale(1.01);
+      background-color: $c-blue2;
+    }
+  }
+}
