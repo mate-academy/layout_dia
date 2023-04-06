@@ -12,11 +12,7 @@ window.onload = function() {
       chk.checked = false;
     });
   });
-};
 
-// form loading
-
-window.onload = function() {
   const pageReload = document.querySelector('#form');
 
   pageReload.addEventListener('submit', (event) => {
