@@ -52,7 +52,10 @@
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: $bRadiusImg;
     background-color: $clrWhite;
-    transition: all $actionTime;
+
+    @include onSmDesktop {
+      @include hover(transform, scale(1.1));
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -65,13 +68,11 @@
         transform: translateY(-50%);
       }
 
-      &:hover:nth-child(2n + 1) {
-        transform: translateY(-50%) scale(1.1);
+      @include onSmDesktop {
+        &:hover:nth-child(2n + 1) {
+          transform: translateY(-50%) scale(1.1);
+        }
       }
-    }
-
-    &:hover {
-      transform: scale(1.1);
     }
   }
 
@@ -98,7 +99,6 @@
     @include flexAJI($jst: 0, $itm: center);
     gap: 16px;
     color: $clrTextLink;
-    transition: color $actionTime;
 
     @include hover(color, $clrBackDark);
   }
@@ -109,7 +109,7 @@
     border-radius: 50%;
     @include bgImg(center);
     background-image: url(./../images/arrow.svg);
-    transition: all $actionTime;
+    transition: background-image $actionTime, box-shadow $actionTime;
 
     &:hover {
       background-image: url(./../images/arrow-hover.svg);
