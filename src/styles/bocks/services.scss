@@ -1,0 +1,125 @@
+.services {
+  &__container {
+    @extend %max-content;
+    padding: 0 $paddingMobX;
+
+    @include onTablet {
+      padding: 0 $paddingTabX;
+    }
+
+    @include onSmDesktop {
+      padding: 130px $paddingSmDeskX 0;
+    }
+  }
+
+  &__about {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onSmDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-family: $ffSecond;
+    @include fontProp($fsNormal, $wgt: $fwBold, $lh: 150%);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $clrH2;
+  }
+
+  &__subtitle {
+    margin-bottom: 24px;
+    font-family: $ffSecond;
+    @include fontProp($fsSubtitleLarge, $wgt: $fwMedium, $lh: 130%);
+    color: $clrH3;
+  }
+
+  &__description {
+    font-weight: $fwNormal;
+    font-size: 14px;
+    color: $clrText;
+  }
+
+  &__process {
+    margin-bottom: 24px;
+    padding: 32px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: $bRadiusImg;
+    background-color: $clrWhite;
+
+    @include onSmDesktop {
+      @include hover(transform, scale(1.1));
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+
+      &:nth-child(2n + 1) {
+        transform: translateY(-50%);
+      }
+
+      @include onSmDesktop {
+        &:hover:nth-child(2n + 1) {
+          transform: translateY(-50%) scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__process-number {
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+    @include flexAJI($jst: center, $itm: center);
+    font-family: $ffSecond;
+    @include fontProp($fsNormal, $wgt: $fwMedium, $lh: 150%);
+    text-transform: uppercase;
+    color: $clrBlueLink;
+    border-radius: $bRadiusNum;
+    background-color: rgba(32, 97, 246, 0.1);
+  }
+
+  &__process-description {
+    margin-bottom: 32px;
+    color: $clrText;
+  }
+
+  &__process-link {
+    width: max-content;
+    @include flexAJI($jst: 0, $itm: center);
+    gap: 16px;
+    color: $clrTextLink;
+
+    @include hover(color, $clrBackDark);
+  }
+
+  &__process-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    @include bgImg(center);
+    background-image: url(./../images/arrow.svg);
+    transition: background-image $actionTime, box-shadow $actionTime;
+
+    &:hover {
+      background-image: url(./../images/arrow-hover.svg);
+      box-shadow: 3px 3px 28px -10px $clrText;
+    }
+  }
+
+  &__process-text {
+    padding-right: 16px;
+    font-family: $ffSecond;
+    @include fontProp($fsMedium, $wgt: $fwMedium, $lh: 150%);
+  }
+}

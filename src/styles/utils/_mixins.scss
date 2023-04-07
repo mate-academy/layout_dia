@@ -1,6 +1,60 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $actionTime;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $scrTablet) {
+    @content;
+  }
+}
+
+@mixin onSmDesktop {
+  @media (min-width: $scrSmDesktop) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $scrDesktop) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $scrDesign) {
+    @content;
+  }
+}
+
+@mixin bgImg($position) {
+  background-size: cover;
+  background-position: $position;
+  background-repeat: no-repeat;
+}
+
+@mixin fontProp($size, $wgt: 600, $lh: 100%) {
+  @if $wgt != 0 {
+    font-weight: $wgt;
+  }
+
+  font-size: $size;
+
+  @if $lh != 0 {
+    line-height: $lh;
+  }
+}
+
+@mixin flexAJI($jst: flex-start, $itm: stretch) {
+  display: flex;
+
+  @if $jst != 0 {
+    justify-content: $jst;
+  }
+
+  @if $itm != 0 {
+    align-items: $itm;
   }
 }

@@ -1,0 +1,67 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: $clrBackDark;
+
+  @media (max-height: 550px) {
+    overflow-y: scroll;
+  }
+
+  &__container {
+    @extend %max-content;
+    @extend %container-padding;
+  }
+
+  &__content {
+    padding: 24px 0;
+
+    @include onSmDesktop {
+      padding: 52px 0;
+    }
+  }
+
+  &__top {
+    @include flexAJI($jst: space-between, $itm: center);
+    margin: 0 0 48px;
+  }
+
+  &__list {
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    border-bottom: 2px solid transparent;
+    transition: color $actionTime, border-bottom $actionTime;
+
+    &:hover {
+      color: $clrBlueLink;
+      @extend %linkLine;
+    }
+  }
+
+  &__call {
+    display: block;
+    width: max-content;
+    text-transform: uppercase;
+    color: $clrWhite;
+
+    @include hover(color, $clrBlueLink);
+
+    &--phone {
+      margin-bottom: 16px;
+    }
+
+    &--action {
+      padding-bottom: 8px;
+      @extend %linkLine;
+    }
+  }
+}

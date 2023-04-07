@@ -1,0 +1,102 @@
+.card {
+  padding: 32px 42px;
+  @include flexAJI($jst: space-between, $itm: center);
+  flex-direction: column;
+  border-radius: $bRadiusImg;
+  background-color: $clrWhite;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  @include onSmDesktop {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__photo-container {
+    --card--photo: 196px;
+
+    display: block;
+    position: relative;
+    margin: 0 auto 28px;
+    width: var(--card--photo);
+    height: var(--card--photo);
+
+    @include onTablet {
+      --card--photo: 250px;
+    }
+
+    @include onSmDesktop {
+      --card--photo: 196px;
+    }
+
+    @include onDesktop {
+      --card--photo: 250px;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 56%;
+    height: 56%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__photo-decor {
+    position: absolute;
+    width: 56%;
+    height: 22.5%;
+    transform: matrix(0.5, -0.87, 0.87, 0.5, 0, 0);
+    border-radius: $bRadiusDecor;
+    background-color: $clrBlueLink;
+
+    &--1 {
+      top: 21%;
+      left: 2.5%;
+    }
+
+    &--2 {
+      bottom: 21%;
+      right: 2.5%;
+    }
+  }
+
+  &__quote {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 12px;
+
+    @include bgImg(center);
+    background-image: url(./../images/quotes.svg);
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 16px;
+    text-align: center;
+    color: $clrText;
+
+    @include onTablet {
+      max-width: $maxWidthElement;
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    text-align: center;
+    color: $clrH3;
+  }
+
+  &__role {
+    font-family: $ffSecond;
+    @include fontProp($fsNormal, $wgt: $fwBold, $lh: 150%);
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $clrH2;
+  }
+}
