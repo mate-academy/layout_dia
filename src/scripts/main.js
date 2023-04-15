@@ -34,9 +34,9 @@ const slider = document.querySelector('.slider__window');
 const leftBtn = document.querySelector('.button-left');
 const rightBtn = document.querySelector('.button-right');
 const arrOfPhoto
-= ['layout_dia/src/images/slider/slide-1.jpg',
-  'layout_dia/src/images/slider/slide-2.jpg',
-  'layout_dia/src/images/slider/slide-3.jpg'];
+= ['/src/images/slider/slide-1.jpg',
+  '/src/images/slider/slide-2.jpg',
+  '/src/images/slider/slide-3.jpg'];
 let clickNumber = 0;
 
 rightBtn.addEventListener('click', nextPhoto);
