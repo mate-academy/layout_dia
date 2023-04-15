@@ -34,9 +34,9 @@ const slider = document.querySelector('.slider__window');
 const leftBtn = document.querySelector('.button-left');
 const rightBtn = document.querySelector('.button-right');
 const arrOfPhoto
-= ['slide-1.jpg',
-  'slide-2.jpg',
-  'slide-3.jpg'];
+= ['./images/slider/slide-1.jpg',
+  '/images/slider/slide-2.jpg',
+  'images/slider/slide-3.jpg'];
 let clickNumber = 0;
 
 rightBtn.addEventListener('click', nextPhoto);
