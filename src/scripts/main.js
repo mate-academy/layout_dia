@@ -6,6 +6,8 @@ document.querySelector('.header-logo')
     window.location.href = './index.html'; // змінюємо URL на адресу головн стор
   });
 
+// BURGER-MENU
+
 const burger = document.querySelector('.header-burger');
 const burgerFirstLine = document.querySelector('.firstLine');
 const burgerSecondLine = document.querySelector('.secondLine');
@@ -25,3 +27,37 @@ burger.addEventListener('click', () => {
     burgerSecondLine.classList.remove('rotate-up');
   });
 });
+
+// SLIDER
+
+const slider = document.querySelector('.slider__window');
+const leftBtn = document.querySelector('.button-left');
+const rightBtn = document.querySelector('.button-right');
+const arrOfPhoto
+= ['/slide-1.86458e7a.jpg', '/slide-2.68d0d673.jpg', '/slide-3.40344566.jpg'];
+let clickNumber = 0;
+
+rightBtn.addEventListener('click', nextPhoto);
+leftBtn.addEventListener('click', prevPhoto);
+
+function nextPhoto() {
+  clickNumber++;
+
+  if (clickNumber >= arrOfPhoto.length) {
+    clickNumber = 0;
+    slider.setAttribute('src', `${arrOfPhoto[clickNumber]}`);
+  } else {
+    slider.setAttribute('src', `${arrOfPhoto[clickNumber]}`);
+  }
+}
+
+function prevPhoto() {
+  clickNumber--;
+
+  if (clickNumber < 0) {
+    clickNumber = arrOfPhoto.length - 1;
+    slider.setAttribute('src', `${arrOfPhoto[clickNumber]}`);
+  } else {
+    slider.setAttribute('src', `${arrOfPhoto[clickNumber]}`);
+  }
+};
