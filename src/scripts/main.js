@@ -6,6 +6,14 @@ document.querySelector('.header-logo')
     window.location.href = './index.html'; // змінюємо URL на адресу головн стор
   });
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 // BURGER-MENU
 
 const burger = document.querySelector('.header-burger');
@@ -18,11 +26,18 @@ burger.addEventListener('click', () => {
   burgerFirstLine.classList.toggle('rotate-down');
   burgerSecondLine.classList.toggle('rotate-up');
   nav.classList.toggle('active-nav');
+
+  if (nav.classList.contains('active-nav')) {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });
 
 [...navLink].forEach(link => {
   link.addEventListener('click', () => {
     nav.classList.remove('active-nav');
+    document.body.classList.remove('page__body--with-menu');
     burgerFirstLine.classList.remove('rotate-down');
     burgerSecondLine.classList.remove('rotate-up');
   });
@@ -40,6 +55,7 @@ const arrOfPhoto
   'https://raw.githubusercontent.com/iamloren/layout_dia/master/src/images/slider/slide-2.jpg',
   // eslint-disable-next-line max-len
   'https://raw.githubusercontent.com/iamloren/layout_dia/master/src/images/slider/slide-3.jpg'];
+
 let clickNumber = 0;
 
 rightBtn.addEventListener('click', nextPhoto);
