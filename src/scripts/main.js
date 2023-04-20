@@ -1,14 +1,14 @@
 'use strict';
 
-const form = document.querySelector('.my-form');
-
 window.addEventListener('hashchange', () => {
   window.location.hash === '#menu'
-    ? document.body.classList.add('page__body--with-menu')
-    : document.body.classList.remove('page__body--with-menu');
+    ? document.body.classList.add('body--nav-menu')
+    : document.body.classList.remove('body--nav-menu');
 });
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  e.target.reset();
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  event.target.reset();
 });
