@@ -3,7 +3,7 @@
   box-sizing: border-box;
   background-color: #2c2c2c;
   border-radius: 0 0 30px 30px;
-  padding: 20px 0 0;
+  padding: 0;
 
   @include onDesktop {
     height: 800px;
@@ -14,6 +14,13 @@
     margin-bottom: -1.4rem;
   }
 
+  &__menu-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
   &__menu-opener {
     display: block;
     width: 18px;
@@ -21,6 +28,7 @@
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
+    // margin-left: 35px;
 
     background-image: url(../images/menu-opener.svg);
 
@@ -29,10 +37,21 @@
     }
   }
 
+  &__cross {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/cross.svg);
+  }
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 35px;
     margin-bottom: 56px;
 
     @include onTablet {
@@ -41,6 +60,11 @@
 
     @include onDesktop {
       margin-bottom: 164px;
+      gap: 136px;
+    }
+
+    @media (min-width: 1600px) {
+      gap: 250px;
     }
   }
 
@@ -111,6 +135,7 @@
 
   &__content {
     margin-bottom: 3rem;
+    padding-top: 20px;
 
     @media (min-width: 360px) {
       margin-bottom: 4rem;
@@ -120,6 +145,22 @@
     }
     @include onTablet {
       margin-bottom: 10rem;
+    }
+
+    &-menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      background: #2c2c2c;
+      margin-bottom: 0;
+      z-index: 1000;
+
+      transform: translateX(-100%);
+      
+      &:target {
+        transform: translateX(0);
+      }
     }
   }
 }
