@@ -7,3 +7,9 @@ form.addEventListener('submit', (event) => {
 
   form.reset();
 });
+
+window.addEventListener('hashchange', () => {
+  window.location.hash === '#menu'
+    ? document.body.classList.add('page__body--with-menu')
+    : document.body.classList.remove('page__body--with-menu');
+});
