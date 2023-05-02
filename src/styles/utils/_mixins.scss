@@ -1,6 +1,77 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin largeScreen {
+  @media (min-width: 2560px) {
+    @content;
   }
+}
+
+@mixin  theDesign {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onIPAD {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin onPhone {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin onIPAD-grid {
+  @media (min-width: 600px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onIPAD-onPhone {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin top-actions {
+  @include onIPAD-onPhone {
+    --icon-width: 18px;
+    display: grid;
+    grid-template-columns: 45px var(--icon-width) 1fr;
+    justify-items: start;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+  }
+}
+
+@mixin  top-actions--menu {
+  @include onIPAD-onPhone {
+    --icon-width: 18px;
+    display: grid;
+    grid-template-columns: 45px var(--icon-width);
+    justify-content: space-between;
+    justify-items: start;
+    align-items: center;
+    gap: 35px;
+  }
+}
+
+@mixin hover {
+  &:hover {
+    transform: scale(1.1) translate( 0,-20px);
+    box-shadow: 0 10px 7px 5px rgba(15, 15, 15, 0.5);
+  }
+}
+
+@mixin burgericon {
+  width: 18px;
+  height: 8px;
 }
