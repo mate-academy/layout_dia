@@ -5,6 +5,22 @@
 //   }
 // }
 
+@mixin container {
+  margin: 0 auto;
+  max-width: 640px;
+  padding: 0 20px;
+
+  @include onTablet {
+    max-width: 986px;
+    padding: 0 40px;
+  }
+
+  @include onSmall-desktop {
+    max-width: 1252px;
+    padding: 0 54px;
+  }
+}
+
 @mixin onLarge-screens {
   @media (min-width: 2560px) {
     @content;
@@ -35,16 +51,27 @@
   }
 }
 
-@mixin top-actions-grid {
+@mixin grid-box {
   display: grid;
   grid-template-columns: $logo-width $icon-width 1fr;
   align-items: center;
   justify-items: end;
   gap: 36px;
+
+  @include onSmall-desktop {
+    grid-template-columns: $logo-width 1fr 70px;
+    justify-items: center;
+  }
 }
 
-@mixin top-actions-flex {
+@mixin flex-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@mixin circle ($size) {
+  height: $size;
+  width: $size;
+  border-radius: 50%;
 }
