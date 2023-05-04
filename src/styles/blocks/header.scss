@@ -1,0 +1,146 @@
+.header {
+  padding-top: 20px;
+
+  background-color: $darkGreyColor;
+
+  @include onSmallDesktop {
+    padding-top: 50px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 58px;
+    }
+
+    @include onSmallDesktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: flex;
+  }
+
+  &__menu-opener {
+    width: 18px;
+    height: 8px;
+    margin-left: 36px;
+
+    background-image: url(../images/icons/menu-icon.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 48px;
+    padding-left: 22px;
+    list-style-type: none;
+  }
+
+  &__link {
+    position: relative;
+
+    display: block;
+
+    padding: 8px 0;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $whiteColor;
+    text-decoration: none;
+
+    &::after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+
+      content: "";
+      display: block;
+      height: 2px;
+
+      background-color: transparent;
+      border-radius: 4px;
+
+      transition: background-color 0.3s;
+    }
+
+    &:hover::after {
+      background-color: $blueColor;
+    }
+
+    &--hire-us {
+      margin-left: auto;
+
+      &::after {
+        background-color: $blueColor;
+      }
+
+      @include onSmallDesktop {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+    letter-spacing: -2px;
+    color: $whiteColor;
+
+    @include onTablet {
+      margin-bottom: 24px;
+
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__slogan {
+    margin-bottom: 72px;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    color: $whiteColor;
+
+    @include onTablet {
+      max-width: 362px;
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 82px;
+    }
+  }
+}
