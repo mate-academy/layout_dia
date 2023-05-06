@@ -1,9 +1,17 @@
 .header {
+  position: relative;
+
   padding-top: 20px;
 
   background-color: $darkGreyColor;
+  border-bottom-left-radius: $headerBorderRadius;
+  border-bottom-right-radius: $headerBorderRadius;
+  overflow: hidden;
 
   @include onSmallDesktop {
+    box-sizing: border-box;
+    height: 100vh;
+
     padding-top: 50px;
   }
 
@@ -56,17 +64,18 @@
   }
 
   &__link {
+    $letterSpacing: 3px;
+
     position: relative;
 
     display: block;
-
     padding: 8px 0;
 
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 13px;
     line-height: 150%;
-    letter-spacing: 3px;
+    letter-spacing: $letterSpacing;
     text-transform: uppercase;
     color: $whiteColor;
     text-decoration: none;
@@ -75,7 +84,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      right: 0;
+      right: $letterSpacing;
 
       content: "";
       display: block;
@@ -84,7 +93,7 @@
       background-color: transparent;
       border-radius: 4px;
 
-      transition: background-color 0.3s;
+      transition: background-color $transitionDuration;
     }
 
     &:hover::after {
@@ -107,8 +116,6 @@
   &__title {
     margin-bottom: 32px;
 
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
     font-size: 52px;
     line-height: 62px;
     letter-spacing: -2px;
@@ -122,6 +129,7 @@
     }
 
     @include onSmallDesktop {
+      max-width: 33%;
       margin-bottom: 32px;
     }
   }
@@ -129,18 +137,34 @@
   &__slogan {
     margin-bottom: 72px;
 
-    font-family: "Open Sans", sans-serif;
     font-size: 18px;
     line-height: 27px;
     color: $whiteColor;
 
     @include onTablet {
-      max-width: 362px;
+      max-width: 67%;
       margin-bottom: 56px;
     }
 
     @include onSmallDesktop {
+      max-width: 42%;
       margin-bottom: 82px;
+    }
+
+    @include onDesktop {
+      max-width: 33%;
+    }
+  }
+
+  &__button {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
     }
   }
 }
