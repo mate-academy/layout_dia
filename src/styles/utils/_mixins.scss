@@ -4,3 +4,118 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin smartphone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin smalldesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin service-block {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  height: 264px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  @include smartphone {
+    display: block;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  @include smalldesktop {
+    width: 214px;
+  }
+
+  @include desktop {
+    width: 264px;
+  }
+
+  &--number {
+    width: 46px;
+    height: 24px;
+    background-color: #2060f616;
+    border-radius: 23px;
+    border: 1px solid transparent;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #2060f6;
+    margin: 32px 32px 24px;
+  }
+
+  &--text {
+    width: 200px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+    margin-bottom: 32px;
+    margin-left: 32px;
+  }
+
+  &--button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background-color: #2060f6;
+    background-image: url(./photo/service-right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 32px;
+    margin-left: 32px;
+    transition: all 0.3s;
+
+    &::after {
+      content: "Learn more";
+      display: block;
+      position: relative;
+      left: 28px;
+      width: max-content;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      text-align: center;
+      text-decoration: none;
+      color: #334563;
+      padding-left: 32px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+}
