@@ -3,6 +3,10 @@
   &__header {
     display: flex;
     flex-direction: column;
+
+    @include onTablet {
+      width: 260px;
+    }
     
     &__elem {
       margin: 0 0 24px;
@@ -30,12 +34,39 @@
     }
   }
 
+  &__gridwrapper {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-auto-rows: auto;
+      column-gap: 30px;
+      /* row-gap: 30px; */
+    }
+
+    @include onTablet {
+      &__item {
+        grid-column: 2 / 3;
+        grid-row: 1 / span 2;
+      }
+    }
+
+  }
+
+  
+
   &__block {
     display: flex;
 
     background-color: $white-basic;
     height: 264px;
-    max-width: 280px;
+    width: 280px;
+
+    @include onTablet {
+      height: 264px;
+      width: 264px;
+    }
+
     border-radius: 16px;
     box-shadow: 0 9px 18px 0 #25293130;
     margin: 0 0 24px;
@@ -45,7 +76,7 @@
     &:hover {
       transform: scale(1.03);
     }
-    
+
     &:last-child {
       margin: 0;
     }
