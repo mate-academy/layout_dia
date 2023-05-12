@@ -10,6 +10,11 @@
     font-family: "Montserrat", sans-serif;
     font-size: 2rem;
     font-weight: 400;
+
+    transition: 0.25s all ease-in-out;
+    &:hover {
+      transform: scale(120%);
+    }
   }
 
   &__links {
@@ -18,12 +23,31 @@
   }
 
   &__link {
+    position: relative;
     text-transform: uppercase;
     font-style: normal;
     font-weight: 700;
     font-size: 0.7rem;
     line-height: 150%;
     letter-spacing: 3px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 0%;
+      background-color: white;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &:hover {
+      &::after {
+        width: 98%;
+      }
+    }
   }
 
   &--footer {
