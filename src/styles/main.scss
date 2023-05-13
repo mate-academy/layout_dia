@@ -3,6 +3,7 @@
 @import "./utils/reset.scss";
 @import "./mixins.scss";
 @import "./blocks/header.scss";
+@import "./blocks/menu.scss";
 @import "./blocks/Strategic-agency.scss";
 @import "./blocks/top-bar.scss";
 @import "./blocks/intro.scss";
@@ -17,6 +18,48 @@
 
 html {
   background-color: #f2f6fa;
+  scroll-behavior: smooth;
+}
+
+.nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: $start_end-color;
+  height: 100vh;
+  padding: 50px;
+
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__logo {
+    padding-bottom: 50px;
+  }
+
+  &__top-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+
+  &__close-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .Dia {
@@ -45,37 +88,9 @@ html {
       gap: 226px;
     }
   }
-}
 
-.menu {
-  @include onLitleTablet() {
-    width: 560px;
-    flex-direction: row;
-  }
-
-  @include onMoreTablet() {
-    width: 550px;
-    flex-direction: row;
-  }
-
-  @include onMoreDesktop() {
-    width: 900px;
-  }
-
-  &__point {
-    list-style-type: none;
-    font-family: "Poppins", serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  &__link {
-    text-decoration: none;
-    color: #fff;
+  &--menu-open {
+    overflow: hidden;
+    display: none;
   }
 }

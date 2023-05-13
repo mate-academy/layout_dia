@@ -36,3 +36,11 @@ function chengeSlideRight() {
   }
   slids[num].style.display = 'block';
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#nav') {
+    document.getElementsByClassName('Dia')[0].style.display = 'none';
+  } else {
+    document.getElementsByClassName('Dia')[0].style.display = 'flex';
+  }
+});
