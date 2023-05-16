@@ -1,0 +1,113 @@
+.slider {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  height: 390px;
+  border-radius: 30px;
+  padding: 20px;
+
+  background-image: url(../images/slider/slider-1.jpg);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  transition: all 0.3s;
+
+  grid-area: slider;
+
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+
+    padding: 0 0 60px 70px;
+
+    height: 680px;
+    position: absolute;
+    bottom: 0;
+    left: 52%;
+
+    border-radius: 30px 0;
+
+    @include onBigScreen {
+      left: 57%;
+    }
+  }
+
+  &:target {
+    background-image: url(../images/slider/slider-2.jpg);
+  }
+
+  &__arrows {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin-right: 24px;
+    }
+  }
+
+  &__title {
+    font-family: $font-titles;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+
+    margin-bottom: 8px;
+
+    @include onDesktop {
+      position: absolute;
+      left: 174px;
+      bottom: 100px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white-color;
+  }
+
+  &__circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $white-color;
+
+    position: relative;
+  }
+
+  &__arrow-left {
+    background-image: url(../images/slider/arrow-left.svg);
+    height: 10px;
+    width: 6px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__arrow-right {
+    background-image: url(../images/slider/arrow-right.svg);
+    height: 10px;
+    width: 6px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
