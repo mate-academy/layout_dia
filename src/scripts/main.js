@@ -1,1 +1,2 @@
-'use strict';
+/* eslint-disable quotes */
+"use strict";
