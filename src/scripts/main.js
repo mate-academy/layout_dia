@@ -39,8 +39,8 @@ function chengeSlideRight() {
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#nav') {
-    document.getElementsByClassName('Dia')[0].style.display = 'none';
+    document.body.classList.add('body--with-menu');
   } else {
-    document.getElementsByClassName('Dia')[0].style.display = 'flex';
+    document.body.classList.remove('body--with-menu');
   }
 });
