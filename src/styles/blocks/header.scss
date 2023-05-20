@@ -1,114 +1,106 @@
 .header {
-  position: relative;
+  height: 100%;
+  background-color: $colorDarkGrey;
   border-radius: 0 0 30px 30px;
-  background-color: $header-background;
-
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+  position: relative;
 
   &__content {
     display: flex;
     flex-direction: column;
-    min-height: 892px;
+    box-sizing: border-box;
+    padding: $headerTopPadding 0 0;
+
+    @include smallDesktop {
+      padding: 50px 0 0;
+    }
   }
 
   &__top {
     @include top-actions;
-    padding-top: 18px;
-    margin-bottom: 48px;
+  }
 
-    @include tablet {
-      margin-bottom: 56px;
-    }
+  &__menu-list {
+    display: none;
 
-    @include small-desktop {
-      padding-top: 52px;
-      margin-bottom: 158px;
+    @include smallDesktop {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      gap: 48px;
     }
   }
 
-  &__icons {
-    display: flex;
-    align-items: flex-end;
-  }
-
-  &__link {
+  &__hire-us {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    @include hover(color, #e6e6e6);
+    text-decoration: none;
+    color: #fff;
 
     &::after {
       content: "";
       display: block;
+      width: 67px;
       height: 2px;
+      background-color: $colorBlue;
       margin-top: 8px;
-      border-radius: 4px;
-      background-color: $main-blue-color;
     }
-
-    &--menu {
-
-      &::after {
-        content: "";
-        display: block;
-        height: 2px;
-        margin-top: 8px;
-        border-radius: 4px;
-        background-color: #fff;
-      }
-    }
-  }
-
-  &__text {
-    max-width: 360px;
   }
 
   &__title {
+    width: 280px;
+    color: #fff;
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;
+    margin: 0;
     margin-bottom: 32px;
 
     @include tablet {
+      width: 560px;
       font-size: 64px;
       line-height: 68px;
       margin-bottom: 24px;
     }
 
-    @include small-desktop {
+    @include smallDesktop {
+      width: 490px;
+      font-size: 64px;
+      line-height: 68px;
       margin-bottom: 32px;
     }
   }
 
   &__subtitle {
+    width: 280px;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+    color: #fff;
+    margin: 0;
     margin-bottom: 72px;
 
     @include tablet {
+      width: 360px;
       margin-bottom: 56px;
     }
 
-    @include small-desktop {
-      margin-bottom: 82px;
+    @include smallDesktop {
+      width: 362px;
+      margin-bottom: 80px;
     }
   }
 
-  &__button {
-    margin-bottom: 48px;
-
-    @include tablet {
-      margin-bottom: 146px;
-    }
-
-    @include small-desktop {
-      margin-bottom: 205px;
+  &__slider {
+    @include smallDesktop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 }

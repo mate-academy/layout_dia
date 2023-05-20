@@ -1,15 +1,36 @@
 .page {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #fff;
+  font-family: "Poppins", "Open Sans", sans-serif;
   scroll-behavior: smooth;
-  background: $page-color;
 
   &__body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e5e5e5;
 
     &--with-menu {
       overflow: hidden;
+    }
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 
@@ -19,33 +40,20 @@
     @include tablet {
       margin-bottom: 148px;
     }
-
-    &:last-child {
-      @include tablet {
-        margin-bottom: 0;
-      }
-    }
   }
 
-  &__header {
-    margin-bottom: 120px;
+  &__section-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    text-align: center;
 
-    @include tablet {
-      margin-bottom: 148px;
-    }
-  }
+    color: #253757;
 
-  &__menu {
-    position: fixed;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-
-    &:target {
-      transform: translateX(0);
+    &--size {
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 120%;
     }
   }
 }

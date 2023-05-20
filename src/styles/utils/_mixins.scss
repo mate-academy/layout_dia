@@ -1,56 +1,58 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
-
-&:active {
-  #{$_property}: $_toValue;
-}
-
-@mixin img-size($first-param, $second-param) {
-  width: $first-param;
-  height: $second-param;
-}
-
-@mixin tablet {
-  @media (min-width: 640px) {
-    @content;
-  }
-}
-
-@mixin small-desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin large-desktop {
-  @media (min-width: 1600px) {
-    @content;
-  }
-}
-
-@mixin large-screens {
-  @media (min-width: 2560px) {
-    @content;
-  }
-}
-
 @mixin top-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 50px;
+
+  @include tablet {
+    margin-bottom: 60px;
+  }
+
+  @include smallDesktop {
+    margin-bottom: 168px;
+  }
+
+  &--footer {
+    margin-bottom: 50px;
+
+    @include tablet {
+      margin-bottom: 25px;
+    }
+  }
 }
 
-@mixin before-title {
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: block;
-  color: $light-grey-color;
-  letter-spacing: 3px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 20px;
+@mixin tablet {
+  @media (min-width: 639.98px) {
+    @content;
+  }
+}
+
+@mixin smallDesktop {
+  @media (min-width: 1023.98px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1279.98px) {
+    @content;
+  }
+}
+
+@mixin theDesign {
+  @media (min-width: 1599.98px) {
+    @content;
+  }
+}
+
+@mixin fullHD {
+  @media (min-width: 1919.98px) {
+    @content;
+  }
+}
+
+@mixin largeScreens {
+  @media (min-width: 2559.98px) {
+    @content;
+  }
 }

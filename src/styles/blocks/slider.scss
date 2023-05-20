@@ -1,86 +1,132 @@
 .slider {
-  height: 390px;
-  max-width: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  width: 100%;
 
-  @include small-desktop {
-    height: auto;
-    width: 50%;
+  @include smallDesktop {
+    width: 502px;
     border-radius: 30px 0;
-    top: 130px;
   }
 
-  &__box {
+  @include theDesign {
+    width: 688px;
+  }
+
+  @include largeScreens {
+    width: 1167px;
+  }
+
+  &__background {
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    padding: 250px 20px 24px;
+
+    @include tablet {
+      padding: 242px 40px 32px;
+    }
+
+    @include smallDesktop {
+      padding: 582px 54px 48px 78px;
+      box-sizing: border-box;
+      border-radius: 30px 0;
+    }
+
+    @include theDesign {
+      box-sizing: border-box;
+      padding-right: 295px;
+    }
+
+    @include largeScreens {
+      box-sizing: border-box;
+      padding-right: 774px;
+    }
+
+    &-1 {
+      background-image: url(../images/slider/slider-1.png);
+    }
+
+    &-2 {
+      position: absolute;
+      visibility: hidden;
+      background-image: url(../images/slider/slider-2.png);
+    }
+
+    &-3 {
+      position: absolute;
+      visibility: hidden;
+      background-image: url(../images/slider/slider-3.png);
+    }
   }
 
-  &__line {
+  &__container {
     display: flex;
-    transition: all 1s;
-  }
+    flex-direction: column;
+    min-width: 100%;
 
-  &__image {
-    object-fit: cover;
-    object-position: center;
+    @include tablet {
+      box-sizing: border-box;
+    }
+
+    @include smallDesktop {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
   &__buttons {
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    left: 8%;
-    bottom: 25%;
+    gap: 16px;
+    padding-bottom: 16px;
 
-    @include small-desktop {
-      bottom: 10%;
+    @include smallDesktop {
+      padding: 0 24px 0 0;
     }
   }
-  &__button {
-    display: block;
-    @include img-size (32px, 32px);
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid transparent;
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    background-color: #fff;
     border-radius: 50%;
-    cursor: pointer;
-    @include hover(transform, scale(1.2));
+    transition: 0.3s;
 
-    &--prev {
-      background-image: url(/src/images/slider/slider-prev.svg);
-      margin-right: 16px;
-    }
-
-    &--next {
-      background-image: url(/src/images/slider/slider-next.svg);
+    &:hover {
+      transform: matrix(-1, 0, 0, 1, 0, 0);
     }
   }
 
   &__text {
-    position: absolute;
-    left: 8%;
-    bottom: 10%;
-
-    @include small-desktop {
-      bottom: 9%;
-      left: 25%;
-    }
+    display: flex;
+    flex-direction: column;
   }
 
-  &__title {
+  &__intro {
+    margin: 0;
     font-weight: 700;
     font-size: 13px;
     line-height: 20px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 8px;
   }
 
-  &__subtitle {
+  &__paragraph {
+    margin: 0;
+    width: 240px;
     font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 140%;
+    color: #fff;
   }
 }
