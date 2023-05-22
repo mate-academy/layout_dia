@@ -7,3 +7,10 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+const formDate = document.querySelector('form');
+
+formDate.addEventListener('submit', function(event) {
+  event.preventDefault();
+  formDate.reset();
+});
