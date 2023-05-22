@@ -69,12 +69,24 @@
                 alt="img"
                 class="slider__image"
                 >
+
+                <img
+                src="images/header/slide2.jpg"
+                alt="img"
+                class="slider__image"
+                >
+
+                <img
+                src="images/header/slide3.jpg"
+                alt="img"
+                class="slider__image"
+                >
               </div>
 
               <div class="slider__menu">
                 <div class="slider__buttons">
-                  <button class="slider__button slider__button--left"></button>
-                  <button class="slider__button slider__button--right"></button>
+                  <button class="slider__button slider__button--left" onclick="plusDivs(-1)"></button>
+                  <button class="slider__button slider__button--right" onclick="plusDivs(1)"></button>
                 </div>
                 <div class="slider__info">
                   <h3 class="slider__title">INtro</h3>
@@ -453,5 +465,33 @@
     </footer>
 
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script>
+      let slideIndex = 1;
+
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        let i;
+
+        const slides = document.getElementsByClassName('slider__image');
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        slides[slideIndex - 1].style.display = 'block';
+      }
+    </script>
   </body>
 </html>
