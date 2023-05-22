@@ -1,16 +1,16 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
+  column-gap: 24px;
 
   @include onTable {
     grid-template-columns: repeat(6, 1fr);
-    column-gap: 24px;
+    column-gap: 30px;
   }
 
-  @include onDesign {
+  @include onSmallDesktop {
     grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
+    column-gap: 20px;
   }
 
   &--desktop {
@@ -30,20 +30,20 @@
   }
 
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
-        &--desktop-#{$start}-#{$end} {
-          @include onDesign {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--table-#{$start}-#{$end} {
+          @include onTable {
             grid-column: #{$start} / #{$end + 1};
           }
         }
       }
     }
 
-    @for $start from 1 through 6 {
-      @for $end from $start through 6 {
-        &--table-#{$start}-#{$end} {
-          @include onTable {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onSmallDesktop {
             grid-column: #{$start} / #{$end + 1};
           }
         }
