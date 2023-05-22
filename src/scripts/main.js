@@ -44,3 +44,10 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('body--with-menu');
   }
 });
+
+const form = document.getElementById('form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
