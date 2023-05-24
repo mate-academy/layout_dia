@@ -14,9 +14,6 @@ const slider = document.querySelector('.slider');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  window.scrollTo(0, 0);
-  window.reload();
-
   form.reset();
 });
 
