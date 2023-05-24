@@ -1,0 +1,172 @@
+.testimonials {
+  &__subtitle {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $gray-color;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 150%;
+    color: $text-primary-color;
+    margin-bottom: 48px;
+
+    &__text {
+      display: inline;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: 24px;
+
+    @include onTablet {
+      gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+    padding: 32px 44px;
+    border-radius: 16px;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: $box-shadow;
+      transform: scale(1.05);
+    }
+
+    &__img {
+      z-index: 2;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      position: absolute;
+      transition: $transition;
+      transform: rotate(-30deg);
+
+      @include onTablet {
+        width: 140px;
+        height: 140px;
+      }
+    }
+    &__logo {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      transform: rotate(30deg);
+      transition: $transition;
+
+      
+
+      &::after {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+        background-color: $blue-color;
+        border-radius: 12px;
+        width: 44px;
+        height: 110px;
+        transition: $transition;
+
+        @include onTablet {
+          width: 56px;
+          height: 140px;
+          right: 0;
+          bottom: 20px;
+        }
+      }
+
+      &::before {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        background-color: $blue-color;
+        border-radius: 12px;
+        width: 44px;
+        height: 110px;
+        transition: $transition;
+
+        @include onTablet {
+          width: 56px;
+          height: 140px;
+          left: 0;
+          top: 20px;
+        }
+      }
+
+      &:hover::after {
+        transform: rotate(180deg);
+      }
+
+      &:hover::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__quote {
+      margin-bottom: 8px;
+      transition: $transition;
+
+      @include onTablet {
+        margin-bottom: 16px;
+      }
+
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+
+    &__info {
+      font-family: "Open Sans Helvetica Arial", sans-serif;
+      font-size: 13px;
+      line-height: 150%;
+      color: $text-secondary-color;
+      text-align: center;
+      margin-bottom: 16px;
+
+      @include onTablet {
+        margin-bottom: 32px;
+      }
+    }
+
+    &__name {
+      font-family: "Open Sans Helvetica Arial", sans-serif;
+      font-size: 13px;
+      line-height: 150%;
+      color: $text-primary-color;
+      margin-bottom: 4px;
+    }
+
+    &__position {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $gray-color;
+    }
+  }
+}
