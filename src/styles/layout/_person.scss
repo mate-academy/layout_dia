@@ -1,0 +1,184 @@
+.person {
+  padding: 75px 37px 32px;
+  max-width: 558px;
+  background-color: $color-light;
+  box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+  transition: all $transition;
+
+  @include onTablet {
+    padding: 85px 37px 32px;
+  }
+
+  @include onSmallDesktop {
+    padding: 75px 43px 32px;
+    max-width: 292px;
+  }
+
+  @include onDesktop {
+    padding: 85px 56px 32px;
+    max-width: 362px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    max-width: 362px;
+    min-height: 349px;
+    margin: 0 auto;
+
+    @include onTablet {
+      min-height: 358px;
+    }
+
+    @include onSmallDesktop {
+      min-height: 348px;
+    }
+
+    @include onDesktop {
+      min-height: 374px;
+    }
+  }
+
+  &__img-container {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 70px;
+    width: 110px;
+    height: 110px;
+    transition: all $transition;
+
+    @include onTablet {
+      margin: 0 auto 84px;
+      width: 140px;
+      height: 140px;
+    }
+
+    @include onSmallDesktop {
+      margin: 0 auto 70px;
+      width: 110px;
+      height: 110px;
+    }
+
+    @include onDesktop {
+      margin: 0 auto 80px;
+      width: 140px;
+      height: 140px;
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      display: block;
+      width: 108.98px;
+      height: 43.9px;
+      background: #2060F6;
+      border-radius: 12px;
+      transform: rotate(-60deg) translate(-14%, -77%);
+
+      @include onTablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include onSmallDesktop {
+        width: 108.98px;
+        height: 43.9px;
+      }
+
+      @include onDesktop {
+        width: 139px;
+        height: 56px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      display: block;
+      width: 108.98px;
+      height: 43.9px;
+      background: #2060F6;
+      border-radius: 12px;
+      transform: rotate(-60deg) translate(52%, 27%);
+
+      @include onTablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include onSmallDesktop {
+        width: 108.98px;
+        height: 43.9px;
+      }
+
+      @include onDesktop {
+        width: 139px;
+        height: 56px;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+
+    &::before {
+      content: url(../images/icons/quote-mark.svg);
+      width: 20.58px;
+      height: 18.48px;
+      display: block;
+      margin: 0 auto 10.52px;
+
+      @include onTablet {
+        margin: 0 auto 18.52px;
+      }
+
+      @include onSmallDesktop {
+        margin: 0 auto 10.52px;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+    color: $color-heading;
+  }
+
+  &__position {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &:hover {
+    .person__img-container {
+      transform: scale(1.1);
+    }
+
+    .person__text {
+      color: $color-button;
+    }
+
+    .person__name,
+    .person__position {
+      text-shadow: 1px 1px 2px $color-button;
+      color: #fff;
+    }
+  }
+}
