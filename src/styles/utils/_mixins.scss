@@ -1,13 +1,28 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
-  }
-}
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
 
 @mixin gray-section {
   background-color: $color-gray;
   color: #fff;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin rectangle($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin backgroundImage {
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @mixin onTablet {
@@ -24,12 +39,6 @@
 
 @mixin onDesktop {
   @media (min-width: 1280px) {
-    @content;
-  }
-}
-
-@mixin onLargeScreen {
-  @media (min-width: 2560px) {
     @content;
   }
 }
@@ -56,4 +65,24 @@
   background: rgba(32, 96, 246, 0.1);
   border-radius: 23px;
   padding: 2px 12px;
+}
+
+@mixin beforeAndAfter {
+  @include rectangle(108px, 44px);
+  content: "";
+  position: absolute;
+  background: #2060F6;
+  border-radius: 12px;
+
+  @include onTablet {
+    @include rectangle(139px, 56px);
+  }
+
+  @include onSmallDesktop {
+    @include rectangle(108px, 44px);
+  }
+
+  @include onDesktop {
+    @include rectangle(139px, 56px);
+  }
 }

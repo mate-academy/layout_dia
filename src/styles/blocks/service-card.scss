@@ -1,12 +1,9 @@
 .service-card {
+  @extend %card-style;
   max-width: 280px;
   height: 264px;
   padding: 32px;
   box-sizing: border-box;
-
-  background: #FFFFFF;
-  box-shadow: 0px 9px 18px rgba(37, 41, 49, 0.03);
-  border-radius: 16px;
 
   @for $card-number from 1 through 4 {
     &:nth-child(#{$card-number})::before {
@@ -20,7 +17,6 @@
 
   &__list {
     @extend %paragraph-style-3;
-
     list-style: none;
     margin: 24px 0 32px;
     padding: 0;
@@ -33,20 +29,16 @@
   }
 
   &__arrow-link {
+    @include square(40px);
+    @include backgroundImage;
     background-image: url("../images/block-arrow-right.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-
-    width: 40px;
-    height: 40px;
-    margin-right: 16px;
     background-color: $color-blue;
     border-radius: 50%;
+    margin-right: 16px;
   }
 
   &__learn-link {
     @extend %poppins-semibold;
-    
     color: #334563;
     font-size: 15px;
     line-height: 22px;
