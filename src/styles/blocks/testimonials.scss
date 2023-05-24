@@ -22,6 +22,18 @@
     }
   }
 
+  &__break {
+    display: none;
+
+    @include onTablet {
+      display: contents;
+    }
+
+    @include onDesktop {
+      display: contents;
+    }
+  }
+
   .item {
     background-color: $whiteBackgroundColor;
     border-radius: 16px;
@@ -56,12 +68,17 @@
       position: relative;
     }
 
+    &__img-container {
+      position: relative;
+      margin-bottom: 70px;
+    }
+
     &__image {
       width: 110px;
       height: 110px;
       border-radius: 50%;
-      margin-bottom: 70px;
-      z-index: 2;
+      position: relative;
+      z-index: 5;
 
       @include onTablet {
         width: 140px;
@@ -80,7 +97,7 @@
     }
 
     &__blue-block {
-      position: relative;
+      position: absolute;
       display: block;
       width: 109px;
       height: 44px;
@@ -103,46 +120,46 @@
       }
 
       &--1 {
-        top: -182px;
+        top: 0;
         left: -40px;
         transform: rotate(-60deg);
         z-index: 1;
 
         @include onTablet {
-          top: -210px;
+          top: 0;
           left: -50px;
         }
 
         @include onDesktop {
-          top: -182px;
+          top: 0;
           left: -40px;
         }
 
         @include hugeDesktop {
-          top: -210px;
+          top: 0;
           left: -50px;
         }
       }
 
       &--2 {
-        top: -155px;
+        top: 65px;
         left: 40px;
         transform: rotate(-60deg);
         z-index: 1;
 
         @include onTablet {
-          top: -180px;
-          left: 45px;
+          top: 80px;
+          left: 50px;
         }
 
         @include onDesktop {
-          top: -155px;
+          top: 65px;
           left: 40px;
         }
 
         @include hugeDesktop {
-          top: -180px;
-          left: 45px;
+          top: 80px;
+          left: 50px;
         }
       }
     }
@@ -187,7 +204,7 @@
       text-align: center;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: $greyTextColor;
+      color: $subtitleTextColor;
     }
   }
 }
