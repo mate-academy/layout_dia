@@ -1,15 +1,26 @@
 .navbar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 
   &--header {
-
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &--footer {
-   
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+    }
   }
 
   &__menu-icon {
@@ -27,14 +38,26 @@
   }
 
   &__list {
-    display: none;
     list-style: none;
     margin: 0;
     padding: 0;
 
-    @include onSmallDesktop {
+    &--header {
+      display: none;
+
+      @include onSmallDesktop {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    &--footer {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+      }
     }
   }
 
@@ -42,12 +65,25 @@
     &:not(:last-child) {
       margin-right: 48px;
     }
+
+    &--footer {
+      &:not(:last-child) {
+        margin: 0 0 24px;
+
+        @include onTablet {
+          margin-right: 40px;
+        }
+
+        @include onSmallDesktop{
+          margin-right: 64px;
+        }
+      }
+    }
   }
 
   &__link {
     @extend %custom-font-style ;
     text-decoration: none;
-    padding: 8px 0;
 
     &--hire {
       position: relative;
@@ -59,7 +95,7 @@
         width: 100%;
         height: 2px;
         position: absolute;
-        bottom: 0;
+        bottom: -8px;
         left: 0;
       }
     }
