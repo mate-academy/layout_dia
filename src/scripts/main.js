@@ -1,5 +1,13 @@
 'use strict';
 
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
 const form = document.querySelector('.send-message__form');
 
 form.addEventListener('submit', (e) => {
