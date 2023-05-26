@@ -48,32 +48,32 @@
 
   &__learn-more {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    max-width: 152px;
     height: 48px;
-    cursor: pointer;
-  }
 
-  &__arrow-link {
-    @include square($arrow-size);
-    @include backgroundImage;
-    background-image: url("../images/block-arrow-right.svg");
-    background-color: $color-blue;
-    border-radius: 50%;
-
-    transition: $transition;
-
-    &:hover {
-      @include square($arrow-size-hover);
-    }
-  }
-
-  &__learn-link {
     @extend %poppins-semibold;
     color: #334563;
     font-size: 15px;
     line-height: 22px;
     text-decoration: none;
-    padding-left: 16px;
+
+    & > &-arrow, & > &-text  {
+      cursor: pointer;
+    }
+
+    & > &-arrow {
+      padding: 12px;
+      background-color: $color-blue;
+      border-radius: 50%;
+
+      transition: $transition;
+    }
+
+    &:hover > &-arrow  {
+      padding: 16px;
+    }
+
   }
 }
