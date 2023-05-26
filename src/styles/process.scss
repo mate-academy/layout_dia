@@ -1,22 +1,25 @@
-.container {
-
-  @include onSmallDesktop {
-    // margin-top: 148px;
-    // display: flex;
-    align-items: center;
-  }
-}
-
 .process {
-  padding: 156px 20px;
+  padding: 156px 20px 0;
   background-color: $blueBackgroundColorOfPage;
 
   @include onTable {
-    padding: 184px 40px;
+    padding: 184px 40px 0;
   }
 
   @include onSmallDesktop {
-    padding: 156px 54px;
+    padding: 287px 54px 0;
+  }
+
+  &__definition {
+    @include onSmallDesktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__container-blocks {
+    @include onSmallDesktop {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 
   &__title {
@@ -41,10 +44,11 @@
       margin-bottom: 56px;
       margin-right: 10px;
     }
-  }
 
-  // &__container-blocks {
-  // }
+    @include onSmallDesktop {
+      margin-right: 0;
+    }
+  }
 
   &__block {
     background-color: $whiteColorOfPage;
@@ -53,35 +57,18 @@
     padding: 32px;
     margin-bottom: 24px;
 
-    &--1 {
-      // @include onSmallDesktop {
-      //   margin-top: -115%;
-      // }
-    }
-
     &--2 {
       @include onTable {
         margin-top: -50%;
+        margin-bottom: 0;
       }
-
-      // @include onSmallDesktop {
-      //   margin-top: -175%;
-      // }
-    }
-
-    &--3 {
-      // @include onSmallDesktop {
-      //   margin-top: 0;
-      // }
     }
 
     &--4 {
       @include onTable {
         margin-top: -50%;
+        margin-bottom: 0;
       }
-      // @include onSmallDesktop {
-      //   margin-top: -60%;
-      // }
     }
   }
 
@@ -89,8 +76,7 @@
     background-color: rgba(32, 96, 246, 0.1);
     border-radius: 23px;
 
-    width: 46px;
-    height: 24px;
+    @include dimensions(46px, 24px);
 
     margin-bottom: 24px;
   }
@@ -127,16 +113,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+
+    @include dimensions(40px, 40px);
 
     background-color: $blueColorOfPage;
     border-radius: 50%;
   }
 
   &__arrow {
-    width: 16px;
-    height: 16px;
+    @include dimensions(16px, 16px);
   }
 
   &__text {
