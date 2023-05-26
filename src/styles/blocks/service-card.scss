@@ -1,20 +1,17 @@
 .service-card {
   @extend %card-style;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
   width: 280px;
   height: 264px;
   padding: 32px;
   box-sizing: border-box;
-
   position: relative;
 
-  transition: $transition;
-
-  &:hover {
-    transform: $transform;
-  }
+  @include hover (transform, $transform);
 
   @for $card-number from 1 through 4 {
     &:nth-child(#{$card-number})::before {
@@ -74,6 +71,5 @@
     &:hover > &-arrow  {
       padding: 16px;
     }
-
   }
 }
