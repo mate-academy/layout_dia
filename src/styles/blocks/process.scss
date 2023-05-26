@@ -123,10 +123,13 @@
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
     margin-bottom: 24px;
-    transition: box-shadow, 0.3s;
+    transition: box-shadow 0.3s, transform 0.5s;
+    transform-origin: center;
 
     &:hover {
       box-shadow: 9px 9px 18px #232f42;
+      transform: scale(1.1);
+      z-index: 1;
     }
 
     &:last-child {
@@ -137,6 +140,7 @@
       width: 260px;
       height: 260px;
       margin-bottom: 0;
+      transform-origin: top center;
     }
 
     @include smallDesktop {
@@ -147,11 +151,14 @@
     @include desktop {
       width: 260px;
       height: 260px;
+      transform-origin: center;
     }
 
     &--shift {
       @include tablet {
-        transform: translateY(-50%);
+        position: relative;
+        top: -25%;
+        transform: none;
       }
     }
   }
@@ -162,7 +169,6 @@
     height: 24px;
     background-color: rgba(32, 96, 246, 0.09);
     border-radius: 23px;
-
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 13px;
@@ -179,7 +185,6 @@
     font-weight: 600;
     font-size: 13px;
     line-height: 150%;
-
     color: #6c788b;
   }
 
@@ -205,12 +210,6 @@
 
     @include smallDesktop {
       transition: 0.3s;
-
-      &:hover {
-        margin: 0 0 28px 32px;
-        width: 48px;
-        height: 48px;
-      }
     }
   }
 
