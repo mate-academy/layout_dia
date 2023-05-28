@@ -1,13 +1,14 @@
 .navbar {
-  display: flex;
-
   &--header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+     display: none;
+
+     @include onSmallDesktop {
+      display: block;
+    }
   }
 
   &--footer {
+    display: flex;
     flex-direction: column;
     gap: 48px;
 
@@ -19,68 +20,34 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      gap: 0;
     }
   }
-
-  &__menu-icon {
-    @include square(24px);
-    @include  backgroundImage;
-    background-image: url(../images/menu.svg);
-    background-size: cover;
-
-    display: inline-block;
-    margin-left: 30px;
-
-    @include hover(transform, scale(0.9));
-
-    @include onSmallDesktop {
-      display: none;
-    }
-}
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
 
-    &--header {
-      display: none;
+    display: flex;
+    gap: 48px;
 
-      @include onSmallDesktop {
-        display: flex;
-        flex-direction: row;
-      }
+    &--menu {
+      flex-direction: column;
+      gap: 24px;
     }
 
     &--footer {
-      display: flex;
       flex-direction: column;
+      gap: 24px;
 
       @include onTablet {
         flex-direction: row;
         align-items: center;
+        gap: 40px;
       }
-    }
-  }
 
-  &__item  {
-    &:not(:last-child) {
-      margin-right: 48px;
-    }
-
-    &--footer {
-      &:not(:last-child) {
-        margin-bottom: 24px;
-
-        @include onTablet {
-          margin-bottom: 0;
-          margin-right: 40px;
-        }
-
-        @include onSmallDesktop{
-          margin-right: 64px;
-        }
+      @include onSmallDesktop{
+        gap: 64px;
       }
     }
   }
@@ -107,17 +74,6 @@
       &::after {
         background-color: transparent;
       }
-    }
-
-    &--hire {
-      position: relative;
-
-      &::after {
-        @include underline;
-        background-color: $color-blue;
-      }
-
-      @include hover(color, $color-blue);
     }
   }
 }
