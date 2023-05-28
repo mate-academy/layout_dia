@@ -16,40 +16,33 @@ function submitForm(event) {
 
 document.querySelector('#form').addEventListener('submit', submitForm);
 
-const slides = [
-  'slide-1',
-  'slide-2',
-  'slide-3',
-];
+let slideIndex = 1;
 
-const arrows = document.querySelectorAll('.slider__arrow');
-const slider = document.querySelector('#slider');
-let counter = 0;
+function displaySlides(n) {
+  let i;
+  const slides = document.querySelectorAll('.slider__item');
 
-arrows.forEach(function(arrow) {
-  arrow.addEventListener('click', function(e) {
-    e.preventDefault();
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
 
-    if (arrow.classList.contains('slider__arrow--left')) {
-      counter--;
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
 
-      if (counter < 0) {
-        counter = slides.length - 1;
-      }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
 
-      slider.style.backgroundImage
-      = `url("./images/slider/${slides[counter]}.jpg")`;
-    }
+  slides[slideIndex - 1].style.display = 'block';
+}
 
-    if (arrow.classList.contains('slider__arrow--right')) {
-      counter++;
+document.querySelector('#next').addEventListener('click', function(e) {
+  e.preventDefault();
+  displaySlides(slideIndex += 1);
+});
 
-      if (counter > slides.length - 1) {
-        counter = 0;
-      }
-
-      slider.style.backgroundImage
-      = `url("https://plus.unsplash.com/premium_photo-1684952850821-8709c04b2b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3027&q=80")`;
-    }
-  });
+document.querySelector('#prev').addEventListener('click', function(e) {
+  e.preventDefault();
+  displaySlides(slideIndex += -1);
 });
