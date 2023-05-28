@@ -16,6 +16,8 @@ function submitForm(event) {
 
 document.querySelector('#form').addEventListener('submit', submitForm);
 
+let slideIndex = 1;
+
 function displaySlides(n) {
   let i;
   const slides = document.querySelectorAll('.slider__item');
@@ -34,8 +36,6 @@ function displaySlides(n) {
 
   slides[slideIndex - 1].style.display = 'block';
 }
-
-let slideIndex = 1;
 
 document.querySelector('#next').addEventListener('click', function(e) {
   e.preventDefault();
