@@ -1,9 +1,7 @@
 .slider {
-  background-image: url(../images/slider/slide-img-1.jpg);
   border-radius: 30px;
   width: 100%;
   height: 290px;
-  // margin: 48px 10px 0;
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,6 +10,26 @@
   @include onDesktop {
     border-radius: 30px 0;
     height: 680px;
+  }
+
+  @for $i from 1 through $slides-amount {
+    &--slide_#{$i} {
+      background-image: url(../images/slider/#{$i}.jpg);
+
+      opacity: 0;
+      transition: opacity $animation-speed ease-in-out;
+
+      animation: slide-in-#{$i} $animation-speed ease-in-out forwards;
+    }
+
+    @keyframes slide-in-#{$i} {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 
   &__buttons {
@@ -33,15 +51,26 @@
   }
 
   &__button {
+    transition: all $animation-speed linear;
+
     width: 32px;
     height: 32px;
     display: flex;
     background-color: #fff;
     border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
 
     &--left {
       margin-right: 16px;
-      
+    }
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(23, 32, 49, 0.26);
+      opacity: 1;
     }
   }
 
@@ -77,10 +106,19 @@
   }
 
   &__description {
-    margin: 0 ;
+    margin: 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
     color: #fff;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

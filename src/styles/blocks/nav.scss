@@ -17,7 +17,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    
+
     &--header {
       display: none;
 
@@ -47,7 +47,7 @@
 
   &__item {
     width: max-content;
-    
+
     &:not(:last-child) {
       margin-right: 48px;
     }
@@ -64,10 +64,12 @@
       &:not(:first-child) {
         margin-top: 56px;
       }
-      
+
       &:first-child {
         margin-top: 54px;
       }
+
+      animation: slide-in $animation-speed linear;
     }
   }
 
@@ -75,6 +77,7 @@
     font-family: "Poppins", sans-serif;
     text-decoration: none;
     text-transform: uppercase;
+    position: relative;
     color: #fff;
     font-weight: 700;
     float: left;
@@ -84,6 +87,20 @@
 
     &--menu {
       font-size: 24px;
+    }
+
+    &:hover {
+      &::before {
+        content: "";
+        height: 2px;
+        position: absolute;
+        top: 33px;
+        width: 100%;
+        animation: fadeIn $animation-speed forwards;
+
+        background: $c-blue;
+        border-radius: 4px;
+      }
     }
   }
 
@@ -116,5 +133,26 @@
       flex-direction: row;
       align-items: center;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
