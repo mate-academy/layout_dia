@@ -1,8 +1,75 @@
+.container-send-contact {
+  background-color: #2c2c2c;
+
+  @include onSmallDesktop {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 98px;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+    padding: 0 140px 80px 54px;
+
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background-color: #fff;
+      z-index: 0;
+    }
+  }
+
+  @include onDesign {
+    padding: 0 227px 80px;
+  }
+
+  @include onLargeScreen {
+    padding: 0 708px 80px;
+  }
+}
+
 .send-us-message {
   background-color: #2c2c2c;
   color: $whiteColorOfPage;
 
-  padding: 72px 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+
+  padding: 72px 20px 80px;
+
+  // @include onSmallDesktop {
+  //   position: relative;
+
+  //   &::before {
+  //     content: '';
+  //     position: absolute;
+  //     top: -10px;
+  //     left: 0;
+  //     right: 0;
+  //     height: 10px;
+  //     background-color: #fff;
+  //   }
+  // }
+
+  @include onTable {
+    padding: 180px 0 120px 40px;
+  }
+
+  @include onSmallDesktop {
+    padding: 180px 0 120px;
+  }
+
+  &__container {
+    max-width: 362px;
+  }
 
   &__title {
     font-weight: 600;
@@ -13,38 +80,28 @@
   }
 
   &__field {
-    position: relative;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 15px;
     line-height: 22px;
+    color: $whiteColorOfPage;
 
-    // display: block;
     border: none;
+    border-bottom: 1px solid $whiteColorOfPage;
     resize: none;
     outline: none;
     width: 100%;
     background-color: #2c2c2c;
+    padding-bottom: 16px;
 
-    margin-bottom: 16px;
+    margin-bottom: 40px;
 
-    &::after {
-      content: "";
-      display: block;
-      height: 2px;
-      width: 100%;
-      background-color: $whiteColorOfPage;
+    &--textarea {
+      max-height: 23px;
+    }
 
-      position: absolute;
-      bottom: -17px;
-      left: 0;
-      transition: background-color 0.3s;
-
-      z-index: 5;
-
-      &:hover {
-        background-color: #144ed5;
-      }
+    &:hover {
+      border-color: #144ed5;
     }
   }
 
@@ -53,10 +110,22 @@
     justify-content: center;
     align-items: center;
 
+    cursor: pointer;
+
     height: 56px;
     width: 100%;
     background-color: #144ed5;
     border-radius: 8px;
+
+    transition: transform 0.3s;
+
+    @include onTable {
+      max-width: 264px;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 
   &__buttom-text {
