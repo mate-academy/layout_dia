@@ -99,7 +99,17 @@ function createSlider() {
   slider.classList.add(slideClass);
 }
 
+function handleContactUsFormSubmit() {
+  const form = document.getElementById('contact-us-form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.reset();
+  });
+}
+
 window.addEventListener('load', function() {
   openMenu();
   createSlider();
+  handleContactUsFormSubmit(); 
 });
