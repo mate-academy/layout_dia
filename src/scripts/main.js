@@ -1,5 +1,6 @@
 'use strict';
 
+const body = document.querySelector('body');
 const sliderList = document.querySelector('.slider__list');
 const menu = document.querySelector('.burger-menu');
 const arrows = document.getElementById('arrows');
@@ -36,15 +37,18 @@ window.addEventListener('hashchange', () => {
   } else {
     menu.classList.remove('burger-menu--cross');
     nav.style.transform = 'translateX(-100%)';
+    body.style.overflow = '';
   }
 });
 
 menu.addEventListener('click', (evnt) => {
   if (evnt.target.classList.contains('burger-menu--cross')) {
-    menu.classList.toggle('burger-menu--cross');
+    menu.classList.remove('burger-menu--cross');
     nav.style.transform = 'translateX(-100%)';
+    body.style.overflow = '';
   } else {
     menu.classList.add('burger-menu--cross');
     nav.style.transform = 'translateX(0%)';
+    body.style.overflow = 'hidden';
   }
 });
