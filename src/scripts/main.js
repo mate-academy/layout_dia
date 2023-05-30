@@ -111,5 +111,5 @@ function handleContactUsFormSubmit() {
 window.addEventListener('load', function() {
   openMenu();
   createSlider();
-  handleContactUsFormSubmit(); 
+  handleContactUsFormSubmit();
 });
