@@ -1,5 +1,18 @@
 'use strict';
 
+const images = document.querySelectorAll('.slider--images img');
+let sliderWidth;
+
+function calculateSliderSize() {
+  sliderWidth = document.querySelector('.slider').offsetWidth;
+
+  images.forEach((image) => {
+    image.style.width = sliderWidth;
+  });
+}
+
+window.addEventListener(('resize'), calculateSliderSize());
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu--mobile');
