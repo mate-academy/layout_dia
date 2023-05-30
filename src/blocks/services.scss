@@ -20,7 +20,7 @@
       gap: 176px;
     }
 
-    @include OnDesktop {
+    @include OnBigDesktop {
       gap: 226px;
     }
   }
@@ -28,6 +28,7 @@
   &__top {
     display: flex;
     flex-direction: column;
+    flex-grow: 0;
 
     @include OnTablet {
       width: 266px;
@@ -52,7 +53,6 @@
   }
 
   &__subtitle {
-    font-family: $secondary-font-family;
     font-weight: 600;
     font-size: 32px;
     line-height: 42px;
@@ -71,21 +71,20 @@
   &__list {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 24px;
 
     @include OnTablet {
       display: grid;
-      grid-template-columns: repeat(2, 264px);
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
 
     @include OnDesktop {
-      grid-template-columns: repeat(2, 214px);
       gap: 20px;
     }
 
     @include OnBigDesktop {
-      grid-template-columns: repeat(2, 264px);
       gap: 30px;
     }
   }
@@ -98,6 +97,12 @@
     background-color: $main-color;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 1.05;
+      box-shadow: 0 0 10px $black-font-color;
+    }
   }
 
   &__count {
@@ -123,7 +128,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    transition: scale 0.3s;
+    transition: all 0.3s;
 
     &:hover {
       scale: 1.05;

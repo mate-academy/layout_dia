@@ -33,8 +33,7 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 24px;
 
     @include OnTablet {
@@ -42,7 +41,7 @@
     }
 
     @include OnDesktop {
-      flex-direction: row;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
@@ -56,10 +55,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex-grow: 1;
     padding: 32px 42px;
     background-color: $main-color;
     box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
     border-radius: 16px;
+    transition: all 0.3s;
 
     @include OnTablet {
       padding: 32px 98px;
@@ -71,6 +72,11 @@
 
     @include OnBigDesktop {
       padding: 32px 56px;
+    }
+
+    &:hover {
+      box-shadow: 0 9px 18px $grey-font-color;
+      scale: 1.05;
     }
   }
 

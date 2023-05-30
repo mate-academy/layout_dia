@@ -1,43 +1,68 @@
 'use strict';
 
-const body = document.querySelector('body');
+const sliderItem = document.querySelectorAll('.slider__item');
+const slider = document.querySelector('.slider');
 const sliderList = document.querySelector('.slider__list');
+const form = document.querySelector('contact-us__form');
 const menu = document.querySelector('.burger-menu');
+const body = document.querySelector('body');
 const arrows = document.getElementById('arrows');
 const nav = document.getElementById('nav-menu');
 const countChildren = sliderList.children.length;
-const sliderListWidth = sliderList.offsetWidth;
-let offset = 0;
+let sliderWidth;
+let count = 0;
+
+function init() {
+  sliderWidth = slider.offsetWidth;
+  sliderList.style.width = sliderWidth * countChildren + 'px';
+
+  sliderItem.forEach(el => {
+    el.style.width = sliderWidth;
+  });
+
+  moveSlider();
+}
 
 arrows.addEventListener('click', clickButtonSlider);
 
 function clickButtonSlider(event) {
   if (event.target.classList.contains('slider__button--left')) {
-    if (offset <= 0) {
-      offset = sliderListWidth;
+    count--;
+
+    if (count < 0) {
+      count = countChildren - 1;
     }
 
-    offset -= sliderListWidth / countChildren;
-    sliderList.style.left = -offset + 'px';
+    moveSlider();
   } else {
-    offset += sliderListWidth / countChildren;
+    count++;
 
-    if (offset >= sliderListWidth) {
-      offset = 0;
+    if (count >= countChildren) {
+      count = 0;
     }
 
-    sliderList.style.left = -offset + 'px';
+    moveSlider();
   }
 };
 
+function moveSlider() {
+  sliderList.style.transform = 'translate(-' + count * sliderWidth + 'px)';
+}
+
+window.addEventListener('resize', init);
+
 window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#menu') {
-    menu.classList.add('burger-menu--cross');
-    nav.style.transform = 'translateX(0%)';
-  } else {
-    menu.classList.remove('burger-menu--cross');
-    nav.style.transform = 'translateX(-100%)';
-    body.style.overflow = '';
+  init();
+
+  if (body.offsetWidth <= 1023) {
+    if (window.location.hash === '#menu') {
+      menu.classList.add('burger-menu--cross');
+      nav.style.transform = 'translateX(0%)';
+    } else {
+      menu.classList.remove('burger-menu--cross');
+      nav.style.transform = 'translateX(-100%)';
+      body.style.overflow = '';
+    }
   }
 });
 
@@ -51,4 +76,9 @@ menu.addEventListener('click', (evnt) => {
     nav.style.transform = 'translateX(0%)';
     body.style.overflow = 'hidden';
   }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  form.reset();
 });
