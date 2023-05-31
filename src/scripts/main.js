@@ -8,34 +8,14 @@ const imgContainer = document.querySelector('.welcome__img-container');
 let count = 0;
 let position = 0;
 
-function getImgWidthView() {
-  let welcomeWidth;
-
-  if (window.screen.width > 1600) {
-    welcomeWidth = 1600;
-  } else {
-    welcomeWidth = window.screen.width;
-  }
-
-  const currImgWidth = imgContainer.clientWidth;
-
-  return Math.round(currImgWidth / welcomeWidth * 100);
-}
-
 leftArrow.addEventListener('click', () => {
-  const curImgWV = getImgWidthView();
-
-  ulImg.style.transitionDuration = '0.3s';
+  const curImgWV = imgContainer.clientWidth;
 
   position += curImgWV;
 
   count--;
 
-  if (window.screen.width > 1600) {
-    ulImg.style.marginLeft = -100 * count + '%';
-  } else {
-    ulImg.style.marginLeft = `${position}vw`;
-  }
+  ulImg.style.marginLeft = `${position}px`;
 
   if (count === 0) {
     leftArrow.disabled = true;
@@ -47,19 +27,13 @@ leftArrow.addEventListener('click', () => {
 });
 
 rightArrow.addEventListener('click', () => {
-  const curImgWV = getImgWidthView();
-
-  ulImg.style.transitionDuration = '0.3s';
+  const curImgWV = imgContainer.clientWidth;
 
   position -= curImgWV;
 
   count++;
 
-  if (window.screen.width > 1600) {
-    ulImg.style.marginLeft = -100 * count + '%';
-  } else {
-    ulImg.style.marginLeft = `${position}vw`;
-  }
+  ulImg.style.marginLeft = `${position}px`;
 
   if (count === imgAmount - 1) {
     rightArrow.disabled = true;
@@ -71,7 +45,11 @@ rightArrow.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', () => {
-  ulImg.style.transitionDuration = '0s';
+  ulImg.style.marginLeft = 0;
+  count = 0;
+  position = 0;
+  leftArrow.disabled = true;
+  rightArrow.disabled = false;
 });
 
 // ----------------------------------------------------
