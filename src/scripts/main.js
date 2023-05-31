@@ -1,20 +1,21 @@
 'use strict';
 
 const sliderItem = document.querySelectorAll('.slider__item');
-const slider = document.querySelector('.slider');
 const sliderList = document.querySelector('.slider__list');
 const form = document.querySelector('contact-us__form');
 const menu = document.querySelector('.burger-menu');
+const slider = document.querySelector('.slider');
 const body = document.querySelector('body');
 const arrows = document.getElementById('arrows');
 const nav = document.getElementById('nav-menu');
-const countChildren = sliderList.children.length;
 let sliderWidth;
 let count = 0;
 
+window.onload = init();
+
 function init() {
   sliderWidth = slider.offsetWidth;
-  sliderList.style.width = sliderWidth * countChildren + 'px';
+  sliderList.style.width = sliderWidth * sliderItem.length + 'px';
 
   sliderItem.forEach(el => {
     el.style.width = sliderWidth;
@@ -30,14 +31,14 @@ function clickButtonSlider(event) {
     count--;
 
     if (count < 0) {
-      count = countChildren - 1;
+      count = sliderItem.length - 1;
     }
 
     moveSlider();
   } else {
     count++;
 
-    if (count >= countChildren) {
+    if (count >= sliderItem.length) {
       count = 0;
     }
 
