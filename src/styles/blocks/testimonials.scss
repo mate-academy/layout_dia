@@ -1,4 +1,5 @@
 .testimonials {
+  background-color:#f2f6fa;
 
   padding-bottom: 148px;
 
@@ -48,7 +49,7 @@
 
 .feedback-card {
 
-  padding: 32px 42px;
+  padding: 0 56px 0 56px;
   text-align: center;
   border-radius: 16px;
   background-color: #fff;
@@ -56,17 +57,49 @@
   height: 494px;
 
   @include onTablet {
+    height: 478px;
+  }
+
+  @include onSmallDesktop {
+    width: 292px;
+    height: 456px;
+    padding: 0 48px 0 48px;
+  }
+
+  @include theDesign {
+    width: 100%;
+    height: 494px;
+    padding: 0 56px 0 56px;
+  }
+
+  @include onMobile {
     width: 100%;
   }
+
+  @include onLargeScreens {
+    padding: 0 56px 0 56px;
+    height: 494px;
+    width: 362px;
+  }
+
+
 
   &:hover {
     transform: scale(1.1);
     border: 1px solid black;
+
+    @include onMobile {
+      &:hover {
+        border: none;
+      }
+    }
+
   }
 
   &__brackets {
     width: 20px;
     height: 20px;
+    
     margin: 0 auto 11px;
     background-image: url(../images/brackets.png);
     background-position: center;
@@ -77,19 +110,33 @@
     }
   }
 
+  &__image {
+    margin-top: 35px;
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding-top: 36px;
+    }
+
+    @include onMobile {
+      padding-top: 36px;
+    }
+  }
+
   &__photo {
     width: 250px;
     height: 250px;
+    
 
     @include onMobile {
       display: block;
-      max-width: 100%;
       width: 196px;
       height: 196px;
     }
 
     @include onTablet {
       margin: 0 auto;
+
     }
     @include onSmallDesktop {
       margin: 0 auto;
@@ -104,6 +151,11 @@
       height: 250px;
     }
 
+   @include onLargeScreens {
+    width: 250px;
+    height: 250px;
+   }
+
   }
 
   &__slogan {
@@ -111,12 +163,17 @@
     font-size: 13px;
     line-height: 150%;
     color: #6C788B;
-
     margin-bottom: 16px;
 
     &--short {
       @include onSmallDesktop {
         margin-bottom: 32px;
+      }
+      @include theDesign{
+        margin-bottom: 16px;
+      }
+      @include onLargeScreens {
+        margin-bottom: 16px;
       }
     }
   }
@@ -128,6 +185,11 @@
     color: #253757;
 
     margin-bottom: 4px;
+    margin-top: 32px;
+
+    @include onSmallDesktop {
+      margin-top: 16px;
+    }
   }
 
   &__role {
@@ -139,5 +201,11 @@
     letter-spacing: 3px;
     color: #C0CDD7;
     margin-bottom: 32px;
+    white-space: nowrap;
+
+
+   @include onSmallDesktop {
+      margin-top: 4px;
+    }
   }
 }
