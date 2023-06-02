@@ -47,3 +47,12 @@ function getNewSlider(target, arraySliders, side) {
   nextSlider.style.visibility = 'visible';
   nextSlider.style.position = 'static';
 }
+
+const formFields = document.querySelectorAll('.form-field input, .form-field textarea');
+
+formFields.forEach((field) => {
+  field.addEventListener('focus', () => {
+    field.style.backgroundColor = '$colorDarkGrey';
+    field.style.color = '#fff';
+  });
+});
