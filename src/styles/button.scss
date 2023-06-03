@@ -1,0 +1,90 @@
+.button {
+  display: block;
+  width: 264px;
+  height: 50px;
+  background: $button-background;
+  border-radius: 8px;
+  font-family: "Poppins", "Arial", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border: 0;
+  outline: 0;
+  color: $header-footer-font-color;
+  cursor: pointer;
+  position: relative;
+
+  &__label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 50px;
+    background: rgba(19, 56, 179, 1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+
+  &--header-button {
+    margin-top: 72px;
+    grid-column: span 2;
+    width: 280px;
+    justify-self: center;
+
+    @include onTablet {
+      margin-top: 56px;
+      grid-column: span 3;
+      justify-self: start;
+      width: 264px;
+    }
+
+    @include onLaptop {
+      margin-top: 83px;
+      grid-column: span 5;
+      grid-row: 4 / 5;
+    }
+  }
+
+  &--center {
+    margin-inline: auto;
+  }
+
+  &--cta-block-button {
+    margin-top: 56px;
+    width: 280px;
+    margin-inline: auto;
+
+    @include onTablet {
+      width: 264px;
+    }
+  }
+
+  &--footer {
+    margin-top: 56px;
+    width: 280px;
+    margin-inline: auto;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: span 3;
+      width: 264px;
+      margin-inline: 0;
+    }
+
+    @include onLaptop {
+      grid-column: span 4;
+      grid-row: 5 / 6;
+    }
+  }
+}
