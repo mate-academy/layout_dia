@@ -1,0 +1,136 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  @include onSmallDesktop {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 502px;
+    height: 680px;
+  }
+
+  @include onDesktop {
+    width: 687px;
+  }
+
+  @include onLargeScreen {
+    width: 1167px;
+  }
+
+  &__item {
+    height: 100%;
+
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+
+    @include onSmallDesktop {
+      border-radius: 30px 0;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/slider-1.svg);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slider-2.svg);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/slider-3.svg);
+    }
+  }
+
+  &__elements {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+
+    @include onTablet {
+      top: 242px;
+      left: 41px;
+    }
+
+    @include onSmallDesktop {
+      top: 564px;
+      left: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    @include onDesktop {
+      left: 48px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    background-color: $white-color;
+    border-radius: 50%;
+    position: relative;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      background-color: $blue-color;
+    }
+  }
+
+  &__arrow-left {
+    background-image: url(../images/slider/arrow-left.svg);
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__arrow-right {
+    background-image: url(../images/slider/arrow-right.svg);
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+}
