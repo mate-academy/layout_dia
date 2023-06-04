@@ -12,7 +12,7 @@ const form = document.querySelector('.form__content');
 
 const sendButton = document.querySelector('.form__button');
 
-sendButton.addEventListener('submit', function handleSubmit(event) {
-  event.preventDefault();
+sendButton.addEventListener('click', e => {
+  e.preventDefault();
   form.reset();
 });
