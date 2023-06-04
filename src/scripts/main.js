@@ -11,7 +11,6 @@ window.addEventListener('hashchange', () => {
 let slideIndex = 1;
 
 function slideShow(s) {
-  let i;
   const slides = document.querySelectorAll('.slider__item');
 
   if (s > slides.length) {
@@ -22,19 +21,19 @@ function slideShow(s) {
     slideIndex = slides.length;
   }
 
-  for (i = 0; i < slides.length; i++) {
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
 
   slides[slideIndex - 1].style.display = 'block';
 }
 
-document.querySelector('#next').addEventListener('click', function(e) {
+document.querySelector('#next').addEventListener('click', (e) => {
   e.preventDefault();
   slideShow(slideIndex += 1);
 });
 
-document.querySelector('#prev').addEventListener('click', function(e) {
+document.querySelector('#prev').addEventListener('click', (e) => {
   e.preventDefault();
   slideShow(slideIndex -= 1);
 });
@@ -42,5 +41,4 @@ document.querySelector('#prev').addEventListener('click', function(e) {
 document.querySelector('#message-form').addEventListener('submit', (e) => {
   e.preventDefault();
   document.querySelector('#message-form').reset();
-  window.location.hash = '#home';
 });
