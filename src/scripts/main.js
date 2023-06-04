@@ -16,9 +16,10 @@ document.querySelector('.carousel__prev').addEventListener('click', function() {
   slider.goTo('prev');
 });
 
-document.querySelector('.carousel__next').addEventListener('click', function() {
-  slider.goTo('next');
-});
+document.querySelector('.carousel__button--next').addEventListener('click',
+  function() {
+    slider.goTo('next');
+  });
 
 const headerButton = document.querySelector('.button--header-button');
 const ctaBlockButton = document.querySelector('.button--cta-block-button');
