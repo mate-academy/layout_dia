@@ -28,6 +28,8 @@
     border-radius: 16px;
     padding: 75px 0 32px;
     margin-bottom: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
 
     &:last-child {
       margin: 0;
@@ -67,6 +69,10 @@
         grid-column: 9 / 13;
       }
     }
+  }
+
+  &__about-testimonial:hover {
+    transform: scale(1.05);
   }
 
   &__image-container {
@@ -140,47 +146,7 @@
         background-image: url(../images/large-rect-testimonial-photo.svg);
       }
     }
-
-    &:hover {
-      transform: scale(1.1);
-
-      &::before {
-        transform: rotate(0);
-        top: 35%;
-        left: 40px;
-
-        @include onTablet {
-          left: 50px;
-        }
-
-        @include onSmallDesktop {
-          left: 40px;
-        }
-
-        @include onDesign {
-          left: 50px;
-        }
-      }
-
-      &::after {
-        transform: rotate(0);
-        bottom: 35%;
-        right: 40px;
-
-        @include onTablet {
-          right: 50px;
-        }
-
-        @include onSmallDesktop {
-          right: 40px;
-        }
-
-        @include onDesign {
-          right: 50px;
-        }
-      }
-    }
-
+    
     &--small {
       @include onTablet {
         display: none;
@@ -208,6 +174,44 @@
 
       @include onDesign {
         display: flex;
+      }
+    }
+  }
+
+  &__about-testimonial:hover > &__image-container {
+    &::before {
+      transform: rotate(0);
+      top: 35%;
+      left: 40px;
+
+      @include onTablet {
+        left: 50px;
+      }
+
+      @include onSmallDesktop {
+        left: 40px;
+      }
+
+      @include onDesign {
+        left: 50px;
+      }
+    }
+
+    &::after {
+      transform: rotate(0);
+      bottom: 35%;
+      right: 40px;
+
+      @include onTablet {
+        right: 50px;
+      }
+
+      @include onSmallDesktop {
+        right: 40px;
+      }
+
+      @include onDesign {
+        right: 50px;
       }
     }
   }
