@@ -33,6 +33,7 @@ const headerLogoLink = document.querySelector('.header__logo-link');
 const burgerMenu = document.querySelector('.header__burger-menu');
 const footerLogo = document.querySelector('.footer__logo');
 const body = document.getElementById('home');
+const form = document.getElementById('form');
 
 headerButton.addEventListener('click', () => {
   aboutUs.scrollIntoView({ behavior: 'smooth' });
@@ -82,4 +83,9 @@ servicesButtons.forEach((button) => {
 
 ctaBlockButton.addEventListener('click', () => {
   contactUs.scrollIntoView({ behavior: 'smooth' });
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  form.reset();
 });
