@@ -1,0 +1,290 @@
+.testimonials {
+  &__gray-title {
+    margin: 0 0 16px;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__title {
+    margin: 0 0 48px;
+    line-height: 130%;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin: 0 80px 56px 0;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+      margin: 0 80px 85px 0;
+    }
+  }
+
+  &__about-testimonial {
+    background-color: $white-color;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    padding: 75px 0 32px;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      padding: 87px 0 32px;
+      margin-bottom: 30px;
+      @include SixColumnsGrid;
+    }
+
+    @include onSmallDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 0;
+      padding: 75px 0 32px;
+    }
+
+    @include onDesign {
+      padding: 87px 0 32px;
+    }
+
+    &--1 {
+      @include onSmallDesktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--2 {
+      @include onSmallDesktop {
+        grid-column: 5 / 9;
+      }
+    }
+
+    &--3 {
+      @include onSmallDesktop {
+        grid-column: 9 / 13;
+      }
+    }
+  }
+
+  &__image-container {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 70px;
+    width: max-content;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 82px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+      margin-bottom: 70px;
+    }
+
+    @include onDesign {
+      margin-bottom: 82px;
+    }
+
+    &::before {
+      @include testimonialsBeforeAfterImages;
+      content: "";
+      background-image: url(../images/small-rect-testimonial-photo.svg);
+      width: 109px;
+      height: 100%;
+      left: 50%;
+
+      @include onTablet {
+        width: 139px;
+        background-image: url(../images/large-rect-testimonial-photo.svg);
+      }
+
+      @include onSmallDesktop {
+        width: 109px;
+        background-image: url(../images/small-rect-testimonial-photo.svg);
+      }
+
+      @include onDesign {
+        width: 139px;
+        background-image: url(../images/large-rect-testimonial-photo.svg);
+      }
+    }
+
+    &::after {
+      @include testimonialsBeforeAfterImages;
+      content: "";
+      background-image: url(../images/small-rect-testimonial-photo.svg);
+      width: 109px;
+      height: 100%;
+      right: 50%;
+
+      @include onTablet {
+        background-image: url(../images/large-rect-testimonial-photo.svg);
+        width: 139px;
+      }
+
+      @include onSmallDesktop {
+        width: 109px;
+        background-image: url(../images/small-rect-testimonial-photo.svg);
+      }
+
+      @include onDesign {
+        width: 139px;
+        background-image: url(../images/large-rect-testimonial-photo.svg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      &::before {
+        transform: rotate(0);
+        top: 35%;
+        left: 40px;
+
+        @include onTablet {
+          left: 50px;
+        }
+
+        @include onSmallDesktop {
+          left: 40px;
+        }
+
+        @include onDesign {
+          left: 50px;
+        }
+      }
+
+      &::after {
+        transform: rotate(0);
+        bottom: 35%;
+        right: 40px;
+
+        @include onTablet {
+          right: 50px;
+        }
+
+        @include onSmallDesktop {
+          right: 40px;
+        }
+
+        @include onDesign {
+          right: 50px;
+        }
+      }
+    }
+
+    &--small {
+      @include onTablet {
+        display: none;
+      }
+
+      @include onSmallDesktop {
+        display: flex;
+      }
+
+      @include onDesign {
+        display: none;
+      }
+    }
+
+    &--large {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
+
+      @include onDesign {
+        display: flex;
+      }
+    }
+  }
+
+  &__photo {
+    border-radius: 50%;
+  }
+
+  &__info {
+    margin: 0 0 16px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    padding: 0 42px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      padding: 0;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 2 / 4;
+      margin: 0 -30px 32px;
+    }
+
+    @include onDesign {
+      margin: 0 -30px 16px;
+    }
+
+    &::before {
+      content: "";
+      margin: 0 auto 11px;
+      display: block;
+      background-image: url(../images/testimonial-info-quotes.svg);
+      width: 21px;
+      height: 19px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include onTablet {
+        margin: 0 auto 18px;
+      }
+
+      @include onSmallDesktop {
+        margin: 0 auto 11px;
+      }
+    }
+  }
+
+  &__name-person {
+    margin: 0 0 4px;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: $dark-blue-color;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__gray-country {
+    margin: 0;
+    text-align: center;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+}

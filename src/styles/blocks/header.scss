@@ -1,0 +1,332 @@
+.header {
+  background-color: $header-footer-color;
+
+  &__content {
+    padding-top: 21px;
+
+    @include onSmallDesktop {
+      padding-top: 49px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 49px;
+    display: grid;
+    grid-template-columns: 45px 20px 1fr;
+    column-gap: 35px;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 48px;
+      grid-template-columns: 45px 1fr 70px;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  &__desktop-menu {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+    }
+  }
+
+  &__desktop-menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  &__desktop-menu-item {
+    margin-right: 48px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__desktop-menu-link {
+    text-decoration: none;
+    @include fontPoppins;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+    transition: all 0.3s;
+
+    &:hover {
+      text-shadow: 3px 5px 6px $white-color;
+    }
+  }
+
+  &__hire-us-cover {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__hire-us {
+    text-decoration: none;
+    @include fontPoppins;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $light-blue-color;
+    transition: all 0.3s;
+
+    &:hover {
+      text-shadow: 1px 2px 3px $white-color;
+    }
+  }
+
+  &__left-grid {
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      @include SixColumnsGrid;
+    }
+
+    @include onSmallDesktop {
+      margin: auto;
+      grid-column: 1 / 7;
+
+      @include SixColumnsGrid;
+    }
+
+    @include onDesign {
+      grid-column: 1 / 8;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+
+  &__right-grid {
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      @include SixColumnsGrid;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 13;
+
+      @include SixColumnsGrid;
+    }
+
+    @include onDesign {
+      grid-column: 8 / 13;
+
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 30px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 32px;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: $white-color;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin: 0 0 24px;
+      line-height: 68px;
+      font-size: 64px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+      margin: 0 0 32px;
+    }
+
+    @include onDesign {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__info {
+    margin: 0 0 72px;
+    font-size: 18px;
+    line-height: 150%;
+    color: $white-color;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin: 0 0 56px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+      margin: 0 0 83px;
+    }
+
+    @include onDesign {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__photo-container {
+    position: relative;
+
+    &--mobile {
+      margin: 0 -20px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        margin: 0 -41px;
+        display: block;
+        grid-column: 1 / 7;
+
+        @include SixColumnsGrid;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
+    }
+
+    &--smalldesktop {
+      display: none;
+
+      @include onSmallDesktop {
+        grid-column: 1 / 7;
+        margin: 0 -54px 0 0;
+
+        @include SixColumnsGrid;
+      }
+
+      @include onDesign {
+        display: none;
+      }
+    }
+
+    &--design {
+      display: none;
+
+      @include onDesign {
+        grid-column: 1 / 6;
+        margin: 0 -228px 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 30px;
+      }
+
+      @include onLargeScreen {
+        display: none;
+      }
+    }
+
+    &--largescreen {
+      display: none;
+
+      @include onLargeScreen {
+        grid-column: 1 / 6;
+        margin: 0 -707px 0 0;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 30px;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: -5px;
+    border-radius: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onSmallDesktop {
+      margin: 0;
+      border-radius: 30px 0;
+    }
+  }
+
+  &__prev-next-block {
+    position: absolute;
+    bottom: 24px;
+    margin: 0 21px;
+
+    @include onTablet {
+      bottom: 32px;
+      margin: 0 41px;
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      margin: 0;
+      bottom: 48px;
+      grid-column: 2 / 7;
+
+      display: flex;
+      gap: 24px;
+    }
+
+    @include onDesign {
+      bottom: 66px;
+      left: 48px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__arrows-prev-next {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__arrow-image {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 32px;
+    padding-bottom: 32px;
+    border-radius: 50%;
+
+    &--prev {
+      background-image: url(../images/Arrow-left.jpg);
+    }
+
+    &--next {
+      background-image: url(../images/Arrow-right.jpg);
+    }
+  }
+
+  &__intro-text {
+    margin: 0 0 8px;
+    @include fontPoppins;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  &__intro-info {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white-color;
+  }
+}
