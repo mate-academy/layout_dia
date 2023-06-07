@@ -10,6 +10,10 @@ const slider = tns({
   controls: false,
   autoplayButtonOutput: false,
   navPosition: 'bottom',
+
+  responsive: {
+    nav: false,
+  },
 });
 
 document.querySelector('.carousel__prev').addEventListener('click', function() {
