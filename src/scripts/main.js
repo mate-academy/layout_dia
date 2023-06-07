@@ -33,18 +33,20 @@ leftBtn.addEventListener('click', () => plusDivs(-1));
 rightBtn.addEventListener('click', () => plusDivs(1));
 
 const form = document.getElementById('form');
+const textArea = form.querySelector('.form__input--message');
 
 form.addEventListener('submit', function handleSubmit(event) {
   event.preventDefault();
 
   form.reset();
-
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
 });
+
+textArea.addEventListener('input', () => {
+  textArea.style.height = textArea.scrollHeight + 'px';
+  textArea.style.maxHeight = '82px';
+
+  (textArea.value === '') && (textArea.style.height = '41px');
+}); ;
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#nav-small-screen') {
