@@ -1,6 +1,6 @@
 .header {
   background-color: $header-footer-color;
-  min-height: 100vh;
+  height: max-content;
 
   &__content {
     padding-top: 21px;
@@ -181,9 +181,21 @@
 
   &__photo-container {
     position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    padding-bottom: 390px;
+
+    @include onSmallDesktop {
+      padding-bottom: 680px;
+      border-radius: 30px 0;
+    }
 
     &--mobile {
       margin: 0 -20px;
+      background-image: url(../images/header-image-mobile.jpg);
+      
 
       @include onTablet {
         display: none;
@@ -197,7 +209,7 @@
         margin: 0 -41px;
         display: block;
         grid-column: 1 / 7;
-
+        background-image: url(../images/header-image-tablet.jpg);
         @include SixColumnsGrid;
       }
 
@@ -212,7 +224,7 @@
       @include onSmallDesktop {
         grid-column: 1 / 7;
         margin: 0 -54px 0 0;
-
+        background-image: url(../images/header-image-desktop.jpg);
         @include SixColumnsGrid;
       }
 
@@ -227,7 +239,7 @@
       @include onDesign {
         grid-column: 1 / 6;
         margin: 0 -228px 0 0;
-
+        background-image: url(../images/header-image-design.jpg);
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         column-gap: 30px;
@@ -244,30 +256,14 @@
       @include onLargeScreen {
         grid-column: 1 / 6;
         margin: 0 -707px 0 0;
-
+        background-image: url(../images/header-image-large.jpg);
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         column-gap: 30px;
       }
     }
   }
-
-  &__image {
-    width: 100%;
-    min-height: 100vh;
-    margin-bottom: -5px;
-    border-radius: 30px;
-
-    @include onTablet {
-      grid-column: 1 / 7;
-    }
-
-    @include onSmallDesktop {
-      margin: 0;
-      border-radius: 30px 0;
-    }
-  }
-
+  
   &__prev-next-block {
     position: absolute;
     bottom: 24px;
