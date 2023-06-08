@@ -9,15 +9,16 @@ form.addEventListener('submit', (event) => {
   form.elements.text.value = '';
 });
 
-const kek = document.querySelector('.page__body');
+const body = document.querySelector('.page__body');
 
-const menu = document.querySelector('.menu_open');
-const closedd = document.querySelectorAll('.menu__link--header');
+if (window.location.hash === '#menu') {
+  body.style.overflow = 'hidden';
+}
 
-menu.addEventListener('click', () => {
-  kek.style.overflow = 'hidden';
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    body.style.overflow = 'hidden';
+  } else {
+    body.style.overflow = 'visible';
+  }
 });
-
-[...closedd].map(a => a.addEventListener('click', () => {
-  kek.style.overflow = 'visible';
-}));
