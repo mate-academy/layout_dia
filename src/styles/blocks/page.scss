@@ -1,6 +1,7 @@
 .page {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: auto;
 
   &__body {
     margin: 0;
@@ -8,10 +9,16 @@
     box-sizing: border-box;
     color: $text-color;
     overflow-x: hidden;
+    overflow-y: auto;
     @include fontOpenSans;
 
     @include onMobileLess320 {
       min-width: 319px;
+    }
+
+    &--with-menu {
+      overflow-x: hidden;
+      overflow-y: hidden;
     }
   }
 
@@ -21,6 +28,19 @@
 
     @include onTablet {
       margin-bottom: 148px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
     }
   }
 
