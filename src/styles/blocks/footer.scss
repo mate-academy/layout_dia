@@ -1,0 +1,252 @@
+.footer {
+  padding: 72px 0 80px;
+
+  background-color: $darkGreyColor;
+  border-top-left-radius: $headerBorderRadius;
+  border-top-right-radius: $headerBorderRadius;
+
+  &__form-wrapper {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+
+      grid-column: 1 / 5;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+
+    font-size: 32px;
+    line-height: 42px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+
+      line-height: 48px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-field-wrapper {
+    position: relative;
+
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    &:nth-last-child(2) {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+
+    .footer__form-field:focus + .footer__form-field-underline {
+      background-color: $darkBlueColor;
+    }
+  }
+
+  &__form-field-underline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+    content: "";
+    height: 2px;
+    background-color: transparent;
+
+    transition: background-color $transitionDuration;
+  }
+
+  &__form-field {
+    width: 100%;
+    padding-bottom: 16px;
+
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: $whiteColor;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $whiteColor;
+
+    transition: border-color $transitionDuration;
+
+    &::placeholder {
+      color: #ffffff70;
+    }
+
+    &:focus {
+      border-bottom-color: transparent;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px $darkGreyColor inset;
+      -webkit-text-fill-color: $whiteColor;
+    }
+
+    &--textarea {
+      display: block;
+
+      font-family: inherit;
+      font-size: inherit;
+
+      resize: none;
+
+      scrollbar-width: thin;
+      scrollbar-color: $darkBlueColor transparent;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $darkBlueColor;
+        border-radius: 10px;
+        border: none;
+      }
+    }
+  }
+
+  &__button {
+    border: none;
+  }
+
+  &__contacts {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 140px;
+
+      grid-column: 1 / 7;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__info {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__info-title {
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  &__info-link {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: $whiteColor;
+    text-decoration: none;
+
+    transition: color $transitionDuration;
+
+    &:hover {
+      color: $blueColor;
+    }
+  }
+
+  &__info-socials {
+    display: flex;
+    column-gap: 32px;
+  }
+
+  &__social-link {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image $transitionDuration;
+
+    &--facebook {
+      background-image: url(../images/icons/fb-icon.svg);
+
+      &:hover {
+        background-image: url(../images/icons/fb-icon-hover.svg);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/twit-icon.svg);
+
+      &:hover {
+        background-image: url(../images/icons/twit-icon-hover.svg);
+      }
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/insta-icon.svg);
+
+      &:hover {
+        background-image: url(../images/icons/insta-icon-hover.svg);
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: max-content;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 26px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+    }
+  }
+}

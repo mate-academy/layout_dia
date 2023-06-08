@@ -1,0 +1,58 @@
+.nav-link {
+  $letterSpacing: 3px;
+
+  position: relative;
+
+  display: block;
+  width: max-content;
+  padding: 8px 0;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: $letterSpacing;
+  text-transform: uppercase;
+  color: $whiteColor;
+  text-decoration: none;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: $letterSpacing;
+
+    content: "";
+    display: block;
+    height: 2px;
+
+    background-color: transparent;
+    border-radius: 4px;
+
+    transition: background-color $transitionDuration;
+  }
+
+  &:hover::after {
+    background-color: $blueColor;
+  }
+
+  &--hire-us {
+    margin-left: auto;
+
+    &::after {
+      background-color: $blueColor;
+    }
+
+    @include onSmallDesktop {
+      margin-left: 0;
+    }
+  }
+
+  &--menu {
+    color: $darkGreyColor;
+
+    &:hover::after {
+      background-color: $darkGreyColor;
+    }
+  }
+}

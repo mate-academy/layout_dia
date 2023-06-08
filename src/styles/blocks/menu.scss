@@ -1,0 +1,64 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  transform: translateY(-110%);
+
+  padding: 20px 0 50px;
+
+  background-color: $greyColor;
+  box-shadow: 0 2px 10px #000;
+
+  transition: transform $transitionDuration;
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+
+  &__cross {
+    position: relative;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+
+    transition: transform $transitionDuration;
+
+    &:hover {
+      transform: rotateZ(90deg);
+    }
+
+    &::after, &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      display: block;
+      content: "";
+      width: 100%;
+      height: 4px;
+
+      background-color: $darkGreyColor;
+      border-radius: 2px;
+    }
+
+    &::before {
+      transform: translateY(-50%) rotateZ(-45deg);
+    }
+
+    &::after {
+      transform: translateY(-50%) rotateZ(45deg);
+    }
+  }
+}
