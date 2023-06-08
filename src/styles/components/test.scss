@@ -1,0 +1,165 @@
+.test {
+  padding: 150px 0;
+
+  @include onMobile {
+    padding: 80px 0 0;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onMobile {
+      margin-bottom: 40px;
+    }
+
+    transition: 1s ease-out background-color;
+  }
+
+  &__main-holder {
+    margin-bottom: 85px;
+  }
+
+  &__pretitle {
+    width: fit-content;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+
+  &__title {
+    width: fit-content;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    /* or 48px */
+    display: flex;
+    align-items: center;
+    color: $main-dark;
+  }
+
+  &__image-holder {
+    height: 200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: -5px;
+      height: 110px;
+      width: 44px;
+      border-radius: 12px;
+      transform: rotate(30deg);
+      background-color: $main-blue;
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      right: -5px;
+      height: 110px;
+      width: 44px;
+      border-radius: 12px;
+      transform: rotate(30deg);
+      background-color: $main-blue;
+      z-index: 0;
+    }
+  }
+
+  &__image {
+    // aspect-ratio: 1/1;
+    border-radius: 50%;
+    height: 110px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: relative;
+      top: 0;
+      height: 110px;
+      width: 44px;
+      background-color: $main-blue;
+    }
+  }
+
+  &__card-text {
+    padding: 30px 20px 20px;
+    color: #6c788b;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    /* or 20px */
+    text-align: center;
+
+    &::before {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      content: "“";
+      display: block;
+      color: $main-blue;
+      font-size: 70px;
+    }
+
+    @include onTablet {
+      max-width: 60%;
+    }
+
+    @include onMobile {
+      max-width: 90%;
+    }
+  }
+
+  &__name {
+    margin: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    /* identical to box height, or 20px */
+    text-align: center;
+  }
+
+  &__position {
+    margin: 5px;
+    color: #c0cdd7;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    transition: 1s ease-in color;
+  }
+
+  &__card:hover {
+    & .test__position {
+      color: #6c788b;
+    }
+
+    background-color: #c0cdd7;
+  }
+}

@@ -1,0 +1,83 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include onLarge {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  @include onDefault {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+
+  &--3-rows-mobile {
+    @include onMobile {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+  }
+
+  &__desktop {
+    display: block;
+
+    @include onBiggerThanMobile {
+      display: grid;
+    }
+  }
+
+  &__desktop-no-tabl {
+    display: block;
+
+    @include onBiggerThanMobile {
+      display: grid;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        @include onLarge {
+          &--big-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+        @include onDefault {
+          &--big-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+        @include onDesktop {
+          &--big-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        @include onTablet {
+          &--med-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
