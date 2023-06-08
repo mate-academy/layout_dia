@@ -1,10 +1,12 @@
 'use strict';
 
+const page = document.querySelector('.page');
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
-    document.body.classList.add('page__body--with-menu');
+    page.style.overflowY = 'hidden';
   } else {
-    document.body.classList.remove('page__body--with-menu');
+    page.style.overflowY = 'scroll';
   }
 });
 
