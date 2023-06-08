@@ -1,0 +1,123 @@
+.testimonial {
+  @extend %card-style;
+  @include rectangle(280px, 456px);
+
+  box-sizing: border-box;
+  padding: 32px 36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include hover(transform, $transform);
+
+  @include onTablet {
+    @include rectangle(558px, 478px);
+    padding: 32px 98px;
+  }
+
+  @include onSmallDesktop {
+    @include rectangle(292px, 456px);
+    padding: 32px 42px;
+  }
+
+  @include onDesktop {
+    @include rectangle(362px, 494px);
+  }
+
+  &__image-wrapper {
+    @include square(196px);
+
+    margin: 0 auto;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      @include square(250px);
+    }
+
+    @include onSmallDesktop {
+      @include square(196px);
+    }
+
+    @include onDesktop {
+      @include square(250px);
+    }
+
+    &::before {
+      @include avatarBeforeAndAfter;
+      transform: rotate(-60deg) translate(10px, -50px);
+    }
+
+    &::after {
+      @include avatarBeforeAndAfter;
+      transform: rotate(-60deg) translate(-10px, 50px);
+    }
+  }
+
+  &__image {
+    @include square(110px);
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 2;
+
+    cursor: pointer;
+    @include hover(transform, $transform);
+
+    @include onTablet {
+      @include square(140px);
+    }
+
+    @include onSmallDesktop {
+      @include square(110px);
+    }
+
+    @include onDesktop {
+      @include square(140px);
+    }
+  }
+
+  &__paragraph {
+    @extend %paragraph-style-3;
+    text-align: center;
+
+    margin: 0;
+    position: relative;
+
+    &::before {
+      @include square(20px);
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include backgroundImage;
+      background-image: url("../images/quote.svg");
+      background-size: contain;
+    }
+  }
+
+  &__author {
+    text-align: center
+  }
+
+  &__name {
+    @extend %paragraph-style-3;
+    color: $color-title;
+    text-decoration: none;
+    margin-bottom: 4px;
+
+    @include hover(font-size, 14px);
+  }
+
+  &__company {
+    @extend %custom-font-style;
+    color: $color-subtitle;
+    margin: 0;
+  }
+}

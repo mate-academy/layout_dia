@@ -1,0 +1,43 @@
+.page {
+  --page-section-gap: 120px;
+
+  scroll-behavior: smooth;
+
+  @include onTablet {
+    --page-section-gap: 148px;
+  }
+
+  &__body {
+    background-color: #e5e5e5;
+    margin: 0;
+    font-weight: 600;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: $transition;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__section {
+    margin-bottom: var(--page-section-gap);
+
+    @include onTablet {
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}

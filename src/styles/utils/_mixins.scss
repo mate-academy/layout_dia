@@ -1,6 +1,99 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $toValue) {
+  transition: #{$property} ease-in-out 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
   }
+}
+
+@mixin gray-section {
+  background-color: $color-gray;
+  color: #fff;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin rectangle($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin backgroundImage {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin grid {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin serviceCardNumber {
+  color: $color-blue;
+  background: rgba(32, 96, 246, 0.1);
+  border-radius: 23px;
+  padding: 2px 12px;
+}
+
+@mixin avatarBeforeAndAfter {
+  @include rectangle(108px, 44px);
+  content: "";
+  position: absolute;
+  background: #2060F6;
+  border-radius: 12px;
+
+  @include onTablet {
+    @include rectangle(139px, 56px);
+  }
+
+  @include onSmallDesktop {
+    @include rectangle(108px, 44px);
+  }
+
+  @include onDesktop {
+    @include rectangle(139px, 56px);
+  }
+}
+
+@mixin underline {
+  content: "";
+    border-radius: 4px;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    pointer-events: none;
 }

@@ -1,0 +1,45 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__menu-icon {
+    @include square(24px);
+    @include  backgroundImage;
+    background-image: url(../images/menu.svg);
+    background-size: cover;
+
+    display: inline-block;
+    margin-left: 30px;
+
+    @include hover(transform, scale(0.9));
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__cross-icon {
+    @include square(14px);
+    @include backgroundImage;
+    background-image: url("../images/cross.svg");
+    display: block;
+
+    @include hover(transform, scale(0.9));
+  }
+
+  &__link {
+    @extend %custom-font-style ;
+    text-decoration: none;
+    position: relative;
+
+    &--hire {
+      @include hover(color, $color-blue);
+
+      &::after {
+        @include underline;
+        background-color: $color-blue;
+      }
+    }
+  }
+}

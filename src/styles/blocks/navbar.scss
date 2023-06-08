@@ -1,0 +1,79 @@
+.navbar {
+  &--header {
+     display: none;
+
+     @include onSmallDesktop {
+      display: block;
+    }
+  }
+
+  &--footer {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    gap: 48px;
+
+    &--menu {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &--footer {
+      flex-direction: column;
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+      }
+
+      @include onSmallDesktop{
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %custom-font-style ;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      @include underline;
+      background-color: transparent;
+
+      transition: $transition;
+    }
+
+    &:hover {
+      &::after {
+        background-color: $color-blue;
+      }
+    }
+
+    &:active {
+      &::after {
+        background-color: transparent;
+      }
+    }
+  }
+}

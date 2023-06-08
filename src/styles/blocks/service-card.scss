@@ -1,0 +1,75 @@
+.service-card {
+  @extend %card-style;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  width: 280px;
+  height: 264px;
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+
+  @include hover (transform, $transform);
+
+  @for $card-number from 1 through 4 {
+    &:nth-child(#{$card-number})::before {
+      content: "00#{$card-number}";
+      color: $color-blue;
+      background: rgba(32, 96, 246, 0.1);
+      border-radius: 23px;
+      padding: 2px 12px;
+      width: max-content;
+    }
+  }
+
+  @include onTablet {
+    width: 264px;
+  }
+
+  @include onSmallDesktop {
+    width: 214px;
+  }
+
+  @include onDesktop {
+    width: 264px;
+  }
+
+  &__list {
+    @extend %paragraph-style-3;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__learn-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 152px;
+    height: 48px;
+
+    @extend %poppins-semibold;
+    color: #334563;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration: none;
+
+    & > &-arrow, & > &-text  {
+      cursor: pointer;
+    }
+
+    & > &-arrow {
+      padding: 12px;
+      background-color: $color-blue;
+      border-radius: 50%;
+
+      transition: $transition;
+    }
+
+    &:hover > &-arrow  {
+      padding: 16px;
+    }
+  }
+}
