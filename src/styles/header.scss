@@ -1,0 +1,146 @@
+.header {
+  padding-top: 18px;
+  background-color: $header-background;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: relative;
+  padding-bottom: 438px;
+
+  @include onTablet {
+    padding-bottom: 537px;
+  }
+
+  @include onLaptop {
+    padding-bottom: 205px;
+    padding-top: 50px;
+    min-height: 800px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__burger-line {
+    display: block;
+    height: 2px;
+    width: 20px;
+    margin-bottom: 4px;
+    background-color: $header-footer-font-color;
+    transition: transform 0.2s ease-in-out, margin-bottom 0.2s ease-in-out;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__burger-menu {
+    cursor: pointer;
+
+    &--active {
+      .header__burger-line:last-child {
+        transform-origin: left;
+        transform: rotate(-45deg);
+      }
+
+      .header__burger-line:first-child {
+        transform-origin: left;
+        transform: rotate(45deg);
+        margin-bottom: 12px;
+      }
+    }
+
+    @include onLaptop {
+      display: none;
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $header-footer-font-color;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $button-background;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $button-background;
+      position: absolute;
+      bottom: -8px;
+      left: -1px;
+    }
+  }
+
+  &__title {
+    margin-top: 48px;
+    grid-column: 1 / -1;
+    font-family: "Poppins", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: $header-footer-font-color;
+
+    @include onTablet {
+      margin-top: 56px;
+    }
+
+    @include onLaptop {
+      margin-top: 168px;
+      grid-column: span 5;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 32px;
+    grid-column: span 2;
+    font-family: "Open Sars", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: $header-footer-font-color;
+
+    @include onTablet {
+      grid-column: span 4;
+      margin-top: 24px;
+    }
+
+    @include onLaptop {
+      margin-top: 32px;
+      grid-column: span 5;
+      grid-row: 3 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+}
