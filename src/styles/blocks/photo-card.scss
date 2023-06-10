@@ -1,0 +1,190 @@
+.photo-card {
+  box-sizing: border-box;
+  padding: 32px 42px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  @include middle {
+    padding: 32px 98px;
+  }
+
+  @include desktop {
+    height: 456px;
+    padding: 32px 42px;
+  }
+
+  @include large {
+    height: 494px;
+    padding: 32px 56px;
+  }
+
+  &__photo {
+    z-index: 1;
+    border-radius: 50%;
+
+    @include middle {
+      height: 140px;
+      width: 140px;
+    }
+
+    @include desktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include large {
+      height: 140px;
+      width: 140px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 27px;
+    height: 196px;
+    width: 196px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      bottom: 110px;
+      display: block;
+      height: 44px;
+      width: 110px;
+      background-color: $color-blue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 110px;
+      display: block;
+      height: 44px;
+      width: 110px;
+      background-color: $color-blue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+    }
+
+    @include middle {
+      height: 250px;
+      width: 250px;
+
+      &::before {
+        width: 140px;
+        height: 56px;
+        bottom: 140px;
+      }
+
+      &::after {
+        width: 140px;
+        height: 56px;
+        top: 140px;
+      }
+    }
+
+    @include desktop {
+      height: 196px;
+      width: 196px;
+
+      &::before {
+        width: 110px;
+        height: 44px;
+        bottom: 110px;
+      }
+
+      &::after {
+        width: 110px;
+        height: 44px;
+        top: 110px;
+      }
+    }
+
+    @include large {
+      height: 250px;
+      width: 250px;
+
+      &::before {
+        width: 140px;
+        height: 56px;
+        bottom: 140px;
+      }
+
+      &::after {
+        width: 140px;
+        height: 56px;
+        top: 140px;
+      }
+    }
+  }
+
+  &__text {
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: $font-color--grey;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 19px;
+      width: 21px;
+      margin: 0 auto 18px;
+      background-image: url(../images/testimonials/“.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &__name {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: $font-color;
+
+    &::after {
+      content: "Teach for America";
+      display: block;
+      margin-top: 4px;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c0cdd7;
+    }
+
+    &--after1 {
+      &::after {
+        content: "Hawkins Consulting";
+      }
+    }
+
+    &--after2 {
+      &::after {
+        content: "Hulu";
+      }
+    }
+  }
+}
