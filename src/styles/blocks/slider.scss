@@ -1,0 +1,104 @@
+@mixin arrow-left($color) {
+  background-image: url('data:image/svg+xml;utf8,<svg width="15" height="26" viewBox="0 0 15 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.2305 1L1.23047 13L13.2305 25" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+@mixin arrow-right($color) {
+  background-image: url('data:image/svg+xml;utf8,<svg width="15" height="26" viewBox="0 0 15 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.23047 0.999999L13.2305 13L1.23047 25" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  background-image: url(../images/header-bg-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2rem;
+
+  @include onDesktop {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 90%;
+    border-radius: 2rem 0;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+
+    @include onDesktop {
+      left: 16vw;
+      bottom: 3rem;
+    }
+
+    
+
+    @media (min-width: 1200px) {
+      left: 15vw;
+    }
+
+    @media (min-width: 1600px) {
+      left: 11vw;
+    }
+  }
+
+  &__text-header {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  &__text-body {
+    display: block;
+    width: 14rem;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+
+  &__button {
+    position: absolute;
+    display: block;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    bottom: 8rem;
+    background-color: white;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 0.5rem;
+
+    @include onDesktop {
+      bottom: 5rem;
+    }
+  }
+
+  &__button.prev {
+    @include arrow-left(black);
+    left: 3rem;
+
+   
+  }
+
+  &__button.next {
+    @include arrow-right(black);
+    left: 7rem;
+
+    @include onDesktop {
+      left: 7rem;
+    }
+  }
+}

@@ -1,0 +1,167 @@
+.header {
+  position: relative;
+  box-sizing: border-box;
+  background-color: #2c2c2c;
+  border-radius: 0 0 30px 30px;
+  padding: 0;
+  margin-bottom: -1.4rem;
+
+  @include onDesktop {
+    height: 800px;
+  }
+
+  @include onTabletMore {
+    z-index: 1;
+  }
+
+  &__menu-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 8px;
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    // margin-left: 35px;
+
+    background-image: url(../images/menu-opener.svg);
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__cross {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../images/cross.svg);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 164px;
+      gap: 136px;
+    }
+
+    @media (min-width: 1600px) {
+      gap: 250px;
+    }
+  }
+
+  &__logo {
+    height: 25px;
+  }
+
+  &__hire-us {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #144ed5;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 67px;
+      height: 2px;
+      margin-top: 8px;
+      border-radius: 4px;
+      background-color: #2060f6;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: #fff;
+
+    @include onDesktop {
+      max-width: 35%;
+    }
+  
+    @include onTabletMore {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 72px;
+    color: #fff;
+    max-width: 22rem;
+  
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 83px;
+    }
+  }
+
+  &__content {
+    margin-bottom: 3rem;
+    padding-top: 20px;
+
+    @media (min-width: 360px) {
+      margin-bottom: 4rem;
+    }
+    @media (min-width: 460px) {
+      margin-bottom: 8rem;
+    }
+    @include onTablet {
+      margin-bottom: 10rem;
+    }
+
+    &-menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      background: #2c2c2c;
+      margin-bottom: 0;
+      z-index: 1000;
+
+      transform: translateX(-200%);
+      transition: transform 0.5s;
+      
+      &:target {
+        transform: translateX(0);
+      }
+    }
+  }
+}
