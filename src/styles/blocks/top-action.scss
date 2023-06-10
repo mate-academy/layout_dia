@@ -1,0 +1,81 @@
+.top-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+
+  @include onDesktop {
+    padding: 48px 0;
+  }
+
+  &__menu-icon {
+    position: absolute;
+    left: 80px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &--central {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      margin-top: 8px;
+      height: 2px;
+      background-color: #2060f6;
+      background-repeat: 4px;
+      width: 0;
+
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--hoverOn {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &--nav {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+
+    @media (min-width: 743px) and (max-width: 850px) {
+      gap: 25px;
+    }
+  }
+}
