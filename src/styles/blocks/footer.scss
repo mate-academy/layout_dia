@@ -1,0 +1,91 @@
+.footer {
+  background-color: $dark-color;
+  border-radius: 30px 30px 0 0;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+      }
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+    &__link {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: inherit;
+
+      &::after {
+        content: "";
+        width: 0%;
+        height: 2px;
+        background-color: $blue-color;
+        border-radius: 4px;
+        display: inline-block;
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover {
+        color: $white-color;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+    &__image {
+      margin-bottom: 49px;
+
+      @include onTablet {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+.message {
+  &__field {
+    margin: 0 0 40px;
+
+    @include onTablet {
+      margin: 0 0 48px;
+    }
+
+    &--last {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+  }
+}

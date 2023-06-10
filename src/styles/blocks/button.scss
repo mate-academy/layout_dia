@@ -1,0 +1,46 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  position: relative;
+
+  width: 100%;
+  height: 50px;
+  background-color: $blue-color;
+  border-radius: 8px;
+
+  @include onTablet {
+    width: 264px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    border-radius: 8px;
+    transition: width 0.5s ease-in;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 22px;
+    color: $white-color;
+  }
+}
