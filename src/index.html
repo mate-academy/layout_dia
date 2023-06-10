@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Dia</title>
     <link
       rel="icon"
@@ -22,6 +22,18 @@
       crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="scripts/main.js" defer></script>
+    <script type="module">
+      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+    
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+
+        navigation: {
+          nextEl: '#nextSlide',
+          prevEl: '#prevSlide',
+        },
+      });
+    </script>
   </head>
 
   <body>
@@ -85,7 +97,7 @@
         <div class="grid">
           <div 
             class="
-              grid__item 
+              grid__item
               grid__item--desktop-1-4
               grid__item--tablet-1-6"
           >
@@ -111,36 +123,45 @@
         </div>
       </div>
 
-      <div class="slider">
-        <div class="slider--images">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
           <img
+            class="swiper-slide"
             src="./images/slider/first-slide.png"
             alt="image">
           <img
+            class="swiper-slide"
             src="./images/slider/second-slide.png"
             alt="image">
           <img
+            class="swiper-slide"
             src="./images/slider/third-slide.png"
             alt="image">
         </div>
-  
+
         <div class="selector">
           <div class="selector__buttons">
-            <a class="selector__buttons-vector" href="#">
+            <button 
+              class="selector__buttons-vector"
+              id="prevSlide"
+            >
               <img
                 class="selector-vector" 
-                src="./images/testimonials/slide-vector-left.svg" 
+                src="./images/testimonials/slide-vector-left.svg"
                 alt="vector"
               >
-            </a>
+            </button>
     
-            <a class="selector__buttons-vector" href="#">
+            <button
+              class="selector__buttons-vector"
+              id="nextSlide"
+            >
               <img
                 class="selector-vector" 
                 src="./images/testimonials/slide-vector-right.svg" 
                 alt="vector"
               >
-            </a>
+            </button>
           </div>
     
           <div class="selector__text">
@@ -645,7 +666,7 @@
                   grid__item--desktop-1-3
                   grid__item--tablet-1-3"
                 >
-                <button class="button" type="submit">
+                <button class="button button--send" type="submit">
                   Send
                 </button>
               </div>

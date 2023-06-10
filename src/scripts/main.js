@@ -1,17 +1,22 @@
 'use strict';
 
-const images = document.querySelectorAll('.slider--images img');
-let sliderWidth;
+const images = document.querySelectorAll('.swiper-slide');
+const swiperLine = document.querySelector('.swiper-wrapper');
+let width;
 
-function calculateSliderSize() {
-  sliderWidth = document.querySelector('.slider').offsetWidth;
+function calculateSliderSilze() {
+  width = document.querySelector('.swiper-container').offsetWidth;
+  swiperLine.style.width = width * images.length + 'px';
 
   images.forEach((image) => {
-    image.style.width = sliderWidth;
+    image.style.width = width + 'px';
+    image.style.height = 'auto';
   });
-}
+};
 
-window.addEventListener(('resize'), calculateSliderSize());
+calculateSliderSilze();
+
+window.addEventListener(('resize'), calculateSliderSilze);
 
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
