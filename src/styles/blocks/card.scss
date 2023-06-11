@@ -1,0 +1,210 @@
+.card {
+  border-radius: 16px;
+  background-color: $c-white;
+  transition: all $trans-time;
+
+  &:hover {
+    @include boxShadow;
+  }
+
+  &-services {
+    padding: 32px;
+
+    @include onSmallDesktop {
+      padding-right: 20px;
+    }
+
+    &__num {
+      display: inline-block;
+      padding: 2px 11px;
+      border-radius: 45%;
+      @extend %poppins;
+      font-size: 13px;
+      line-height: 20px;
+      background-color: rgba(32,96,246, 0.1);
+      margin-bottom: 26px;
+      color: $c-blue;
+    }
+
+    &__text {
+      margin-bottom: 32px;
+      @extend %text2;
+      color: $c-blue5;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      @extend %poppins;
+      font-size: 15px;
+      line-height: 22px;
+      color: $c-blue3;
+      transition: all $trans-time;
+
+      &:hover {
+        transform: translateX(2px);
+      }
+
+      &:active {
+        transform: translateX(-1px);
+      }
+    }
+
+    &__vector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      padding: 18px;
+      border-radius: 50%;
+      background-color: $c-blue;
+    }
+  }
+
+  &-response {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 35px 39px 32px;
+    z-index: 1;
+
+    @include onTablet {
+      padding: 36px 98px 32px;
+    }
+
+    @include onSmallDesktop {
+      width: 33.33%;
+      padding: 35px 45px 32px;
+    }
+
+    @include onDesktop {
+      padding: 36px 56px 32px;
+    }
+
+    &__rectangle {
+      --small-height: 44px;
+      --small-width: 109px;
+      --big-height: 56px;
+      --big-width: 139px;
+
+      width: var(--small-width);
+      height: var(--small-height);
+      z-index: 1;
+      border-radius: 12px;
+      background: $c-blue;
+      rotate: -60deg;
+      transition: all 0.3s ease-in-out 0s;
+
+      &--1 {
+        transform: translate(-52px, -15px);
+      }
+
+      &--2 {
+        transform: translate(52px, 15px);
+        margin-bottom: 31px;
+      }
+
+      @include onTablet {
+        width: var(--big-width);
+        height: var(--big-height);
+
+        &--1 {
+          transform: translate(-70px, -18px);
+        }
+
+        &--2 {
+          transform: translate(70px, 18px);
+        }
+      }
+
+      @include onSmallDesktop {
+        width: var(--small-width);
+        height: var(--small-height);
+
+        &--1 {
+          transform: translate(-52px, -15px);
+        }
+
+        &--2 {
+          transform: translate(52px, 15px);
+        }
+      }
+
+      @include onDesktop {
+        width: var(--big-width);
+        height: var(--big-height);
+
+        &--1 {
+          transform: translate(-70px, -18px);
+        }
+
+        &--2 {
+          transform: translate(70px, 18px);
+        }
+      }
+    }
+
+    &:hover .card-response__rectangle--1 {
+      transform: translate(-65px, -15px) scale(1.05);
+    }
+
+    &:hover .card-response__rectangle--2 {
+      transform: translate(65px, 15px) scale(1.02);
+    }
+
+    &__img {
+      display: block;
+      z-index: 2;
+      @include square(110px);
+
+      @include onTablet {
+        @include square(140px);
+      }
+
+      @include onSmallDesktop {
+        @include square(110px);
+      }
+
+      @include onDesktop {
+        @include square(140px);
+      }
+    }
+
+    &__quotes {
+      height: 18px;
+      width: 21px;
+      margin-bottom: 11px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../images/Quotes.svg);
+    }
+
+    &__review {
+      margin-bottom: 16px;
+      @extend %text;
+      text-align: center;
+      color: $c-blue5;
+
+      @include onSmallDesktop {
+        min-height: 80px;
+      }
+    }
+
+    &__name {
+      margin-bottom: 4px;
+      @extend %text2;
+      color: $c-blue4;
+    }
+
+    &__position {
+      @extend %section-word;
+      width: 120%;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+}

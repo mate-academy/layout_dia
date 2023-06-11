@@ -1,0 +1,156 @@
+.slider {
+  position: relative;
+
+  @include onMobile {
+    height: 390px;
+    margin: 0 -#{$padding-m} 0;
+  }
+
+  @include onTablet {
+    padding: 0 0 60%;
+    margin: 0 -#{$padding-t} 0;
+  }
+
+  @include onSmallDesktop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 680px;
+    margin: 0;
+  }
+
+  @include onDesktop {
+    width: 50%;
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  &__container-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: $border-radius;
+
+    @include onSmallDesktop {
+      height: 680px;
+      border-radius: $border-radius 0 $border-radius 0;
+    }
+  }
+
+  &__prev,
+  &__next {
+    position: absolute;
+    bottom: 108px;
+    z-index: 9;
+    @include square(32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $c-white;
+    border-color: transparent;
+    cursor: pointer;
+    transition: all $trans-time;
+
+    @include onSmallDesktop {
+      top: 582px;
+    }
+  }
+
+  &__prev {
+    left: $padding-m;
+    @include slider;
+
+    @include onSmallDesktop {
+      left: 78px;
+    }
+
+    @include onDesktop {
+      left: 46px;
+    }
+  }
+
+  &__next {
+    left: calc(#{$padding-m} + 48px);
+    @include slider;
+
+    @include onSmallDesktop {
+      left: 126px;
+    }
+
+    @include onDesktop {
+      left: 96px;
+    }
+  }
+
+  &__vector {
+    height: 9px;
+    width: 6px;
+  }
+
+  &__intro {
+    position: absolute;
+    left: $padding-m;
+    bottom: 72px;
+    z-index: 9;
+    @extend %poppins2;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include onSmallDesktop {
+      top: 564px;
+      left: 182px;
+    }
+
+    @include onDesktop {
+      left: 152px;
+    }
+  }
+
+  &__quote {
+    position: absolute;
+    left: $padding-m;
+    bottom: 32px;
+    z-index: 9;
+    @extend %open-sans;
+    font-size: 14px;
+    line-height: 20px;
+
+    @include onSmallDesktop {
+      top: 592px;
+      left: 182px;
+    }
+
+    @include onDesktop {
+      left: 152px;
+    }
+  }
+}
+
+#toggle1:checked ~ .slider__container-img--1,
+#toggle2:checked ~ .slider__container-img--2,
+#toggle3:checked ~ .slider__container-img--3 {
+  z-index: 9;
+  animation: scroll 1s ease-in-out;
+
+  @keyframes scroll {
+    0% {
+      opacity: 0.7;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

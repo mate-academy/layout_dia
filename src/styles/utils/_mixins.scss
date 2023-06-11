@@ -1,6 +1,86 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onMobile {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin slider {
   &:hover {
-    #{$_property}: $_toValue;
+    background-color: $c-main;
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@mixin boxShadow {
+  box-shadow: rgba(9, 16, 154, 0.35) 0 5px 15px;
+}
+
+@mixin form {
+  @extend %poppins;
+  font-size: 15px;
+  line-height: 22px;
+  padding-bottom: 16px;
+  color: $c-white;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  transition: all $trans-time;
+
+  &:focus {
+    outline: none;
+    color: #fff;
+    border-color: $c-blue;
+  }
+
+  &:-webkit-autofill {
+    border-bottom: 1px solid $c-blue;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 0 0 1000px $c-dark inset !important;
+  }
+
+  &:not(:focus):not(:placeholder-shown):invalid {
+    outline: none;
+    color: #f00;
+    border-color: $c-blue;
+  }
+
+  &:not(:focus):not(:placeholder-shown):valid {
+    outline: none;
+    color: rgba(255, 255, 255, 0.7);
+    border-color: $c-blue;
   }
 }

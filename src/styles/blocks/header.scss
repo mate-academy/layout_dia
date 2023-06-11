@@ -1,0 +1,142 @@
+.header {
+  --logo-height: 26px;
+
+  position: relative;
+  background-color: $c-dark;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    height: var(--logo-height);
+
+    &--menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+
+      @include onTablet {
+        left: 41px;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 100px;
+    z-index: 999;
+
+    @include onTablet {
+      left: 120px;
+    }
+  }
+
+  &__toggle {
+    width: 18px;
+    height: 2px;
+    margin-bottom: 3px;
+
+    background-color: $c-white;
+    border-radius: 8px;
+    transition: all $trans-time;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+
+    @media (max-width: 1023px) {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      gap: calc(var(--logo-height) * 2);
+      padding: 35vh 0;
+      visibility: hidden;
+      background-color: $c-dark;
+      transition: 0.3s;
+    }
+
+    @include onSmallDesktop {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    @extend %poppins2;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+    transition: all $trans-time;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &--3::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $c-blue;
+      border-radius: 8px;
+      transform: scaleX(1);
+      transition: all 0.25s ease-in;
+    }
+
+    &:hover::after {
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+  }
+
+  &__checkbox:checked ~ .header__icon {
+    @media (max-width: 1023px) {
+      .header__toggle {
+        position: fixed;
+
+        &--1 {
+          transform: rotate(45deg) translate(-1px, 1px);
+        }
+
+        &--2 {
+          transform: rotate(-45deg) translate(-1px, -1px);
+        }
+      }
+    }
+  }
+
+  &__checkbox:checked ~ .header__menu {
+    left: 0;
+    z-index: 99;
+    visibility: visible;
+  }
+}
