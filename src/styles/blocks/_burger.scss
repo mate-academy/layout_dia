@@ -1,0 +1,48 @@
+.burger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  height: 8px;
+  width: 20px;
+  transition: transform 0.3s;
+
+  @include tablet {
+    display: block;
+  }
+
+  &:hover {
+    transform: scale(1.3);
+  }
+  
+  &::after,
+  &::before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: $ligth-color;
+  }
+
+  &::after {
+    top: 0;
+  }
+  
+  &::before {
+    bottom: 0;
+  }
+  
+  &--close {
+    display: block;
+    
+    &::after {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+
+    &::before {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+  }
+}

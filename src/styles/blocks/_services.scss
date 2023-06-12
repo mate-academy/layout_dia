@@ -1,0 +1,169 @@
+.services {
+  padding: 148px 0;
+
+  @include mobile {
+    padding: 120px 0;
+  }
+  
+  &__content {
+    display: flex;
+    justify-content: space-between;
+   
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+  
+  &__info {
+    max-width: 362px;
+
+    @include laptop {
+      max-width: 292px;
+    }
+  }
+  
+  &__title {
+    color: $color-light-title;
+    margin-bottom: 16px;
+  }
+
+  &__sabtitle {
+    line-height: 41.6px;
+    color: $dark-color;
+    margin-bottom: 24px;
+
+    @include tablet {
+      width: 264px;
+    }
+  }
+  
+  &__text {
+    font-size: 14px;
+    line-height: 150%;
+    color: #6c788b;
+
+    @include tablet {
+      margin-bottom: 56px;
+      max-width: 262px;
+    }
+
+    @include mobile {
+      margin-bottom: 48px;
+      min-width: 100%;
+
+    }
+  }
+  
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include laptop {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 30px;
+    }
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 24px 0;
+    }
+  }
+
+  &__card {
+    background-color: $ligth-color;
+    border-radius: 16px;
+    max-width: 264px;
+    padding: 32px 32px 28px;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 15px $gray-color;
+    }
+
+    @include laptop {
+      width: 214px;
+      padding: 32px;
+    }
+  
+    @include tablet {
+      width: 264px;
+    }
+  
+    @include mobile {
+      min-width: 100%;
+    }
+
+    &:nth-child(2n) {
+      transform: translateY(-50%);
+
+      @include mobile {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__card-num {
+    display: inline-block;
+    padding: 2px 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: rgba(32, 96, 246, 0.1);
+    color: $acsent-color;
+    border-radius: 23px;
+    margin-bottom: 24px;
+  }
+
+  &__card-desc {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $gray-color;
+    margin-bottom: 32px;
+    width: 200px;
+  }
+
+  &__wrap-link {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+  }
+
+  &__card-link {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: $acsent-color;
+    border-radius: 50%;
+    background-image: url(../images/services-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ;
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "Learn more";
+      width: max-content;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-left: 16px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
