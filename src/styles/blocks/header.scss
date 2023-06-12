@@ -1,0 +1,91 @@
+.header {
+  background-color: $page-bg-black;
+  color: $page-bg;
+  
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 0;
+
+    @include onSmaleDesktop {
+      padding: 49px 0 36px;
+    }
+  }
+
+  &__item {
+    margin-top: 8px;
+    padding-bottom: 8px;
+    @include fontFamilyPoppins13;
+    letter-spacing: 3px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $page-bg;
+    border-bottom: 2px solid transparent;
+    transition: all 1.3s;
+    
+    &:hover {
+      border-color: $colorButton;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onSmaleDesktop {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 48px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $page-bg;
+    cursor: pointer;
+  }
+ 
+  &__burger {
+    position: absolute;
+    display: block;
+    top: 32px;
+    left: 90px;
+    width: 18px;
+    height: 15px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    z-index: 100;
+
+    @include onTablet {
+      left: 120px;
+    }
+    
+    @include onSmaleDesktop {
+      display: none;
+    }
+  }
+
+  &__burger::before {
+    @include lineBurger-menu;
+    top: 0;
+  }
+
+  &__burger::after {
+    @include lineBurger-menu;
+    top: 6px;
+  }
+
+  &__burger.active::before {
+    transform: rotate(45deg);
+    top: 3px;
+  }
+
+  &__burger.active::after {
+    transform: rotate(-45deg);
+    top: 3px;
+  }
+}
