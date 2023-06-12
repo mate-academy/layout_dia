@@ -1,24 +1,15 @@
 .header {
-  padding: $headerTopPadding 0 0;
   position: relative;
   background-color: $dark-grey;
   border-radius: 0 0 30px 30px;
-
-  @include onDesktop {
-    padding: $headerTopPaddingDesk 0 0;
-    height: 800px;
-  }
-
-  @include onLaptop {
-    padding: $headerTopPaddingDesk 0 0;
-    height: 800px;
-  }
+  height: 800px;
 
   @include onTablet {
     height: 720px;
   }
 
   &__title {
+    width: 100%;
     margin: 0;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -27,54 +18,55 @@
     letter-spacing: -2px;
     color: $white;
     margin-bottom: 32px;
+    grid-column: 1 / 5;
 
-    @include onPhone {
-      font-size: 52px;
-      line-height: 120%;
+    @include onLaptop {
+      grid-column: 1 / 6;
     }
 
     @include onTablet {
-      margin-bottom: 24px;
       grid-column: 1 / 7;
     }
 
-    @include onLaptop {
-      grid-column: 1 / 5;
+    @include onPhone {
+      font-size: 52px;
     }
   }
 
   &__subtitle {
-    margin: 0 0 72px;
+    margin: 0 0 84px;
     font-family: "Open Sans", serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
     color: $white;
-
-    @include onTablet {
-      margin-bottom: 56px;
-      grid-column: 1 / 5;
-    }
+    grid-column: 1 / 5;
 
     @include onLaptop {
       grid-column: 1 / 6;
-      margin-bottom: 84px;
     }
 
-    @include onDesktop {
+    @include onTablet {
       grid-column: 1 / 5;
+      margin-bottom: 56px;
+    }
+
+    @include onPhone {
+      display: inline-block;
+      margin-bottom: 72px;
+
     }
   }
 
   &__nav {
-    margin-bottom: 48px;
+    margin-bottom: 165px;
 
     @include onTablet {
       margin-bottom: 56px;
     }
 
-    @include onLaptop {
-      margin-bottom: 165px;
+    @include onPhone {
+      margin-bottom: 48px;
     }
   }
 
@@ -87,5 +79,13 @@
   &__button {
     padding: 0;
     margin: 0 0 205px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+
+    @include onPhone {
+      margin-bottom: 48px;
+    }
   }
 }
