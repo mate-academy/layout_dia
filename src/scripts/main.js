@@ -42,3 +42,11 @@ document.querySelector('.slider__button-prev')
 
     sliderItem.style.transform = 'translateX(-' + offset + '%)';
   });
+
+const pageReload = document.querySelector('#form-reload');
+
+pageReload.addEventListener('submit', function formReload(event) {
+  event.preventDefault();
+
+  pageReload.reset();
+});
