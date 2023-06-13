@@ -4,3 +4,44 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin smartphone {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin smalldesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin gridPage {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include  smartphone {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include smalldesktop() {
+    --columns: 12;
+    column-gap: 24px;
+  }
+}
