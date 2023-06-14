@@ -1,0 +1,137 @@
+.services {
+  &__title {
+    margin-bottom: 48px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $colortext;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 260px);
+    }
+
+    @include onDesktop {
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, 214px);
+    }
+
+    @include onLargeDesktop {
+      gap: 30px;
+      grid-template-columns: repeat(auto-fill, 264px);
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    padding: 32px;
+    height: 264px;
+    background: $colorWhite;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 20px;
+    transition: transform 0.5s;
+
+    @include onTablet {
+      width: 260px;
+      height: 260px;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include onDesktop {
+      width: 214px;
+      height: 264px;
+      padding-bottom: 28px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &:hover:nth-child(2n) {
+        transform: scale(1.05) translateY(-50%);
+      }
+    }
+
+      @include onLargeDesktop {
+        width: 264px;
+        height: 264px;
+      }
+
+      &-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 24px;
+        margin-bottom: 24px;
+
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 20px;
+        color: $colorBlue;
+        background-color: $bgpcolor;
+        border-radius: 20px;
+      }
+
+      &-about {
+        margin-bottom: 32px;
+        font-family: 'Open Sans';
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 150%;
+        color: $colortext;
+      }
+
+      &-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $colorBlue;
+
+        &::before {
+          content: "Lern more";
+          position: absolute;
+          left: 130%;
+          display: flex;
+          width: max-content;
+
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-size: 15px;
+          color: $learnMore;
+        }
+
+
+        @include onDesktop {
+          &::before {
+            left: 10px;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s, transform 2s;
+          }
+
+          &:hover::before {
+            transform: translateX(50%);
+            opacity: 1;
+            pointer-events: all;
+          }
+        }
+      }
+  }
+}

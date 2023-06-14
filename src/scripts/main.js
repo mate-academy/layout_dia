@@ -1,30 +1,34 @@
 'use strict';
 
-let offset = 0;
+let currentOffset = 0;
 const sliderLine = document.querySelector('.slider__line');
-const sliderButtonRight = document.querySelector('.slider__button-right');
-const sliderButtonLeft = document.querySelector('.slider__button-left');
+const buttonRight = document.querySelector('.slider__button-right');
+const buttonLeft = document.querySelector('.slider__button-left');
 
-// Click event for the right button
-sliderButtonRight.addEventListener('click', function() {
-  offset = offset + 33.333333;
+const slideWidthPercentage = 100 / 3; // Width of each slide in percentage
 
-  // Check if offset exceeds the maximum value
-  if (offset > 66.6666666) {
-    offset = 0;
+// Click event handler for the "Right" button
+buttonRight.addEventListener('click', function() {
+  currentOffset += slideWidthPercentage;
+
+  // Check if the current offset exceeds the maximum value
+  const maxOffset = slideWidthPercentage * 2;
+
+  if (currentOffset > maxOffset) {
+    currentOffset = 0;
   }
-  sliderLine.style.transform = 'translateX(-' + offset + '%)';
+  sliderLine.style.transform = `translateX(-${currentOffset}%)`;
 });
 
-// Click event for the left button
-sliderButtonLeft.addEventListener('click', function() {
-  offset = offset - 33.333333;
+// Click event handler for the "Left" button
+buttonLeft.addEventListener('click', function() {
+  currentOffset -= slideWidthPercentage;
 
-  // Check if offset becomes negative
-  if (offset < 0) {
-    offset = 66.6666666;
+  // Check if the current offset becomes negative
+  if (currentOffset < 0) {
+    currentOffset = slideWidthPercentage * 2;
   }
-  sliderLine.style.transform = 'translateX(-' + offset + '%)';
+  sliderLine.style.transform = `translateX(-${currentOffset}%)`;
 });
 
 window.addEventListener('hashchange', () => {
