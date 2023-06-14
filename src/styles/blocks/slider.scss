@@ -1,0 +1,97 @@
+.slider {
+  height: 390px;
+  position: relative;
+  width: 100%;
+
+  @include onSmallDekstop {
+    height: 680px;
+  }
+
+  &__arrow {
+    margin-bottom: 16px;
+  }
+
+  &__item {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 250px 20px 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+
+    @include onTab {
+      padding: 250px 20px 0 40px;
+    }
+
+    @include onSmallDekstop {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      padding: 582px 20px 0 78px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onSmallDekstop {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &__item-1 {
+    z-index: 2;
+    opacity: 1;
+    background-image: url(../images/photo/watch_big.png);
+  }
+
+  &__item-2 {
+    background-image: url(../images/photo/slide_1.png);
+    background-position: bottom;
+  }
+
+  &__item-3 {
+    background-image: url(../images/photo/slide_2.png);
+  }
+
+  #item-1,
+  #item-2,
+  #item-3 {
+    position: fixed;
+  }
+
+  *:target ~ &__item-1 {
+    opacity: 0;
+  }
+
+  #item-1:target ~ &__item-1 {
+    opacity: 1;
+  }
+
+  #item-2:target ~ &__item-2,
+  #item-3:target ~ &__item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
+}
