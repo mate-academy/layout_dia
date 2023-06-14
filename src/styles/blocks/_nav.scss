@@ -1,0 +1,55 @@
+.nav {
+
+  &--disable {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+
+    &--footer {
+      flex-direction: column;
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+      }
+
+      @include onDesktop{
+        gap: 64px;
+      }
+
+    }
+    }
+
+
+
+  &__link {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorWhite;
+
+    &:hover::after {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      margin-top: 10px;
+      height: 2px;
+      background-color: $colorBlue;
+
+      animation: sliden 0.5s;
+    }
+  }
+}

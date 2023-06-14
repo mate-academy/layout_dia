@@ -1,0 +1,129 @@
+.slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 503px;
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  @include onDesktop {
+    left: 50%;
+    top: 120px;
+
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &__line {
+    position: relative;
+
+    display: flex;
+    height: 100%;
+    width: 300%;
+
+    transition: transform 0.5s;
+  }
+
+  &__item {
+    width: 33.33%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+
+    &-1 {
+      background-image: url(../images/slider/slider-1.png);
+    }
+
+    &-2 {
+      background-image: url(../images/slider/slider-2.png);
+    }
+
+    &-3 {
+      background-image: url(../images/slider/slider-3.png);
+      background-position: bottom;
+    }
+  }
+
+  &__actions {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    right: 20px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onDesktop {
+      gap: 24px;
+      left: 78px;
+      bottom: 48px;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    width: 80px;
+    height: 32px;
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: $colorWhite;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &-left {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &-right {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorWhite;
+
+    &::after {
+      display: block;
+      content: "By the same illusion which lifts the horizon.";
+      max-width: 260px;
+
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      text-transform: none;
+      letter-spacing: normal;
+      color: $colorWhite;
+      margin-top: 8px;
+    }
+  }
+
+}
+
