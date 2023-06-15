@@ -1,15 +1,35 @@
 .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
+  @include gridPage;
 
-  @include smartphone {
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 20px;
-  }
+  &__card {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--smartphone--#{$start}-#{$end} {
+          @include smartphone {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
 
-  @include smalldesktop {
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--smalldesktop--#{$start}-#{$end} {
+          @include smalldesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop--#{$start}-#{$end} {
+          @include desktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
   }
 }
