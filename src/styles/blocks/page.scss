@@ -1,0 +1,60 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+    box-sizing: border-box;
+    background-color: #e5e5e5;
+
+    &--with-nav {
+      overflow: hidden;
+    }
+  }
+
+  &__start {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    background-color: $black-back;
+    border-radius: 0 0 30px 30px;
+
+    @include onDesktop {
+      max-height: 800px;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    padding: 18px 20px;
+    
+    @include onTablet {
+      padding: 18px 41px;
+    }
+    
+    @include onDesktop {
+      display: none;
+    }
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__footer {
+    @include onTablet {
+      margin-top: -56px;
+    }
+  }
+
+  font-family: $main-font;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $main-dark;
+}
