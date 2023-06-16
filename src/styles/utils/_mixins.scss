@@ -1,6 +1,69 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
   }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin hover($_property, $_toValue, $_duration: $primaryDuration) {
+  transition: #{$_property} $_duration;
+
+  @include onDesktop {
+    &:hover {
+      #{$_property}: $_toValue;
+    }
+  }
+}
+
+@mixin square($_size) {
+  width: $_size;
+  height: $_size;
+}
+
+@mixin flex($_alignI, $_justifyC: normal) {
+  display: flex;
+  align-items: $_alignI;
+  justify-content: $_justifyC;
+}
+
+@mixin font($_size, $_weight: normal, $_letterS: normal) {
+  font-size: $_size;
+  font-weight: $_weight;
+  letter-spacing: $_letterS;
+}
+
+@mixin top-actions {
+  @include flex(center, space-between);
+}
+
+@mixin headerAction {
+  display: inline-block;
+  height: 30px;
+  line-height: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+
+  @include font(13px, 700, 3px);
+
+  &::after {
+    content: "";
+    height: 2px;
+    border-radius: 4px;
+    background-color: $primaryColor;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@mixin cardsHover {
+  @include hover(transform, scale(1.1));
 }

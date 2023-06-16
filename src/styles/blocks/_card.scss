@@ -1,0 +1,85 @@
+.card {
+  padding: 32px;
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  @include cardsHover;
+
+  &:nth-child(even) {
+    @include onTablet {
+      position: relative;
+      top: -130px;
+    }
+  }
+
+  &__index {
+    margin-bottom: 24px;
+    width: 46px;
+    height: 24px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $primaryColor;
+
+    position: relative;
+
+    @include flex(center, center);
+
+    &::after {
+      content: "";
+      background-color: $primaryColor;
+      border-radius: 23px;
+      opacity: 0.1;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: $primaryTextColor;
+
+    @extend %fontOpenSans;
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
+
+    @include onDesktop {
+      &:hover {
+        .card__button-icon {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  &__button-icon {
+    margin-right: 16px;
+    background-color: $primaryColor;
+
+    @include square(40px);
+    @extend %buttonIcon;
+  }
+
+  &__icon {
+    @include square(16px);
+  }
+}

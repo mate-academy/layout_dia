@@ -1,0 +1,46 @@
+.nav {
+  height: 100%;
+
+  @include onTablet {
+    height: 30px;
+  }
+
+  &__list {
+    height: 100%;
+    display: flex;
+    gap: 48px;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    height: 100%;
+    text-transform: uppercase;
+    color: #fff;
+
+    position: relative;
+
+    @include flex(center, center);
+    @include font(13px, 700, 3px);
+
+    @include onDesktop {
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 1px;
+      background-color: $primaryColor;
+      transition: width $primaryDuration;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

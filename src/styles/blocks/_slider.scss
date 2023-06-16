@@ -1,0 +1,95 @@
+.slider {
+  height: 390px;
+  width: 100%;
+  border-radius: $primaryBorderR;
+  overflow: hidden;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include onDesktop {
+    height: auto;
+    width: 50%;
+    border-radius: $primaryBorderR 0;
+
+    top: 120px;
+  }
+
+  &__track {
+    height: 100%;
+    display: flex;
+  }
+
+  &__slide {
+    transition: margin-left $primaryDuration;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      align-items: center;
+
+      left: 48px;
+      bottom: 48px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin: 0 24px 0 0;
+    }
+  }
+
+  &__button {
+    background-color: #fff;
+
+    @extend %buttonIcon;
+    @include square(32px);
+
+    &--icon {
+      width: 6px;
+      height: 9px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: #fff;
+
+    @include font(13px, 700, 3px);
+  }
+
+  &__text {
+    max-width: 264px;
+    line-height: 20px;
+    color: #fff;
+
+    @extend %fontOpenSans;
+  }
+}
