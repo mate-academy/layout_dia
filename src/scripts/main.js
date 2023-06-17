@@ -7,6 +7,7 @@ const hire = document.querySelectorAll('.top-bar__hire');
 const headerButton = document.querySelector('.header__button');
 const sliderBorder = document.querySelector('.header__slider');
 const navLinks = document.querySelectorAll('.nav__link');
+let isDarkImg = false;
 
 switcher.addEventListener('click', () => {
   if (header.classList.contains('header--theme--dark')) {
@@ -70,7 +71,6 @@ const imagesDark = [
 ];
 
 let currentImageIndex = 0;
-let isDarkImg = false;
 
 leftButton.addEventListener('click', function() {
   currentImageIndex--;
