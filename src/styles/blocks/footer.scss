@@ -38,6 +38,7 @@
   }
   
   &__link {
+    position: relative;
     font-family: Poppins, sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -47,16 +48,26 @@
     text-transform: uppercase;
     color: #fff;
     text-decoration: none;
-    border-bottom: 2px solid transparent;
     margin-bottom: 24px;
-    transition: border-color 0.3s;
-  
-  
-    &:hover {
-      border-color: $color-blue;
-      width: fit-content;
+    
+    &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: $color-blue;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transform: scale(0);
+      transform-origin: left;
+      transition: transform 0.4s;
     }
-  
+
+    &:hover::before {
+      transform: scale(1);
+      transition: transform 0.3s;
+    }
+
     @include on1024 {
       &:not(:last-child) {
         margin-right: 64px;
@@ -173,6 +184,7 @@
     line-height: 150%;
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
 
     &:hover {
       color: $color-blue;
@@ -191,6 +203,7 @@
     line-height: 150%;
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
 
     &:hover {
       color: $color-blue;
@@ -201,18 +214,17 @@
     display: flex;
     padding-top: 16px;
     gap: 40px;
-  }
-}
 
-.logo-socials {
-  display: block;
-  height: 24px;
-  background-repeat: no-repeat;
-  color: #fff;
-  background-size: contain;
-  transition: color 0.3s;
-
-  &:hover {
-    color: $color-blue;
+    &--image {
+      display: block;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: transform 0.3s;
+    
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
   }
 }

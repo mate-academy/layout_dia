@@ -1,30 +1,38 @@
 .slider {
+  height: 390px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
 
   @include on1024 {
-    position: absolute;
+    left: 50%;
     right: 0;
-    top: 0;
-  }
-
-  @include on1024 {
+    top: 120px;
     width: 50%;
+    height: 680px;
   }
 
   @include on2560 {
     width: calc((100% - 1146px) / 2 + 460px);
+    left: 55%;
   }
-  
 
   &__wrapper {
-    position: relative;
+    width: 100%;
+    @include on1024 {
+      height: 100%;
+    }
   }
 
-  &__slide-container {
+  &__container {
     height: 390px;
     width: 100%;
+    display: flex;
+    transition: all easy 1.4s;
 
     @include on1024 {
-      height: 680px;
+      height: 100%;
     }
   }
 
@@ -34,11 +42,6 @@
     object-fit: cover;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-
-    @include on1024 {
-      border-top-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-    }
 
     @include on2560 {
       border-top-left-radius: 30px;
@@ -66,20 +69,23 @@
     background-repeat: no-repeat;
     color: #253757;
     cursor: pointer;
+    border: none;
+    padding: 0;
 
-    transition-property: transform, box-shadow;
-    transition-duration: 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px $color-blue;
+    }
 
     &--left {
       background-image: url("../images/slider/arrow_left.png");
+      margin-right: 16px;
     }
 
     &--right {
       background-image: url("../images/slider/arrow_right.png");
-    }
-
-    &:first-child {
-      margin-right: 16px;
     }
 
     &-wrap {
@@ -89,15 +95,9 @@
         margin-right: 24px;
       }
     }
-
-    &:hover {
-      transform: scale(1.2);
-
-      box-shadow: 0 0 10px $color-blue;
-    }
   }
 
-  &__caption {
+  &__title {
     margin-bottom: 8px;
     font-family: Poppins, sans-serif;
     font-weight: bold;

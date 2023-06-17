@@ -3,21 +3,35 @@
 
   @include on1024 {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
+  &__container {
+    @include on1024 {
+      display: flex;
+    }
+  }
+  
   &__left-side {
+    width: 100%;
 
     @include on640 {
-      max-width: 50%;
+      width: 50%;
     }
 
     @include on1024 {
-      max-width: 34%;
+      width: 42%;
     }
   }
 
+  &__right-side {
+
+    @include on640 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  }
+    
   &__title {
     font-family: Poppins, sans-serif;
     font-style: normal;
@@ -41,7 +55,6 @@
   &__cards {
     display: block;
     padding-top: 34px;
-    max-width: 600px;
 
     @include on640 {
       display: flex;
@@ -55,15 +68,15 @@
 .card-servise {
   margin-bottom: 24px;
   padding: 32px;
-  height: 264px;
-  max-width: 265px;
   box-sizing: border-box;
   background: #fff;
   box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
   border-radius: 16px;
-  flex-shrink: 1;
-  flex-grow: 1;
-  transition: transform 0.3s;
+  transition: transform 0.4s;
+
+  &:hover {
+    box-shadow: 0 9px 18px #103783a8;
+  }
 
   @include on640 {
     &:nth-child(2n) {
@@ -73,6 +86,11 @@
 
   @include on640 {
     margin-bottom: 0;
+    width: 47%;
+  }
+
+  @include on1024 {
+    width: 39%;
   }
 
   &__number {
@@ -103,6 +121,7 @@
 
   &__arrow {
     display: inline-flex;
+    text-decoration: none;
     justify-content: center;
     font-family: Poppins, sans-serif;
     font-style: normal;
@@ -111,7 +130,7 @@
     line-height: 48px;
     color: #334563;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.4s;
 
     &:hover {
       transform: scale(1.1);
