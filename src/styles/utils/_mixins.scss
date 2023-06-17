@@ -1,6 +1,43 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin navLinks {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+@mixin socialsIcon {
+  height: 32px;
+  width: 32px;
+  fill: #fff;
+  transition: all 0.3s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    fill: $main-blue;
+    transform: scale(1.2);
   }
 }
