@@ -1,6 +1,84 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($_toScaleValue, $_toRotateValue) {
+  transition: all 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale($_toScaleValue) rotate($_toRotateValue);
   }
+}
+
+@mixin hover-blue {
+  transition: all 0.3s;
+  &:hover {
+    color: $blue-color;
+  }
+}
+
+@mixin container {
+  margin: 0 auto;
+  max-width: 640px;
+  padding: 0 20px;
+
+  @include onTablet {
+    max-width: 1024px;
+    padding: 0 40px;
+  }
+
+  @include onSmall-desktop {
+    max-width: 1252px;
+    padding: 0 54px;
+  }
+}
+
+@mixin onLarge-screens {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin onThe-desing {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onSmall-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin grid-box {
+  display: grid;
+  grid-template-columns: $logo-width $icon-width 1fr;
+  align-items: center;
+  justify-items: end;
+  gap: 36px;
+
+  @include onSmall-desktop {
+    grid-template-columns: $logo-width 1fr 70px;
+    justify-items: center;
+  }
+}
+
+@mixin flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin circle ($size) {
+  height: $size;
+  width: $size;
+  border-radius: 50%;
 }

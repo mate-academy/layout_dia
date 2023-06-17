@@ -1,0 +1,104 @@
+.top {
+  @include grid-box;
+  padding-top: 20px;
+
+  @include onSmall-desktop {
+    padding-top: 48px;
+  }
+
+  &--burger {
+    grid-template-columns: $logo-width 1fr $icon-width;
+  }
+
+  &--footer {
+    display: block;
+    padding: 0;
+
+    @include onSmall-desktop {
+      @include flex-box;
+    }
+  }
+
+  &__box {
+    position: relative;
+    padding-bottom: 10px;
+    @include hover ((1.2, 1.2), 0);
+
+    @include onSmall-desktop {
+      padding-bottom: 0;
+    }
+  }
+
+  &__hire-us {
+    @extend %font_Poppins700;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    &::after {
+      content: "";
+      height: 2px;
+      width: 67px;
+      display: block;
+      position: absolute;
+      background-color: $blue-color;
+      bottom: 0;
+
+      @include onSmall-desktop {
+        bottom: -8px;
+      }
+    }
+  }
+
+  &__list {
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @include onSmall-desktop {
+      display: flex;
+    }
+
+    &--footer {
+      display: block;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__list-item {
+    @extend %font_Poppins700;
+    padding-right: 48px;
+    @include hover ((1.2, 1.2), 0);
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &--footer {
+      padding-top: 24px;
+      @include hover ((1, 1), 0);
+
+      @include onTablet {
+        padding: 0 36px 0 0;
+      }
+
+      @include onSmall-desktop {
+        padding-right: 64px;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    @include hover ((1.2, 1.2), 0);
+
+    &--footer {
+      @include hover-blue;
+    }
+  }
+}
