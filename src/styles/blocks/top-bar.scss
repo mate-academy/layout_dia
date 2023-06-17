@@ -1,0 +1,71 @@
+.top-bar {
+  @include flexbox(flex, row, space-between);
+
+  padding-top: 20px;
+
+  @include onSmallDesktop {
+    padding-top: 48px;
+  }
+
+  &__first-part {
+    @include flexbox(flex, row, null, "center");
+    gap: 30px;
+  }
+
+  &__logo {
+    @include flexbox(flex, row, null, null);
+    height: 28px;
+    width: 46px;
+  }
+
+  &__second-part {
+    @include flexbox(flex, row, null, null);
+    gap: 30px;
+
+    @include onSmallDesktop {
+      @include flexbox(flex, row, null, "center");
+    }
+  }
+
+  &__hire {
+    position: relative;
+    text-decoration: none;
+    font-family: $first-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $main-text-color;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 2px;
+      bottom: -1px;
+      width: 100%;
+      background-color: #2060f6;
+      transform: scale(1);
+
+      @include transition-properties(background-color);
+
+      @include onSmallDesktop {
+        bottom: 0;
+      }
+    }
+
+    &--theme--dark::after {
+      background-color: $color-dark-theme;
+      @include transition-properties(background-color);
+    }
+  }
+
+  &__list {
+    gap: 48px;
+  }
+}
