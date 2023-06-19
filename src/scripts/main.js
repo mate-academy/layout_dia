@@ -5,9 +5,8 @@ const switcher = document.querySelector('.theme-switcher');
 const menu = document.querySelector('.menu');
 const hire = document.querySelectorAll('.top-bar__hire');
 const headerButton = document.querySelector('.header__button');
-const sliderBorder = document.querySelector('.header__slider');
+const sliderBorder = document.querySelectorAll('.slider__box-content-photo');
 const navLinks = document.querySelectorAll('.nav__link');
-let isDarkImg = false;
 
 switcher.addEventListener('click', () => {
   if (header.classList.contains('header--theme--dark')) {
@@ -23,13 +22,13 @@ switcher.addEventListener('click', () => {
 
     headerButton.classList.remove('header__button--theme--dark');
 
-    sliderBorder.classList.remove('header__slider--theme--dark');
+    sliderBorder.forEach(photo => {
+      photo.classList.remove('slider__box-content-photo--theme--dark');
+    });
 
     navLinks.forEach((link) => {
       link.classList.remove('nav__link--theme--dark');
     });
-
-    isDarkImg = false;
   } else {
     header.classList.add('header--theme--dark');
 
@@ -39,7 +38,9 @@ switcher.addEventListener('click', () => {
 
     headerButton.classList.add('header__button--theme--dark');
 
-    sliderBorder.classList.add('header__slider--theme--dark');
+    sliderBorder.forEach(photo => {
+      photo.classList.add('slider__box-content-photo--theme--dark');
+    });
 
     navLinks.forEach((link) => {
       link.classList.add('nav__link--theme--dark');
@@ -48,61 +49,43 @@ switcher.addEventListener('click', () => {
     hire.forEach((hireElement) => {
       hireElement.classList.add('top-bar__hire--theme--dark');
     });
-
-    isDarkImg = true;
   }
 });
 
-// Slider
-const leftButton = document.querySelector('.slider__button--left');
-const rightButton = document.querySelector('.slider__button--right');
-const slider = document.querySelector('.header__slider');
+// slider
 
-const images = [
-  '/main-slider-photo.835a4fe0.jpg',
-  '/first-slider.947ff3b2.jpg',
-  '/second-slider.054eda05.jpg',
-];
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slider__box-content-photo');
+const nextButton = document.querySelector('.slider__button--right');
+const prevButton = document.querySelector('.slider__button--left');
 
-const imagesDark = [
-  '/theme-dark-slide-img.ed88ee99.png',
-  '/first-slider.947ff3b2.jpg',
-  '/second-slider.054eda05.jpg',
-];
-
-let currentImageIndex = 0;
-
-leftButton.addEventListener('click', function() {
-  currentImageIndex--;
-
-  if (currentImageIndex < 0) {
-    currentImageIndex = isDarkImg ? imagesDark.length - 1 : images.length - 1;
-  }
-  updateSliderBackground();
-});
-
-rightButton.addEventListener('click', function() {
-  currentImageIndex++;
-
-  if (isDarkImg) {
-    if (currentImageIndex >= imagesDark.length) {
-      currentImageIndex = 0;
-    }
-  } else {
-    if (currentImageIndex >= images.length) {
-      currentImageIndex = 0;
-    }
+function slideShow(s) {
+  if (s >= slides.length) {
+    slideIndex = 0;
   }
 
-  updateSliderBackground();
-});
+  if (s < 0) {
+    slideIndex = slides.length - 1;
+  }
 
-function updateSliderBackground() {
-  const currentImage
-  = isDarkImg ? imagesDark[currentImageIndex] : images[currentImageIndex];
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
 
-  slider.style.backgroundImage = `url('${currentImage}')`;
+  slides[slideIndex].style.display = 'block';
 }
+
+slideShow(slideIndex);
+
+nextButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  slideShow(slideIndex += 1);
+});
+
+prevButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  slideShow(slideIndex -= 1);
+});
 
 // Button-link
 const button = document.querySelector('button[data-target="#Our-expertise"]');

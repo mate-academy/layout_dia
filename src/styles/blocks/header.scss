@@ -1,4 +1,8 @@
 .header {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
   background-color: $header-bc-color;
   height: 893px;
   border-radius: 0 0 30px 30px;
@@ -7,9 +11,13 @@
 
   &--theme--dark {
     background-color: $header-bc-color-dark-theme;
-    border-radius: 0;
+    border-radius: 0 0 0 200px;
 
     @include transition-properties(background-color, border-radius);
+  }
+
+  @include onTablet {
+    display: block;
   }
 
   @include onSmallDesktop {
@@ -30,7 +38,7 @@
     background: $button-bc-color;
     border-radius: 8px;
 
-    width: 100%;
+    max-width: 280px;
     height: 50px;
 
     font-family: $first-family;
@@ -41,19 +49,19 @@
 
     color: $main-text-color;
 
-    @include transition-properties(background-color, color);
+    @include transition-properties(background-color, color, border-radius);
 
     &:hover {
       background-color: #fff;
       color: $button-bc-color;
-      transition-property: background-color, color;
+      @include transition-properties(background-color, color);
     }
 
     &--theme--dark {
       background-color: $color-dark-theme;
       border-radius: 64px;
 
-      transition-property: background-color, border-radius;
+      @include transition-properties(background-color, border-radius);
     }
 
     @include onTablet {
@@ -61,51 +69,25 @@
     }
   }
 
-  &__slider {
+  &__box-content {
     position: absolute;
+    width: 100%;
     right: 0;
     bottom: 0;
-
-    background-image: url(../images/slider/main-slider-photo.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 30px;
-
     height: 390px;
-    width: 100%;
-
-    @include transition-properties(background-image, border-radius);
-
-    &--theme--dark {
-      background-image: url(../images/slider/theme-dark-slide-img.png);
-      border-radius: 200px 0 0;
-
-      @include transition-properties(background-image, border-radius);
-    }
 
     @include onSmallDesktop {
-      height: 680px;
       width: 502px;
-      position: absolute;
       top: 120px;
-      border-radius: 30px 0;
+      right: 0;
+      height: 680px;
+    }
 
-      @include transition-properties(border-radius);
-
-      &--theme--dark {
-        border-radius: 200px 0 0;
-
-        @include transition-properties(border-radius);
-      }
-
-      @include onDesktop {
-        width: 687px;
-      }
-
-      @include onLargeScreens {
-        width: 1167px;
-      }
+    @include onDesktop {
+      width: 687px;
+    }
+    @include onLargeScreens {
+      width: 1167px;
     }
   }
 }
