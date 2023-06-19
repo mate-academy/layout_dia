@@ -1,0 +1,140 @@
+.header {
+  position: relative;
+  height: 800px;
+  background-color: $black-color;
+  border-radius: 0 0 30px 30px;
+
+  @include desktop {
+    min-height: 100vh;
+  }
+
+  &__content {
+    box-sizing: border-box;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $small-top-padding;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  &__menu {
+    background-image: url(../images/menu.svg);
+    background-repeat: no-repeat;
+    padding: 8px 18px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @include desktop {
+      padding-top: 50px;
+    }
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 48px;
+
+    @include mobile-tablet {
+      display: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__none {
+    @include mobile-tablet {
+      display: none;
+    }
+  }
+
+  &__underline {
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  &__link {
+    @include style-navlink;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.5s ease-out;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+      background-color: $active-color;
+    }
+
+    &--underline {
+      @include style-navlink;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $active-color;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__menu-open {
+    position: fixed;
+    inset: 0;
+
+    transform: translateY(100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  &__logo {
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
