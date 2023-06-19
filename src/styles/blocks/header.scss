@@ -1,19 +1,32 @@
 .header {
   background-color: $bg-dark;
   height: 100vh;
-  min-height: 600px;
+  min-height: min-content;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+  overflow: scroll;
+
+  @include onDesktopS {
+    overflow: initial;
+  }
 
   &__page {
     @include pageGrid;
     height: 100vh;
-    grid-template-rows: min-content;
+    grid-template-rows: min-content min-content auto;
+
+    @include onDesktopS {
+      grid-template-rows: min-content auto;
+    }
   }
 
   &__top-bar {
     grid-column: 1 / -1;
-    padding-top: 18px;
+    margin-top: 18px;
+
+    @include onDesktopS {
+      margin-top: 49px;
+    }
   }
 
   &__strategic-agency {
@@ -26,6 +39,8 @@
 
     @include onDesktopS {
       grid-column: 1 / 6;
+      margin-top: 0;
+      justify-content: center;
     }
 
     @include onDesktopM {
@@ -36,7 +51,6 @@
   &__slider {
     grid-column: 1 / -1;
     margin-top: 48px;
-    grid-template-rows: min-content;
 
     @include onTablet {
       margin-top: 147px;
@@ -44,6 +58,7 @@
 
     @include onDesktopS {
       grid-column: 7 / -1;
+      margin-top: 38px;
     }
 
     @include onDesktopM {
