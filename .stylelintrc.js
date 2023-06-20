@@ -6,5 +6,9 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {}
+  rules: {
+    "indentation": 2
+  }
 };
+
+
