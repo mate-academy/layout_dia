@@ -1,0 +1,141 @@
+.menu {
+  @include onTablet {
+    display: flex;
+    width: 100%;
+  }
+
+  &__cross {
+    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid wheat;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    @include onMob {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
+
+.menu__top {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: $c-gray;
+  scroll-behavior: smooth;
+  transition: transform 1s;
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0);
+    height: 100vh;
+  }
+
+  @include onMob {
+    display: block;
+  }
+
+  @include onTablet {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.menu__list-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  @include onMob {
+    display: block;
+  }
+}
+
+.menu__link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+
+  @include onMob {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  @include onTablet {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    color: aqua;
+  }
+}
+
+.menu__item {
+  width: min-content;
+  transition: 0.3s;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    align-items: center;
+    scale: 120%;
+  }
+}
+
+.menu__footer {
+  display: block;
+  margin-bottom: 35px;
+  @include onMob {
+    display: block;
+  }
+
+  &-grid {
+    display: grid;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+    }
+
+  }
+
+}
+
+.menu__actions {
+  justify-content: space-around;
+  align-items: center;
+
+  @include onDesktop {
+    grid-column: 5 / 13;
+  }
+}
