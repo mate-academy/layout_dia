@@ -1,16 +1,21 @@
 .services {
+  display: flex;
   font-family: $poppins;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   background-color: #f2f6fa;
-  gap: 24px;
   padding: 120px 0 0;
 
   @include onTab {
     padding: 148px 0 0;
+    flex-direction: column;
+    justify-content: center;
   }
 
   @include onDesktop {
     padding: 251px 0 0;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   @include onDesign {
@@ -21,12 +26,52 @@
     padding: 251px 0 0;
   }
 
+  &__name {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &:not(:last-child)::after {
+      content: "";
+      flex-grow: 9999;
+    }
+  }
+
   &__subtitle {
     @extend %sub-title;
+    width: 280px;
+    text-align: left;
+
+    @include onTab {
+      width: 264px;
+
+    }
+    @include onDesktop {
+      width: 292px;
+
+    }
+    @include onDesign {
+      width: 362px;
+    }
   }
 
   &__title {
     @extend %title;
+    width: 280px;
+    text-align: left;
+
+    @include onTab {
+      width: 264px;
+
+    }
+    @include onDesktop {
+      width: 292px;
+
+    }
+    @include onDesign {
+      width: 362px;
+
+    }
   }
 
   &__description {
@@ -36,9 +81,46 @@
     line-height: 150%;
     color: #6c788b;
     margin-bottom: 48px;
+    width: 280px;
 
     @include onTab {
       margin-bottom: 56px;
+      width: 264px;
+
+    }
+    @include onDesktop {
+      width: 292px;
+
+    }
+    @include onDesign {
+      width: 362px;
+
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    flex-grow: 1;
+
+    @include onTab {
+      flex-direction: row;
+      width: 640px;
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: 30px;
+    }
+    @include onDesktop {
+      justify-content: space-between;
+      width: 448px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    @include onDesign {
+      width: 558px;
+      flex-wrap: wrap;
     }
   }
 
@@ -53,7 +135,7 @@
     background: $color-white;
     box-shadow: 0 9px 18px 0 #25293108;
     border-radius: 16px;
-    margin: 0 auto 20px;
+    //margin: 0 auto;
 
     &--transform {
       @include onTab {
@@ -63,7 +145,8 @@
         transform: translateY(-50%);
       }
       @include onDesign {
-        transform: translateY(-50%);
+        transform: translateY(50%);
+
       }
       @include onDesign {
         transform: translateY(-50%);
