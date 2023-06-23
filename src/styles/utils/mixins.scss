@@ -1,0 +1,68 @@
+@function gridTemplateColumns($columns) {
+  @return repeat($columns, 1fr);
+}
+
+@mixin pageGrid($columns) {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: gridTemplateColumns($columns);
+
+  @include onTablet {
+    grid-template-columns: gridTemplateColumns(6);
+    column-gap: 24px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: gridTemplateColumns(12);
+  }
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop {
+    max-width: 1146px;
+    margin-inline: auto;
+  }
+}
+
+
