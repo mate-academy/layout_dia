@@ -5,6 +5,7 @@
   justify-content: center;
   background-color: #f2f6fa;
   padding: 120px 0 0;
+  width: 100%;
 
   @include onTab {
     padding: 148px 0 0;
@@ -30,11 +31,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-
-    &:not(:last-child)::after {
-      content: "";
-      flex-grow: 9999;
-    }
   }
 
   &__subtitle {
@@ -104,22 +100,24 @@
     justify-content: center;
     gap: 24px;
     flex-grow: 1;
+    max-width: 100%;
 
     @include onTab {
       flex-direction: row;
-      width: 640px;
+      max-width: 640px;
       flex-wrap: wrap;
-      justify-content: start;
       gap: 30px;
+      margin-left: auto;
+      margin-right: auto;
     }
     @include onDesktop {
       justify-content: space-between;
-      width: 448px;
+      max-width: 448px;
       flex-wrap: wrap;
       gap: 20px;
     }
     @include onDesign {
-      width: 558px;
+      max-width: 558px;
       flex-wrap: wrap;
     }
   }
@@ -135,11 +133,12 @@
     background: $color-white;
     box-shadow: 0 9px 18px 0 #25293108;
     border-radius: 16px;
-    //margin: 0 auto;
+    margin: 0 auto;
 
     &--transform {
       @include onTab {
         transform: translateY(-50%);
+        margin: 0;
       }
       @include onDesktop {
         transform: translateY(-50%);
