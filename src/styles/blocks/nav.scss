@@ -1,0 +1,73 @@
+.nav {
+  &__burger-menu {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/burger-menu.png);
+
+    @include hover (transform, scale(1.2));
+
+    @include onSmall-desktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    &--menu {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      list-style: none;
+      padding: 0;
+    }
+
+    @include onSmall-desktop {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+      padding: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $light-color-font;
+    font-family: $font-family-title;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding-top: 18px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $blue-color-main;
+      bottom: -8px;
+      left: 0;
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    @include onSmall-desktop {
+      padding-top: 52px;
+    }
+
+    &--menu {
+      font-size: 20px;
+    }
+  }
+}
