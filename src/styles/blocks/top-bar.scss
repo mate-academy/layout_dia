@@ -1,21 +1,29 @@
 .top-bar {
-  @include flexbox(flex, row, space-between);
-
-  padding-top: 20px;
-
-  @include onSmallDesktop {
-    padding-top: 48px;
-  }
-
   &__first-part {
-    @include flexbox(flex, row, null, "center");
-    gap: 30px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 
-  &__logo {
-    @include flexbox(flex, row, null, null);
-    height: 28px;
-    width: 46px;
+  &--aside {
+    @include flexbox(flex, row, space-between);
+  }
+
+  &--header {
+    @include flexbox(flex, row, space-between, null);
+  }
+
+  &--footer {
+    @include flexbox(flex, column);
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+
+    @include onSmallDesktop {
+      @include flexbox(flex, row, space-between, null);
+    }
   }
 
   &__second-part {
@@ -63,9 +71,5 @@
       background-color: $color-dark-theme;
       @include transition-properties(background-color);
     }
-  }
-
-  &__list {
-    gap: 48px;
   }
 }

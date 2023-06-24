@@ -1,0 +1,220 @@
+.testimonials-card {
+  padding: 32px 39px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 456px;
+  border-radius: 16px;
+
+  background: #fff;
+
+  @include transition-properties(box-shadow, transform);
+
+  @include onTablet {
+    padding: 32px 96px;
+    height: 478px;
+  }
+
+  @include onSmallDesktop {
+    padding: 32px 46px;
+    height: 456px;
+  }
+
+  @include onDesktop {
+    padding: 32px 54px;
+    height: 494px;
+  }
+
+  &__img-decor-left {
+    position: relative;
+    left: 20%;
+    bottom: 20%;
+    width: 44px;
+    height: 110px;
+    border-radius: 12px;
+    transform: rotate(30deg);
+    background-color: #2060f6;
+
+    @include onTablet {
+      height: 139px;
+      width: 56px;
+    }
+
+    @include onSmallDesktop {
+      width: 44px;
+      height: 110px;
+    }
+
+    @include onDesktop {
+      height: 139px;
+      width: 56px;
+    }
+
+    @include transition-properties (transform);
+
+    &--theme--dark {
+      &--blue {
+        background-color: #56ccf2;
+      }
+      &--red {
+        background-color: #f25656;
+      }
+      &--yellow {
+        background-color: #fcc304;
+      }
+    }
+  }
+
+  &__img-decor-right {
+    position: relative;
+    right: 20%;
+    top: 20%;
+    width: 44px;
+    height: 110px;
+    border-radius: 12px;
+    @include transition-properties (transform);
+
+    transform: rotate(30deg);
+
+    background-color: #2060f6;
+
+    @include onTablet {
+      height: 139px;
+      width: 56px;
+    }
+
+    @include onSmallDesktop {
+      width: 44px;
+      height: 110px;
+    }
+
+    @include onDesktop {
+      height: 139px;
+      width: 56px;
+    }
+  }
+
+  &:hover {
+    transform: scale($transform-scale);
+    box-shadow: rgba(
+      0, 0, 0, 0.16) 0 1px 4px,
+      rgb(
+        51, 51, 51) 0 0 0 3px;
+
+    .testimonials-card__img-decor-left {
+      transform: rotate(390deg);
+      @include transition-properties (transform);
+    }
+
+    .testimonials-card__img-decor-right {
+      transform: rotate(390deg);
+      @include transition-properties (transform);
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 196px;
+    width: 196px;
+
+    margin-bottom: 27px;
+
+    @include onTablet {
+      height: 250px;
+      width: 250px;
+    }
+
+    @include onSmallDesktop {
+      height: 196px;
+      width: 196px;
+    }
+
+    @include onDesktop {
+      height: 250px;
+      width: 250px;
+    }
+  }
+
+  &__img {
+    width: 110px;
+    height: 110px;
+    z-index: 1;
+    border-radius: 50%;
+    object-fit: contain;
+
+    @include onTablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include onSmallDesktop {
+      height: 110px;
+      width: 110px;
+    }
+
+    @include onDesktop {
+      height: 140px;
+      width: 140px;
+    }
+  }
+
+  &__quotes {
+    background-image: url(../images/card/“.svg);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+
+    margin-bottom: 8px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+    @include onSmallDesktop {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__text {
+    @extend %main-text;
+    font-size: 13px;
+    line-height: 150%;
+
+    text-align: center;
+
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    @extend %main-title;
+    font-family: $second-family;
+    font-size: 13px;
+    line-height: 150%;
+
+    text-align: center;
+
+    margin-bottom: 4px;
+  }
+
+  &__title {
+
+    @extend %section-name ;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &--grid-card-1,
+  &--grid-card-2,
+  &--grid-card-3 {
+    @include onSmallDesktop {
+      grid-column: span 4;
+    }
+  }
+}
