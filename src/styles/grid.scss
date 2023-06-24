@@ -1,0 +1,91 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
+
+  @include onTab {
+    grid-template-columns: repeat($gridOnTab, 1fr);
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat($gridOnBigScreen, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesign {
+    grid-template-columns: repeat($gridOnBigScreen, 1fr);
+    gap: 30px;
+  }
+
+  @include onBigScreens {
+    grid-template-columns: repeat($gridOnBigScreen, 1fr);
+    gap: 30px;
+  }
+
+  &--onBigScreen {
+    display: block;
+
+    @include onTab {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+
+    @include onDesign {
+      display: grid;
+    }
+
+    @include onBigScreens {
+      display: grid;
+    }
+
+  }
+
+  &--onScreen {
+    display: block;
+
+    @include onTab {
+      display: grid;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+
+    @include onDesign {
+      display: grid;
+    }
+
+    @include onBigScreens {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @include onTab {
+      @for $start from 1 through $gridOnTab {
+        @for $end from $start through $gridOnTab {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onDesktop {
+      @for $start from 1 through $gridOnBigScreen {
+        @for $end from $start through $gridOnBigScreen {
+          &--big-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
