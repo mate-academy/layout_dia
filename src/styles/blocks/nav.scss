@@ -1,0 +1,79 @@
+.nav {
+  &--display-none {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--header {
+      display: flex;
+      gap: 48px;
+    }
+
+    &--aside {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include onSmallDesktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: $first-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: #2060f6;
+
+      transition: transform $transition-duration;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--theme--dark::after {
+      background-color: $color-dark-theme;
+    }
+  }
+}

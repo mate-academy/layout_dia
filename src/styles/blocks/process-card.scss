@@ -1,0 +1,141 @@
+.process-card {
+  @include flexbox(flex, column);
+  gap: 40px;
+
+  padding: 32px;
+  height: 264px;
+  border-radius: 16px;
+  background: #fff;
+
+  transition: box-shadow $transition-duration;
+
+  &:hover {
+    box-shadow: 0 9px 18px $color-section-title;
+  }
+
+  @include onSmallDesktop {
+    width: 214px;
+  }
+
+  @include onDesktop {
+    width: 264px;
+  }
+
+  &__top {
+    @include flexbox (flex, column);
+    gap: 24px;
+  }
+
+  &__number {
+    height: 24px;
+    width: 46px;
+    border-radius: 23px;
+    background-color: #e5e5e5;
+
+    font-size: 13px;
+    line-height: 24px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    @extend %main-title;
+    color: #2060f6;
+  }
+
+  &__text {
+    @extend %main-text;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__link {
+    @extend %main-title;
+    color: #334563;
+    font-size: 15px;
+    line-height: 22px;
+
+    text-decoration: none;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      left: 0;
+      bottom: -15px;
+      width: 40px;
+      height: 40px;
+      background: #2060f6;
+      background-image: url(../images/card/Vector.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  &--grid-card-1 {
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &--grid-card-2 {
+    transition: transform $transition-duration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+
+    @include onSmallDesktop {
+      grid-column: -1 / -4;
+    }
+  }
+
+  &--grid-card-3 {
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: -4 / -7;
+    }
+  }
+
+  &--grid-card-4 {
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+
+    @include onSmallDesktop {
+      grid-column: -1 / -4;
+    }
+  }
+}
