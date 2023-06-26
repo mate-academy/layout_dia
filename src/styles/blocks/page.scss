@@ -1,0 +1,65 @@
+.page {
+  scroll-behavior: smooth;
+  font-style: normal;
+  position: relative;
+
+  &__body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header"
+      "main"
+      "footer";
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: $backgroud-color-light-main;
+    overflow-x: hidden;
+  }
+
+  &__black-wrapper {
+    background-color: $backgroud-color-dark;
+  }
+
+  &__bottom-conteiner {
+    @include pageGrid;
+    @include padding-main-block;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    transition: all $transition-duration;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__vision-passion-results {
+    @include onTablet {
+      content: "";
+      background-image: url("../images/Shapes-large-scrin.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      padding: 200px 0;
+    }
+
+    @include on-the-design {
+      object-fit: contain;
+      padding-block: 199px 198px;
+    }
+  }
+}
