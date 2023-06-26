@@ -20,15 +20,3 @@ btnCross.addEventListener('click', () => {
 btnCross.addEventListener('click', () => {
   menu.classList.add('menu--active');
 });
-
-const photo = document.querySelector('.header__slider');
-const arrowBack = document.querySelector('.header__slider--arrow-back');
-const arrowForward = document.querySelector('.header__slider--arrow-forward');
-
-arrowBack.addEventListener('click', () => {
-  photo.classList.add('header__slider-one');
-});
-
-arrowForward.addEventListener('click', () => {
-  photo.classList.add('header__slider-two');
-});
