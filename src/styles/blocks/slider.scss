@@ -1,0 +1,121 @@
+.slider {
+  border-radius: 30px;
+  height: 390px;
+
+  margin: 0 -$body-padding;
+
+  &__wrapper {
+    width: 0;
+  }
+
+  @include onTablet {
+    margin: 0 calc(#{-$body-padding} - 20px) 0;
+  }
+
+  @include onNotebook {
+    margin: 0 calc(#{-$body-padding} - 33px) 0;
+    height: 680px;
+    border-radius: 30px 0;
+
+    &--blue {
+      border-radius: 200px 0 0;
+    }
+  }
+
+  @include onDesign {
+    margin: 0 calc(#{-$body-padding} - 207px) 0 0;
+  }
+
+  @include onLargeScreens {
+    margin: 0 calc(#{-$body-padding} - 687px) 0 0;
+  }
+
+  &__slide {
+    object-fit: cover;
+
+    @include onTablet {
+      object-fit: fill;
+    }
+  }
+
+  &__button {
+    left: 20px;
+    top: 250px;
+
+    @include onTablet {
+      left: 41px;
+    }
+
+    @include onNotebook {
+      top: 582px;
+      left: 78px;
+    }
+
+    @include onDesign {
+      left: 48px;
+    }
+
+    &:nth-child(3) {
+      left: 68px;
+
+      @include onTablet {
+        left: 89px;
+      }
+
+      @include onNotebook {
+        left: 126px;
+      }
+
+      @include onDesign {
+        left: 96px;
+      }
+    }
+
+    &::after {
+      padding: 11px 13px;
+      font-size: 10px;
+      font-weight: bold;
+      color: $color-title;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    &:active::after {
+      background-color: $color-hover;
+    }
+  }
+
+  &__descriptions {
+    position: relative;
+    left: 21px;
+    bottom: 80px;
+    z-index: 1;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 100px;
+    }
+
+    @include onNotebook {
+      left: 182px;
+      bottom: 125px;
+    }
+
+    @include onDesign {
+      left: 152px;
+    }
+  }
+
+  &__title {
+    @extend %phrase3;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    max-width: 264px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: white;
+  }
+}

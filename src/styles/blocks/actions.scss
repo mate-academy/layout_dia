@@ -1,0 +1,86 @@
+.actions {
+  display: grid;
+  grid-template-columns: min-content min-content 1fr;
+  justify-items: end;
+  column-gap: 35px;
+
+  &--bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include onNotebook {
+      flex-direction: row;
+      justify-content: space-between;
+      grid-column: 1 / 3;
+    }
+  }
+
+  @include onNotebook {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: grid;
+    gap: 24px;
+    list-style: none;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, min-content);
+      justify-content: space-between;
+      gap: 20px;
+      white-space: nowrap;
+    }
+
+    &--visibility {
+      display: none;
+    }
+
+    @include onNotebook {
+      display: flex;
+      gap: 48px;
+    }
+  }
+
+  &__item {
+    &--with-icon {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  &__link {
+    @extend %actionsPhrase;
+    padding-bottom: 2px;
+    border-bottom: $under-line solid transparent;
+
+    transition: border-color $animations-during;
+
+    &:hover {
+      padding-bottom: 2px;
+      border-bottom: $under-line solid;
+      border-color: $color-blue;
+    }
+
+    &--pink:hover {
+      border-color: #ff9c8e;
+    }
+  }
+
+  &__right {
+    display: flex;
+    max-width: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  &__button {
+    border: 0;
+    background-color: transparent;
+    border-radius: 50%;
+  }
+}

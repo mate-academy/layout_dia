@@ -1,0 +1,219 @@
+.services {
+
+  &__content {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, calc(132 / 2));
+      gap: 30px;
+    }
+
+    @include onNotebook {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    @include onDesign {
+      gap: 30px;
+    }
+  }
+
+  &--block_info {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+
+    @include onNotebook {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__block--1 {
+    grid-column: 1 / 4;
+    grid-row: 3 / 5;
+
+    @include onNotebook {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__block--2 {
+    grid-column: 4 / 7;
+    grid-row: 2 / 4;
+
+    @include onNotebook {
+      grid-column: 10 / 13;
+    }
+  }
+
+  &__block--3 {
+    grid-column: 1 / 4;
+    grid-row: 5 / 7;
+
+    @include onNotebook {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__block--4 {
+    grid-column: 4 / 7;
+    grid-row: 4 / 6;
+
+    @include onNotebook {
+      grid-column: 10 / 13;
+    }
+  }
+
+  &__info {
+    @include onNotebook {
+      min-width: 292px;
+    }
+
+    @include onDesign {
+      max-width: 362px;
+    }
+  }
+
+  &__block {
+    min-width: 214px;
+    background-color: white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 32px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesign {
+      max-width: 264px;
+    }
+  }
+
+  &__title {
+    @extend %phraseT;
+    margin-bottom: 24px;
+
+    &::before {
+      content: "Services";
+      display: block;
+      margin-bottom: 16px;
+      @extend %actionsPhrase;
+      color: $color-gray;
+    }
+  }
+
+  &__phrase {
+    @extend %phrase1;
+    margin-bottom: 48px;
+  }
+
+  &__id {
+    padding: 2px 10px;
+    display: inline-block;
+    @extend %id;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+    margin-bottom: 24px;
+
+    &--blue {
+      color: #56ccf2;
+      background-color: #56ccf225;
+    }
+
+    &--yellow {
+      color: #fcc91d;
+      background-color: #fcc91d25;
+    }
+
+    &--green {
+      color: #15d850;
+      background-color: #15d85025;
+    }
+
+    &--pink {
+      color: #f36363;
+      background-color: #f3636325;
+    }
+  }
+
+  &__phrase-block {
+    @extend %phrase2;
+    font-size: 13px;
+
+    color: $color-phrase;
+    margin-bottom: 32px;
+  }
+
+  &__link-block {
+    display: flex;
+    width: 159px;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    padding: 12px;
+    transition: 0.3s;
+  }
+
+  &__link {
+    top: 20px;
+    padding: 9px 16px;
+    @extend %phraseField;
+    color: #334563;
+  }
+
+  &__button {
+    top: 14px;
+    width: 40px;
+    height: 40px;
+    background-color: $color-blue;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $color-hover;
+    }
+
+    &--blue {
+      background-color: #56ccf2;
+      transition: $animations-during;
+
+      &:hover {
+        background-color: #56a5f2;
+      }
+    }
+
+    &--yellow {
+      background-color: #fcc91d;
+      transition: $animations-during;
+
+      &:hover {
+        background-color: #e3b003;
+      }
+    }
+
+    &--green {
+      background-color: #15d850;
+      transition: $animations-during;
+
+      &:hover {
+        background-color: #0e9215;
+      }
+    }
+
+    &--pink {
+      background-color: #f36363;
+      transition: $animations-during;
+
+      &:hover {
+        background-color: #ef3434;
+      }
+    }
+  }
+}
