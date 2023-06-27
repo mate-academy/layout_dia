@@ -1,0 +1,108 @@
+.slider {
+  position: relative;
+
+  @include small-desktop {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 48%;
+  }
+
+  @include desktop {
+    width: 42%;
+  }
+
+  &__item {
+    height: 390px;
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+
+    @include small-desktop {
+      height: 680px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+
+    @include small-desktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    @include tablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include small-desktop {
+      left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @include desktop {
+      left: 48px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    padding: 0;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &--left {
+      margin-right: 14px;
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &--right {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-family: $poppins;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__info {
+    margin: 0;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+}
