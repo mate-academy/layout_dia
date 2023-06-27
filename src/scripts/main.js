@@ -20,9 +20,3 @@ function toggleImg(ind) {
   imgs[ind].classList.add('slider__item--visible');
   prevInd = ind;
 }
-
-document.getElementById('formorm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  this.reset();
-  window.scrollTo(0, 0);
-});

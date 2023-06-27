@@ -54,6 +54,14 @@
     border-bottom: 1px solid #fff;
     outline: none;
 
+    @each $prefix in -webkit, -moz, -ms {
+      &:#{$prefix}-autofill {
+        #{$prefix}-box-shadow: 1000px 0 #{$color-black} inset;
+        #{$prefix}-text-fill-color: #fff;
+        transition: background-color 8000s;
+      }
+    }
+
     transition: all 0.3s;
 
     @include tablet {
@@ -89,6 +97,27 @@
   &__textarea {
     margin-bottom: 56px;
     resize: none;
+
+    @each $prefix in -webkit, -moz, -ms {
+      &::#{$prefix}-scrollbar {
+        width: 15px;
+      }
+
+      &::#{$prefix}-scrollbar-track {
+        box-shadow: inset 0 0 5px #fff;
+        border-radius: 5px;
+      }
+
+      &::#{$prefix}-scrollbar-thumb {
+        background: $color-blue;
+        border-radius: 10px;
+      }
+  
+      &::#{$prefix}-scrollbar-thumb:hover {
+        box-shadow: 0 0 5px #007bff;
+        border-radius: 5px;
+      }
+    }
   }
 
   &__title-h3 {
