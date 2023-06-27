@@ -1,5 +1,8 @@
 .services {
   background-color: $color-bg-light;
+  @include onSmallDesktop {
+    padding-top: 148px;
+  }
 
   &__content {
     display: flex;
@@ -16,6 +19,10 @@
 
     @include onTablet {
       margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0px;
     }
   }
 
@@ -36,23 +43,27 @@
   }
 }
 
-.card {
+.services__card {
+  @include cardStyle;
   padding: 32px;
-  background-color: $color-neutral;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 16px;
-  margin-bottom: 24px;
 
   @include onTablet {
     margin-bottom: 30px;
+
+    &:nth-last-child(-n+2) {
+      margin-bottom: 0px;
+    }
   }
 
   @include onSmallDesktop {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
-  &__number {
+  @include onDesktop {
+    margin-bottom: 30px;
+  }
+
+  &-number {
     padding: 2px 12px;
     text-align: center;
     box-sizing: border-box;
@@ -67,7 +78,7 @@
     margin-bottom: 24px;
   }
 
-  &__list {
+  &-list {
     list-style: none;
     text-align: start;
     margin: 0;
@@ -82,7 +93,7 @@
     }
   }
 
-   &__link {
+   &-link {
       display: flex;
       justify-content: start;
       align-items: center;
@@ -103,21 +114,11 @@
 }
 
 .grid {
-  @include onTablet {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
-  }
-
-  @include onSmallDesktop {
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-  }
+  @include pageGrid(6);
 
   &__item--tablet--1-3 {
     @include onTablet {
       grid-column: 1 / span 3;
-      margin-bottom: 0;
     }
   }
 
@@ -125,7 +126,6 @@
     @include onTablet {
       grid-column: 4 / span 3;
       transform: translateY(-50%);
-      margin-bottom: 0;
     }
   }
 
@@ -144,8 +144,6 @@
   &__item--smalldesktop--10-12 {
     @include onSmallDesktop {
       grid-column: 10 / span 3;
-      transform: translateY(-50%);
     }
   }
-
  }

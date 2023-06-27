@@ -3,19 +3,23 @@
 }
 
 @mixin pageGrid($columns) {
-  display: grid;
-  column-gap: 20px;
-  grid-template-columns: gridTemplateColumns($columns);
-
   @include onTablet {
-    grid-template-columns: gridTemplateColumns(6);
-    column-gap: 24px;
+    display: grid;
+    grid-template-columns: gridTemplateColumns($columns);
+    column-gap: 30px;
   }
 
   @include onSmallDesktop {
     grid-template-columns: gridTemplateColumns(12);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
   }
 }
+
+
 
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
@@ -63,6 +67,14 @@
     max-width: 1146px;
     margin-inline: auto;
   }
+}
+
+@mixin cardStyle {
+  background-color: $color-neutral;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 24px;
 }
 
 
