@@ -67,6 +67,35 @@
         }
       }
 
+      &__textarea {
+        border: none;
+        background-color: $color-bg-dark;
+        font-size: 15px;
+        color: $color-neutral;
+        font-weight: $font-weight-semibold;
+        width: 100%;
+        border-bottom: 1px solid $color-neutral;
+        padding-bottom: 16px;
+        margin-bottom: 40px;
+
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: $color-bg-light;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $color-bg-dark;
+          border-radius: 5px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
       &__button {
         padding: 17px 0;
         margin-top: 16px;
@@ -99,6 +128,7 @@
     }
 
     &-link {
+      @include hover(color, $color-accent);
       font-size: 24px;
       font-family: 'Open Sans', sans-serif;
       font-weight: $font-weight-semibold;
@@ -119,8 +149,13 @@
     width: 100%;
 
     &__img {
+      @include hover(transform, scale(1.2));
       width: 32px;
       height: 32px;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(28%) sepia(63%) saturate(2500%) hue-rotate(211deg) brightness(101%) contrast(95%);
+      }
     }
   }
 }
