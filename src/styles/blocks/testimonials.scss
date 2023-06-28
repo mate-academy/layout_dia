@@ -1,0 +1,117 @@
+.testimonials {
+  background-color: $color-bg-light;
+
+  &__content {
+    @include displayFlex(column, left, start, 0);
+    padding-bottom: 120px;
+
+    @include onTablet {
+      padding-bottom: 148px;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 186px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 148px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 48px;
+  }
+
+  &__bottom {
+    @include onSmallDesktop {
+      @include pageGrid(12);
+    }
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__title {
+    @extend %h2;
+    text-align: left;
+    margin-top: 16px;
+  }
+
+  &__card {
+    @include cardStyle;
+    @include displayFlex(column, center, center, 0);
+    padding: 36px 42px 32px;
+
+    @include onTablet {
+      padding: 36px 98px 32px;
+    }
+
+    @include onSmallDesktop {
+      padding: 36px 42px 32px;
+      grid-column: span 4;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.testimonial {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+  @include hover(transform, scale(1.05));
+  
+  &__img {
+    cursor: pointer;
+    display: block;
+    box-sizing: border-box;
+    width: 109px;
+    height: 109px;
+    border-radius: 50%;
+    border: none;
+    z-index: 1;
+  }
+
+  &__rectangle {
+    width: 109px;
+    height: 44px;
+    background-color: $color-accent;
+    border-radius: 12px;
+
+    &--left {
+      transform: translate(-35%, 90%) rotate(-60deg);
+    }
+
+    &--right {
+      transform: translate(35%, -90%) rotate(-60deg);
+    }
+  }
+
+  &__quote {
+    background-image: url(../images/testimonials/navy-blue.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    margin-top: 28px;
+  }
+
+  &__description {
+    @extend %description;
+    font-size: 13px;
+    font-weight: $font-weight-semibold;
+    margin-top: 8px;
+  }
+
+  &__title {
+    @extend %h2;
+    font-size: 13px;
+    font-weight: $font-weight-semibold;
+    margin-top: 16px;
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+    text-align: center;
+    margin-top: 6px;
+  }
+}

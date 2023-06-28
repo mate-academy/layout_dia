@@ -1,0 +1,150 @@
+.services {
+  background-color: $color-bg-light;
+  @include onSmallDesktop {
+    padding-top: 148px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-block: 120px;
+
+    @include onTablet {
+      padding-block: 148px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__subtitle {
+    @extend %subtitle;
+  }
+
+  &__title {
+    @extend %h2;
+    text-align: start;
+    line-height: 130%;
+    margin-top: 16px;
+  }
+
+  &__description {
+    @extend %description;
+    text-align: start;
+    margin-top: 24px;
+  }
+}
+
+.services__card {
+  @include cardStyle;
+  padding: 32px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+  @include onTablet {
+    margin-bottom: 30px;
+
+    &:nth-last-child(-n+2) {
+      margin-bottom: 0px;
+    }
+  }
+
+  @include onSmallDesktop {
+    margin-bottom: 20px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 30px;
+  }
+
+  &-number {
+    padding: 2px 12px;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 23px;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    color: $color-accent;
+    background-color: #e9eaeb;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+  }
+
+  &-list {
+    list-style: none;
+    text-align: start;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 32px;
+
+    &__item {
+      color: $color-text;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: $font-weight-semibold;
+      line-height: 150%;
+    }
+  }
+
+   &-link {
+    @include hover(transform, scale(1.05));
+    @include displayFlex(row ,start, center, 16px);
+      text-decoration: none;
+
+      &__img {
+        width: 40px;
+        height: 40px;
+      }
+
+      &__text {
+        @include hover(color, $color-accent);
+        color: $color-text-button;
+        font-size: 15px;
+        font-weight: $font-weight-semibold;
+      }
+   }
+}
+
+.grid {
+  @include pageGrid(6);
+
+  &__item--tablet--1-3 {
+    @include onTablet {
+      grid-column: 1 / span 3;
+    }
+  }
+
+  &__item--tablet--4-6 {
+    @include onTablet {
+      grid-column: 4 / span 3;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__item--smalldesktop--1-4 {
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__item--smalldesktop--7-9 {
+    @include onSmallDesktop {
+      grid-column: 7 / span 3;
+    }
+  }
+
+  &__item--smalldesktop--10-12 {
+    @include onSmallDesktop {
+      grid-column: 10 / span 3;
+    }
+  }
+ }

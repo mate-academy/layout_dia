@@ -1,0 +1,88 @@
+@function gridTemplateColumns($columns) {
+  @return repeat($columns, 1fr);
+}
+
+@mixin pageGrid($columns) {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: gridTemplateColumns($columns);
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: gridTemplateColumns(12);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
+}
+
+ @mixin displayFlex($direction, $justifyContent, $alignItems, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  gap: $gap;
+ }
+
+
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop {
+    max-width: 1146px;
+    margin-inline: auto;
+  }
+}
+
+@mixin cardStyle {
+  background-color: $color-neutral;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+
