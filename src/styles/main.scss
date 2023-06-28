@@ -2,6 +2,46 @@
 @import "fonts";
 @import "typography";
 
-body {
-  background: $c-gray;
+@import "./utils/reset.css";
+@import "./blocks/grid.scss";
+@import "./blocks/container.scss";
+@import "./blocks/header.scss";
+@import "./blocks/top-actions.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/about-us.scss";
+@import "./blocks/expertise.scss";
+@import "./blocks/services.scss";
+@import "./blocks/testimonials.scss";
+@import "./blocks/results.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/button.scss";
+@import "./blocks/nav.scss";
+
+.page {
+  @include onDesktop {
+    overflow: auto !important;
+  }
+
+  background: $gray;
+  scroll-behavior: smooth;
+
+  &:has(.page__nav:target) {
+    overflow: hidden;
+  }
+  
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+
+    overflow: auto;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
 }
