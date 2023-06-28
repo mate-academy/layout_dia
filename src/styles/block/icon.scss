@@ -1,0 +1,70 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.icon {
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__logo {
+    background-image: url(/images/icons/Air.svg);
+    width: 46px;
+    height: 28px;
+    margin-right: 35px;
+  }
+
+  &__menu {
+    display: inline-block;
+    @include icon;
+    background-image: url(/images/icons/menu.svg);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffff;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      margin-top: 8px;
+      width: 97%;
+      height: 2px;
+      background: $color-b;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      color: $color-b;
+    }
+  }
+
+  &__close {
+    background-image: url(/images/icons/menuhover.svg);
+    @include icon;
+    color: #ffff;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
