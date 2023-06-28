@@ -26,19 +26,20 @@
     }
   }
 
+  &__subtitle {
+    @extend %subtitle;
+  }
+
   &__title {
+    @extend %h2;
     text-align: start;
     line-height: 130%;
     margin-top: 16px;
   }
 
   &__description {
+    @extend %description;
     text-align: start;
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: $font-weight-semibold;
-    line-height: 150%;
-    color: $color-text;
     margin-top: 24px;
   }
 }
@@ -46,6 +47,7 @@
 .services__card {
   @include cardStyle;
   padding: 32px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 
   @include onTablet {
     margin-bottom: 30px;
@@ -94,10 +96,8 @@
   }
 
    &-link {
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      gap: 16px;
+    @include hover(transform, scale(1.05));
+    @include displayFlex(row ,start, center, 16px);
       text-decoration: none;
 
       &__img {
@@ -106,6 +106,7 @@
       }
 
       &__text {
+        @include hover(color, $color-accent);
         color: $color-text-button;
         font-size: 15px;
         font-weight: $font-weight-semibold;

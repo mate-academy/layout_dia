@@ -1,8 +1,5 @@
 .our-expertise {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include displayFlex(column, center, center, 0);
 
   &__content {
     padding-block: 72px;
@@ -26,6 +23,7 @@
   }
 
   &__title {
+    @extend %h2;
     font-size: 44px;
     line-height: 120%;
 
@@ -35,13 +33,8 @@
     }
   }
 
-
   &__blocks {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 56px;
+    @include displayFlex(column, center, center, 56px);
 
     @include onSmallDesktop {
       flex-direction: row;
@@ -51,15 +44,14 @@
   }
 
   &__block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include displayFlex(column, center, center, 0);
   }
 }
 
 .block {
   &__img {
+    @include hover(transform, scale(1.2));
+    cursor: pointer;
     box-sizing: border-box;
     width: 184px;
     height: 166px;
@@ -72,23 +64,14 @@
   }
 
   &__title {
-    text-align: center;
+    @extend %h2;
     font-size: 20px;
-    font-weight: $font-weight-semibold;
     line-height: 140%;
-    color: $color-title;
     margin-bottom: 16px;
     width: 100%;
-
   }
 
   &__description {
-    text-align: center;
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: $font-weight-semibold;
-    line-height: 150%;
-    color: $color-text;
+    @extend %description;
   }
-
 }

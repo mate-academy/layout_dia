@@ -2,10 +2,7 @@
   background-color: $color-bg-light;
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: start;
+    @include displayFlex(column, left, start, 0);
     padding-bottom: 120px;
 
     @include onTablet {
@@ -31,17 +28,19 @@
     }
   }
 
+  &__subtitle {
+    @extend %subtitle;
+  }
+
   &__title {
+    @extend %h2;
     text-align: left;
     margin-top: 16px;
   }
 
   &__card {
     @include cardStyle;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include displayFlex(column, center, center, 0);
     padding: 36px 42px 32px;
 
     @include onTablet {
@@ -57,7 +56,11 @@
 }
 
 .testimonial {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+  @include hover(transform, scale(1.05));
+  
   &__img {
+    cursor: pointer;
     display: block;
     box-sizing: border-box;
     width: 109px;
@@ -93,29 +96,22 @@
   }
 
   &__description {
-    color: $color-text;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    @extend %description;
+    font-size: 13px;
     font-weight: $font-weight-semibold;
-    line-height: 150%;
     margin-top: 8px;
   }
 
   &__title {
-    color: $color-title;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    @extend %h2;
+    font-size: 13px;
     font-weight: $font-weight-semibold;
-    line-height: 150%;
     margin-top: 16px;
   }
 
   &__subtitle {
-    color: $color-subtitle;
+    @extend %subtitle;
     text-align: center;
-    font-weight: $font-weight-bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
     margin-top: 6px;
   }
 }
