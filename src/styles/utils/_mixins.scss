@@ -1,6 +1,90 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+// @mixin hover($_property, $_toValue) {
+//   transition: #{$_property} 0.3s;
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
+
+// @mixin pageGrid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 130px);
+//   column-gap: 20px;
+//   margin: 0 auto;
+// }
+
+@mixin onTablet {
+  @media (min-width: $tablet) {
+    @content;
   }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $smallDesktop) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $design) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $largeScreens) {
+    @content;
+  }
+}
+
+.container {
+  width: 280px;
+  margin: 0 auto;
+
+  @include onTablet {
+    width: 558px;
+  }
+
+  @include onSmallDesktop {
+    width: 916px;
+  }
+
+  @include onDesktop {
+    width: 1146px;
+  }
+
+  // @include onDesign {
+  //   width: 558px;
+  // }
+
+  // @include onLargeScreens {
+  //   width: 558px;
+  // }
+}
+
+.button {
+  width: 100%;
+  font-family: $main-font;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+  background-color: $button-background-color;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 300ms;
+
+  @include onTablet {
+    width: 264px;
+  }
+}
+
+.button:hover {
+  background-color: $button-background-color-hover;
 }

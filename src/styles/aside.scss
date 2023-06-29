@@ -1,0 +1,93 @@
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $main-background-color;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+  z-index: 4;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: hidden;
+  }
+
+  @include onSmallDesktop {
+    display: none;
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+  }
+
+  &__icon {
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--logo {
+      background-image: url(../images/icons/aside/icon-logo.svg);
+    }
+
+    &--close {
+      position: absolute;
+      top: 6px;
+      left: 78px;
+      display: block;
+      width: 22px;
+      height: 22px;
+      background-image: url(../images/icons/aside/icon-close.svg);
+      cursor: pointer;
+    }
+  }
+
+  &__hire-us-button {
+    color: $hire-us-button-font-color;
+  }
+
+  &__nav {
+    display: flex;
+
+    & .nav__list {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & .nav__link {
+      margin-bottom: 24px;
+    }
+
+    & .nav__link:last-child {
+      margin-bottom: 0;
+    }
+
+    & .nav__item {
+      color: $nav-item-font-color;
+
+      &:hover {
+        color: $link-font-color-hover;
+      }
+
+      &:active {
+        color: $link-font-color-active;
+      }
+    }
+  }
+}
