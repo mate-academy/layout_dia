@@ -1,65 +1,196 @@
-@use "../utils/mixins" as *;
-
 .header {
+  position: relative;
+  border-radius: 0 0 30px 30px;
   background-color: $color-dark-bg;
-  background-image: url(/images/header-background-320px.png);
-  background-repeat: no-repeat;
-  background-size: 100% 44%;
-  background-position: center bottom;
-  min-height: 100vh;
-  box-sizing: border-box;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  // overflow: scroll;
-  grid-template-rows: 1fr 1fr;
 
-  @include grid();
+  &--blue {
+    background-color: $color-blue-bg;
 
-  &__strategic {
-    grid-column: 1 / -1;
+    // @include onSmallDesktop {
+    //   border-radius: 0 0 0 200px;
+    // }
+  }
 
-    &--title {
-      @extend %poppinsH1;
-      color: $color-white;
-      margin-bottom: 32px;
-    }
+  &__content {
+    padding-top: 20px;
+    height: 100vh;
 
-    &--paragraph {
-      width: 100%;
+    // @include onSmallDesktop {
+    //   padding-top: 48px;
+    // }
+  }
 
-      height: 54px;
-      @extend %openSansHedCont;
-      color: $color-white;
-      margin-bottom: 72px;
-      grid-column: 1 / -1;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-      // @include hover(transform, scale(1.2));
-    }
+  &__logo-group {
+    display: flex;
+    align-items: center;
+  }
 
-    &--button {
-      display: flex;
-      width: 280px;
-      height: 50px;
+  &__nav {
+    display: none;
 
-      @extend %poppinsButtonText;
+    // @include onSmallDesktop {
+    //   display: block;
+    // }
+  }
 
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      box-sizing: border-box;
+  // &__hire-us {
+  //   @include hover(transform, scale(1.2));
+  // }
 
-      background: $color-blue;
-      border-radius: 8px;
+  &__right {
+    display: flex;
+    max-width: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+  }
 
-      color: $color-white;
-      text-decoration: none;
-      transition: all 0.3s;
-      margin-bottom: 48px;
+  &__button-theme {
+    border: 0;
+    background-color: transparent;
+  }
 
-      &:hover {
-        box-shadow: inset 0 2px 11px 2px $color-white;
-        cursor: pointer;
-      }
-    }
+  // &__info {
+  //   @include onSmallDesktop {
+  //     max-width: 362px;
+  //   }
+  // }
+
+  &__title {
+    @extend %poppinsH1;
+    margin-top: 48px;
+
+    // @include onTablet {
+    //   margin-top: 56px;
+    //   font-size: 64px;
+    //   line-height: 68px;
+    // }
+
+    // @include onSmallDesktop {
+    //   margin-top: 158px;
+    // }
+  }
+
+  &__description {
+    @extend %openSansHedCont;
+    margin-top: 32px;
+
+    // @include onTablet {
+    //   margin-top: 24px;
+    //   max-width: 362px;
+    // }
+
+    // @include onSmallDesktop {
+    //   margin-top: 32px;
+    // }
+  }
+
+  &__button {
+    margin-top: 72px;
+
+    // @include onTablet {
+    //   margin-top: 56px;
+    // }
+
+    // @include onSmallDesktop {
+    //   margin-top: 84px;
+    // }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 33vh;
+
+    // @include onTablet {
+    //   height: 45vh;
+    // }
+
+    // @include onSmallDesktop {
+    //   top: 120px;
+    //   bottom: 0;
+    //   height: auto;
+    //   left: 50%;
+    //   border-radius: 30px 0;
+    // }
+
+    // @include onDesktop {
+    //   left: 55%;
+    // }
   }
 }
+
+// @use "../utils/mixins" as *;
+
+// .header {
+//   background-color: $color-dark-bg;
+//   background-image: url(/images/header-background-320px.png);
+//   background-repeat: no-repeat;
+//   background-size: 100% 44%;
+//   background-position: center bottom;
+//   min-height: 100vh;
+//   box-sizing: border-box;
+//   border-bottom-right-radius: 30px;
+//   border-bottom-left-radius: 30px;
+//   // overflow: scroll;
+//   grid-template-rows: 1fr 1fr;
+
+//   @include grid();
+
+//   &__strategic {
+//     grid-column: 1 / -1;
+
+//     &--title {
+//       @extend %poppinsH1;
+//       color: $color-white;
+//       margin-bottom: 32px;
+//     }
+
+//     &--paragraph {
+//       width: 100%;
+
+//       height: 54px;
+//       @extend %openSansHedCont;
+//       color: $color-white;
+//       margin-bottom: 72px;
+//       grid-column: 1 / -1;
+
+//       // @include hover(transform, scale(1.2));
+//     }
+
+//     &--button {
+//       display: flex;
+//       width: 280px;
+//       height: 50px;
+
+//       @extend %poppinsButtonText;
+
+//       justify-content: center;
+//       align-items: center;
+//       text-align: center;
+//       box-sizing: border-box;
+
+//       background: $color-blue;
+//       border-radius: 8px;
+
+//       color: $color-white;
+//       text-decoration: none;
+//       transition: all 0.3s;
+//       margin-bottom: 48px;
+
+//       &:hover {
+//         box-shadow: inset 0 2px 11px 2px $color-white;
+//         cursor: pointer;
+//       }
+//     }
+//   }
+// }
