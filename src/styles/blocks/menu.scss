@@ -1,0 +1,80 @@
+.menu {
+  background-color: #2c2c2c;
+  z-index: 2;
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 30px 0;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 60px;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+
+    @extend %t;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:hover::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      height: 2px;
+      width: 100%;
+
+      border-radius: 4px;
+      background-color: $main-color;
+
+      animation: slidein;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  &__cross {
+    height: 18px;
+    width: 18px;
+    background-image: url(../images/SVG/cross.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @extend %t;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

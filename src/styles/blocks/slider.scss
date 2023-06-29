@@ -1,0 +1,106 @@
+.slider {
+  width: 100%;
+  height: 390px;
+  position: relative;
+
+  @include onLaptop {
+    position: absolute;
+    height: 85%;
+    width: 50%;
+    right: 0;
+    bottom: 0;
+  }
+
+  @include onDesktop {
+    width: 43%;
+  }
+
+  @include onDesctopL {
+    width: 45%;
+  }
+
+  &__slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 30px;
+
+    @include onLaptop {
+      border-radius: 30px 0;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/Slider1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/Slider2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/Slider3.png);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    bottom: 34px;
+    left: 20px;
+
+    @include onTablet {
+      bottom: 40px;
+      left: 40px;
+    }
+
+    @include onLaptop {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+
+      bottom: 58px;
+      left: 78px;
+    }
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade {
+  animation: fade 0.3s cubic-bezier(0.99,0.07,0.88,0.51) both;
+}
+
+.slider-text {
+  &__sub {
+    margin-bottom: 8px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+}
