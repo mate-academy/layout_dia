@@ -1,60 +1,73 @@
 .menu {
-  box-sizing: border-box;
   height: 100vh;
+  box-sizing: border-box;
   background-color: $color-dark-bg;
-  padding-top: 18px;
-  z-index: 1;
-  overflow: auto;
 
-  &--blue {
-    background-color: $color-blue-bg;
-  }
-
-  // @include onTablet {
-  //   padding-top: 20px;
-  // }
-
-  &__logo-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  transform: (-1);
 
   &__top {
-    margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 150px;
+  }
+
+  &__cross {
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/menu/close.svg);
+    background-position: center;
+    background-color: $color-white;
+    color: $color-white;
+    border-radius: 50%;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
+
+  &__content {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 21px 0;
   }
 
   &__list {
     display: flex;
     flex-direction: column;
+    gap: 50px;
     align-items: center;
-    margin: 0 0 100px;
+    width: 200px;
+    margin: 0 auto;
+    text-transform: uppercase;
   }
 
   &__item {
-    margin-bottom: 24px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
   }
 
   &__link {
-    padding-bottom: 10px;
-    border-bottom: 2px solid transparent;
-    transition: border-color $transition-duration;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 150%;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    @extend %poppinsTitleAccent20;
+    position: relative;
+    text-decoration: none;
+    color: $color-white;
+    border-bottom: 1px solid $color-dark-bg;
 
-    &:hover {
-      border-bottom: solid $color-blue;
-    }
+    &:hover::after {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
 
-    &--pink:hover {
-      border-bottom: solid $color-main-pink;
+      margin-top: 10px;
+      height: 2px;
+      background-color: $color-blue;
+
+      animation: sliden 0.5s;
     }
   }
 }

@@ -1,196 +1,97 @@
 .header {
   position: relative;
-  border-radius: 0 0 30px 30px;
   background-color: $color-dark-bg;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 
-  &--blue {
-    background-color: $color-blue-bg;
+  &__container {
+    padding: 0 20px;
 
-    // @include onSmallDesktop {
-    //   border-radius: 0 0 0 200px;
+    // @include onLargeDesktop {
+    //   padding: 0;
+    //   max-width: 1144px;
     // }
   }
 
   &__content {
-    padding-top: 20px;
-    height: 100vh;
+    box-sizing: border-box;
+    height: 893px;
+    padding: 21px 0;
 
-    // @include onSmallDesktop {
-    //   padding-top: 48px;
+    // @include onDesktop {
+    //   padding: 49px 0;
+    //   height: 800px;
     // }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    margin-bottom: 50px;
 
-  &__logo-group {
-    display: flex;
-    align-items: center;
-  }
-
-  &__nav {
-    display: none;
-
-    // @include onSmallDesktop {
-    //   display: block;
+    // @include onDesktop {
+    //   margin-bottom: 166px;
     // }
   }
 
-  // &__hire-us {
-  //   @include hover(transform, scale(1.2));
-  // }
+  &__menu {
+    display: block;
+    width: 18px;
+    height: 8px;
+    margin-left: 36px;
 
-  &__right {
-    display: flex;
-    max-width: 200px;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 40px;
+    background-image: url(../images/menu/menu-open.svg);
+
+    // @include onDesktop {
+    //   display: none;
+    // }
   }
 
-  &__button-theme {
-    border: 0;
-    background-color: transparent;
-  }
+  &__hire-us {
+    @extend %poppinsAccenpLink;
+    padding-top: 13px;
+    text-transform: uppercase;
+    color: $color-white;
+    transition: transform 0.5s;
 
-  // &__info {
-  //   @include onSmallDesktop {
-  //     max-width: 362px;
-  //   }
-  // }
+    &::after {
+      display: block;
+      content: "";
+      margin-top: 8px;
+      height: 2px;
+      background: $color-blue;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   &__title {
     @extend %poppinsH1;
-    margin-top: 48px;
-
-    // @include onTablet {
-    //   margin-top: 56px;
-    //   font-size: 64px;
-    //   line-height: 68px;
-    // }
-
-    // @include onSmallDesktop {
-    //   margin-top: 158px;
-    // }
-  }
-
-  &__description {
-    @extend %openSansHedCont;
-    margin-top: 32px;
-
-    // @include onTablet {
-    //   margin-top: 24px;
-    //   max-width: 362px;
-    // }
-
-    // @include onSmallDesktop {
-    //   margin-top: 32px;
-    // }
-  }
-
-  &__button {
-    margin-top: 72px;
-
-    // @include onTablet {
-    //   margin-top: 56px;
-    // }
-
-    // @include onSmallDesktop {
-    //   margin-top: 84px;
-    // }
-  }
-
-  &__slider {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    height: 33vh;
-
-    // @include onTablet {
-    //   height: 45vh;
-    // }
-
-    // @include onSmallDesktop {
-    //   top: 120px;
-    //   bottom: 0;
-    //   height: auto;
-    //   left: 50%;
-    //   border-radius: 30px 0;
-    // }
+    color: $color-white;
+    margin-bottom: 32px;
 
     // @include onDesktop {
-    //   left: 55%;
+    //   max-width: 360px;
+    // }
+  }
+
+  &__subtitle {
+    @extend %openSansHedCont;
+    color: $color-white;
+    margin-bottom: 86px;
+
+    // @include onTablet {
+    //   max-width: 362px;
     // }
   }
 }
-
-// @use "../utils/mixins" as *;
-
-// .header {
-//   background-color: $color-dark-bg;
-//   background-image: url(/images/header-background-320px.png);
-//   background-repeat: no-repeat;
-//   background-size: 100% 44%;
-//   background-position: center bottom;
-//   min-height: 100vh;
-//   box-sizing: border-box;
-//   border-bottom-right-radius: 30px;
-//   border-bottom-left-radius: 30px;
-//   // overflow: scroll;
-//   grid-template-rows: 1fr 1fr;
-
-//   @include grid();
-
-//   &__strategic {
-//     grid-column: 1 / -1;
-
-//     &--title {
-//       @extend %poppinsH1;
-//       color: $color-white;
-//       margin-bottom: 32px;
-//     }
-
-//     &--paragraph {
-//       width: 100%;
-
-//       height: 54px;
-//       @extend %openSansHedCont;
-//       color: $color-white;
-//       margin-bottom: 72px;
-//       grid-column: 1 / -1;
-
-//       // @include hover(transform, scale(1.2));
-//     }
-
-//     &--button {
-//       display: flex;
-//       width: 280px;
-//       height: 50px;
-
-//       @extend %poppinsButtonText;
-
-//       justify-content: center;
-//       align-items: center;
-//       text-align: center;
-//       box-sizing: border-box;
-
-//       background: $color-blue;
-//       border-radius: 8px;
-
-//       color: $color-white;
-//       text-decoration: none;
-//       transition: all 0.3s;
-//       margin-bottom: 48px;
-
-//       &:hover {
-//         box-shadow: inset 0 2px 11px 2px $color-white;
-//         cursor: pointer;
-//       }
-//     }
-//   }
-// }
