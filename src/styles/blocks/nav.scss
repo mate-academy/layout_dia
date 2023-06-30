@@ -14,11 +14,25 @@
     @include onDesktopS {
       column-gap: 48px;
     }
+
+    &--aside {
+      row-gap: 48px;
+      align-items: center;
+
+      @include onTablet {
+        flex-direction: column;
+      }
+    }
   }
 
   &__item {
     @include onDesktopS {
       @include hover (transform, $scale);
+    }
+
+    &--aside {
+      display: block;
+      width: 100%;
     }
   }
 
@@ -26,8 +40,24 @@
     color: $text-wite;
     @extend %poppinsAccenpLink;
 
-    &--gray {
+    &--aside {
+      display: flex;
       color: $text-accent;
+      position: relative;
+      justify-content: center;
+      padding: 4px;
+      z-index: 2;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: $text-gray;
+        bottom: -8px;
+        z-index: 1;
+      }
     }
   }
 }
