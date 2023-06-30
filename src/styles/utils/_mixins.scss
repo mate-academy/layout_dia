@@ -1,26 +1,38 @@
 @mixin for-mobile() {
-  @media (max-width: 743px) {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin for-iPad() {
+  @media (min-width: 640px) and (max-width: 1023px) {
     @content;
   }
 }
 
 @mixin for-tablet() {
-  @media (min-width: 744px) and (max-width: 1259px) {
+  @media (min-width: 1024px) and (max-width: 1599px) {
     @content;
   }
 }
 
 @mixin for-desktop() {
-  @media (min-width: 1260px) {
+  @media (min-width: 1600px) and (max-width: 2559px) {
     @content;
   }
 }
 
-@mixin for-tablet-and-desktop() {
-  @media (min-width: 744px) {
+@mixin for-big-desktop() {
+  @media (min-width: 2560px) {
     @content;
   }
 }
+
+// @mixin for-tablet-and-desktop() {
+//   @media (min-width: 744px) {
+//     @content;
+//   }
+// }
 
 @mixin grid() {
   display: grid;
@@ -28,13 +40,13 @@
   grid-template-columns: repeat(2, 130px);
   gap: $column-gap-mobile;
 
-  @include for-desktop() {
-    grid-template-columns: repeat(12, 63px);
-    gap: $column-gap;
-  }
+  // @include for-desktop() {
+  //   grid-template-columns: repeat(12, 63px);
+  //   gap: $column-gap;
+  // }
 
-  @include for-tablet() {
-    grid-template-columns: repeat(6, 80px);
-    gap: $column-gap;
-  }
+  // @include for-tablet() {
+  //   grid-template-columns: repeat(6, 80px);
+  //   gap: $column-gap;
+  // }
 }
