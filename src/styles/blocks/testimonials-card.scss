@@ -1,0 +1,111 @@
+.testimonials-card {
+  transition: all $animation-speed linear;
+
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 42px;
+  margin: 0 0 24px;
+  width: 280px;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  @include onTablet {
+    width: 558px;
+    margin-bottom: 30px;
+  }
+
+  @include onDesktop {
+    width: 292px;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    width: 362px;
+  }
+
+  &__image-container {
+    margin: 0 0 100px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      background-image: url(../images/testimonials/testimonial-ava-decoration.svg);
+      background-repeat: no-repeat;
+      background-position: top left;
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      top: 40px;
+      right: -35px;
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      background-image: url(../images/testimonials/testimonial-ava-decoration.svg);
+      background-repeat: no-repeat;
+      background-position: top left;
+      position: absolute;
+      width: 100px;
+      height: 150px;
+      top: -30px;
+      right: 35px;
+      z-index: 0;
+    }
+  }
+
+  &__image {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__paragraph {
+    text-align: center;
+    font-size: 13px;
+    position: relative;
+    margin: 0 0 16px;
+
+    &::before {
+      content: "";
+      background-image: url(../images/testimonials/testimonial-decoration.png);
+      width: 20px;
+      height: 18px;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      top: -18px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__person-name {
+    color: $c-dark-blue;
+    margin: 0 0 4px;
+  }
+
+  &__company-name {
+    text-align: center;
+    width: max-content;
+    margin: 0;
+  }
+}
