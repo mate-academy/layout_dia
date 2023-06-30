@@ -1,15 +1,55 @@
-.header__top {
+.header-navigation {
   display: flex;
   justify-content: space-between;
 
 }
 
+.open {
+  display: flex !important;
+}
+
+
 .header__nav {
-  // margin: 0 228px 0 229px;
+
+  @include onTablet {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    overflow-y: auto;
+    padding: 50px 40px;
+    background-color: #000;
+  }
+}
+
+.header__nav.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav__list {
   display: flex;
+
+  @include onTablet {
+    flex-direction: column;
+    row-gap: 50px;
+    margin: 100px 60% 0 0;
+  }
+
+  @include onPhone {
+    flex-direction: column;
+    row-gap: 50px;
+    margin: 100px 350px 0 0;
+  }
 
 }
 
@@ -21,6 +61,12 @@
   font-size: 13px;
   line-height: 150%;
   text-transform: uppercase;
+
+  @include onTablet {
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 180%;
+  }
 
   .nav__link {
     display: inline-block;
@@ -39,6 +85,10 @@
       transform: scaleX(0);
       transition: transform 0.3s ease-in-out;
       transform-origin: left;
+
+      @include onTablet {
+        display: none;
+      }
     }
 
     &:hover::after {

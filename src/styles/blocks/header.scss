@@ -1,20 +1,9 @@
 .header {
-  display: flex;
-  height: 800px;
+  // height: 800px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin: 0;
   background-color: #2C2C2C;
   border-radius: 0 0 30px 30px;
-
-    &__top {
-    display: flex;
-    align-items: center;
-    height: 100px;
-    min-width: 1024px;
-
-  }
 
   &__logo {
     display: flex;
@@ -33,10 +22,14 @@
   }
 
   &__block {
-    width: 490px;
+    width: 100%;
     height: 355px;
     margin-top: 166px;
     color: $header-text-color;
+
+   @include onPhone {
+    width: 100%;
+   }
   }
 
   &__title {
@@ -44,16 +37,118 @@
     font-size: 64px;
     line-height: 68px;
     letter-spacing: -2px;
+
+    @include onTablet {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 550px) {
+      white-space: inherit;
+    }
   }
 
   &__block--text {
     width: 362px;
     height: 54px;
     margin-top: 32px;
+
+    @include onPhone {
+      width: 100%;
+     }
   }
 }
 
-.learn-more {
+.header__burger {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    position: relative;
+    margin-right: 50%;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30px;
+    height: 18px;
+  }
+
+  @include onPhone {
+    display: flex;
+    position: relative;
+    margin-right: 10%;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30px;
+    height: 18px;
+  }
+}
+
+.header__burger-icon span {
+  height: 2px;
+  width: 80%;
+  transform: scale(1);
+  background-color: #fff;
+}
+
+.header__burger-icon::before,
+.header__burger-icon::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease 0s;
+}
+
+.header__burger-icon::before {
+  top: 0;
+}
+
+.header__burger-icon::after {
+  bottom: 0;
+}
+
+.header__burger-icon.active span {
+  transform: translateX(100%) scale(0);
+}
+
+.header__burger-icon.active::before {
+  top: 50%;
+  transform: rotate(-45deg) translate(0, -50%);
+}
+
+.header__burger-icon.active::after {
+  bottom: 50%;
+  transform: rotate(45deg) translate(0, 50%);
+}
+
+
+
+.header__container {
+
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.header__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 680px;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  min-width: 320;
+
+}
+
+.button {
   margin-top: 83px;
   background: #2060F6;
   width: 264px;
@@ -63,27 +158,100 @@
   justify-content: center;
   border-radius: 8px;
   cursor: pointer;
+}
 
+.button__text {
+  text-decoration: none;
+  color: $header-text-color;
+}
 
-  &__button {
-    text-decoration: none;
-    color: $header-text-color;
-  }
+.slider__inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .slider {
   position: absolute;
-  left: 813px;
-  right: 0px;
-  top: 120px;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 43%;
 
-  &__background {
-    background-image: url('../images/slider/slide-img-1.jpg');
-    height: 680px;
-    // width: 687px;
-    background-position: 50%;
-    background-size: cover;
-    border-radius: 30px 0 30px 0;
+  @include onTablet {
+    display: flex;
+    // position: relative;
+    height: 390px;
+    width: 100%;
+    top: 600px;
+  }
+
+
+  &__control {
+    position: absolute;
+    bottom: 40px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-right: 24px;
+    justify-content: space-between;
+    width: 80px;
+  }
+
+  &__info {
+    color: #FFF;
+    font-size: 14px;
+    font-family: 'Open Sans';
+    line-height: 140%;
+  }
+
+  &__info--title {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
+
+.image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.5s ease;
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 30px 0 30px 0;
+
+  @include onTablet {
+    background-position: 100%;
+    border-radius: 30px;
+  }
+}
+
+.image:nth-child(1) {
+  background-image: url('../images/slider/slide-img-1.jpg');
+
+}
+
+.button-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  text-decoration: none;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+
+  @include onPhone {
+    margin-right: 3px;
   }
 }
 
