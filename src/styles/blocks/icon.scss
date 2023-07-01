@@ -1,0 +1,78 @@
+.icon {
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 18px;
+    height: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: $colorBackgroundSecondary;
+      transition: transform 0.3s;
+    }
+
+    &:hover::before {
+      background-color: $colorBackgroundFourth;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: $colorBackgroundSecondary;
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      background-color: $colorBackgroundFourth;
+    }
+
+    &--active {
+      height: 18px;
+      width: 18px;
+
+      &::before {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &-social {
+    fill: $colorSecondary;
+
+    @include hover(fill, $colorBackgroundFourth);
+
+    &--facebook {
+      width: 15px;
+      height: 25px;
+    }
+
+    &--twitter {
+      width: 25px;
+      height: 22px;
+    }
+
+    &--instagram {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

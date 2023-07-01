@@ -1,0 +1,205 @@
+.services {
+  display: flex;
+  padding: 120px 0;
+
+  @include onTablet {
+    padding: 148px 0;
+  }
+
+  @include onSmallDesktop {
+    display: block;
+    padding: 287px 0 151px;
+  }
+
+  @include onDesktop {
+    padding: 287px 0 148px;
+
+  }
+
+  &__content {
+    @include onSmallDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    font-family: $fontSecondary;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $colorThird;
+
+    &::before {
+      @extend %span;
+
+      content: "Services";
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    &-container {
+      @include onTablet {
+        width: 263px;
+      }
+
+      @include onSmallDesktop {
+        width: 292px;
+        transform: translateY(-36px);
+      }
+
+      @include onDesktop {
+        width: 362px;
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 48px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin: 0;
+    }
+  }
+
+  &__cards {
+    counter-reset: number;
+
+    & > :not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 558px;
+
+      & > :not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      & > :not(:nth-last-child(-n + 2)) {
+        margin-bottom: 30px;
+      }
+
+      & > :nth-child(2n + 2) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include onSmallDesktop {
+      width: 448px;
+
+      & > :not(:nth-last-child(-n + 2)) {
+        margin-bottom: 20px;
+      }
+    }
+
+    @include onDesktop {
+      width: 558px;
+
+      & > :not(:nth-last-child(-n + 2)) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__card {
+    height: max-content;
+    padding: 32px;
+    background-color: $colorBackgroundSecondary;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+      width: 264px;
+
+      &:hover:nth-child(2n + 2) {
+        transform: translateY(-50%) scale(1.05);
+      }
+    }
+
+    @include onSmallDesktop {
+      width: 214px;
+    }
+
+    @include onDesktop {
+      width: 264px;
+    }
+
+    &::before {
+      counter-increment: number;
+      content: "00" counter(number);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 24px;
+
+      width: 46px;
+      height: 24px;
+
+      font-family: $fontSecondary;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      text-transform: uppercase;
+      color: $colorBackgroundFourth;
+
+      background-color: #e9effe;
+      border-radius: 23px;
+    }
+
+    &-description {
+      width: 150px;
+      margin-bottom: 32px;
+    }
+
+    &-button {
+      display: flex;
+      align-items: center;
+      width: max-content;
+
+      font-family: $fontSecondary;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
+      text-decoration: none;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        background-image: url(../images/services/arrow.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: $colorBackgroundFourth;
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      &:hover::before {
+        transform: scale(1.2);
+      }
+
+      &:active::before {
+        background-color: #1345bb;
+      }
+    }
+  }
+}

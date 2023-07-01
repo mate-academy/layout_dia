@@ -1,0 +1,160 @@
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 390px;
+  color: $colorSecondary;
+
+  @include onSmallDesktop {
+    height: 680px;
+  }
+
+  &__item {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    height: 390px;
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+    @include onSmallDesktop {
+      --widthSmallDesktop: 1024px;
+      --widthSlider: 502px;
+
+      min-width: var(--widthSlider);
+      max-width: 687px;
+      height: 680px;
+
+      margin-left: calc(var(--widthSmallDesktop) - var(--widthSlider));
+    }
+
+    @include onLargeDesktop {
+      max-width: 1167px;
+      margin-left: 0;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+
+    @include onSmallDesktop {
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    width: max-content;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      display: flex;
+      align-items: center;
+      left: 78px;
+      bottom: 48px;
+
+      & > :not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+
+    @include onDesktop {
+      left: 48px;
+    }
+  }
+
+  &__content {
+    width: 230px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-family: $fontSecondary;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-bottom: 16px;
+
+    & > :not(:last-child) {
+      margin-right: 16px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button-left {
+    width: 32px;
+    height: 32px;
+
+    background-image: url(../images/slider/buttons/arrow-left.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $colorBackgroundSecondary;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__button-right {
+    width: 32px;
+    height: 32px;
+
+    background-image: url(../images/slider/buttons/arrow-right.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $colorBackgroundSecondary;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
