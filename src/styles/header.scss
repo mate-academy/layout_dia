@@ -1,21 +1,27 @@
 .header {
-  padding: 21px 0;
-  height: 100vh;
+  height: max-content;
   background-color: #2c2c2c;
   border-radius: 0 0 30px 30px;
   position: relative;
 
+  @include OnDesktop {
+    height: 100vh;
+  }
+
   &__top {
+    padding-top: 21px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 48px;
+    margin-bottom: 49px;
 
     @include OnTablet {
       margin-bottom: 56px;
     }
 
     @include OnDesktop {
+      padding-bottom: 0;
+      margin-bottom: 0;
       height: 120px;
       align-items: center;
     }
@@ -41,6 +47,17 @@
       border-radius: 4px;
       background-color: #2060f6;
       top: 21px;
+    }
+  }
+
+  &__content {
+    padding: 0;
+    margin: 0 auto;
+
+    @include OnDesktop {
+      display: flex;
+      height: calc(100vh - 120px);
+      align-items: center;
     }
   }
 }
