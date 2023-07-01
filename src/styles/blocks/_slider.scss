@@ -1,0 +1,154 @@
+.slider {
+  position: relative;
+  height: 390px;
+
+  @include onSmallDesktop {
+    position: absolute;
+    height: 680px;
+    width: 502px;
+    right: 0;
+    bottom: 0;
+  }
+
+  @include onDesign {
+    width: 687px;
+  }
+
+  @include onLargeScreens {
+    width: 1167px;
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+
+    @include onSmallDesktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  &__button {
+    position: relative;
+    background-color: $secondary-text-color;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    z-index: 1;
+
+    &--right {
+      position: absolute;
+      left: 68px;
+      bottom: 108px;
+
+      @include onTablet {
+        left: 89px;
+        bottom: 116px;
+      }
+
+      @include onSmallDesktop {
+        left: 126px;
+        bottom: 66px;
+      }
+
+      @include onDesign {
+        left: 96px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        left: 0;
+        top: 0;
+        background-color: $secondary-text-color;
+        background-image: url(../images/slider/arrow-right.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &--left {
+      position: absolute;
+      left: 20px;
+      bottom: 108px;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        left: 0;
+        top: 0;
+        background-color: $secondary-text-color;
+        background-image: url(../images/slider/arrow-left.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &:checked ~ .slider__img--2 {
+        z-index: -1;
+      }
+
+      @include onTablet {
+        left: 41px;
+        bottom: 116px;
+      }
+
+      @include onSmallDesktop {
+        left: 78px;
+        bottom: 66px;
+      }
+
+      @include onDesign {
+        left: 48px;
+      }
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      left: 182px;
+      bottom: 48px;
+    }
+
+    @include onDesign {
+      left: 152px;
+    }
+
+    &__title {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      text-transform: uppercase;
+      color: $secondary-text-color;
+      font-size: 13px;
+      letter-spacing: 3px;
+    }
+
+    &__description {
+      margin: 0;
+      line-height: 140%;
+      color: $secondary-text-color;
+    }
+  }
+}

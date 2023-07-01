@@ -1,0 +1,45 @@
+.nav {
+  @media (max-width: $small-desktop-width) {
+    display: none;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    gap: 48px;
+  }
+
+  &__link {
+    position: relative;
+    color: $secondary-text-color;
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: inherit;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $secondary-text-color;
+
+      transition: transform 0.5s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+      transform-origin: center;
+    }
+  }
+}

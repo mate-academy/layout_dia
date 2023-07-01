@@ -1,0 +1,63 @@
+.services {
+  @include onSmallDesktop {
+    padding: 251px 0 151px;
+  }
+
+  @include onDesign {
+    padding-bottom: 148px;
+  }
+
+  &__content {
+    position: relative;
+    @include pageGrid;
+  }
+
+  &__description {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__intro {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    flex-direction: column;
+    gap: 24px;
+
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+
+      .services__cards--card:nth-child(2n) {
+        transform: translateY(-50%);
+
+        &:hover {
+          transform: scale(1.1) translateY(-50%);
+        }
+      }
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / -1;
+    }
+
+    &--card {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: span 3;
+      }
+    }
+  }
+}
