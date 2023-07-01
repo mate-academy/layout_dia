@@ -1,0 +1,179 @@
+.testimonials {
+
+  &__name {
+    padding-bottom: 16px;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $sectionNameColor;
+  }
+
+  &__title {
+    padding-bottom: 48px;
+
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: $darkColor;
+  }
+
+  &__cards {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 24px;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    padding: 32px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 288px;
+    height: 456px;
+
+    @include onTablet {
+      width: 558px;
+      height: 478px;
+    }
+
+    @include onSmallDesktop {
+      width: 292px;
+      height: 456px;
+    }
+
+    @include onDesktop {
+      width: 362px;
+      height: 494px;
+    }
+
+    background: $lightColor;
+    border-radius: 16px;
+
+    &-photo-container {
+      position: relative;
+
+      &::before {
+        content: "";
+        top: 0;
+        left: 5px;
+        position: absolute;
+        display: block;
+        width: 109px;
+        height: 120px;
+
+        background-image: url(../images/tes-photo-after.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      &::after {
+        content: "";
+        top: 80px;
+        left: 80px;
+        position: absolute;
+        display: block;
+        width: 110px;
+        height: 120px;
+
+        background-image: url(../images/tes-photo-before.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+
+    &-photo {
+      position: relative;
+      z-index: 1;
+      padding: 43px;
+      margin-bottom: 30px;
+
+      border-radius: 50%;
+    }
+
+    transition: all $transitionPageTime;
+
+    &:hover {
+      box-shadow: 0 9px 18px rgba(37, 41, 49, 0.5);
+    }
+
+    &:hover > &-photo-container {
+
+      &::after {
+        transition: transform $transitionPageTime;
+
+        transform: translate(-100%, -80%);
+      }
+
+      &::before {
+        transition: transform $transitionPageTime;
+
+        transform: translate(100%, 80%);
+      }
+    }
+
+    &:hover > &-photo-container > &-photo {
+      transition: transform $transitionPageTime;
+      transform: scale(1.1);
+    }
+
+    &-description {
+      margin-bottom: 16px;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 150%;
+      color: $pageTextColor;
+
+      @include onSmallDesktop {
+        height: 100px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        padding-bottom: 10px;
+
+        background-image: url(../images/quotes.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+
+    &-person {
+      margin-bottom: 4px;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 150%;
+      text-align: center;
+      color: $darkColor;
+    }
+
+    &-role {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $sectionNameColor;
+    }
+  }
+}
