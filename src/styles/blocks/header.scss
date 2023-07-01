@@ -1,0 +1,163 @@
+.header {
+  position: relative;
+  min-height: 890px;
+  border-radius: 0 0 30px 30px;
+  background-color: $dark-grey;
+
+  @include onSmallDesktop {
+    min-height: 800px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding-top: 20px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      padding-top: 49px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    left: 35px;
+    padding-bottom: 4px;
+    cursor: pointer;
+    transition: 500ms;
+
+    &-element {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: #fff;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 18px;
+      position: absolute;
+      bottom: 0;
+      background-color: #fff;
+      transition: 500ms;
+    }
+
+    &.active {
+      transform: rotate(45deg);
+    }
+
+    &.active::after {
+      top: 0;
+      transform: rotate(-270deg);
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 80px;
+    z-index: -1;
+    background-color: $dark-grey;
+    transform: translateY(-120%);
+    transition: 800ms;
+
+    &--active {
+      transform: translateX(0);
+
+      & .menu__list {
+        flex-direction: column;
+      }
+    }
+
+    @include onSmallDesktop {
+      position: static;
+      width: auto;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+      transform: translateY(0);
+    }
+  }
+
+  &__hire-us {
+    position: absolute;
+    right: 0;
+    padding-bottom: 8px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include hover(scale, 1.05);
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 67px;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $main-blue;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 32px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onSmallDesktop {
+      width: 490px;
+      padding-top: 165px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 72px;
+    font-size: 18px;
+    line-height: 150%;
+
+    @include onTablet {
+      width: 362px;
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-bottom: 83px;
+    }
+  }
+}

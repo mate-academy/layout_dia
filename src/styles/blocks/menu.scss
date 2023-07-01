@@ -1,0 +1,50 @@
+.menu {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    margin: 0 auto;
+    background-color: $dark-grey;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    list-style-type: none;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include onSmallDesktop {
+      gap: 64px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+
+    &:after {
+      content: "";
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      border-radius: 4px;
+      background-color: $main-blue;
+      transform: scale(0);
+      transform-origin: left;
+      transition: all 300ms;
+    }
+
+    &:hover::after {
+      transform: scale(100%);
+    }
+  }
+}
