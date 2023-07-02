@@ -28,25 +28,39 @@
   }
 }
 
-// @mixin for-tablet-and-desktop() {
-//   @media (min-width: 744px) {
-//     @content;
-//   }
-// }
-
 @mixin grid() {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, 130px);
   gap: $column-gap-mobile;
 
-  // @include for-desktop() {
-  //   grid-template-columns: repeat(12, 63px);
-  //   gap: $column-gap;
-  // }
+  @include for-tablet() {
+    grid-template-columns: repeat(12, 63px);
+    gap: $column-gap;
+  }
 
-  // @include for-tablet() {
-  //   grid-template-columns: repeat(6, 80px);
-  //   gap: $column-gap;
-  // }
+  @include for-desktop() {
+    grid-template-columns: repeat(12, 63px);
+    gap: $column-gap;
+  }
+
+  @include for-big-desktop() {
+    grid-template-columns: repeat(12, 63px);
+    gap: $column-gap;
+  }
+
+  @include for-iPad() {
+    grid-template-columns: repeat(6, 80px);
+    gap: $column-gap;
+  }
+}
+
+@mixin visually-hidden() {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
