@@ -1,123 +1,98 @@
 .slider {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 503px;
-
-  border-radius: 30px;
-  overflow: hidden;
-
-  @include for-desktop {
-    left: 50%;
-    top: 120px;
-
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  &__line {
-    position: relative;
-
+  &__content {
     display: flex;
     height: 100%;
-    width: 300%;
-
-    transition: transform 0.5s;
   }
 
-  &__item {
-    width: 33.33%;
+  &__img-container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__image {
+    position: absolute;
     height: 100%;
-    background-position: center;
-    background-size: cover;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
 
-    // &-1 {
-    //   background-image: url(../images/slider/slide-1-320.jpg);
-    // }
+    @include onSmallDesktop {
+      border-radius: 30px 0;
 
-    &-1 {
-      background-image: url(../images/slider/slide-1.jpg);
-    }
-
-    &-2 {
-      background-image: url(../images/slider/slide-2.jpg);
-    }
-
-    &-3 {
-      background-image: url(../images/slider/slide-3.jpg);
-      background-position: bottom;
+      &--border {
+        border-radius: 200px 0 0;
+      }
     }
   }
 
-  &__actions {
+  &__menu {
     position: absolute;
     left: 20px;
     bottom: 24px;
-    right: 20px;
+    display: flex;
+    flex-direction: column;
 
-    // @include onTablet {
-    //   left: 41px;
-    //   bottom: 32px;
-    // }
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
 
-    // @include onDesktop {
-    //   gap: 24px;
-    //   left: 78px;
-    //   bottom: 48px;
-
-    //   display: flex;
-    //   align-items: center;
-    // }
+    @include onSmallDesktop {
+      left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
-  &__buttons {
+  &__button-container {
     display: flex;
-    justify-content: space-between;
-
-    width: 80px;
-    height: 32px;
+    gap: 16px;
     margin-bottom: 16px;
+
+    @include onSmallDesktop {
+      margin: 0 24px 0 0;
+    }
   }
 
   &__button {
-    display: block;
-    width: 32px;
-    height: 32px;
-    background-color: $color-white;
+    @include square(32px);
+
     border-radius: 50%;
-    background-repeat: no-repeat;
+    border: 1px solid transparent;
+    transition: all $transition-duration;
     background-position: center;
-    transition: transform 0.5s;
+    background-repeat: no-repeat;
 
     &:hover {
-      transform: scale(1.1);
+      box-shadow: 0 0 20px $blue-color;
+      transform: scale(1.2);
     }
 
-    &-left {
+    &--left {
       background-image: url(../images/slider/arrow-left.svg);
     }
 
-    &-right {
+    &--right {
       background-image: url(../images/slider/arrow-right.svg);
     }
   }
 
   &__title {
-    margin-bottom: 8px;
-    @extend %poppinsAccenpLink;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: $color-white;
+    margin-bottom: 8px;
+  }
 
-    &::after {
-      display: block;
-      content: "By the same illusion which lifts the horizon.";
-      max-width: 260px;
-      @extend %openSansSmallContent;
-      text-transform: none;
-      letter-spacing: normal;
-      color: $color-white;
-      margin-top: 8px;
-    }
+  &__description {
+    @extend %OpenSans400;
+
+    max-width: 264px;
+    font-size: 14px;
+    line-height: 140%;
   }
 }

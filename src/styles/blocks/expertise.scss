@@ -1,66 +1,89 @@
 .expertise {
-  // padding: 128px 0;
-  background-color: $color-white;
+  display: block;
+  background-color: $white-color;
   border-radius: 30px;
+  padding: 72px 0;
 
-  // @include onDesktop {
-  //   margin-bottom: 251px;
-  // }
-
-  &__content {
-    grid-column: 1 / -1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__cards {
-    grid-column: 1 / -1;
-    flex-direction: column;
-
-    // @include onTablet {
-    //   gap: 72px;
-    // }
-
-    // @include onDesktop {
-    //   flex-direction: row;
-    //   justify-content: space-between;
-    //   width: 100%;
-    //   // gap: none;
-    // }
-  }
-
-  &__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__image {
-    grid-column: 1 / -1;
-    margin-bottom: 32px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 20px;
-    transition: transform 0.5s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+  @include onTablet {
+    padding: 128px 0;
   }
 
   &__title {
-    // grid-column: 1 / -1;
+    @extend %bigTitle;
+
     text-align: center;
-    margin-bottom: 16px;
-    @extend %poppinsTitleAccent20;
-    color: $color-dark-blue;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      font-size: 52px;
+      line-height: 150%;
+      margin-bottom: 64px;
+    }
   }
 
-  &__about {
-    // grid-column: 1 / -1;
-    @extend %openSansSmallContent;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 72px;
+
+    @include onTablet {
+      max-width: 362px;
+    }
+
+    @include onSmallDesktop {
+      max-width: 214px;
+    }
+
+    @include onDesktop {
+      max-width: 264px;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+    color: $main-title-color;
+  }
+
+  &__item-img {
+    width: 184px;
+    height: 166px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    transition: transform $transition-duration;
+
+    &:hover {
+      @include hover(transform, scale(1.1));
+      box-shadow: 0 0 20px $main-title-color;
+    }
+
+    &--shadow {
+      &:hover {
+        box-shadow: 0 0 20px $blue-color;
+      }
+    }
+  }
+
+  &__item-desc {
+    @extend %OpenSans400;
+
+    font-size: 14px;
+    line-height: 150%;
     text-align: center;
-    color: $color-light-gray;
-    margin-bottom: 32px;
+    color: $main-text-color;
   }
 }

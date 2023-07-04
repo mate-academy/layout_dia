@@ -1,120 +1,127 @@
-@use "../utils/mixins" as *;
-
 .contact {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  padding: 72px 0 80px;
-  background-color: $color-dark-bg;
-  margin-bottom: 0;
+  background-color: $dark-background-color;
+  padding-top: 72px;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: -2px;
 
-  // @include onTablet {
-  //   padding-top: 180px;
-  // }
-
-  // &__content {
-  //   @include onDesktop {
-  //     display: flex;
-  //     justify-content: space-between;
-  //   }
-
-  // }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
+  @include onSmallDesktop {
+    padding-top: 180px;
   }
 
-  &__button {
-    margin-bottom: 80px;
+  &--blue {
+    background-color: $blue-background-color;
 
-    // @include onTablet {
-    //   margin-bottom: 120px;
-    // }
+    @include onSmallDesktop {
+      border-radius: 0 200px 0 0;
+    }
   }
 
   &__title {
+    @extend %sectionTitle;
+
     margin-bottom: 48px;
+    text-align: left;
+    color: $white-color;
 
-    @extend %poppinsTitle32v1;
-    color: $color-white;
-
-    // @include onTablet {
-    //   margin-bottom: 56px;
-    // }
-  }
-
-  &__label {
-    &:not(:focus):not(:active) {
-      @include visually-hidden();
+    @include onSmallDesktop {
+      margin-bottom: 56px;
     }
   }
 
-  &__input {
-    height: 40px;
-    margin-bottom: 66px;
-
-    @extend %poppinsButtonText;
-    color: $color-white;
-    background-color: $color-dark-bg;
-    background-image: url(../images/Rectangle.svg);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    transition: background-image 0.5s;
-
-    &:hover {
-      color: $color-white;
-      background-image: url(../images/Rectangle-focus.svg);
-    }
-  }
-
-  &__info {
+  &__field {
+    display: block;
+    width: 100%;
     margin-bottom: 40px;
+    padding-bottom: 16px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 22px;
+    color: $white-color;
+    border: transparent;
+    border-bottom: 1px solid $white-color;
+    background: none;
+
+    &::placeholder {
+      color: $white-color;
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $second-blue-color;
+      outline: none;
+    }
+
+    &--textarea {
+      resize: none;
+    }
   }
 
-  &__info-title {
-    margin-bottom: 8px;
+  &__wrap-link {
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+  }
 
-    @extend %poppinsAccenpLink;
+  &__subtitle {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: $color-white;
     opacity: 0.5;
   }
 
   &__link {
-    @extend %openSansContact24;
-    color: $color-white;
+    @extend %OpenSans600;
+
+    font-size: 24px;
+    line-height: 150%;
 
     &:hover {
-      color: $color-blue;
+      color: $blue-color;
+
+      &--pink {
+        &:hover {
+          color: $main-pink-color;
+        }
+      }
     }
   }
 
-  &__socials {
+  &__wrap-socials {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
+    column-gap: 36px;
+    margin-top: 20px;
+  }
+
+  &__button {
+    margin-top: 56px;
     margin-bottom: 80px;
 
-    // @include onTablet {
-    //   margin-bottom: 140px;
-    // }
-  }
-
-  &__links {
-    display: block;
-    width: 32px;
-    height: 32px;
-    background-image: url(../images/icons-social/fb.svg);
-
-    background-position: center;
-    background-repeat: no-repeat;
-
-    &:hover {
-      background-image: url(../images/icons-social/fbhover.svg);
+    @include onTablet {
+      margin-top: 80px;
+      margin-bottom: 120px;
     }
   }
 
-  &__link--2 {
+  &__social {
+    @include square($size-social-logo);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__social--fb {
+    background-image: url(../images/icons-social/fb.svg);
+
+    &:hover {
+      background-image: url(../images/icons-social/fb-hover.svg);
+    }
+  }
+
+  &__social--tw {
     background-image: url(../images/icons-social/Twitter.svg);
 
     &:hover {
@@ -122,7 +129,7 @@
     }
   }
 
-  &__link--3 {
+  &__social--inst {
     background-image: url(../images/icons-social/Instagram.svg);
 
     &:hover {

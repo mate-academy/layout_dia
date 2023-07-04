@@ -1,66 +1,38 @@
-@mixin for-mobile() {
-  @media (min-width: 320px) and (max-width: 639px) {
+@mixin hover($_property, $_toValue) {
+
+  @include onSmallDesktop {
+    transition: #{$_property} $transition-duration;
+    &:hover {
+      #{$_property}: $_toValue;
+    }
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
     @content;
   }
 }
 
-@mixin for-iPad() {
-  @media (min-width: 640px) and (max-width: 1023px) {
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
     @content;
   }
 }
 
-@mixin for-tablet() {
-  @media (min-width: 1024px) and (max-width: 1599px) {
+@mixin onDesktop {
+  @media (min-width: 1600px) {
     @content;
   }
 }
 
-@mixin for-desktop() {
-  @media (min-width: 1600px) and (max-width: 2559px) {
-    @content;
-  }
-}
-
-@mixin for-big-desktop() {
+@mixin onLargeScreen {
   @media (min-width: 2560px) {
     @content;
   }
 }
 
-@mixin grid() {
-  display: grid;
-  // justify-content: center;
-  grid-template-columns: repeat(2, 130px);
-  gap: $column-gap-mobile;
-
-  @include for-tablet() {
-    grid-template-columns: repeat(12, 63px);
-    gap: $column-gap;
-  }
-
-  @include for-desktop() {
-    grid-template-columns: repeat(12, 63px);
-    gap: $column-gap;
-  }
-
-  @include for-big-desktop() {
-    grid-template-columns: repeat(12, 63px);
-    gap: $column-gap;
-  }
-
-  @include for-iPad() {
-    grid-template-columns: repeat(6, 80px);
-    gap: $column-gap;
-  }
-}
-
-@mixin visually-hidden() {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+@mixin square($size) {
+  width: $size;
+  height: $size;
 }

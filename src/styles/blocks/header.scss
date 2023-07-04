@@ -1,144 +1,130 @@
-@use "../utils/mixins" as *;
-
 .header {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
-  background-color: $color-dark-bg;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  // grid-template-rows: 1fr 1fr;
+  position: relative;
+  border-radius: 0 0 30px 30px;
+  background-color: $dark-background-color;
 
-  // @include grid();
+  &--blue {
+    background-color: $blue-background-color;
 
-  &__container {
-    // display: grid;
-    // grid-column: 1 / -1;
-    padding: 0 20px;
-
-    // @include onLargeDesktop {
-    //   padding: 0;
-    //   max-width: 1144px;
-    // }
+    @include onSmallDesktop {
+      border-radius: 0 0 0 200px;
+    }
   }
 
   &__content {
-    // display: grid;
-    // grid-column: 1 / 3;
-    box-sizing: border-box;
-    height: 893px;
-    padding: 21px 0;
+    padding-top: 20px;
+    height: 100vh;
 
-    // @include onDesktop {
-    //   padding: 49px 0;
-    //   height: 800px;
-    // }
-  }
-
-  &__actions {
-    // display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1 / 2;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-  }
-
-  &__logo {
-    display: grid;
-    width: 46px;
-    height: 28px;
-
-    // background-image: url(../images/logo/Air.svg);
-    background-position-x: center;
-    background-size: cover;
+    @include onSmallDesktop {
+      padding-top: 48px;
+    }
   }
 
   &__top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-    // margin-bottom: 50px;
-
-    // @include onDesktop {
-    //   margin-bottom: 166px;
-    // }
   }
 
-  &__menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  &__logo-group {
+    display: flex;
     align-items: center;
+  }
 
-    &-opener {
+  &__nav {
+    display: none;
+
+    @include onSmallDesktop {
       display: block;
-      width: 24px;
-      height: 24px;
-      // margin-left: 36px;
-
-      // background-image: url(../images/menu/menu-open.svg);
-
-      // @include onDesktop {
-      //   display: none;
-      // }
     }
   }
 
   &__hire-us {
-    justify-self: end;
-    display: inline-block;
-    @extend %poppinsAccenpLink;
-    padding-top: 13px;
-    text-transform: uppercase;
-    color: $color-white;
-    transition: transform 0.5s;
+    @include hover(transform, scale(1.2));
+  }
 
-    // width: 67px;
-    height: 30px;
-    top: 18px;
-    left: 233px;
-    border-radius: 4px;
+  &__right {
+    display: flex;
+    max-width: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+  }
 
-    &::after {
-      display: block;
-      content: "";
-      margin-top: 8px;
-      width: 100%;
-      height: 2px;
-      background: $color-blue;
-      border-radius: 4px;
-    }
+  &__button-theme {
+    border: 0;
+    background-color: transparent;
+  }
 
-    &:hover {
-      transform: scale(1.1);
+  &__info {
+    @include onSmallDesktop {
+      max-width: 362px;
     }
   }
 
   &__title {
-    grid-column: 1 / 2;
-    @extend %poppinsH1;
-    color: $color-white;
-    margin-bottom: 32px;
+    @extend %h1;
+    margin-top: 48px;
 
-    // @include onDesktop {
-    //   max-width: 360px;
-    // }
+    @include onTablet {
+      margin-top: 56px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 158px;
+    }
   }
 
-  &__subtitle {
-    @extend %openSansHedCont;
-    color: $color-white;
-    margin-bottom: 86px;
+  &__description {
+    @extend %subtitle;
+    margin-top: 32px;
 
-    // @include onTablet {
-    //   max-width: 362px;
-    // }
+    @include onTablet {
+      margin-top: 24px;
+      max-width: 362px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 32px;
+    }
+  }
+
+  &__button {
+    margin-top: 72px;
+
+    @include onTablet {
+      margin-top: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 84px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 33vh;
+
+    @include onTablet {
+      height: 45vh;
+    }
+
+    @include onSmallDesktop {
+      top: 120px;
+      bottom: 0;
+      height: auto;
+      left: 50%;
+      border-radius: 30px 0;
+    }
+
+    @include onDesktop {
+      left: 55%;
+    }
   }
 }
