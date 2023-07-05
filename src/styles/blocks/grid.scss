@@ -18,6 +18,11 @@
     column-gap: 30px;
   }
 
+  @include onLargeScreen {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
   &--block {
     display: block;
 
@@ -51,6 +56,16 @@
       @for $end from $start through 12 {
         &--desktop-#{$start}-#{$end} {
           @include theDesign {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--large-screen-#{$start}-#{$end} {
+          @include onLargeScreen {
             grid-column: #{$start} / #{$end + 1};
           }
         }
