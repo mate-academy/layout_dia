@@ -1,0 +1,125 @@
+.testimonial {
+  padding: 75px 37px 32px;
+  background-color: #fff;
+  border-radius: 16px;
+
+  transition: 1s;
+
+  &__view {
+    margin: 0 auto 70px;
+    position: relative;
+    width: max-content;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 139px;
+      height: 56px;
+
+      background-color: #2060f6;
+      border-radius: 12px;
+      transition: 1s;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      left: -41px;
+    }
+
+    &::after {
+      right: -41px;
+      bottom: 0;
+    }
+  }
+
+  &__view-image {
+    display: block;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    z-index: 1;
+    transition: transform 1s;
+  }
+
+  &__review {
+    width: 196px;
+    display: block;
+    position: relative;
+    margin: 0 auto 16px;
+
+    line-height: 150%;
+    font-weight: 600;
+    text-align: center;
+    font-size: 13px;
+    color: $colorTextGray;
+
+    &--2 {
+      @include onSmallDesktop {
+        margin-bottom: 32px;
+      }
+    }
+
+    @include onTablet {
+      width: 362px;
+    }
+
+    @include onSmallDesktop {
+      width: 196px;
+    }
+
+    &::before {
+      display: block;
+      margin: 0 auto 10px;
+      content: "";
+      width: 21px;
+      height: 18px;
+      background-image: url(../images/testimonials/“.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 4px;
+    color: $colorDarkBlue;
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    transition: transform 0.5s linear;
+  }
+
+  &__company {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  &:hover {
+    box-shadow: 0 9px 15px rgba(37, 41, 49, 0.33);
+ 
+    .testimonial__name {
+      color: #2060f6;
+      transform: scale(1.2);
+      backface-visibility: hidden;
+    }
+
+    .testimonial__view {
+      &::after {
+        right: 37px;
+        transform: rotate(60deg);
+        transition: 1s;
+      }
+
+      &::before {
+        left: 37px ;
+        transform: rotate(60deg);
+        transition: 1s;
+      }
+    }
+  }
+}
