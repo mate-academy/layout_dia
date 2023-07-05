@@ -60,25 +60,25 @@ const shadowImg = document.querySelectorAll('.expertise__item-img');
 const shadowCard = document.querySelectorAll('.service-card');
 const id = document.querySelectorAll('.service-card__num');
 const buttonArrow = document.querySelectorAll('.service-card__link');
-const shadowTestimonials = document.querySelectorAll('.testimonials-card');
-const rectangle = document.querySelectorAll('.testimonials-card__decor');
+const shadowTestimonials = document.querySelectorAll('.testimonials__review');
+const rectangle = document.querySelectorAll('.testimonials__review__decor');
 const rectangleDown = document.querySelectorAll(
-  '.testimonials-card__decor-down');
-const quotes = document.querySelectorAll('.testimonials-card__quotes');
+  '.testimonials__review__decor-down');
+const quotes = document.querySelectorAll('.testimonials__review__quotes');
 const bgVision = document.querySelector('.vision');
 const contactLink = document.querySelectorAll('.contact__link');
 
 toggler.addEventListener('click', () => {
-  rectangle[0].classList.toggle('testimonials-card__decor--blue');
-  rectangleDown[0].classList.toggle('testimonials-card__decor-down--blue');
-  rectangle[2].classList.toggle('testimonials-card__decor--yellow');
-  rectangleDown[1].classList.toggle('testimonials-card__decor-down--yellow');
-  rectangle[4].classList.toggle('testimonials-card__decor--pink');
-  rectangleDown[2].classList.toggle('testimonials-card__decor-down--pink');
+  rectangle[0].classList.toggle('testimonials__review__decor--blue');
+  rectangleDown[0].classList.toggle('testimonials__review__decor-down--blue');
+  rectangle[2].classList.toggle('testimonials__review__decor--yellow');
+  rectangleDown[1].classList.toggle('testimonials__review__decor-down--yellow');
+  rectangle[4].classList.toggle('testimonials__review__decor--pink');
+  rectangleDown[2].classList.toggle('testimonials__review__decor-down--pink');
 
-  quotes[0].classList.toggle('testimonials-card__quotes--blue');
-  quotes[1].classList.toggle('testimonials-card__quotes--yellow');
-  quotes[2].classList.toggle('testimonials-card__quotes--pink');
+  quotes[0].classList.toggle('testimonials__review__quotes--blue');
+  quotes[1].classList.toggle('testimonials__review__quotes--yellow');
+  quotes[2].classList.toggle('testimonials__review__quotes--pink');
 
   bgColor[0].classList.toggle('header--blue');
   bgColor[2].classList.toggle('menu--blue');
@@ -111,9 +111,9 @@ toggler.addEventListener('click', () => {
     button[i].classList.toggle('button--pink');
   }
 
-  shadowTestimonials[0].classList.toggle('testimonials-card--blue');
-  shadowTestimonials[1].classList.toggle('testimonials-card--yellow');
-  shadowTestimonials[2].classList.toggle('testimonials-card--pink');
+  shadowTestimonials[0].classList.toggle('testimonials__review--blue');
+  shadowTestimonials[1].classList.toggle('testimonials__review--yellow');
+  shadowTestimonials[2].classList.toggle('testimonials__review--pink');
 
   shadowCard[0].classList.toggle('service-card--blue');
   shadowCard[2].classList.toggle('service-card--yellow');
