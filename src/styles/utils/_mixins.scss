@@ -4,3 +4,82 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $large-screens-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline () {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+      padding-inline: 54px;
+    }
+
+  @include onDesktop() {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreens() {
+    padding-inline: 707px;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onSmallDesktop(){
+    --columns: 12;
+  }
+}
+
+@mixin serviceArrow {
+  border-radius: 40px;
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  transition: transform .3s;
+  @content;
+}
+
+@mixin rectTestimonial {
+  position: absolute;
+  display: inline-block;
+  width: 108.976px;
+  transform: rotate(-60deg) translate(15px, -50px);
+  height: 43.904px;
+  border-radius: 12px;
+  @content;
+ }
