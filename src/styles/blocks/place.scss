@@ -1,0 +1,183 @@
+.place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 75px 0 32px;
+
+  background-color: $color-white;
+  border-radius: 16px;
+
+  transition: transform $transition-time;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include onTablet {
+    padding-top: 87px;
+  }
+
+  @include onDesktop {
+    padding-top: 75px;
+  }
+
+  @include onDesign {
+    padding-top: 87px;
+  }
+
+  &__image-container {
+    position: relative;
+    margin-bottom: 99px;
+
+    transition: transform $transition-time;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include imageContainerSizeSmall;
+
+    @include onTablet {
+      margin-bottom: 119px;
+
+      @include imageContainerSizeBig;
+    }
+
+    @include onDesktop {
+      margin-bottom: 99px;
+
+      @include imageContainerSizeSmall;
+    }
+
+    @include onDesign {
+      margin-bottom: 111px;
+
+      @include imageContainerSizeBig;
+    }
+
+    &::before {
+      right: $photo-margin-x-small;
+      bottom: $photo-margin-y-small;
+
+      @include photoDecoration;
+
+      @include onTablet {
+        right: $photo-margin-x-big;
+        bottom: $photo-margin-y-big;
+      }
+
+      @include onDesktop {
+        right: $photo-margin-x-small;
+        bottom: $photo-margin-y-small;
+      }
+
+      @include onDesign {
+        right: $photo-margin-x-big;
+        bottom: $photo-margin-y-big;
+      }
+    }
+
+    &::after {
+      left: $photo-margin-x-small;
+      top: $photo-margin-y-small;
+
+      @include photoDecoration;
+
+      @include onTablet {
+        left: $photo-margin-x-big;
+        top: $photo-margin-y-big;
+      }
+
+      @include onDesktop {
+        left: $photo-margin-x-small;
+        top: $photo-margin-y-small;
+      }
+
+      @include onDesign {
+        left: $photo-margin-x-big;
+        top: $photo-margin-y-big;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 50%;
+  }
+
+  &__review {
+    margin-bottom: 16px;
+    position: relative;
+    max-width: 196px;
+    font-family: $font-family-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: $color-gray;
+
+    &--center {
+      @include onDesktop {
+        margin-bottom: 32px;
+      }
+
+      @include onDesign {
+        margin-bottom: 16px;
+      }
+    }
+
+    @include onTablet {
+      max-width: 362px;
+    }
+
+    @include onDesktop {
+      max-width: 196px;
+    }
+
+    @include onDesign {
+      max-width: 250px;
+    }
+
+    &::before {
+      position: absolute;
+      left: 50%;
+      top: -30px;
+      width: 21px;
+      height: 19px;
+      transform: translateX(-50%);
+      content: "";
+      background-image: url("../images/testimonials/quotes.svg");
+
+      @include onTablet {
+        top: -38px;
+      }
+
+      @include onDesktop {
+        top: -30px;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-family: $font-family-open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: $color-dark;
+  }
+
+  &__subtitle {
+    font-family: $font-family-poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: $color-light-gray;
+  }
+}

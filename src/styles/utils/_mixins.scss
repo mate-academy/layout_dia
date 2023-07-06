@@ -4,3 +4,150 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin icon {
+  display: grid;
+  grid-template-columns: 18px;
+}
+
+@mixin imageContainerSizeSmall {
+  width: 110px;
+  height: 110px;
+}
+
+@mixin imageContainerSizeBig {
+  width: 140px;
+  height: 140px;
+}
+
+@mixin decorationSmallSize {
+  height: 109px;
+  width: 44px;
+}
+
+@mixin decorationBigSize {
+  height: 139px;
+  width: 56px;
+}
+
+@mixin photoDecoration {
+  position: absolute;
+
+  @include decorationSmallSize;
+
+  background-color: $color-blue;
+  content: "";
+
+  transform: rotate(30deg);
+
+  border-radius: 12px;
+
+  @include onTablet {
+    @include decorationBigSize;
+  }
+
+  @include onDesktop {
+    @include decorationSmallSize;
+  }
+
+  @include onDesign {
+    @include decorationBigSize;
+  }
+}
+
+@mixin mainLinks {
+  font-family: $font-family-poppins;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  padding-bottom: 6px;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-white;
+
+  border-bottom: 2px solid transparent;
+  transition: border-color $transition-time;
+
+  &:hover {
+    border-color: $color-white;
+  }
+}
+
+@mixin top {
+  box-sizing: border-box;
+  height: 72px;
+
+  display: grid;
+  grid-template-columns: $logo-width $icon-width 1fr;
+  align-items: center;
+  justify-items: end;
+  gap: 35px;
+
+  margin-bottom: 36px;
+}
+
+@mixin special-link {
+  position: relative;
+  display: block;
+  padding-bottom: 8px;
+
+  font-family: $font-family-poppins;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-color: $color-blue;
+    border-radius: 4px;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+  }
+
+  &:hover {
+    &::after {
+      box-shadow: $hover-box-shadow;
+    }
+  }
+
+  &:active {
+    &::after {
+      box-shadow: $active-box-shadow;
+    }
+  }
+}
