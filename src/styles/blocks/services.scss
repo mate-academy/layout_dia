@@ -1,7 +1,6 @@
 .services {
 
   &__above {
-    margin-top: 120px;
     margin-bottom: 16px;
 
     font-family: "Poppins", sans-serif;
@@ -29,7 +28,18 @@
   }
 
   &__top {
-    margin-bottom: 48px;
+
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onSmallDesktop {
+      position: relative;
+      top: 50%;
+      grid-column: span 4;
+    }
   }
 
   &__blocks {
@@ -48,6 +58,71 @@
     border-radius: 16px;
 
     filter: drop-shadow(0 0 0.75rem #25293108);
+
+    &--1 {
+      grid-column: span 2;
+
+      @include onTablet {
+        grid-column: span 3;
+        grid-row: 2;
+      }
+
+      @include onSmallDesktop {
+        position: relative;
+        top: 50%;
+        grid-row: 1;
+        grid-column: 7/10;
+      }
+    }
+
+    &--2 {
+      grid-column: span 2;
+
+      @include onTablet {
+        position: relative;
+        bottom: 50%;
+        grid-column: span 3;
+        grid-row: 2;
+      }
+
+      @include onSmallDesktop {
+        grid-column: 10/-1;
+        bottom: calc(100% + 20px);
+      }
+    }
+
+    &--3 {
+      grid-column: span 2;
+
+      @include onTablet {
+        grid-column: span 3;
+        grid-row: 3;
+      }
+
+      @include onSmallDesktop {
+        position: relative;
+        top: 50%;
+        grid-column: 7/10;
+        grid-row: 2;
+      }
+    }
+
+    &--4 {
+      grid-column: span 2;
+
+      @include onTablet {
+        position: relative;
+        bottom: 50%;
+        grid-column: span 3;
+        grid-row: 3;
+      }
+
+      @include onSmallDesktop {
+        bottom: 0;
+        grid-column: 10/-1;
+        grid-row: 2;
+      }
+    }
 
     &__number {
       margin-bottom: 24px;

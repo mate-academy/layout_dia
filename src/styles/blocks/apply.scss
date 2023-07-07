@@ -1,11 +1,22 @@
 .apply {
-  margin-top: 120px;
-  margin-bottom: 120px;
-  padding: 62px 0;
+
+  padding: 72px 0;
 
   background-color: #fff;
 
+  @include onTablet {
+    background-image: url(../images/Shapes.png);
+    background-position: center;
+  }
+
+  &__grid {
+    @include pageGrid;
+
+    place-items: center;
+  }
+
   &__button {
+    width: 264px;
     height: 56px;
     margin-top: 56px;
     background-color: #2060F6;
@@ -13,6 +24,16 @@
     border-radius: 8px;
 
     @include hover(scale, 1.05);
+
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 3/ span 2;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 5/ span 4;
+    }
   }
 
   &__title {
@@ -27,6 +48,14 @@
 
     grid-column: span 2;
     place-items: center;
+
+    @include onTablet {
+      grid-column: 3/ span 2;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 2/ span 10;
+    }
   }
 
   &__subtitle {
@@ -37,5 +66,15 @@
     font-weight: 600;
     line-height: 33px;
     text-align: center;
+
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 3/ span 2;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 3/ -3;
+    }
   }
 }
