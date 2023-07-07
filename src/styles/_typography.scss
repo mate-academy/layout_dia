@@ -9,12 +9,21 @@
 
 .link {
   @extend %a;
+  @include customCursor;
+  @include hover(color, $c-underline-primary);
 
   color: $c-text-primary;
   font-size: 13px;
   line-height: 150%;
   letter-spacing: 3px;
   text-transform: uppercase;
+
+  &--large {
+    font-family: Open Sans, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0;
+  }
 }
 
 .p {
@@ -26,6 +35,16 @@
 
   &--secondary {
     color: $c-text-secondary;
+  }
+
+  &--bold {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &--small {
+    font-size: 14px;
   }
 }
 
@@ -49,6 +68,14 @@
   color: $c-title-primary;
   font-size: 32px;
   line-height: 150%;
+
+  &--secondary {
+    color: $c-text-primary;
+  }
+
+  &--large {
+    font-size: 44px;
+  }
 }
 
 .h4 {
@@ -57,4 +84,18 @@
   color: $c-title-primary;
   font-size: 20px;
   line-height: 140%;
+}
+
+.text {
+  &--center {
+    text-align: center;
+  }
+
+  $line-heights: 120, 130, 150;
+
+  @each $line-height in $line-heights {
+    &--lh-#{$line-height} {
+      line-height: $line-height * 1%;
+    }
+  }
 }
