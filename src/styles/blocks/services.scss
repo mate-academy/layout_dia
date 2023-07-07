@@ -1,5 +1,28 @@
 .services {
+  @include onLandscape {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+
+    &__header {
+      grid-column: 1;
+    }
+
+    &__item:nth-child(even) {
+      transform: translateY(-50%);
+    }
+  }
+
   &__content {
     margin-top: 48px;
+
+    @include onLandscape {
+      margin-top: 56px;
+
+      grid-column: 1 / span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
   }
 }
