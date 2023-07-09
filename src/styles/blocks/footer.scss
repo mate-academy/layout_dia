@@ -1,11 +1,27 @@
 .footer {
 
   &__block {
+    @include pageGrid;
+
     @include onSmallDesktop {
-      display: flex;
-      gap: 463px;
+      place-items: center;
     }
   }
+
+  &__bottom {
+    grid-row: 2;
+
+    @include onSmallDesktop {
+      grid-row: 1;
+      grid-column: 4/-1;
+    }
+
+    @include onDesktop {
+      grid-row: 1;
+      grid-column: 5/-1;
+    }
+  }
+
   &__list {
     margin: 0;
     padding: 0;
@@ -28,8 +44,7 @@
     border: #2C2C2C;
 
     &__top {
-      padding-bottom: 0;
-      margin-bottom: 40px;
+      grid-column: 1;
     }
 
     &__nav {
