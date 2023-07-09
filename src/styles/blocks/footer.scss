@@ -1,6 +1,6 @@
 .footer {
   @include constIndentInline(padding);
-  background-color: $bg-dark-primary;
+  background-color: var(--bg-main-primary);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -17,12 +17,22 @@
 
   &__section {
     max-width: 362px;
+
+    @include onTablet {
+      max-width: 470px;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: 80px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 98px;
+    }
   }
 
   &__bottom-bar {

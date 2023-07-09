@@ -1,19 +1,16 @@
 .header {
-  background-color: $bg-dark-primary;
+  background-color: var(--bg-main-primary);
   box-sizing: border-box;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   border-radius: 0 0 $br-main $br-main;
 
-  &__content {
-    @include constIndentInline(padding);
-    margin-top: 48px;
-  }
+  $media-height: 390px;
 
   &__top-bar {
-    @include constIndentInline(padding);
     padding-block: 18px 0;
+    @include constIndentInline(padding);
   }
 
   &__description {
@@ -29,24 +26,48 @@
     }
   }
 
+  &__media-placeholder {
+    height: $media-height;
+    width: 100%;
+
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
   &__media {
-    min-height: 390px;
-    margin-top: 48px;
+    height: $media-height;
     border-radius: $br-main;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     @include onTablet {
       border-radius: $br-main 0;
+      height: 100%;
+      left: 50%;
     }
   }
 
   &__bottom {
+    position: relative;
+    @include constIndentInline(padding);
+    margin-top: 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 48px;
     flex: 1 1;
+
+    @include onLandscape {
+      gap: 140px;
+    }
+
     @include onTablet {
       display: grid;
-      grid-template-columns: auto 502px;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
     }
   }
 }

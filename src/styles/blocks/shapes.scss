@@ -2,6 +2,7 @@
   &__background {
     position: relative;
     overflow: hidden;
+    z-index: 0;
   }
 
   @mixin rectSmall {
@@ -27,90 +28,114 @@
 
   &__list {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1024px;
-    height: 796px;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 890px;
+    display: none;
+    z-index: -1;
+
+    @include onLandscape {
+      display: initial;
+    }
+
+    @include onTablet {
+      width: 1600px;
+    }
   }
 
   &__rectangle {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 20px;
     height: 20px;
     border-radius: 6px;
-    border: 3px solid $c-underline-primary;
+    border: 3px solid var(--c-underline-primary);
     opacity: 0.5;
 
+    @include hover(opacity, 0.7);
+
     &:nth-child(1) {
-      top: 83px;
-      left: 2px;
-      @include rectMiddle;
+      top: 370px;
+      left: 80px;
+      @include rectSmall;
       animation: pingpong 3s infinite alternate;
     }
 
     &:nth-child(2) {
-      top: 290px;
-      left: 140px;
-      @include rectBig;
+      top: 520px;
+      left: 130px;
+      @include rectMiddle;
       animation: pingpong 2s infinite alternate;
     }
 
     &:nth-child(3) {
-      top: 100px;
-      left: 300px;
-      @include rectSmall;
+      top: 72px;
+      left: 230px;
+      @include rectMiddle;
       animation: pingpongSecondary 2s infinite alternate;
     }
 
     &:nth-child(4) {
-      top: 435px;
-      left: 220px;
-      @include rectSmall;
+      top: 280px;
+      left: 270px;
+      @include rectBig;
       animation: pingpongTernary 3s infinite alternate;
     }
 
     &:nth-child(5) {
-      top: 478px;
-      left: 695px;
+      top: 80px;
+      left: 440px;
       @include rectSmall;
       animation: pingpongSecondary 4s infinite alternate;
     }
 
     &:nth-child(6) {
-      top: 363px;
-      left: 880px;
-      @include rectMiddle;
+      top: 465px;
+      left: 480px;
+      @include rectSmall;
       animation: pingpongTernary 2s infinite alternate;
     }
 
     &:nth-child(7) {
-      top: 136px;
-      left: 928px;
-      @include rectBig;
+      top: 515px;
+      right: 550px;
+      @include rectSmall;
       animation: pingpongSecondary 2s infinite alternate;
     }
 
     &:nth-child(8) {
-      top: 388px;
-      left: 985px;
-      @include rectBig;
+      top: 385px;
+      right: 315px;
+      @include rectMiddle;
       animation: pingpongSecondary 2s infinite alternate;
     }
 
     &:nth-child(9) {
-      top: 505px;
-      left: 750px;
-      @include rectMiddle;
+      top: 130px;
+      right: 215px;
+      @include rectBig;
       animation: pingpong 2s infinite alternate;
     }
 
     &:nth-child(10) {
-      top: 100px;
-      left: 700px;
+      top: 413px;
+      right: 145px;
       @include rectBig;
+      animation: pingpongSecondary 2s infinite alternate;
+    }
+
+    &:nth-child(11) {
+      top: 110px;
+      right: 110px;
+      @include rectSmall;
+      animation: pingpongTernary 2s infinite alternate;
+    }
+
+    &:nth-child(12) {
+      top: 275px;
+      right: 65px;
+      @include rectMiddle;
       animation: pingpongSecondary 2s infinite alternate;
     }
   }

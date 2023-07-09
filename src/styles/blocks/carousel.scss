@@ -1,24 +1,41 @@
 .carousel {
   overflow: hidden;
   display: flex;
-  $marginInline: 20px;
 
   &__wrapper {
+    @include fullSize;
     position: relative;
     display: flex;
   }
 
   &__slide {
+    @include fullSize;
     display: flex;
     img {
+      @include fullSize;
       object-fit: cover;
     }
   }
 
-  &__slide-text {
+  &__bottom {
     position: absolute;
-    bottom: 24px;
-    margin-inline: $marginInline;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 20px;
+
+    @include onLandscape {
+      margin: 40px 32px;
+    }
+
+    @include onTablet {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      margin: 54px 48px;
+    }
   }
 
   &__slide-description {
@@ -32,9 +49,6 @@
   &__controls {
     display: flex;
     gap: 16px;
-    position: absolute;
-    margin-inline: $marginInline;
-    bottom: 108px;
   }
 
   &__button {

@@ -16,13 +16,26 @@
   }
 }
 
+@mixin onDesktopXL {
+  @media (min-width: $xxl-screen) {
+    @content;
+  }
+}
+
 @mixin customCursor {
   cursor: url($cursor), pointer;
 }
 
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all $transition-duration;
   &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: all $transition-duration;
+  &:active {
     #{$_property}: $_toValue;
   }
 }
@@ -32,6 +45,18 @@
 
   @include onLandscape {
     #{$_property}-inline: 40px;
+  }
+
+  @include onTablet {
+    #{$_property}-inline: 54px;
+  }
+
+  @include onDesktop {
+    #{$_property}-inline: 227px;
+  }
+
+  @include onDesktopXL {
+    #{$_property}-inline: 707px;
   }
 }
 
