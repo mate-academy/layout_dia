@@ -1,6 +1,6 @@
 'use strict';
 
-const swiper = new Swiper('.slider-main-block', {
+new Swiper('.slider-main-block', {
   // Optional parameters
   loop: true,
   // Navigation arrows
