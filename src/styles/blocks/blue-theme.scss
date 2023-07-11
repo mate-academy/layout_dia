@@ -1,0 +1,70 @@
+.blue-theme {
+  --c-underline-primary: #{$bg-elements-blue};
+  --bg-main-primary: #{$bg-blue-primary};
+  --bg-button-primary: #{$bg-elements-blue};
+  --bg-button-secondary: #{$bg-blue-secondary};
+  --bg-button-active: #{$bg-blue-active};
+  --card-elements: #{$card-elements-blue};
+
+  .header {
+    border-radius: 0 0 0 200px;
+
+    &__media {
+      border-radius: 200px 0 0;
+    }
+  }
+
+  .footer {
+    border-radius: 0 200px 0 0;
+  }
+
+  @each $modifier, $color in $color-elements {
+    .card--#{$modifier} {
+      .card__title,
+      .card__action-button {
+        color: $color;
+      }
+
+      .card__title::before {
+        background-color: $color;
+      }
+
+      .card__action-button {
+        background-color: $color;
+      }
+
+      &:hover {
+        .card__action-button {
+          box-shadow: 0 0 10px $color;
+        }
+
+        .card__action-link {
+          color: $color;
+        }
+      }
+
+      &:active {
+        .card__action-button {
+          box-shadow: 0 0 30px $color;
+        }
+      }
+    }
+
+    .testimonial--#{$modifier} {
+      .testimonial__media {
+        &::before,
+        &::after {
+          background-color: $color;
+        }
+      }
+
+      .testimonial__icon {
+        background-color: $color;
+      }
+    }
+
+    .shapes__rectangle--#{$modifier} {
+      border-color: $color;
+    }
+  }
+}

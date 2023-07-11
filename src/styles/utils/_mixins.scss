@@ -1,6 +1,66 @@
+@mixin onLandscape {
+  @media (min-width: $sm-screen) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $md-screen) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $lg-screen) {
+    @content;
+  }
+}
+
+@mixin onDesktopXL {
+  @media (min-width: $xxl-screen) {
+    @content;
+  }
+}
+
+@mixin customCursor {
+  cursor: pointer;
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all $transition-duration;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: all $transition-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin constIndentInline($_property) {
+  #{$_property}-inline: 20px;
+
+  @include onLandscape {
+    #{$_property}-inline: 40px;
+  }
+
+  @include onTablet {
+    #{$_property}-inline: 54px;
+  }
+
+  @include onDesktop {
+    #{$_property}-inline: 227px;
+  }
+
+  @include onDesktopXL {
+    #{$_property}-inline: 707px;
+  }
+}
+
+@mixin fullSize {
+  width: 100%;
+  height: 100%;
 }

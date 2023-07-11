@@ -1,0 +1,39 @@
+.icon-button {
+  @extend %button;
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 100%;
+  background-color: $c-text-primary;
+
+  @include hover(box-shadow, 0 0 10px var(--card-elements));
+
+  @include active(box-shadow, 0 0 30px var(--card-elements));
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(../images/icons/arrow-left.svg);
+  }
+
+  $icons: (
+    "prev": "arrow-left.svg",
+    "next": "arrow-right.svg",
+    "arrow": "arrow-forward.svg"
+  );
+
+  @each $name, $filename in $icons {
+    &--#{$name} {
+      &::after {
+        background-image: url(../images/icons/#{$filename});
+      }
+    }
+  }
+}

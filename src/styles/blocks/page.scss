@@ -1,0 +1,43 @@
+.page {
+  font-family: "Open Sans", "Poppins", Arial, sans-serif;
+  scroll-behavior: smooth;
+
+  &__content {
+    background: $bg-light-primary;
+  }
+
+  &__section {
+    margin-top: 120px;
+
+    @include onLandscape {
+      margin-top: 148px;
+    }
+  }
+
+  &__footer {
+    margin-top: 120px;
+
+    @include onLandscape {
+      margin-top: 0;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(-100%);
+    transition: all $transition-duration ease-in-out;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+
+      transform: translateX(0);
+    }
+  }
+}

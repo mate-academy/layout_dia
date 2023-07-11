@@ -1,0 +1,53 @@
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 48px;
+  $service-height: 264px;
+
+  @include onLandscape {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 56px;
+  }
+
+  @include onTablet {
+    padding-top: $service-height/2;
+  }
+
+  &__header {
+    grid-column: 1;
+    max-width: 292px;
+  }
+
+  &__item {
+    height: $service-height;
+    @include hover(transform, scale(1.1));
+    
+    @include onLandscape {
+      &:nth-child(even) {
+        transform: translateY(-50%);
+        @include hover(transform, scale(1.1) translateY(-50%));
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onLandscape {
+      grid-column: 1 / span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+      align-items: end;
+    }
+
+    @include onTablet {
+      grid-column: 2;
+    }
+  }
+}

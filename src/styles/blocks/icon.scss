@@ -1,0 +1,32 @@
+.icon {
+  display: block;
+  background-size: cover;
+  width: $icon-size;
+  height: $icon-size;
+
+  background-color: $c-text-primary;
+
+  &--hover {
+    @include hover(background-color, var(--c-underline-primary));
+    @include customCursor;
+  }
+
+  $icons: (
+    "menu": "menu-icon.svg",
+    "quote": "quote-icon.svg",
+    "facebook": "facebook-icon.svg",
+    "twitter": "twitter-icon.svg",
+    "instagram": "instagram-icon.svg",
+    "close": "close-icon.svg",
+    "return": "arrow-return.svg"
+  );
+
+  @each $name, $filename in $icons {
+    &--#{$name} {
+      -webkit-mask-image: url(../images/icons/#{$filename});
+      mask-image: url(../images/icons/#{$filename});
+      -webkit-mask-size: contain;
+      mask-size: contain;
+    }
+  }
+}
