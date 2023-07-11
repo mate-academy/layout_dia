@@ -9,47 +9,9 @@
 
   background: #2c2c2c;
 
-  &__menu {
-    position: relative;
-    left: -50px;
-
-    @include onTablet {
-      left: -240px;
-    }
-
-    @include onDesctop {
-      display: none;
-    }
-
-    & > span {
-      display: flex;
-      position: relative;
-      background-color: #fff;
-      width: 18px;
-      height: 2px;
-      visibility: hidden;
-    }
-
-    & > span::before {
-      position: absolute;
-      top: -5px;
-      background-color: #fff;
-      content: "";
-      width: 18px;
-      height: 2px;
-      visibility: visible;
-    }
-
-    & > span::after {
-      position: absolute;
-      top: 5px;
-
-      background-color: #fff;
-      content: "";
-      width: 18px;
-      height: 2px;
-      visibility: visible;
-    }
+  &__service {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__wrapper {
@@ -237,4 +199,96 @@
   @include onDesctop {
     width: 362px;
   }
+}
+
+.menu-btn {
+  position: relative;
+  top: 15px;
+  width: 24px;
+  height: 10px;
+  margin-left: 32px;
+  z-index: 6;
+
+  @include onDesctop {
+    display: none;
+  }
+
+  & > span {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    width: 18px;
+    height: 2px;
+    visibility: hidden;
+  }
+
+  & > span::before {
+    position: absolute;
+    top: -5px;
+    background-color: #fff;
+    content: "";
+    width: 18px;
+    height: 2px;
+    visibility: visible;
+  }
+
+  & > span::after {
+    position: absolute;
+    top: 5px;
+
+    background-color: #fff;
+    content: "";
+    width: 18px;
+    height: 2px;
+    visibility: visible;
+  }
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+  transition: 0.3s;
+}
+
+.menu-btn.active span {
+  visibility: hidden;
+  transition: 0.1s;
+}
+
+.menu-btn.active span::after {
+  visibility: visible;
+  width: 32px;
+  top: 70%;
+  transform: translate(-70%, 0%) rotate(45deg);
+}
+
+.menu-btn.active span::before {
+  visibility: visible;
+  width: 32px;
+  top: 70%;
+  transform: translate(-70%, 0%) rotate(-45deg);
+}
+
+.menu.active {
+  transform: translateX(0);
+}
+
+.menu-active {
+  overflow: hidden;
+}
+
+.menu-btn.active span::before,
+.menu-btn.active span::after {
+  animation: none;
+}
+
+.landscape {
+  overflow-y: scroll;
+}
+
+.landscape::-webkit-scrollbar {
+  overflow-y: hidden;
+}
+
+.menu-btn.active {
+  left: -50%;
 }

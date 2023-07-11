@@ -78,7 +78,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 20px;
-    margin: 0 auto;
+    // margin: 0 auto;
 
     @include onTablet {
       padding: 0 41px;
@@ -126,6 +126,15 @@
     padding: 8px;
     background-color: #2060f6;
     border-radius: 50%;
+    transition: 0.3;
+
+    @include onDesctop {
+      animation: serviceDown 1s forwards;
+
+      &:hover {
+        animation: serviceUp 1s forwards;
+      }
+    }
   }
 
   &__paragraph {
@@ -177,5 +186,25 @@
 
   .second__block {
     transform: translate(0,-120px);
+  }
+}
+
+// #animation
+
+@keyframes serviceUp {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes serviceDown {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
