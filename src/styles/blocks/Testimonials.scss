@@ -99,6 +99,10 @@
       margin-right: 20px;
       width: 292px;
       height: 456px;
+
+      &:nth-child(3) {
+        margin-right: 0;
+      }
     }
 
     @include onPC {
@@ -194,6 +198,41 @@
   transform: translateX(50px);
   border-radius: 50%;
   z-index: 3;
+}
+
+@include onDesctop {
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .testimonials__card {
+    position: relative;
+  }
+
+  .testimonials__card::after {
+    filter: blur(10px);
+  }
+
+  .testimonials__card:hover::after {
+    content: "";
+    position: absolute;
+    inset: -0.2rem;
+    z-index: -1;
+    background: linear-gradient(var(--angle),
+    #0f5ebe, #ccffc3, rgb(212, 72, 72));
+    animation: cardRgb 10s linear infinite;
+  }
+
+  @keyframes cardRgb {
+    0% {
+      --angle: 0deg;
+    }
+    100% {
+      --angle: 360deg;
+    }
+  }
 }
 
 // .rectangel:nth-child(3) {
