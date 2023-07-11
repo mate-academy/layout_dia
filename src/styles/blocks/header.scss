@@ -4,6 +4,12 @@
   position: relative;
   border-radius: 0 0 30px 30px;
   background-color: $black-color-bg;
+  padding-top: 20px;
+  height: 100vh;
+
+  @include onSmallDesktop {
+    padding-top: 48px;
+  }
 
   @media (min-width: 1600px) {
     max-width: 1600px;
@@ -39,15 +45,6 @@
     }
   }
 
-  &__content {
-    padding-top: 20px;
-    height: 100vh;
-
-    @include onSmallDesktop {
-      padding-top: 48px;
-    }
-  }
-
   &__top {
     display: flex;
     justify-content: space-between;
@@ -74,12 +71,16 @@
     }
   }
 
-  &__right {
-    display: flex;
-    max-width: 200px;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 40px;
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform $transition-duration;
+
+    &:target {
+      transform: translateX(0);
+    }
   }
 }
