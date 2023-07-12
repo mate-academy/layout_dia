@@ -15,6 +15,10 @@
 .who-we-are {
   padding: 160px 20px 0;
 
+  @include for-small-desktop() {
+    padding: 148px 154px 0;
+  }
+
   &__title {
     color: #253757;
     text-align: center;
@@ -44,6 +48,11 @@
 .our-expertise {
   background-color: #fff;
   border-radius: 30px;
+  padding: 0 20px;
+
+  @include for-small-desktop() {
+    margin-bottom: 148px;
+  }
 
   &__title {
     color: #253757;
@@ -60,6 +69,13 @@
     }
   }
 
+  &__cards {
+    @include for-small-desktop() {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__card {
     display: flex;
     justify-content: center;
@@ -72,11 +88,19 @@
       padding-bottom: 72px;
     }
 
+    @include for-small-desktop() {
+      max-width: 215px;
+    }
+
     &:last-child {
       padding-bottom: 72px;
 
       @include for-tablet() {
         padding-bottom: 128px;
+      }
+
+      @include for-small-desktop() {
+        padding-bottom: 72px;
       }
     }
   }
@@ -111,7 +135,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    padding: 0 20px;
   }
 }
 
@@ -122,9 +145,17 @@
     padding: 0 41px;
   }
 
+  @include grid-for-small-desktop() {
+    padding: 90px 0 54px;
+  }
+
   &__container {
     @include for-tablet() {
       grid-column: 1 / 4;
+    }
+
+    @include for-small-desktop() {
+      grid-column: 1 / 5;
     }
   }
 
@@ -182,6 +213,10 @@
         grid-column: 1 / 4;
       }
 
+      @include for-small-desktop() {
+        grid-column: 7 / 10;
+      }
+
       &:hover {
         @include for-tablet() {
           transform: translateY(0);
@@ -194,12 +229,20 @@
         grid-column: 4 / 7;
         transform: translateY(-132px);
       }
+
+      @include for-small-desktop() {
+        grid-column: 10 / 13;
+      }
     }
 
     &-grid-3 {
       @include for-tablet() {
         grid-column: 1 / 4;
         margin-bottom: 0;
+      }
+
+      @include for-small-desktop() {
+        grid-column: 7 / 10;
       }
 
       &:hover {
@@ -214,6 +257,10 @@
         grid-column: 4 / 7;
         margin-bottom: 0;
         transform: translateY(-132px);
+      }
+
+      @include for-small-desktop() {
+        grid-column: 10 / 13;
       }
     }
   }
@@ -305,6 +352,18 @@
       margin-right: 380px;
       padding: 0 0 56px;
     }
+
+    @include for-small-desktop() {
+      padding: 0 0 85px;
+    }
+  }
+
+  &__review-cards {
+    @include for-small-desktop() {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 186px;
+    }
   }
 
   &__review {
@@ -317,6 +376,11 @@
     border-radius: 16px;
     margin-bottom: 24px;
     transition: all 0.4s;
+
+    @include for-small-desktop() {
+      max-width: 292px;
+      padding: 36px 0 0;
+    }
 
     &:hover {
       @include hover-1();
@@ -407,7 +471,13 @@
     padding: 200px 41px;
     background-image: url(../images/Shapes.png);
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     margin-bottom: 0;
+  }
+
+  @include for-small-desktop() {
+    padding: 200px 135px;
   }
 
   &__title {
@@ -454,14 +524,23 @@
   }
 }
 
+.grid-container {
+  @include grid-for-small-desktop() {
+
+  }
+}
+
 .send-us-a-message {
   background-color: #2c2c2c;
   border-radius: 30px 30px 0 0;
   padding: 72px 20px 80px;
 
   @include grid-for-tablet() {
-    padding: 180px 41px 120px;
+    padding: 180px 41px 27px;
+  }
 
+  @include grid-for-small-desktop() {
+    grid-column: 1 / 7;
   }
 
   &__title {
@@ -471,18 +550,27 @@
     font-style: normal;
     font-weight: 600;
     line-height: 130%;
+    padding-bottom: 48px;
 
     @include for-tablet() {
       grid-column: 1 / 5;
+      padding-bottom: 56px;
     }
   }
 }
 
 .form {
-  padding-top: 56px;
+  padding-bottom: 80px;
 
   @include for-tablet() {
     grid-column: 1 / 5;
+    padding-bottom: 120px;
+  }
+
+  @include for-small-desktop() {
+    grid-column: 1 / 6;
+    margin-bottom: 135px;
+    padding-bottom: 0;
   }
 
   &__label {
@@ -531,6 +619,11 @@
 
   @include for-tablet() {
     padding: 0 41px 139px;
+    grid-column: 1 / 5;
+  }
+
+  @include for-small-desktop() {
+    grid-column: 7 / 13;
   }
 
   &__title {
@@ -540,7 +633,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-    padding-bottom: 48px;
   }
 
   &__paragraph-title {
@@ -553,6 +645,12 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     padding-bottom: 8px;
+
+
+    @include for-tablet() {
+      padding-bottom: 16px;
+      margin-top: 48px;
+    }
   }
 
   &__paragraph {
@@ -562,12 +660,51 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
+    text-decoration: none;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
   }
 
   &__socials-link {
     text-decoration: none;
-    padding-right: 32px;
+    height: 32px;
+    width: 32px;
+  }
+
+  &__socials-facebook {
+    background-image: url(../images/our-socials/facebook.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url(../images/our-socials/facebook-blue.svg);
+    }
+
+  }
+
+  &__socials-twitter {
+    background-image: url(../images/our-socials/twitter.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url(../images/our-socials/twitter-blue.svg);
+    }
+  }
+
+  &__socials-instagram {
+    background-image: url(../images/our-socials/instagram.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-image: url(../images/our-socials/instagram-blue.svg);
+    }
   }
 }
 
@@ -576,11 +713,12 @@
   background-color: #2c2c2c;
 
   @include for-tablet() {
-    padding: 0 41px 80px;
+    padding: 0 58px 80px;
   }
 
   &__logo {
     padding-bottom: 48px;
+    display: inline-block;
 
     @include for-tablet() {
       padding-bottom: 24px;
@@ -591,11 +729,14 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 24px;
+    gap: 25px;
+    width: 100%;
 
     @include for-tablet() {
+      flex-wrap: nowrap;
       flex-direction: row;
-      gap: 40px;
+      justify-content: space-between;
+      gap: 0;
     }
   }
 

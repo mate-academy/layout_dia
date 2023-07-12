@@ -11,6 +11,12 @@
   }
 }
 
+@mixin for-small-desktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin grid-for-tablet() {
   @include for-tablet() {
     @content;
@@ -19,6 +25,17 @@
     align-items: center;
     grid-template-columns: repeat(6, 68px);
     column-gap: 30px;
+  }
+}
+
+@mixin grid-for-small-desktop() {
+  @include for-small-desktop() {
+    @content;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(12, 55px);
+    column-gap: 20px;
   }
 }
 
