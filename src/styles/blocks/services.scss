@@ -78,6 +78,7 @@
 
     @include onTablet {
       width: 264px;
+      height: 264px;
       margin-bottom: 30px;
       grid-column: 1 / 4;
 
@@ -91,6 +92,11 @@
       grid-column: 7 / 10;
     }
 
+    @include onDesktop {
+      width: 264px;
+      height: 264px;
+    }
+
     &--1 {
       margin-top: 48px;
 
@@ -100,7 +106,12 @@
 
       @include onSmallDesktop {
         margin-top: 8px;
+        margin-bottom: 20px;
         transform: translate(0, -50%);
+      }
+
+      @include onDesktop {
+        margin-bottom: 30px;
       }
     }
 
@@ -113,7 +124,8 @@
       }
 
       @include onSmallDesktop {
-        margin-top: 45px;
+        margin-top: 0;
+        margin-bottom: 30px;
         grid-column: 10 / 13;
         transform: translate(0, -100%);
       }
@@ -140,7 +152,7 @@
 
       @include onSmallDesktop {
         grid-column: 10 / 13;
-        transform: translate(0, -100%);
+        transform: translate(0, -103%);
       }
     }
   }
@@ -170,6 +182,16 @@
     line-height: 150%;
   }
 
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    background-color: $button-back-color;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+
   &__button {
     display: flex;
     align-items: center;
@@ -178,20 +200,14 @@
     font-size: 15px;
     @extend %h1;
     text-decoration: none;
-    opacity: 0.5;
     margin: 0 0 32px 32px;
+    transition: all $effectDuration;
 
     &:hover {
-      opacity: 1;
-    }
-  }
 
-  &__arrow {
-    display: flex;
-    justify-content: center;
-    padding: 12px;
-    background-color: $button-back-color;
-    border-radius: 50%;
-    margin-right: 16px;
+      .services__arrow {
+        width: 48px;
+      }
+    }
   }
 }

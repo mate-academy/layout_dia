@@ -1,27 +1,44 @@
 .results {
   padding: 72px 0 120px;
   background-color: #fff;
-  background-image: url("../images/Shapes.png");
-  background-repeat: no-repeat;
-  background-size: 135%;
-  background-position: 65% 45%;
 
   @include onTablet {
-    padding: 200px 0;
-  }
+    background-image: url("../images/Shapes.png");
+    background-repeat: no-repeat;
+    background-size: 135%;
+    background-position: center;
+    animation: slide 8s linear infinite alternate;
 
-  @include onSmallDesktop {
-    padding: 198px 0;
-    background-size: 125%;
-    background-position: 45% 45%;
-  }
+    @keyframes slide {
+      0% {
+        background-size: 0%;
+      }
 
-  @include theDesign {
-    background-size: 90%;
-  }
+      50% {
+        background-size: 150%;
+      }
 
-  @include onLargeScreen {
-    background-size: 60%;
+      100% {
+        background-size: 300%;
+      }
+    }
+
+    @include onTablet {
+      padding: 200px 0;
+    }
+
+    @include onSmallDesktop {
+      padding: 198px 0;
+      background-size: 125%;
+    }
+
+    @include theDesign {
+      background-size: 90%;
+    }
+
+    @include onLargeScreen {
+      background-size: 60%;
+    }
   }
 
   &__h1 {

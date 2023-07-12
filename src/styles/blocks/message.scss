@@ -33,8 +33,7 @@
     height: 41px;
     background-color: $header-back-color;
     border-bottom: 2px solid #fff;
-    opacity: 0.5;
-    color: #fff;
+    color: $header-text-color;
     font-size: 15px;
     @extend %h1;
     line-height: normal;
@@ -54,12 +53,22 @@
     }
 
     &:hover {
-      opacity: 1;
       border-color: $button-back-color;
     }
 
     &:focus {
       border-color: $button-back-color;
+      outline: 0;
+      outline-offset: 0;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-bottom: 2px solid $button-back-color;
+      opacity: 1;
+      -webkit-text-fill-color: $header-text-color;
+      -webkit-box-shadow: 0 100px $header-back-color inset;
     }
 
     @include onSmallDesktop {
