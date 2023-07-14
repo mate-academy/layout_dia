@@ -147,3 +147,89 @@ checkOrientation();
 
 // Проверка ориентации при изменении размеров окна
 window.addEventListener('resize', checkOrientation);
+
+// Получаем ссылки на кнопки слайдера
+const sliderLinks = document.querySelectorAll('.slider__link');
+const sliderPhotos = document.querySelectorAll('.slider-photo');
+
+// Индекс текущего активного слайда
+let activeSlideIndex = 0;
+
+// Функция для переключения слайдов вправо
+function slideRight() {
+// Проверяем, если текущий слайд не является последним, увеличиваем индекс на 1
+  if (activeSlideIndex < sliderPhotos.length - 1) {
+    activeSlideIndex++;
+  } else {
+    // Если текущий слайд последний, переходим к первому слайду
+    activeSlideIndex = 0;
+  }
+
+  // Показываем соответствующий слайд и его содержимое
+  updateSlider();
+}
+
+// Функция для переключения слайдов влево
+function slideLeft() {
+  // Проверяем, если текущий слайд не является первым, уменьшаем индекс на 1
+  if (activeSlideIndex > 0) {
+    activeSlideIndex--;
+  } else {
+    // Если текущий слайд первый, переходим к последнему слайду
+    activeSlideIndex = sliderPhotos.length - 1;
+  }
+
+  // Показываем соответствующий слайд и его содержимое
+  updateSlider();
+}
+
+// Функция для обновления слайдера
+function updateSlider() {
+  // Скрываем все слайды
+  sliderPhotos.forEach(photo => {
+    photo.style.display = 'none';
+  });
+
+  // Показываем активный слайд
+  sliderPhotos[activeSlideIndex].style.display = 'block';
+}
+
+// Назначаем обработчики событий на кнопки слайдера
+sliderLinks[0].onclick = slideRight;
+sliderLinks[1].onclick = slideLeft;
+
+// // Получаем ссылки на элементы слайдера
+// const sliderLinks = document.querySelectorAll('.slider__link');
+// const sliderContent = document.querySelectorAll('.slider__content');
+
+// // Функция для переключения слайдов вправо
+// function slideRight() {
+//   // Скрываем текущий слайд
+//   sliderContent.forEach(content => {
+//     content.style.display = 'none';
+//   });
+
+//   // Перемещаем следующий слайд на видимую позицию
+//   const nextSlide = document.querySelector('.slider__wrapper:not(.hidden)');
+//   const nextContent = nextSlide.querySelector('.slider__content');
+
+//   nextContent.style.display = 'block';
+// }
+
+// // Функция для переключения слайдов влево
+// function slideLeft() {
+//   // Скрываем текущий слайд
+//   sliderContent.forEach(content => {
+//     content.style.display = 'none';
+//   });
+
+//   // Перемещаем предыдущий слайд на видимую позицию
+//   const prevSlide = document.querySelector('.slider__wrapper:not(.hidden)');
+//   const prevContent = prevSlide.querySelector('.slider__content');
+
+//   prevContent.style.display = 'block';
+// }
+
+// // Назначаем обработчики событий на ссылки слайдера
+// sliderLinks[0].addEventListener('click', slideRight);
+// sliderLinks[1].addEventListener('click', slideLeft);
