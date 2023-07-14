@@ -15,8 +15,24 @@
 .who-we-are {
   padding: 160px 20px 0;
 
+  @include for-tablet() {
+    padding: 160px 41px 0;
+  }
+
   @include for-small-desktop() {
-    padding: 148px 154px 0;
+    padding: 148px 166px 0
+  }
+
+  @include for-desktop() {
+    padding: 148px 300px 0;
+  }
+
+  @include the-design() {
+    padding: 148px 423px 0;
+  }
+
+  @include large-screens() {
+    padding: 148px 903px 0;
   }
 
   &__title {
@@ -42,13 +58,16 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
+
+    @include for-tablet() {
+      font-size: 24px;
+    }
   }
 }
 
 .our-expertise {
   background-color: #fff;
   border-radius: 30px;
-  padding: 0 20px;
 
   @include for-small-desktop() {
     margin-bottom: 148px;
@@ -72,7 +91,12 @@
   &__cards {
     @include for-small-desktop() {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 167px;
+    }
+
+    @include large-screens() {
+      gap: 257px;
     }
   }
 
@@ -146,7 +170,19 @@
   }
 
   @include grid-for-small-desktop() {
-    padding: 90px 0 54px;
+    padding: 90px 54px 0;
+  }
+
+  @include for-desktop() {
+    padding: 98px 108px 0
+  }
+
+  @include the-design() {
+    padding: 90px 227px 0;
+  }
+
+  @include large-screens() {
+    padding: 90px 707px 0;
   }
 
   &__container {
@@ -327,6 +363,32 @@
 .testimonials {
   padding: 0 20px;
 
+  @include for-tablet() {
+    padding: 0 41px;
+  }
+
+  @include for-small-desktop() {
+    padding: 0;
+  }
+
+  &__titles {
+    @include for-small-desktop() {
+      padding: 0 54px;
+    }
+
+    @include for-desktop() {
+      padding: 0 170px;
+    }
+
+    @include the-design() {
+      padding: 0 227px;
+    }
+
+    @include large-screens() {
+      padding: 0 707px;
+    }
+  }
+
   &__title-small {
     color: #c0cdd7;
     font-family: "Poppins", sans-serif;
@@ -359,10 +421,23 @@
   }
 
   &__review-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+
+    @include for-tablet() {
+      gap: 30px;
+    }
+
     @include for-small-desktop() {
-      display: flex;
-      justify-content: space-between;
+      flex-flow: row;
       margin-bottom: 186px;
+      gap: 20px;
+    }
+
+    @include for-desktop() {
+      gap: 30px;
     }
   }
 
@@ -373,12 +448,12 @@
     align-items: center;
     background-color: #fff;
     padding: 36px 56px 0;
+
     border-radius: 16px;
-    margin-bottom: 24px;
     transition: all 0.4s;
 
     @include for-small-desktop() {
-      max-width: 292px;
+      max-width: 362px;
       padding: 36px 0 0;
     }
 
@@ -477,7 +552,15 @@
   }
 
   @include for-small-desktop() {
-    padding: 200px 135px;
+    padding: 200px 146px;
+  }
+
+  @include for-desktop() {
+    padding: 200px 374px
+  }
+
+  @include the-design() {
+    padding: 200px 450px;
   }
 
   &__title {
@@ -500,6 +583,10 @@
     font-weight: 600;
     line-height: 150%;
     padding-bottom: 56px;
+
+    @include large-screens() {
+      padding: 0 464px 56px;
+    }
   }
 
   &__button {
@@ -525,9 +612,7 @@
 }
 
 .grid-container {
-  @include grid-for-small-desktop() {
-
-  }
+  @include grid-for-small-desktop();
 }
 
 .send-us-a-message {
@@ -536,11 +621,21 @@
   padding: 72px 20px 80px;
 
   @include grid-for-tablet() {
-    padding: 180px 41px 27px;
+    align-self: start;
+    padding: 180px 41px 139px;
   }
 
   @include grid-for-small-desktop() {
     grid-column: 1 / 7;
+    padding: 180px 54px 120px;
+  }
+
+  @include the-design() {
+    padding: 180px 227px 120px;
+  }
+
+  @include large-screens() {
+    padding: 180px 707px 120px;
   }
 
   &__title {
@@ -569,7 +664,7 @@
 
   @include for-small-desktop() {
     grid-column: 1 / 6;
-    margin-bottom: 135px;
+    align-self: flex-start;
     padding-bottom: 0;
   }
 
@@ -618,12 +713,17 @@
   padding: 0 20px 80px;
 
   @include for-tablet() {
-    padding: 0 41px 139px;
+    padding: 0;
+    align-self: start;
     grid-column: 1 / 5;
   }
 
   @include for-small-desktop() {
     grid-column: 7 / 13;
+  }
+
+  @include for-desktop() {
+    grid-column: 8 / 13;
   }
 
   &__title {
@@ -645,7 +745,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     padding-bottom: 8px;
-
+    margin-top: 40px;
 
     @include for-tablet() {
       padding-bottom: 16px;
@@ -711,9 +811,24 @@
 .footer {
   padding: 0 20px 80px;
   background-color: #2c2c2c;
+  margin-top: -1px;
 
   @include for-tablet() {
     padding: 0 58px 80px;
+  }
+
+  @include for-small-desktop() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @include the-design() {
+    padding: 0 227px 84px;
+  }
+
+  @include large-screens() {
+    padding: 0 707px 84px;
   }
 
   &__logo {
@@ -730,7 +845,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     gap: 25px;
-    width: 100%;
+    width: 80%;
 
     @include for-tablet() {
       flex-wrap: nowrap;
