@@ -1,0 +1,64 @@
+.page {
+  scroll-behavior: smooth !important;
+  font-size: 16px;
+
+  &:has(.page__menu__open) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    margin-block: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all $transition-speed;
+    transform: translateY(-100%);
+
+    &__open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}

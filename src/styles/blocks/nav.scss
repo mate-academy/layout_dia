@@ -1,0 +1,86 @@
+// #region nav
+.nav {
+  width: 100%;
+  @include onDesktop {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--layout--mobile {
+      @include onMobile {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        gap: 24px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--layout--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: inline-block;
+      }
+    }
+
+    @include onTablet {
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      column-gap: 48px;
+
+      justify-content: center;
+
+      grid-column: 4 / span 6;
+    }
+
+
+  }
+
+  &__item {
+    grid-column: span 1;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $c-white;
+    white-space: nowrap;
+
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $c-blue;
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--block--menu::after {
+      content: "";
+      background-color: $c-white;
+    }
+  }
+}
+// #endregion
