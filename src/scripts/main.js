@@ -197,39 +197,3 @@ function updateSlider() {
 // Назначаем обработчики событий на кнопки слайдера
 sliderLinks[0].onclick = slideRight;
 sliderLinks[1].onclick = slideLeft;
-
-// // Получаем ссылки на элементы слайдера
-// const sliderLinks = document.querySelectorAll('.slider__link');
-// const sliderContent = document.querySelectorAll('.slider__content');
-
-// // Функция для переключения слайдов вправо
-// function slideRight() {
-//   // Скрываем текущий слайд
-//   sliderContent.forEach(content => {
-//     content.style.display = 'none';
-//   });
-
-//   // Перемещаем следующий слайд на видимую позицию
-//   const nextSlide = document.querySelector('.slider__wrapper:not(.hidden)');
-//   const nextContent = nextSlide.querySelector('.slider__content');
-
-//   nextContent.style.display = 'block';
-// }
-
-// // Функция для переключения слайдов влево
-// function slideLeft() {
-//   // Скрываем текущий слайд
-//   sliderContent.forEach(content => {
-//     content.style.display = 'none';
-//   });
-
-//   // Перемещаем предыдущий слайд на видимую позицию
-//   const prevSlide = document.querySelector('.slider__wrapper:not(.hidden)');
-//   const prevContent = prevSlide.querySelector('.slider__content');
-
-//   prevContent.style.display = 'block';
-// }
-
-// // Назначаем обработчики событий на ссылки слайдера
-// sliderLinks[0].addEventListener('click', slideRight);
-// sliderLinks[1].addEventListener('click', slideLeft);
