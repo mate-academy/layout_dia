@@ -10,3 +10,11 @@ contactsForm.addEventListener('submit', event => {
     field.value = '';
   });
 });
+
+window.addEventListener('hashchange', () =>{
+  if(window.location.hash === '#menu') {
+    document.body.classList.add('page__lock-scroll');
+  } else {
+    document.body.classList.remove('page__lock-scroll');
+  }
+})
