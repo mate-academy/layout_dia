@@ -1,4 +1,34 @@
 .services {
+  &__flex {
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    margin: 0 auto;
+
+    @include onLaptop {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      max-width: 266px;
+      margin-bottom: -121px;
+    }
+
+    @include onLaptop {
+      max-width: 294px;
+    }
+
+    @include onDesktop {
+      max-width: 364px;
+    }
+  }
+
   &__title {
     font-weight: 600;
     letter-spacing: 3px;
@@ -25,54 +55,21 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 24px;
-  }
 
-  &__item {
-    padding: 32px;
+    @include onTablet {
+      grid-template-columns: 264px 264px;
+      grid-template-rows: repeat(5, 117px);
+      gap: 30px;
+    }
 
-    border-radius: 16px;
-    background-color: $second-blocks-bg-color;
-  }
+    @include onLaptop {
+      grid-template-columns: 214px 214px;
+    }
 
-  &__item-title {
-    display: inline-block;
-    padding: 2px 12px;
-    font-weight: 600;
-    margin-bottom: 26px;
-
-    border-radius: 23px;
-    color: $default-accent-color;
-    background-color: rgba($color: $default-accent-color, $alpha: .1);
-  }
-
-  &__item-list {
-    list-style: none;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    margin-bottom: 32px;
-
-    color: $description-color;
-  }
-
-  &__item-button {
-    display: flex;
-    gap: 16px;
-    font-size: $font-size-inputs-n-buttons;
-    line-height: 40px;
-    font-weight: 600;
-
-    text-decoration: none;
-    color: #334563;
-
-    &::before {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 40px;
-      background-image: url(../images/icons/link-arrow.svg);
+    @include onDesktop {
+      grid-template-columns: 264px 264px;
     }
   }
 }

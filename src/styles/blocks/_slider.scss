@@ -1,29 +1,46 @@
 .slider {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-block: 24px;
+  justify-content: flex-end;
   border-radius: 30px;
   overflow: hidden;
   height: 390px;
-  margin-top: 48px;
+  width: 100vw;
 
-  &__pic {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+  background-image: url(../images/slider/slide-img-1.jpg);
+  background-size: cover;
+
+  @include onLaptop {
+    position: absolute;
+    right: 0;
+    height: 680px;
+    max-width: 50vw;
+    border-radius: 30px 0;
+  }
+
+  @include onDesktop {
+    max-width: 45%;
   }
 
   &__content {
-    padding-inline: 20px;
-    position: absolute;
-    bottom: 20px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
+    padding-inline: 20px;
+    z-index: 1;
+
+    @include onLaptop {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+      // justify-content: center;
+    }
   }
 
   &__nav {
     display: flex;
     gap: 16px;
-    margin-bottom: 8px;
   }
 
   &__button {
@@ -37,15 +54,31 @@
     align-items: center;
     justify-content: center;
 
-    // &::before {
+    @include hover(background-color, $default-accent-color);
 
-    // }
+    &:hover::before {
+      background-color: #fff;
+    }
 
-    // &--left::before {
-    // }
-    // &--right::before {
-    //   // mask: url(../images/slider/arrow-right.svg);
-    // }
+    &::before {
+      content: "";
+      width: 100%;
+      height: 9px;
+      mask: url(../images/slider/arrow-left.svg) no-repeat center;
+      mask-size: contain;
+      background-color: #000;
+      transition: color 0.3s;
+    }
+
+    &--right::before {
+      mask-image: url(../images/slider/arrow-right.svg);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__title {

@@ -1,7 +1,35 @@
 .header {
+  position: relative;
   background-color: $footer-n-header-bg-color;
   color: $footer-n-header-text-color;
   border-radius: 0 0 30px 30px;
+  margin-bottom: $block-gap;
+
+  @include onTablet {
+    margin-bottom: $wide-block-gap;
+  }
+
+  @include onWidescreen {
+    max-width: 1600px;
+    margin-inline: auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    // gap: 48px;
+    justify-content: space-between;
+
+    @include onLaptop {
+      height: 680px;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__info {
+    margin-bottom: 48px;
+  }
 
   &__title {
     margin-bottom: 32px;
@@ -9,6 +37,15 @@
     line-height: 120%;
     font-weight: 600;
     letter-spacing: -2px;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include onLaptop {
+      max-width: min-content;
+    }
   }
 
   &__description {
@@ -16,9 +53,7 @@
     font-size: 18px;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
+    max-width: 362px;
   }
 }
 
-.container {
-  padding-inline: 20px;
-}

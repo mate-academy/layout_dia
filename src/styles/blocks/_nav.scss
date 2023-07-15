@@ -1,15 +1,32 @@
 .nav {
   &__list {
-    padding: 0;
     // display: flex;
+    flex-direction: column;
+    padding: 0;
     gap: 48px;
     list-style: none;
     display: none;
 
+    @include onLaptop {
+      display: flex;
+    }
+
     &--bottom {
       display: flex;
-      flex-direction: column;
       gap: 24px;
+    }
+
+    @include onTablet {
+      flex-direction: row;
+
+      &--bottom {
+        justify-content: center;
+        gap: 40px;
+      }
+    }
+
+    @include onLaptop {
+      gap: 64px;
     }
   }
 
@@ -19,12 +36,22 @@
     letter-spacing: 3px;
     text-transform: uppercase;
 
+    @include hover(color, $default-accent-color);
+
+
     &--offcanvas {
       display: block;
       width: 24px;
       height: 24px;
 
-      background-image: url(../images/icons/icon-burger-menu.svg);
+      background-color: #fff;
+      mask: url(../images/icons/icon-burger-menu.svg);
+
+      @include hover(scale, 1.2);
+
+      @include onLaptop {
+        display: none;
+      }
     }
 
     &--hire {

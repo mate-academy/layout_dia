@@ -1,7 +1,12 @@
 .contact-us {
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @include onLaptop {
+    grid-column: span 1;
+  }
 
   &__title {
     font-size: $font-size-title-default;
@@ -24,6 +29,8 @@
     font-weight: 600;
 
     text-decoration: none;
+
+    @include hover(color, $default-accent-color);
   }
 
   &__socials {
@@ -36,18 +43,20 @@
     display: block;
     width: 32px;
     height: 32px;
-    background-size: contain;
+    background-color: #fff;
 
     &--fb {
-      background-image: url(../images/features/features-item-icon-1.svg);
+      mask: url(../images/icons/facebook.svg);
     }
 
     &--tw {
-      background-image: url(../images/features/features-item-icon-2.svg);
+      mask: url(../images/icons/twitter.svg);
     }
 
     &--ig {
-      background-image: url(../images/features/features-item-icon-3.svg);
+      mask: url(../images/icons/instagram.svg);
     }
+
+    @include hover(background-color, $default-accent-color);
   }
 }
