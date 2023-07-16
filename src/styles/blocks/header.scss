@@ -1,0 +1,284 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 100%;
+  height: 800px;
+  border-radius: 0 0 30px 30px;
+
+  background: $c-night;
+
+  &__service {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo:hover {
+    @include onDesctop {
+      transform: scale(1.05);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0;
+
+    @include onTablet {
+      padding: 20px 41px 0;
+    }
+
+    @include onDesctop {
+      padding: 48px 54px 0;
+    }
+
+    @include onPC {
+      padding: 48px 227px 0;
+    }
+
+    @include onTv {
+      padding: 48px 707px 0;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 54px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 164px;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesctop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    font-weight: $fontWeightHeavy;
+    font-size: $fontSizeSmoll;
+    line-height: 150%;
+
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: $c-white;
+
+    margin-right: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__item {
+    margin-left: 48px;
+  }
+
+  margin-bottom: 120px;
+
+  @include onTablet {
+    margin-bottom: 148px;
+  }
+}
+
+.link-hire {
+  padding-bottom: 8px;
+  border: 1px solid $c-bluAir;
+  border-width: 0 0 2px;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+
+  &-title {
+    margin-bottom: 32px;
+    font-weight: $fontWeightMedium;
+    font-size: $fontSizeLarge;
+    line-height: 120%;
+
+    letter-spacing: -2px;
+
+    color: $c-white;
+
+    @include onTablet {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &-text {
+    margin-bottom: 72px;
+    font-size: 18px;
+    line-height: 150%;
+
+    color: $c-white;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 83px;
+    }
+  }
+
+  &-link {
+    margin-bottom: 48px;
+
+    font-weight: $fontWeightMedium;
+    font-size: 15px;
+    line-height: 22px;
+    padding: 15px ;
+    text-decoration: none;
+
+    text-align: center;
+
+    color: $c-white;
+    background: $c-bluAir;
+    border-radius: 8px;
+
+    @include onTablet {
+      margin-bottom: 147px;
+      width: 264px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.header__content-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include onDesctop {
+    width: 362px;
+  }
+}
+
+.menu-btn {
+  position: relative;
+  top: 15px;
+  width: 24px;
+  height: 10px;
+  margin-left: 32px;
+  z-index: 6;
+
+  @include onDesctop {
+    display: none;
+  }
+
+  & > span {
+    display: flex;
+    position: relative;
+    background-color: $c-white;
+    width: 18px;
+    height: 2px;
+    visibility: hidden;
+  }
+
+  & > span::before {
+    position: absolute;
+    top: -5px;
+    background-color: $c-white;
+    content: "";
+    width: 18px;
+    height: 2px;
+    visibility: visible;
+  }
+
+  & > span::after {
+    position: absolute;
+    top: 5px;
+
+    background-color: $c-white;
+    content: "";
+    width: 18px;
+    height: 2px;
+    visibility: visible;
+  }
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+  transition: $slowAnim;
+}
+
+.menu-btn.active span {
+  visibility: hidden;
+  transition: 0.1s;
+}
+
+.menu-btn.active span::after {
+  visibility: visible;
+  width: 32px;
+  top: 70%;
+  transform: translate(-70%, 0%) rotate(45deg);
+}
+
+.menu-btn.active span::before {
+  visibility: visible;
+  width: 32px;
+  top: 70%;
+  transform: translate(-70%, 0%) rotate(-45deg);
+}
+
+.menu.active {
+  transform: translateX(0);
+}
+
+.menu-active {
+  overflow: hidden;
+}
+
+.menu-btn.active span::before,
+.menu-btn.active span::after {
+  animation: none;
+}
+
+.landscape {
+  overflow-y: scroll;
+}
+
+.landscape::-webkit-scrollbar {
+  overflow-y: hidden;
+}
+
+.menu-btn.active {
+  left: -50%;
+}
+
+.link:hover {
+  transition: $slowAnim;
+  opacity: $halfOpacity;
+}
+
+.slider-photo {
+  position: relative;
+}
+
+.header__slider {
+  position: relative;
+}

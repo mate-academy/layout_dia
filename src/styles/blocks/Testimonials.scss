@@ -1,0 +1,230 @@
+.testimonials {
+  margin-bottom: 120px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 41px;
+    }
+
+    @include onDesctop {
+      padding: 0 54px;
+    }
+
+    @include onPC {
+      width: 1628px;
+      padding: 0 227px;
+    }
+  }
+
+  @include onTablet {
+    margin-bottom: 148px;
+  }
+
+  @include onDesctop {
+    margin-bottom: 186px;
+  }
+
+  @include onPC {
+    margin-bottom: 148px;
+  }
+
+  &__note {
+    margin-bottom: 16px;
+    color: $c-moon;
+    font-size: $fontSizeSmoll;
+    font-weight: $fontWeightHeavy;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    font-size: $fontSizeMedium;
+    font-weight: $fontWeightMedium;
+    line-height: 150%;
+
+    color: $c-shadows;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__page {
+    border-radius: 50%;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onDesctop {
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 32px 0;
+    margin-bottom: 24px;
+
+    width: 280px;
+    height: 456px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+    @include onTablet {
+      width: 558px;
+      height: 478px;
+      margin-bottom: 30px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 0;
+      margin-right: 20px;
+      width: 292px;
+      height: 456px;
+
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+    }
+
+    @include onPC {
+      width: 362px;
+      margin-right: 30px;
+    }
+  }
+}
+
+.card {
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 28px;
+  }
+
+  &__content {
+    text-align: center;
+
+    &-page {
+      margin-bottom: 8px;
+    }
+
+    &-text {
+      width: 196px;
+      margin-bottom: 16px;
+      color: $c-gray;
+      font-size: $fontSizeSmoll;
+      font-weight: $fontWeightMedium;
+      line-height: 150%;
+
+      @include onTablet {
+        width: 362px;
+      }
+
+      @include onDesctop {
+        width: 196px;
+      }
+
+      @include onPC {
+        width: 250px;
+      }
+    }
+  }
+
+  &__bio {
+    &-text {
+      color: $c-shadows;
+      text-align: center;
+      font-size: $fontSizeSmoll;
+      font-weight: $fontWeightMedium;
+      line-height: 150%;
+    }
+
+    &-title {
+      color: $c-moon;
+      text-align: center;
+      font-size: $fontSizeSmoll;
+      font-weight: $fontWeightHeavy;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.rectangel {
+  display: block;
+
+  width: 108.98px;
+  height: 43.9px;
+  transform: rotate(-60deg) translate(-35px,30px);
+  background-color: $c-bluAir;
+  border-radius: 12px;
+}
+
+.rectangel-second {
+  display: block;
+
+  width: 108.98px;
+  height: 43.9px;
+  transform: rotate(-60deg) translate(85px,60px);
+  background-color: $c-bluAir;
+  border-radius: 12px;
+}
+
+.card__page {
+  width: 109.76px;
+  height: 109.76px;
+  transform: translateX(50px);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+@include onDesctop {
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .testimonials__card {
+    position: relative;
+  }
+
+  .testimonials__card::after {
+    filter: blur(10px);
+  }
+
+  .testimonials__card:hover::after {
+    content: "";
+    position: absolute;
+    inset: -0.2rem;
+    z-index: -1;
+    background: linear-gradient(var(--angle),
+    #0f5ebe, #ccffc3, rgb(212, 72, 72));
+    animation: cardRgb 10s linear infinite;
+  }
+
+  @keyframes cardRgb {
+    0% {
+      --angle: 0deg;
+    }
+    100% {
+      --angle: 360deg;
+    }
+  }
+}
