@@ -1,7 +1,7 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $toValue) {
+  transition: #{$property} $effectDuration;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
   }
 }
 
@@ -37,6 +37,22 @@
 
 @mixin container {
   padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onTheDesign {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreen {
+    padding-inline: 707px;
+  }
 }
 
 @mixin pageGrid {
@@ -48,5 +64,9 @@
   @include onTablet {
     --columns: 6;
     column-gap: 24px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
   }
 }

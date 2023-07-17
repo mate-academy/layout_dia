@@ -1,0 +1,120 @@
+.services {
+  @include container;
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__name {
+    @extend %h4;
+    margin: 0;
+    margin-top: 120px;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $name-color;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 250px;
+    }
+  }
+
+  &__title {
+    @extend %h3;
+    margin: 0;
+    margin-top: 16px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__text-top {
+    @extend %p;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 24px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__text-bottom {
+    @extend %p;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 24px;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__modules {
+    row-gap: 24px;
+    margin: 0 auto;
+
+    @include onTablet {
+      @include pageGrid;
+      grid-column: 1 / -1;
+      column-gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      transform: translateY(-45%);
+    }
+  }
+
+  &__module {
+    margin: 0 auto;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__module:nth-child(odd) {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &__module:nth-child(2n) {
+    transition: all $effectDuration;
+
+    &:hover {
+      scale: 1.1;
+    }
+    @include onTablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+    }
+
+    @include onSmallDesktop {
+      grid-column: 10 / -1;
+    }
+  }
+
+}

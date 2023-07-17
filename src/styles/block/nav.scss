@@ -1,41 +1,38 @@
 .nav {
   &__list {
-    margin: 0;
-    margin-top: 50px;
-    padding: 0;
     list-style: none;
-    flex-direction: column;
     display: flex;
-    gap: 30px;
+    gap: 48px;
+    padding: 0;
 
-    @include onSmallDesktop {
+    @media (max-width: $small-desktop-min-width) {
       display: flex;
-      flex-direction: row;
-      margin: 0;
+      flex-direction: column;
     }
   }
 
   &__link {
     position: relative;
-    color: $header-text-color;
+    @extend %h4;
     text-decoration: none;
-    font-size: 22px;
-    line-height: 22px;
+    color: $header-text-color;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 
     &::after {
       content: "";
       position: absolute;
-      bottom: -4px;
       display: block;
-      height: 1px;
+      bottom: -8px;
+      height: 2px;
       width: 100%;
-      background-color: #fff;
+      background-color: $blue-color;
 
       transition: transform 0.3s;
       transform: scale(0);
-      transform-origin: left;
-    }
+      transform-origin: center;
 
+    }
     &:hover::after {
       transform: scale(1);
     }

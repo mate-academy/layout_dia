@@ -1,55 +1,60 @@
 .intro {
-  position: relative;
 
-  &__photo {
-    bottom: 0;
-    width: 100%;
-    height: 390px;
-    border-radius: 30px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  &__bottom {
-    @include container;
+  &__info {
     position: absolute;
     bottom: 24px;
+    left: 20px;
+    right: 20px;
+
+    @include onTablet {
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      bottom: 48px;
+      display: flex;
+      align-items: center;
+      margin-left: 78px;
+    }
+
+    @include onTheDesign {
+      margin-left: 48px;
+    }
   }
 
   &__button {
-    display: inline;
-    padding: 0;
+    display: inline-block;
     height: 32px;
     width: 32px;
     border-radius: 50%;
-    border: none;
-    background-size: 32px 32px;
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
     &--left {
-      background-image: url(../images//arrow-left.png);
-      cursor: pointer;
+      background-image: url(../images/arrow-left.png);
     }
-
     &--right {
       margin-left: 16px;
-      background-image: url(../images//arrow-right.png);
-      cursor: pointer;
+      background-image: url(../images/arrow-right.png);
+    }
+  }
+
+  &__text {
+    @include onSmallDesktop {
+      margin-left: 24px;
     }
   }
 
   &__title {
-    margin: 0;
-    margin-top: 16px;
-    font-family: "Poppins", sans-serif;
+    @extend %h4;
     color: $header-text-color;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
     line-height: normal;
     letter-spacing: 3px;
     text-transform: uppercase;
+
+    @include onSmallDesktop {
+      margin: 0;
+    }
   }
 
   &__description {
@@ -57,5 +62,10 @@
     color: $header-text-color;
     font-size: 14px;
     line-height: 140%;
+
+    @include onSmallDesktop {
+      margin: 0;
+      margin-top: 8px;
+    }
   }
 }
