@@ -60,10 +60,14 @@ const apply = document.querySelector('.apply');
 const applyButton = document.querySelector('.apply__button');
 const contacts = document.querySelector('.contact__wrapper');
 const contactButton = document.querySelector('.contact__rows--button');
+const inputDesc = document.querySelector('.contact__rows--description');
+const inputText = document.querySelectorAll('.contact__rows--input');
 const footerClass = document.querySelector('.footer');
 const navLink = document.querySelectorAll('.nav__link');
 const menuAside = document.querySelector('.menu__aside');
-const topBar = document.querySelector('.top-bar__logo');
+const topBar = document.querySelector('.switcher__logo');
+const switchFacebook = document.querySelector('.contact__data--facebook');
+const switchTwitter = document.querySelector('.contact__data--twitter');
 
 toggler.addEventListener('click', () => {
   headerSelector.classList.toggle('header__switch');
@@ -105,6 +109,13 @@ toggler.addEventListener('click', () => {
   footerClass.classList.toggle('footer__switch');
   menuAside.classList.toggle('switch__aside');
   topBar.classList.toggle('switch__logo-bar');
+  inputDesc.classList.toggle('switch__input-color');
+  switchFacebook.classList.toggle('switch__facebook');
+  switchTwitter.classList.toggle('switch__twitter');
+
+  for (let k = 0; k < inputText.length; k++) {
+    inputText[k].classList.toggle('switch__input-color');
+  }
 
   for (let k = 0; k < navLink.length; k++) {
     navLink[k].classList.toggle('switch__link');
