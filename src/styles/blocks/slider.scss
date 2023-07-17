@@ -1,0 +1,146 @@
+.slider {
+  position: absolute;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+
+  @include onSmallDesktop {
+    width: 50%;
+    top: 116px;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 20px;
+    height: 30px;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__slides {
+    position: relative;
+    z-index: 1;
+    background-color: $header-back-color;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__overflow {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__inner {
+    transition: margin-left 800ms cubic-bezier(0.77, 0, 0.17, 1);
+    width: 400%;
+    height: 390px;
+  }
+
+  &__slide {
+    float: left;
+    display: block;
+    width: 25%;
+    height: 100%;
+    border-radius: 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 57%;
+
+    @include onSmallDesktop {
+      border-radius: 5% 0 5% 0%;
+      height: 680px;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/Photo1.png);
+
+    }
+
+    &--2 {
+      background-image: url(../images/slider/Photo2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/Photo3.png);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    color: #fff;
+    bottom: 23px;
+    left: 23px;
+    text-align: left;
+    z-index: 4;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: 115px;
+    z-index: 3;
+  }
+
+  &__h2 {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    @extend %h2;
+  }
+
+  &__p {
+    @extend %p2;
+  }
+
+}
+
+.slide1:checked ~ #slides .slider__inner {
+  margin-left: 0%;
+}
+
+.slide2:checked ~ #slides .slider__inner {
+  margin-left: -100%;
+}
+
+.slide3:checked ~ #slides .slider__inner {
+  margin-left: -200%;
+}
+
+.slide1:checked ~ .slider__controls label:nth-child(2),
+.slide2:checked ~ .slider__controls label:nth-child(3),
+.slide3:checked ~ .slider__controls label:nth-child(1) {
+  background: url(../images/slider/mdi_chevron_rigth.svg) no-repeat;
+  background-position: center;
+  float: right;
+  width: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 0 0 30px;
+  display: block;
+}
+
+.slide1:checked ~ .slider__controls label:nth-last-child(1),
+.slide2:checked ~ .slider__controls label:nth-last-child(3),
+.slide3:checked ~ .slider__controls label:nth-last-child(2) {
+  background: url(../images/slider/mdi_chevron_left.svg) no-repeat;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  float: left;
+  margin: 0 0 0 27px;
+  display: block;
+}

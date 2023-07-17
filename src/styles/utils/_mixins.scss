@@ -4,3 +4,119 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $onTablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $onSmallDesktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $onDesktop-min-width) {
+    @content;
+  }
+}
+
+@mixin theDesign {
+  @media (min-width: $theDesign-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: $onLargeScreen-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: 20px;
+  margin-inline: auto;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop {
+    padding-inline: 108px;
+  }
+
+  @include theDesign {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreen {
+    padding-inline: 707px;
+  }
+}
+
+@mixin pageGrid {
+  --colums: 2;
+  --width-column: 1fr;
+  --column-gap: 20px;
+  display: grid;
+  column-gap: var(--column-gap);
+  grid-template-columns: repeat(var(--colums), var(--width-column));
+
+  @include onTablet {
+    --colums: 6;
+    --width-column: 1fr;
+    --column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --colums: 12;
+    --width-column: 1fr;
+    --column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --column-gap: 30px;
+  }
+}
+
+@mixin menuText {
+  color: $header-text-color;
+  text-align: center;
+  font-size: 13px;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+@mixin h1 {
+  color: $header-text-color;
+  font-size: 52px;
+  @extend %h1;
+  line-height: 120%;
+  letter-spacing: -2px;
+
+  @include onTablet {
+    font-size: 64px;
+  }
+}
+
+@mixin headerText {
+  color: $header-text-color;
+  font-size: 18px;
+  @extend %p2;
+  line-height: 150%;
+}
+
+@mixin buttonText {
+  color: $header-text-color;
+  font-size: 15px;
+  @extend %h1;
+}
