@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
+
   <body class="page__body">
     <header class="header page__header">
       <div class="container">
@@ -74,11 +75,38 @@
         </div>
 
         <div class="slider">
+
+          <div class="swiper slider__swiper">
+            <div class="swiper-wrapper slider__wrapper">
+              <div class="swiper-slide slider__slide">
+                <img
+                  src="./images/slider/slide-1.jpg"
+                  alt="slide-1"
+                  class="slider__pic"
+                >
+              </div>
+              <div class="swiper-slide slider__slide">
+                <img
+                  src="./images/slider/slide-2.jpg"
+                  alt="slide-2"
+                  class="slider__pic"
+                >
+              </div>
+              <div class="swiper-slide slider__slide">
+                <img
+                  src="./images/slider/slide-3.jpg"
+                  alt="slide-3"
+                  class="slider__pic"
+                >
+              </div>
+            </div>
+          </div>
+
           <div class="slider__content">
             <div class="slider__nav">
               <a
                 href="#"
-                class="slider__button"
+                class="slider__button slider__button--left"
               ></a>
 
               <a
@@ -415,10 +443,14 @@
                 class="feedback__form"
                 onsubmit="this.reset(); return false;"
               >
+                <label for="email"></label>
+                <label for="name"></label>
+
                 <input
                   type="email"
                   name="email"
                   class="feedback__input"
+                  id="email"
                   placeholder="Your email"
                   required
                 >
@@ -427,6 +459,7 @@
                   type="text"
                   name="name"
                   class="feedback__input"
+                  id="name"
                   placeholder="Your name"
                   required
                 >
@@ -538,6 +571,19 @@
         </div>
       </div>
     </footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+
+    <script type="module">
+      import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper.min.mjs'
+      import Navigation from 'https://cdn.jsdelivr.net/npm/swiper@10/modules/navigation.min.mjs'
+
+      const swiper = new Swiper('.swiper', {
+        modules: [Navigation],
+        navigation: {
+          nextEl: ".slider__button--right",
+          prevEl: ".slider__button--left",
+        },
+      })
+    </script>
   </body>
 </html>
