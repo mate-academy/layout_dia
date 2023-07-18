@@ -1,5 +1,10 @@
 .services {
   @include container;
+  margin-top: 120px;
+
+  @include onTablet {
+    margin-top: 148px;
+  }
 
   &__content {
     @include onTablet {
@@ -7,36 +12,33 @@
     }
   }
 
+  &__title-block {
+    margin-bottom: 48px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 56px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 100px;
+      grid-column: 1 / 5;
+    }
+  }
+
   &__name {
     @extend %h4;
     margin: 0;
-    margin-top: 120px;
     line-height: normal;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: $name-color;
-
-    @include onTablet {
-      grid-column: 1 / -1;
-    }
-
-    @include onSmallDesktop {
-      margin-top: 250px;
-    }
   }
 
   &__title {
     @extend %h3;
     margin: 0;
     margin-top: 16px;
-
-    @include onTablet {
-      grid-column: 1 / 4;
-    }
-
-    @include onSmallDesktop {
-      grid-column: 1 / 5;
-    }
   }
 
   &__text-top {
@@ -44,14 +46,6 @@
     font-size: 14px;
     margin: 0;
     margin-top: 24px;
-
-    @include onTablet {
-      grid-column: 1 / 4;
-    }
-
-    @include onSmallDesktop {
-      grid-column: 1 / 5;
-    }
   }
 
   &__text-bottom {
@@ -59,62 +53,48 @@
     font-size: 14px;
     margin: 0;
     margin-top: 24px;
-    margin-bottom: 48px;
-
-    @include onTablet {
-      grid-column: 1 / 4;
-    }
-
-    @include onSmallDesktop {
-      grid-column: 1 / 5;
-    }
   }
 
   &__modules {
-    row-gap: 24px;
+    width: max-content;
+    display: grid;
     margin: 0 auto;
+    row-gap: 24px;
 
     @include onTablet {
-      @include pageGrid;
       grid-column: 1 / -1;
+      box-sizing: border-box;
+      grid-template-columns: repeat(6, 1fr);
       column-gap: 30px;
+      row-gap: 30px;
     }
 
     @include onSmallDesktop {
-      transform: translateY(-45%);
+      grid-column: 6 / -1;
+      padding-top: 140px;
     }
   }
 
   &__module {
-    margin: 0 auto;
+    &:nth-child(2n) {
+      transition: all $effectDuration;
 
-    @include hover(transform, scale(1.1));
-  }
-
-  &__module:nth-child(odd) {
-    @include onTablet {
-      grid-column: 1 / 4;
+      @include onTablet {
+        grid-column: 4 / 7;
+        transform: translateY(-50%);
+      }
     }
 
-    @include onSmallDesktop {
-      grid-column: 7 / 10;
-    }
-  }
+    &:nth-child(odd) {
+      transition: all $effectDuration;
 
-  &__module:nth-child(2n) {
-    transition: all $effectDuration;
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+    }
 
     &:hover {
       scale: 1.1;
     }
-    @include onTablet {
-      grid-column: 4 / 7;
-      transform: translateY(-50%);
-    }
-
-    @include onSmallDesktop {
-      grid-column: 10 / -1;
-    }
   }
-
 }
