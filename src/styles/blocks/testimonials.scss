@@ -1,0 +1,160 @@
+.testimonials {
+  &__name {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $light-grey;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    font-size: 32px;
+    line-height: 150%;
+    color: $grey-title;
+
+    @include onTablet {
+      width: 200px;
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    list-style: none;
+
+    @include onTablet {
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    @include onLargeScreen {
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 280px;
+    height: 456px;
+    padding: 75px 39px 32px;
+    background-color: $white;
+    border-radius: 16px;
+
+    @include onTablet {
+      height: 478px;
+      width: 558px;
+    }
+
+    @include onDesktop {
+      height: 456px;
+      width: 292px;
+    }
+
+    @include onLargeScreen {
+      width: 362px;
+      height: 494px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    transition: transform linear 0.3s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+  
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 110px;
+      height: 44px;
+      background-color: $blue;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      z-index: 0;
+
+      @media (min-width: 640px) and (max-width: 1023px) {
+        width: 140px;
+        height: 56px;
+      }
+    }
+
+    &::before {
+      right: 35%;
+      bottom: 65%;
+    }
+
+    &::after {
+      left: 35%;
+      top: 65%;
+    }
+  }
+
+  &__img {
+    position: relative;
+    @include square(110px);
+    border-radius: 50%;
+    z-index: 1;
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+      @include square(140px);
+    }
+  }
+
+  &__quotes-icon {
+    margin-top: 70px;
+    @include madeIcon(21px);
+    background-image: url(../images/testimonials/quotes.svg);
+  }
+
+  &__text {
+    margin-top: 10px;
+    @extend %text;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $grey-text;
+    text-align: center;
+  }
+
+  &__people-name {
+    margin-top: 16px;
+    @extend %text;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $grey-text;
+  }
+
+  &__position {
+    margin-top: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $light-grey;
+  }
+}
