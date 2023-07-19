@@ -5,50 +5,58 @@
 
   &__content {
     box-sizing: border-box;
-    height: 800px;
+    // height: 800px;
+    height: 100vh;
     padding: 50px 0 48px;
 
-    @include onMobile {
-      height: 663px;
-    }
+    // @include onMobile {
+    //   height: 663px;
+    // }
 
-    @include onTablet {
-      height: 663px;
-    }
+    // @include onTablet {
+    //   height: 663px;
+    // }
 
-    @include onDesktop {
-      height: 800px;
-    }
+    // @include onDesktop {
+    //   height: 800px;
+    // }
 
-    @include onDesktopBig {
-      height: 800px;
-    }
+    // @include onDesktopBig {
+    //   height: 800px;
+    // }
 
-    @include onDesktopBigger {
-      height: 800px;
-    }
+    // @include onDesktopBigger {
+    //   height: 800px;
+    // }
   }
 
   &__top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // align-items: center;
+    align-items: center;
     margin-bottom: 165px;
 
-    &--small-screen {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
+    @include onMobile {
+      display: grid;
+      grid-template-columns: 45px 32px 1fr;
+      gap: 32px;
+      justify-items: end;
+    }
 
-      transform: translateX(-100%);
-      transition: transform 0.3s;
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 45px 32px 1fr;
+      gap: 32px;
+      justify-items: end;
+    }
 
-      &:target {
-        transform: translateX(0);
-      }
-
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 165px;
     }
   }
 
@@ -93,6 +101,26 @@
 
     @include onMobile {
       flex-direction: column;
+    }
+  }
+
+  &__nav {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      background-color: $c-grey-header-footer;
+      opacity: 100%;
+      transform: translateX(0);
+      z-index: 1;
     }
   }
 
