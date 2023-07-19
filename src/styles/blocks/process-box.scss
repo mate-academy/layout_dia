@@ -1,14 +1,25 @@
 .process-list {
-  @include pageGrid;
+  display: grid;
 
   row-gap: 24px;
 
   @include onTablet {
-    row-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  &__card {
-    grid-column: span 2;
+  @include onTablet {
+    gap: 30px;
+  }
+
+  @include onDescktop {
+    row-gap: 20px;
+    column-gap: 30px;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     padding: 32px;
 
@@ -18,10 +29,9 @@
 
     cursor: pointer;
 
-    @include hover (transform, scale(1.05));
+    @include hover (background-color, rgba(32, 96, 246, 0.1));
 
     @include onTablet {
-      grid-column: span 3;
 
       &:nth-child(even) {
         transform: translateY(-50%);

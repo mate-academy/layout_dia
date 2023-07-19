@@ -1,16 +1,43 @@
 .strategic-agency {
   background-color: #2c2c2c;
   color: $white-text-color;
+  box-shadow: 0 -1px 0 #2c2c2c;
+
+  position: relative;
+
+  @include onDescktop {
+    position: relative;
+  }
+
+  &__wrapper {
+    @include pageGrid;
+    @include contentPaddingInLineForDevices;
+
+    row-gap: 48px;
+
+    @include onTablet {
+      row-gap: 147px;
+    }
+  }
 
   &__content {
     @include pageGrid;
 
-    @include contentPaddingInLineForDevices;
-
     padding-top: 28px;
+    grid-column: span 2;
 
     @include onTablet {
       padding-top: 36px;
+      grid-column: 1 / -1;
+    }
+
+    @include onDescktop {
+      display: flex;
+      flex-direction: column;
+      width: 362px;
+      grid-column: span 5;
+
+      padding-top: 120px;
     }
   }
 
@@ -28,6 +55,10 @@
       font-size: 64px;
       line-height: 68px;
     }
+
+    @include onDescktop {
+      margin-bottom: 32px;
+    }
   }
 
   &__description {
@@ -43,28 +74,32 @@
 
       margin-bottom: 56px;
     }
+
+    @include onDescktop {
+      margin-bottom: 83px;
+    }
   }
 
   &__button-link {
     grid-column: span 2;
 
-    margin-bottom: 48px;
-
     @include onTablet {
       grid-column: span 3;
-
-      margin-bottom: 147px;
     }
   }
 
   &__slider {
-    grid-column: span 2;
+    grid-column: 1 / -1;
     display: flex;
     height: 390px;
 
-    position: relative;
-
     background-color: $c-gray;
+
+    @include onDescktop {
+      height: 680px;
+      grid-column: span 6;
+      background-color: #2c2c2c;
+    }
   }
 
   &__slide {
@@ -72,9 +107,33 @@
     width: 100%;
 
     position: absolute;
+    right: 0;
+    bottom: 0;
 
     border-radius: 30px;
     object-fit: cover;
-    box-shadow: 0 -30px 0 #2c2c2c;
+    box-shadow: 0 -30px 0 #2c2c2c, 0 30px 0 $c-gray;
+
+    @include onDescktop {
+      height: 680px;
+      width: 49%;
+
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 0 0 #2c2c2c, 0 30px 0 $c-gray;
+    }
+
+    @media(min-width:1600px) {
+      width: 43%;
+    }
+
+    @media(min-width:2080px) {
+      width: 44.5%;
+    }
+
+    @media(min-width:2560px) {
+      width: 45.5%;
+    }
   }
 }

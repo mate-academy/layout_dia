@@ -1,47 +1,61 @@
 .header {
-  height: 48px;
+  height: $header-heght;
+  padding-block: 10px;
+  box-sizing: border-box;
 
   background-color: #2c2c2c;
   color: $white-text-color;
 
+  @include onDescktop {
+    height: 96px;
+    padding-block: 24px;
+  }
+
   &__container {
-    // @include pageGrid;
     @include contentPaddingInLineForDevices;
 
     height: 100%;
   }
 
-  &__top {
+  &__top-bar {
     height: 100%;
-    // display: flex;
-    // justify-content: space-between;
-
-    // grid-column: span 2;
-
-    // padding-block: 20px;
-    // margin-bottom: 28px;
-
-    // @include onTablet {///////
-    //   grid-column: 1 / -1;///////
-    //   margin-bottom: 36px;///////
-    // }
-
-    // @include onDescktop {
-    //   padding-block: 48px;
-    // }
   }
 
   &__nav {
+    height: 100%;
     display: none;
 
     @include onDescktop {
-      display: block;
+      display: flex;
     }
   }
 
-  &__nav-hire-us {
-    height: 100%;
+  &__nav-list {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__nav-link {
     display: flex;
     align-items: center;
+    height: 100%;
+
+    &--hire-us {
+      @include hover(transform, scale(1.15));
+
+      position: relative;
+
+      &::after {
+        position: absolute;
+        left: 0;
+
+        content: "";
+        height: 2px;
+        width: calc(100% - 3px);
+        border-radius: 4px;
+        background-color: $main-blue-color;
+        transform: translateY(12.5px);
+      }
+    }
   }
 }
