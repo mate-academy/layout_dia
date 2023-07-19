@@ -34,10 +34,29 @@
 
   &__link {
     @extend %p;
+    position: relative;
     font-size: 24px;
     font-weight: 600;
     text-decoration: none;
     color: $header-text-color;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background-color: $blue-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+
+    }
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 
   &__socials-icons {
@@ -48,10 +67,9 @@
 
   &__socials-icon {
     transition: $effectDuration;
-    
+
     &:hover {
       transform: scale(1.2);
-      fill: $blue-color;
     }
   }
 }
