@@ -1,6 +1,62 @@
+@mixin onTablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: $large-screen-width) {
+    @content;
+  }
+}
+
+@mixin contentPadddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop() {
+    padding-inline: 54px;
+    margin-inline: auto;
+  }
+  @include onDesktop() {
+    padding-inline: 227px;
+    margin: auto;
+  }
+
+  @include onLargeScreen() {
+    max-width: 1600px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effectDuration;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
+
+@mixin mainFont {
+  font-family: "Poppins", sans-serif;
+  @content;
+}
+
+@mixin textFont {
+  font-family: "Open Sans", sans-serif;
+  @content;
+}
+
