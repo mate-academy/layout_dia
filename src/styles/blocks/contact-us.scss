@@ -1,11 +1,14 @@
 .contact-us {
+  display: grid;
   grid-column: span 2;
+  row-gap: 40px;
 
   font-style: normal;
   color: $white-text-color;
 
   @include onTablet {
     grid-column: span 4;
+    row-gap: 48px;
   }
 
   @include onDescktop {
@@ -13,11 +16,7 @@
   }
 
   &__title {
-    margin-bottom: 48px;
-
-    @include onTablet {
-      margin-bottom: 56px;
-    }
+    margin-bottom: 8px;
   }
 
   &__call-us,
@@ -38,22 +37,23 @@
 
   &__phone-link,
   &__address-link {
-    text-decoration: none;
     display: inline-block;
+    width: min-content;
+    text-decoration: none;
+
+    @media(min-width: 400px) {
+      width: fit-content;
+    }
   }
 
   &__phone,
   &__address {
-    margin-bottom: 40px;
-
     color: $white-text-color;
     font-size: 24px;
     font-weight: 600;
     line-height: 150%;
 
-    @include onTablet {
-      margin-bottom: 48px;
-    }
+    @include hover(color, $main-blue-color);
   }
 
   &__img {
@@ -67,14 +67,11 @@
     width: 32px;
 
     cursor: pointer;
-    // background-size: cover;
-    box-shadow: inset 0 0 0 2px #2c2c2c;
+    transition: background-image 0.3s;
   }
 
   &__icon--facebook {
     background-image: url(/images/icons/facebook.svg);
-
-    transition: background-image 0.3s;
 
     &:hover {
       background-image: url(/images/icons/facebook-hover.svg);
@@ -84,8 +81,6 @@
   &__icon--twitter {
     background-image: url(/images/icons/twitter.svg);
 
-    transition: background-image 0.3s;
-
     &:hover {
       background-image: url(/images/icons/twitter-hover.svg);
     }
@@ -93,8 +88,6 @@
 
   &__icon--instagram {
     background-image: url(/images/icons/instagram.svg);
-
-    transition: background-image 0.3s;
 
     &:hover {
       background-image: url(/images/icons/instagram-hover.svg);
