@@ -1,0 +1,58 @@
+.nav {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 48px;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &--footer {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+      row-gap: 24px;
+
+      @include onTablet {
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: 1fr;
+        column-gap: 40px;
+      }
+
+      @include onSmallDesktop {
+        column-gap: 64px;
+      }
+    }
+
+    &--side-menu {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, auto);
+      row-gap: 24px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include header-top-link-style;
+    color: $base-white;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      border-radius: 4px;
+      width: 100%;
+      background-color: $base-blue;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

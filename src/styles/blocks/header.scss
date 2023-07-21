@@ -1,0 +1,147 @@
+.header {
+  position: relative;
+  padding-top: 48px;
+  background: $base-grey;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: $base-white;
+
+  @include pageGrid;
+
+  &__flex-container {
+    grid-column: 1/-1;
+
+    @include onDesktop {
+      @include contentCenteredWithFlex;
+    }
+  }
+
+  &__top {
+    grid-column: 1/-1;
+    @include pageGrid;
+  }
+
+  &__logo-and-menu {
+    grid-column: 1/2;
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include onTablet {
+      grid-column: 1/3;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1/2;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+      align-self: center;
+      grid-column: 2/-2;
+    }
+  }
+
+  &__hire-link {
+    grid-column: -2/-1;
+    justify-self: end;
+    align-self: center;
+
+    position: relative;
+    width: max-content;
+    @include header-top-link-style;
+    color: inherit;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      border-radius: 4px;
+      width: 100%;
+      background-color: $base-blue;
+    }
+  }
+
+  &__content {
+    grid-column: 1/-1;
+    margin: 48px 0 438px;
+    @include pageGrid;
+
+    @include appearOnScrollLeft;
+
+    @include onSmallDesktop {
+      margin: 164px 0 205px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    grid-column: 1/-1;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1/5;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    max-width: 362px;
+    margin: 0;
+    grid-column: 1/-1;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__button {
+    grid-column: 1/-1;
+    margin-top: 72px;
+
+    @include onTablet {
+      grid-column: 1/4;
+      margin-top: 56px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1/4;
+      margin-top: 83px;
+    }
+  }
+
+  &__slider {
+    grid-column: 1/-1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include onSmallDesktop {
+      top: 120px;
+      bottom: 0;
+      right: 0;
+      grid-column: 7/-1;
+
+      @include appearOnScrollRight;
+    }
+  }
+}
