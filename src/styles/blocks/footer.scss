@@ -1,6 +1,6 @@
 .footer {
+  @include pageGrid;
   background-color: $base-grey;
-  @include contentCenteredWithFlex;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 
@@ -8,6 +8,13 @@
 
   @include onTablet {
     padding-top: 180px;
+  }
+
+  &__flex-container {
+    grid-column: 1/-1;
+    @include onDesktop {
+      @include contentCenteredWithFlex;
+    }
   }
 
   &__container {
@@ -31,7 +38,6 @@
     @include onSmallDesktop {
       grid-column: 1/6;
     }
-
   }
 
   &__contact-us {
@@ -45,26 +51,55 @@
 
   &__bottom {
     grid-column: 1/-1;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     gap: 48px;
 
     @include onTablet {
-      gap: 24px;
+      margin-top: 48px;
+      align-items: start;
     }
 
     @include onSmallDesktop {
+      margin-top: 0;
       flex-direction: row;
       gap: initial;
       justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      display: none;
+    }
+    @include onSmallDesktop {
+      display: inherit;
+    }
+
+    &-on-tablet {
+      display: none;
+      @include onTablet {
+        display: block;
+        position: absolute;
+        bottom: 48px;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
     }
   }
 
   &__nav {
+    @include onTablet {
+      width: 100%;
+    }
     @include onSmallDesktop {
+      width: auto;
       align-self: center;
     }
   }
-
 }
