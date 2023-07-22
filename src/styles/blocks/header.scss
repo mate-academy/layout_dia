@@ -1,0 +1,67 @@
+.header {
+  height: $header-heght;
+  padding-block: 10px;
+  box-sizing: border-box;
+
+  background-color: $blk-bg-col;
+  color: $white-text-color;
+
+  @include onDescktop {
+    height: 96px;
+    padding-block: 24px;
+  }
+
+  &__container {
+    @include contentPaddingInLineForDevices;
+
+    height: 100%;
+  }
+
+  &__top-bar {
+    height: 100%;
+  }
+
+  &__nav {
+    height: 100%;
+    display: none;
+
+    @include onDescktop {
+      display: flex;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__nav-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    @include hover(color, $main-blue-color);
+
+    &--hire-us {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      @include hover(transform, scale(1.15));
+
+      position: relative;
+
+      &::after {
+        position: absolute;
+        left: 0;
+
+        content: "";
+        height: 2px;
+        width: calc(100% - 3px);
+        border-radius: 4px;
+        background-color: $main-blue-color;
+        transform: translateY(12.5px);
+      }
+    }
+  }
+}
