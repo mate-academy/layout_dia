@@ -1,4 +1,3 @@
-
 # Checklist for preparing a portfolio project
 
 ## Tech review
