@@ -1,0 +1,96 @@
+.navigation {
+  background-color: $mainDardBackground;
+  transition-duration: 300ms;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    @include onSmallDesctop {
+      padding-top: 0;
+      position: absolute;
+      flex-direction: row;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+
+      @include onSmallDesctop {
+        margin-bottom: 0;
+        margin-right: 48px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 15px;
+    white-space: nowrap;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 2;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    overflow: hidden;
+
+    @include onSmallDesctop {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: #fff;
+      transform: translateX(-101%);
+
+      transition-duration: 300ms;
+    }
+
+    &:hover {
+      &::before {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &--top {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 10;
+    transform: translateX(-100%);
+
+    @include onSmallDesctop {
+      transform: translateX(0);
+      position: absolute;
+      height: auto;
+    }
+  }
+
+  &--bottom {
+    position: relative;
+
+  }
+  &:target {
+    transform: translateX(0);
+  }
+}
