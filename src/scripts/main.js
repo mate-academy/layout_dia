@@ -43,7 +43,6 @@ function clickHandler(e) {
 }
 
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 
 const swiper = new Swiper('.swiper', {
 
@@ -51,22 +50,8 @@ const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
 
-  breakpoints: {
-    0: {
-      slidesPerView: 'auto',
-      spaceBetween: 0,
-    },
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 16,
-    },
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });

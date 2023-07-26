@@ -1,0 +1,181 @@
+// #region SCSS
+.swiper {
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  list-style: none;
+  padding: 0;
+
+  @include onMobile {
+    @include pageGrid;
+  }
+
+  @include onDesktop {
+    display: flex;
+  }
+
+  &-wrapper {
+    grid-column: 1 / -1;
+
+    position: relative;
+    max-width: 100%;
+    transition-property: transform;
+    transition-timing-function: $transition-speed;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  &__content {
+    grid-column: 1/ - 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+
+    @include contentPaddingInline;
+
+    @include onDesktop {
+      padding-left: 78px;
+      padding-right: 0;
+      flex-direction: row;
+      column-gap: 24px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    color: $c-white;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    color: $c-white;
+  }
+}
+
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  min-height: 390px;
+
+  transition: all, $transition-speed;
+
+  background-position: 50% 0;
+
+  @include onDesktop {
+    background-position: center;
+
+    min-height: 680px;
+  }
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image: linear-gradient(
+    45deg,
+    #000 25%,
+    rgba(0,0,0,0.2) 50%,
+    #000 75%);
+  mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,0.2) 50%,#000 75%);
+  -webkit-mask-size: 800%;
+  mask-size: 800%;
+  -webkit-mask-position: 0;
+  mask-position: 0;
+
+  &:hover {
+    transition: mask-position 2s ease, -webkit-mask-position 2s ease;
+    -webkit-mask-position: 120%;
+    mask-position: 120%;
+    opacity: 1;
+  }
+
+  &--bg--1 {
+    background-image: url(../images/slider/slide-img-1.png);
+  }
+  &--bg--2 {
+    background-image: url(../images/slider/slide-img-2.png);
+  }
+  &--bg--3 {
+    background-image: url(../images/slider/slide-img-3.png);
+  }
+  &--bg--4 {
+    background-image: url(../images/slider/slide-img-4.png);
+
+    @include onTablet {
+      background-position: 0 60%;
+    }
+  }
+}
+
+// #region next prev buttons
+
+.swiper-button-prev,
+.swiper-button-next {
+  bottom: 18px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $c-blue;
+
+  background-repeat: no-repeat;
+
+  background-color: $c-white;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* Navigation font start */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  width: 18px;
+  height: 18px;
+}
+
+.swiper-button-prev:after {
+  content: url(../images/slider/arrow-left.svg);
+}
+
+.swiper-button-next:after {
+  content: url(../images/slider/arrow-right.svg);
+}
+// #endregion
