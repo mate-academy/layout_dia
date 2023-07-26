@@ -1,6 +1,95 @@
+@mixin on320 {
+  @media (min-width: 280px) {
+    @content;
+  }
+}
+
+@mixin on640 {
+  @media (min-width: 558px) {
+    @content;
+  }
+}
+
+@mixin on1024 {
+  @media (min-width: 916px) {
+    @content;
+  }
+}
+
+@mixin on1600 {
+  @media (min-width: 1146px) {
+    @content;
+  }
+}
+
+@mixin on2560 {
+  @media (min-width: 1146px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  @include on320() {
+    padding-inline: 20px;
+    padding-top: 32px;
+  }
+
+  @include on640() {
+    padding-inline: 41px;
+    padding-top: 32px;
+  }
+
+  @include on1024() {
+    padding-inline: 54px;
+    padding-top: 52px;
+  }
+
+  @include on1600() {
+    padding-inline: 227px;
+    padding-top: 52px;
+  }
+
+  @include on2560() {
+    padding-inline: 707px;
+    padding-top: 52px;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin pageGrid {
+  //On320
+  display: grid;
+  --columns: 2;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on640 {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include on1024 {
+    --columns: 12;
+    column-gap: 20px;
+  }
+
+  @include on1600 {
+    --columns: 12;
+    column-gap: 30px;
+  }
+
+  @include on2560 {
+    --columns: 12;
+    column-gap: 30px;
   }
 }
