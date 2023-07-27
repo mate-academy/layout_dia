@@ -1,77 +1,104 @@
 .slider {
-  &__background {
-    position: absolute;
-    top: 120px;
-    left: 1393px;
-
-    width: 1167px;
-    height: 680px;
-
-    background-image: url("../images/header-bg/header-bg 2560.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
+  &__content {
+    display: flex;
+    height: 100%;
   }
 
-  &__arrow-left {
-    position: absolute;
-    top: 709px;
-    left: 1448px;
+  &__img-container {
+    position: relative;
+    width: 100%;
+    transition: all 0.3s;
 
-    width: 32px;
-    height: 32px;
-
-    cursor: pointer;
-
-    background-image: url("../images/slider/arrow-left-slider.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
   }
 
-  &__arrow-right {
+  &__image {
+    width: 100%;
+    height: 390px;
     position: absolute;
-    top: 709px;
-    left: 1496px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    transition: display 0.5s;
 
-    width: 32px;
-    height: 32px;
+    @include onDesktop {
+      min-width: 502px;
+      height: 680px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 
-    cursor: pointer;
+  &__menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 256px;
+    left: 20px;
 
-    background-image: url("../images/slider/arrow-righ- slider.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top;
+    @include onDesktop {
+      flex-direction: row;
+      right: 80px;
+      top: 540.5px;
+      left: 86px;
+    }
   }
 
   &__title {
-    position: absolute;
-    top: 684px;
-    left: 1545px;
-
-    width: 52px;
-    height: 20px;
-
-    font-family: Poppins, sans-serif;
+    margin-bottom: 8px;
     font-weight: 700;
     font-size: 13px;
-    line-height: 19.5px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: #fff;
   }
 
   &__description {
-    position: absolute;
-    top: 712px;
-    left: 1545px;
-
-    width: 264px;
-    height: 40px;
-
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
+    @extend %OpenSans400;
     font-size: 14px;
-    line-height: 19.6px;
+    line-height: 20px;
     color: #fff;
+    max-width: 264px;
+    margin-bottom: 24px;
+
+    @include onDesktop {
+      max-width: 400px;
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    gap: 16px;
+    margin-right: 180px;
+
+    @include onDesktop {
+      margin-right: 24px;
+    }
+  }
+
+  &__button {
+    @include square(32px);
+
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 0 0 10px 1px $hover-color;
+      transform: scale(130%);
+    }
+
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+
+    &--left {
+      background-image: url(../images/slider/left-arrow.svg);
+    }
+
+    &--right {
+      background-image: url(../images/slider/right-arrow.svg);
+    }
   }
 }
