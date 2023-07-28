@@ -1,0 +1,61 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    background-color: $c-bg-body-color;
+
+    &--scroll {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: $section-indent-mobile;
+    height: 100vh;
+
+    @include onTablet {
+      margin-bottom: $section-indent-tablet;
+    }
+
+    @include onDesktop {
+      position: relative;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+
+    background-color: $c-bg-color;
+
+    z-index: 9999;
+    transition: transform 0.4s linear;
+
+    &:target {
+      transform: translateX(0);
+      height: 100vh;
+    }
+  }
+
+  &__menu-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__section {
+    margin-bottom: $section-indent-mobile;
+
+    @include onTablet {
+      margin-bottom: $section-indent-tablet;
+    }
+  }
+
+  &__section--vision {
+    margin-bottom: 0;
+  }
+}
