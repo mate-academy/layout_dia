@@ -1,0 +1,44 @@
+.menu {
+  background-color: #2c2c2c;
+  width: 100%;
+  height: 100vh;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.5s;
+  transform: translateX(-100%);
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__link {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__closer {
+    display: block;
+    background-image: url(../images/logo/close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 18px;
+    width: 18px;
+    margin-left: 35px;
+    filter: invert(100%) sepia(100%) saturate(0%)
+      hue-rotate(298deg) brightness(105%) contrast(103%);
+    transition: transform 0.3s;
+
+    @include onDesctop {
+      display: none;
+    }
+
+    &:focus {
+      transform: rotate(180deg);
+    }
+  }
+}
