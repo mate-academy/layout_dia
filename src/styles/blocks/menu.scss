@@ -1,0 +1,64 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 73px;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: transform $trans-duration;
+
+
+  @include tablet {
+    align-items: center;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__burger {
+    position: fixed;
+    left: 100px;
+    top: 21px;
+    transform: rotate(90deg);
+
+    @include tablet {
+      left: 120px;
+    }
+  }
+
+  &__nav {
+
+    &-link {
+      text-decoration: none;
+      font-family: 'Poppins';
+      padding: 5px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 150%;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: $blue-bg;
+      margin-right: 15px;
+      transition: color $trans-duration;
+
+      &:hover {
+        color: $button-bg;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

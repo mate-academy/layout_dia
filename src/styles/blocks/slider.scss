@@ -1,0 +1,159 @@
+%bgi {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slider {
+  width: 100%;
+  height: 390px;
+
+  &__sub {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include desktop {
+      bottom: 150px;
+      right: 140px;
+    }
+  }
+
+  &__p {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include desktop {
+      right: 140px;
+      bottom: 110px;
+    }
+  }
+
+  @include desktop {
+    position: absolute;
+    height: 85%;
+    width: 500px;
+    top: 120;
+    right: 0;
+    bottom: 0;
+  }
+
+  @media (min-width: 1280px) {
+    width: 600px;
+  }
+
+  @include fullHD {
+    width: 680px;
+  }
+
+  @media (min-width: 1920px) {
+    width: 880px;
+  }
+
+  @include large {
+    width: 1100px;
+  }
+
+  &__slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    @extend %bgi;
+
+    &--1 {
+      background-image: url(../images/slide1.jpeg);
+      border-radius: $radius-section;
+      position: relative;
+
+      @include desktop {
+        border-radius: $header-footer-radius 0px 0px 0px;
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/2slide.svg);
+      border-radius: $radius-section;
+
+      @include desktop {
+        border-radius: $header-footer-radius 0px 0px 0px;
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/3slide.svg);
+      border-radius: $radius-section;
+
+      @include desktop {
+        border-radius: $header-footer-radius 0px 0px 0px;
+      }
+    }
+  }
+
+  &__arrow {
+    cursor: pointer;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color $trans-duration;
+    &:hover {
+      background-color: $blue-bg;
+    }
+
+    &--left {
+      position: absolute;
+      right: 80px;
+      bottom: 120px;
+    }
+
+    &--right {
+      position: absolute;
+      bottom: 120px;
+      right: 20px;
+    }
+
+    &-left {
+      height: 9px;
+      width: 6px;
+      background-image: url(../images/arrL.svg);
+      @extend %bgi;
+      margin: auto;
+
+    }
+
+    &-right {
+      background-image: url(../images/arrR.svg);
+      @extend %bgi;
+      height: 9px;
+      width: 6px;
+      margin: auto;
+    }
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade {
+  animation: fade $trans-duration cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
