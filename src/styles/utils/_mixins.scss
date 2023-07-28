@@ -5,6 +5,30 @@
   }
 }
 
+@mixin hoverUnderline() {
+  &::after {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+
+    content: "";
+
+    height: 2px;
+
+    border-radius: 4px;
+    background-color: $link-under-line-color-hover;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
 @mixin contentPaddingInline() {
   padding-inline: 20px;
 
@@ -18,13 +42,13 @@
 }
 
 @mixin onTable() {
-  @media (min-width:$table-min-width){
+  @media (min-width:$table-min-width) {
     @content;
   }
 }
 
 @mixin onDesktop() {
-  @media (min-width:$desktop-min-width){
+  @media (min-width:$desktop-min-width) {
     @content;
   }
 }
