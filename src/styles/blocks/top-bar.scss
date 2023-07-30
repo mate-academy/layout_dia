@@ -1,0 +1,77 @@
+.top-bar {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding-top: 18px;
+
+  @include constantPaddingInline;
+
+  @include onSmallDesktop {
+    padding-block: 48px;
+    align-items: center;
+  }
+
+  &__images {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+
+    @include hover (all, 0.3s);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/menu-icon.png);
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+
+    @include hover (transform, scale(1.2));
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: #fff;
+    font-family: $font-poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      border-radius: 4px;
+      height: 2px;
+      width: 100%;
+      background-color: #2060f6;
+
+      @include onSmallDesktop {
+        bottom: -6px;
+      }
+    }
+  }
+
+  &__close {
+    background-image: url(../images/icons/icons-close.png);
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+
+    @include hover (transform, scale(1.2));
+  }
+}
