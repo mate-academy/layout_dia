@@ -1,0 +1,73 @@
+.send {
+  border-radius: 18px;
+  background-color: $header-color;
+  cursor: pointer;
+
+  &-container {
+    margin: 0 20px;
+  }
+
+  &-form-field {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    display: block;
+    height: 23px;
+    width: 100%;
+    padding: 16px 0;
+    background-color: $header-color;
+    margin-top: 40px;
+    border-bottom: 2px solid $white-color;
+
+    cursor: pointer;
+
+    overflow: hidden;    //забирае прокрутку в textarea
+    opacity: 0.7;        //меньша яскравість шрифта в placeholder
+    outline: none;       //забирає жирну обводку
+    color: $white-color;
+    transition: all 0.3s;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+
+    &::placeholder {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: $white-color;
+    }
+
+    &:focus {
+      opacity: 1;
+      border-bottom: 2px solid $hover-color;
+    }
+  }
+
+  &__email,
+  &__name:-webkit-autofill {
+    -webkit-text-fill-color: $white-color;
+    -webkit-background-clip: text;
+    box-shadow: inset $header-color; //забирає фон
+  }
+
+  &__message {
+    resize: none;  //розміри textarea не міняються
+    font-family: inherit;
+    color: $white-color;
+    padding-bottom: 27px;
+    padding-top: 4px;
+    
+    &::placeholder {
+      color: $white-color;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    color: $white-color;
+  }
+}
