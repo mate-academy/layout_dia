@@ -4,3 +4,43 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTV {
+  @media (min-width: $tv-width) {
+    @content;
+  }
+}
+
+@mixin onBig {
+  @media (min-width: $pc-width) {
+    @content;
+  }
+}
+
+@mixin onMiddle {
+  @media (min-width: $desctop-width) {
+    @content;
+  }
+}
+
+@mixin onSmall {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onSmall {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onMiddle {
+    --columns: 12;
+  }
+}
