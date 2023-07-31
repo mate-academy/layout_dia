@@ -1,4 +1,22 @@
 .testimonials {
+
+  &__wrapper {
+
+    justify-content: center;
+
+    @include onDesktopSmall {
+      display: grid;
+      grid-template-columns: repeat(3, 292px);
+      column-gap: 20px;
+    }
+
+    @include onMediumDesktop {
+      display: grid;
+      grid-template-columns: repeat(3, 362px);
+      column-gap: 30px;
+    }
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -11,6 +29,10 @@
         font-size: 32px;
         line-height: 48px;
         color: #253757;
+
+        @include onTablet {
+          width: 205px;
+        }
       }
 
       &:first-child {
@@ -19,6 +41,10 @@
 
       &:last-child {
         margin: 0 0 50px;
+
+        @include onDesktopOnly {
+          margin: 0 0 85px;
+        }
       }
     }
   }
@@ -29,13 +55,22 @@
     justify-content: center;
     align-items: center;
 
-    padding: 36px 42px  32px;
+    padding: 36px 42px 32px;
+
+    @include onMediumDesktop {
+      padding: 37px 56px 32px;
+    }
+
     background-color: $white-basic;
-    max-height: 494px;
-    max-width: 362px;
+    
+    margin: 0 0 24px;
+    
+    @include onDesktopOnly {
+      margin: 0;
+    }
+    
     border-radius: 16px;
     box-shadow: 0 9px 18px 0 #25293130;
-    margin: 0 0 24px;
 
     transition: all 0.3s;
 
@@ -54,6 +89,17 @@
 
       width: 196px;
       height: 196px;
+
+      @include onTabletSpecial {
+        width: 250px;
+        height: 250px;
+      }
+
+      @include onMediumDesktop {
+        width: 250px;
+        height: 250px;
+      }
+
       margin: 0 0 30px;
 
       &::after {
@@ -62,13 +108,35 @@
         content: "";
         width: 44px;
         height: 109px;
-        background-color: $blue-button;
+
+        @include onTabletSpecial {
+          width: 56px;
+          height: 139px;
+        }
+
+        @include onMediumDesktop {
+          width: 56px;
+          height: 139px;
+        }
+        
+        /* background-color: $blue-button; */
         transform: rotate(36deg);
         border-radius: 12px;
 
         position: relative;
         top: 42px;
         right: 39px;
+
+        @include onTabletSpecial {
+          top: 50px;
+          right: 50px;
+        }
+
+        @include onMediumDesktop {
+          top: 50px;
+          right: 50px;
+        }
+
       }
 
       &::before {
@@ -77,19 +145,157 @@
         content: "";
         width: 44px;
         height: 109px;
-        background-color: $blue-button;
+
+        @include onTabletSpecial {
+          width: 56px;
+          height: 139px;
+        }
+
+        @include onMediumDesktop {
+          width: 56px;
+          height: 139px;
+        }
+
+        /* background-color: $blue-button; */
         transform: rotate(36deg);
         border-radius: 12px;
 
         position: relative;
         bottom: 42px;
         left: 39px;
+
+        @include onTabletSpecial {
+          bottom: 50px;
+          left: 50px;
+        }
+
+        @include onMediumDesktop {
+          bottom: 50px;
+          left: 50px;
+        }
       }
+
+      &--def {
+        &::after {
+          display: block;
+  
+          content: "";
+          width: 44px;
+          height: 109px;
+  
+          @include onTabletSpecial {
+            width: 56px;
+            height: 139px;
+          }
+  
+          @include onMediumDesktop {
+            width: 56px;
+            height: 139px;
+          }
+          
+          background-color: $blue-button;
+          transform: rotate(36deg);
+          border-radius: 12px;
+  
+          position: relative;
+          top: 42px;
+          right: 39px;
+  
+          @include onTabletSpecial {
+            top: 50px;
+            right: 50px;
+          }
+  
+          @include onMediumDesktop {
+            top: 50px;
+            right: 50px;
+          }
+  
+        }
+  
+        &::before {
+          display: block;
+  
+          content: "";
+          width: 44px;
+          height: 109px;
+  
+          @include onTabletSpecial {
+            width: 56px;
+            height: 139px;
+          }
+  
+          @include onMediumDesktop {
+            width: 56px;
+            height: 139px;
+          }
+  
+          background-color: $blue-button;
+          transform: rotate(36deg);
+          border-radius: 12px;
+  
+          position: relative;
+          bottom: 42px;
+          left: 39px;
+  
+          @include onTabletSpecial {
+            bottom: 50px;
+            left: 50px;
+          }
+  
+          @include onMediumDesktop {
+            bottom: 50px;
+            left: 50px;
+          }
+        }
+      }
+
+      &--blue {
+        &::after {
+          background-color: $special-blue;
+        }
+  
+        &::before {
+          background-color: $special-blue;
+        }
+      }
+
+      &--yellow {
+        &::after {
+          background-color: $special-yellow;
+        }
+  
+        &::before {
+          background-color: $special-yellow;
+        }
+      }
+
+      &--red {
+        &::after {
+          background-color: $special-red;
+        }
+  
+        &::before {
+          background-color: $special-red;
+        }
+      }
+ 
     }
 
     &__avatar {
-      max-width: 110px;
-      max-height: 110px;
+      width: 110px;
+      height: 110px;
+
+      @include onTabletSpecial {
+        width: 140px;
+        height: 140px;
+      }
+
+      @include onMediumDesktop {
+        width: 140px;
+        height: 140px;
+      }
+
       border-radius: 50%;
   
       object-fit: cover;
@@ -98,6 +304,22 @@
     
     &__marks {
       margin: 0 0 10px;
+
+      background-image: url(../images/testimonials/marks.jpg);
+      width: 21px;
+      height: 19px;
+
+      &--blue {
+        background-image: url(../images/testimonials/marks_blue.jpg);
+      }
+
+      &--yellow {
+        background-image: url(../images/testimonials/marks_yellow.jpg);
+      }
+
+      &--red {
+        background-image: url(../images/testimonials/marks_red.jpg);
+      }
     }
     
     &__general {
@@ -107,6 +329,22 @@
       line-height: 20px;
       color: $gray-font;
       margin: 0 0 16px;
+
+      @include onTabletSpecial {
+        width: 360px;
+      }
+
+      @include onMediumDesktop {
+        width: 250px;
+      }
+
+      &--form {
+        height: 80px;
+
+        @include onMediumDesktop {
+          height: 64px;
+        }
+      }
     }
     
     &__about {

@@ -1,17 +1,58 @@
+.header-hight-resolutions {
+  @include offBigMenu {
+    display: none;
+  }
+}
+  
+.header-small-resolutions {
+  @include offSmallMenu {
+    display: none;
+  }
+}
+
+.header-slider-and-title-wrapper {
+  @include onDesktopSmall {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0 55px;
+  }
+  
+  @include onMediumDesktop {
+    padding: 0 0 0 227px;
+  }
+
+  @include onLargeDesktop {
+    padding: 0 0 0 707px;
+  }
+}
+
+.header-title-wrapper {
+
+  @include onDesktopOnly {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: relative;
+    top: 25px;
+  }
+}
+
 .header {
   background-color: $black-basic;
   border-radius: 0 0 30px 30px;
- 
+  
   &__content {
     box-sizing: border-box;
     height: 100%;
     padding-top: 20px;
 
+    @include onDesktopSmall {
+      padding-top: 50px;
+    }
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
-    /* margin-bottom: 50px; */
   }
 
   &__title {
@@ -30,14 +71,21 @@
     margin: 0 0 25px;
 
     @include onTablet {
-      font-size: 62px;
-      line-height: 71px;
+      font-size: 64px;
+      line-height: 68px;
       width: 100%;
       text-align: left;
 
       margin: 0 0 55px;
     }
 
+    @include onDesktopSmall {
+      margin: 0 0 30px;
+    }
+
+    @include onMediumDesktop {
+      width: 490px;
+    }
   }
 
   &__about {
@@ -51,6 +99,10 @@
       width: 360px;
       margin: 0 0 55px;
     }
+
+    @include onDesktopSmall {
+      margin: 0 0 80px;
+    }
   }
 
   &__click {
@@ -60,5 +112,38 @@
       width: 265px;
       margin: 0 0 150px;
     }
+  }
+}
+
+.header-blue {
+  background-color: $main-blue;
+
+  @include onDesktopSmall {
+    border-radius: 0 0 0 200px;
+  }
+
+}
+
+.themes-changer {
+  cursor: pointer;
+
+  &:hover {
+    transition: all 0.3s;
+
+    &::after {
+      position: relative;
+      
+      display: block;
+      content: "";
+      height: 1px;
+      width: 35px;
+      background-color: $red;
+
+    }
+  }
+
+  &:active {
+    color: $red;
+    
   }
 }
