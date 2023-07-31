@@ -1,0 +1,34 @@
+.page {
+  scroll-behavior: smooth;
+  font-style: normal;
+  position: relative;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__bottom {
+    background-color: $color-dark;
+    border-radius: 35px 35px 0 0;
+  }
+
+  &__bottom-wrapper {
+    @include pageGrid;
+    @include padding-block;
+  }
+}

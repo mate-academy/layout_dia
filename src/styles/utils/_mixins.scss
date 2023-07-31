@@ -4,3 +4,157 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin padding-inline {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include onTablet {
+    padding-left: 41px;
+    padding-right: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+}
+
+@mixin padding-block {
+  @include padding-inline;
+  margin: 0 auto;
+
+  @include onTablet {
+    max-width: 640px;
+  }
+
+  @include onSmallDesktop {
+    max-width: 1024px;
+  }
+
+  @include onDesktop {
+    max-width: 1200px;
+  }
+}
+
+@mixin button {
+  width: 100%;
+  height: 50px;
+  background: $color-dark-blue;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  font-family: $Poppins-font-familly;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  color: $color-white;
+
+  @include hover (transform, scale(1.2));
+
+  @include onTablet {
+    width: 264px;
+  }
+}
+
+@mixin linkStyle {
+  text-decoration: none;
+  color: $color-white;
+  font-size: 13px;
+  font-family: $Poppins-font-familly;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $color-blue;
+    bottom: -8px;
+    left: 0;
+    transition: transform 0.3s;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin social-links {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 32px;
+
+  @include hover (transform, scale(1.2));
+}
+
+@mixin contact-us-text-before {
+  display: block;
+  color: $color-white;
+  font-size: 13px;
+  font-family: $Poppins-font-familly;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
