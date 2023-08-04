@@ -1,6 +1,77 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin square ($side) {
+  height: $side;
+  width: $side;
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onMediumDesktop {
+  @media (min-width: $medium-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  --columns: 1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: $column-gap-onMediumDesktop;
+  }
+
+  @include onSmallDesktop {
+    column-gap: $column-gap-onSmallDesktop;
+    --columns: 12;
+  }
+
+  @include onMediumDesktop() {
+    column-gap: $column-gap-onMediumDesktop;
+  }
+}
+
+@mixin introduction-before-block ($content) {
+  &::before {
+    content: "#{$content}";
+    position: absolute;
+    top: -36px;
+    @extend %Poppins700;
+  }
+}
+
+@mixin centerPosition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@mixin onTablet-and-MediumDesk ($parameter, $value1, $value2) {
+  #{$parameter}: $value1;
+
+  @include onTablet {
+    @media (max-width: $small-desktop-min-width) {
+      #{$parameter}: $value2;
+    }
+  }
+
+  @include onMediumDesktop {
+    #{$parameter}: $value2;
   }
 }
