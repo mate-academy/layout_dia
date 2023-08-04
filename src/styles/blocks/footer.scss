@@ -1,31 +1,64 @@
 .footer {
-  display: grid;
-  row-gap: 80px;
-  padding-block: 72px 80px;
+  background-color: #2c2c2c;
+  padding-bottom: 80px;
 
-  background-color: $blk-bg-col;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  &__container {
+    @include constantPaddingInline;
 
-  @include onTablet {
-    padding-block: 180px 80px;
-    row-gap: 140px;
-
-    box-shadow: 0 -30px 0 0 $white-bgr-clr;
+    @include onSmallDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
-  @include onDescktop {
-    row-gap: 120px;
-  }
-
-  &__wrapper {
-    @include pageGrid;
-    @include contentPaddingInLineForDevices;
-
-    row-gap: 80px;
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
     @include onTablet {
-      row-gap: 120px;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include onSmallDesktop {
+      gap: 64px;
+      height: 20px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 48px;
+    @include hover (all, 0.3s);
+
+    @include onSmallDesktop {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-family: $font-poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include hover (all, 0.3s);
+
+    &:hover {
+      color: #144ed4;
+    }
+
+    @include onSmallDesktop {
+      height: 20px;
     }
   }
 }
