@@ -1,8 +1,11 @@
 .slider {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: block;
-  height: 390px;
+  height: 100%;
   max-width: 1600px;
-  background-image: url("../images/slider/slide1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -10,29 +13,18 @@
 
   @include onSmallDesktop {
     border-radius: 30px 0;
-    height: auto;
+  }
+
+  &--1 {
+    background-image: url("../images/slider/slide1.png");
   }
 
   &--2 {
-    display: none;
     background-image: url("../images/slider/slide2.png");
-    scroll-margin-top: 100vh;
-
-    &:target {
-      display: block;
-      z-index: 2;
-    }
   }
 
   &--3 {
-    display: none;
     background-image: url("../images/slider/slide3.png");
-    scroll-margin-top: 100vh;
-
-    &:target {
-      display: block;
-      z-index: 2;
-    }
   }
 
   &__menu {
@@ -74,6 +66,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @extend %Transition;
+
+    &:hover {
+      cursor: pointer;
+      transform: $standart-scale;
+      @extend %Boxshadow;
+    }
   }
 
   &__info {
