@@ -1,16 +1,58 @@
 @mixin onTablet {
-  @media (min-width: 640px) {
+  @media (min-width: $tablet-min-width) {
     @content;
   }
 }
 
 @mixin onDesktop {
-  @media (min-width: 1024px) {
+  @media (min-width: $desktop-min-width) {
     @content;
   }
 }
 
-@mixin navigation-links-styles {
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 72px;
+  }
+
+  @include onDesktop {
+    max-width: 1020px;
+    margin-inline: auto;
+    padding-inline: 120px;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}
+
+@mixin navigationLinksStyles {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -19,6 +61,7 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: $colorWhite;
+  text-decoration: none;
 }
 
 @mixin title {
@@ -39,7 +82,7 @@
 }
 
 @mixin menu-item {
-  font-family: 'Poppins';
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 13px;

@@ -1,0 +1,64 @@
+.icon {
+  display: block;
+  background-size: cover;
+  background-position: center;
+
+  @include hover(transform, scale(1.2));
+
+  &--tooltip {
+    display: none;
+    margin-right: 16px;
+    opacity: 0;
+    
+    @include onDesktop {
+      position: absolute;
+      right: 100%;
+      top: -10%;
+      transform: translateY(-25%);
+
+      display: block;
+      width: 205px;
+
+      transition: opacity 0.3s;
+    }
+  }
+
+  &:hover &--tooltip {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &--menu {
+    width: 24px;
+    height: 24px;
+    background-image: url(.././images/Menu.svg);
+  }
+
+  &--hire {
+    @include navigationLinksStyles;
+    text-decoration: none;
+    align-items: center;
+    position: relative;
+
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      display: block;
+      border-radius: 4px;
+      width: 100%;
+      height: 2px;
+      background-color: $colorBlue;
+    }
+  }
+
+  &--cross {
+    background-image: url(../images/cross.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+  }
+}
