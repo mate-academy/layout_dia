@@ -92,6 +92,11 @@ a {
     padding: 0 127px;
   }
 }
+@media (min-width: 2560px) {
+  .container {
+    padding: 0 707px;
+  }
+}
 
 .nav {
   display: flex;
@@ -120,6 +125,10 @@ a {
 }
 .nav__link {
   display: none;
+  transition: transform 0.3s;
+}
+.nav__link:hover {
+  transform: scaleX(1.1);
 }
 @media (min-width: 1024px) {
   .nav__link {
@@ -203,7 +212,13 @@ a {
 }
 @media (min-width: 1280px) {
   .header__strategicAgency {
-    grid-column: span 5;
+    grid-column: span 4;
+  }
+}
+@media (min-width: 2560px) {
+  .header__strategicAgency {
+    grid-column: span 4;
+    grid-row: 2/0;
   }
 }
 @media (min-width: 640px) {
@@ -219,7 +234,7 @@ a {
 }
 @media (min-width: 1280px) {
   .header__slider {
-    grid-column: 8/-1;
+    grid-column: 8/span 5;
     grid-row: span 7;
   }
 }
@@ -235,6 +250,11 @@ a {
   background-image: url(../images/logo/Menu.svg);
   height: 24px;
   width: 24px;
+}
+@media (min-width: 1024px) {
+  .icon--menu {
+    display: none;
+  }
 }
 
 .strategicAgency__title {
@@ -315,22 +335,24 @@ a {
 }
 @media (min-width: 640px) {
   .slider__img {
-    bottom: 30px;
+    bottom: 60px;
     left: -40px;
-    width: 640px;
+    min-width: 640px;
   }
 }
 @media (min-width: 1024px) {
   .slider__img {
     left: 0;
+    right: 0;
+    bottom: 40px;
+    min-width: 687px;
     height: 100%;
     border-radius: 30px 0;
   }
 }
 @media (min-width: 2560px) {
   .slider__img {
-    width: 100%;
-    height: 100%;
+    min-width: 1167px;
   }
 }
 .slider__control {
@@ -408,6 +430,7 @@ a {
   align-items: center;
   width: 280px;
   height: 56px;
+  border-radius: 8px;
   background-color: #2060f6;
   color: #fff;
   text-align: center;
@@ -653,13 +676,14 @@ a {
   box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
   transition: transform 0.3s;
 }
-.process:hover {
-  transform: scale(1.1);
+@media (max-width: 320px) {
+  .process:hover {
+    transform: scale(1.1);
+  }
 }
 @media (min-width: 640px) {
   .process {
     min-width: 264px;
-    flex-grow: 2;
   }
 }
 .process__amount {
@@ -773,11 +797,27 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 32px;
+  padding-top: 70px;
+  background-color: #fff;
+}
+@media (min-width: 640px) {
+  .blockTestimonials {
+    padding: 80px 98px 32px;
+  }
 }
 @media (min-width: 1024px) {
   .blockTestimonials {
+    padding: 80px 15px 0;
     max-width: 292px;
+    transition: transform 0.3s;
+  }
+  .blockTestimonials:hover {
+    transform: scale(1.1);
+  }
+}
+@media (min-width: 1280px) {
+  .blockTestimonials {
+    max-width: 362px;
   }
 }
 .blockTestimonials__image {
@@ -820,7 +860,6 @@ a {
   border-radius: 12px;
   background-color: #2060f6;
   transform: rotate(-60deg);
-  transition: transform 0.3s;
 }
 @media (min-width: 640px) {
   .blockTestimonials__blockImage::after {
@@ -839,9 +878,6 @@ a {
     width: 139px;
     height: 56px;
   }
-}
-.blockTestimonials__blockImage::after:hover {
-  transform: scale(1.1);
 }
 .blockTestimonials__blockImage::before {
   position: absolute;
@@ -960,7 +996,7 @@ a {
 }
 @media (min-width: 1024px) {
   .sendUsMessage {
-    grid-column: 1/span 6;
+    grid-column: span 5;
   }
 }
 .sendUsMessage__title {
@@ -982,6 +1018,7 @@ a {
   margin-bottom: 40px;
   width: 100%;
   border-bottom: 2px solid #fff;
+  color: #fff;
   background-color: #2c2c2c;
   outline: none;
 }
@@ -1007,6 +1044,7 @@ a {
   }
 }
 .sendUsMessage__input--third {
+  padding-bottom: 0;
   margin-bottom: 56px;
 }
 @media (min-width: 640px) {
@@ -1074,12 +1112,31 @@ a {
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
+  transition: transform 0.3s;
+}
+.contactUs__infoLink:hover {
+  transform: scale(1.1);
 }
 .contactUs__infoBlockLink {
   display: flex;
   justify-content: start;
   gap: 32px;
   padding-top: 16px;
+}
+.contactUs__infoImg {
+  transition: transform 0.3s;
+}
+.contactUs__infoImg:hover {
+  transform: scale(1.3);
+}
+.contactUs__infoImg--facebook:hover {
+  content: url("../images/social/facebook 2.svg");
+}
+.contactUs__infoImg--twitter:hover {
+  content: url("../images/social/twitter 2.svg");
+}
+.contactUs__infoImg--instagram:hover {
+  content: url("../images/social/instagram2.svg");
 }
 
 @media (min-width: 640px) {
@@ -1127,6 +1184,12 @@ a {
   .footerLink__list {
     gap: 64px;
   }
+}
+.footerLink__item {
+  transition: transform 0.3s;
+}
+.footerLink__item:hover {
+  transform: scale(1.1);
 }
 .footerLink__link {
   color: #fff;
