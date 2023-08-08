@@ -3,41 +3,39 @@
   border-radius: 30px;
   text-align: center;
 
-  &__title {
-    @include title;
-    font-size: 44px;
-    line-height: 120%;
-    margin-bottom: 55px;
-    padding-top: 72px;
-  }
-
-  &__items {
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: 500px) {
-      padding: 0 70px;
-    }
+  &__content {
+    @include pageGrid;
+    gap: 56px;
+    padding-bottom: 72px;
 
     @include onTablet {
-      padding: 0 140px;
+      gap: 64px;
     }
+  }
 
-    @include onDesktop {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 135px;
-      padding: 0;
+  &__title {
+    grid-column: 1 / -1;
+    @include title;
+    font-size: 44px;
+    margin-top: 72px;
+
+    @include onTablet {
+      font-size: 52px;
+      margin-top: 128px;
     }
   }
 
   &__item {
-    padding-bottom: 55px;
+    grid-column: 1 / -1;
 
-    &:last-child {
-      padding-bottom: 70px;
+    @include onTablet {
+      grid-column: 2 / -2;
     }
-    
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+
     &--photo {
       border-radius: 20px;
       margin-bottom: 32px;
