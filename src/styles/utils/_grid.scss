@@ -1,0 +1,95 @@
+.grid {
+  display: grid;
+  justify-content: space-between;
+
+  @include on320 {
+    grid-template-columns: repeat(2, 130px);
+    column-gap: 20px;
+  }
+
+  @include on640 {
+    grid-template-columns: repeat(6, 80px);
+    column-gap: 20px;
+  }
+
+  @include on1024 {
+    grid-template-columns: repeat(12, 58px);
+    column-gap: 20px;
+  }
+
+  @include on1600 {
+    grid-template-columns: repeat(12, 65px);
+    column-gap: 30px;
+  }
+
+  @include on2560 {
+    grid-template-columns: repeat(12, 123px);
+    column-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+
+        &--320-#{$start}-#{$end} {
+          @include on320 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--640-#{$start}-#{$end} {
+          @include on640 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--1024-#{$start}-#{$end} {
+          @include on1024 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--1600-#{$start}-#{$end} {
+          @include on1600 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+
+        &--2560-#{$start}-#{$end} {
+          @include on2560 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid-container {
+  gap: 24px;
+  @include on640 {
+    grid-template-columns: repeat (6, 80px);
+    column-gap: 30px;
+  }
+
+  @include on1024 {
+    gap: 20px;
+  }
+
+  @include on1600 {
+    gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+
+        &--640-#{$start}-#{$end} {
+          @include on640 {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

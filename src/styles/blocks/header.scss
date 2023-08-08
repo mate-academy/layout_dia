@@ -1,0 +1,480 @@
+.header {
+  background-color: $black-background;
+  position: relative;
+
+  @include Page-padings;
+
+  @include on1024 {
+    border-radius: 0 0 30px 30px;
+  }
+
+  &__hereUs {
+    @extend %link-style;
+    align-self: center;
+    justify-self: unset;
+    width: max-content;
+    padding: 0 5px 8px;
+    @include on640 {
+      padding: 0 8px 8px;
+    }
+    @include on1024 {
+      justify-self: right;
+    }
+
+    transition: transform 0.3s;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $blue;
+      border-radius: 4px;
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    margin-top: 48px;
+
+    & > br {
+      display: none;
+
+      @include on1024 {
+        display: unset;
+      }
+    }
+
+    @include on640 {
+      margin-top: 56px;
+    }
+
+    @include on1024 {
+      margin-top: 158px;
+    }
+
+    @extend %h1;
+  }
+
+  &__subtitle {
+    margin-top: 32px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    align-self: stretch;
+
+    & br {
+      @media (max-width:640px) {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    height: 50px;
+    text-decoration: none;
+    margin-top: 72px;
+
+    @include on640 {
+      margin-top: 56px;
+    }
+
+    @include on1024 {
+      margin-top: 83px;
+    }
+    @extend %blue-button;
+    transition: color 0.6s, background-color 0.6s;
+
+    &:hover {
+      color: $blue;
+      background-color: $primary;
+    }
+  }
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.toggle_label {
+  &--position {
+    @include on320 {
+      position: absolute;
+      top: 13px;
+      right: 20px;
+    }
+  }
+
+  font-size: calc(10px + 1vmin);
+  --bounce: 0.2s cubic-bezier(0.3, 0.3, 0.3, 1);
+  --ease: 0.12s cubic-bezier(0.3, 0.3, 0.3, 1);
+  --weight: 10%;
+  --size: 3em;
+  position: relative;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  width: var(--size);
+  height: var(--size);
+
+  @include on1024 {
+    display: none;
+  }
+
+  & circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: $primary;
+    stroke-width: calc(var(--weight) * 0.6);
+    stroke-dasharray: 284;
+    stroke-dashoffset: 284;
+    stroke-linecap: round;
+    transition: 0.4s ease;
+  }
+
+  & .hamburger {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 63%;
+    height: 63%;
+  }
+}
+
+.toggle_label .hamburger::before,
+.toggle_label .hamburger .center,
+.toggle_label .hamburger::after {
+  --tx: 0;
+  --rt: 0deg;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: var(--weight);
+  border-radius: 0.3em;
+  background: $primary;
+  transform-origin: right;
+  transition: var(--bounce) 0.1s;
+}
+
+.toggle_label .hamburger .center {
+  right: 0;
+  transition: var(--bounce), width var(--ease);
+  transition-delay: 0.3s;
+}
+
+.toggle_label .hamburger::before {
+  top: 0;
+  transform: translate(var(--tx), 100%) rotate(var(--rt));
+}
+
+.toggle_label .hamburger::after {
+  bottom: 0;
+  transform: translate(var(--tx), -100%) rotate(var(--rt));
+}
+
+#toggle:checked ~ .toggle_label circle {
+  stroke-dashoffset: 0;
+  transition-delay: 0.3s;
+}
+
+#toggle:checked ~ .toggle_label .hamburger::before,
+#toggle:checked ~ .toggle_label .hamburger::after {
+  --tx: -15%;
+  --rt: 45deg;
+  transition: var(--bounce) 0.1s;
+}
+
+#toggle:checked ~ .toggle_label .hamburger::before {
+  --ty: 15%;
+  --rt: -45deg;
+}
+
+#toggle:checked ~ .toggle_label .hamburger .center {
+  width: 0;
+  right: calc(var(--size) * -0.16);
+  transition: width var(--ease), right var(--bounce);
+}
+
+#toggle:checked ~ .header__hereUs {
+  display: none;
+}
+
+#toggle:checked ~ .toggle_label--position {
+  position: fixed;
+  left: unset;
+  right: 20px;
+  z-index: 1;
+}
+
+.nav {
+  display: none;
+  list-style: none;
+  align-items: center;
+  @include on1024 {
+    display: flex;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 48px;
+    }
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__link {
+    @extend %link-style;
+  }
+}
+
+.wrapper {
+  height: $wraper-min-h;
+  width: inherit;
+
+  & > input {
+    display: none;
+  }
+
+  &--position {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -$wraper-min-h + 40px;
+
+    @include on1024 {
+      left: unset;
+      min-width: 502px;
+      height: 680px;
+      bottom: 0;
+    }
+
+    @include on1600 {
+      min-width: 687px;
+    }
+    @include on2560 {
+      min-width: 1167px;
+    }
+  }
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: inherit;
+  width: inherit;
+  border-radius: 30px;
+  &__title {
+    position: absolute;
+    left: 20px;
+    bottom: 72px;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    line-height: 20px;
+
+    @include on640 {
+      left: 41px;
+      bottom: 80px;
+    }
+    @include on1024 {
+      left: 182px;
+      bottom: 96px;
+    }
+    @include on1600 {
+      left: 152px;
+    }
+  }
+
+  &__description {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    @include on640 {
+      left: 41px;
+      bottom: 32px;
+    }
+    @include on1024 {
+      left: 182px;
+      bottom: 48px;
+    }
+    @include on1600 {
+      left: 152px;
+    }
+  }
+
+  @include on1024 {
+    border-radius: 30px 0;
+  }
+
+  &__slide {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: transform 1s;
+
+    &--slide-1 {
+      background: url(../images/slider/first.png) no-repeat center;
+      background-size: cover;
+      @extend %slide-properties;
+
+      @include on2560 {
+        background: url(../images/slider/first_large.png) no-repeat center;
+      }
+    }
+
+    &--slide-2 {
+      background: url(../images/slider/second.png) no-repeat center;
+      background-size: cover;
+      @extend %slide-properties;
+    }
+
+    &--slide-3 {
+      background: url(../images/slider/third.png) no-repeat center;
+      background-size: cover;
+      @extend %slide-properties;
+    }
+  }
+}
+
+.previous .previous--position {
+  position: absolute;
+  left: 20px;
+  bottom: 108px;
+
+  @include on640 {
+    left: 41px;
+    bottom: 116px;
+  }
+
+  @include on1024 {
+    left: 78px;
+    bottom: 66px;
+  }
+
+  @include on1600 {
+    left: 48px;
+  }
+}
+
+.next .next--position {
+  position: absolute;
+  left: 68px;
+  bottom: 108px;
+
+  @include on640 {
+    left: 89px;
+    bottom: 116px;
+  }
+
+  @include on1024 {
+    left: 126px;
+    bottom: 66px;
+  }
+
+  @include on1600 {
+    left: 96px;
+  }
+}
+
+.control {
+  &__item {
+    @extend %slider-button;
+    display: none;
+    z-index: 0;
+  }
+}
+
+.radio--1:checked ~ .next .next__numb2,
+.radio--1:checked ~ .previous .previous__numb3,
+.radio--2:checked ~ .next .next__numb3,
+.radio--2:checked ~ .previous .previous__numb1,
+.radio--3:checked ~ .next .next__numb1,
+.radio--3:checked ~ .previous .previous__numb2 {
+  display: grid;
+  z-index: 1;
+}
+
+.radio--1:checked ~ .slider .slider__slide--slide-1,
+.radio--2:checked ~ .slider .slider__slide--slide-2,
+.radio--3:checked ~ .slider .slider__slide--slide-3 {
+  transform: translateX(0);
+}
+
+.mobile-nav {
+  display: none;
+  overflow-y: hidden;
+  flex-direction: column;
+  padding: 18px 20px 88px;
+  margin: 0 auto;
+
+  // transform: translateX(100%);
+  // transition: transform 0.4s;
+
+  @include on640 {
+    padding: 18px 41px 147px;
+  }
+
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  padding-bottom: -$top-space;
+  background-color: $black-background;
+
+  &__item {
+    margin-top: 49px;
+  }
+
+  &__link {
+    @extend %link-style;
+  }
+}
+
+.logo {
+  position: absolute;
+  left: 47%;
+  z-index: 0;
+
+  @include on1024 {
+    position: unset;
+    left: unset;
+  }
+}
+
+#toggle:checked ~ .wrapper {
+  display: none;
+}
+
+#toggle:checked ~ .mobile-nav {
+  overflow-y: hidden;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px 88px;
+  margin: 0 auto;
+  @include on640 {
+    padding: 18px 41px 147px;
+  }
+}
+
+#toggle:checked ~ .mobile-nav .logo {
+  position: fixed;
+  z-index: 1;
+}
