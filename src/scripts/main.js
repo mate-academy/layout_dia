@@ -615,6 +615,7 @@ myform.addEventListener('submit', checkSubmit);
 
 function checkSubmit(event) {
   event.preventDefault();
+  myform.reset();
 }
 
 window.addEventListener('hashchange', () => {
