@@ -1,19 +1,19 @@
 .process {
   &__content {
     @include contentPaddingInline();
+    @include pageGrid();
 
-    @include onDesktop() {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
   }
 
   &__header {
-    max-width: 260px;
+    @include onTable() {
+      grid-column: span 3;
+    }
 
     @include onDesktop() {
-      max-width: 292px;
+      margin-top: 132px;
+
+      grid-column: span 4;
     }
   }
 
@@ -22,7 +22,7 @@
     text-align: left;
   }
 
-  &__wrapper-process-cards {
+  &__wrapper-cards {
     display: grid;
     grid-template-columns: 280px;
     row-gap: 16px;
@@ -31,6 +31,8 @@
     margin-top: 48px;
 
     @include onTable() {
+      grid-column: span 6;
+
       grid-template-columns: repeat(2, 264px);
       gap: 30px;
 
@@ -38,6 +40,8 @@
     }
 
     @include onDesktop() {
+      grid-column: 7 / span 6;
+
       margin-top: 132px;
     }
   }
