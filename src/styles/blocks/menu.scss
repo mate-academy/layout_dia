@@ -3,6 +3,17 @@
   background-color: $colorBlue;
   height: 100vh;
 
+  &__content {
+    @include onTablet {
+      margin-top: 90px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   &__item {
     list-style: none;
     margin-bottom: 15px;
@@ -11,9 +22,20 @@
   &__list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     padding: 0;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      justify-content: end;
+      gap: 64px;
+    }
   }
 
   &__link {
