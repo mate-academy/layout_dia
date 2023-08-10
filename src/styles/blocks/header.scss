@@ -2,19 +2,23 @@
   background-color: $colorGrey;
   border: 1px solid transparent;
   border-radius: 0 0 30px 30px;
+  height: 100vh;
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    height: 100vh;
+    @include pageGrid;
+  }
 
-    @include onTablet {
-      gap: 56px;
-    }
+  &__top {
+    grid-column: 1 / -1;
   }
 
   &__text {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+
     &--title {
       margin: 0 0 32px;
       color: $colorWhite;
@@ -31,7 +35,7 @@
       }
 
       @include onDesktop {
-        margin-bottom: 32px;
+        margin-block: 150px 32px;
       }
     }
 
@@ -50,6 +54,18 @@
       @include onDesktop {
         margin-bottom: 80px;
       }
+    }
+  }
+
+  &__slide {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+
+    @media (min-width: 1600px) {
+      grid-column: 8 / -1;
     }
   }
 }
