@@ -1,0 +1,126 @@
+.review {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  margin-top: 24px;
+
+  @include onTablet {
+    margin-top: 30px;
+  }
+
+  @include onSmallDesktop {
+    margin-top: 85px;
+  }
+
+  @include hover(transform, scale(105%));
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 75px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 110px;
+      height: 45px;
+      background-color: $blue-color;
+      border-radius: 12px;
+      transform: rotate(-60deg) translate(-10px, -30px);
+
+      @include onTablet {
+        width: 140px;
+        height: 56px;
+        transform: rotate(-60deg) translate(-20px, -40px);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 110px;
+      height: 45px;
+      background-color: $blue-color;
+      border-radius: 12px;
+      transform: rotate(-60deg) translate(-40px, 60px);
+
+      @include onTablet {
+        width: 140px;
+        height: 56px;
+        transform: rotate(-60deg) translate(-50px, 80px);
+      }
+    }
+
+  }
+
+  &__img {
+    border-radius: 50%;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__text {
+    @extend %p;
+    padding-top: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    max-width: 196px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/reviews/quotes.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      top: 40%;
+      left: 45%;
+    }
+
+    @include onTablet {
+      max-width: 362px;
+    }
+
+    @include onSmallDesktop {
+      max-width: 196px;
+    }
+  }
+
+  &__author {
+    @extend %p;
+    font-size: 13px;
+    font-weight: 600;
+    color: $main-text-color;
+    text-align: center;
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__position {
+    @extend %h4;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $name-color;
+    text-align: center;
+    margin: 0;
+    margin-top: 4px;
+    padding-bottom: 32px;
+  }
+}

@@ -1,0 +1,75 @@
+.contacts {
+  margin-top: 80px;
+
+  @include onTablet {
+    margin-top: 120px;
+  }
+
+  @include onSmallDesktop {
+    margin-top: 180px;
+  }
+
+  &__title {
+    @extend %h3;
+    line-height: 150%;
+    color: $header-text-color;
+    margin: 0;
+    padding-bottom: 8px;
+  }
+
+  &__subtitle {
+    @extend %h4;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $header-text-color;
+    opacity: 0.5;
+    margin: 0;
+    margin-top: 40px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+  }
+
+  &__link {
+    @extend %p;
+    position: relative;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: $header-text-color;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background-color: $blue-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+
+    }
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__socials-icons {
+    display: flex;
+    gap: 32px;
+    margin-top: 16px;
+  }
+
+  &__socials-icon {
+    transition: $effectDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
