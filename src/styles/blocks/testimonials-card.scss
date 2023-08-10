@@ -1,0 +1,124 @@
+.testimonials-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 38px 32px;
+  margin-bottom: 24px;
+  background-color: $c-white;
+  border-radius: 14px;
+  transition: all 0.3s;
+
+  @include onTablet {
+    margin-bottom: 30px;
+  }
+
+  @include onSmallDesktop {
+    padding: 36px 45px 32px;
+    margin-bottom: 0;
+  }
+
+  @include onDesktop {
+    padding: 36px 56px 32px;
+  }
+
+  &__place {
+    display: flex;
+    justify-content: space-between;
+    @include small-place;
+    transform: rotate(30deg);
+    position: relative;
+
+    @include onTablet {
+      @include big-place;
+    }
+
+    @include onSmallDesktop {
+      @include small-place;
+    }
+
+    @include onDesktop {
+      @include big-place;
+    }
+  }
+
+  &__decor {
+    @include small-decor;
+    background-color: $c-blue;
+    border-radius: 10px;
+    transition: transform 0.3s;
+
+    &--down {
+      align-self: flex-end;
+    }
+
+    @include onTablet {
+      @include big-decor;
+    }
+
+    @include onSmallDesktop {
+      @include small-decor;
+    }
+
+    @include onDesktop {
+      @include big-decor;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    @include testimonials-small-photo;
+    margin: 0 auto;
+    transform: rotate(-30deg);
+    border-radius: 50%;
+
+    @include onTablet {
+      @include testimonials-big-photo;
+    }
+
+    @include onSmallDesktop {
+      @include testimonials-small-photo;
+    }
+
+    @include onDesktop {
+      @include testimonials-big-photo;
+    }
+  }
+
+  &__text {
+    height: 78px;
+    margin-top: 8px;
+    max-width: 362px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+
+    @include onTablet {
+      height: 40px;
+      margin-top: 16px;
+    }
+
+    @include onSmallDesktop {
+      height: 80px;
+      margin-top: 8px;
+    }
+  }
+
+  &__name {
+    margin: 16px 0 4px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-dark-blue;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px $c-light-grey;
+  }
+
+  &:hover &__decor {
+    transform: rotate(180deg);
+  }
+}
