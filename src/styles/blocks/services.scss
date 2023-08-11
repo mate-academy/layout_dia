@@ -1,0 +1,148 @@
+.services {
+  margin-top: 120px;
+  @include onTablet {
+    margin-top: 148px;
+  }
+
+  @include onDesktop {
+    margin-top: 250px;
+  }
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__about {
+    grid-column: 1 / -1;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__subtitle {
+    @include subtitle;
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    @include title;
+    text-align: left;
+    line-height: 130%;
+  }
+
+  &__description {
+    @include description;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    margin: 24px 0;
+  }
+
+  &__items {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+  }
+
+  &__item {
+    height: 264px;
+    box-sizing: border-box;
+    background-color: $colorWhite;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+    padding: 30px;
+
+    &--number {
+      width: 46px;
+      height: 24px;
+      background: rgba(32, 96, 246, 0.1);
+      border-radius: 23px;
+      font-family: "'Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+      color: $colorBlue;
+      margin-bottom: 24px;
+    }
+
+    &--options {
+      @include description;
+      font-weight: 600;
+      font-size: 13px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    &--button {
+      display: flex;
+      gap: 16px;
+
+      &-arrow {
+        width: 40px;
+        height: 40px;
+        background-color: $colorBlue;
+        border-radius: 50%;
+      }
+
+      &-img {
+        width: 16px;
+        height: 16px;
+        padding: 12px;
+      }
+
+      &-link {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        color: #334563;
+        align-self: center;
+        text-decoration: none;
+      }
+    }
+
+    &--nr--1,
+    &--nr--3 {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--nr--2,
+    &--nr--4 {
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        grid-column: 4 / -1;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    &--nr--2 {
+      @include onTablet {
+        top: -($heightItem/2);
+      }
+    }
+
+    &--nr--4 {
+      @include onTablet {
+        top: $heightItem/2 + 20px;
+      }
+    }
+  }
+}
