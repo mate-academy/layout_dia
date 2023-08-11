@@ -1,0 +1,110 @@
+.motto {
+  background-color: $c-white;
+  padding-block: 72px;
+  margin-bottom: 120px;
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include onTablet {
+    margin-bottom: 0;
+  }
+
+  &__background {
+    display: none;
+
+    max-width: $design-min-width;
+
+    @include onTablet {
+      display: block;
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-image: url(../images/Shapes.png);
+    background-position: center;
+    background-size: 145%;
+
+    width: 100%;
+    height: 100%;
+
+    @include onDesktop {
+      background-size: 100%;
+    }
+
+    @include onDesign {
+      width: $design-min-width;
+      inset: 0;
+      margin: auto;
+
+      background-size: 90%;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    max-width: $design-min-width;
+
+    margin-inline: auto;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__header {
+    color: $c-dark-blue;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      grid-column: 2 / span 4;
+      margin-inline: -30px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / span 8;
+    }
+  }
+
+  &__description {
+    color: $c-dark-gray;
+    margin-bottom: 56px;
+
+    @include onTablet {
+      grid-column: 1 / span 6;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / span 8;
+      margin-inline: -20px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    z-index: 3;
+
+    @include onTablet {
+      width: auto;
+      grid-column: 3 / span 2;
+      margin-inline: -50px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / span 4;
+      margin-inline: 12px;
+    }
+  }
+}
