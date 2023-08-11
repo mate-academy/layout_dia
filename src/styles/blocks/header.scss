@@ -1,8 +1,12 @@
 .header {
   background-color: $colorGrey;
-  border: 1px solid transparent;
   border-radius: 0 0 30px 30px;
-  height: 100vh;
+
+  position: relative;
+
+  @include onDesktop {
+    height: 100vh;
+  }
 
   &__content {
     @include pageGrid;
@@ -29,7 +33,7 @@
       letter-spacing: -2px;
 
       @include onTablet {
-        margin-bottom: 24px;
+        margin-block: 30px 24px;
         font-size: 64px;
         line-height: 106%;
       }
@@ -45,6 +49,7 @@
       font-size: 18px;
       line-height: 150%;
       color: $colorWhite;
+      max-width: 362px;
       margin: 0 0 70px;
 
       @include onTablet {
@@ -58,10 +63,29 @@
   }
 
   &__slide {
+    background-image: url(.././images/slider/slide-bg-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    border-radius: 30px;
+
+    min-height: 390px;
+
     grid-column: 1 / -1;
 
+    @include onTablet {
+      margin-top: 140px;
+    }
+
     @include onDesktop {
-      grid-column: 7 / -1;
+      position: absolute;
+      top: 120px;
+      bottom: 0;
+      right: 0;
+      left: 50%;
+      z-index: 1;
+      border-radius: 30px 0 30px 0;
+      margin-top: 0;
     }
 
     @media (min-width: 1600px) {
