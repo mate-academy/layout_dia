@@ -6,8 +6,9 @@
   scroll-behavior: smooth;
 
   &__body {
-    margin: 0;
     min-width: 320px;
+    max-width: 1600px;
+    margin: 0 auto;
 
     background: $c-gray;
 
@@ -17,15 +18,65 @@
     }
   }
 
-  &__block {
-    margin-bottom: 120px;
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__page-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
   }
 
   &__section {
-    margin-bottom: 120px;
+    margin-top: 120px;
+
+    @include onTablette {
+      margin-top: 148px;
+    }
 
     &:last-child {
-      margin-bottom: 0;
+      margin-bottom: 120px;
+
+      @include onTablette {
+        margin-bottom: 0;
+      }
+    }
+
+    &--radius {
+      border-radius: 30px;
+    }
+
+    &--white {
+      background: $c-white;
     }
   }
 
@@ -48,94 +99,10 @@
     }
   }
 
-  &__article {
-    grid-column: span 2;
-    justify-content: space-between;
-
-    @include onTablette {
-      grid-column: 2 / 6;
-    }
-
-    @include onDesktop {
-      grid-column: span 4;
-    }
-  }
-
-  &__article-title {
-    font-size: 20px;
-    line-height: 28px;
-    color: #253757;
-    text-align: center;
-  }
-
-  &__article-text {
-    font-size: 13px;
-    line-height: 20px;
-    color: #6c788b;
-  }
-
   &__section-title {
     font-family: "Poppins", sans-serif;
-    text-align: center;
     color: #253757;
     grid-column: span 2;
-
-    &--welcome {
-      margin: 0 0 16px;
-      font-size: 32px;
-      line-height: 48px;
-
-      @include onTablette {
-        grid-column: 3 / 5;
-      }
-
-      @include onDesktop {
-        grid-column: 5 / 9;
-      }
-    }
-
-    &--expertise {
-      margin: 72px 0 56px;
-      font-size: 44px;
-      line-height: 53px;
-
-      @include onTablette {
-        grid-column: 2 / 6;
-        margin-bottom: 64px;
-      }
-
-      @include onDesktop {
-        grid-column: span 12;
-      }
-    }
-
-    &--services {
-      font-size: 32px;
-      line-height: 42px;
-      text-align: left;
-      margin: 0 0 24px;
-      grid-column: span 2;
-
-      @include onTablette {
-        grid-column: 1 / 4;
-      }
-
-      @include onDesktop {
-        grid-column: 1 / 5;
-      }
-    }
-
-    &--services2 {
-      color: #c0cdd7;
-      font-size: 13px;
-      line-height: 20px;
-      font-weight: 700;
-      text-align: left;
-      margin: 0 0 24px;
-      text-transform: uppercase;
-      grid-column: span 2;
-      letter-spacing: 3px;
-    }
   }
 
   &__section-text {
@@ -143,50 +110,16 @@
     text-align: center;
     grid-column: span 2;
     margin: 0;
-
-    &--welcome {
-      font-size: 22px;
-      line-height: 33px;
-
-      @include onTablette {
-        grid-column: span 6;
-        font-size: 24px;
-        line-height: 36px;
-      }
-
-      @include onDesktop {
-        grid-column: 3 / 11;
-      }
-    }
-
-    &--expertise {
-      font-weight: 400;
-      margin: 0 0 56px;
-
-      &:last-child {
-        margin: 0 0 72px;
-      }
-    }
-
-    &--services {
-      text-align: left;
-      font-size: 22px;
-      line-height: 33px;
-      grid-column: span 2;
-
-      @include onTablette {
-        grid-column: 1 / 4;
-      }
-
-      @include onDesktop {
-        grid-column: 1 / 5;
-      }
-    }
   }
 
   &__section-image {
     display: block;
     margin: 0 auto 32px;
     border-radius: 30px;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }

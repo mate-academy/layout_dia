@@ -1,4 +1,5 @@
 .testimonials {
+
   &__title {
     color: #c0cdd7;
     font-size: 13px;
@@ -8,35 +9,57 @@
     margin: 0 0 16px;
     text-transform: uppercase;
     letter-spacing: 3px;
+    grid-column: span 2;
+
+    @include onTablette {
+      grid-column: 1 / 3;
+    }
   }
 
   &__title2 {
     font-family: "Poppins", sans-serif;
-    text-align: center;
     font-size: 32px;
     line-height: 48px;
     margin: 0 0 48px;
+    grid-column: span 2;
 
     @include onTablette {
-      grid-column: span 6;
-      text-align: left;
+      grid-column: 1 / 3;
     }
 
     @include onDesktop {
-      grid-column: span 12;
+      grid-column: 1 / 4;
+
     }
   }
 
   &__article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $c-white;
     margin-bottom: 24px;
+    border-radius: 16px;
+    padding-bottom: 32px;
+    grid-column: span 2;
 
-    // @include onTablette {
-    //   grid-column: span 6;
-    // }
+    @include onTablette {
+      grid-column: span 6;
+    }
 
-    // @include onDesktop {
-    //   grid-column: span 4;
-    // }
+    @include onDesktop {
+      &--1 {
+        grid-column: 1 / 5;
+      }
+
+      &--2 {
+        grid-column: 5 / 9;
+      }
+
+      &--3 {
+        grid-column: 9 / 13;
+      }
+    }
   }
 
   &__name {
@@ -51,22 +74,30 @@
     font-size: 13px;
     line-height: 20px;
     font-weight: 700;
-    margin: 0 0 32px;
+    margin: 0 ;
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
+    position: relative;
+    bottom: 0;
   }
 
   &__text {
     text-align: center;
     font-size: 13px;
     line-height: 20px;
-    margin: 0 0 16px;
+    margin: 0 48px 16px;
+    height: max-content;
   }
 
   &__image {
     display: block;
     margin: 32px auto 24px;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__image-small {
