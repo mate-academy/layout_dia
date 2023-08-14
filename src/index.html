@@ -13,9 +13,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="./scripts/main.js" defer></script>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+      }
+    </script>
   </head>
   <body class="page__body">
-    <div class="header">
+    <div class="header" id="home">
       <div class="header__content">
         <div class="navigation header__navigation">
           <div class="navigation__container">
@@ -70,7 +88,7 @@
             </a>
           </div>
         </div>
-        <h1 class="header__title" id="home">
+        <h1 class="header__title">
           Strategic
           Agency
         </h1>
@@ -112,31 +130,11 @@
       </div>
       <div class="header__slider-background header__slider-background--2 mySlides">
       </div>
-
-      <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
-
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          if (n > x.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = x.length}
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          x[slideIndex-1].style.display = "block";
-        }
-      </script>
     </div>
     <aside class="page-menu page__menu" id="menu">
       <div class="page-menu__content">
         <div class="page-menu__top">
-          <a href="#" class="logo">
+          <a href="#home" class="logo">
             <img
               class="logo__image"
               src="images/logo/Logo.png"
@@ -263,7 +261,7 @@
             We are sure that first-rate job is possible only if all three components are united.
           </p>
 
-          <article id="001" class="page__article services__article services__article--odd">
+          <article id="001" class="services__article services__article--odd">
             <h4 class="services__id">
                 001
             </h4>
@@ -279,7 +277,7 @@
             </a>
           </article>
 
-          <article id="002" class="page__article services__article services__article--even">
+          <article id="002" class="services__article services__article--even">
             <h4 class="services__id">
                 002
             </h4>
@@ -295,7 +293,7 @@
             </a>
           </article>
 
-          <article id="003" class="page__article services__article services__article--odd">
+          <article id="003" class="services__article services__article--odd">
             <h4 class="services__id">
                 003
             </h4>
@@ -310,7 +308,7 @@
               <span class="servicws__learnmore-text">Learn more</span>
             </a>
           </article>
-          <article id="004" class="page__article services__article services__article--even">
+          <article id="004" class="services__article services__article--even">
             <h4 class="services__id">
                 004
             </h4>
@@ -521,7 +519,7 @@
             </div>
           </div>
           <div class="footer__logo">
-            <a href="/" class="logo">
+            <a href="#home" class="logo">
               <img
                 class="logo__image"
                 src="images/logo/Logo.png"
