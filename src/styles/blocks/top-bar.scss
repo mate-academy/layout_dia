@@ -1,0 +1,44 @@
+.top-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 20px;
+
+  @include onSmallDesctop {
+    padding-top: 48px;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__menu {
+    @include onSmallDesctop {
+      display: none;
+    }
+  }
+
+  &__about {
+    text-decoration: none;
+    @extend %text-poppins-white;
+
+    position: relative;
+    &::after {
+      @extend %after-underline;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+}
