@@ -1,0 +1,153 @@
+.blockTestimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 70px;
+
+  cursor: pointer;
+
+  @include onTablet {
+    padding: 80px 98px 32px;
+  }
+
+  background-color: $main-color;
+
+  @include onSmallDesktop {
+    padding: 80px 15px 0;
+    max-width: 292px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @include onDesktop {
+    max-width: 362px;
+  }
+
+  &__image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    object-fit: contain;
+    object-position: center;
+
+    @include onTablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include onSmallDesktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include onDesktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__blockImage {
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      bottom: 5px;
+      left: 38px;
+
+      content: "";
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+
+      background-color: $bgc-blue;
+
+      @include onTablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include onSmallDesktop {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include onDesktop {
+        width: 139px;
+        height: 56px;
+      }
+
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      right: 37px;
+
+      content: "";
+      min-width: 109px;
+      min-height: 44px;
+      border-radius: 12px;
+
+      background-color: $bgc-blue;
+
+      @include onTablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include onSmallDesktop {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include onDesktop {
+        width: 139px;
+        height: 56px;
+      }
+
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__quotes {
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/quotes.svg");
+
+    margin: 47px 0 8px;
+  }
+
+  &__article {
+    margin-bottom: 16px;
+    text-align: center;
+
+    max-width: 362px;
+
+    @extend %article;
+  }
+
+  &__name {
+    color: $title-color;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__employment {
+    margin-bottom: 32px;
+
+    @extend %subTitle;
+  }
+}

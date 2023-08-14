@@ -1,0 +1,80 @@
+.header {
+  background-color: $bgc-footer;
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    height: 100vh;
+
+    @include onSmallDesktop {
+      @include grid(12);
+      gap: 24px;
+      grid-template-rows: 120px 120px 1fr;
+    }
+  }
+
+  &__nav {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 48px;
+
+    @include onSmallDesktop {
+      grid-column: span 12;
+    }
+  }
+
+  &__strategicAgency {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: span 5;
+
+      grid-row: 3 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+
+    @include onLargeDesktop {
+      grid-column: span 4;
+      grid-row: 2 / 0;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    z-index: 0;
+
+    left: 0;
+    bottom: 0;
+
+    min-width: 100%;
+    max-height: 390px;
+
+    @include onSmallDesktop {
+      min-height: 100%;
+
+      grid-column: 7 / -1;
+      grid-row: 2 / span 5;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / span 5;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+}

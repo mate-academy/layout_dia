@@ -1,0 +1,58 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+
+  &__block-img {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__link-hire {
+    position: relative;
+
+    @extend %link;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 67px;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $bgc-blue;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scaleX(1.1);
+    }
+
+    @include onSmallDesktop {
+      display: block;
+    }
+
+    @extend %link;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+
+    @include onSmallDesktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+    }
+  }
+}
