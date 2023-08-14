@@ -7,7 +7,18 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-/*let slideIndex = 1;
+const left = document.querySelector('#slider-link-left');
+const right = document.querySelector('#slider-link-right');
+
+left.addEventListener('click', function() {
+  plusDivs(-1);
+});
+
+right.addEventListener('click', function() {
+  plusDivs(1);
+});
+
+let slideIndex = 1;
 
 showDivs(slideIndex);
 
@@ -18,7 +29,7 @@ function plusDivs(n) {
 function showDivs(n) {
   let i;
 
-  const x = document.getElementsByClassName('mySlides') ;
+  const x = document.getElementsByClassName('mySlides');
 
   if (n > x.length) {
     slideIndex = 1;
@@ -32,4 +43,4 @@ function showDivs(n) {
     x[i].style.display = 'none';
   }
   x[slideIndex - 1].style.display = 'block';
-}*/
+}
