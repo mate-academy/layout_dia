@@ -1,0 +1,105 @@
+.footer {
+  @include pageGrid;
+  background-color: $base-grey;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  padding: 72px 0 80px;
+
+  @include onTablet {
+    padding-top: 180px;
+  }
+
+  &__flex-container {
+    grid-column: 1/-1;
+    @include onDesktop {
+      @include contentCenteredWithFlex;
+    }
+  }
+
+  &__container {
+    row-gap: 80px;
+
+    @include onTablet {
+      row-gap: 120px;
+    }
+  }
+
+  &__send-message,
+  &__contact-us {
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: 1/5;
+    }
+  }
+
+  &__send-message {
+    @include onSmallDesktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__contact-us {
+    @include onSmallDesktop {
+      grid-column: 7/-2;
+    }
+    @include onDesktop {
+      grid-column: 8/-2;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1/-1;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 0;
+      flex-direction: row;
+      gap: initial;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      display: none;
+    }
+    @include onSmallDesktop {
+      display: inherit;
+    }
+
+    &-on-tablet {
+      display: none;
+      @include onTablet {
+        display: block;
+        position: absolute;
+        bottom: 48px;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    @include onTablet {
+      width: 100%;
+    }
+    @include onSmallDesktop {
+      width: auto;
+      align-self: center;
+    }
+  }
+}
