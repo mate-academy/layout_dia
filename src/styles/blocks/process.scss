@@ -1,0 +1,48 @@
+.process {
+  &__content {
+    @include contentPaddingInline();
+    @include pageGrid();
+
+  }
+
+  &__header {
+    @include onTable() {
+      grid-column: span 3;
+    }
+
+    @include onDesktop() {
+      margin-top: 132px;
+
+      grid-column: span 4;
+    }
+  }
+
+  &__title,
+  &__text {
+    text-align: left;
+  }
+
+  &__wrapper-cards {
+    display: grid;
+    grid-template-columns: 280px;
+    row-gap: 16px;
+    justify-content: center;
+
+    margin-top: 48px;
+
+    @include onTable() {
+      grid-column: span 6;
+
+      grid-template-columns: repeat(2, 264px);
+      gap: 30px;
+
+      margin-top: 56px;
+    }
+
+    @include onDesktop() {
+      grid-column: 7 / span 6;
+
+      margin-top: 132px;
+    }
+  }
+}
