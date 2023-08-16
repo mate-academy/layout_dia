@@ -1,3 +1,24 @@
+@function gridTemplateColumns($columns) {
+  @return repeat($columns, 1fr);
+}
+
+@mixin pageGrid($columns) {
+  @include onTablet {
+    display: grid;
+    grid-template-columns: gridTemplateColumns($columns);
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: gridTemplateColumns(12);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   @include onSmallDesktop {
     transition: #{$_property} $transition-duration;

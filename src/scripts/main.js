@@ -117,20 +117,24 @@ toggler.addEventListener('click', () => {
     button[i].classList.toggle('button--pink');
   }
 
+  // testimonials shadows
   shadowTestimonials[0].classList.toggle('testimonials-card--blue');
   shadowTestimonials[1].classList.toggle('testimonials-card--yellow');
   shadowTestimonials[2].classList.toggle('testimonials-card--pink');
 
+  // service cards shadows
   shadowCard[0].classList.toggle('service-card--blue');
   shadowCard[2].classList.toggle('service-card--yellow');
   shadowCard[1].classList.toggle('service-card--green');
   shadowCard[3].classList.toggle('service-card--pink');
 
+  // service cards numbers
   id[0].classList.toggle('service-card__num--blue');
   id[2].classList.toggle('service-card__num--yellow');
   id[1].classList.toggle('service-card__num--green');
   id[3].classList.toggle('service-card__num--pink');
 
+  // service buttons
   buttonArrow[0].classList.toggle('service-card__link--blue');
   buttonArrow[2].classList.toggle('service-card__link--yellow');
   buttonArrow[1].classList.toggle('service-card__link--green');

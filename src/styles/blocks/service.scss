@@ -1,5 +1,17 @@
+@import "utils/extends";
+
 .service {
-  &__info {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      padding-block: 148px;
+    }
+  }
+
+  &__top {
     margin-bottom: 48px;
 
     @include onTablet {
@@ -11,22 +23,20 @@
     }
   }
 
-  &__title {
-    @extend %sectionTitle;
+  &__subtitle {
+    @extend %smallTitle;
+  }
 
+  &__title {
+    margin-top: 16px;
+    @extend %sectionTitle;
     line-height: 130%;
     margin-bottom: 24px;
-
-    &-small {
-      @extend %smallTitle;
-
-      margin-bottom: 16px;
-    }
   }
 
   &__description {
     @extend %OpenSans400;
-
+    text-align: start;
     font-size: 14px;
     line-height: 150%;
     color: $main-text-color;
