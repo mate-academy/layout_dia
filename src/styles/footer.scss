@@ -1,5 +1,7 @@
 .footer {
   background-color: $c-dark-gray;
+
+  
   &__content {
     @include pageGrid;
     row-gap: 80px;
@@ -179,27 +181,19 @@
       margin-top: 98px;
     }
   }
+
   &__icon {
     height: 32px;
     width: 32px;
     background-repeat: no-repeat;
     background-position: center;
-    &-fb {
-      background-image: url("./../images/footer/facebook.svg");
-      &:hover {
-        background-image: url("./../images/footer/facebook-blue.svg");
-      }
-    }
-    &-inst {
-      background-image: url("./../images/footer/instagram.svg");
-      &:hover {
-        background-image: url("./../images/footer/instagram-blue.svg");
-      }
-    }
-    &-tw {
-      background-image: url("./../images/footer/twitter.svg");
-      &:hover {
-        background-image: url("./../images/footer/twitter-blue.svg");
+
+    @each $social, $color in $socials {
+      &-#{$social} {
+        background-image: url("./../images/footer/#{$social}-white.svg");
+        &:hover {
+          background-image: url("./../images/footer/#{$social}-blue.svg")
+        }
       }
     }
   }
@@ -207,10 +201,7 @@
   &__item,
   &__icon,
   &__icon-logo {
-    transition: scale 0.3s ease;
-    &:hover {
-      scale: 1.2;
-    }
+    @include hover(scale, 1.2)
   }
 }
 

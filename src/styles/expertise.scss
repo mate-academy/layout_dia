@@ -5,13 +5,9 @@
   }
 
   &__grid {
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
-    border-radius: 30px;
     @include pageGrid;
-
     padding-block: 72px;
+    border-radius: 30px;
 
     @include onTablet {
       padding-block: 128px;
@@ -24,11 +20,13 @@
     @include onTablet {
       gap: 64px;
     }
+
     @include onLaptopLarge {
       padding-inline: 0;
       margin: 0 auto;
       max-width: 1146px;
     }
+
     @include onLaptop2K {
       max-width: 1600px;
     }
@@ -52,19 +50,19 @@
   }
 
   &__title {
+    margin-block: 32px 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 140%;
+    color: $c-dark-blue;
+
     &-main {
       grid-column: 1 / -1;
-
+      margin-bottom: 0;
       @include onTablet {
         grid-column: 2 / -2;
       }
     }
-    color: $c-dark-blue;
-
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 140%;
-    margin-block: 32px 16px;
   }
 
   &__description {
@@ -73,16 +71,8 @@
     color: $c-main-text;
   }
 
-  &__link {
-    display: flex;
-    justify-content: center;
-  }
-
   &__img {
     border-radius: 16px;
-    transition: scale 0.3s ease;
-    &:hover {
-      scale: 1.1;
-    }
+    @include hover(scale, 1.1)
   }
 }

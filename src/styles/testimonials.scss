@@ -1,7 +1,5 @@
 .testimonials {
   @include pageGrid;
-  column-gap: 0;
-
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -10,6 +8,12 @@
 
   &__title {
     grid-column: 1 / 4;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
     font-family: "Poppins", sans-serif;
     text-align: left;
 
@@ -70,9 +74,9 @@
   }
 
   &__img {
-    border-radius: 50%;
     height: 110px;
     width: 110px;
+    border-radius: 50%;
 
     @include onTablet {
       height: 140px;
@@ -87,40 +91,34 @@
     position: relative;
     height: 196px;
     width: 196px;
+    margin-bottom: 24px;
+    z-index: 1;
 
     @include onTablet {
       height: 230px;
       width: 230px;
     }
 
-    margin-bottom: 24px;
-
-    z-index: 1;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 20%;
-      z-index: -1;
-      transform: rotate(-60deg);
-      border-radius: 10px;
-      background-color: $c-blue;
-      width: 109px;
-      height: 44px;
-    }
-
+    &::before,
     &::after {
       content: "";
       position: absolute;
-      right: 2%;
-      bottom: 20%;
-      z-index: -1;
       transform: rotate(-60deg);
+      height: 44px;
+      width: 109px;
+      z-index: -1;
       border-radius: 10px;
       background-color: $c-blue;
-      width: 109px;
-      height: 44px;
+    }
+
+    &::before {
+      left: 0;
+      top: 20%;
+    }
+
+    &::after {
+      right: 2%;
+      bottom: 20%;
     }
   }
 }
