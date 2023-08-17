@@ -1,0 +1,248 @@
+.footer {
+  background-color: $c-dark-gray;
+  &__content {
+    @include pageGrid;
+    row-gap: 80px;
+    padding: 72px 20px 80px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: $c-white;
+
+    @include onTablet {
+      padding: 180px 40px 80px;
+      row-gap: 120px;
+    }
+
+    @include onLaptop {
+      padding-inline: 54px;
+    }
+
+    @include onLaptopLarge {
+      padding-inline: 0;
+      margin: 0 auto;
+      max-width: 1146px;
+    }
+    @include onLaptop2K {
+      max-width: 1600px;
+    }
+    grid-column: 1 / -1;
+  }
+  &__title {
+    margin-bottom: 48px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    &--line--height {
+      line-height: 150%;
+    }
+  }
+
+  &__input {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: inherit;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: $c-white;
+
+    &-line {
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $c-white;
+      }
+    }
+    &:focus + &-line::before {
+      background-color: #144ed4;
+    }
+
+    &-block {
+      display: flex;
+      position: relative;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 58px;
+
+      @include onTablet {
+        gap: 66px;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    &--message {
+      resize: none;
+      overflow: hidden;
+    }
+  }
+  &__contact {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @include onTablet {
+        gap: 48px;
+      }
+    }
+    &-description {
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: fit-content;
+    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 150%;
+    text-decoration: none;
+    color: inherit;
+    transition: scale 0.3s ease;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+    margin-top: 16px;
+  }
+
+  &__logo {
+    display: flex;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include onLaptop {
+      gap: 64px;
+    }
+  }
+
+  &__item {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    list-style: none;
+  }
+
+  &__button {
+    margin-top: 56px;
+    @include onTablet {
+      width: 75% !important;
+      margin-top: 98px;
+    }
+  }
+  &__icon {
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    &-fb {
+      background-image: url("./../images/footer/facebook.svg");
+      &:hover {
+        background-image: url("./../images/footer/facebook-blue.svg");
+      }
+    }
+    &-inst {
+      background-image: url("./../images/footer/instagram.svg");
+      &:hover {
+        background-image: url("./../images/footer/instagram-blue.svg");
+      }
+    }
+    &-tw {
+      background-image: url("./../images/footer/twitter.svg");
+      &:hover {
+        background-image: url("./../images/footer/twitter-blue.svg");
+      }
+    }
+  }
+
+  &__item,
+  &__icon,
+  &__icon-logo {
+    transition: scale 0.3s ease;
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}
+
+.send-message,
+.contact {
+  grid-column: 1 / -1;
+
+  @include onTablet {
+    grid-column: 1 / 5;
+  }
+}
+
+.menu {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+
+  @include onLaptop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.send-message {
+  @include onLaptop {
+    grid-column: 1 / 6;
+  }
+}
+
+.contact {
+  @include onLaptop {
+    grid-column: 7 / -1;
+  }
+}
