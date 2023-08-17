@@ -1,6 +1,148 @@
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: $large-screen-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+  @include onSmallDesktop() {
+    padding-inline: 54px;
+  }
+}
+
+@mixin contentCenteredWithFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+
+  @include onLargeScreen {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin header-top-link-style {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin appearOnScrollLeft {
+  animation: onScrollMoveLeft 1s ease-in;
+
+  @keyframes onScrollMoveLeft {
+    0% {
+      transform: translateX(-75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appearOnScrollRight {
+  animation: onScrollMoveRight 1s ease-in;
+
+  @keyframes onScrollMoveRight {
+    0% {
+      transform: translateX(75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appearOnScrollTop {
+  animation: onScrollMoveTop 1s ease-in;
+
+  @keyframes onScrollMoveTop {
+    0% {
+      transform: translateY(-75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin appearOnScrollBottom {
+  animation: onScrollMoveBottom 1s ease-in;
+
+  @keyframes onScrollMoveBottom {
+    0% {
+      transform: translateY(75%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
