@@ -68,4 +68,4 @@ Adapt the page to the following screens:
   [DEMO LINK](https://vadimkondratiuk.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
-> To update you PR repeat steps 7-11.
+
