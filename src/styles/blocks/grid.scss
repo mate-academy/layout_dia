@@ -1,0 +1,95 @@
+@import "utils/mixins";
+
+.grid {
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: row dense;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  &__item {
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    &--tablet-1-3 {
+      @include onTablet {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    &--tablet-4-6 {
+      @include onTablet {
+        grid-column: 4 / span 3;
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--small-desktop-#{$start}-#{$end} {
+          @include onSmallDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--large-screen-#{$start}-#{$end} {
+          @include onLargeScreen {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &__item--small-desktop-1-4 {
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__item--small-desktop-7-9 {
+    @include onSmallDesktop {
+      grid-column: 7 / span 3;
+    }
+  }
+
+  &__item--small-desktop-10-12 {
+    @include onSmallDesktop {
+      grid-column: 10 / span 3;
+    }
+  }
+}
