@@ -1,3 +1,47 @@
+@mixin onLargeDesktop {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin onDisignDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablette {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 20px;
+
+  @include onTablette {
+    padding-inline: 40px;
+  }
+
+  @include onDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDisignDesktop {
+    margin-inline: auto;
+  }
+
+  @include onLargeDesktop {
+    max-width: 1600px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {

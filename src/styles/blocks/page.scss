@@ -1,0 +1,126 @@
+.page {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  scroll-behavior: smooth;
+  overflow: scroll;
+
+  &__body {
+    min-width: 320px;
+    
+    margin: 0 auto;
+
+    background: $c-gray;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+      z-index: 1;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__page-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__section {
+    margin-top: 120px;
+
+    @include onTablette {
+      margin-top: 148px;
+    }
+
+    &:last-child {
+      margin-bottom: 120px;
+
+      @include onTablette {
+        margin-bottom: 0;
+      }
+    }
+
+    &--radius {
+      border-radius: 30px;
+    }
+
+    &--white {
+      background: $c-white;
+    }
+  }
+
+  &__section-content {
+    display: grid;
+    column-gap: 20px;
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include paddingInline;
+
+    @include onTablette {
+      --columns: 6;
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      column-gap: 24px;
+    }
+  }
+
+  &__section-title {
+    font-family: "Poppins", sans-serif;
+    color: #253757;
+    grid-column: span 2;
+  }
+
+  &__section-text {
+    color: #6c788b;
+    text-align: center;
+    grid-column: span 2;
+    margin: 0;
+  }
+
+  &__section-image {
+    display: block;
+    margin: 0 auto 32px;
+    border-radius: 30px;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

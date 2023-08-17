@@ -1,0 +1,62 @@
+.page-menu {
+  background-color: $backgroundColor;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
+  z-index: 3;
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+    max-width: 1600px;
+
+    @include paddingInline;
+
+    display: grid;
+    column-gap: 20px;
+    --columns: 2;
+    --rows: 5;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: max-content max-content max-content max-content 1fr;
+
+    @include onTablette {
+      --columns: 6;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      column-gap: 24px;
+    }
+
+    @include onLargeDesktop {
+      max-width: 1600px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-top: 20px;
+
+    grid-column: span 2;
+
+    @include onTablette {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      padding-top: 48px;
+      grid-column: span 12;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
