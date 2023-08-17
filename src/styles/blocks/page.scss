@@ -1,0 +1,30 @@
+.page {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+
+  background-color: $page-background-color;
+  color: $page-text-color;
+
+  &__menu {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+}

@@ -4,3 +4,79 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hoverUnderline() {
+  &::after {
+    position: absolute;
+    z-index: 12;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+
+    content: "";
+
+    height: 2px;
+
+    border-radius: 4px;
+    background-color: $link-under-line-color-hover;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin boxShadow() {
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTable {
+    padding-inline: 40px;
+  }
+
+  @include onDesktop {
+    padding-inline: 54px;
+  }
+}
+
+@mixin onTable() {
+  @media (min-width:$table-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop() {
+  @media (min-width:$desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop() {
+  @media (min-width:$large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid() {
+  @include onTable() {
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onDesktop() {
+    column-gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include onLargeDesktop() {
+    column-gap: 30px;
+  }
+}
