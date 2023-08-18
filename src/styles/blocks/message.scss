@@ -1,0 +1,98 @@
+.message {
+  flex: 1 1 50%;
+
+  &__container {
+    @include onSmallDesctop {
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    padding-top: 72px;
+
+    color: $color-text-header;
+    text-align: left;
+    line-height: 130%;
+
+    @include onTablet {
+      padding-top: 180px;
+    }
+
+    @include onSmallDesctop {
+      padding: 0;
+    }
+  }
+
+  &__form {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include onTablet {
+      margin-top: 56px;
+      gap: 48px;
+    }
+  }
+
+  &__area {
+    max-width: 362px;
+    padding-bottom: 17px;
+    display: block;
+    background-color: $color-header;
+    border: none;
+    border-bottom: 1px solid $color-text-header;
+    @extend %text-input;
+
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $color-button;
+    }
+
+    @include onSmallDesctop {
+      max-width: 370px;
+    }
+
+    @include onDesctop {
+      max-width: 460px;
+    }
+
+    &::placeholder {
+      @extend %text-input;
+      opacity: 0.7;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__button {
+    border: none;
+    width: 100%;
+    margin-top: 16px;
+
+    @include onTablet {
+      width: 264px;
+      margin-top: 80px;
+    }
+  }
+}
+
+input {
+  outline: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $color-text-header;
+  -webkit-box-shadow: 0 0 0 1000px $color-header inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
