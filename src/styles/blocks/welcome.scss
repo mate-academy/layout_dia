@@ -1,0 +1,204 @@
+.welcome {
+  background-color: $bg-color;
+  color: #fff;
+  position: relative;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  padding-top: 240px;
+  padding-bottom: 205px;
+
+  @include onTablet {
+    padding-top: 104px;
+    padding-bottom: 0;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    max-width: 490px;
+    padding-bottom: 32px;
+
+    @include onTablet {
+      max-width: max-content;
+    }
+  }
+
+  &__subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    max-width: 360px;
+    margin-bottom: 83px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onMobile {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__button {
+    @include onTablet {
+      margin-bottom: 145px;
+    }
+    @include onMobile {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__img-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 55%;
+    max-width: 1600px;
+
+    height: 680px;
+    border-top-left-radius: 30px;
+    display: flex;
+    overflow: hidden;
+
+    @include onTablet {
+      position: relative;
+      top: 0;
+      width: 100vw;
+      height: 390px;
+      border-top-right-radius: 30px;
+    }
+  }
+
+  &__img-list {
+    display: flex;
+    margin-left: 0;
+    width: 100%;
+    transition-property: margin-left;
+    transition-duration: $trans-duration;
+  }
+
+  &__img-list-item {
+    height: 100%;
+    min-width: 100%;
+    display: inline-block;
+
+    @include onTablet {
+      width: 100vw;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__img-addition {
+    display: grid;
+    grid-template-areas: "left-arrow right-arrow img-title"
+      "left-arrow right-arrow img-subtitle";
+    position: absolute;
+    top: 564px;
+    left: 78px;
+    text-shadow: 2px 1px 5px #000;
+
+    @include onTablet {
+      top: 242px;
+      left: 42px;
+      grid-template-areas: none;
+      grid-template-columns: repeat(2, 48px);
+      grid-template-rows: repeat(3, auto);
+    }
+
+    @include onMobile {
+      left: 20px;
+    }
+  }
+
+  &__slidearrow {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 50%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 1px 5px rgba(0,0,0,0.5);
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+
+    &--left {
+      grid-area: left-arrow;
+      margin-right: 16px;
+      &::after {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background: no-repeat
+          center
+          url("../images/slider/arrow-left.svg");
+      }
+
+      @include onTablet {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+    }
+
+    &--right {
+      grid-area: right-arrow;
+      margin-right: 24px;
+      &::after {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background: no-repeat
+          center
+          url("../images/slider/arrow-right.svg");
+      }
+
+      @include onTablet {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+
+  &__img-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 150%;
+    letter-spacing: 3px;
+    grid-area: img-title;
+    margin-bottom: 8px;
+    @include onTablet {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__img-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    width: 260px;
+    grid-area: img-subtitle;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+._container {
+  max-width: 1146px + 80px;
+  padding: 0 40px;
+  margin: 0 auto;
+
+  @include onMobile {
+    padding: 0 20px;
+  }
+}
+
+._grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+
+  &__desktop {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+
+    &__tablet {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onMobile {
+    display: block;
+  }
+}
