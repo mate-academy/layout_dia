@@ -11,3 +11,21 @@ menuBtn.addEventListener('click', function() {
 
   bodyscroll.classList.toggle('scroll');
 });
+
+const menuLinks = document.querySelectorAll('.menu__link');
+
+function removeClasses() {
+  const elementsToRemove = document.querySelectorAll('.show, .scroll, .cross');
+
+  elementsToRemove.forEach(element => {
+    element.classList.remove('show', 'scroll', 'cross');
+  });
+}
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    removeClasses();
+
+    window.location.href = link.getAttribute('href');
+  });
+});
