@@ -1,0 +1,141 @@
+.testimonials {
+  &__title {
+    margin-bottom: 48px;
+    @include Title;
+    &::before {
+      @include TitleBefore;
+      content: "Testimonials";
+    }
+    @include onTablet {
+      width: 200px;
+    }
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 120px;
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+    @include onSmallDesktop {
+      display: grid;
+    }
+  }
+  &__card {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    @include onSmallDesktop {
+      width: 292px;
+    }
+    @include Desktop {
+      width: 360px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $colorWhite;
+    border-radius: 16px;
+  }
+  &__img {
+    position: relative;
+    z-index: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 75px 85px 70px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    &--1 {
+      background-image: url(./src/images/testimonials/testimonials-image-1.png);
+    }
+    &--2 {
+      background-image: url(./src/images/testimonials/testimonials-image-2.png);
+    }
+    &--3 {
+      background-image: url(./src/images/testimonials/testimonials-image-3.png);
+    }
+    @include onDesign {
+      width: 140px;
+      height: 140px;
+    }
+  }
+  &__img-border {
+    position: absolute;
+    width: 110px;
+    height: 45px;
+    background-color: $colorBlue;
+    border-radius: 12px;
+    &--left {
+      transform: rotate(-60deg) translateX(-85px);
+    }
+    &--right {
+      transform: rotate(-60deg) translate(-105px, 105px);
+      @include onDesign {
+        transform: rotate(-60deg) translate(-105px, 115px);
+      }
+    }
+    @include onDesign {
+      width: 140px;
+      height: 56px;
+    }
+  }
+  &__quotes {
+    background-image: url(./src/images/testimonials/“.svg);
+    width: 21px;
+    height: 18px;
+    margin-bottom: 11px;
+  }
+  &__text {
+    height: 80px;
+    @include openSans;
+    padding: 0 42px 16px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+    @include onTablet {
+      height: 40px;
+      padding: 0 98px 16px;
+    }
+    @include onSmallDesktop {
+      padding: 0 48px 16px;
+      height: 80px;
+    }
+    @include onDesign {
+      height: 64px;
+    }
+  }
+  &__name {
+    display: flex;
+    flex-direction: column;
+    @include openSans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #253757;
+    &--1 {
+      &::after {
+        @include Testimonials-name-after;
+        content: "Teach for America";
+      }
+    }
+    &--2 {
+      &::after {
+        @include Testimonials-name-after;
+        content: "Hawkins Consulting";
+      }
+    }
+    &--3 {
+      &::after {
+        @include Testimonials-name-after;
+        content: "Hulu";
+      }
+    }
+  }
+}

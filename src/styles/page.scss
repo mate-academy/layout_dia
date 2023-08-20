@@ -1,0 +1,27 @@
+@import "./mixins.scss";
+@import "./var.scss";
+
+.page {
+  @include poppins;
+  background-color: $colorPageBckg;
+
+  &__body {
+    box-sizing: border-box;
+    overflow: overlay;
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

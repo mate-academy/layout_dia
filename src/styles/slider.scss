@@ -1,0 +1,140 @@
+@mixin image {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 30px;
+  @include onSmallDesktop {
+    border-radius: unset;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+}
+
+.slider {
+  position: absolute;
+  height: 390px;
+  width: 100%;
+  left: 0;
+  @include onSmallDesktop {
+    position: absolute;
+    width: 502px;
+    height: 680px;
+    left: unset;
+    right: 0;
+    bottom: 0;
+    margin-bottom: unset;
+  }
+  @include onDesign {
+    width: 687px;
+  }
+  @include onBigScreens {
+    width: 1167px;
+  }
+  &__track {
+    border-radius: 30px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    @include onSmallDesktop {
+      border-radius: unset;
+      width: inherit;
+      height: inherit;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    min-width: 320px;
+    height: inherit;
+  }
+
+  &__item {
+    @include image();
+    &--1 {
+      background-image: url(./src/images/slider/slider-image-1.jpeg);
+    }
+    &--2 {
+      background-image: url(./src/images/slider/slider-image-2.jpeg);
+      transform: translateX(0);
+    }
+    &--3 {
+      background-image: url(./src/images/slider/slider-image-3.jpeg);
+      transform: translateX(0);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    top: 60%;
+    width: max-content;
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+      margin-left: 78px;
+      top: 80%;
+    }
+    @include onDesign {
+      margin-left: 48px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__right,
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    width: $sliderButtonSize;
+    height: $sliderButtonSize;
+    border-radius: 50%;
+    background-color: $colorWhite;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__arrow-left,
+  &__arrow-right {
+    width: 6px;
+    height: 9px;
+  }
+
+  &__subtitle {
+    justify-content: start;
+    @include poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $colorWhite;
+    margin-bottom: 8px;
+  }
+  &__text {
+    @include openSans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $colorWhite;
+    margin-bottom: 24px;
+  }
+}
