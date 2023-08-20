@@ -1,0 +1,75 @@
+.cta {
+  position: relative;
+  width: 100%;
+  background-color: $c-white;
+  @include onLaptop {
+    padding: 0;
+  }
+
+  &__grid {
+    @include pageGrid;
+    padding-block: 72px;
+
+    @include onTablet {
+      --columns: 12 !important;
+      padding-block: 128px;
+    }
+
+    @include onLaptop {
+      padding-block: 198px;
+      padding-inline: 54px;
+    }
+
+    @include onLaptopLarge {
+      padding-inline: 0;
+      margin: 0 auto;
+      max-width: 1146px;
+    }
+
+    @include onLaptop2K {
+      max-width: 1600px;
+    }
+
+    @each $pseudo, $direction in $directions {
+      &::#{$pseudo} {
+        content: "";
+        position: absolute;
+        top: 0;
+        #{$direction}: 0;
+        height: 100%;
+        width: 25%;
+        @include onTablet {
+          background-image: url("./../images/Shapes.png");
+          background-size: cover;
+          background-position: $direction;
+        }
+      }
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    @include onLaptop {
+      grid-column: 3 / -3;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    margin-top: 56px;
+    margin-bottom: 0;
+
+    @include onTablet {
+      grid-column: 4 / 10;
+      margin-top: 64px;
+    }
+    @include onLaptop {
+      grid-column: 5 / 9;
+    }
+  }
+}

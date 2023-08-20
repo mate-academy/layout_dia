@@ -1,0 +1,140 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  @include onLaptop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item,
+  &__icon,
+  &__icon-logo {
+    @include hover(scale, 1.2);
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include onLaptop {
+      gap: 64px;
+    }
+
+    &--strict {
+      flex-direction: column !important;
+      gap: 32px;
+      @include onTablet {
+        gap: 40px;
+      }
+      @include onLaptop {
+        gap: 50px;
+      }
+    }
+  }
+
+  &__item {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    list-style: none;
+
+    &--large {
+      font-size: 22px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        transition: $effectDuration;
+        transform: scale(0);
+        transform-origin: left;
+        background-color: $c-white;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &--absolute {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    flex-direction: column !important;
+    justify-content: start;
+    align-items: start;
+    gap: 48px;
+    padding: 24px 20px 0;
+    background-color: $c-dark-gray;
+    overflow-y: scroll;
+    opacity: 0;
+    transition: all $effectDuration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    @include onTablet {
+      gap: 56px;
+      padding: 32px 72px;
+    }
+
+    @include onLaptop {
+      gap: 72px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__contact-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+    @include onTablet {
+      gap: 20px;
+    }
+    @include onLaptop {
+      gap: 30px;
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+
+  }
+
+  &__logo {
+    &--footer {
+      margin-bottom: 48px;
+      @include onTablet {
+        margin-bottom: 24px;
+      }
+      @include onLaptop {
+        margin: 0;
+      }
+    }
+  }
+}
