@@ -1,0 +1,125 @@
+.menu {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    margin-right: 48px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $menu-white;
+    padding-bottom: 8px;
+    border-bottom: 1px solid inherit;
+    transition: all 0.4s;
+
+    &:hover {
+      border-bottom: 1px solid $hover-header-line;
+    }
+  }
+}
+
+.menu--top {
+  @media (max-width: 850px) {
+    display: none;
+  }
+
+}
+
+.burger {
+  display: none;
+  background-image: url("../images/Vector.svg");
+  width: 18px;
+  height: 8px;
+  background-repeat: no-repeat;
+  padding: 10px;
+  background-position: center;
+  @media (max-width: 850px) {
+    display: block;
+    left: 120px;
+    position: absolute;
+  }
+}
+
+.close {
+  display: none;
+  // background-image: url("../images/close.png");
+  width: 18px;
+  height: 8px;
+  background-repeat: no-repeat;
+  padding: 10px;
+  background-position: center;
+  @media (max-width: 850px) {
+    display: block;
+    right: 120px;
+    position: absolute;
+  }
+
+  &::before {
+    content: "";
+    border: 1px solid #fff;
+    transform: rotate(45deg);
+    display: block;
+    position: relative;
+    left: 0;
+    bottom: -2px;
+  }
+
+  &::after {
+    content: "";
+    border: 1px solid #fff;
+    transform: rotate(135deg);
+    display: block;
+    position: relative;
+  }
+}
+
+.menu-burger {
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2060f6;
+  position: fixed;
+  transform: translateX(-100%);
+  display: flex;
+  justify-content: center;
+  padding-top: 55px;
+  transition: all 0.5s;
+  &:target {
+    transform: translateX(0%);
+  }
+  .menu__list {
+    flex-direction: column;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    padding-top: 60px;
+
+    .menu__item {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.page__body--with-menu {
+  overflow: hidden;
+}
