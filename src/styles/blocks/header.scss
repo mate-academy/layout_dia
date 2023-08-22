@@ -3,9 +3,13 @@
   width: 100%;
   background-color: $color-header;
   border-radius: 0 0 30px 30px;
+  margin-bottom: -145px;
 
   @include onSmallDesctop {
     position: relative;
+    margin-bottom: 0;
+    height: 825px;
+    z-index: 1;
   }
 
   &__burger {
@@ -59,22 +63,24 @@
     }
   }
 
-  &__content {
-    @include onSmallDesctop {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  &__content-top {
-    @include onDesctop {
-      padding-inline: 0;
-    }
-  }
-
   &__content-bottom {
     position: relative;
+    z-index: 3;
+    top: 250px;
+
+    @include onSmallDesctop {
+      left: calc(50% + 78px);
+      top: -115px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__content {
+    position: relative;
     z-index: 2;
+    top: -115px;
     height: 390px;
     background: url(../images/header/header_tablet.jpg) center no-repeat;
     border-radius: 30px;
@@ -84,18 +90,11 @@
     }
 
     @include onSmallDesctop {
-      background: url(../images/header/header_desctop-2.jpg) center no-repeat;
-      border-radius: 30px 0;
-
-      margin-top: 44px;
-      width: 687px;
       height: 680px;
-    }
-
-    @include onDesctop {
-      background: url(../images/header/header_desctop.jpg) center no-repeat;
-      margin-left: 200px;
-      width: 1167px;
+      width: 50%;
+      border-radius: 30px 0;
+      left: 50%;
+      top: -724px;
     }
   }
 
@@ -105,7 +104,6 @@
   }
 
   &__ellipse {
-    margin-top: 250px;
     @extend %flex-center;
 
     @include square($size-allipses);
@@ -113,14 +111,6 @@
     border-radius: 50%;
 
     @include hover(transform, scale(1.2));
-
-    @include onTablet {
-      margin-top: 242px;
-    }
-
-    @include onSmallDesctop {
-      margin-top: 0;
-    }
   }
 
   &__intro {
@@ -134,6 +124,7 @@
 
   &__intro-text {
     margin-top: 8px;
+    max-width: 280px;
 
     color: $color-text-header;
     font-family: "Open Sans", sans-serif;

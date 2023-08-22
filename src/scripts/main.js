@@ -29,3 +29,16 @@ menuLinks.forEach(link => {
     window.location.href = link.getAttribute('href');
   });
 });
+
+function addClassToFooter() {
+  const footer = document.getElementById('footer');
+
+  if (window.innerWidth >= 1024) {
+    footer.classList.add('container');
+  } else {
+    footer.classList.remove('container');
+  }
+}
+
+addClassToFooter();
+window.addEventListener('resize', addClassToFooter);
