@@ -2,6 +2,24 @@
   background-color: #2c2c2c;
   position: relative;
 
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include onTablet () {
+      grid-template-columns: 1fr;
+    }
+
+    @include onMobile () {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__content {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
   &__title {
     color: #fff;
     font-size: 64px;
@@ -46,8 +64,8 @@
   }
 
   &__slider {
-    // position: relative;
-    // width: 100vw;
+    grid-column-start: 2;
+    grid-column-end: 3;
     height: 680px;
     background-color: #2c2c2c;
     margin-bottom: 20px;
@@ -61,8 +79,6 @@
     }
 
     &__content {
-      // width: 100vw;
-      // width: 100%;
       background-image: url("../images/slider/Photo-2.png");
       background-repeat: no-repeat;
       background-size: cover;
@@ -85,5 +101,50 @@
       }
     }
 
+    .arrow {
+      height: 32px;
+      width: 32px;
+    }
+
+    &__arrows_and_description {
+      position: absolute;
+      left: 20px;
+      bottom: 0;
+      display: flex;
+
+      @include onTablet () {
+        flex-direction: column;
+      }
+
+      @include onMobile () {
+        flex-direction: column;
+      }
+    }
+
+    &__description {
+      max-width: 280px;
+
+      &__title {
+        margin: 0;
+        color: #fff;
+        font-family: "Poppins", "Open Sans", sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: start;
+      }
+
+      &__paragraph {
+        color: #fff;
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+      }
+    }
   }
 }
