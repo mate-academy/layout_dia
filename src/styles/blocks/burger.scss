@@ -1,0 +1,30 @@
+.burger {
+  box-sizing: content-box;
+  @include square($size-burger);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  transition: 0.3s;
+
+  @include hover(transform, scale(1.2));
+
+  &__line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-text-header;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+  }
+
+  &.cross {
+    .burger__line:nth-child(1) {
+      transform: rotate(45deg) translate(2px, 2px);
+    }
+    .burger__line:nth-child(2) {
+      transform: rotate(-45deg) translate(2px, -2px);
+    }
+  }
+}
