@@ -8,22 +8,29 @@
   border-radius: 30px;
   width: 100%;
   min-width: 100%;
-  height: $sliderHeight;
   color: $white;
+
+  height: 390px;
+  @include onSmallDesktop {
+    height: 680px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 
   grid-column: 1 / -1;
   @include onSmallDesktop {
-    grid-column: 7 / 12;
+    grid-column-start: 7;
   }
 
   @include onDesktop {
-    grid-column: 8 / 12;
+    grid-column-start: 8;
   }
 
   &__content {
-    height: calc(#{$sliderHeight} - #{$sliderPaddingBottom});
-    @include contentPaddingInline;
-
+    @include sliderContentHeight;
+    @include sliderContentPaddingInline;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
