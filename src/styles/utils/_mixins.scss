@@ -1,6 +1,102 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($property, $toValue) {
+  transition: #{$property} $effectDuretion;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
+@mixin contantPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+    max-width: 1020px;
+    margin-inline: auto;
+  }
+
+  @include onDesktop {
+    padding-inline: 227px;
+    max-width: 1600px;
+    margin-inline: auto;
+  }
+
+  @include onLargeScreens {
+    padding-inline: 707px;
+    max-width: 2560px;
+    margin-inline: auto;
+  }
+
+}
+
+.container {
+  @include contantPaddingInline();
+}
+
+@mixin pageGrid {
+  --colums: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--colums), 1fr);
+
+  @include onTablet {
+    --colums: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --colums: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin paragraph {
+  font-family: "Open Sans", sans-serif;
+  color: $paragraph-color;
+}
+
+@mixin hover-zoom {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
