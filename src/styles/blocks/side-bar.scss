@@ -1,0 +1,46 @@
+.side-bar {
+  background-color: $c-header;
+  position: fixed;
+  padding-top: 20px;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  transition: all 300ms;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    z-index: 3;
+    transform: translateY(0);
+    transition: all 300ms;
+    pointer-events: all;
+    overflow-y: hidden;
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 1600px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    @include onTablet {
+      padding-inline: 40px;
+    }
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    display: flex;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+}

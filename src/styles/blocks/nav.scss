@@ -1,0 +1,63 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 40px;
+
+    &-bottom {
+      padding: 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      @include onSmallDesktop {
+        gap: 64px;
+      }
+    }
+
+    &-side-bar {
+      padding: 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @include onTablet {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    padding: 8px 4px;
+    text-decoration: none;
+    color: $c-headerText;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $c-headerText;
+      transition: transform $timeAnimation;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
