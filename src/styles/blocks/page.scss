@@ -11,10 +11,32 @@
   &__body {
     margin: 0;
     min-width: 320px;
+
+    &--with-menu {
+      overflow: hidden;
+    }
   }
   
   &__header {
     position: relative;
     box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all $effectDuration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0%);
+      pointer-events: all;
+    }
   }
 }
