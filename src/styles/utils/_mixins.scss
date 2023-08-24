@@ -1,6 +1,171 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onMobile {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// @mixin onDesktop {
+//   @media (min-width: 1280px) {
+//     @content;
+//   }
+// }
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin constentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet() {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop() {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop() {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreens() {
+    padding-inline: 707px;
+
+  }
+}
+
+.container {
+  @include constentPaddingInline();
+}
+
+@mixin background {
+  background: #f2f6fa;
+  background-clip: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+
+@mixin buttonStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: auto;
+  height: 50px;
+  border-radius: 8px;
+  background: $blue;
+
+  &:hover {
+    background: #ff7e6c;
+  }
+}
+
+@mixin backgroundBlack {
+  background: #2c2c2c;
+  border-radius: 30px 30px 0 0;
+}
+
+@mixin pageGrid ($customGap: 20px) {
+  --columns: 2;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 24px;
+
+  @include onTablet {
+    --columns: 2;
+    gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 2;
+    gap: $customGap;
+  }
+
+  @include onDesktop {
+    --columns: 2;
+    gap: $customGap;
+  }
+}
+
+@mixin rectangleSmall {
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 40.49px;
+    height: 16.01px;
+    border-radius: 6px;
+    border: 3px solid $blue;
+  }
+
+  &::before {
+    top: 172px;
+    left: 124px;
+    transform: rotate(-65.1deg);
+  }
+
+  &::after {
+    top: 557px;
+    left: 107px;
+    transform: rotate(-65.1deg);
+  }
+}
+
+@mixin rectangleSmallLeft {
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 40.49px;
+    height: 16.01px;
+    border-radius: 6px;
+    border: 3px solid $blue;
+  }
+
+  &::before {
+    top: 272px;
+    left: 124px;
+    transform: rotate(-65.1deg);
+  }
+
+  &::after {
+    top: 657px;
+    left: 107px;
+    transform: rotate(-65.1deg);
   }
 }
