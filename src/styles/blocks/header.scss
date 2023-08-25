@@ -1,11 +1,22 @@
 .header {
-  margin: 0;
   background-color: $header-color;
   height: 100vh;
   color: #fff;
-  display: flex;
 
+  display: grid;
+  grid-template-areas:
+    "topBar topBar"
+     "content content"
+     "slider slider";
+
+    //  @include onDesktop {
+    //   grid-template-areas:
+    // "topBar topBar"
+    //  "content slider";
+    //  }
   &__content {
+    display: flex;
+    flex-direction: column;
     padding-inline: 20px;
 
     @include onTablet {
@@ -18,7 +29,16 @@
   }
 
   &__top {
+    grid-area: topBar;
     margin-bottom: 48px;
+  }
+
+  &__bottom {
+    grid-area: content;
+  }
+
+  &__slider {
+    grid-area: slider;
   }
 
   &__title {
@@ -37,17 +57,6 @@
   }
 
   &__button {
-    background-color: $button-color;
-    color: #fff;
-    width: 280px;
-    height: 50px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border-color: $button-color;
-
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: normal;
+    margin-bottom: 48px;
   }
 }
