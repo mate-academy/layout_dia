@@ -4,19 +4,20 @@
   color: #fff;
 
   display: grid;
-  grid-template-areas:
-    "topBar topBar"
-     "content content"
-     "slider slider";
+  grid-template-areas: "topBar topBar"
+    "main main"
+    "slider slider";
 
-    //  @include onDesktop {
-    //   grid-template-areas:
-    // "topBar topBar"
-    //  "content slider";
-    //  }
-  &__content {
-    display: flex;
-    flex-direction: column;
+  @include onDesktop {
+    grid-template-areas: "topBar topBar topBar"
+      "main  slider slider";
+
+  }
+
+  &__top {
+    grid-area: topBar;
+    margin-bottom: 48px;
+
     padding-inline: 20px;
 
     @include onTablet {
@@ -28,13 +29,18 @@
     }
   }
 
-  &__top {
-    grid-area: topBar;
-    margin-bottom: 48px;
-  }
-
   &__bottom {
-    grid-area: content;
+    grid-area: main;
+    max-width: 362px;
+    padding-inline: 20px;
+
+    @include onTablet {
+      padding-inline: 41px;
+    }
+
+    @include onDesktop {
+      padding-inline: 54px;
+    }
   }
 
   &__slider {
