@@ -4,3 +4,87 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin OnTablet {
+  @media (min-width: #{$tablet-min-width}) {
+    @content;
+  }
+}
+
+@mixin OnDesktopSmall {
+  @media (min-width: #{$small_desktop-min-width}) {
+    @content;
+  }
+}
+
+@mixin OnDesktopDesign {
+  @media (min-width: #{$design-desktop-min-width}) {
+    @content;
+  }
+}
+
+@mixin OnDesktopLarge {
+  @media (min-width: #{$large-desktop-min-width}) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include OnTablet {
+    padding-inline: 41px;
+  }
+  @include OnDesktopSmall() {
+    padding-inline: 54px;
+  }
+  @include OnDesktopDesign {
+    padding-inline: 227px;
+  }
+  @include OnDesktopLarge() {
+    padding-inline: 707px;
+  }
+}
+
+@mixin PageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 24px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  @include OnTablet() {
+    --columns: 6;
+  }
+
+  @include OnDesktopSmall() {
+    --columns: 12;
+  }
+}
+
+@mixin hoverButton($property, $color) {
+  transition: #{$property} 0.5s linear, color 0.5s linear;
+  &:hover {
+    #{$property}: $white-color;
+    color: #{$color};
+    border: 1px solid #{$color};
+  }
+}
+
+@mixin hoverShadow($property, $val) {
+  transition: #{$property} 0.2s linear, scale 0.2s linear;
+  &:hover {
+    scale: 1.05;
+    #{$property}: 0 10px 20px #{$val};
+  }
+}
+
+@mixin focus {
+  &:focus {
+    border-bottom: 1px solid #5a50e7;
+  }
+}
+
+@mixin focusSwitch {
+  &:focus {
+    border-bottom: 1px solid $red-color;
+  }
+}

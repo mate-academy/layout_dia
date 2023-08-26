@@ -1,0 +1,75 @@
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+
+  &__menu {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+    background-image: url("/images/logo/Menu.svg");
+
+    @include OnDesktopSmall() {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  display: none;
+  @include OnDesktopSmall() {
+    display: block;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  &__link {
+    color: $white-color;
+    text-decoration: none;
+    font-size: 13px;
+    @extend %Poppins700;
+    line-height: 22px;
+    letter-spacing: 2px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      height: 1px;
+      width: 100%;
+      background-color: $blue-color;
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+  &__hire-top {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.switcher {
+  background-image: url("/images/rows/brightness.png");
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: rollLogo 3s infinite linear;
+}
