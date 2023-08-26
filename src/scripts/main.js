@@ -136,19 +136,19 @@ window.addEventListener('hashchange', () => {
 });
 
 // Code for scrolling to anchors with smooth animation error destroi
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//   anchor.addEventListener('click', function(e) {
-//     e.preventDefault();
+document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
 
-//     const target = document.querySelector(this.getAttribute('href'));
+    const target = document.querySelector(this.getAttribute('href'));
 
-//     if (target) {
-//       target.scrollIntoView({
-//         behavior: 'smooth',
-//       });
-//     }
-//   });
-// });
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  });
+});
 
 const leftButton = document.querySelector('.sliders__button-left');
 const rightButton = document.querySelector('.sliders__button-right');
