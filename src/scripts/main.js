@@ -135,21 +135,6 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-// Code for scrolling to anchors with smooth animation error destroi
-document.querySelectorAll('.smooth-scroll').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute('href'));
-
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  });
-});
-
 const leftButton = document.querySelector('.sliders__button-left');
 const rightButton = document.querySelector('.sliders__button-right');
 let slideIndex = 1;
