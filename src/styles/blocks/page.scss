@@ -1,0 +1,45 @@
+.page {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  font-weight: 600;
+  background-color: $colorBackground;
+  color: #253757;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+  
+  &__header {
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    @include container;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    // overflow-y: hidden;//
+
+    opacity: 0;
+    transition: all $effectDuration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0%);
+      pointer-events: all;
+    }
+  }
+}
