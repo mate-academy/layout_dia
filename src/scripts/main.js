@@ -135,6 +135,23 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+scrollLinks.forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth', // Плавная прокрутка
+      });
+    }
+  });
+});
+
 const leftButton = document.querySelector('.sliders__button-left');
 const rightButton = document.querySelector('.sliders__button-right');
 let slideIndex = 1;
