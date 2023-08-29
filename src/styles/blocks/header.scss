@@ -8,14 +8,20 @@
     "main main"
     "slider slider";
 
+  @include onTablet {
+    grid-template-areas: "topBar topBar topBar topBar topBar topBar"
+      " main main main main main main "
+      "slider slider slider slider slider slider";
+  }
+
   @include onDesktop {
     grid-template-areas: "topBar topBar topBar"
       "main  slider slider";
-
   }
 
   &__top {
     grid-area: topBar;
+    height: 28px;
     margin-bottom: 48px;
 
     padding-inline: 20px;
@@ -26,12 +32,12 @@
 
     @include onDesktop {
       padding-inline: 54px;
+      margin: 0 auto;
     }
   }
 
   &__bottom {
     grid-area: main;
-    max-width: 362px;
     padding-inline: 20px;
 
     @include onTablet {
@@ -39,12 +45,14 @@
     }
 
     @include onDesktop {
+      max-width: 362px;
       padding-inline: 54px;
     }
   }
 
   &__slider {
     grid-area: slider;
+
   }
 
   &__title {
@@ -53,6 +61,11 @@
     line-height: 120%;
     letter-spacing: -2px;
     margin-bottom: 32px;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
   }
 
   &__subtitle {
