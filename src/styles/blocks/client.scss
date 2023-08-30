@@ -1,0 +1,148 @@
+.client {
+  position: relative;
+  z-index: -1;
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 32px;
+  border-radius: 16px;
+  background: $main-bckgrd-color;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @include onDesktopSmall {
+    grid-column: span 4;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 196px;
+    width: 196px;
+    padding-bottom: 24px;
+    pointer-events: none;
+
+    @include onTablet {
+      height: 250px;
+      width: 250px;
+    }
+
+    @include onDesktopSmall {
+      height: 196px;
+      width: 196px;
+    }
+
+    @include onDesktop {
+      height: 250px;
+      width: 250px;
+    }
+  }
+
+  &__photo {
+    display: block;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-image: url(../images/clients/client-1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @for $i from 1 through 3 {
+      &--#{$i} {
+        background-image: url(../images/clients/client-#{$i}.png);
+      }
+    }
+
+    @include onTablet {
+      height: 110px;
+      width: 110px;
+    }
+
+    @include onDesktopSmall {
+      height: 140px;
+      width: 140px;
+    }
+
+    &::before {
+      content: "";
+      position: relative;
+      // position: absolute;
+      z-index: -1;
+      top: 0;
+      left: -40%;
+      transform: rotate(120deg);
+      transform-origin: center;
+      display: block;
+      height: 40%;
+      width: 100%;
+      border-radius: 12px;
+      background-color: $button-bckgrd-color;
+    }
+
+    &::after {
+      content: "";
+      position: relative;
+      // position: absolute;
+      z-index: -1;
+      top: 20%;
+      left: 40%;
+      transform: rotate(120deg);
+      transform-origin: center;
+      display: block;
+      height: 40%;
+      width: 100%;
+      border-radius: 12px;
+      background-color: $button-bckgrd-color;
+    }
+  }
+
+  &__testimonial {
+    margin-top: 8px;
+    width: 196px;
+    color: $main-section-description-color;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+
+    @include onTablet {
+      width: 250px;
+    }
+
+    @include onDesktopSmall {
+      width: 196px;
+    }
+
+    @include onDesktop {
+      width: 250px;
+    }
+  }
+
+  &__full-name {
+    margin-top: 16px;
+    color: $main-section-title-color;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__company {
+    margin-top: 4px;
+    color: $secondary-section-title-color;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
