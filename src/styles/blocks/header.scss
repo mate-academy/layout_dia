@@ -7,6 +7,10 @@
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   position: relative;
+  @include onLarge {
+    max-width: 1600px;
+    margin-inline: auto;
+  }
 
   &__wrapper {
     position: absolute;
@@ -19,12 +23,22 @@
   }
 
   &__description {
-    @include contentPaddingInline;
-
-    grid-row: 2 / 3;
+    padding-inline: 21px;
     grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    @include onTablet {
+      padding-inline: 41px 0;
+      // grid-column: 1 / 6;
+    }
+
     @include onSmallDesktop {
-      grid-column: 1 / 6;
+      padding-inline: 54px 0;
+      padding-top: 120px;
+      grid-column: 1 / 4;
+    }
+    @include onDesktop {
+      padding-inline: 227px 0;
+      grid-column: 1 / 5;
     }
   }
 
@@ -50,14 +64,15 @@
   &__button {
     grid-row: 3 / 4;
     grid-column: 1 / -1;
-
+    padding-inline: 21px;
     @include onTablet {
-      grid-column: 1 / 4;
+      padding-inline: 41px;
     }
-    @include contentPaddingInline();
+    @include onSmallDesktop {
+      padding-inline: 54px 0;
+    }
+    @include onDesktop {
+      padding-inline: 227px 0;
+    }
   }
-}
-
-.container {
-  @include contentPaddingInline();
 }
