@@ -1,22 +1,61 @@
 .vision {
-  @include contentPaddingInline;
+  text-align: center;
+  padding-block: 72px;
+  @include onTablet {
+    background-image: url(../images/Shapes.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-block: 200px 256px;
+  }
+  @include onSmallDesktop {
+    padding-block: 200px 395px;
+  }
+  &__wrapper {
+    @include contentPaddingInline();
+    @include pageGrid;
+  }
+
   &__title {
     font-size: 44px;
     line-height: 120%;
+    grid-column: 1 / -1;
+    @include onTablet {
+      grid-column: 2 / -2;
+      font-size: 52px;
+    }
+    @include onSmallDesktop {
+      grid-column: 3 / -3;
+    }
   }
 
   &__description {
+    grid-column: 1 / -1;
+    @include onSmallDesktop {
+      grid-column: 3 / -3;
+    }
+    @include onDesktop {
+      grid-column: 4 / -4;
+    }
     color: $gray-text-color;
     text-align: center;
     font-family: $openSans;
-    font-size: 24px;
+    font-size: 22px;
+    @include onTablet {
+      font-size: 24px;
+    }
     font-weight: 600;
     line-height: 150%; /* 36px */
+
+    &-content {
+      margin-block: 24px 73px;
+    }
   }
 
-  &__buttom {
+  &__button {
+    grid-column: 1 / -1;
     @include onTablet {
-      justify-self: center;
+      display: inline-block;
     }
   }
 }
