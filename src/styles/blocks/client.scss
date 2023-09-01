@@ -1,6 +1,4 @@
 .client {
-  position: relative;
-  z-index: -1;
   grid-column: 1/-1;
   display: flex;
   flex-direction: column;
@@ -9,6 +7,8 @@
   border-radius: 16px;
   background: $main-bckgrd-color;
   box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @include hover(transform, scale($effectScaleSmall));
 
   @include onDesktopSmall {
     grid-column: span 4;
@@ -21,7 +21,6 @@
     height: 196px;
     width: 196px;
     padding-bottom: 24px;
-    pointer-events: none;
 
     @include onTablet {
       height: 250px;
@@ -39,21 +38,12 @@
     }
   }
 
-  &__photo {
+  &__img {
+    position: relative;
     display: block;
     height: 110px;
     width: 110px;
     border-radius: 50%;
-    background-image: url(../images/clients/client-1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    @for $i from 1 through 3 {
-      &--#{$i} {
-        background-image: url(../images/clients/client-#{$i}.png);
-      }
-    }
 
     @include onTablet {
       height: 110px;
@@ -64,38 +54,34 @@
       height: 140px;
       width: 140px;
     }
+  }
 
-    &::before {
-      content: "";
-      position: relative;
-      // position: absolute;
-      z-index: -1;
+  &__rectangle {
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: $button-bckgrd-color;
+    transform: rotate(-60deg);
+
+    &--1 {
       top: 0;
       left: -40%;
-      transform: rotate(120deg);
-      transform-origin: center;
-      display: block;
-      height: 40%;
-      width: 100%;
-      border-radius: 12px;
-      background-color: $button-bckgrd-color;
     }
 
-    &::after {
-      content: "";
-      position: relative;
-      // position: absolute;
-      z-index: -1;
-      top: 20%;
+    &--2 {
+      bottom: 0;
       left: 40%;
-      transform: rotate(120deg);
-      transform-origin: center;
-      display: block;
-      height: 40%;
-      width: 100%;
-      border-radius: 12px;
-      background-color: $button-bckgrd-color;
     }
+  }
+
+  &__photo {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
   }
 
   &__testimonial {
