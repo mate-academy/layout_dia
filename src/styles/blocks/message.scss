@@ -1,19 +1,32 @@
 .message {
-  @include pageGrid;
+  grid-column: 1 /-1;
+  @include onTablet {
+    grid-column: 1 / 5;
+  }
+  @include onSmallDesktop {
+    grid-column: 1 / 6;
+  }
+
+  &__title {
+    // grid-column: 1 /-1;
+    // @include onTablet {
+    //   grid-column: 1 / 5;
+    // }
+    // @include onSmallDesktop {
+    //   grid-column: 1 / 6;
+    // }
+  }
 
   &__form {
-    grid-column: 1 /-1;
-    @include onSmallDesktop {
-      grid-column: 1 / 5;
-    }
-    padding-top: 48px;
-
     &--field {
       display: block;
       padding-block: 40px 16px;
       width: 100%;
       border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 
+      &:first-child {
+        padding-top: 0;
+      }
       &:hover {
         border-bottom: 2px solid #144ed4;
       }
@@ -46,6 +59,5 @@
     &--text {
       margin-bottom: 74px;
     }
-
   }
 }

@@ -77,6 +77,9 @@
     font-size: 13px;
     box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
 
+    @include hover(transform, scale(1.1));
+    // @include hover(transform, translateY(-50%));
+
     &--001 {
       grid-row: 5 / 6;
       @include onTablet {
@@ -88,6 +91,7 @@
         grid-row: 3 / 7;
       }
     }
+
     &--002 {
       grid-row: 7 / 8;
       @include onTablet {
@@ -146,24 +150,36 @@
     gap: 16px;
     align-items: center;
 
+    &--arrow {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $bright-blue;
+      transition: transform 0.8s;
+      &-icon {
+        position: absolute;
+        top: 20%;
+        right: 21%;
+      }
+    }
+
+    &--learn-link {
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
     &--learn {
       color: $text-200;
       text-align: center;
       font-size: 15px;
     }
-  }
 
-  &__arrow {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: $bright-blue;
-
-    &--icon {
-      position: absolute;
-      top: 20%;
-      right: 21%;
+    &:hover &--arrow {
+      transform: scale(1.1);
+    }
+    &:hover &--learn-link {
+      transform: scale(1.1);
     }
   }
 }

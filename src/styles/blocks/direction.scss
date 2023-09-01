@@ -1,51 +1,49 @@
 .direction {
   display: flex;
+  align-items: center;
   text-align: center;
   flex-direction: column;
   gap: 56px;
   @include onTablet {
     gap: 52px;
   }
-
   @include onSmallDesktop {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     @include contentPaddingInline;
+  } //onSmall end
 
-    &__card {
+  &__card {
+    @include hover(transform, scale(1.1));
+    @include onTablet {
+      width: 362px;
+    }
+    @include onSmallDesktop {
+      width: 214px;
+    }
+    @include onDesktop {
+      width: 264px;
+    }
 
-      &--branding {
-        @include onSmallDesktop {
-          grid-column: 1 / 2;
-          width: 214px;
-          justify-self: start;
-        }
-        @include onDesktop {
-          width: 264px;
-        }
+    &--branding {
+      @include onSmallDesktop {
+        grid-column: 1 / 2;
+        justify-self: start;
       }
+    }
 
-      &--communication {
-        @include onSmallDesktop {
-          grid-column: 2 / 3;
-          width: 214px;
-          justify-self: center;
-        }
-        @include onDesktop {
-          width: 264px;
-        }
+    &--communication {
+      @include onSmallDesktop {
+        grid-column: 2 / 3;
+        justify-self: center;
       }
+    }
 
-      &--strategy {
-        @include onSmallDesktop {
-          grid-column: 3 / 4;
-          width: 214px;
-          justify-self: end;
-        }
-        @include onDesktop {
-          width: 264px;
-        }
+    &--strategy {
+      @include onSmallDesktop {
+        grid-column: 3 / 4;
+        justify-self: end;
       }
     }
   }
