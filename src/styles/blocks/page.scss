@@ -1,0 +1,83 @@
+.page {
+  scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  
+  &__body {
+    margin: 0;
+
+    &--with-hiddenmenu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+    
+    @include onDesktopOnly {
+      margin-bottom: 150px;
+    }
+    
+    &--costom {
+      background-color: $white-basic;
+      border-radius: 30px;
+    }
+  }
+  
+  &__section-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: #253757;
+    margin: 0 0 25px;
+    text-align: center;
+    
+    &--about {
+      line-height: 48px;
+    }
+
+    &--vision {
+      font-size: 44px;
+      line-height: 53px;
+      width: 100%;
+
+      @include onTabletSpecial {
+        font-size: 52px;
+        line-height: 62px;
+        width: 515px;
+      }
+
+      @include onDesktopSmall {
+        line-height: 78px;
+      }
+    }
+
+    &--footer {
+      line-height: 42px;
+      color: $white-basic;
+      text-align: left;
+      /* letter-spacing: 2px; */
+      margin: 0 0 50px;
+      
+      @include onTablet {
+        line-height: 48px;
+        margin: 0 0 56px;
+      }
+    }
+    
+  }
+  
+  &__hiddenmenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}
