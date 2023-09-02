@@ -14,6 +14,120 @@
   }
 }
 
+.slider-small-manage {
+  position: relative;
+
+  &__changer {
+    position: absolute;
+    
+    top: 60%;
+    left: 10%;
+  
+    display: flex;
+    justify-content: space-between;
+  
+    width: 80px;
+    height: 32px;
+
+  }
+}
+
+.sliderB-small-line {
+  display: flex;
+  position: relative;
+  
+  left: 0;
+  width: 100%;
+  height: 390px;
+  transition: all ease 1s;
+ 
+}
+
+.slider-small {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+
+  width: 100%;
+  height: 390px;
+  max-width: 1167px;
+
+  @include onTablet {
+    height: 390px;
+    width: 100%;
+  }
+
+  &--blue {
+    border-radius: 200px 0 0;
+  }
+
+  /* &__items {
+    display: flex;
+    position: relative;
+
+    left: 0;
+    width: 100%;
+    height: 390px;
+    transition: all ease 1s;
+  } */
+
+  &__img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 50%;
+    width: 32px;
+    height: 100%;
+    background-color: $white-basic;
+    
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    &:hover {
+      background-color: #e8e3e3;
+    }
+
+    &:active {
+      border: 1px solid #363535;
+      background-color: #cdc8c8;
+    }
+  }
+
+  &__arrow {
+    width: 6px;
+    height: 9px;
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-self: start;
+
+    position: absolute;
+    top: 300px;
+    left: 10%;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $white-basic;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
 .slider-manage {
    
   position: relative;
@@ -23,8 +137,13 @@
     /* top: 250px;
     left: 20px; */
     
-    top: 80%;
+    top: 60%;
     left: 10%;
+
+    @include onDesktopOnly {
+      top: 85%;
+      left: 10%;
+    }
   
     display: flex;
     justify-content: space-between;
@@ -84,10 +203,35 @@ button:active {
 } */
 
 .slider {
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border-radius: 30px;
+  /* width: 502px; */
+  width: 100%;
+  height: 390px;
   max-width: 1167px;
+
+  @include onTablet {
+    height: 390px;
+    width: 100%;
+  }
+
+  @include onDesktopOnly {
+    height: 680px;
+  }
+
+  @include onDesktopSmall {
+    width: 502px;
+  }
+
+  @include onMediumDesktop {
+    width: 687px;
+  }
+
+  @include onLargeDesktop {
+    width: 1167px;
+  }
   
 
   &--def {
@@ -211,11 +355,11 @@ button:active {
 
     position: absolute;
     top: 300px;
-    left: 20px;
+    left: 10%;
 
     @include onDesktopSmall {
       top: 560px;
-      left: 180px;
+      left: 30%;
     }
   }
 

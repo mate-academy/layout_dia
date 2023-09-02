@@ -1,13 +1,5 @@
 'use strict';
 
-/* const buttonChangeDef = document.getElementById('changer-def');
-
-const buttonChangeBlue = document.getElementById('changer-blue');
-
-const buttonChangeDefSmall = document.getElementById('changer-def-small');
-
-const buttonChangeBlueSmall = document.getElementById('changer-blue-small'); */
-
 const headerSmall = document.getElementById(
   'header-small');
 
@@ -109,9 +101,6 @@ const testimonialsBlue = document.getElementById(
 
 const testimonialsMarksBlue = document.getElementById(
   'MarksBlue');
-
-/* const testimonialsMarksBlueSmall = document.getElementById(
-  'MarksBlueSmall'); */
 
 const testimonialsYellow = document.getElementById(
   'testimonialsYellow');
@@ -454,120 +443,6 @@ document.querySelector(
     'vision__background--blueskin');
 });
 
-/* const images = document.querySelectorAll('.slider .slider__seconditems img');
-
-const sliderLine = document.querySelectorAll('.slider .slider__seconditems');
-let count = 0;
-let width;
-
-function init() {
-  console.log('resize');
-  width = document.querySelector('.slider').offsetWidth;
-  sliderLine.style.width = width * images.length + 'px';
-  console.log(sliderLine);
-  images.forEach(item => {
-    item.style.width = width + 'px';
-    item.style.height = 'auto';
-  });
-}
-
-init();
-window.addEventListener('resize', init);
-
-document.querySelector(
-  '.slider__shift--right').addEventListener('click', function() {
-  count++;
-
-  if (count >= images.length) {
-    count = 0;
-  }
-  rollSlider();
-});
-
-document.querySelector(
-  '.slider__shift--left').addEventListener('click', function() {
-  count--;
-
-  if (count < 0) {
-    count = images.length - 1;
-  }
-  rollSlider();
-});
-
-function rollSlider() {
-  sliderLine.style.transform = 'translate(-' + count * width + 'px)';
-} */
-
-const images = document.querySelectorAll('.slider .sliderB-line img');
-const sliderLine = document.querySelector('.slider .sliderB-line');
-const slider = document.querySelector('.slider');
-
-let count = 0;
-let width;
-const body = document.querySelector('body');
-
-function init() {
-  width = slider.offsetWidth;
-  /* console.log(width); */
-
-  /* console.log('resize'); */
-  const bodyWidth = body.offsetWidth;
-
-  /* console.log(bodyWidth); */
-
-  if (bodyWidth === 1024) {
-    width = 502;
-    slider.style.width = '502px';
-    /* console.log(slider); */
-    /* console.log(width); */
-  }
-  /* const sliderWidth = slider.offsetWidth; */
-  /* console.log(sliderWidth); */
-
-  sliderLine.style.width = width * images.length + 'px';
-
-  images.forEach(item => {
-    item.style.width = width + 'px';
-    item.style.height = 'auto';
-  });
-
-  rollSlider();
-}
-
-init();
-window.addEventListener('resize', init);
-
-document.querySelector('.slider-next').addEventListener('click', function() {
-  count++;
-
-  if (count >= images.length) {
-    count = 0;
-  }
-  rollSlider();
-});
-
-document.querySelector('.slider-prev').addEventListener('click', function() {
-  count--;
-
-  if (count < 0) {
-    count = images.length - 1;
-  }
-  rollSlider();
-});
-
-function rollSlider() {
-  sliderLine.style.transform = 'translate(-' + count * width + 'px)';
-}
-
-const myform = document.querySelector('#myform');
-
-myform.addEventListener('submit', checkSubmit);
-
-function checkSubmit(event) {
-  event.preventDefault();
-  myform.reset();
-}
-
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#hiddenmenu') {
     document.body.classList.add('page__body--with-hiddenmenu');
@@ -575,48 +450,3 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-hiddenmenu');
   }
 });
-
-/* let offset = 0;
-const sliderLine = document.querySelector('.slider__items');
-
-document.querySelector(
-  '.slider__button--right'
-).addEventListener('click', function() {
-  offset = offset + 320;
-
-  if (offset > 640) {
-    offset = 0;
-  }
-
-  sliderLine.style.left = -offset + 'px';
-});
-
-document.querySelector(
-  '.slider__button--left'
-).addEventListener('click', function() {
-  offset = offset - 320;
-
-  if (offset < 0) {
-    offset = 640;
-  }
-
-  sliderLine.style.left = -offset + 'px';
-}); */
-
-/* document.querySelector(
-  '.slider__button--left'
-).addEventListener('click', function() {
-
-  if (clientWidth == 320) {
-    offset = offset - 320;
-  }else {
-    myFunction()
-    alert(`${myFunction()}`);
-  }
-
-  if (offset < 0) {
-    offset = 640;
-  }
-
-  sliderLine.style.left = -offset + 'px';
-}); */
