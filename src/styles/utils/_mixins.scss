@@ -1,6 +1,56 @@
+@mixin onBidDeskmenu {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onDeskmenu {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onSmalldesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin grid-box {
+  display: grid;
+  grid-template-columns: $logowidth $iconwidth 1fr;
+  align-items: center;
+  justify-items: end;
+  gap: 36px;
+
+  @include onSmalldesktop {
+    grid-template-columns: $logowidth 1fr 70px;
+    justify-items: center;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale($_property) rotate($_toValue);
+  }
+}
+
+@mixin hover-button {
+  transition: all 0.3s;
+  &:hover {
+    color: $colorbutton;
   }
 }
