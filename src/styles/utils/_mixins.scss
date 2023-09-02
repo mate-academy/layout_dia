@@ -4,3 +4,128 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin onLarge {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline () {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+
+  @include onSmallDesktop() {
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include onDesktop() {
+    margin-inline: auto;
+    padding-inline: 120px;
+  }
+
+  @include onDesign() {
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+
+  @include onLarge() {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: 707px;
+  }
+}
+
+@mixin ignore-container-padding {
+  margin-left: -20px;
+  margin-right: -20px;
+
+  @include onTablet {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  @include onSmallDesktop() {
+    margin-left: 0;
+    margin-right: -54px;
+  }
+
+  @include onDesktop() {
+    margin-left: 0;
+    margin-right: -120px;
+  }
+
+  @include onDesign() {
+    margin-left: 0;
+    margin-right: -227px;
+  }
+
+  @include onLarge() {
+    margin-left: 0;
+    margin-right: -707px;
+  }
+}
+
+@mixin card {
+  box-sizing: border-box;
+  background-color: $c-white;
+  border-radius: 16px;
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  
+  @include onTablet {
+    column-gap: 30px;
+    --columns: 6;
+  }
+
+  @include onSmallDesktop {
+    column-gap: 20px;
+    --columns: 12;
+  }
+
+  @include onDesign {
+    column-gap: 30px;
+  }
+}
+
+@mixin c-white-and-br {
+  background-color: $c-white;
+  border-radius: 30px;
+}

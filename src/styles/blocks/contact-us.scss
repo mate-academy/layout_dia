@@ -1,0 +1,154 @@
+.contacts {
+  background-color: $c-dark-gray;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  
+  &__wrapper {
+    @include pageGrid;
+  }
+
+  &__form {
+    box-sizing: border-box;
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin-bottom: 120px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__block {
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin-bottom: 140px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 12;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+}
+
+.contact {
+  &__field {
+    box-sizing: border-box;
+    color: $c-white;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    height: 40px;
+    background-color: transparent;
+    border-bottom: 1px solid $c-white;
+
+    padding-bottom: 16px;
+    width: 100%;
+
+    &--email {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+    }
+
+    &--name {
+      margin-bottom: 40px;
+      
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+    }
+
+    &--message {
+      height: 40px;
+      margin-bottom: 56px;
+      resize: none;
+      overflow: hidden;
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+
+    &:hover {
+      border-bottom: 2px solid $c-hover-blue;
+    }
+
+    &:focus {
+      border-bottom: 2px solid $c-hover-blue;
+    }
+
+    &::placeholder {
+      color: $c-white;
+      opacity: 0.7;
+    }
+  }
+
+  &__block {
+    margin-bottom: 40px;
+    
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    &--titled {
+      margin-bottom: 8px;
+    }
+    
+    &--text {
+      &:hover {
+        color: $c-hover-blue;
+      }
+    }
+
+    &--socials-block {
+      display: flex;
+      gap: 32px;
+
+      &--img {
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+
+        &-facebook {
+          background-image: url(/images/footer/facebook.svg);
+
+          &:hover {
+            background-image: url(/images/footer/facebook-blue.svg);
+            @include hover(transform, scale(1.4));
+          }
+        }
+
+        &-twitter {
+          background-image: url(/images/footer/twitter.svg);
+          &:hover {
+            background-image: url(/images/footer/twitter-blue.svg);
+            @include hover(transform, scale(1.4));
+          }
+        }
+
+        &-instagram {
+          background-image: url(/images/footer/instagram.svg);
+
+          &:hover {
+            background-image: url(/images/footer/instagram-blue.svg);
+            @include hover(transform, scale(1.4));
+          }
+        }
+      }
+    }
+  }
+}

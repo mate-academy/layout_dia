@@ -1,0 +1,144 @@
+.slider {
+  &__nav {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    left: 20px;
+    bottom: 108px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 116px;
+    }
+
+    @include onSmallDesktop {
+      left: 78px;
+      bottom: 66px;
+    }
+
+    @include onDesign {
+      left: 48px;
+    }
+  }
+  
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      left: 182px;
+      bottom: 48px;
+    }
+
+    @include onDesign {
+      left: 152px;
+    }
+
+    &--title {
+      color: $c-white;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    &--description {
+      color: $c-white;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+    }
+  }
+
+  &__img {
+    @include ignore-container-padding;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    height: 390px;
+  
+    @include onSmallDesktop {
+      height: 680px;
+    }
+
+    // z-index: 9;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: $c-white;
+  border-radius: 50%;
+  cursor: pointer;
+  // background: linear-gradient(90deg, rgba(255,255,255, 0) 0%, #fff);
+  &:hover {
+    background-color: #ffffffd8;
+  }
+
+  &:active {
+    @include hover (transform, scale(0.97));
+  }
+
+  &__arr {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+
+    &--prev {
+      background-image: url(../images/slider/left-arr.svg);
+    }
+  
+    &--next {
+      background-image: url(../images/slider/right-arr.svg);
+    }
+  }
+
+}
+
+.slide {
+  height: 390px;
+
+  @include onSmallDesktop {
+    height: 680px;
+  }
+  width: 100%;
+  position: absolute;
+  transition: 1s;
+
+  background-size: cover;
+  background-position: center;
+
+  &-1 {
+    background-image: url("../images/slider/photo1.jpg");
+  }
+  &-2 {
+    background-image: url("../images/slider/photo2.jpg");
+  }
+  &-3 {
+    background-image: url("../images/slider/photo3.jpg");
+  }
+  &-4 {
+    background-image: url("../images/slider/photo4.jpg");
+  }
+}
