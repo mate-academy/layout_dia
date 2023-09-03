@@ -1,0 +1,67 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 48px;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+    }
+
+    &-bottom {
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include onSmallDesktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    color: inherit;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $c-main-text-color;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $bg-blue-color;
+
+      transition: transform $effectDuration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &-bottom {
+      text-align: start;
+    }
+  }
+}

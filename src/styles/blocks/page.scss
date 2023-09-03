@@ -1,0 +1,38 @@
+.page {
+  font-family: "Open Sans", "Poppins", sans-serif;
+  color: $c-main-text-color;
+  font-size: 16px;
+  line-height: 24px;
+
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background: $bg-secondary-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+
+    transition: all $effectDuration;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
