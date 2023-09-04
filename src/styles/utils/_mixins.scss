@@ -28,6 +28,22 @@
   }
 }
 
+@mixin inlainer {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+
+  @include onSmalldesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop {
+    padding-inline: 228px;
+  }
+}
+
 @mixin grid-box {
   display: grid;
   grid-template-columns: $logowidth $iconwidth 1fr;
@@ -43,13 +59,15 @@
 
 @mixin hover($_property, $_toValue) {
   transition: all 0.3s;
+
   &:hover {
-    transform: scale($_property) rotate($_toValue);
+    #{$_property}: $_toValue;
   }
 }
 
 @mixin hover-button {
   transition: all 0.3s;
+
   &:hover {
     color: $colorbutton;
   }

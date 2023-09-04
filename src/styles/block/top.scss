@@ -1,59 +1,29 @@
 .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 48px;
+  @include grid-box;
 
-  @include onTablet {
-    padding-bottom: 56px;
+  &__logo {
+    display: flex;
   }
 
-  @include onSmalldesktop {
-    padding-bottom: 164px;
-  }
+  &__menu {
+    display: block;
+    background-image: url(../images/menuitem/menu.svg);
+    background-repeat: no-repeat;
+    width: $iconwidth;
+    height: $iconwidth;
 
-  &__list {
-
-    list-style: none;
-
-    &-item {
-      display: flex;
-      align-items: center;
+    @include onSmalldesktop {
+      opacity: 0;
+      pointer-events: none;
     }
-  }
 
-  &__link {
-    font-family: Poppins, sans-serif;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $colortext;
-  }
-
-  &__hire-us {
-    position: relative;
-    box-sizing: border-box;
-    width: fit-content;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $colortext;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 28px;
-      display: block;
-      width: 100%;
-      height: 2px;
-      background-color: $colorbutton;
-      border-radius: 4px;
+    &--close {
+      background-image: url(../images/logo/Air-logo.svg);
+      background-size: cover;
+      width: $iconwidth;
+      height: $iconwidth;
+      opacity: 1;
+      pointer-events: all;
     }
   }
 }
