@@ -1,0 +1,41 @@
+.menu {
+  box-sizing: border-box;
+
+  background-color: $bg-dark-color;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    @include contentPaddingInline;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+
+    &--desktop {
+      display: none;
+
+      @include onSmallDesktop {
+        @include contentPaddingInline;
+        display: flex;
+      }
+
+      @include largeScreens {
+        padding-inline: 0;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}
