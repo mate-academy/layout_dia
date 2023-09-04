@@ -1,0 +1,40 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__link {
+    position: relative;
+    color: $c-white;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 19.5px */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include hover(color, $c-blue);
+    
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      margin-bottom: -8px;
+
+      height: 2px;
+      width: 100%;
+      
+      border-radius: 4px;
+      background: $c-blue;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

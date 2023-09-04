@@ -1,0 +1,183 @@
+// input:-webkit-autofill,
+//   textarea:-webkit-autofill {
+//   border-bottom: 1px solid $c-white;
+//   -webkit-text-fill-color: $c-white;
+//   -webkit-box-shadow: none;
+//   transition: background-color 5000s ease-in-out 0s;
+// }
+
+.contacts {
+  background-color: $c-dark-gray;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  
+  &__wrapper {
+    @include pageGrid;
+  }
+
+  &__form {
+    box-sizing: border-box;
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin-bottom: 120px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__block {
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin-bottom: 140px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / 12;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 12;
+    }
+  }
+}
+
+.contact {
+  &__field {
+    box-sizing: border-box;
+    color: $c-white;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    height: 40px;
+    background-color: transparent;
+    border-bottom: 1px solid $c-white;
+    padding-bottom: 16px;
+    width: 100%;
+    
+    &::placeholder {
+      color: $c-white;
+      opacity: 0.7;
+    }
+    
+    &:focus {
+      border-bottom: 2px solid $c-hover-blue;
+    }
+   
+    &:-webkit-autofill {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        caret-color: $c-white;
+        border-bottom: 1px solid $c-white;
+        -webkit-text-fill-color: $c-white;
+        // -webkit-box-shadow: none;
+        -webkit-box-shadow: 0 0 0 1000px $c-dark-gray inset;
+        // transition: background-color 5000s ease-in-out 0s;
+        @include hover (border-bottom, 2px solid $c-hover-blue);
+      }
+    }
+
+    &--email {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+    }
+
+    &--name {
+      margin-bottom: 40px;
+      
+      @include onTablet {
+        margin-bottom: 48px;
+      }
+    }
+
+    &--message {
+      height: 40px;
+      margin-bottom: 56px;
+      resize: none;
+      
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: #ffffff15;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $c-blue;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: $c-hover-blue;
+      }
+
+      @include onTablet {
+        margin-bottom: 80px;
+      }
+    }
+
+    @include hover (border-bottom, 2px solid $c-hover-blue);
+    
+  }
+
+  &__block {
+    margin-bottom: 40px;
+    
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    &--titled {
+      margin-bottom: 8px;
+    }
+    
+    &--text {
+      @include hover (color, $c-hover-blue);
+    }
+
+    &--socials-block {
+      display: flex;
+      gap: 32px;
+
+      &--img {
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        @include hover (transform, scale(1.4));
+
+        &-facebook {
+          background-image: url(/images/footer/facebook.svg);
+
+          @include hover (background-image, url(/images/footer/facebook-blue.svg));
+        }
+
+        &-twitter {
+          background-image: url(/images/footer/twitter.svg);
+         
+          @include hover (background-image, url(/images/footer/twitter-blue.svg));
+        }
+
+        &-instagram {
+          background-image: url(/images/footer/instagram.svg);
+
+          @include hover (background-image, url(/images/footer/instagram-blue.svg));
+        }
+      }
+    }
+  }
+}
