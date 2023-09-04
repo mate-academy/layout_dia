@@ -1,0 +1,96 @@
+.form {
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+    padding-top: 48px;
+
+    @include onTablet {
+      gap: 66px;
+      padding-top: 56px;
+    }
+  }
+
+  &__label {
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -17px;
+      height: 1px;
+      width: 100%;
+      background-color: $main-bckgrd-color;
+    }
+
+    &:hover::after {
+      background-color: $button-bckgrd-color;
+    }
+
+    &:focus-within::after {
+      background-color: $button-bckgrd-color;
+    }
+  }
+
+  &__input,
+  &__input:-webkit-autofill::first-line,
+  &__input:-webkit-autofill,
+  &__input:-webkit-autofill:hover,
+  &__input:-webkit-autofill:focus,
+  &__input:-webkit-autofill:active {
+    display: block !important;
+    /*remove all input, textarea styles*/
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+
+    width: 100%;
+    color: $main-text-color !important;
+    -webkit-box-shadow: 0 0 0 100px $footer-bckgrd-color inset !important;
+    -webkit-text-fill-color: $main-text-color !important;
+    -webkit-background-color: $footer-bckgrd-color !important;
+
+    font-family: "Poppins", sans-serif !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+
+    &::placeholder {
+      color: $main-text-color ;
+      font-family: "Poppins", sans-serif !important;
+      font-size: 15px !important;
+      font-style: normal !important;
+      font-weight: 600 !important;
+      line-height: normal !important;
+      opacity: 0.7 ;
+    }
+  }
+
+  &__button {
+    height: 56px;
+    width: 100%;
+
+    color: $main-text-color;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    @include onTablet {
+      width: 264px;
+    }
+  }
+}
+
+input:-webkit-autofill::first-line {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 15px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+}
