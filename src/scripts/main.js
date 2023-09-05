@@ -1,31 +1,30 @@
 'use strict';
 
 const slider = document.getElementById('slider');
-const images = ['url(/slideImg1.808e87fa.jpg)',
-  'url(/slideImg2.126f76b3.jpg)',
-  'url(/slideImg3.b93f60cd.jpg)'];
 
 const left = document.getElementById('goLeft');
 const right = document.getElementById('goRight');
 
-let counter = 0;
+let counter = 1;
 
-left.onclick = function() {
+left.onclick = () => {
   counter--;
 
   if (counter < 0) {
     counter = 2;
   }
 
-  slider.style.backgroundImage = images[counter];
+  slider.classList.remove(slider.classList[slider.classList.length - 1]);
+  slider.classList.add(`slider--img-${counter}`);
 };
 
-right.onclick = function() {
+right.onclick = () => {
   counter++;
 
   if (counter > 2) {
     counter = 0;
   }
 
-  slider.style.backgroundImage = images[counter];
+  slider.classList.remove(slider.classList[slider.classList.length - 1]);
+  slider.classList.add(`slider--img-${counter}`);
 };
