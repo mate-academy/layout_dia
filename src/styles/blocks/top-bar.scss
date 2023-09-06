@@ -25,10 +25,60 @@
   }
 
   &__menu {
-    background-image: url(../images/icons/menu.svg);
-    background-size: cover;
     width: 24px;
     height: 24px;
+    @include onSmallDesktop {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &__nav {
+    @include onSmallDesktop {
+      padding-left: 48px;
+    }
+    @include onDesktop {
+      padding-left: 163px;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      list-style: none;
+      gap: 48px;
+      margin-block: 0;
+      padding-inline: 0;
+
+      @media (max-width: 1023px) {
+        position: absolute;
+        border-radius: 10px;
+        background-color: $black;
+        padding-inline: 10px;
+        margin: 20px;
+        flex-direction: column;
+        gap: 24px;
+        top: 30px;
+        right: -50px;
+
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: transform 0.3s, opacity 0.3s;
+      }
+    }
+
+    &--active &-content {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
   }
 
   &__right {

@@ -1,42 +1,37 @@
-// 'use strict';
+'use strict';
 
-// const previous = document.querySelector('.previous');
-// const next = document.querySelector('.next');
-// const images = document.querySelector('.slider-carousel').children;
-// const totalImages = images.length;
-// let currentIndex = 0;
+const dropdown = document.querySelector('.top-bar__dropdown');
+const button = dropdown.querySelector('.top-bar__menu');
 
-// // Event Listeners to previous and next buttons
-// previous.addEventListener('click', () => {
-//   previousImage();
-// });
+button.addEventListener('click', () => {
+  dropdown.classList.toggle('top-bar__dropdown--active');
+  // if (dropdown.classList.contains('top-bar__dropdown--active')) {
+  //   dropdown.classList.remove('top-bar__dropdown--active');
+  // } else {
+  //   dropdown.classList.add('top-bar__dropdown--active');
+  // }
+});
 
-// next.addEventListener('click', () => {
-//   nextImage();
-// });
+const slider = document.querySelector('.slider');
+const next = document.querySelector('.slider--right');
+const previous = document.querySelector('.slider--left');
 
-// // Function to go to next Image
-// function nextImage() {
-//   images[currentIndex].classList.remove('main');
+next.addEventListener('click', () => {
+  if (slider.classList.contains('slider--main')) {
+    slider.classList.remove('slider--main');
+    slider.classList.add('slider--headphones');
+  } else if (slider.classList.contains('slider--headphones')) {
+    slider.classList.remove('slider--headphones');
+    slider.classList.add('slider--laptop');
+  }
+});
 
-//   if (currentIndex == totalImages - 1) {
-//     currentIndex = 0;
-//   } else {
-//     currentIndex++;
-//   }
-
-//   images[currentIndex].classList.add('main');
-// }
-
-// // Function to go to previous Image
-// function previousImage() {
-//   images[currentIndex].classList.remove('main');
-
-//   if (currentIndex == 0) {
-//     currentIndex = totalImages - 1;
-//   } else {
-//     currentIndex--;
-//   }
-
-//   images[currentIndex].classList.add('main');
-// }
+previous.addEventListener('click', () => {
+  if (slider.classList.contains('slider--laptop')) {
+    slider.classList.remove('slider--laptop');
+    slider.classList.add('slider--headphones');
+  } else if (slider.classList.contains('slider--headphones')) {
+    slider.classList.remove('slider--headphones');
+    slider.classList.add('slider--main');
+  }
+});
