@@ -1,16 +1,16 @@
 'use strict';
 
-const dropdown = document.querySelector('.top-bar__dropdown');
-const button = dropdown.querySelector('.top-bar__menu');
+// const dropdown = document.querySelector('.top-bar__dropdown');
+// const button = dropdown.querySelector('.top-bar__menu');
 
-button.addEventListener('click', () => {
-  dropdown.classList.toggle('top-bar__dropdown--active');
-  // if (dropdown.classList.contains('top-bar__dropdown--active')) {
-  //   dropdown.classList.remove('top-bar__dropdown--active');
-  // } else {
-  //   dropdown.classList.add('top-bar__dropdown--active');
-  // }
-});
+// button.addEventListener('click', () => {
+//   dropdown.classList.toggle('top-bar__dropdown--active');
+//   // if (dropdown.classList.contains('top-bar__dropdown--active')) {
+//   //   dropdown.classList.remove('top-bar__dropdown--active');
+//   // } else {
+//   //   dropdown.classList.add('top-bar__dropdown--active');
+//   // }
+// });
 
 const slider = document.querySelector('.slider');
 const next = document.querySelector('.slider--right');
