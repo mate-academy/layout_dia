@@ -13,32 +13,36 @@
   }
 
   &__wrapper {
+    display: grid;
     position: absolute;
     height: 100%;
     width: 100%;
     right: 0;
     bottom: 0;
-    @include pageGrid;
+
+    grid-template-columns: 20px 1fr 20px;
+    @include onTablet {
+      grid-template-columns: 1fr 558px 1fr;
+    }
+    @include onSmallDesktop {
+      grid-template-columns: 1fr 458px 458px 1fr;
+    }
+    @include onDesktop {
+      grid-template-columns: 1fr 686px 460px 1fr;
+    }
     @include headerGridRow;
   }
 
   &__description {
-    padding-inline: 21px;
-    grid-column: 1 / -1;
+    @include containerWidth;
     grid-row: 2 / 3;
+    grid-column: 2 / 3;
     @include onTablet {
-      padding-inline: 41px 0;
-      // grid-column: 1 / 6;
+      max-width: 362px;
     }
 
     @include onSmallDesktop {
-      padding-inline: 54px 0;
       padding-top: 120px;
-      grid-column: 1 / 4;
-    }
-    @include onDesktop {
-      padding-inline: 227px 0;
-      grid-column: 1 / 5;
     }
   }
 
@@ -63,16 +67,6 @@
 
   &__button {
     grid-row: 3 / 4;
-    grid-column: 1 / -1;
-    padding-inline: 21px;
-    @include onTablet {
-      padding-inline: 41px;
-    }
-    @include onSmallDesktop {
-      padding-inline: 54px 0;
-    }
-    @include onDesktop {
-      padding-inline: 227px 0;
-    }
+    grid-column: 2 / 3;
   }
 }
