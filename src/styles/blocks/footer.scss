@@ -1,4 +1,23 @@
 .footer {
+  background-color: $black;
+
+  &__container {
+    @include containerWidth;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    @include onTablet {
+      gap: 24px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
   &-top {
     margin-top: -3px;
     padding-block: 80px;
@@ -9,18 +28,8 @@
       padding-top: 120px;
     }
   }
-  @include contentPaddingInline;
-  background-color: $black;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  @include onTablet {
-    gap: 24px;
-  }
 
-  @include onSmallDesktop {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  &__logo {
+    @include hover(transform, scale(1.1));
   }
 }
