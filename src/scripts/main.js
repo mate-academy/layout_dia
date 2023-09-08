@@ -1,16 +1,24 @@
 'use strict';
 
-// const dropdown = document.querySelector('.top-bar__dropdown');
-// const button = dropdown.querySelector('.top-bar__menu');
+const dropdown = document.querySelector('.top-bar__dropdown');
+const button = document.querySelector('.top-bar__icon--menu');
 
 // button.addEventListener('click', () => {
-//   dropdown.classList.toggle('top-bar__dropdown--active');
-//   // if (dropdown.classList.contains('top-bar__dropdown--active')) {
-//   //   dropdown.classList.remove('top-bar__dropdown--active');
-//   // } else {
-//   //   dropdown.classList.add('top-bar__dropdown--active');
-//   // }
+//   // dropdown.classList.toggle('top-bar__dropdown--active');
+//   if (dropdown.classList.contains('top-bar__dropdown--active')) {
+//     dropdown.classList.remove('top-bar__dropdown--active');
+//   } else {
+//     dropdown.classList.add('top-bar__dropdown--active');
+//   }
 // });
+
+button.addEventListener('hashchange', () => {
+  if (button.hash === '#dropdown') {
+    dropdown.classList.add('page__menu');
+  } else {
+    dropdown.classList.remove('page__menu');
+  }
+});
 
 const slider = document.querySelector('.slider');
 const next = document.querySelector('.slider--right');
