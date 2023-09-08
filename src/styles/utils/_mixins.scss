@@ -4,3 +4,109 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $smallDesktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLarge {
+  @media (min-width: $largeDesktop-min-width) {
+    @content;
+  }
+}
+
+@mixin containerWidth {
+  margin-inline: auto;
+  max-width: 280px;
+  @include onTablet {
+    max-width: 558px;
+  }
+  @include onSmallDesktop {
+    max-width: 916px;
+  }
+  @include onDesktop {
+    max-width: 1146px;
+  }
+}
+
+@mixin sliderContentHeight() {
+  height: calc(390px - 24px);
+
+  @include onTablet {
+    height: calc(390px - 32px);
+  }
+
+  @include onSmallDesktop {
+    height: calc(680px - 32px);
+  }
+
+  @include onDesktop {
+    height: calc(680px - 48px);
+  }
+}
+
+@mixin sliderContentPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 78px;
+  }
+
+  @include onDesktop {
+    padding-inline: 48px;
+  }
+
+  @include onLarge {
+    padding-inline: 48px;
+  }
+}
+
+@mixin pageGrid {
+  display: grid;
+  --columns: 2;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+  @include onSmallDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+  @include onDesktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin headerGridRow {
+  grid-template-rows: 96px 1fr 98px 390px;
+  @include onTablet {
+    grid-template-rows: 104px 1fr 147px 390px;
+  }
+  @include onSmallDesktop {
+    grid-template-rows: 120px  1fr 255px;
+  }
+  @include onDesktop {
+    grid-template-rows: 120px 1fr 255px;
+  }
+}

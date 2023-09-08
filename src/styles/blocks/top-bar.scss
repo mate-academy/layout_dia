@@ -1,0 +1,92 @@
+.top-bar {
+  padding-top: 20px;
+  @include onSmallDesktop {
+    padding-top: 48px;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  @include onSmallDesktop {
+    grid-column: 2 / 4;
+  }
+
+  &__left {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    @include onSmallDesktop {
+      align-items: center;
+      gap: 136px;
+    }
+    @include onDesktop {
+      gap: 251px;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    @include hover(transform, scale(1.2));
+    @include onSmallDesktop {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style: none;
+    gap: 48px;
+    margin-block: 0;
+    padding-inline: 0;
+
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      width: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &__right {
+    height: 20px;
+    text-decoration: none;
+  }
+
+  &__hire {
+    font-family: $poppins;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    @include hover(transform, scale(1.1));
+
+    &::after {
+      display: block;
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      background-color: $bright-blue;
+    }
+  }
+}

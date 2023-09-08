@@ -1,0 +1,74 @@
+.contacts {
+  grid-column: 1 /-1;
+  @include onSmallDesktop {
+    grid-column: 7 / -1;
+  }
+  @include onDesktop {
+    grid-column: 8 / -1;
+  }
+  &-top {
+    margin-top: 80px;
+    @include onTablet {
+      margin-top: 120px;
+    }
+    @include onSmallDesktop {
+      margin-top: 0;
+    }
+  }
+
+  &__name {
+    color: $white;
+    opacity: 0.5;
+    font-family: $poppins;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__address {
+    display: block;
+    color: $white;
+    font-family: $openSans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%; /* 36px */
+    margin-bottom: 40px;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      margin-top: 16px;
+    }
+    @include hover(color, $bright-blue);
+  }
+
+  &__icon {
+    margin-right: 32px;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    @include hover(transform, scale(1.2));
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--facebook {
+      background-image: url(../images/icons/icon-facebook.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/icon-twitter.svg);
+
+      @include hover(background-image, url(../images/icons/twitter-icon-hover.svg));
+    }
+
+    &--instagram {
+      background-image: url(../images/icons/icon-instagram.svg);
+    }
+  }
+}
