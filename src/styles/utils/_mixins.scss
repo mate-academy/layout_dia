@@ -44,6 +44,28 @@
   }
 }
 
+@mixin grid {
+  --column: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--column), 1fr);
+
+  @include onTablet() {
+    --column: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmalldesktop() {
+    --column: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktop() {
+    --column: 12;
+    column-gap: 30px;
+  }
+}
+
 @mixin grid-box {
   display: grid;
   grid-template-columns: $logowidth $iconwidth 1fr;
