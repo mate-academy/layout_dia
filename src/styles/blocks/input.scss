@@ -7,18 +7,26 @@
   border: none;
   border-bottom: 1px solid white;
 
+  @include hover(border-color, $formBlueAccent);
+
   &:focus-visible {
     outline: none;
   }
 
-  @include hover(border-color, $formBlueAccent);
-
   &:focus {
     border-color: $formBlueAccent;
+  }
 
-    &:invalid {
-      border-color: red;
-    }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 1000px $blackBg inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &:focus:invalid {
+    border-color: red;
   }
 
   &::placeholder {
