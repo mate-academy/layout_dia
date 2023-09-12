@@ -477,7 +477,7 @@
 
             <form
               class="feedback__form"
-              onsubmit="this.reset(); submitForm(); return false"
+              onsubmit="submitForm(); return false"
             >
               <input
                 type="email"
@@ -592,14 +592,26 @@
     <script type="text/javascript" src="scripts/light-theme.js"></script>
     <script type="text/javascript" src="scripts/swiper.js"></script>
     <script>
+      window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
+        var currentURL = window.location.href;
+
+        var cleanURL = currentURL.split('#')[0].split('?')[0];
+
+        window.history.replaceState({}, document.title, cleanURL);
+      });
+
       function autoResize(textarea) {
         textarea.style.height = 'auto';
         textarea.style.height = (textarea.scrollHeight - 32) + 'px';
       }
 
       function submitForm() {
-        location.reload();
-        location.replace('/');
+        document.querySelector('form').reset();
+
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+
+        window.location.reload();
       }
     </script>
   </body>
