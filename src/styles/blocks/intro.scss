@@ -1,0 +1,79 @@
+.intro {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 390px;
+
+  @include onSmallDesktop {
+    height: 680px;
+
+  }
+
+  &__image {
+    background-image: url(../images/intro/intro.svg);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 390px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: 30px;
+
+    @include onTablet {
+      background-image: url(../images/intro/intro-medium.svg);
+    }
+
+    @include onSmallDesktop {
+      height: 680px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    @include onDesign {
+      background-image: url(../images/intro/intro-big.svg);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    padding-left: 20px;
+    padding-bottom: 28px;
+
+    @include onTablet {
+      padding-left: 40px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 24px;
+      padding-left: 80px;
+    }
+
+    @include onDesktop {
+      padding-left: 50px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-white;
+    padding-bottom: 8px;
+  }
+
+  &__paragraph {
+    @extend %p;
+    font-size: 14px;
+    line-height: 140%;
+    max-width: 250px;
+    color: $color-white;
+  }
+}
