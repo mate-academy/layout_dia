@@ -1,0 +1,147 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 76px 42px 32px;
+  --image-size: 110px;
+
+  background-color: white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  border-radius: 16px;
+
+  &__image-wrapper {
+    position: relative;
+    margin-bottom: 100px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    width: 110px;
+    height: 45px;
+    top: 0;
+    left: 0;
+
+    @include onTablet {
+      width: 139px;
+      height: 56px;
+    }
+
+    @include onSmallDesktop {
+      width: 110px;
+      height: 45px;
+    }
+
+    @include onDesktopDesign {
+      width: 139px;
+      height: 56px;
+    }
+
+    content: "";
+    background: $mainBlueColor;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+
+    &--1 {
+      top: -4%;
+      left: -35%;
+    }
+
+    &--2 {
+      top: 65%;
+      left: 35%;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: var(--image-size);
+    height: var(--image-size);
+    overflow: hidden;
+    border-radius: 50%;
+    z-index: 2;
+
+    @include onTablet {
+      --image-size: 140px;
+    }
+
+    @include onSmallDesktop {
+      --image-size: 110px;
+    }
+
+    @include onDesktopDesign {
+      --image-size: 140px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
+    position: relative;
+    margin-bottom: 16px;
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $descriptionColor;
+    text-align: center;
+
+    @include onSmallDesktop {
+      max-width: 190px;
+    }
+
+    @include onDesktopDesign {
+      max-width: 250px;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -30px;
+      left: 50%;
+      display: block;
+      width: 20px;
+      height: 20px;
+      transform: translateX(-50%);
+
+      background-image: url(../images/quotes.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include onTablet {
+        top: -38px;
+      }
+    }
+  }
+
+  &__name {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $titleColor;
+
+    margin-bottom: 4px;
+  }
+
+  &__profession {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $sectionTitleColor;
+  }
+}
