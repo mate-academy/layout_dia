@@ -52,4 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   showCurrentImage();
+
+  setInterval(() => {
+    currentImageIndex += 1;
+
+    if (currentImageIndex >= sliderImages.length) {
+      currentImageIndex = 0;
+    }
+    showCurrentImage();
+  }, 6000);
 });
