@@ -1,0 +1,150 @@
+.services {
+  &__info {
+    margin-bottom: 48px;
+    max-width: 264px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+      max-width: none;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__name {
+    margin-bottom: 16px;
+
+    @extend %fontPoppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    opacity: 0.4;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    margin-bottom: 21px;
+
+    @extend %fontOpenSans;
+    font-size: 14px;
+    line-height: 150%;
+    color: $primaryTextColor;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      gap: 20px;
+    }
+  }
+
+  &__card {
+    padding: 32px;
+    background-color: #fff;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.4));
+
+    &:nth-child(even) {
+      @include onTablet {
+        transform: translateY(-50%);
+      }
+    }
+
+    &:nth-child(odd) {
+      @include onTablet {
+        transform: translateY(10%);
+      }
+    }
+
+    &--icon {
+      @include square (12px);
+    }
+  }
+
+  &__button {
+    background-color: $primaryColor;
+    border-radius: 50%;
+
+    @include flex (center, center);
+    @include square (40px);
+    @include hover(transform, scale(1.1));
+  }
+
+  &__card-number {
+    margin-bottom: 24px;
+
+    width: 46px;
+    height: 24px;
+
+    @extend %fontPoppins;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $primaryColor;
+
+    position: relative;
+
+    @include flex (center, center);
+
+    &::after {
+      content: "";
+      background-color: $primaryColor;
+      border-radius: 23px;
+      opacity: 0.1;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__card-description {
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: $primaryTextColor;
+
+    @extend %fontOpenSans;
+  }
+
+  &__card-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__card-link {
+    @extend %fontPoppins;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    color: #334563;
+  }
+}

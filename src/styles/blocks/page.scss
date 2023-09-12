@@ -1,0 +1,69 @@
+.page {
+  min-width: 320px;
+  font-weight: 400;
+  color: $primaryTextColor;
+
+  @extend %fontOpenSans;
+
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    max-width: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $primaryColor;
+  }
+
+  &__body {
+    background-color: $page-color;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: opacity $primaryDuration;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &__section {
+    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__section-title {
+    @extend %fontPoppins;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $titleColor;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $primaryBgColor inset;
+  -webkit-text-fill-color: #fff;
+}
+
+// input:-webkit-autofill {
+//   -webkit-text-fill-color: #fff;
+// }

@@ -1,0 +1,100 @@
+.slider {
+  height: 390px;
+  width: 100%;
+  border-radius: $primaryBorderR;
+  overflow: hidden;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include onDesktop {
+    top: 120px;
+
+    height: auto;
+    width: 50%;
+    border-radius: $primaryBorderR 0;
+  }
+
+  &__content {
+    height: 100%;
+    width: 300%;
+    display: flex;
+  }
+
+  &__slide {
+    transition: margin-left $primaryDuration;
+    flex-basis: 100%;
+  }
+
+  &__photo {
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+    
+    @include onDesktop {
+      flex-direction: row;
+      align-items: center;
+
+      left: 78px;
+      bottom: 48px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 8px;
+
+    @extend %fontPoppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__text {
+    max-width: 264px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include onDesktop {
+      margin: 0 24px 0 0;
+    }
+  }
+
+  &__button {
+    border-radius: 50%;
+    background-color: #fff;
+
+    @include square(32px);
+    @include flex(center, center);
+    @include hover(transform, scale(1.1));
+
+    &--icon {
+      @include square(10px);
+    }
+  }
+}
