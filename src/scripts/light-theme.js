@@ -17,10 +17,6 @@ function setThemeBasedOnUserPreference() {
       page.classList.remove('page--theme--light');
       contactUs.classList.remove('contact-us--theme--light');
 
-      switchers.forEach(switcher => {
-        switcher.classList.remove('page__theme-switcher--theme--light');
-      });
-
       links.forEach(link => {
         link.classList.remove('link--theme--light');
       });
@@ -48,10 +44,6 @@ function setThemeBasedOnUserPreference() {
   } else {
     page.classList.add('page--theme--light');
     contactUs.classList.add('contact-us--theme--light');
-
-    switchers.forEach(switcher => {
-      switcher.classList.add('page__theme-switcher--theme--light');
-    });
 
     links.forEach(link => {
       link.classList.add('link--theme--light');
@@ -85,7 +77,6 @@ switchers.forEach(switcher => {
   switcher.addEventListener('click', () => {
     if (page.classList.contains('page--theme--light')) {
       page.classList.remove('page--theme--light');
-      switcher.classList.remove('page__theme-switcher--theme--light');
       contactUs.classList.remove('contact-us--theme--light');
 
       links.forEach(link => {
@@ -113,7 +104,6 @@ switchers.forEach(switcher => {
       });
     } else {
       page.classList.add('page--theme--light');
-      switcher.classList.add('page__theme-switcher--theme--light');
       contactUs.classList.add('contact-us--theme--light');
 
       links.forEach(link => {
