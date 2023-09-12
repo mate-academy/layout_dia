@@ -1,33 +1,36 @@
 'use strict';
-import Swiper from 'swiper/swiper-bundle.min.mjs';
+// import swiper from './swiper';
+// swiper.start();
 
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  grabCursor: true,
-  speed: 1500,
-  effect: 'fade',
-  crossFade: true,
+// import Swiper from 'swiper/swiper-bundle.min.mjs';
 
-  navigation: {
-    nextEl: '.swiper__button--next',
-    prevEl: '.swiper__button--prev',
-  },
+// const swiper = new Swiper('.swiper', {
+//   loop: true,
+//   grabCursor: true,
+//   speed: 1500,
+//   effect: 'fade',
+//   crossFade: true,
 
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true,
-  },
+//   navigation: {
+//     nextEl: '.swiper__button--next',
+//     prevEl: '.swiper__button--prev',
+//   },
 
-  on: {
-    transitionStart: function() {
-      swiper.params.speed = 1500;
-    },
-    transitionEnd: function() {
-      swiper.params.speed = 300;
-    },
-    click: function() {
-      swiper.params.speed = 300;
-    },
-  },
-});
+//   autoplay: {
+//     delay: 3000,
+//     disableOnInteraction: false,
+//     pauseOnMouseEnter: true,
+//   },
+
+//   on: {
+//     transitionStart: function() {
+//       swiper.params.speed = 1500;
+//     },
+//     transitionEnd: function() {
+//       swiper.params.speed = 300;
+//     },
+//     click: function() {
+//       swiper.params.speed = 300;
+//     },
+//   },
+// });

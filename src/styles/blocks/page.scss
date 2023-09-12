@@ -4,6 +4,34 @@
 }
 
 .page {
+  transition: color 0.5s, background-color 0.5s;
+
+  --page-bg: #f2f6fa;
+  --header-footer-bg: #2c2c2c;
+  --bg-icon: url("../images/icons/icon-moon.svg");
+
+  --header-border-rds: 0 0 30px 30px;
+  --footer-border-rds: 30px 30px 0 0;
+  --swiper-border-rds: 30px;
+
+  @include onSmallDesktop {
+    --swiper-border-rds: 30px 0;
+  }
+
+  &--theme--light {
+    --page-bg: #f2f9ff;
+    --header-footer-bg: #008aff;
+    --bg-icon: url("../images/icons/icon-sun.svg");
+
+    --header-border-rds: 0 0 0 200px;
+    --footer-border-rds: 0 200px 0 0;
+    --swiper-border-rds: 200px 0 0 0;
+
+    @include onSmallDesktop {
+      --swiper-border-rds: 200px 0 0 0;
+    }
+  }
+
   font-family: "Open Sans", sans-serif;
   line-height: 150%;
   scroll-behavior: smooth;
@@ -14,14 +42,20 @@
 
   &__body {
     margin: 0;
-    background: $whiteBg;
+    background: var(--page-bg);
   }
 
   &__header {
     position: relative;
+    background-color: var(--header-footer-bg);
+    border-radius: var(--header-border-rds);
+
+    transition: 0.5s;
   }
 
   &__mobile-menu {
+    background-color: var(--header-footer-bg);
+
     @include page-padding-inline;
     padding-top: 18px;
 
@@ -39,10 +73,65 @@
   }
 
   &__footer {
+    background-color: var(--header-footer-bg);
+    border-radius: var(--footer-border-rds);
+
+    transition: 0.5s;
+
     margin-top: 120px;
 
     @include onTablet {
       margin-top: -20px;
+    }
+  }
+
+  &__swiper {
+    border-radius: var(--swiper-border-rds);
+    transition: 0.5s;
+  }
+
+  &__switcher {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    color: white;
+
+    transition: 0.5s;
+  }
+
+  &__theme-switcher {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+    width: 40px;
+    height: 25px;
+    background-color: var(--page-bg);
+    border-radius: 20px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 50%;
+      background-image: var(--bg-icon);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 100%;
+      padding-bottom: 50%;
+      transition: 0.5s;
+    }
+
+    &--theme--light {
+      &::after {
+        transform: translateX(100%);
+      }
     }
   }
 }
