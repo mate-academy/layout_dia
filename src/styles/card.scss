@@ -1,0 +1,132 @@
+.card {
+  background: white;
+  list-style-type: none;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  &__service {
+    display: block;
+    padding: 32px 0 32px 32px;
+  }
+
+  &__jump {
+
+    &:nth-child(even) {
+      @include onTablet {
+        position: relative;
+        top: -130px;
+      }
+    }
+  }
+
+  @include hover(transform, scale(1.1));
+
+  &__number {
+    margin-bottom: 24px;
+    width: 46px;
+    height: 24px;
+    text-transform: uppercase;
+    color: $blue-color;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @extend %fontOpenSans;
+    @include font(13px, 20px, 600);
+
+    &::after {
+      content: "";
+      background-color: $blue-color;
+      border-radius: 23px;
+      opacity: 0.1;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    color: $light-font-color;
+    list-style-type: none;
+
+    @extend %fontOpenSans;
+    @include font(13px, 20px, 600);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    color: $dark-background-color;
+    text-decoration: none;
+
+    @extend %fontPoppins;
+    @include font(15px, 22px, 600);
+  }
+
+  &__button-icon {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $blue-color;
+
+    @include hover(transform, scale(1.1));
+
+    @include square(40px);
+  }
+
+  &__icon {
+    @include square(16px);
+  }
+
+  &__testimonial {
+    padding: 75px 42px 32px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      padding: 75px 98px 32px;
+    }
+
+    @include onDesktop {
+      padding: 75px 48px 32px;
+    }
+
+    &-description {
+      text-align: center ;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      color: $light-font-color;
+    }
+
+    &-firma {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $extralight-font-color ;
+    }
+
+    &-photo {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 100px;
+    }
+  }
+}
