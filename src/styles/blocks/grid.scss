@@ -1,0 +1,48 @@
+.grid {
+
+  @include useGrid(2, 20px);
+  gap: 24px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  &__item {
+
+    @include transition(all, $transition-time);
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @include onTablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include onDesktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.footer {
+  @include transition(all, $transition-time);
+  @include border-top-radius($page-border-radius);
+
+  position: relative;
+  z-index: 1;
+  padding: 72px 0 80px;
+
+  background-color: $background-dark;
+  color: $color-white;
+
+  @include onTablet {
+    padding-top: 180px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__links {
+    @include transition(all, $transition-time);
+
+    & > :not(:last-child) {
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      & > :not(:last-child) {
+        margin-right: 64px;
+      }
+    }
+  }
+
+  &__link {
+    list-style: none;
+
+    & > a {
+      @include underline-links-hover();
+
+      position: relative;
+      margin-right: -3px;
+      display: inline-block;
+
+      text-decoration: none;
+      color: $color-white;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      word-break: break-all;
+    }
+  }
+}

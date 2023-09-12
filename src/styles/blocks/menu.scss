@@ -1,0 +1,78 @@
+.menu {
+  @include border-bottom-radius($page-border-radius);
+
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 20px 0 0;
+  transform: translateY(-100%);
+
+  color: $color-white;
+  background-color: $background-dark;
+  @include transition(all, $transition-time);
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__close {
+    @include square(28px);
+
+    -webkit-mask-image: url(../images/cross.png);
+    mask-image: url(../images/cross.png);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: $color-white;
+
+    @include transition(all, $transition-time);
+
+    &:hover {
+      transform: scale(115%);
+    }
+  }
+
+  &__nav {
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      height: 20vh;
+
+      @include onDesktop {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    position: relative;
+    list-style: none;
+
+    & > a {
+      @include underline-links-hover();
+
+      color: $color-white;
+      text-decoration: none;
+    }
+
+  }
+}

@@ -1,0 +1,117 @@
+.services {
+  margin-bottom: 120px;
+
+  &__about {
+    margin-bottom: 24px;
+    @include transition(all, $transition-time);
+
+    @include onTablet {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__pretitle {
+    margin-bottom: 16px;
+
+    color: $h3-pretitle-color;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    color: $h2-colot;
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+
+  &__paragraph {
+    color: $p-color;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__card {
+    padding: 32px;
+
+    background-color: $color-white;
+    border-radius: $main-border-radius;
+
+    @include onTablet {
+      &:nth-child(odd) {
+        transform: translate(0, -50%);
+      }
+    }
+
+    &-nr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 46px;
+      height: 24px;
+      margin-bottom: 24px;
+
+      border-radius: 23px;
+      background-color: rgba(32, 96, 246, 0.1);
+      color: $color-blue;
+      font-size: 13px;
+    }
+
+    &-p {
+      margin-bottom: 32px;
+
+      color: $p-color;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    &-more {
+      display: flex;
+      align-items: center;
+
+      text-decoration: none;
+
+      @include transition(all, $transition-time);
+
+      & > :first-child {
+        @include circle(40px);
+        margin-right: 16px;
+
+        background-color: $color-blue;
+        background-image: url(../images/mdi-arrow-forward.png);
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &:last-child {
+        color: var(--text-200, #334563);
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      &:hover > :last-child {
+        transform: scale(105%);
+      }
+
+      &:hover > :first-child {
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-name: in;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes in {
+  from {
+    -webkit-transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(6px);
+  }
+}
