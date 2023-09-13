@@ -1,0 +1,65 @@
+.page {
+  background-color: #e5e5e5;
+  font-family: $mainFont;
+  font-weight: 400;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: $mobileBottomMargins;
+
+    @include onTablet {
+      margin-bottom: $desktopBottomMargins;
+    }
+
+    @include onTheDesign {
+      margin: 0 auto $desktopBottomMargins;
+    }
+  }
+
+  &__section {
+    margin-bottom: $mobileBottomMargins;
+
+    @include onTablet {
+      margin-bottom: $desktopBottomMargins;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTheDesign {
+      margin-bottom: $desktopBottomMargins;
+    }
+  }
+
+  .testimonials.page__section {
+    @include onSmallDesktop {
+      margin-bottom: 186px;
+    }
+
+    @include onTheDesign {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

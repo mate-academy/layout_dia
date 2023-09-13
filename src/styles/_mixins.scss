@@ -1,0 +1,48 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTheDesign {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin card($width, $height) {
+  display: flex;
+  flex-direction: column;
+  width: $width;
+  height: $height;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+@mixin container($verticalMobilePaddings, $verticalDesktopPaddings) {
+  padding: $verticalMobilePaddings 20px;
+
+  @include onTablet {
+    padding: $verticalDesktopPaddings 41px;
+  }
+
+  @include onSmallDesktop {
+    padding: $verticalDesktopPaddings 56px;
+  }
+
+  @include onTheDesign {
+    padding: $verticalDesktopPaddings 227px;
+  }
+}
