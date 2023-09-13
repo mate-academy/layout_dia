@@ -23,6 +23,12 @@
   }
 }
 
+@mixin onLargeDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
 @mixin contentPaddingInline() {
   padding-inline: 1.25rem;
 
@@ -34,8 +40,8 @@
     padding-inline: 3.38rem;
   }
 
-  @include onDesktop {
-    padding-inline: 14.13rem;
+  @include onLargeDesktop {
+    padding: 0;
   }
 }
 
@@ -47,17 +53,16 @@
 
   @include onTablet {
     --columns: 6;
-    gap: 1.88rem;
+    gap: 30px;
   }
 
   @include onSmallDesktop {
     --columns: 12;
-    gap: 1.25rem;
+    gap: 20px;
   }
 
   @include onDesktop {
-    --columns: 12;
-    gap: 1.88rem;
+    gap: 30px;
   }
 }
 
@@ -71,7 +76,7 @@
 }
 
 @mixin hoverShadow($property, $val) {
-  transition: #{$property} 0.2s linear, scale 0.2s linear;
+  transition: #{$property} 0.3s linear, scale 0.3s linear;
   &:hover {
     scale: 1.05;
     #{$property}: 0 10px 20px #{$val};
