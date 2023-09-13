@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.classList.toggle('wrapper--light');
 
     if (wrapper.classList.contains('wrapper--light')) {
-      imgaL.src = './images/slider/slide-img-4.png'
+      imgaL.src = './images/slider/slide-img-4.png';
     }
   });
 
