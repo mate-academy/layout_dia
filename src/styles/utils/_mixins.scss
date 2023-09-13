@@ -1,6 +1,41 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onSmall {
+  @media (max-width: 320px) {
+    @content;
   }
+}
+
+@mixin onMobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onLarge {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 150%;
+  color: $text-accent-color;
+}
+
+@mixin description {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 150%;
+  color: $text-secondary-color;
 }
