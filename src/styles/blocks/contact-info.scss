@@ -1,0 +1,95 @@
+.contact-info {
+  margin-bottom: 80px;
+
+  @include transition(all, $transition-time);
+
+  @include onTablet {
+    margin-bottom: 139px;
+  }
+
+  &__details {
+
+    &--title {
+      margin-bottom: 8px;
+
+      color: $color-white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    > a {
+      @include hover(color, $color-blue);
+
+      text-decoration: none;
+      color: $color-white;
+      font-family: "Open Sans", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+
+    color: $color-white;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+
+    @include transition(all, $transition-time);
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__socials {
+
+    &--title {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__links {
+    display: flex;
+
+    & > :not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+
+  & > :not(:last-child):not(:first-child) {
+    margin-bottom: 40px;
+
+    @include transition(all, $transition-time);
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__link {
+    @include square(32px);
+
+    background-color: $color-white;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    @include hover(background-color, $color-blue);
+
+    @each $name, $social in $socials {
+      &--#{$name} {
+        -webkit-mask-image: $social;
+        mask-image: $social;
+      }
+    }
+  }
+}
