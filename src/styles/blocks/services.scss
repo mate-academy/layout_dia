@@ -1,5 +1,7 @@
 .services {
   @include contentPaddingInLine;
+  @include pageGrid;
+  justify-items: center;
 
   &__small__title {
     padding-top: 120px;
@@ -13,6 +15,12 @@
     text-transform: uppercase;
     margin: 0;
     margin-bottom: 16px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 2;
+      padding-top: 148px;
+    }
   }
 
   &__title {
@@ -24,6 +32,11 @@
     line-height: 130%; /* 41.6px */
     margin: 0;
     margin-bottom: 24px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__description {
@@ -35,15 +48,56 @@
     line-height: 150%; /* 21px */
     margin: 0;
     margin-bottom: 48px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__card {
-
+    grid-column: 1 / -1;
     border-radius: 16px;
     background: #fff;
     box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
     padding-block: 32px;
     padding-inline: 32px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    &__1 {
+      @include onTablet {
+        grid-column: 1 / 4;
+        margin-top: -135px;
+        margin-bottom: 40px;
+      }
+    }
+
+    &__2 {
+      @include onTablet {
+        grid-column: 4 / -1;
+        grid-row: 3;
+        margin-top: 40px;
+      }
+    }
+
+    &__3 {
+      @include onTablet {
+        grid-column: 1 / 4;
+        margin-bottom: 148px;
+      }
+    }
+
+    &__4 {
+      @include onTablet {
+        height: 200px;
+        grid-column: 4 / -1;
+        margin-top: -132px;
+      }
+    }
 
     &__number {
       display: flex;
@@ -121,10 +175,4 @@
     }
   }
 
-  &__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 120px;
-  }
 }
