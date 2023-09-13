@@ -1,0 +1,93 @@
+.swiper {
+
+  &-slide {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+      z-index: 1;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    padding-inline: 20px;
+    position: absolute;
+    bottom: 24px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      bottom: 32px;
+      padding-inline: 41px;
+    }
+
+    @include onSmallDesktop {
+      padding-left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @include onBigDesktop {
+      padding-inline: 48px;
+    }
+  }
+
+  &__subhead {
+    color: white;
+  }
+
+  &__text {
+    margin-top: 8px;
+    color: white;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    @include hover(box-shadow, 0 0 20px 10px rgba(255, 255, 255, 0.5));
+    @include hover(background-color, $secondaryAccent);
+    @include scale(1.2);
+    @include to-default_on-click(transform, scale(1));
+
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 100%;
+    cursor: pointer;
+
+    &--prev {
+      background-image: url("../images/slider/arrow-left.svg");
+    }
+
+    &--next {
+      background-image: url("../images/slider/arrow-right.svg");
+    }
+  }
+}

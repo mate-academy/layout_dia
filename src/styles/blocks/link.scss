@@ -1,0 +1,40 @@
+.link {
+  --underscoreAccent: #2060f6;
+
+  display: inline-block;
+  position: relative;
+  color: white;
+  padding-bottom: 8px;
+
+  @include hover(color, $grayAccent);
+
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    content: "";
+    background-color: var(--underscoreAccent);
+    width: 100%;
+    height: 2px;
+    transition: transform 0.3s;
+    transform: scale(0);
+    border-radius: 4px;
+  }
+
+  &--theme--light {
+    --underscoreAccent: #ff9c8e;
+  }
+
+  &--hire-us {
+    @include scale(1.7);
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &:hover {
+    &::after {
+      transform: scale(1);
+    }
+  }
+}

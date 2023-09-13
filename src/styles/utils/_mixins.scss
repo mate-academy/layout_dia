@@ -1,6 +1,100 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+  transition: 0.5s;
+  @include onSmallDesktop {
+    &:hover {
+      #{$_property}: $_toValue;
+    }
+  }
+}
+
+@mixin to-default_on-click($_property, $_toValue) {
+  @include onSmallDesktop {
+    &:active {
+      #{$_property}: $_toValue;
+    }
+  }
+}
+
+@mixin scale($_toValue) {
+  @include hover(transform, scale($_toValue));
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin onBigDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onMidDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin grid-template {
+  @include max-width-centered;
+  --column-count: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    --column-count: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop() {
+    --column-count: 12;
+    column-gap: 20px;
+  }
+
+  @include onMidDesktop() {
+    column-gap: 30px;
+  }
+}
+
+@mixin page-padding-inline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onMidDesktop {
+    padding-inline: 77px;
+  }
+}
+
+@mixin max-width-centered {
+  max-width: 1146px;
+  margin: 0 auto;
+}
+
+@mixin max-width-centered-onBigDesktop {
+  @include onBigDesktop {
+    max-width: 1600px;
+    margin: 0 auto;
   }
 }
