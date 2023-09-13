@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.wrapper');
   const switcher = document.querySelector('.switch input');
+  const imgaL = document.querySelector('.slider__image--first');
 
   switcher.addEventListener('click', () => {
     wrapper.classList.toggle('wrapper--light');
+
+    if (wrapper.classList.contains('wrapper--light')) {
+      imgaL.src = './images/slider/slide-img-4.png'
+    }
   });
 
   window.addEventListener('hashchange', () => {
