@@ -2,7 +2,7 @@
 
 const btnLeft = document.querySelector('.slider__button--left');
 const btnRight = document.querySelector('.slider__button--right');
-
+const form = document.querySelector('.form');
 const image = document.querySelector('.slider');
 
 const images = [
@@ -41,4 +41,10 @@ btnLeft.addEventListener('click', e => {
 btnRight.addEventListener('click', e => {
   images.unshift(images.pop());
   image.style.backgroundImage = images[images.length - 1];
+});
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  form.reset();
 });
