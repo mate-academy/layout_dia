@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.wrapper');
   const switcher = document.querySelector('.switch input');
-  const imgaL = document.querySelector('.slider__image--first');
+
+  const imageFalse = document.getElementById('sliderImageFalse');
+  const imageTrue = document.getElementById('sliderImageTrue');
 
   switcher.addEventListener('click', () => {
     wrapper.classList.toggle('wrapper--light');
 
     if (wrapper.classList.contains('wrapper--light')) {
-      imgaL.src = './images/slider/slide-img-4.png';
+      imageTrue.style.display = 'block';
+      imageFalse.style.display = 'none';
+    } else {
+      imageTrue.style.display = 'none';
+      imageFalse.style.display = 'block';
     }
   });
 
@@ -52,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     count--;
 
     if (count < 0) {
-      count = images.length - 1;
+      count = images.length - 2;
     }
     rollSlider();
   });
@@ -61,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.slider__button--next').addEventListener('click', function() {
     count++;
 
-    if (count > images.length - 1) {
+    if (count > images.length - 2) {
       count = 0;
     }
     rollSlider();
