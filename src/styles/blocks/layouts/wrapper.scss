@@ -1,0 +1,110 @@
+.wrapper--light {
+  .page {
+    background: $bg-page;
+  }
+
+  .header {
+    background: $bg-blue-light;
+
+    @include onSmallDesktop {
+      border-radius: 0 0 0 12.5rem;
+
+      &__slider {
+        border-radius: 12.5rem 0 0;
+      }
+    }
+  }
+
+  .top-bar__hire-us:after,
+  .nav__link:after {
+    background: $bg-orange;
+  }
+
+  .menu {
+    background: $bg-blue-light;
+  }
+
+  .button {
+    background: $bg-orange;
+    border-radius: 4rem;
+
+    &-hover {
+      @include hoverButton(background-color, $bg-orange);
+    }
+  }
+
+  .card__image--shadow {
+    @include hoverShadow(box-shadow, $bg-orange);
+  }
+
+  $service-card-colors: (
+    first: (#56ccf2, #edfafe),
+    second: (#fcc91d, #fffae9),
+    third: (#15d850, #e6fbef),
+    fourth: (#f36363, #ffefef)
+  );
+
+  @each $class, $colors in $service-card-colors {
+    $text-color: nth($colors, 1);
+    $background-color: nth($colors, 2);
+
+    .service-card--#{$class} {
+      @include hoverShadow(box-shadow, $text-color);
+
+      .service-card__number {
+        color: $text-color;
+        background: $background-color;
+      }
+
+      .service-card__link:before {
+        background-color: $text-color;
+      }
+    }
+
+    .contact-card--#{$class} {
+      @include hoverShadow(box-shadow, $text-color);
+
+      .contact-card__decor {
+        background-color: $text-color;
+      }
+
+      .contact-card__text:before {
+        background-color: $text-color;
+      }
+    }
+  }
+
+  .apply {
+    @include onTablet {
+      background-image: url("../images/apply-bg--color.png");
+      background-position: center 50%;
+      background-size: 150%;
+    }
+
+    @include onSmallDesktop {
+      background-position: center;
+      background-size: inherit;
+    }
+  }
+
+  .footer {
+    background: transparent;
+
+    @include onTablet {
+      background: white;
+    }
+
+    &__wrapper {
+      background: $bg-blue-light;
+      border-radius: 0 12.5rem 0 0;
+    }
+
+    &__form {
+      input:focus,
+      textarea:focus {
+        border-bottom: 2px solid $bg-orange;
+      }
+
+    }
+  }
+}

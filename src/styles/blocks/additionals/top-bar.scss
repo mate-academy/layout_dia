@@ -1,0 +1,98 @@
+.top-bar {
+  display: flex;
+  width: 100%;
+  padding-block: 1.25rem 3rem;
+
+  justify-content: space-between;
+  align-items: center;
+
+  @include onTablet {
+    padding-block: 3.5rem;
+  }
+
+  @include onSmallDesktop {
+    padding-block: 3rem 2.38rem;
+  }
+
+  &__hire-us {
+    display: inline;
+    position: relative;
+    font-family: $poppins;
+    font-size: 0.81rem;
+    font-weight: 700;
+    line-height: 150%;
+
+    text-align: center;
+    letter-spacing: 0.19rem;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 0.13rem;
+
+      transform: scale(0);
+      transform-origin: left;
+      @include hover(all, 0.3s);
+
+      border-radius: 0.25rem;
+      background: $bg-blue;
+
+      margin-top: 0.5rem;
+    }
+
+    &:hover:after {
+      transform: scale(1);
+    }
+  }
+
+  .switch {
+    font-size: 1.06rem;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    --background: #464646c9;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    border-radius: 1.88rem;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0 0 yellow;
+    background: var(--background);
+    transition: 0.5s;
+  }
+
+  input:checked + .slider {
+    background-color: #ff7e6c;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0 15px yellow;
+  }
+}

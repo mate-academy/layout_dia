@@ -1,0 +1,45 @@
+.nav {
+  display: none;
+
+  @include onSmallDesktop {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__link {
+    position: relative;
+    text-align: center;
+    font-family: $poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+
+      transform: scale(0);
+      transform-origin: left;
+      @include hover(all, 0.3s);
+
+      border-radius: 4px;
+      background: $bg-blue;
+
+      margin-top: 0.5rem;
+    }
+
+    &:hover:after {
+      transform: scale(1);
+    }
+  }
+}

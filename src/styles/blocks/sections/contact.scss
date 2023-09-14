@@ -1,0 +1,160 @@
+.contact {
+  &__tag-name {
+    color: #c0cdd7;
+    font-family: $poppins;
+    font-size: 0.81rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @extend %h3;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  &__cards {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include onSmallDesktop {
+      @include pageGrid;
+      place-items: stretch;
+    }
+  }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 2.44rem;
+  width: 100%;
+  border-radius: 1rem;
+  background: $white;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  font-size: 0.81rem;
+  line-height: 150%;
+
+  @include onSmallDesktop {
+    min-width: 18.25rem;
+
+    grid-column: span 4;
+  }
+
+  &__place {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 9.13rem;
+    height: 8.38rem;
+    transform: rotate(30deg);
+    margin: 2rem 0 3.13rem;
+
+    @include onTablet {
+      width: 11.63rem;
+      height: 10.75rem;
+      margin: 2.5rem 0 3.75rem;
+    }
+
+    @include onSmallDesktop {
+      width: 9.13rem;
+      height: 8.38rem;
+    }
+  }
+
+  &__decor {
+    width: 2.75rem;
+    height: 6.88rem;
+    border-radius: 0.75rem;
+    background: $bg-blue;
+    transition: transform 0.3s;
+
+    &--down {
+      align-self: flex-end;
+    }
+
+    @include onTablet {
+      width: 3.5rem;
+      height: 8.75rem;
+    }
+
+    @include onSmallDesktop {
+      width: 2.75rem;
+      height: 6.88rem;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    border-radius: 50%;
+    width: 6.88rem;
+    height: 6.88rem;
+    left: 1.13rem;
+    top: 0.75rem;
+    transform: rotate(-30deg);
+
+    margin-bottom: 4.13rem;
+
+    @include onTablet {
+      width: 8.75rem;
+      height: 8.75rem;
+
+      top: 1rem;
+      left: 1.44rem;
+    }
+
+    @include onSmallDesktop {
+      width: 6.88rem;
+      height: 6.88rem;
+      left: 1.13rem;
+      top: 0.75rem;
+    }
+  }
+
+  &__text {
+    @extend %text;
+    font-weight: 600;
+    min-width: 12.25rem;
+    max-width: 22.63rem;
+    margin-bottom: 2rem;
+
+    &:before {
+      content: "";
+      display: block;
+      margin: $zero auto 0.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+
+      background-color: $bg-blue;
+      mask-image: url("../images/icons/commas.svg");
+      -webkit-mask-image: url("../images/icons/commas.svg");
+    }
+  }
+
+  &__name {
+    color: #253757;
+    margin-bottom: 0.25rem;
+  }
+
+  &__job {
+    color: #c0cdd7;
+    font-family: $poppins;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &:hover &__decor {
+    transform: rotate(180deg);
+  }
+
+  @include hoverShadow(box-shadow, #6c788b);
+}

@@ -4,3 +4,81 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 1.25rem;
+
+  @include onTablet {
+    padding-inline: 2.5rem;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 3.38rem;
+  }
+
+  @include onLargeDesktop {
+    padding: 0;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    gap: 30px;
+  }
+}
+
+@mixin hoverButton($property, $color) {
+  transition: #{$property} 0.5s linear, color 0.5s linear;
+  &:hover {
+    #{$property}: $white;
+    color: #{$color};
+    border: 1px solid #{$color};
+  }
+}
+
+@mixin hoverShadow($property, $val) {
+  transition: #{$property} 0.3s linear, scale 0.3s linear;
+  &:hover {
+    scale: 1.05;
+    #{$property}: 0 10px 20px #{$val};
+  }
+}
