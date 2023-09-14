@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageFalse = document.getElementById('sliderImageFalse');
   const imageTrue = document.getElementById('sliderImageTrue');
 
+  imageTrue.style.display = 'none';
+
   switcher.addEventListener('click', () => {
     wrapper.classList.toggle('wrapper--light');
 
