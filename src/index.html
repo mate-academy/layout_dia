@@ -87,8 +87,8 @@
 
               <div class="slider__menu">
                 <div class="slider__buttons">
-                  <button class="slider__button slider__button--left" onclick="plusDivs(-1)"></button>
-                  <button class="slider__button slider__button--right" onclick="plusDivs(1)"></button>
+                  <button class="slider__button slider__button--left" onclick="prevSlide()"></button>
+                  <button class="slider__button slider__button--right" onclick="nextSlide()"></button>
                 </div>
                 <div class="slider__info">
                   <h3 class="slider__title">INtro</h3>
@@ -204,7 +204,7 @@
                 <br>
                 Copywriting
                 <br>
-                Logo & Webite Design
+                Logo & Website Design
                 <br>
                 Packaging
               </p>
@@ -218,7 +218,7 @@
             <div class="services__card services__card--2">
               <div class="services__card-number">002</div>
               <p class="services__card-description">
-                Сontent Production
+                Content Production
                 <br>
                 Graphic Design
                 <br>
@@ -460,34 +460,40 @@
       </div>
     </footer>
 
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script>
-      let slideIndex = 1;
+    <script
+      type="text/javascript"
+      src="scripts/main.js"
+      defer
+    ></script>
+    <script defer>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slider__image");
 
-      showDivs(slideIndex);
+      function showSlide(n) {
+        if (n < 0) {
+          currentSlide = slides.length - 1;
+        } else if (n >= slides.length) {
+          currentSlide = 0;
+        }
 
-      function plusDivs(n) {
-        showDivs(slideIndex += n);
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[currentSlide].style.display = "block";
       }
 
-      function showDivs(n) {
-        let i;
-
-        const slides = document.getElementsByClassName('slider__image');
-
-        if (n > slides.length) {
-          slideIndex = 1;
-        }
-
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = 'none';
-        }
-        slides[slideIndex - 1].style.display = 'block';
+      function nextSlide() {
+        currentSlide++;
+        showSlide(currentSlide);
       }
+
+      function prevSlide() {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+
+      showSlide(currentSlide);
     </script>
   </body>
 </html>
