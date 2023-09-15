@@ -1,4 +1,86 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+%block-size {
+  width: 110px;
+  height: 44px;
+  background: #2060f6;
+  border-radius: 12px;
+  transition: 1s;
+  z-index: -1;
+}
+
+$colors:
+  "red" #f36363,
+  "green" #15d850,
+  "blue" #56ccf2,
+  "yellow" #fcc91d;
+
+@each $name, $color in $colors {
+  .block__#{$name} {
+    &:hover {
+      .block__number {
+        color: $color;
+      }
+    }
+  }
+}
+
+$images:
+  "red" url(../images/slider/Arrow.red.svg),
+  "green" url(../images/slider/Arrow.green.svg),
+  "blue" url(../images/slider/Arrow.blue.svg),
+  "yellow" url(../images/slider/Arrow.yellow.svg);
+
+@each $image, $color in $images {
+  .block__#{$image} {
+    &:hover {
+      .block__link {
+        &::before {
+          content: "";
+          display: inline-block;
+          background-image: $color;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          transition: 1s;
+        }
+      }
+    }
+  }
+}
+
+$colors:
+  "blue" #56ccf2,
+  "yellow" #fcc91d,
+  "red" #f36363;
+
+@each $name, $color in $colors {
+  .profile__#{$name} {
+    &:hover {
+      .profile__top {
+        background-color: $color;
+      }
+      .profile__bottom {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+$colors:
+  "blue" url(../images/testimonials/quotes.blue.svg),
+  "yellow" url(../images/testimonials/quotes.yellow.svg),
+  "red" url(../images/testimonials/quotes.red.svg);
+
+@each $name, $color in $colors {
+  .profile__#{$name} {
+    &:hover {
+      .profile__quotes {
+        background-image: $color;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 18px;
+      }
+    }
+  }
 }
