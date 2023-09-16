@@ -1,0 +1,66 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $column-gap-small;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: $column-gap-wide;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: $column-gap-small;
+  }
+
+  @include onBigDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: $column-gap-wide;
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+  }
+
+  &__item--tablet {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &__item--desktop {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  &__item--bigdesktop {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &-#{$start}-#{$end} {
+          @include onBigDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
