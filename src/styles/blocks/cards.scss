@@ -1,0 +1,119 @@
+.cards {
+  &__position {
+    display: grid;
+    grid-template-columns: repeat(1,280px);
+    justify-content: center;
+    gap: 24px 0;
+
+    @include onTablet {
+      grid-template-columns: repeat(2,264px);
+      gap: 30px 30px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(2,214px);
+      gap: 20px 20px;
+    }
+
+    @include onDesktopHD {
+      grid-template-columns: repeat(2,264px);
+      gap: 30px 30px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    background-color: $c-default-white;
+    box-shadow: $text-shadow;
+    width: 264px;
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+      transform: scale(1.05);
+    }
+
+    @include onDesktop {
+      width: 214px;
+    }
+
+    @include onDesktopHD {
+      width: 264px;
+    }
+
+    &--translate {
+      @include onTablet {
+        position: relative;
+        top: -130px;
+      }
+    }
+  }
+
+  &__number {
+    font-size: 13px;
+    width: 46px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    background-color: $c-card-number;
+    border-radius: 23px;
+    color: $c-secondary-background;
+  }
+
+  &__description {
+    margin-bottom: 32px;
+    width: 200px;
+    color: $c-secondary-text;
+    font-family: $ff-secondary;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__options-box {
+    display: flex;
+    gap: 28px;
+  }
+
+  &__link {
+    background-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: $c-secondary-background;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      @include slider-arrow-effects;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      @include slider-arrow-effects;
+      border: 3px solid $c-secondary-background;
+    }
+  }
+
+  &__link-text {
+    @include flex-settings;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 22px;
+    color: $c-title;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $c-hover-text;
+    }
+  }
+}
