@@ -10,21 +10,11 @@
   @include onTablet {
     grid-template-columns: repeat(1, 1fr);
     column-gap: 10px;
-
-    // &--3 {
-    //   grid-template-columns: repeat(6, 1fr);
-    // }
-
-    // &--form {
-    //   grid-template-rows: repeat(3, 220px);
-    // }
-
   }
   @include onDesktop {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
     column-gap: 24px;
-
   }
 
   @include onLargeDesktop {
@@ -32,6 +22,40 @@
     grid-template-rows: 1fr;
     column-gap: 24px;
 
+  }
+
+  &--services {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 20px;
+    grid-template-rows: 1fr;
+
+    justify-items: center;
+    justify-content: center;
+
+    @include onMobile() {
+      display: block;
+    }
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 10px;
+      grid-template-rows: repeat(7, 1fr);
+      row-gap: 10px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+      grid-template-rows: repeat(5, 1fr);
+      row-gap: 10px;
+    }
+
+    @include onLargeDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+      grid-template-rows: repeat(5, 1fr);
+      row-gap: 10px;
+    }
   }
 
   &--desktop {
@@ -63,11 +87,30 @@
       }
     }
 
+    @for $start from 1 through 5 {
+      @for $end from 1 through 5 {
+        &--row--#{$start}-#{$end } {
+          grid-row: #{$start} / #{$end +1};
+        }
+      }
+    }
+
     @for $start from 1 through 6 {
       @for $end from 1 through 6 {
         &--tablet--#{$start}-#{$end } {
           @include onTablet {
             grid-column: #{$start} / #{$end +1};
+          }
+
+        }
+      }
+    }
+
+    @for $start from 1 through 7 {
+      @for $end from 1 through 7 {
+        &--row--tablet--#{$start}-#{$end } {
+          @include onTablet {
+            grid-row: #{$start} / #{$end +1};
           }
 
         }
