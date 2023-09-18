@@ -1,0 +1,69 @@
+.nav {
+  padding-top: 21px;
+  @include contentPaddingInline;
+
+  // @include onDesctop {
+  //   max-width: 918px;
+  //   // margin: 0 auto;
+  //   // display: flex;
+  //   // justify-content: center;
+  // }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include forUppercaseText;
+  }
+
+  &__icon--logo {
+    height: 45px;
+    width: 45px;
+    background:
+      url(../images/logo/dia-logo.svg) center / 45px no-repeat;
+  }
+
+  &__icon--menu {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background:
+      url(../images/menu.svg) center / 18px no-repeat;
+
+      @include onDesctop {
+        display: none;
+      }
+    }
+
+  &__list__full {
+    display: none;
+
+    @include onDesctop {
+      display: flex;
+    }
+  }
+
+  &__list__full :not(:last-child) {
+    padding-right: 48px;
+  }
+
+  &__item__link {
+    color: $background-c-white;
+    position: relative;
+
+    &:hover::after {
+      @include forHoveredFocusedLinks;
+    }
+
+    &:focus::after {
+      @include forHoveredFocusedLinks;
+    }
+  }
+}

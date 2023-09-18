@@ -4,3 +4,73 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onMobile {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onMediumDisplay {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onDesctop {
+    padding-inline: 54px;
+  }
+}
+
+@mixin forSiteHeaders {
+  color: $text-c-dark-grey;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+@mixin forUppercaseText {
+  font-family: "Poppins", sans-serif;
+  color: $text-c-for-title;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 19px;
+}
+
+@mixin forSiteTexts {
+  color: $text-c-dark-grey;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+@mixin forHoveredFocusedLinks {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  bottom: - 8px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: $c-default-blue;
+}
