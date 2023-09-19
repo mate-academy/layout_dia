@@ -2,12 +2,22 @@
   background-color: #2c2c2c;
   position: relative;
 
-  &__container {
-    @include contentPaddingInLine;
+  @include onDesktop {
+    @include pageGrid;
+    border-bottom-left-radius: 30px;
   }
 
   &__info {
     @include pageGrid;
+    @include contentPaddingInLine;
+
+    grid-column: 1 / 7;
+
+    @include onDesktop {
+      padding-inline: 0;
+      display: block;
+      padding-left: 54px;
+    }
   }
 
   &__title {
@@ -27,6 +37,12 @@
       line-height: 68px;
       margin-bottom: 24px;
     }
+
+    @include onDesktop {
+      margin-top: 120px;
+      margin-bottom: 32px;
+      width: 490px;
+    }
   }
 
   &__text {
@@ -42,6 +58,12 @@
 
     @include onTablet {
       grid-column: 1/5;
+      margin-bottom: 56px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 83px;
+      width: 362px;
     }
   }
 
@@ -65,6 +87,10 @@
     @include onTablet {
       grid-column: 1 / 4;
     }
+
+    @include onDesktop {
+      width: 264px;
+    }
   }
 
   &__slider {
@@ -78,6 +104,7 @@
 
     &__container {
       background: linear-gradient(#2c2c2c, #f2f6fa);
+      grid-column: 7 / -1;
     }
 
     @include onTablet {
@@ -86,11 +113,12 @@
       border-radius: 30px;
     }
 
-    &__image {
-      display: block;
-      width: 100%;
-      height: 390px;
-      background-color: linear-gradient(#2c2c2c, #f2f6fa);
+    @include onDesktop {
+      background-position: center;
+      height: 680px;
+      border-radius: 0;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
     }
 
     &__description {
@@ -102,6 +130,16 @@
 
       @include onTablet {
         padding-inline: 41px;
+        top: 290px;
+      }
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+        padding-inline: 0;
+        gap: 0;
+        top: 564px;
+        left: 182px;
       }
     }
 
@@ -140,6 +178,13 @@
     gap: 16px;
     @include onTablet {
       padding-inline: 41px;
+      top: 242px;
+    }
+
+    @include onDesktop {
+      top: 582px;
+      padding-inline: 0;
+      padding-left: 78px;
     }
   }
 
