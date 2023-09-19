@@ -24,7 +24,7 @@
     }
 
     @include onSmalldesktop {
-      padding-bottom: 56px;
+      padding-bottom: 0;
     }
   }
 
@@ -39,18 +39,21 @@
     background-color: $colortext;
     border-radius: 16px;
 
-    @include hover(transform, scale(1.2));
+    @include hover(scale, 1.05);
 
     @include onTablet {
-      max-width: 264px;
+      min-width: 264px;
+      min-height: 264px;
     }
 
     @include onSmalldesktop {
-      max-width: 214px;
+      min-width: 214px;
+      min-height: 264px;
     }
 
     @include onDesktop {
-      max-width: 214px;
+      min-width: 264px;
+      min-height: 264px;
     }
 
     &:last-child {
@@ -85,23 +88,60 @@
 
     &--trans {
       @include onTablet {
-        transform: translateY(-50%);
+        transform: translateY(-40%);
       }
     }
   }
 
   &__box-num {
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #f2f6fa;
+    border-radius: 23px;
+    font-size: 13px;
+    color: $colorbutton;
+    @extend %font_Poppins600;
+  }
+
+  &__box-text {
+    font-size: 13px;
+    margin-bottom: 32px;
+    color: $maintext;
+  }
+
+  &__box-arrow {
     display: flex;
     gap: 16px;
     text-decoration: none;
     align-items: center;
   }
 
-  &__box-text {
-    margin-bottom: 32px;
+  &__arrow {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $colorbutton;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-    color: $maintext;
-    @extend %font_Open-Sans600;
-    line-height: 150%;
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    background-image: url(../images/main-element/arrow_forward.svg);
+  }
+
+  &__learn-more {
+    @extend %font_Poppins600;
   }
 }
