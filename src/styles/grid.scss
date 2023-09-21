@@ -34,6 +34,7 @@
     }
 
     @include onLargeDesktop {
+      display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: 1fr;
       column-gap: 24px;
@@ -91,13 +92,17 @@
   &__item {
     @for $start from 1 through 12 {
       @for $end from 1 through 12 {
-        &--#{$start}-#{$end } {
-          grid-column: #{$start} / #{$end +1};
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end+1};
         }
 
-        &--desktop--#{$start}-#{$end } {
+        &--desktop--#{$start}-#{$end} {
           @include onDesktop {
-            grid-column: #{$start} / #{$end +1};
+            grid-column: #{$start} / #{$end+1};
+          }
+
+          @include onLargeDesktop() {
+            grid-column: #{$start} / #{$end+1};
           }
 
         }
@@ -106,17 +111,17 @@
 
     @for $start from 1 through 5 {
       @for $end from 1 through 5 {
-        &--row--#{$start}-#{$end } {
-          grid-row: #{$start} / #{$end +1};
+        &--row--#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end+1};
         }
       }
     }
 
     @for $start from 1 through 6 {
       @for $end from 1 through 6 {
-        &--tablet--#{$start}-#{$end } {
+        &--tablet--#{$start}-#{$end} {
           @include onTablet {
-            grid-column: #{$start} / #{$end +1};
+            grid-column: #{$start} / #{$end+1};
           }
 
         }
@@ -125,9 +130,9 @@
 
     @for $start from 1 through 7 {
       @for $end from 1 through 7 {
-        &--row--tablet--#{$start}-#{$end } {
+        &--row--tablet--#{$start}-#{$end} {
           @include onTablet {
-            grid-row: #{$start} / #{$end +1};
+            grid-row: #{$start} / #{$end+1};
           }
 
         }
