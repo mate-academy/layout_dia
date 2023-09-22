@@ -463,24 +463,26 @@
     <script
       type="text/javascript"
       src="scripts/main.js"
-      defer
     ></script>
-    <script defer>
+    <script>
       let currentSlide = 0;
-      const slides = document.querySelectorAll(".slider__image");
+      const slides = document.querySelectorAll('.slider__image');
+      const totalSlides = slides.length;
 
-      function showSlide(n) {
-        if (n < 0) {
-          currentSlide = slides.length - 1;
-        } else if (n >= slides.length) {
+      function showSlide(slideIndex) {
+        if (slideIndex < 0) {
+          currentSlide = totalSlides - 1;
+        } else if (slideIndex >= totalSlides) {
           currentSlide = 0;
         }
 
-        for (let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-
-        slides[currentSlide].style.display = "block";
+        slides.forEach((slide, index) => {
+          if (index === currentSlide) {
+            slide.style.display = 'block';
+          } else {
+            slide.style.display = 'none';
+          }
+        });
       }
 
       function nextSlide() {
