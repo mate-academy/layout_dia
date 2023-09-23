@@ -1,0 +1,76 @@
+.bottom-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @include onTablet {
+    gap: 24px;
+    grid-column: 1 / -1;
+  }
+
+  @include onSmallDesktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 120px;
+  }
+
+  &__air-icon {
+    width: 46px;
+    height: 28px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include onSmallDesktop {
+      justify-content: right;
+      gap: 64px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $colorWhite;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 2px;
+      border-radius: 4px;
+      background: $colorBlue;
+      width: 100%;
+      bottom: -8px;
+      left: 0;
+
+      scale: 0;
+      transform-origin: left;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      color: $colorBlue;
+
+      &::after {
+        scale: 1;
+      }
+    }
+  }
+}

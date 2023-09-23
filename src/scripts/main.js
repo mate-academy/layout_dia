@@ -1,1 +1,13 @@
 'use strict';
+
+const slider = document.querySelector('.slider');
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#aside-menu') {
+    document.body.classList.add('body__with-aside-menu');
+    slider.style.display = 'none';
+  } else {
+    document.body.classList.remove('body__with-aside-menu');
+    slider.style.display = 'block';
+  }
+});

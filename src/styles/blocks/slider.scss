@@ -1,0 +1,145 @@
+.slider {
+  position: relative;
+  height: 390px;
+  margin-top: 48px;
+
+  grid-column: 1 / -1;
+  transition: all 0.3s;
+
+  @include onTablet {
+    margin-top: 147px;
+  }
+
+  @include onSmallDesktop {
+    margin-top: 38px;
+    height: 680px;
+    grid-column: 7 / -1;
+  }
+
+  @include onDesign {
+    margin-top: 38px;
+    height: 680px;
+    grid-column: 8 / -1;
+  }
+
+  &__container {
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    bottom: 24px;
+    left: 0;
+
+    @include onTablet {
+      left: 0;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+      left: 78px;
+      bottom: 66px;
+    }
+
+    @include onDesign {
+      left: 48px;
+      bottom: 66px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorWhite;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__arrow {
+    height: 18px;
+    width: 18px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__intro {
+    color: $colorWhite;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-top: 8px;
+    color: $colorWhite;
+    font-family: $OpenSans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  &__photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 390px;
+    background-size: cover;
+    background-position: center;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 30px;
+    transition: opacity 1s;
+
+    @include onTablet {
+      margin-left: -41px;
+      margin-right: -41px;
+    }
+
+    @include onSmallDesktop {
+      height: 680px;
+      margin-left: 0;
+      margin-right: calc((100vw - 942px) / -2);
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    @include onDesign {
+      margin-right: calc((100vw - 1146px) / -2);
+    }
+
+    @include onLargeScreens {
+      margin-right: -707px;
+    }
+
+    &-1 {
+      background-image: url(../../images/slider/slide-1.png);
+    }
+
+    &-2 {
+      background-image: url(../../images/slider/slide-2.jpg);
+    }
+
+    &-3 {
+      background-image: url(../../images/slider/slide-3.jpg);
+    }
+
+    &-4 {
+      background-image: url(../../images/slider/slide-4.jpg);
+    }
+  }
+}
