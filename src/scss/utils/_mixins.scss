@@ -1,0 +1,116 @@
+// ------------------------ flex ------------------------
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-col-v-center {
+  @include flex-column;
+  align-items: center;
+}
+
+@mixin flex-col-h-center {
+  @include flex-column;
+  justify-content: center;
+}
+
+@mixin flex-sb-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-sb-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+@mixin flex-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ------------------------ grid ------------------------
+
+@mixin page-grid {
+  --columns: 2;
+  display: grid;
+  column-gap: var(--grid-gap);
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include media-tablet {
+    --columns: 6;
+  }
+
+  @include media-desktop-sm {
+    --columns: 12;
+  }
+}
+
+@mixin grid($col, $gap, $width: 1fr) {
+  display: grid;
+  column-gap: #{$gap};
+  grid-template-columns: repeat(#{$col}, #{$width});
+}
+
+// ------------------------ hover ------------------------
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ------------------------ size ------------------------
+
+@mixin size($width: "auto", $height: $width) {
+  @if $width == "auto" {
+    width: $width;
+    height: $height;
+  }
+  @else {
+    width: #{$width}px;
+    height: #{$height}px;
+  }
+}
+
+// ------------------------ font ------------------------
+
+@mixin font-face($font-name, $file-name, $weight, $style: normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url("../fonts/#{$font-name}-#{$file-name}.woff2") format("woff2");
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+// ------------------------ media ------------------------
+
+@mixin media-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin media-desktop-sm {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin media-desktop-md {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
