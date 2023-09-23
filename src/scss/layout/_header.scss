@@ -1,0 +1,133 @@
+.header {
+  position: sticky;
+  top: 0;
+  padding: 20px 0;
+  background-color: $clr-bg-second;
+  z-index: 10;
+
+  @include media-desktop-sm {
+    padding: 48px 0 44px;
+  }
+
+  &__container {
+    @include flex-sb;
+  }
+
+  &__logo {
+    @include size(46, 28);
+    margin-right: 32px;
+
+    @include media-desktop-sm {
+      margin-right: 32px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__menu-open {
+    margin-right: auto;
+    align-self: flex-end;
+    @include size(24);
+
+    @include media-desktop-sm {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-bg-second;
+    transition: left $transition-duration;
+    overflow: auto;
+    padding-top: 90px;
+    z-index: 1;
+
+    @include media-desktop-sm {
+      position: initial;
+      @include size(auto);
+      background-color: transparent;
+      padding: 0;
+    }
+
+    &--active {
+      left: 0;
+    }
+  }
+
+  &__menu-list {
+    @include flex-col-v-center;
+    gap: 49px;
+    height: 100%;
+
+    @include media-desktop-sm {
+      flex-direction: row;
+    }
+  }
+
+  &__menu-link {
+    color: $clr-white;
+    font-family: $ff-second;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color $transition-duration;
+
+    @include hover {
+      color: $clr-accent;
+    }
+  }
+
+  &__menu-close {
+    position: absolute;
+    top: 18px;
+    @include size(24);
+    right: var(--container-offset);
+
+    @include media-desktop-sm {
+      display: none;
+    }
+  }
+
+  &__hire-us {
+    color: $clr-white;
+    font-family: $ff-second;
+    position: relative;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    align-self: flex-start;
+
+    @include media-desktop-sm {
+      align-self: flex-end;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $clr-accent;
+      z-index: -1;
+      transition: height $transition-duration;
+    }
+
+    @include hover {
+      &::after {
+        height: 100%;
+      }
+    }
+  }
+}
