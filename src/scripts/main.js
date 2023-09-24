@@ -9,12 +9,15 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-// const pageReload = document.querySelector('#form-reload');
+document.addEventListener('DOMContentLoaded', function() {
+  const pageReload = document.querySelector('#form-reload');
 
-// pageReload.addEventListener('submit', function formReload(event) {
-//   event.preventDefault();
-//   pageReload.reset();
-// });
+  pageReload.addEventListener('submit', function formReload(event) {
+    event.preventDefault();
+    pageReload.reset();
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const sliderImages = document.querySelectorAll('.slider__img');
 
