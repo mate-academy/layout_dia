@@ -1,0 +1,151 @@
+.services {
+  @include inlainer;
+
+  @include onTablet {
+    @include grid;
+  }
+
+  &__product {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmalldesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__text {
+    padding-bottom: 48px;
+    text-align: left;
+
+    @include onTablet {
+      padding-bottom: 56px;
+    }
+
+    @include onSmalldesktop {
+      padding-bottom: 0;
+    }
+  }
+
+  &__box {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-block: 32px;
+    padding-inline: 32px;
+    box-sizing: border-box;
+    max-width: 280px;
+
+    background-color: $colortext;
+    border-radius: 16px;
+
+    @include hover(scale, 1.05);
+
+    @include onTablet {
+      min-width: 264px;
+      min-height: 264px;
+    }
+
+    @include onSmalldesktop {
+      min-width: 214px;
+      min-height: 264px;
+    }
+
+    @include onDesktop {
+      min-width: 264px;
+      min-height: 264px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      @include onTablet {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--one,
+    &--three {
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+
+      @include onSmalldesktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    &--two,
+    &--four {
+      @include onTablet {
+        grid-column: 4 / -1;
+      }
+
+      @include onSmalldesktop {
+        grid-column: 10 / -1;
+      }
+    }
+
+    &--trans {
+      @include onTablet {
+        transform: translateY(-40%);
+      }
+    }
+  }
+
+  &__box-num {
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #f2f6fa;
+    border-radius: 23px;
+    font-size: 13px;
+    color: $colorbutton;
+    @extend %font_Poppins600;
+  }
+
+  &__box-text {
+    font-size: 13px;
+    margin-bottom: 32px;
+    color: $maintext;
+  }
+
+  &__box-arrow {
+    display: flex;
+    gap: 16px;
+    text-decoration: none;
+    align-items: center;
+  }
+
+  &__arrow {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $colorbutton;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    background-image: url(../images/main-element/arrow_forward.svg);
+  }
+
+  &__learn-more {
+    @extend %font_Poppins600;
+
+    &:hover {
+      color: $maintext;
+    }
+  }
+}

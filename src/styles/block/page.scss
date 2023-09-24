@@ -1,0 +1,39 @@
+.page {
+  @extend %font_Open-Sans600;
+  font-size: 14px;
+  line-height: 150%;
+  color: $maintitletext;
+  scroll-behavior: smooth;
+  background-color: #f2f6fa;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__menu {
+    @include inlainer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all (0.5s);
+    transform: translateX(-100%);
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0%);
+      pointer-events: all;
+    }
+  }
+}

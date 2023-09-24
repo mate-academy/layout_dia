@@ -4,8 +4,8 @@ Implement landing page according to [Figma design](https://www.figma.com/file/7q
 Adapt the page to the following screens:
 - Large screens 2560px
 - The design 1600px
-- Desktop 1280px
-- Small desktop 1024px
+- Deskmenu 1280px
+- Small deskmenu 1024px
 - Tablet 640px
 - Mobile (> 320px)
 
@@ -36,7 +36,7 @@ Adapt the page to the following screens:
 7. Make sure everything looks neat on mobile and without horizontal scrolling
 8. Add favicon
 9. Add a smooth scroll for the whole page
-10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
+10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the menu of the page or the page is reloaded
 11. The form shouldn’t submit empty
 12. The "Learn more" button should lead to the closest block (Our expertise)
 13. The "Hire Us" button in the header menu should lead to the contact form
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://SavaSenpai.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
