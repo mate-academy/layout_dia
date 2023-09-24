@@ -1,0 +1,102 @@
+.services {
+  padding: 120px 0;
+
+  @include onTablet {
+    padding: 148px 0;
+  }
+
+  @include onDesktopS {
+    padding-top: 251px;
+    padding-bottom: 151px;
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__main {
+    grid-column: 1 / 4;
+
+    @include onDesktopS {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__name {
+    margin-bottom: 16px;
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__text {
+    display: block;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $c-text;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+
+      --columns: 6;
+      display: grid;
+      column-gap: 30px;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      row-gap: 30px;
+    }
+
+    @include onDesktopS {
+      grid-column: 7 / -1;
+      column-gap: 20px;
+      row-gap: 20px;
+    }
+
+    @include onDesktopM {
+      column-gap: 30px;
+      row-gap: 30px;
+    }
+  }
+
+  &__card {
+    width: 280px;
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      grid-column: span 3;
+    }
+
+    &--up {
+      @include onTablet {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
