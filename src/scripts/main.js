@@ -29,7 +29,6 @@ form.addEventListener('submit', (e) => {
   }
 
   form.reset();
-  window.scrollTo(0, 0);
 });
 
 const prevButton = document.querySelector('.slider__button--left');
