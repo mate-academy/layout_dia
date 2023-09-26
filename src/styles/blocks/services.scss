@@ -1,0 +1,123 @@
+.services {
+  padding-top: 120px;
+
+  @include onDesktop {
+    padding-top: 230px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    max-width: 100%;
+
+    @include onIpad {
+      max-width: 45%;
+    }
+
+    @include onDesktop {
+      max-width: 35%;
+    }
+  }
+
+  &__cards {
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onIpad {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include onDesktop {
+      max-width: 50%;
+    }
+
+  }
+
+  &__card {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+    @include onIpad {
+      flex: 40%;
+    }
+
+    &--transform {
+
+      @include onIpad {
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__number {
+    box-sizing: border-box;
+    width: max-content;
+    height: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: $blue-on-light;
+    background-color: #dee6f7;
+    padding: 2px 12px;
+    border-radius: 23px;
+  }
+
+  &__text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: #6c788b;
+    padding-top: 24px;
+  }
+
+  &__more-link {
+    font-weight: 600;
+    font-size: 15px;
+    color: #334563;
+    text-decoration: none;
+  }
+
+  &__more {
+    position: relative;
+    line-height: 40px;
+    padding-left: 60px;
+    padding-top: 40px;
+
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 40px;
+      height: 40px;
+      background-color: #2060f6;
+      left: 0;
+      border-radius: 50%;
+      background-image: url("/images/arrow.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.3s;
+    }
+
+    &:hover::before {
+      transform: scale(125%);
+    }
+  }
+}
