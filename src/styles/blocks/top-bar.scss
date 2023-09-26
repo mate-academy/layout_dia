@@ -1,0 +1,75 @@
+.top-bar {
+  grid-column: span 2;
+  padding-block: 18px;
+
+  box-sizing: border-box;
+  background-color: $color-bg-header;
+
+  @include grid-columns;
+
+  &__left {
+    display: flex;
+    align-self: center;
+  }
+
+  &__logo {
+    margin-right: 32px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    transition: $transition-duration;
+
+    &--menu {
+      background-image: url(../images/icons/icon-burger-menu.svg);
+
+      &:hover {
+        background-image: url(../images/icons/icon-burger-menu-hover.svg);
+      }
+    }
+
+    &--close {
+      background-image: url(../images/icons/icon-close.svg);
+    }
+  }
+
+  &__right {
+    justify-self: end;
+  }
+
+  &__link {
+    color: $color-bg-secondary;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 97%;
+      background-color: $color-bg-btn;
+      border-radius: 4px;
+      margin-top: 8px;
+
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform $transition-duration;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
