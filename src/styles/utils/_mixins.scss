@@ -1,6 +1,69 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: $tabletMinWidth) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $smallDesktopMinWidth) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $designMinWidth) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $largeScreensMinWidth) {
+    @content;
+  }
+}
+
+@mixin grid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    column-gap: 30px;
+    --columns: 6;
+  }
+  @include onSmallDesktop {
+    column-gap: 20px;
+    --columns: 12;
+  }
+  @include onDesign {
+    column-gap: 30px;
+  }
+}
+
+@mixin paddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: calc((100vw - 942px) / 2);
+  }
+
+  @include onDesign {
+    padding-inline: calc((100vw - 1146px) / 2);
+  }
+
+  @include onLargeScreens {
+    padding-inline: 707px;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
   }
 }

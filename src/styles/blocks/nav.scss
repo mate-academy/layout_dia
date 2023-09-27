@@ -1,0 +1,69 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  &__logo-container {
+    display: flex;
+    gap: 32px;
+    align-items: baseline;
+  }
+
+  &__link {
+    position: relative;
+    color: $colorWhite;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 2px;
+      border-radius: 4px;
+      background: $colorBlue;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+
+      scale: 0;
+      transform-origin: left;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      color: $colorBlue;
+
+      &::after {
+        scale: 1;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onSmallDesktop {
+      display: flex;
+      gap: 48px;
+    }
+  }
+
+  &__air-icon {
+    display: block;
+  }
+
+  &__menu-icon {
+    display: block;
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+}
