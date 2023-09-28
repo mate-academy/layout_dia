@@ -4,6 +4,10 @@
   grid-column: span 2;
   justify-items: center;
 
+  @include onTablet {
+    grid-column: 2/-2;
+  }
+
   &__img {
     height: 166px;
     width: 166px;
@@ -59,7 +63,7 @@
     border-radius: 23px;
     margin-bottom: 24px;
 
-    color: #2060F6;
+    color: $color-bg-btn;
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
@@ -99,24 +103,47 @@
 
   &--process {
     background-color: $color-bg-secondary;
-    box-shadow: 0px 9px 18px 0px rgba(37, 41, 49, 0.03);
+    box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
     border-radius: 16px;
     padding: 32px;
     box-sizing: border-box;
     margin-bottom: 24px;
+    width: 100%;
 
     display: grid;
     justify-content: start;
     justify-items: start;
+
+    @include onTablet {
+      &:nth-child(even) {
+        grid-column: 1/4;
+      }
+
+      &:nth-child(odd) {
+        grid-column: -1/-4;
+        transform: translateY(-132px);
+      }
+
+      &:nth-last-child(-n + 2) {
+        margin: 0;
+      }
+    }
   }
 
   &--testimonials {
     $header-size: 190px;
+
     border-radius: 16px;
     background-color: $color-bg-secondary;
     padding: 35px 45px;
     box-sizing: border-box;
     margin-bottom: 24px;
+
+    @include onTablet {
+      grid-column: span 6;
+      $header-size: 250px;
+      margin-bottom: 30px;
+    }
 
     &__header {
       display: grid;
@@ -130,20 +157,20 @@
     }
 
     &__rect {
-      width: 110px;
-      height: 40px;
+      width: $header-size / 1.72;
+      height: $header-size / 4.75;
       transform: rotate(-60deg);
       background-color: $color-bg-btn;
       border-radius: 12px;
       position: absolute;
 
       &--left {
-        top: $header-size - 150px;
+        top: $header-size / 4.75;
         left: 0;
       }
 
       &--right {
-        bottom: $header-size - 150px;
+        bottom: $header-size / 4.75;
         right: 0;
       }
     }
@@ -151,8 +178,8 @@
     &__photo {
       position: absolute;
       z-index: 1;
-      width: 110px;
-      height: 110px;
+      width: $header-size / 1.72;
+      height: $header-size / 1.72;
       border-radius: 50%;
       background-image: url(../images/testimonials/testimonial-ava-1.jpg);
       background-position: center;
@@ -177,6 +204,10 @@
       height: 24px;
       background-image: url(../images/testimonials/quats.png);
       margin-bottom: 8px;
+
+      @include onTablet {
+        margin-bottom: 16px;
+      }
     }
 
     &__text {

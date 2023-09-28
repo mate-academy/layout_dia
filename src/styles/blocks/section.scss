@@ -6,6 +6,14 @@
 
   &__article {
     margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 72px;
+
+      &:last-child {
+        margin-bottom: 128px;
+      }
+    }
   }
 
   &__title {
@@ -18,11 +26,19 @@
 
     &--expertise,
     &--vision {
-      font-size: 42px;
-      padding-top: 72px;
+      font-size: 44px;
       box-sizing: border-box;
-      margin-bottom: 56px;
+      margin: 42px 0 56px;
       text-align: center;
+
+      @include onTablet {
+        margin: 128px 0 64px;
+        font-size: 52px;
+      }
+    }
+
+    &--testimonials {
+      margin-bottom: 48px;
     }
 
     &--vision {
@@ -33,9 +49,25 @@
       color: $color-bg-secondary;
       line-height: 130%;
     }
+
+    @include onTablet {
+      grid-column: span 6;
+
+      &--services {
+        grid-column: 1/4;
+      }
+
+      &--testimonials {
+        grid-column: 1/4;
+        justify-self: flex-start;
+        margin-bottom: 56px;
+      }
+    }
   }
 
   &__subtitle {
+    grid-column: span 2;
+    justify-self: flex-start;
     color: $color-subtitle;
     font-size: 13px;
     font-weight: 700;
@@ -52,10 +84,19 @@
     font-weight: 600;
     line-height: 150%;
 
+    @include onTablet {
+      grid-column: span 6;
+      font-size: 24px;
+    }
+
     &--process {
       font-size: 14px;
       font-weight: 400;
       margin-bottom: 48px;
+
+      @include onTablet {
+        grid-column: 1/4;
+      }
     }
 
     &--vision {
