@@ -115,11 +115,13 @@
     justify-items: start;
 
     @include onTablet {
-      &:nth-child(even) {
+      &-1,
+      &-3 {
         grid-column: 1/4;
       }
 
-      &:nth-child(odd) {
+      &-2,
+      &-4 {
         grid-column: -1/-4;
         transform: translateY(-132px);
       }
@@ -128,10 +130,33 @@
         margin: 0;
       }
     }
+
+
+      @include onDesktop-sm {
+        &-1 {
+          grid-row: 2;
+          grid-column: 7/10;
+        }
+
+        &-2 {
+          grid-row: 2;
+          grid-column: -1/-4;
+        }
+
+       &-3 {
+        grid-row: 3;
+        grid-column: 7/10;
+       }
+
+       &-4 {
+        grid-row: 3;
+        grid-column: -1/-4;
+       }
+    }
   }
 
   &--testimonials {
-    $header-size: 190px;
+    --header-size: 190px;
 
     border-radius: 16px;
     background-color: $color-bg-secondary;
@@ -140,9 +165,28 @@
     margin-bottom: 24px;
 
     @include onTablet {
+      --header-size: 250px;
+
+      width: 100%;
       grid-column: span 6;
-      $header-size: 250px;
-      margin-bottom: 30px;
+      margin-bottom: 31px;
+    }
+
+    @include onDesktop-sm {
+      grid-row: 3;
+      --header-size: 190px;
+
+      &-1 {
+        grid-column: 1/5;
+      }
+
+      &-2 {
+        grid-column: 5/9;
+      }
+
+      &-3 {
+        grid-column: -1/-5;
+      }
     }
 
     &__header {
@@ -151,26 +195,26 @@
       justify-items: center;
       margin-bottom: 28px;
 
-      width: $header-size;
-      height: $header-size;
+      width: var(--header-size);
+      height: var(--header-size);
       position: relative;
     }
 
     &__rect {
-      width: $header-size / 1.72;
-      height: $header-size / 4.75;
+      width: calc(var(--header-size) / 1.72);
+      height: calc(var(--header-size) / 4.75);
       transform: rotate(-60deg);
       background-color: $color-bg-btn;
       border-radius: 12px;
       position: absolute;
 
       &--left {
-        top: $header-size / 4.75;
+        top: calc(var(--header-size) / 4.75);
         left: 0;
       }
 
       &--right {
-        bottom: $header-size / 4.75;
+        bottom: calc(var(--header-size) / 4.75);
         right: 0;
       }
     }
@@ -178,8 +222,8 @@
     &__photo {
       position: absolute;
       z-index: 1;
-      width: $header-size / 1.72;
-      height: $header-size / 1.72;
+      width: calc(var(--header-size) / 1.72);
+      height: calc(var(--header-size) / 1.72);
       border-radius: 50%;
       background-image: url(../images/testimonials/testimonial-ava-1.jpg);
       background-position: center;

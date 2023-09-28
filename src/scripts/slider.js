@@ -4,25 +4,23 @@ const sliderBtnLeft = document.querySelector('.slider__arrow--left');
 const sliderBtnRight = document.querySelector('.slider__arrow--right');
 const sliderImagesBox = document.querySelector('.slider__images');
 let clientWidth = document.documentElement.clientWidth;
+let slideCounter = 0;
 
-clientWidth = document.documentElement.clientWidth;
-sliderImagesBox.style.width = clientWidth + 'px';
+computeSliderWidth();
 
 sliderImagesBox.style
   .gridTemplateColumns = `repeat(3, minmax(${clientWidth}px, 1fr))`;
 
+sliderBtnLeft.addEventListener('click', slide);
+sliderBtnRight.addEventListener('click', slide);
+
 window.addEventListener('resize', () => {
   clientWidth = document.documentElement.clientWidth;
-  sliderImagesBox.style.width = clientWidth + 'px';
+  computeSliderWidth();
 
   sliderImagesBox.style
     .gridTemplateColumns = `repeat(3, minmax(${clientWidth}px, 1fr))`;
 });
-
-let slideCounter = 0;
-
-sliderBtnLeft.addEventListener('click', slide);
-sliderBtnRight.addEventListener('click', slide);
 
 function slide(event) {
   const direction = event.target.classList.contains('slider__arrow--left');
@@ -50,5 +48,16 @@ function slide(event) {
       sliderImagesBox.style
         .transform = `translateX(${clientWidth * slideCounter}px)`;
       break;
+  }
+}
+
+function computeSliderWidth() {
+  switch (true) {
+    case (clientWidth >= 1024):
+      sliderImagesBox.style.width = clientWidth / 2 + 'px';
+      break;
+
+    default:
+      sliderImagesBox.style.width = clientWidth + 'px';
   }
 }

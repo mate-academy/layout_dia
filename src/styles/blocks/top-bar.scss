@@ -9,11 +9,20 @@
     grid-column: span 6;
   }
 
+  @include onDesktop-sm {
+    grid-column: span 12;
+  }
+
   @include grid-columns;
 
   &__left {
     display: flex;
     align-self: center;
+    justify-content: space-between;
+
+    @include onDesktop-sm {
+      grid-column: 1/-2;
+    }
   }
 
   &__logo {
@@ -29,6 +38,10 @@
     background-size: cover;
     cursor: pointer;
     transition: $transition-duration;
+
+    @include onDesktop-sm {
+      display: none;
+    }
 
     &--menu {
       background-image: url(../images/icons/icon-burger-menu.svg);
@@ -55,6 +68,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
+    display: block;
 
     &::after {
       content: "";
