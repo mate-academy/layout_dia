@@ -53,6 +53,10 @@ function slide(event) {
 
 function computeSliderWidth() {
   switch (true) {
+    case (clientWidth >= 1600):
+      sliderImagesBox.style.width = '687px';
+      break;
+
     case (clientWidth >= 1024):
       sliderImagesBox.style.width = clientWidth / 2 + 'px';
       break;
