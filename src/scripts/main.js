@@ -1,4 +1,5 @@
 'use strict';
+
 // Получаем элементы слайдера
 const slider = document.querySelector('.slider__inner');
 const prevButton = document.querySelector('.slider__prev-btn');
