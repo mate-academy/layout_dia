@@ -4,3 +4,79 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onBiggestDesk {
+    padding-inline: 227px;
+  }
+
+  @include onLargestScreen {
+    padding-inline: 707px;
+  }
+}
+
+@mixin paddingTop() {
+  padding-top: 72px;
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onBigDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onBiggestDesk {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 1641px) {
+    @content;
+  }
+}
+
+@mixin onLargestScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+  }
+}
