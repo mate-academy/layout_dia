@@ -7,18 +7,19 @@
 // #region burger
 let headerNav = document.querySelector('.header__nav');
 let burgerIcon = document.querySelector('.header__burger-icon');
-let body = document.querySelector('body');
+let body = document.querySelector('.body');
 
 burgerIcon.addEventListener('click', function() {
   this.classList.toggle('active');
   headerNav.classList.toggle('open');
-  body.classList.toggle('open');
+  body.classList.add('open');
 });
 
 document.querySelectorAll('.header__nav a.nav__link').forEach(function(link) {
   link.addEventListener('click', function() {
     headerNav.classList.remove('open');
     burgerIcon.classList.remove('active');
+    body.classList.remove('open');
   });
 });
 // #endregion
