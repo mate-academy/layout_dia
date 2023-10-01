@@ -12,7 +12,7 @@ let body = document.querySelector('.body');
 burgerIcon.addEventListener('click', function() {
   this.classList.toggle('active');
   headerNav.classList.toggle('open');
-  body.classList.add('open');
+  body.classList.toggle('open');
 });
 
 document.querySelectorAll('.header__nav a.nav__link').forEach(function(link) {
