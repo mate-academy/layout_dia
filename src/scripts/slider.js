@@ -1,67 +1,91 @@
 'use strict';
 
 const sliderBtnLeft = document.querySelector('.slider__arrow--left');
-const sliderBtnRight = document.querySelector('.slider__arrow--right');
-const sliderImagesBox = document.querySelector('.slider__images');
+// const sliderBtnRight = document.querySelector('.slider__arrow--right');
+const slider = document.querySelector('.slider');
+const sliders = document.querySelectorAll('.slider__img');
+
+sliders.forEach(el => {
+  el.remove();
+});
+
+let step = 0;
+let offset = 0;
+
 let clientWidth = document.documentElement.clientWidth;
-let slideCounter = 0;
+
+sliders.forEach(el => {
+  el.style.minWidth = clientWidth + 'px';
+});
 
 computeSliderWidth();
 
-sliderImagesBox.style
-  .gridTemplateColumns = `repeat(3, minmax(${clientWidth}px, 1fr))`;
-
-sliderBtnLeft.addEventListener('click', slide);
-sliderBtnRight.addEventListener('click', slide);
+sliderBtnLeft.addEventListener('click', left);
+// sliderBtnRight.addEventListener('click', moveSlide);
 
 window.addEventListener('resize', () => {
   clientWidth = document.documentElement.clientWidth;
   computeSliderWidth();
-
-  sliderImagesBox.style
-    .gridTemplateColumns = `repeat(3, minmax(${clientWidth}px, 1fr))`;
 });
-
-function slide(event) {
-  const direction = event.target.classList.contains('slider__arrow--left');
-
-  switch (true) {
-    case direction:
-      slideCounter--;
-
-      if (slideCounter === -3) {
-        slideCounter = 0;
-      }
-
-      sliderImagesBox.style
-        .transform = `translateX(${clientWidth * slideCounter}px)`;
-
-      break;
-
-    default:
-      slideCounter++;
-
-      if (slideCounter === 1) {
-        slideCounter = -2;
-      }
-
-      sliderImagesBox.style
-        .transform = `translateX(${clientWidth * slideCounter}px)`;
-      break;
-  }
-}
 
 function computeSliderWidth() {
   switch (true) {
     case (clientWidth >= 1600):
-      sliderImagesBox.style.width = '687px';
+      slider.style.width = '687px';
       break;
 
     case (clientWidth >= 1024):
-      sliderImagesBox.style.width = clientWidth / 2 + 'px';
+      slider.style.width = clientWidth / 2 + 'px';
       break;
 
     default:
-      sliderImagesBox.style.width = clientWidth + 'px';
+      slider.style.width = clientWidth + 'px';
   }
 }
+
+function createSlide() {
+  const slide = document.createElement('div');
+  const sliderTitle = document.createElement('p');
+  const sliderDescription = document.createElement('p');
+
+  sliderTitle.classList.add('slider__title');
+  sliderDescription.classList.add('slider__description');
+  sliderTitle.textContent = 'Intro';
+
+  sliderDescription.textContent
+    = 'By the same illusion which lifts the horizon.';
+
+  slide.append(sliderTitle);
+  slide.append(sliderDescription);
+  slide.classList.add(`slider__img--${step + 1}`, 'slider__img');
+  slide.style.left = offset * clientWidth + 'px';
+
+  slider.appendChild(slide);
+
+  if (step + 1 === 3) {
+    step = 0;
+  } else {
+    step++;
+  }
+  offset = 1;
+};
+
+function left() {
+  sliderBtnLeft.removeEventListener('click', left);
+
+  const sliders2 = document.querySelectorAll('.slider__img');
+  let offset2 = 0;
+
+  sliders2.forEach(el => {
+    el.style.left = offset2 * clientWidth - clientWidth + 'px';
+    offset2++;
+  });
+
+  setTimeout(() => {
+    sliders2[0].remove();
+    createSlide();
+    sliderBtnLeft.addEventListener('click', left);
+  }, 1000);
+}
+
+createSlide(); createSlide();

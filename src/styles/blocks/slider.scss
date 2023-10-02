@@ -3,38 +3,41 @@
   height: 390px;
   background: linear-gradient($color-bg-header 50%, $color-bg-page 50%);
   overflow: hidden;
+  position: relative;
 
   @include onDesktop-sm {
     height: 680px;
     width: fit-content;
   }
 
-  &__images {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 1fr));
-    height: 100%;
-    transition: transform $transition-duration;
-  }
-
   &__img {
     height: 100%;
-    width: inherit;
+    width: 100%;
     border-radius: 30px;
     padding: 24px 20px;
     box-sizing: border-box;
-    background: url(../images/slider/slide-img-1.png), $gradient;
-    @include backgroundProperty;
-
     display: grid;
     align-content: flex-end;
     row-gap: 8px;
+    position: absolute;
+    top:0;
+    left: 0;
+    transition: left ease 1s;
+
+    &--1 {
+      height: 100%;
+      background: url(../images/slider/slide-img-1.png), $gradient;
+      @include backgroundProperty;
+    }
 
     &--2 {
+      height: 100%;
       background: $gradient, url(../images/slider/slide-img-2.png);
       @include backgroundProperty;
     }
 
     &--3 {
+      height: 100%;
       background: $gradient, url(../images/slider/slide-img-3.png);
       @include backgroundProperty;
     }
@@ -52,6 +55,7 @@
     position: absolute;
     bottom: 108px;
     left: 20px;
+    z-index: 1
   }
 
   &__arrow {
