@@ -4,3 +4,77 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tabletminWidth) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktopMinWidth) {
+    @content;
+  }
+}
+
+@mixin onDesktopL {
+  @media (min-width: $desktopLMinWidth) {
+    @content;
+  }
+}
+
+@mixin onDesktop4K {
+  @media (min-width: $desktop4KMinWidth) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInLine {
+  padding-inline: toRem(20);
+
+  @include onTablet {
+    padding-inline: toRem(41);
+  }
+
+  @include onDesktop {
+    padding-inline: toRem(54);
+  }
+
+  @include onDesktopL {
+    padding-inline: 0;
+  }
+}
+
+@mixin pageGrid {
+  --column-count: 2;
+  --column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  grid-template-rows: 1fr;
+  column-gap: var(--column-gap);
+
+  @include onTablet {
+    --column-count: 6;
+    --column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --column-count: 12;
+    --column-gap: 20px;
+  }
+
+  @include onDesktopL {
+    --column-count: 12;
+    --column-gap: 30px;
+  }
+
+  @include onDesktop4K {
+    --column-count: 12;
+    --column-gap: 30px;
+  }
+}
+
+@function toRem($px, $current: 16) {
+  $result: ($px / $current) + rem;
+  @return $result;
+}

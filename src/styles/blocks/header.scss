@@ -1,0 +1,345 @@
+.header {
+  position: relative;
+  height: toRem(893);
+
+  @include onDesktop {
+    height: toRem(800);
+  }
+
+  &__content {
+    max-width: toRem(1146);
+    height: toRem(800);
+    margin: 0 auto;
+  }
+
+  &__bg-color {
+    position: absolute;
+    background-color: $headerBgColor;
+
+    width: 100%;
+    height: toRem(700);
+
+    z-index: -1;
+
+    @include onDesktop {
+      height: 100%;
+
+      border-radius: 0 0 0 200px;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+
+    @include contentPaddingInLine;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: end;
+
+    gap: toRem(32);
+
+    padding-top: toRem(20);
+
+    @include onDesktop {
+      padding-top: toRem(48);
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    @include hover(transform, scale(1.1));
+  }
+
+  &__menu {
+    @include hover(transform, scale(1.2));
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+
+      padding-top: toRem(52);
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: toRem(48);
+  }
+
+  &__link {
+    position: relative;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: toRem(13);
+    line-height: 150%;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: $whiteColor;
+
+    transition: $transitionTime;
+
+    &:hover {
+      color: $pinkColor;
+    }
+  }
+
+  &__hire-us {
+    padding-top: toRem(18);
+
+    text-align: center;
+
+    @include onDesktop {
+      padding-top: toRem(52);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+
+      width: toRem(67);
+      height: toRem(2);
+
+      background-color: $pinkColor;
+
+      margin-top: toRem(8);
+    }
+
+    &--button {
+      position: relative;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: toRem(13);
+      line-height: 150%;
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: $whiteColor;
+      transition: $transitionTime;
+
+      &:hover {
+        color: $pinkColor;
+      }
+    }
+  }
+
+  &__main {
+    padding-top: toRem(48);
+
+    color: $whiteColor;
+
+    @include contentPaddingInLine;
+
+    @include onTablet {
+      padding-top: toRem(56);
+    }
+
+    @include onDesktop {
+      padding-top: toRem(164);
+    }
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: toRem(52);
+    line-height: 120%;
+    letter-spacing: -2px;
+
+    width: toRem(280);
+
+    @include onTablet {
+      font-size: toRem(64);
+      line-height: 106.25%; /* 68/64 */
+
+      width: toRem(558);
+    }
+
+    @include onDesktop {
+      width: toRem(280);
+    }
+  }
+
+  &__text {
+    font-size: toRem(18);
+    line-height: 150%;
+
+    padding-top: toRem(32);
+
+    @include onTablet {
+      width: toRem(362);
+
+      padding-top: toRem(24);
+    }
+
+    @include onDesktop {
+      padding-top: toRem(32);
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    width: toRem(280);
+    height: toRem(50);
+
+    background-color: $pinkColor;
+    border-radius: toRem(64);
+    cursor: pointer;
+
+    margin-top: toRem(72);
+    transition: $transitionTime;
+
+    &:hover {
+      background-color: $pinkHoverColor;
+    }
+
+    @include onTablet {
+      margin-top: toRem(56);
+    }
+
+    @include onDesktop {
+      margin-top: toRem(83);
+    }
+  }
+
+  &__bottom {
+    margin-top: toRem(48);
+
+    @include onTablet {
+      margin-top: toRem(147);
+    }
+
+    @include onDesktop {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      margin-top: toRem(120);
+    }
+
+    &-content {
+      position: absolute;
+      bottom: toRem(24);
+      left: toRem(20);
+
+      display: flex;
+      flex-direction: column;
+      gap: toRem(16);
+
+      color: $whiteColor;
+
+      z-index: 1;
+
+      @include onTablet {
+        bottom: toRem(32);
+        left: toRem(41);
+      }
+
+      @include onDesktop {
+        flex-direction: row;
+        gap: toRem(24);
+
+        bottom: toRem(48);
+        left: toRem(78);
+      }
+    }
+
+    &-icons {
+      display: flex;
+      gap: toRem(16);
+    }
+
+    &-icons svg {
+      @include hover(transform, scale(1.15));
+    }
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(8);
+    }
+
+    &-title {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: toRem(13);
+      letter-spacing: toRem(3);
+
+      text-transform: uppercase;
+
+      height: toRem(20);
+    }
+
+    &-text {
+      font-size: toRem(14);
+      line-height: 140%;
+
+      width: toRem(280);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    height: toRem(390);
+    overflow: hidden;
+
+    border-radius: 100px 0 0;
+
+    @include onDesktop {
+      width: toRem(502);
+      height: toRem(680);
+
+      border-radius: 200px 0 0;
+    }
+
+    @include onDesktopL {
+      width: toRem(687);
+    }
+
+    @include onDesktop4K {
+      width: toRem(1167);
+    }
+  }
+
+  &__slide {
+    display: flex;
+    width: 100%;
+    transition: $transitionTime;
+
+    &-1 img {
+      transform: scaleX(-100%);
+    }
+  }
+
+  &__slide div {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+  }
+
+  &__slide img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: toRem(390);
+    display: block;
+
+    @include onDesktop {
+      height: toRem(680);
+    }
+  }
+}
