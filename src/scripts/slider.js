@@ -4,10 +4,10 @@ const sliderBtnLeft = document.querySelector('.slider__arrow--left');
 const sliderBtnRight = document.querySelector('.slider__arrow--right');
 const slider = document.querySelector('.slider');
 const sliderBox = document.querySelector('.slider__box');
-// const sliders = document.querySelectorAll('.slider__img');
 let counter = 0;
 let clientWidth;
 const transitionDuration = '0.3s';
+let translatePosition;
 
 sliderBtnLeft.addEventListener('click', moveSlider);
 sliderBtnRight.addEventListener('click', moveSlider);
@@ -22,6 +22,7 @@ function init() {
   counter = 0;
   clientWidth = document.documentElement.clientWidth;
   computeSliderWidth();
+  translatePosition = clientWidth < 1024 ? clientWidth : clientWidth / 2;
   sliderBtnLeft.click();
 }
 
@@ -52,7 +53,7 @@ function moveSlider({ target }) {
 
   document.documentElement.style.pointerEvents = 'none';
   counter = direction[to].changeCounter;
-  sliderBox.style.transform = `translateX(${-counter * clientWidth}px)`;
+  sliderBox.style.transform = `translateX(${-counter * translatePosition}px)`;
 
   sliderBox.addEventListener('transitionend', () => {
     if (counter === direction[to].counterLimit) {
@@ -68,7 +69,7 @@ function moveSlider({ target }) {
 function loop(to) {
   sliderBox.style.transitionDuration = '0s';
   counter = to === 'right' ? 2 : 0;
-  sliderBox.style.transform = `translateX(-${clientWidth * counter}px)`;
+  sliderBox.style.transform = `translateX(-${translatePosition * counter}px)`;
 
   setTimeout(() => {
     sliderBox.style.transition = `transform ${transitionDuration} ease`;
