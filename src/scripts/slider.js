@@ -4,7 +4,7 @@ const sliderBtnLeft = document.querySelector('.slider__arrow--left');
 const sliderBtnRight = document.querySelector('.slider__arrow--right');
 const slider = document.querySelector('.slider');
 const sliderBox = document.querySelector('.slider__box');
-const sliders = document.querySelectorAll('.slider__img');
+// const sliders = document.querySelectorAll('.slider__img');
 let counter = 0;
 let clientWidth;
 const transitionDuration = '0.3s';
@@ -21,20 +21,12 @@ window.addEventListener('resize', () => {
 function init() {
   counter = 0;
   clientWidth = document.documentElement.clientWidth;
-
-  sliders.forEach(el => {
-    el.style.minWidth = clientWidth + 'px';
-  });
   computeSliderWidth();
   sliderBtnLeft.click();
 }
 
 function computeSliderWidth() {
   switch (true) {
-    case (clientWidth >= 1600):
-      slider.style.width = '687px';
-      break;
-
     case (clientWidth >= 1024):
       slider.style.width = clientWidth / 2 + 'px';
       break;
