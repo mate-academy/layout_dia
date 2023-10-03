@@ -10,6 +10,15 @@
     width: fit-content;
   }
 
+  &__box {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    transform: translateX(0);
+    transition: transform ease $transition-duration;
+  }
+
   &__img {
     height: 100%;
     width: 100%;
@@ -21,23 +30,38 @@
     row-gap: 8px;
     position: absolute;
     top:0;
-    left: 0;
-    transition: left ease 1s;
 
-    &--1 {
+    &--firstClone {
       height: 100%;
+      left: 300%;
       background: url(../images/slider/slide-img-1.png), $gradient;
       @include backgroundProperty;
     }
 
+    &--1 {
+      left: 0;
+      height: 100%;
+      background: $gradient, url(../images/slider/slide-img-1.png);
+      @include backgroundProperty;
+    }
+
     &--2 {
+      left: 100%;
       height: 100%;
       background: $gradient, url(../images/slider/slide-img-2.png);
       @include backgroundProperty;
     }
 
-    &--3 {
+    &--3{
+      left: 200%;
       height: 100%;
+      background: $gradient, url(../images/slider/slide-img-3.png);
+      @include backgroundProperty;
+    }
+
+    &--lastClone {
+      height: 100%;
+      left: -100%;
       background: $gradient, url(../images/slider/slide-img-3.png);
       @include backgroundProperty;
     }
@@ -70,12 +94,12 @@
     @include onHover;
 
     &--left::after {
-      content: url(../images/slider/arrow-left.svg);
+      content: url(../images/slider/arrow-right.svg);
       height: 18px;
     }
 
     &--right::after {
-      content: url(../images/slider/arrow-right.svg);
+      content: url(../images/slider/arrow-left.svg);
       height: 18px;
     }
   }

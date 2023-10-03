@@ -1,32 +1,33 @@
 'use strict';
 
 const sliderBtnLeft = document.querySelector('.slider__arrow--left');
-// const sliderBtnRight = document.querySelector('.slider__arrow--right');
+const sliderBtnRight = document.querySelector('.slider__arrow--right');
 const slider = document.querySelector('.slider');
+const sliderBox = document.querySelector('.slider__box');
 const sliders = document.querySelectorAll('.slider__img');
+let counter = 0;
+let clientWidth;
+const transitionDuration = '0.3s';
 
-sliders.forEach(el => {
-  el.remove();
-});
+sliderBtnLeft.addEventListener('click', moveSlider);
+sliderBtnRight.addEventListener('click', moveSlider);
 
-let step = 0;
-let offset = 0;
-
-let clientWidth = document.documentElement.clientWidth;
-
-sliders.forEach(el => {
-  el.style.minWidth = clientWidth + 'px';
-});
-
-computeSliderWidth();
-
-sliderBtnLeft.addEventListener('click', left);
-// sliderBtnRight.addEventListener('click', moveSlide);
+init();
 
 window.addEventListener('resize', () => {
-  clientWidth = document.documentElement.clientWidth;
-  computeSliderWidth();
+  init();
 });
+
+function init() {
+  counter = 0;
+  clientWidth = document.documentElement.clientWidth;
+
+  sliders.forEach(el => {
+    el.style.minWidth = clientWidth + 'px';
+  });
+  computeSliderWidth();
+  sliderBtnLeft.click();
+}
 
 function computeSliderWidth() {
   switch (true) {
@@ -43,49 +44,42 @@ function computeSliderWidth() {
   }
 }
 
-function createSlide() {
-  const slide = document.createElement('div');
-  const sliderTitle = document.createElement('p');
-  const sliderDescription = document.createElement('p');
+function moveSlider({ target }) {
+  const to = target.dataset.direction;
+  const direction = {
+    left: {
+      changeCounter: counter + 1,
+      counterLimit: 3,
+    },
 
-  sliderTitle.classList.add('slider__title');
-  sliderDescription.classList.add('slider__description');
-  sliderTitle.textContent = 'Intro';
+    right: {
+      changeCounter: counter - 1,
+      counterLimit: -1,
+    },
+  };
 
-  sliderDescription.textContent
-    = 'By the same illusion which lifts the horizon.';
+  document.documentElement.style.pointerEvents = 'none';
+  counter = direction[to].changeCounter;
+  sliderBox.style.transform = `translateX(${-counter * clientWidth}px)`;
 
-  slide.append(sliderTitle);
-  slide.append(sliderDescription);
-  slide.classList.add(`slider__img--${step + 1}`, 'slider__img');
-  slide.style.left = offset * clientWidth + 'px';
+  sliderBox.addEventListener('transitionend', () => {
+    if (counter === direction[to].counterLimit) {
+      loop(to);
+    }
 
-  slider.appendChild(slide);
-
-  if (step + 1 === 3) {
-    step = 0;
-  } else {
-    step++;
-  }
-  offset = 1;
-};
-
-function left() {
-  sliderBtnLeft.removeEventListener('click', left);
-
-  const sliders2 = document.querySelectorAll('.slider__img');
-  let offset2 = 0;
-
-  sliders2.forEach(el => {
-    el.style.left = offset2 * clientWidth - clientWidth + 'px';
-    offset2++;
-  });
-
-  setTimeout(() => {
-    sliders2[0].remove();
-    createSlide();
-    sliderBtnLeft.addEventListener('click', left);
-  }, 1000);
+    if (sliderBox.style.transitionDuration !== '0s') {
+      document.documentElement.style.pointerEvents = 'all';
+    };
+  }, { once: true });
 }
 
-createSlide(); createSlide();
+function loop(to) {
+  sliderBox.style.transitionDuration = '0s';
+  counter = to === 'right' ? 2 : 0;
+  sliderBox.style.transform = `translateX(-${clientWidth * counter}px)`;
+
+  setTimeout(() => {
+    sliderBox.style.transition = `transform ${transitionDuration} ease`;
+    document.documentElement.style.pointerEvents = 'all';
+  }, transitionDuration);
+};
