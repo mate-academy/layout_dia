@@ -1,6 +1,67 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+  @media (hover: hover) and (pointer: fine) {
+    transition: #{$_property} 0.3s;
+    &:hover {
+      #{$_property}: $_toValue;
+    }
   }
+}
+
+@mixin hoverDelay($_property, $_toValue) {
+  @media (hover: hover) and (pointer: fine) {
+    transition: #{$_property} 0.3s;
+    &.delayed-hover {
+      #{$_property}: $_toValue;
+    }
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $min-tablet-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $min-desktop-width) {
+    @content;
+  }
+}
+
+@mixin onBigDesktop {
+  @media (min-width: $min-big-desktop-width) {
+    @content;
+  }
+}
+
+@mixin title {
+  font-family: $accent-font;
+  font-weight: 600;
+}
+
+@mixin paragraph($_align) {
+  font-family: $main-font;
+  color: $c-paragraph;
+  text-align: $_align;
+  line-height: 150%;
+}
+
+@mixin navlink {
+  font-family: $accent-font;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  color: $c-white;
+}
+
+@mixin icon {
+  display: block;
+  width: $icon-size;
+  background-size: cover;
+  /* stylelint-disable */
+  aspect-ratio: 1 / 1;
+  /* stylelint-enable */
 }

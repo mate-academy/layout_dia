@@ -1,0 +1,85 @@
+.header {
+  position: relative;
+  display: flex;
+
+  background-color: $c-blue;
+  border-radius: 0 0 30px 30px;
+
+  height: 100vh;
+  min-height: 900px;
+  transition: 1s;
+  
+  @include onDesktop {
+    min-height: auto;
+    max-height: 800px;
+    justify-content: center;
+  }
+  
+  &--inViewport {
+    border-radius: 0;
+
+    & > .slider {
+      border-radius: 0 !important;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: $max-section-width;
+  }
+
+  &__top {
+    padding-inline: var(--page-padding);
+    grid-column: 1 / -1;
+  }
+
+  &__bottom {
+    flex-grow: 1;
+
+    display: grid;
+    row-gap: 48px;
+    --columns: 1;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    
+    @include onDesktop {
+      grid-template-rows: repeat(1, 1fr);
+      --columns: 12;
+      column-gap: 20px;
+      max-height: 736px;
+    }
+  
+    @include onBigDesktop {
+      column-gap: 30px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--page-padding);
+
+    @include onDesktop {
+      grid-column: span 5;
+      margin-bottom: 0;
+    }
+
+    @include onBigDesktop {
+      padding-left: 0;
+    }
+  }
+
+  &__right {
+    @include onDesktop {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 60px;
+      grid-column: 7 / -1;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.second-nav {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  height: min-content;
+
+  @include onDesktop {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: block;
+    max-width: max-content;
+
+    &-image {
+      @include hover(opacity, 0.8);
+      @include hover(transform, scale(1.1));
+
+      &--width {
+        @include onTablet {
+          width: 70px;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style-type: none;
+    gap: 24px;
+    
+    &--row {
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
+
+    &-item {
+      width: max-content;
+      @include hover(opacity, 0.8);
+      @include hover(transform, scale(1.1));
+    }
+
+    &-link {
+      @include navlink;
+
+      &--biggerOnTablet {
+        @include onTablet {
+          font-size: 25px;
+          line-height: 180%;
+        }
+      }
+    }
+  }
+}
