@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   gap: 10px;
-  width: 60vw;
+  width: 100vw;
   padding: 5% 0 0 var(--page-padding);
   background-color: $c-category;
   position: fixed;
@@ -10,8 +10,16 @@
   left: 0;
   bottom: 0;
   z-index: 1;
-  transform: translateX(-60vw);
+  transform: translateX(-100vw);
   transition: transform 300ms ease-in-out;
+
+  &:target {
+    transform: translate(0);
+  }
+
+  body:has(&:target) {
+    overflow-y: hidden;
+  }
 
   &__close-cross {
     @include icon;
@@ -23,8 +31,4 @@
   @include onDesktop {
     display: none;
   }
-}
-
-.menu:target {
-  transform: translate(0);
 }
