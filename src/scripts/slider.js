@@ -2,8 +2,8 @@ export const slider = document.querySelector('.slider');
 export const prevBtn = document.querySelector('.slider__button--left');
 export const nextBtn = document.querySelector('.slider__button--right');
 
-let imgIndex = 1;
 const IMG_AMOUNT = 3;
+let imgIndex = 1;
 
 export function prevSlide() {
   if (imgIndex > 1) {

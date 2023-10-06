@@ -1,7 +1,15 @@
 let allowSnap = true;
 const container = document.querySelector('html');
 
+function isNotTouchDevice() {
+  return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+}
+
 export function handleScrollSnap() {
+  if (!isNotTouchDevice()) {
+    return; // Зупиніть виконання коду, якщо це сенсорний пристрій
+  }
+
   window.addEventListener('wheel', function() {
     allowSnap = false;
     container.style.scrollSnapType = 'none';
