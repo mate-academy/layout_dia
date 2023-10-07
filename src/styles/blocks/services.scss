@@ -1,0 +1,81 @@
+.services {
+  max-width: $max-section-width;
+  position: relative;
+  display: grid;
+  --columns: 1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  
+  row-gap: 24px;
+  
+  margin-inline: var(--page-padding);
+  
+  &__content {
+    --content-columns: 1;
+    grid-column: span var(--content-columns);
+    display: grid;
+    grid-template-columns: repeat(var(--content-columns), 1fr);
+    row-gap: 24px;
+    
+    @include onTablet {
+      --content-columns: 2;
+      grid-template-rows: repeat(5, 1fr);
+      column-gap: 30px;
+      row-gap: 30px;
+    }
+
+    @include onDesktop {
+      column-gap: 20px;
+      grid-column: 7 / -1;
+    }
+    
+    @include onBigDesktop {
+      column-gap: 30px;
+    }
+  }
+  
+  @include onTablet {
+    --columns: 2;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+  
+  @include onBigDesktop {
+    column-gap: 30px;
+  }
+
+  &__head {
+    @include hoverDelay(transform, scale(1.2) translate(80px, 80px));
+    align-self: flex-start;
+    grid-column: span 2;
+    cursor: default;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    
+    margin-bottom: 24px;
+    
+    @include onTablet {
+      max-width: 264px;
+      grid-column: span 1;
+      position: relative;
+      top: 100px;
+      margin-top: -100px;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+      max-width: none;
+    }
+  }
+
+  &__description {
+    margin-top: 8px;
+  }
+
+}
