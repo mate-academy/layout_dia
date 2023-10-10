@@ -1,0 +1,86 @@
+.module {
+  width: 280px;
+  margin: 0 auto;
+  background-color: $white;
+  border-radius: 16px;
+
+  padding: 32px;
+  cursor: pointer;
+
+  @include onSmall {
+    width: 264px;
+    margin: 0;
+  }
+
+  &__number {
+    @extend %h4;
+    text-align: center;
+    font-weight: $fontWeightText;
+    line-height: normal;
+    color: $light-blue;
+    padding: 2px 11px;
+    width: 48px;
+    height: 24px;
+    background-color: rgba($color: $light-blue, $alpha: 0.1);
+    border-radius: 30px;
+  }
+
+  &__list {
+    @extend %p;
+    margin: 24px 0 0;
+    padding: 0;
+    font-size: $smallText;
+    font-weight: $fontWeightText;
+  }
+
+  &__nav {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $light-blue;
+    background-image: url(../images/card_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onMiddle {
+      animation: serviceDown 1s forwards;
+
+      &:hover {
+        animation: serviceUp 1s forwards;
+      }
+    }
+  }
+
+  &__link {
+    @extend %h3;
+    font-size: 15px;
+    line-height: normal;
+  }
+}
+
+@keyframes serviceUp {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes serviceDown {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
