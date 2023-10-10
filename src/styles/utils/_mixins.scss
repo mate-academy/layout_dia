@@ -1,6 +1,48 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 744px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin learnMoreLink {
+  display: block;
+  max-width: max-content;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: $greenTextColor;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $greenTextColor;
+  cursor: pointer;
+  transition: all 0.3s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    scale: 110%;
+  }
+}
+
+@mixin blockTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $greenTextColor;
+
+  margin-bottom: 10px;
+
+  @include onDesktop {
+    margin-bottom: 40px;
+    font-size: 36px;
+    line-height: 110%;
   }
 }
