@@ -1,0 +1,48 @@
+.menu {
+  padding-top: 20px;
+  height: 100%;
+  background-color:  $clr--gray;
+  overflow: hidden;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.nav-mobile {
+  padding-top: 30px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    @extend %nav--link;
+
+    &::after {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      content: '';
+      height: 4px;
+      background-color:$clr--blue;
+
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
