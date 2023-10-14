@@ -1,0 +1,56 @@
+.top-bar {
+  grid-column: 1 / -1;
+  padding-top: 20px;
+
+  @include onDesktop {
+    padding: 48px 0 44px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include hover(transform, scale(1.1));
+  }
+}
+
+.nav-header {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    @extend %nav--link;
+
+    &::after {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      content: '';
+      height: 4px;
+      background-color:$clr--blue;
+
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}

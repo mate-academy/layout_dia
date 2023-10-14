@@ -1,0 +1,51 @@
+.page {
+  box-sizing: border-box;
+
+  color: $clr--gray-2;
+  font-family: $font--main;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background: $clr--bg;
+
+    &:has(.page__menu:target) {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+      }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    // pointer-events: none;
+
+    &:target {
+      display: block;
+      opacity: 1;
+      transform: translateX(0);
+      // pointer-events: all;
+    }
+  }
+}
+
+.unscroll {
+  overflow: hidden;
+}
+
+.none {
+  display: none;
+}
