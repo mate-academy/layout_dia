@@ -1,0 +1,138 @@
+.services--container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 30px;
+
+  @include onSmallDesktop {
+    gap: 20px;
+  }
+
+  @include onTablet {
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7,1fr);
+  }
+
+  @include onMobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 24px;
+  }
+}
+
+.left-block {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 80%;
+  grid-row: 2/4;
+
+  @include onTablet {
+    @include grid-position-for-services(1, "span 3");
+    width: 100%;
+  }
+
+  @include onMobile {
+    grid-row: span 2;
+  }
+
+  & h4 {
+    @include before-for-section-head(services);
+    margin-bottom: 24px;
+  }
+}
+
+// #region cards 1-4
+.services--card-1 {
+  @include grid-position-for-services(2, "2/4");
+
+  @include onTablet {
+    @include grid-position-for-services(1, "span 2");
+  }
+}
+
+.services--card-2 {
+  @include grid-position-for-services(3, "1/3");
+
+  @include onTablet {
+    @include grid-position-for-services(2, "3/5");
+  }
+}
+
+.services--card-3 {
+  @include grid-position-for-services(2, "4/6");
+
+  @include onTablet {
+    @include grid-position-for-services(1, "span 2");
+  }
+}
+
+.services--card-4 {
+  @include grid-position-for-services(3, "3/5");
+
+  @include onTablet {
+    @include grid-position-for-services(2, "5/7");
+  }
+}
+// #endregion
+
+.services__cards {
+  @include zoom;
+  padding: 32px;
+  border-radius: 16px;
+  background: $cards-bgc;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.3);
+
+  @include onMobile {
+    @include grid-position-for-services;
+  }
+
+  & span {
+    padding: 2px 12px;
+    border-radius: 23px;
+    background: hsla(222, 92%, 55%, 0.1);
+
+    color: hsl(222, 92%, 55%);
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  & ul {
+    margin-block: 26px 32px;
+
+    & li {
+      color: $text-color;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+  }
+
+  & a {
+    color: hsl(218, 32%, 29%);
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &::before {
+      content: "";
+      border-radius: 100%;
+      height: 40px;
+      width: 40px;
+      background-color: $bgc-for-button-def;
+      background-image: url(../images/arrow_for_serv.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.5s;
+    }
+
+    &:hover::before {
+      background-color: $bgc-for-button-hover;
+      transform: scale(1.2);
+    }
+  }
+}
