@@ -1,0 +1,177 @@
+// #region media screen
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+// #endregion
+
+@mixin zoom($scale-value: 1.1) {
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale($scale-value);
+  }
+}
+
+@mixin underline($bgc) {
+  &::after {
+    content: "";
+    height: 4px;
+    background-color: $bgc;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+  }
+}
+
+@mixin button-comm-opt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-color-for-button;
+  font-size: 15px;
+  font-weight: 600;
+  width: 265px;
+  height: 55px;
+  border-radius: 8px;
+  background: $bgc-for-button-def;
+  transition: transform 0.5s;
+
+  &:hover {
+    background-color: $bgc-for-button-hover;
+  }
+
+  &:active {
+    background: $bgc-for-button-active;
+    transform: scale(0.9);
+  }
+
+  @include onMobile {
+    width: auto;
+  }
+}
+
+@mixin before-for-section-head ($content) {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &::before {
+    content: "#{$content}";
+    color: $section-name-color;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
+
+@mixin grid-position-for-services ($column: 1, $row: "span 1") {
+  grid-column: #{$column};
+  grid-row: #{$row};
+}
+
+// #region nav-bar common opt
+@mixin nav-bar-links {
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+@mixin nav-bar-list {
+  display: flex;
+  gap: 48px;
+}
+
+@mixin nav-bar-list-links {
+  &::after {
+    transition: all 0.5s;
+    transform-origin: left;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin logo-size($width: 46px, $height: 28px) {
+  @include zoom;
+  background-image: url(../images/logo/air-logo.svg);
+  background-size: contain;
+  width: $width;
+  height: $height;
+}
+
+@mixin icon-size($width: 24px, $height: 24px) {
+  @include zoom;
+  background-size: contain;
+  width: $width;
+  height: $height;
+}
+// #endregion
+
+// #region testimonials
+@mixin after-before-common-opt {
+  content: "";
+  position: absolute;
+  background-color: hsl(222, 92%, 55%);
+  height: 55px;
+  width: 140px;
+  transform: rotate(-60deg);
+  border-radius: 12px;
+
+  @include onSmallDesktop {
+    width: 110px;
+    height: 45px;
+  }
+
+  @include onTablet {
+    height: 55px;
+    width: 140px;
+  }
+
+  @include onMobile {
+    width: 110px;
+    height: 45px;
+  }
+}
+// #endregion
+
+// #region footer
+@mixin before-for-cont-us-element {
+  &::before {
+    opacity: 0.5;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
+// #endregion

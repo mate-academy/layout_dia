@@ -1,0 +1,52 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & a {
+    @include nav-bar-links;
+    text-align: center;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $nav-bar-hover-color;
+    }
+  }
+
+  &-icons {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__nav-list {
+    @include nav-bar-list;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-links {
+      @include nav-bar-list-links;
+      @include underline($nav-bar-hover-color);
+    }
+  }
+}
+
+.logo-icon {
+  @include logo-size;
+}
+
+.menu-icon {
+  display: none;
+
+  @include onTablet {
+    @include icon-size;
+    display: flex;
+    background-image: url(../images/logo/menu-icon.svg);
+  }
+}
+
+.top-bar-hire-us {
+  @include underline($nav-bar-hover-color);
+}
