@@ -1,0 +1,50 @@
+.services {
+  @include mainGrid;
+
+  @include onDesktop {
+    grid-template-columns: 1fr 458px;
+    column-gap: 176px;
+  }
+
+  &__title {
+    display: grid;
+
+    @include onTablet {
+      width: 40%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      grid-template-rows: 20px 140px 1fr;
+      row-gap: 16px;
+    }
+
+    &-description {
+      color: $main-text-color;
+      font-family: $font-family-sun;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+      margin: 0;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 30px;
+
+    @include onTablet {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, 264px);
+    }
+
+    &-card {
+      &:nth-child(2n) {
+        @include onTablet {
+          transform: translateY(-40%);
+        }
+      }
+    }
+  }
+}
