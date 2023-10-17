@@ -1,0 +1,70 @@
+.creators {
+  overflow: hidden;
+
+  &__wrapper {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: span 3;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+      position: relative;
+
+      &::before {
+        content: "about the creators";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        text-transform: uppercase;
+        left: -180px;
+        top: 72px;
+
+        color: rgba(52, 79, 16, 0.5);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 230px;
+        left: -154px;
+        width: 100px;
+        height: 1px;
+        background-color: rgba(52, 79, 16, 0.5);
+      }
+    }
+  }
+
+  &__photo {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: span 3;
+      height: 440px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-image: url(../images/creators.png);
+      background-size: contain;
+      @include hover (scale, 1.1);
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+      height: 659px;
+    }
+  }
+}
