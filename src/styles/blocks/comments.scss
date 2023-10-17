@@ -1,0 +1,126 @@
+.comments {
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  padding: 32px;
+
+  display: grid;
+  row-gap: 8px;
+  justify-content: center;
+
+  transition: transform 0.3s ease;
+
+  @include onTablet {
+    padding-inline: 98px;
+    gap: 16px;
+  }
+
+  @include onDesktop {
+    padding-inline: 48px;
+    gap: 8px;
+  }
+
+  &__text {
+    margin: 0 auto;
+
+    font-family: $font-family-sun;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: center;
+
+    @include onTablet {
+      width: 362px;
+    }
+
+    @include onDesktop {
+      width: 196px;
+    }
+
+    &--name {
+      color: $title-text-color;
+      padding-top: 8px;
+    }
+  }
+
+  &__images-block {
+    height: 200px;
+    justify-self: center;
+
+    @include onTablet {
+      margin-block: 50px;
+    }
+
+    &--blue-block {
+      display: block;
+      position: relative;
+      padding-top: 36px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 110px;
+        height: 44px;
+        background-color: $active-color;
+        border-radius: 12px;
+
+        position: absolute;
+        transform: rotate(-60deg);
+        top: 100%;
+        right: 36%;
+
+        @include onTablet {
+          width: 139px;
+          height: 56px;
+          top: 85%;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 110px;
+        height: 44px;
+        background-color: $active-color;
+        border-radius: 12px;
+
+        position: absolute;
+        transform: rotate(-60deg);
+        top: 300%;
+        left: 35%;
+
+        @include onTablet {
+          width: 139px;
+          height: 56px;
+          top: 340%;
+        }
+      }
+    }
+
+    &--img {
+      position: relative;
+      z-index: 1;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+
+      @include onTablet {
+        height: 140px;
+        width: 140px;
+      }
+    }
+  }
+
+  &__icon {
+    justify-self: center;
+    background-image: url(../images/icons/quotes.svg);
+  }
+
+  &__desc {
+    margin: 0;
+    text-align: center;
+  }
+
+  &:hover &__images-block--img {
+    transform: scale(1.2, 1.2);
+  }
+}
