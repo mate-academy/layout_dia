@@ -11,12 +11,6 @@
   }
 }
 
-@mixin onSmallDesktop {
-  @media (min-width: $desktop-min-width) {
-    @content;
-  }
-}
-
 @mixin onDesktop {
   @media (min-width: $desktop-min-width) {
     @content;
@@ -24,13 +18,34 @@
 }
 
 @mixin onDesign {
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: $design-min-width) {
     @content;
   }
 }
 
 @mixin onLargeScreen {
-  @media (min-width: $desktop-min-width) {
+  @media (min-width: $large-screen-min-width) {
     @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesign {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreen {
+    width: 1600px;
+    margin: 0 auto;
   }
 }

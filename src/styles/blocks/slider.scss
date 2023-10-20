@@ -1,14 +1,29 @@
 .slider {
   position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   height: 390px;
   width: 100%;
+  justify-self: flex-end;
+
+  @include onDesktop {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 502px;
+    height: 680px;
+  }
+
+  @include onDesign {
+    height: 687px;
+    width: 687px;
+  }
+
+  @include onLargeScreen {
+    width: 1167px;
+    height: 680px;
+  }
 
   &__inner {
-    
     display: flex;
     transition: all $effect-duration;
   }
@@ -25,6 +40,14 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     z-index: 10;
+
+    @include onTablet {
+      left: 41px;
+    }
+
+    @include onDesign {
+      left: 152px;
+    }
   }
 
   &__subtitle {
@@ -37,6 +60,14 @@
     font-weight: 400;
     line-height: 1.4;
     z-index: 10;
+
+    @include onTablet {
+      left: 41px;
+    }
+
+    @include onDesign {
+      left: 152px;
+    }
   }
 
   &__img {
@@ -48,6 +79,10 @@
     width: 100%;
     height: 100%;
     border-radius: 30px;
+
+    @include onDesktop {
+      border-top-right-radius: 0;
+    }
   }
 
   &__prev-btn,
@@ -63,13 +98,37 @@
     border: none;
     font-size: 18px;
     color: $title-color;
+
+    @include onTablet {
+      top: 75%;
+    }
+
+    @include onDesign {
+      top: 95%;
+    }
   }
 
   &__prev-btn {
     left: 10px;
+
+    @include onTablet {
+      left: 41px;
+    }
+
+    @include onDesign {
+      left: 30px;
+    }
   }
 
   &__next-btn {
     left: 70px;
+
+    @include onTablet {
+      left: 91px;
+    }
+
+    @include onDesign {
+      left: 95px;
+    }
   }
 }

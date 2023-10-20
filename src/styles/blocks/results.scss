@@ -1,39 +1,71 @@
 .results {
-  background-color: $section-bg-color;
+  background-color: $white;
   padding-bottom: 120px;
 
+  @include onDesktop {
+    padding-bottom: 0;
+  }
+
+  &__content {
+    @include onLargeScreen {
+      padding-inline: 0;
+    }
+  }
+
   &__wrapper {
-    background-color: $white;
-    padding: 72px 20px;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-  }
 
-  @include onTablet {
-    background-image: url("../images/results/shapes.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    @include onTablet {
+      background-image: url("../images/results/shapes.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 200px 20px;
+    }
+  
   }
 
   &__title {
     @extend %h2;
-    margin-bottom: 56px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      font-size: 52px;
+    }
   }
 
   &__text {
     @extend %description;
     margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+      font-size: 24px;
+    }
+
+    @include onDesktop {
+      max-width: 754px;
+    }
   }
 
   &__button {
     width: 100%;
+
+    @include onTablet {
+      width: 264px;
+    }
   }
 
   &__btn {
     @extend %btn;
     width: 100%;
+
+    @include onTablet {
+      padding: 16px 110px;
+    }
   }
 }

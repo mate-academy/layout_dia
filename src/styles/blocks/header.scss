@@ -6,16 +6,32 @@
   justify-content: space-between;
   height: 100vh;
   background-color: $header-bg;
-  
+
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
 
   &__inner {
     color: $white;
-    padding: 20px 20px 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include onLargeScreen {
+      width: 1600px;
+      margin: 0 auto;
+    }
+  }
+
+  &__content {
+    padding: 65px 20px;
+
+    @include onTablet {
+      padding: 56px 41px 147px;
+    }
+
+    @include onDesign {
+      padding: 52px 227px 205px;
+    }
   }
 
   &__top {
@@ -31,6 +47,14 @@
     gap: 32px;
   }
 
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
   &__logo {
     height: 28px;
     width: 46px;
@@ -43,6 +67,11 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 237px;
+
+    @include onDesktop {
+      max-width: 362px;
+      padding: 158px 55px 83px 0;
+    }
   }
   &__title {
     font-family: Poppins, sans-serif;
@@ -51,6 +80,11 @@
     line-height: 1.2;
     letter-spacing: -2px;
     margin-bottom: 32px;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
   }
 
   &__subtitle {
@@ -63,5 +97,9 @@
   &__btn {
     @extend %btn;
     width: 100%;
+
+    @include onTablet {
+      width: 264px;
+    }
   }
 }
