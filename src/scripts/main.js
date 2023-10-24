@@ -1,30 +1,30 @@
 'use strict';
 
 const slider = document.querySelector('.black__slider');
-const btnRight = document.querySelector(
+const btnRightSlider = document.querySelector(
   '.black__slider-navigation--arrows-right');
-const btnLeft = document.querySelector(
+const btnLeftSlider = document.querySelector(
   '.black__slider-navigation--arrows-left');
 
-btnLeft.addEventListener('click', showPreviousSlide);
-btnRight.addEventListener('click', showNextSlide);
+btnLeftSlider.addEventListener('click', showPreviousSlide);
+btnRightSlider.addEventListener('click', showNextSlide);
 
-let count = 1;
+let countSlid = 1;
 
 function showNextSlide() {
-  count++;
+  countSlid++;
 
-  if (count === 5) {
-    count = 1;
+  if (countSlid === 5) {
+    countSlid = 1;
   }
-  slider.classList = `black__slider black__slide-${count}`;
+  slider.classList = `black__slider black__slide-${countSlid}`;
 }
 
 function showPreviousSlide() {
-  count--;
+  countSlid--;
 
-  if (count === 0) {
-    count = 4;
+  if (countSlid === 0) {
+    countSlid = 4;
   }
-  slider.classList = `black__slider black__slide-${count}`;
+  slider.classList = `black__slider black__slide-${countSlid}`;
 }
