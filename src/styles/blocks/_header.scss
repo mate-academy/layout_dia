@@ -1,0 +1,273 @@
+.header {
+  width: 100%;
+  position: relative;
+  background-color: $blue;
+  border-radius: 0 0 120px 120px;
+  margin-bottom: 160px;
+
+  @include tablet {
+    margin-bottom: 148px;
+  }
+
+  @include desktop-small {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    grid-template-rows: max-content 1fr;
+    grid-template-areas: "nav nav nav"
+      "content . image";
+    align-items: center;
+    padding-top: 0;
+
+    @include desktop_large {
+      grid-template-columns: 1fr 1fr 200px minmax(1167px, 502px);
+      grid-template-areas: ". nav nav nav"
+        ". content . image";
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin: 0 auto 48px;
+    grid-area: nav;
+    height: max-content;
+    padding: 24px 0;
+
+    @include tablet {
+      padding-top: 54px;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+    background-image: url("../img/logo.svg");
+    object-fit: cover;
+    margin-right: 30px;
+    margin-left: 20px;
+
+    @include tablet {
+      margin-left: 40px;
+    }
+
+    @include desktop_small {
+      margin-left: 54px;
+    }
+  }
+
+  &__link--hire {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $white;
+    padding-bottom: 5px;
+    border-bottom: 2px solid $pink;
+    margin-left: 70px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $pink;
+      transform: scale(1.05) translateY(-15%);
+      padding-bottom: 10px;
+    }
+
+    @include tablet {
+      margin-right: 40px;
+    }
+
+    @include desktop_small {
+      margin-right: 52px;
+    }
+
+    @include desktop_xlarge {
+      margin-right: 300px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: end;
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: auto;
+    transition: transform 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+
+    @include desktop_small {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 120%;
+    color: $white;
+    margin-bottom: 32px;
+
+    @include desktop_small {
+      max-width: 10ch;
+    }
+
+    @include desktop {
+      font-size: 64px;
+    }
+  }
+
+  &__info {
+    font-size: 18px;
+    color: $white;
+    margin-bottom: 72px;
+    line-height: 150%;
+    max-width: 35ch;
+
+    @include desktop {
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    margin-left: 20px;
+    grid-area: content;
+
+    @include tablet {
+      margin-left: 40px;
+    }
+
+    @include desktop_small {
+      height: min-content;
+      margin-left: 54px;
+    }
+  }
+
+  &__learn-more {
+    @extend %button;
+    max-width: 300px;
+    margin-bottom: 48px;
+
+    @include desktop_small {
+      margin-bottom: 200px;
+    }
+
+    @include desktop_large {
+      font-size: 24px;
+      padding: 24px 0;
+    }
+  }
+
+  &__intro {
+    color: $white;
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    max-width: 30ch;
+
+    &-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin: 0 0 8px 5px;
+    }
+
+    &-info {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%;
+      margin-left: 5px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    margin-bottom: 16px;
+  }
+
+  &__arrow {
+    all: unset;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    opacity: 70%;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      opacity: 90%;
+    }
+
+    &--left {
+      background-image: url("../img/arrow_left.svg");
+    }
+
+    &--right {
+      background-image: url("../img/arrow_right.svg");
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  grid-area: image;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+
+  @include desktop-small {
+    height: 100%;
+  }
+
+  &__list {
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__img {
+    display: block;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    border-radius: 30px;
+
+    @include desktop-small {
+      border-radius: 120px 0 0;
+    }
+
+    &--1 {
+      background-image: url("../img/header_1.jpg");
+    }
+
+    &--2 {
+      background-image: url("../img/header_2.jpg");
+    }
+
+    &--3 {
+      background-image: url("../img/header_3.jpg");
+      background-position: top;
+    }
+  }
+}
