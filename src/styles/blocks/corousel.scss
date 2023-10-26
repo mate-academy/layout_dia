@@ -1,0 +1,125 @@
+.carousel {
+  position: relative;
+  height: 390px;
+  padding: 0;
+
+  @include onDesktop {
+    height: 680px;
+  }
+
+  &__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+
+    @for $n from 1 through 4 {
+      &--#{$n} {
+        background-image: url(../images/header/slide-#{$n}.png);
+      }
+    }
+
+    @include onDesktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  &__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+
+  &::before,
+  &::after,
+  &__prev,
+  &__next {
+    position: absolute;
+    top: 0;
+    margin-top: 250px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+  }
+
+  &::before,
+  &__prev {
+    left: 20px;
+  }
+
+  &::after,
+  &__next {
+    left: 68px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    z-index: 1;
+    background-color: #fff;
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  &::before {
+    background-image: url(../images/icons/mdi_chevron_left.svg);
+  }
+
+  &::after {
+    background-image: url(../images/icons/mdi_chevron_right.svg);
+  }
+
+  &__text {
+    position: absolute;
+    left: 20px;
+    top: 298px;
+    color: $white;
+
+    @include wide-uppercase-text;
+    text-align: left;
+  }
+
+  &__p {
+    margin: 0;
+    margin-top: 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+}
