@@ -28,12 +28,10 @@
     }
   }
 
-  &__list:not(:last-child) {
-    padding-bottom: 8px;
-  }
-
-  &__list :nth-child(2n) {
-    padding-bottom: 40px;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 
     @include onTablet {
       padding-bottom: 48px;
@@ -44,6 +42,8 @@
     @include forSiteTexts;
     color: $background-c-white;
     font-size: 24px;
+    transition: all 0.3 ease-in-out;
+    opacity: 1;
 
     &:hover {
       color: $c-default-blue;
@@ -57,45 +57,8 @@
   &__contacts__list__socials {
     padding-top: 16px;
     display: flex;
-    flex-direction: row;
     gap: 32px;
     cursor: pointer;
-  }
-
-  &__f {
-    width: 32px;
-    background:
-      url(../images/socials/facebook.svg) center / 32px 32px no-repeat;
-
-    &:hover {
-      transform: scale(150%);
-      background-image: url(../images/socials/facebook-hover.png);
-      transition: 0.3s;
-    }
-  }
-
-  &__t {
-    width: 32px;
-    background:
-      url(../images/socials/twitter.svg) center / 32px 32px no-repeat;
-
-    &:hover {
-      transform: scale(150%);
-      background-image: url(../images/socials/twitter-hover.svg);
-      transition: 0.3s;
-    }
-  }
-
-  &__i {
-    width: 32px;
-    background:
-      url(../images/socials/instagram.svg) center / 32px 32px no-repeat;
-
-    &:hover {
-      transform: scale(150%);
-      background-image: url(../images/socials/instagram-hover.png);
-      transition: 0.3s;
-    }
   }
 
   &__navigation {
@@ -114,22 +77,11 @@
     }
   }
 
-  &__logo {
-    padding-bottom: 48px;
-
-    @include onTablet {
-      padding-bottom: 24px;
-    }
-
-    @include onDesctop {
-      padding: 0;
-    }
-  }
-
   &__navigation__list {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-top: 24px;
 
     @include onTablet {
       flex-direction: row;
@@ -141,10 +93,10 @@
     @include forUppercaseText;
     color: $background-c-white;
     position: relative;
+    transition: 0.3s;
 
     &:hover::after {
       @include forHoveredFocusedLinks;
-      transition: 0.3s;
     }
 
     &:focus::after {
