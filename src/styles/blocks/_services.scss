@@ -1,20 +1,18 @@
 .services {
+  width: 100%;
   @include tablet {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, min-content) 148px;
-    grid-column-gap: 30px;
   }
 
   @include desktop-small {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, min-content);
     grid-template-rows: repeat(2, max-content) 148px;
-    grid-column-gap: 20px;
   }
 
   @include desktop {
-    grid-template-columns: 1fr repeat(3, max-content) 1fr;
-    grid-column-gap: 30px;
+    grid-template-columns: repeat(3, max-content);
   }
 
   &__heading {
@@ -45,13 +43,17 @@
     align-self: end;
 
     @include tablet {
-      margin-left: 54px;
+      margin-left: 30px;
       justify-self: end;
     }
 
+    @include desktop_small {
+      margin-right: 130px;
+    }
+
     @include desktop {
-      margin-right: 226px;
       grid-column: 2;
+      margin-right: 220px;
     }
   }
 
@@ -66,16 +68,17 @@
 .serv-card {
   background-color: $white;
   padding: 34px 100px 41px 32px;
-  width: max-content;
   margin: 0 auto 24px;
   border-radius: 16px;
+  width: 45%;
 
   @include tablet {
     margin: 0 0 30px;
+    width: max-content;
   }
 
   @include desktop_small {
-    padding-right: 50px;
+    padding-right: 70px;
   }
 
   @include desktop {
@@ -104,6 +107,7 @@
     @include tablet {
       grid-row: 1;
       transform: translateY(80%);
+      margin-left: 30px;
     }
 
     @include desktop_small {
@@ -143,6 +147,7 @@
     @include tablet {
       transform: translateY(75%);
       margin-bottom: 30px;
+      margin-left: 30px;
     }
 
     @include desktop_small {
@@ -191,44 +196,33 @@
     margin-bottom: 32px;
   }
 
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/arrow_forward.svg");
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    background-color: #56ccf2;
+    padding: 8px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+
+    &--2 {
+      background-color: #fcc91d;
+    }
+    &--3 {
+      background-color: #15d850;
+    }
+    &--4 {
+      background-color: #f36363;
+    }
+  }
+
   &__learn {
     width: max-content;
     display: flex;
     align-items: center;
-
-    &__arrow {
-      width: 40px;
-      height: 40px;
-      background-image: url("../img/arrow_forward.svg");
-      background-repeat: no-repeat;
-      background-size: 24px;
-      background-position: center;
-      background-color: #56ccf2;
-      padding: 8px;
-      border-radius: 50%;
-      transition: transform 0.3s;
-
-      &--2 {
-        background-color: #fcc91d;
-      }
-      &--3 {
-        background-color: #15d850;
-      }
-      &--4 {
-        background-color: #f36363;
-      }
-    }
-
-    &__link {
-      text-decoration: none;
-      font-family: "Poppins", sans-serif;
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 600;
-      color: $serv-card-dark-grey;
-      margin-left: 16px;
-      transition: transform 0.3s, color 0.3s;
-    }
 
     &:hover .serv-card__arrow {
       transform: scale(1.05);
@@ -253,5 +247,16 @@
       color: #f36363;
       transform: scale(1.1);
     }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    color: $serv-card-dark-grey;
+    margin-left: 16px;
+    transition: transform 0.3s, color 0.3s;
   }
 }
