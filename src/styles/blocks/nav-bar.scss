@@ -1,0 +1,46 @@
+.nav-bar {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding-block: 10px;
+
+    color: $c-white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      position: absolute;
+      display: block;
+
+      content: "";
+      margin-top: 8px;
+      width: 100%;
+      height: 2px;
+      background-color: $c-accent-blue;
+
+      transition: transform $effect-duration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    @include hover(color, $c-accent-blue);
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
