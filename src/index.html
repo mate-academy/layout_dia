@@ -58,52 +58,26 @@
       </div>
 
       <div class="header__carousel">
-        <div class="carousel">
-          <ol class="carousel__viewport">
-            <li 
-              id="carousel__slide1"
-              tabindex="0" 
-              class="carousel__slide carousel__slide--1"
-            >
-              <div class="carousel__snapper">
-                <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
-                <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
-              </div>
-            </li>
-            <li
-              id="carousel__slide2"
-              tabindex="0"
-              class="carousel__slide carousel__slide--2"
-            >
-              <div class="carousel__snapper">
-                <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
-              </div>
-            </li>
-            <li
-              id="carousel__slide3"
-              tabindex="0"
-              class="carousel__slide carousel__slide--3"
-            >
-              <div class="carousel__snapper">
-                <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
-              </div>
-            </li>
-            <li
-              id="carousel__slide4"
-              tabindex="0"
-              class="carousel__slide carousel__slide--4"
-            >
-              <div class="carousel__snapper">
-                <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
-              </div>
-            </li>
-          </ol>
-          <div class="carousel__text">
-            <div class="corousel__p">Intro</div>
-            <p class="carousel__p">By the same illusion which lifts the horizon.</p>
+        <div class="carousel header__carousel">
+          <div class="carousel__background"></div>
+          <div class="carousel__slide carousel__slide--1"></div>
+          <div class="carousel__slide carousel__slide--2"></div>
+          <div class="carousel__slide carousel__slide--3"></div>
+          <div class="carousel__slide carousel__slide--4"></div>
+
+          <div class="carousel__bottom">
+            <div class="carousel__buttons">
+              <button class="carousel__button carousel__button--left" onclick="plusDivs(-1)"></button>
+              <button class="carousel__button carousel__button--right" onclick="plusDivs(+1)"></button>
+            </div>
+            <div class="carousel__text">
+              <div class="carousel__title">Intro</div>
+              <p class="carousel__p">
+                By the same illusion which lifts the 
+                <br>
+                horizon.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -474,6 +448,36 @@
       </div>
     </footer>
 
+    <script>
+      let slideIndex = 1;
+
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        let slides = document.getElementsByClassName("carousel__slide");
+
+        if (n > slides.length) {
+          slideIndex = 1
+        };
+
+        if (n < 1) {
+          slideIndex = slides.length
+        };
+
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.visibility = "hidden";
+          slides[i].style.opacity = "0";
+        }
+
+        slides[slideIndex-1].style.visibility = "visible";
+        slides[slideIndex-1].style.opacity = "1";
+      }
+    </script>
+  
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
