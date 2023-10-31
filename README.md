@@ -1,9 +1,9 @@
 # Dia landing page
 
 ## Short description:
-Page has header, footer and 6 sections. Includes carusel, "drop-down" menu, form to sending massage and references to itselfs parts.
-With technically side has semantic tags, file with reset properties, inputs with types and requiring, and hover effects for all interacting elements.
-The project has 4 screen extensions:
+A Page has a header, footer, and six sections. Includes carousel, "drop-down" menu, form to sending messages, and references to itself parts.
+With technical side has semantic tags, a file with reset properties, inputs with types and requirements, and hover effects for all interacting elements.
+The project has four screen extensions:
   - mobile (to 639px)
   - tablet (640-1023px);
   - small desktop (1024-1259px);
