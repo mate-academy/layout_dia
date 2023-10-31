@@ -1,0 +1,124 @@
+.slider {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  border-radius: $borderRadiusOnBlocks;
+
+  @include on1024pxAndMore {
+    transform: translateY(0);
+    border-radius: $borderRadiusOnBlocks 0;
+  }
+
+  &__start-button {
+    border: none;
+    z-index: 1;
+
+    cursor: pointer;
+  }
+
+  &__slides {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    height: 100%;
+
+    scroll-snap-type: x mandatory;
+  }
+
+  &__list {
+    display: flex;
+    transform: translateX(0);
+    transition: transform 0.5s linear;
+
+    &.img-first {
+      transform: translateX(0);
+    }
+    &.img-second {
+      transform: translateX(-100vw);
+    }
+    &.img-third {
+      transform: translateX(-200vw);
+    }
+    &.img-fourth {
+      transform: translateX(-300vw);
+    }
+
+    @include on1024pxAndMore {
+      &.img-first {
+        transform: translateX(0);
+      }
+      &.img-second {
+        transform: translateX(-50vw);
+      }
+      &.img-third {
+        transform: translateX(-100vw);
+      }
+      &.img-fourth {
+        transform: translateX(-150vw);
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__img {
+    height: 390px;
+    width: 100vw;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on1024pxAndMore {
+      height: 100%;
+      width: 50vw;
+    }
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 390px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    scroll-snap-align: start;
+
+    @include on1024pxAndMore {
+      height: 100%;
+    }
+
+    &:target .icon--arrow-left,
+    &:target .icon--arrow-right {
+      z-index: 2;
+    }
+
+    &_1 {
+      background-image: url(../images/slider/slide-img-1.jpg);
+    }
+
+    &_2 {
+      background-image: url(../images/slider/slide-img-2.jpg);
+    }
+
+    &_3 {
+      background-image: url(../images/slider/slide-img-3.jpg);
+    }
+
+    &_4 {
+      background-image: url(../images/slider/slide-img-4.jpg);
+    }
+  }
+
+  &__paragraf {
+    font-size: 14px;
+    line-height: 140%;
+  }
+}

@@ -1,0 +1,120 @@
+.process {
+  margin-top: 120px;
+
+  @include on640px {
+    margin-top: 148px;
+  }
+
+  @include on1024pxAndMore {
+    margin-top: 251px;
+  }
+
+  &__h4 {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: $colorLightGray;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__cards {
+    margin-top: 48px;
+    row-gap: 30px;
+
+    @include on640px {
+      margin-top: 56px;
+    }
+
+    @include on640pxAndMore {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include on640pxAndLess {
+      justify-items: center;
+    }
+
+    @include on1024px {
+      row-gap: 20px;
+    }
+  }
+
+  &__card {
+    padding: 32px;
+
+    background-color: $colorWhite;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+    border-radius: 16px;
+
+    @include on640pxAndLess {
+      width: 60%;
+      min-width: 239px;
+    }
+
+    &--second {
+      @include on640pxAndMore {
+        transform: translateY(-50%);
+      }
+    }
+
+    &_numder {
+      display: inline-block;
+      padding: 2px 12px;
+      margin-bottom: 24px;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 20px;
+      text-transform: uppercase;
+      color: $colorBlue;
+
+      border-radius: 23px;
+      background-color: rgba($color: $colorBlue, $alpha: 0.1);
+    }
+
+    &_list {
+      margin-bottom: 32px;
+    }
+
+    &_link {
+      display: flex;
+      align-items: center;
+      max-width: max-content;
+
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: #334563;
+
+      background: linear-gradient(
+        to left, $colorWhite 50%, $colorBlue 50%
+      ) right;
+      background-size: 200% 100%;
+
+      border-radius: 40px;
+      transition: background-position $timeTransition, color $timeTransition;
+
+      &-arrow {
+        width: 40px;
+        height: 40px;
+
+        background-color: $colorBlue;
+        border-radius: 50%;
+        object-fit: none;
+      }
+
+      &-text {
+        padding: 0 32px 0 16px;
+      }
+
+      &:hover {
+        background-position: left;
+        color: $colorWhite;
+      }
+    }
+  }
+}
