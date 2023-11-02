@@ -42,3 +42,18 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   form.reset();
 });
+
+const menu = document.querySelector('.menu');
+const openButton = document.querySelector('.menu-button');
+
+openButton.addEventListener('click', function() {
+  menu.style.display = 'block';
+  document.body.classList.add('menu-open');
+});
+
+const closeButton = document.querySelector('.close-button');
+
+closeButton.addEventListener('click', function() {
+  menu.style.display = 'none';
+  document.body.classList.remove('menu-open');
+});
