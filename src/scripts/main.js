@@ -6,3 +6,11 @@ document.getElementById('MyForm').addEventListener('submit', function(event) {
   document.getElementById('name').value = '';
   document.getElementById('message').value = '';
 });
+
+const menuLink = document.querySelector('.header__menu');
+const menu = document.querySelector('.nav__list');
+
+menuLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  menu.classList.toggle('nav--visible');
+});
