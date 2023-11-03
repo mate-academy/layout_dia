@@ -1,0 +1,65 @@
+.menu {
+  background-color: $black;
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  @include smallDesktop {
+    display: none;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+    margin-top: 48px;
+    padding-bottom: 80px;
+
+    @include tablet {
+      grid-column: 1 / -1;
+      margin-top: 24px;
+    }
+
+    &__list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $white;
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  &__icons{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+}
