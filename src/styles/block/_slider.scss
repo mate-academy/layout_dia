@@ -1,0 +1,137 @@
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include smallDestop {
+    left: 50%;
+  }
+
+  @include Desktop {
+    left: 60%;
+  }
+
+  &__item {
+    position: relative;
+    height: 390px;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+
+    @include smallDestop {
+      height: 680px;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    animation: 3s linear coolTrans;
+
+    @keyframes coolTrans {
+      from {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @include smallDestop {
+      border-radius: 30px 0px;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      gap: 16px;
+
+      @include Tablet {
+        padding: 32px 41px;
+      }
+
+      @include smallDestop {
+        padding: 48px 78px;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: start;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+
+  &__subtitle {
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $color-white;
+    max-width: 280px;
+
+    &--top {
+      margin-top: 8px;
+    }
+
+    @include smallDestop {
+      max-width: 266px;
+    }
+  }
+
+  &__btn {
+    border: none;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s linear;
+
+    &-prev {
+      background-image: url(/images/slider/slider-item/arrow-prew.svg);
+    }
+
+    &-next {
+      background-image: url(/images/slider/slider-item/arrow-next.svg);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+}
+
