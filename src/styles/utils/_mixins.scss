@@ -1,6 +1,119 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effect-duration;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $effect-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesctop1024 {
+  @media (min-width: $desctop-min-w-1024) {
+    @content;
+  }
+}
+
+@mixin onDesctop1600 {
+  @media (min-width: $desctop-min-w-1600) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+
+  @include onDesctop1024 {
+    margin-inline: auto;
+    max-width: 1024px;
+    padding-inline: 54px;
+  }
+
+  @include onDesctop1600 {
+    max-width: 1600px;
+    padding-inline: 227px;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  --column-width: 1fr;
+  display: grid;
+  justify-content: center;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns),var(--column-width));
+
+  @include onTablet {
+    --columns: 6;
+    --column-width: 68px;
+    column-gap: 30px;
+  }
+
+  @include onDesctop1024 {
+    --columns: 12;
+    --column-width: 58px;
+    column-gap: 20px;
+  }
+
+  @include onDesctop1600 {
+    --columns: 12;
+    --column-width: 68px;
+    column-gap: 30px;
+  }
+}
+
+@mixin h2 {
+  color: $c-main;
+  text-align: center;
+  font-family: inherit;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 120%;
+
+  @include onTablet {
+    font-size: 52px;
+  }
+}
+
+@mixin h3 {
+  text-align: center;
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin secondaryTitle {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+@mixin bodyText {
+  color: $c-secondary;
+  text-align: center;
+  font-family: "Open Sans", sans-serif, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin boxShadow {
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
 }

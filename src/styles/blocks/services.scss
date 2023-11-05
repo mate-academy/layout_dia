@@ -1,0 +1,122 @@
+.services {
+  &__content {
+    @include pageGrid;
+
+    @include onTablet {
+      height: 926px;
+    }
+
+    @include onDesctop1024 {
+      height: 687px;
+    }
+
+    @include onDesctop1600 {
+      height: 690px;
+    }
+  }
+
+  &__secondary-title {
+    margin-bottom: 16px;
+
+    color: $c-light-grey;
+  }
+
+  &__title {
+    grid-column: span 2;
+    margin-bottom: 24px;
+
+    text-align: left;
+
+    @include onTablet {
+      grid-column: 1/4;
+    }
+
+    @include onDesctop1024 {
+      grid-column: 1/5;
+    }
+  }
+
+  &__description {
+    grid-column: span 2;
+    margin-bottom: 48px;
+
+    @include bodyText;
+    text-align: left;
+
+    @include onTablet {
+      grid-column: 1/4;
+      margin-bottom: 0;
+    }
+
+    @include onDesctop1024 {
+      grid-column: 1/5;
+    }
+  }
+
+  &__service {
+    @for $i from 1 through 4 {
+      &--#{$i} {
+        grid-column: span 2;
+
+        @include onTablet {
+          grid-column: span 3;
+        }
+      }
+    }
+
+    @for $i from 1 through 3 {
+      @media (max-width: 744px) {
+        &--#{$i} {
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    $indexFrom1To3: 1, 3;
+    $indexFrom2To4: 2, 4;
+    $indexFrom1To2: 1, 2;
+
+    @include onTablet {
+      @each $index in $indexFrom1To2 {
+        &--#{$index} {
+          margin-bottom: 30px;
+        }
+      }
+
+      @each $index in $indexFrom2To4 {
+        &--#{$index} {
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    @include onDesctop1024 {
+      @each $index in $indexFrom1To3 {
+        &--#{$index} {
+          grid-column: 7/10;
+        }
+      }
+
+      @each $index in $indexFrom2To4 {
+        &--#{$index} {
+          grid-column: 10/-1;
+          transform: translateY(-50%);
+        }
+      }
+
+      @each $index in $indexFrom1To2 {
+        &--#{$index} {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    @include onDesctop1600 {
+      @each $index in $indexFrom1To2 {
+        &--#{$index} {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}

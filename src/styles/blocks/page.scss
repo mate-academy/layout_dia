@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "Poppins", sans-serif, serif;
+  color: $c-main;
+
+  scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all $effect-duration;
+    pointer-events: none;
+
+    &:target {
+      z-index: 1;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
