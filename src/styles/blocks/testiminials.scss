@@ -1,0 +1,103 @@
+.testimonials {
+  @include contentPaddingInline;
+
+  &__sign {
+    @extend %sign;
+  }
+
+  &__title {
+    padding-bottom: 24px;
+    text-align: left;
+    @include onTablet {
+      
+      max-width: 200px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 37px;
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+
+    @include onTablet {
+      gap: 30px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include onDesign {
+      max-width: 1150px;
+    }
+  }
+
+  &__card {
+    @extend %card;
+    display: flex;
+    align-items: center;
+    padding: 35px 36px 16px;
+    width: 100%;
+    height: 478px;
+
+    @include onDesktop {
+      max-width: 292px;
+      min-height: 456px;
+    }
+
+    @include onDesign {
+      min-width: 362px;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 60px;
+
+    @include onTablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include onDesktop {
+      height: 196px;
+      width: 196px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    @extend %text;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include onTablet {
+      max-width: 362px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url("../images/testimonials/quote-icon.svg");
+    }
+  }
+
+  &__name {
+    @extend %text;
+    color: $title-color;
+    margin-bottom: 4px;
+  }
+  &__company {
+    @extend %sign;
+  }
+}
