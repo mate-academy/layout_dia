@@ -3,14 +3,15 @@
   background-color: $black;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  height: 100vh;
 
   &__top {
     grid-column: 1 / -1;
     padding-top: 20px;
-    width: 280px;
     display: flex;
     justify-content: space-between;
     align-content: center;
+    align-items: center;
 
     @include tablet {
       width: 560px;
@@ -26,20 +27,25 @@
 
     &__icons {
       display: flex;
+      align-content: center;
       align-items: center;
       gap: 32px;
     }
 
     &__link {
+      align-self: flex-start;
+      position: relative;
       text-decoration: none;
       color: $white;
-      text-align: center;
       font-family: "Poppins", sans-serif;
       font-size: 13px;
       font-weight: 700;
-      line-height: 150%;
       letter-spacing: 3px;
       text-transform: uppercase;
+
+      @include smallDesktop {
+        align-self: center;
+      }
 
       &:hover {
         color: $blue;
@@ -51,9 +57,9 @@
         width: 67px;
         height: 2px;
         background-color: $blue;
-        position: relative;
-        top: 8px;
-
+        position: absolute;
+        bottom: -8px;
+        border-radius: 4px;
       }
     }
   }
@@ -97,9 +103,8 @@
 
   &__photo {
     border-radius: 30px;
-    margin: 0 auto;
-    margin-top: 48px;
-    width: 320px;
+    margin: 48px auto 0;
+    width: 100%;
     height: 390px;
     background-image: url(../images/headerphoto.png);
     background-position: center;
@@ -107,8 +112,7 @@
     background-size: cover;
 
     @include tablet {
-      width: 640px;
-      margin-top: 148px;
+      margin: 148px auto 0;
     }
 
     @include smallDesktop {
