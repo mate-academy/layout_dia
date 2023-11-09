@@ -1,0 +1,58 @@
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32.18px;
+  }
+
+  &__hire-us {
+    @extend %poppinsAccenpLink;
+    color: $text-wite;
+    display: block;
+    text-align: center;
+    margin-right: -3px;
+    white-space: nowrap;
+
+    @include hover (transform, $scale);
+
+    &--gray {
+      color: $text-accent;
+    }
+
+    &::after {
+      position: relative;
+      display: block;
+      content: "";
+      height: 2px;
+      width: calc(100% - 3px);
+      background-color: $main-blue;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+  }
+
+  &__nav {
+    display: none;
+    justify-content: center;
+
+    @include onDesktopS {
+      display: flex;
+      width: calc(100vw - #{$paddingInlineDesktopS} * 2);
+    }
+
+    @include onDesktopM {
+      width: calc(100vw - #{$paddingInlineDesktopM} * 2);
+    }
+
+    @include onDesktopL {
+      width: calc(100vw - #{$paddingInlineDesktopL} * 2);
+    }
+  }
+}

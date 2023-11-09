@@ -1,0 +1,63 @@
+.nav {
+  &__list {
+    text-transform: uppercase;
+    display: flex;
+    row-gap: 24px;
+    column-gap: 48px;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      column-gap: 40px;
+    }
+
+    @include onDesktopS {
+      column-gap: 48px;
+    }
+
+    &--aside {
+      row-gap: 48px;
+      align-items: center;
+
+      @include onTablet {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__item {
+    @include onDesktopS {
+      @include hover (transform, $scale);
+    }
+
+    &--aside {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__link {
+    color: $text-wite;
+    @extend %poppinsAccenpLink;
+
+    &--aside {
+      display: flex;
+      color: $text-accent;
+      position: relative;
+      justify-content: center;
+      padding: 4px;
+      z-index: 2;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: $text-gray;
+        bottom: -8px;
+        z-index: 1;
+      }
+    }
+  }
+}

@@ -1,6 +1,90 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin contentPaddingInline {
+  padding-inline: $paddingInlineMobile;
+
+  @include onTablet {
+    padding-inline: $paddingInlineTablet;
+  }
+
+  @include onDesktopS {
+    padding-inline: $paddingInlineDesktopS;
+  }
+
+  @include onDesktopM {
+    padding-inline: $paddingInlineDesktopM;
+  }
+
+  @include onDesktopL {
+    // padding-inline: $paddingInlineDesktopL;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktopS {
+  @media (min-width: $s-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktopM {
+  @media (min-width: $m-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktopL {
+  @media (min-width: $l-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktopS {
+    --columns: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktopM {
+    --columns: 12;
+    column-gap: 30px;
+
+  }
+
+  @include onDesktopL {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin hover ($property, $toValue) {
+  transition: #{$property} $effectDuration;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: #{$toValue};
+  }
+}
+
+@mixin boxShadow {
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 1px 4px 16px rgba(20, 78, 212, 0.4);
+  }
+  &:active {
+    box-shadow: 1px 4px 16px rgba(32, 96, 246, 0.64);
   }
 }
