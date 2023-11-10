@@ -1,5 +1,9 @@
 .creative {
 
+  &__cards {
+    position: absolute;
+  }
+
   &__card {
     border-radius: 16px;
     background: #fff;
@@ -8,37 +12,42 @@
     box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
     grid-column: span 2;
     margin-bottom: 30px;
+    cursor: pointer;
+    transition: transform $time-transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     @include onTablet {
-      grid-column: 1/4;
-      grid-row: 5;
       width: 264px;
+      transform: translate(0%, 130%);
     }
 
     @include onDesktop {
       width: 214px;
       margin-bottom: 20px;
-      transform: translate(220%,-160%);
+      transform: translate(220%,59%);
     }
 
     @include onDesktop1600 {
       width: 264px;
-      margin-left: 588px;
+      margin-bottom: 30px;
+      transform: translate(220%,50%);
     }
 
     &--two {
-      grid-column: span 2;
 
       @include onTablet {
-        grid-column: 4/-1;
+        transform: translate(110%,-20%);
       }
 
       @include onDesktop {
-        transform: translate(220%,-204%);
+        transform: translate(329%,-107%);
       }
 
       @include onDesktop1600 {
-        transform: translateX(332%);
+        transform: translate(335%,-110%);
       }
     }
 
@@ -46,17 +55,16 @@
       grid-column: span 2;
 
       @include onTablet {
-        grid-column: span 3;
-        grid-row: 6;
         margin-bottom: 0;
+        transform: translate(0,19%);
       }
 
       @include onDesktop {
-        transform: translate(220%,-160%);
+        transform: translate(220%,-40%);
       }
 
       @include onDesktop1600 {
-        margin-left: 588px;
+        transform: translate(220%,-60%);
       }
     }
 
@@ -64,16 +72,15 @@
       grid-column: span 2;
 
       @include onTablet {
-        grid-column: 4/-1;
-        grid-row: 6;
+        transform: translate(110%,-120%);
       }
 
       @include onDesktop {
-        transform: translate( 221%, -205%);
+        transform: translate( 330%, -200%);
       }
 
       @include onDesktop1600 {
-        margin-left: 882px;
+        transform: translate( 335%, -209%);
       }
     }
   }
@@ -117,7 +124,6 @@
     margin-left: 32px;
     margin-bottom: 32px;
     margin-right: 32px;
-    display: flex;
   }
 
   &__button {
@@ -130,25 +136,32 @@
     margin-left: 32px;
     align-items: center;
     justify-content: center;
-    transition: transform $time-transition;
+  }
+
+  &__buttonlean {
     cursor: pointer;
+    text-decoration: none;
+    transition: transform $time-transition;
 
     &:hover {
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
   }
 
   &__leanmore {
     position: relative;
     color: var(--text-200, #334563);
-    margin-left: 88px;
+    margin-left: 92px;
     font-family: "Poppins", sans-serif;
     font-size: 15px;
-    display: flex;
     font-weight: 600;
     line-height: normal;
     bottom: 41px;
-    margin-bottom: 0;
     margin-top: 10px;
   }
+}
+
+.buttons {
+  z-index: 1;
+  position: absolute;
 }
