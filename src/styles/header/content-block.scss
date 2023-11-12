@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 503px;
+  min-height: 430px;
   height: calc(100vh - var(--little-nav-height));
-  margin-inline: 20px;
-  color: #fff;
+  color: $white-bg-color;
 
   &__text {
     grid-column: 1 / -1;
@@ -53,13 +52,14 @@
     }
 
     &--link {
+      @include hover (transform, scale(1.05));
       margin: 72px 0 48px;
       height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      color: #fff;
+      color: $white-bg-color;
       font-family: "Poppins", sans-serif;
       font-size: 15px;
       font-weight: 600;
@@ -67,10 +67,7 @@
 
       border-radius: 8px;
       background: #2060f6;
-
-      &:hover {
-        cursor: pointer;
-      }
+      cursor: pointer;
 
       @include onTablet {
         grid-column: 1 / 4;
@@ -82,9 +79,13 @@
     }
   }
 
+  @include onTablet {
+    min-height: 365px;
+    justify-content: flex-start;
+  }
+
   @include onSmallDesktop {
-    margin-inline: 54px;
-    grid-column: 1 / 7;
+    justify-content: center;
     height: calc(100vh - var(--big-nav-height));
   }
 }
