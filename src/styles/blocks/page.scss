@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__body {
+    background-color: #F2F6FA;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $main-black-color;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}

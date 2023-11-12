@@ -1,0 +1,103 @@
+.services {
+  @include fontPoppins;
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__modules {
+    width: max-content;
+    margin: 0 auto;
+    display: grid;
+    row-gap: 25px;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+      row-gap: 30px;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      padding-top: 140px;
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__module {
+    @include hover (transform, scale(1.1));
+  }
+
+  &__module:nth-child(odd) {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__module:nth-child(2n) {
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 1.1;
+    }
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title-block {
+    margin-bottom: 50px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 55px;
+    }
+
+    @include onSmallDesktop {
+      margin-top: 100px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-align: left;
+    text-transform: uppercase;
+    color: $second-gray-color;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 25px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $black-text-color;
+  }
+
+  &__text {
+    margin: 0;
+    @include fontOpenSans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $main-gray-color;
+
+    &--top {
+      margin-bottom: 20px;
+    }
+  }
+}
