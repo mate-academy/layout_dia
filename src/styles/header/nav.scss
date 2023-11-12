@@ -20,6 +20,7 @@
     align-items: center;
   }
 
+  &__link,
   &__hire {
     position: relative;
     text-decoration: none;
@@ -30,6 +31,23 @@
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      border-radius: 2px;
+      width: 100%;
+      background-color: $learn-button-bg-color;
+      transition-duration: $durationTime;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 
   &__list {
@@ -50,40 +68,6 @@
     @include onSmallDesktop {
       gap: 48px;
     }
-  }
-
-  &__hire,
-  &__item {
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      display: block;
-      height: 2px;
-      border-radius: 2px;
-      width: 100%;
-      background-color: $learn-button-bg-color;
-      transition-duration: $durationTime;
-      transform: scale(0);
-    }
-
-    &:hover::after {
-      transform: scale(1);
-    }
-  }
-
-  &__link {
-    text-decoration: none;
-    color: $white-bg-color;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
   }
 }
 
