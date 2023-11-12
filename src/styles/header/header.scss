@@ -12,17 +12,29 @@
     }
   }
 
+  &__content-block {
+    @include onSmallDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
   &__slider {
     height: 390px;
     width: 100%;
     background-image: url(../images/slider/slider-img-1.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     border-radius: $border-radius;
 
     @include onSmallDesktop {
-      height: 100%;
-      grid-column: 7 / -1;
+      min-height: 365px;
+      position: absolute;
+      height: calc(100vh - var(--big-nav-height));
+      top: var(--big-nav-height);
+      left: 50%;
+      width: 50%;
+      border-radius: $border-radius 0;
     }
   }
 }

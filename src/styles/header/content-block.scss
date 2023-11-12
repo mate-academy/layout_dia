@@ -1,11 +1,10 @@
 .content-block {
-  min-height: 503px;
+  min-height: 430px;
   height: calc(100vh - var(--little-nav-height));
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   color: $white-bg-color;
-  margin-inline: 20px;
 
   &__text {
     grid-column: 1 / -1;
@@ -55,6 +54,7 @@
       color: #fff;
       width: 100%;
       height: 50px;
+      line-height: 100%;
       align-items: center;
       justify-content: center;
       font-family: "Poppins", sans-serif;
@@ -63,11 +63,9 @@
       font-weight: 600;
       margin: 72px 0 48px;
       border-radius: 8px;
+      cursor: pointer;
       background-color: $learn-button-bg-color;
-
-      &:hover {
-        cursor: pointer;
-      }
+      @include hover(transform, scale(1.05));
 
       @include onTablet {
         grid-column: 1 / 4;
@@ -79,9 +77,13 @@
     }
   }
 
+  @include onTablet {
+    justify-content: flex-start;
+  }
+
   @include onSmallDesktop {
-    margin-inline: 54px;
-    grid-column: 1 / 7;
+    justify-content: center;
     height: calc(100vh - var(--big-nav-height));
+    min-height: 365px;
   }
 }

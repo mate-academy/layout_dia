@@ -12,6 +12,7 @@
   &__logo {
     width: 46px;
     height: 28px;
+    @include hover(transform, scale(1.15));
   }
 
   &__rblock {
@@ -29,17 +30,6 @@
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      display: block;
-      height: 2px;
-      border-radius: 2px;
-      width: 100%;
-      background-color: $learn-button-bg-color;
-    }
   }
 
   &__list {
@@ -59,6 +49,28 @@
 
     @include onSmallDesktop {
       gap: 48px;
+    }
+  }
+
+  &__hire,
+  &__item {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      border-radius: 2px;
+      width: 100%;
+      background-color: $learn-button-bg-color;
+      transition-duration: $durationTime;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
     }
   }
 
