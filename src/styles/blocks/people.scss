@@ -1,44 +1,53 @@
+@import "../utils/mixins";
+
 .people {
+  display: grid;
+  gap: 24px;
 
   &__position {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding-top: 35px;
-  }
-
-  &__head {
-    width: 170px;
-    height: 190px;
     position: relative;
   }
 
-  &__square {
-    width: 109px;
-    height: 44px;
-    transform: rotate(-60deg);
-    border-radius: 12px;
-    background: #2060f6;
-    position: absolute;
-    bottom: 0;
-    &--left {
+  &__head {
+    margin-top: 75px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 109px;
+      height: 44px;
+      transform: rotate(-60deg);
+      border-radius: 12px;
+      bottom: 60%;
+      right: 30%;
+      background: #2060f6;
       position: absolute;
-      top: 0;
-      left: -50px;
+    }
+    &::before {
+      content: "";
+      width: 109px;
+      height: 44px;
+      transform: rotate(-60deg);
+      border-radius: 12px;
+      background: #2060f6;
+      position: absolute;
+      top: 60%;
+      left: 29%;
     }
 
-    &--right {
-      position: absolute;
-      bottom: 0;
-      right: -50px;
-    }
   }
 
   &__image {
-    z-index: 2;
-    position: absolute;
+    z-index: 1;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    width: 109.76px;
-    height: 109.76px;
+    background-image: url("../../src/images/testimonials/img1.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
   }
+
 }
