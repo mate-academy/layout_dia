@@ -1,0 +1,164 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 20px;
+  grid-template-rows: 1fr;
+
+  justify-items: center;
+  justify-content: center;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+  }
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 24px;
+  }
+
+  @include onLargeDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 24px;
+
+  }
+
+  &--contacts {
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .grid__item--1-6 {
+      justify-self: end;
+    }
+
+    .grid__item--7-12 {
+      justify-self: start;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr;
+      column-gap: 100px;
+    }
+
+    @include onLargeDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr;
+      column-gap: 200px;
+
+    }
+  }
+
+  &--services {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 20px;
+    grid-template-rows: 1fr;
+
+    justify-items: center;
+    justify-content: center;
+
+    @include onMobile() {
+      display: block;
+    }
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 10px;
+      grid-template-rows: repeat(7, 1fr);
+      row-gap: 5px;
+    }
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+      grid-template-rows: repeat(5, 1fr);
+      row-gap: 5px;
+    }
+
+    @include onLargeDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+      grid-template-rows: repeat(5, 1fr);
+      row-gap: 10px;
+    }
+  }
+
+  &--tablet-block {
+    display: block;
+    @include onDesktop {
+      display: grid;
+    }
+
+    @include onLargeDesktop {
+      display: grid;
+    }
+  }
+
+  &--desktop {
+    display: block;
+    @include onTablet {
+      display: grid;
+      &--block {
+        display: block;
+      }
+    }
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from 1 through 12 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end+1};
+        }
+
+        &--desktop--#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end+1};
+          }
+
+          @include onLargeDesktop() {
+            grid-column: #{$start} / #{$end+1};
+          }
+
+        }
+      }
+    }
+
+    @for $start from 1 through 5 {
+      @for $end from 1 through 5 {
+        &--row--#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end+1};
+        }
+      }
+    }
+
+    @for $start from 1 through 6 {
+      @for $end from 1 through 6 {
+        &--tablet--#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end+1};
+          }
+
+        }
+      }
+    }
+
+    @for $start from 1 through 7 {
+      @for $end from 1 through 7 {
+        &--row--tablet--#{$start}-#{$end} {
+          @include onTablet {
+            grid-row: #{$start} / #{$end+1};
+          }
+
+        }
+      }
+    }
+  }
+}

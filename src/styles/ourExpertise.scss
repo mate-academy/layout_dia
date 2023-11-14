@@ -1,0 +1,115 @@
+.ourExpertise {
+  background-color: #fff;
+  border-radius: 30px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &__title {
+    color: var(--text-100, #253757);
+    text-align: center;
+    font-family: "Poppins", "Open Sans", sans-serif;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 64px;
+  }
+}
+
+.describe {
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  margin-bottom: 48px;
+}
+
+.photos {
+  @include onMobile() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+
+  &__title {
+    color: var(--text-100, #253757);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+    margin: 0 0 16px;
+  }
+
+  &__text {
+    color: #6c788b;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    max-width: 264px;
+
+    @include onTablet {
+      max-width: 362px;
+    }
+  }
+  // }
+
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    width: 166px;
+    max-height: 166px;
+    margin: 0 auto 40px;
+    // margin-bottom: 20px;
+    border-radius: 16px;
+    background: #c4c4c4;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    @include onTablet {
+      height: 185px;
+      padding-bottom: 0;
+    }
+
+    @include onDesktop {
+      height: 320px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+    // transition: 0.3s;
+    z-index: 0;
+    border-radius: 16px;
+    transition: all 400ms;
+
+    &:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+
+  }
+}
