@@ -12,13 +12,13 @@
 }
 
 @mixin for-tablet {
-  @media (min-width: 744px) and (max-width: 1259px) {
+  @media (min-width: 640px) {
     @content;
   }
 }
 
 @mixin for-mobile {
-  @media (min-width: 320px) and (max-width: 743px) {
+  @media (max-width: 639px) {
     @content;
   }
 }
@@ -26,20 +26,22 @@
 @mixin grid() {
   display: grid;
   justify-content: center;
-
   @include for-mobile() {
-    grid-template-columns: repeat(2, 130px);
-    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 120px;
+    grid-auto-rows: auto;
   }
 
-  @include for-desktop() {
-    grid-template-columns: repeat(12, 63px);
-    column-gap: 24px;
-  }
+  // @include for-desktop() {
+  //   grid-template-columns: repeat(12, 63px);
+  //   column-gap: 24px;
+  // }
 
   @include for-tablet() {
-    grid-template-columns: repeat(6, 80px);
-    column-gap: 24px;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 41px;
+    row-gap: 148px;
+    grid-auto-rows: auto;
   }
 }
 
