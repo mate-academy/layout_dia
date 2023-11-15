@@ -2,3 +2,73 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
+
+%reset-indents {
+  margin: initial;
+  padding: initial;
+  border-style: none;
+}
+
+// #region element styles
+%font-style {
+  @include font-style ($default-font, 700, 13px, 19.5px, 3px);
+}
+
+%style-contact-us {
+  @extend %font-style;
+  text-transform: uppercase;
+  opacity: 50%;
+}
+// #endregion
+
+// #region positioning
+%flex {
+  display: flex;
+  align-items: center;
+}
+
+%inline-flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%grid {
+  --num-of-columns: 1;
+  --num-of-rows: 1;
+
+  display: grid;
+  grid-template-columns: repeat(var(--num-of-columns), 1fr);
+  grid-template-rows: repeat(var(--num-of-rows), 1fr);
+}
+
+%position-top {
+  @extend %flex;
+  justify-content: space-between;
+}
+// #endregion
+
+// #region button
+%font-btn {
+  @include font-style ($default-font, 600, 15px, 22.5px, 0);
+  color: $white;
+}
+
+%size-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+%hover-button {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px $white;
+  box-shadow: 0 0 50px $blue;
+}
+// #endregion

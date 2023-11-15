@@ -1,0 +1,62 @@
+.menu {
+  @extend %font-style;
+
+  &__list {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__top-item {
+    &:nth-child(-n + 4) {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    color: $white;
+  }
+}
+
+.burger-menu {
+  pointer-events: none;
+  opacity: 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(100px);
+
+  width: 100vw;
+  height: 100vh;
+
+  &__block {
+    padding: $initial-padding;
+  }
+
+  &__box {
+    @extend %position-top;
+    margin-bottom: 20px;
+  }
+
+  &:target {
+    pointer-events: all;
+    z-index: 1;
+    opacity: 1;
+
+    .menu__item:nth-child(-n + 4) {
+      display: block;
+    }
+  }
+}
+
+@for $row from 2 through 5 {
+  .menu__item--#{$row} {
+    padding-left: ($row - 1) * 30px;
+
+    &:last-child {
+      padding-left: $row + 150px;
+    }
+  }
+}

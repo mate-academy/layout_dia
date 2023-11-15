@@ -1,6 +1,43 @@
-@mixin hover($_property, $_toValue) {
+@mixin hover ($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
+
+@mixin font-style ($font, $weight, $size, $lineHight, $letterSpacing) {
+  font-family: $font;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineHight;
+  letter-spacing: $letterSpacing;
+}
+
+// #region media breakpoints
+
+@mixin initial-page-markup ($name-block) {
+  #{$name-block} {
+    @content;
+  }
+}
+
+@mixin media-breakpoints ($screen-size, $name-block) {
+  @media (min-width: #{$screen-size}) {
+    #{$name-block} {
+      @content;
+    }
+  }
+}
+
+@mixin hidden-components-to {
+  @media (min-width: $lg) {
+    visibility: hidden;
+  }
+}
+
+@mixin hidden-components-from {
+  @media (max-width: $lg) {
+    visibility: hidden;
+  }
+}
+// #endregion

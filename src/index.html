@@ -1,13 +1,626 @@
+<!-- #region head -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dia</title>
+    <link
+      rel="shortcut icon"
+      href="./images/logo/Logo-favicon.svg"
+      type="image/x-icon"
+      >
     <link rel="stylesheet" href="./styles/main.scss">
-  </head>
-  <body>
-    <h1>Dia</h1>
     <script type="text/javascript" src="scripts/main.js"></script>
+  </head>
+  <!-- #endregion -->
+  <body class="body">
+    <!-- #region header -->
+    <header class="header">
+      <div class="header__container">
+
+        <div class="header__top">
+          <div class="top-bar">
+            <a href="#" class="icon top-bar__item">
+              <svg
+                width="46"
+                height="28"
+                viewbox="0 0 46 28"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.128 17.964L13.428 4.356L19.728 17.964H7.128ZM21.24 21.204L23.292 25.632H26.856L15.12 0.431998H11.736L0 25.632H3.564L5.616 21.204H21.24Z"></path>/>
+                <path d="M27.2025 2.448C27.2025 3.168 27.4185 3.744 27.8865 4.212C28.3545 4.68 28.9305 4.896 29.6505 4.896C30.3345 4.896 30.9105 4.68 31.3785 4.212C31.8465 3.744 32.0985 3.168 32.0985 2.448C32.0985 1.764 31.8465 1.188 31.3785 0.719999C30.9105 0.251999 30.3345 0 29.6505 0C28.9305 0 28.3545 0.251999 27.8865 0.719999C27.4185 1.188 27.2025 1.764 27.2025 2.448ZM31.1985 7.632H28.1025V25.632H31.1985V7.632Z"></path>/>
+                <path d="M37.6183 10.332V7.632H34.6303V25.632H37.7263V17.244C37.7263 16.236 37.7983 15.336 37.9783 14.472C38.1223 13.644 38.4103 12.924 38.8423 12.312C39.2743 11.736 39.8143 11.268 40.4983 10.944C41.1463 10.62 42.0103 10.44 43.0183 10.44C43.3423 10.44 43.6303 10.476 43.9183 10.512C44.2063 10.548 44.4943 10.584 44.8183 10.656V7.38C44.5303 7.344 44.2423 7.308 43.9543 7.272C43.6663 7.236 43.3423 7.2 43.0543 7.2C41.7583 7.2 40.6783 7.488 39.7783 8.028C38.8783 8.568 38.1583 9.324 37.6183 10.332Z"></path>/>
+              </svg>
+            </a>
+
+            <a href="#burger-menu" class="icon top-bar__item">
+              <svg
+                width="24"
+                height="24"
+                viewbox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16H3V14H21V16ZM21 10H3V8H21V10Z"></path>/>
+              </svg>
+            </a>
+          </div>
+
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item menu__top-item">
+                <a href="#about-us" class="menu__link">About us</a>
+              </li>
+
+              <li class="menu__item menu__top-item">
+                <a href="#services" class="menu__link">Services</a>
+              </li>
+
+              <li class="menu__item menu__top-item">
+                <a href="#testimonials" class="menu__link">Testimonials</a>
+              </li>
+
+              <li class="menu__item menu__top-item">
+                <a href="#contact-us" class="menu__link">Contact us</a>
+              </li>
+
+              <li class="menu__item menu__top-item">
+                <a href="#feedback-form" class="menu__link">Hire us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <aside class="burger-menu" id="burger-menu">
+            <div class="burger-menu__block">
+
+              <div class="burger-menu__box">
+
+                <div class="icon burger-menu__logo">
+                  <svg
+                    width="46"
+                    height="28"
+                    viewbox="0 0 46 28"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.128 17.964L13.428 4.356L19.728 17.964H7.128ZM21.24 21.204L23.292 25.632H26.856L15.12 0.431998H11.736L0 25.632H3.564L5.616 21.204H21.24Z"></path>/>
+                    <path d="M27.2025 2.448C27.2025 3.168 27.4185 3.744 27.8865 4.212C28.3545 4.68 28.9305 4.896 29.6505 4.896C30.3345 4.896 30.9105 4.68 31.3785 4.212C31.8465 3.744 32.0985 3.168 32.0985 2.448C32.0985 1.764 31.8465 1.188 31.3785 0.719999C30.9105 0.251999 30.3345 0 29.6505 0C28.9305 0 28.3545 0.251999 27.8865 0.719999C27.4185 1.188 27.2025 1.764 27.2025 2.448ZM31.1985 7.632H28.1025V25.632H31.1985V7.632Z"></path>/>
+                    <path d="M37.6183 10.332V7.632H34.6303V25.632H37.7263V17.244C37.7263 16.236 37.7983 15.336 37.9783 14.472C38.1223 13.644 38.4103 12.924 38.8423 12.312C39.2743 11.736 39.8143 11.268 40.4983 10.944C41.1463 10.62 42.0103 10.44 43.0183 10.44C43.3423 10.44 43.6303 10.476 43.9183 10.512C44.2063 10.548 44.4943 10.584 44.8183 10.656V7.38C44.5303 7.344 44.2423 7.308 43.9543 7.272C43.6663 7.236 43.3423 7.2 43.0543 7.2C41.7583 7.2 40.6783 7.488 39.7783 8.028C38.8783 8.568 38.1583 9.324 37.6183 10.332Z"></path>/>
+                  </svg>
+                </div>
+
+
+                <a href="#" class="icon burger-menu__close">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewbox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M19.1943 6.41714C19.6393 5.97216 19.6393 5.2507 19.1943 4.80571C18.7493 4.36073 18.0278 4.36073 17.5829 4.80571L12 10.3886L6.41714 4.80572C5.97216 4.36073 5.2507 4.36073 4.80571 4.80571C4.36073 5.2507 4.36073 5.97216 4.80571 6.41714L10.3886 12L4.80572 17.5829C4.36073 18.0278 4.36073 18.7493 4.80571 19.1943C5.2507 19.6393 5.97216 19.6393 6.41714 19.1943L12 13.6114L17.5829 19.1943C18.0278 19.6393 18.7493 19.6393 19.1943 19.1943C19.6393 18.7493 19.6393 18.0278 19.1943 17.5829L13.6114 12L19.1943 6.41714Z"></path>/>
+                  </svg>
+                </a>
+              </div>
+
+              <nav class="menu burger-menu__menu">
+
+                <ul class="menu__list">
+
+                  <li class="menu__item menu__item--1">
+                    <a href="#about-us" class="menu__link">About us</a>
+                  </li>
+
+                  <li class="menu__item menu__item--2">
+                    <a href="#services" class="menu__link">Services</a>
+                  </li>
+
+                  <li class="menu__item menu__item--3">
+                    <a href="#testimonials" class="menu__link">Testimonials</a>
+                  </li>
+
+                  <li class="menu__item menu__item--4">
+                    <a href="#contact-us" class="menu__link">Contact us</a>
+                  </li>
+
+                  <li class="menu__item menu__item--5">
+                    <a href="#feedback-form" class="menu__link">Hire us</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="header__wrapper">
+
+        <section class="header__content">
+          <div class="header__content--box">
+            <h1 class="header__title">Strategic Agency</h1>
+
+            <p class="header__text">We believe in the power of bold ideas that can solve business challenges.</p>
+          </div>
+
+          <button class="header__btn" type="submit">Learn more</button>
+        </section>
+
+        <section class="slides slides__slide slides__slide--1">
+          <div class="slides__container">
+
+            <div class="slides__navigation">
+
+              <label for="switch-left" class="slides__switch slides__switch--left"></label>
+              <label for="switch-right" class="slides__switch slides__switch--right"></label>
+
+              <input
+                type="radio"
+                name="switch"
+                id="switch-left"
+              >
+              <input
+                type="radio"
+                name="switch"
+                id="switch-right"
+              >
+            </div>
+
+            <div class="slides__content">
+              <h2 class="slides__title">INtro</h2>
+
+              <p class="slides__text">
+                By the same illusion which lifts the
+                <br>
+                horizon.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+    <!-- #endregion -->
+    <!-- #region main -->
+    <main class="main">
+
+      <!-- #region about-us -->
+      <article class="about-us" id="about-us">
+        <div class="about-us__container">
+
+          <h2 class="about-us__title">Who we are</h2>
+
+          <p class="about-us__description">
+            We embrace a strategic approach to creative ideas. We are  interested in people and human relationships. This is the main thing you need to know about us. We believe in the power of bold ideas that can solve business challenges.
+          </p>
+
+        </div>
+      </article>
+      <!-- #endregion -->
+      <!-- #region our-expertise -->
+      <section class="our-expertise" id="our-expertise">
+        <div class="our-expertise__container">
+
+          <h2 class="our-expertise__title">Our expertise</h2>
+
+          <div class="our-expertise__block-card">
+
+            <article class="our-expertise__card">
+
+              <img
+              class="our-expertise__image"
+              src="./images/Our-expertise/expertise-photo-1.png"
+              alt="branding"
+            >
+
+              <h3 class="our-expertise__title-card">Branding</h3>
+
+              <p class="our-expertise__description-card">
+                We create additional value for companies, products, services as well as verbal and visual ways to deliver it to the audience.
+              </p>
+            </article>
+
+            <article class="our-expertise__card">
+
+              <img
+              class="our-expertise__image"
+              src="./images/Our-expertise/expertise-photo-2.png"
+              alt="communication"
+            >
+
+              <h3 class="our-expertise__title-card">Communication</h3>
+
+              <p class="our-expertise__description-card">
+                We strive to create communications that can increase media performance. We use everything — words, meanings, stories, art, movies.
+              </p>
+            </article>
+
+            <article class="our-expertise__card">
+
+              <img
+              class="our-expertise__image"
+              src="./images/Our-expertise/expertise-photo-3.png"
+              alt="strategy"
+            >
+
+              <h3 class="our-expertise__title-card">Strategy</h3>
+
+              <p class="our-expertise__description-card">
+                We create business growth strategies, from the moment of its birth to the achievement of the necessary business indicators.
+              </p>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- #endregion -->
+      <!-- #region  services-->
+      <section class="services" id="services">
+        <div class="services__container">
+          <div class="services__grid">
+            <div class="services__content">
+
+              <h2 class="services__section-title">Services</h2>
+
+              <h2 class="services__title">Air is a full service creative agency</h2>
+
+              <p class="services__text">
+                Deep analytics, strong strategy and bright creative ideas.
+                <br>
+                <br>
+                We are sure that first-rate job is possible only if all three components are united.
+              </p>
+            </div>
+
+            <section class="services__article-blocks">
+              <div class="services__article-box">
+
+                <article class="services__article services__article--001">
+
+
+                  <h5 class="services__article-title">001</h5>
+
+                  <p class="services__article-text">
+                    Brand Development Copywriting
+                    <br>
+                    Logo & Webite Design
+                    <br>
+                    Packaging
+                  </p>
+
+                  <label class="services__article-label">
+                    <input
+                    class="services__article-link"
+                    type="button"
+                    >
+                    Learn more
+                  </label>
+
+
+                </article>
+
+                <article class="services__article services__article--002">
+                  <h5 class="services__article-title">002</h5>
+
+                  <p class="services__article-text">
+                    Content Production
+                    <br>
+                    Graphic Design
+                    <br>
+                    Video Production
+                    <br>
+                    Post Production
+                  </p>
+
+                  <label class="services__article-label">
+                    <input
+                    class="services__article-link"
+                    type="button"
+                    >
+                    Learn more
+                  </label>
+                </article>
+
+                <article class="services__article services__article--003">
+                  <h5 class="services__article-title">003</h5>
+
+                  <p class="services__article-text">
+                    Marketing Strategy
+                    <br>
+                    Email Marketing
+                    <br>
+                    Paid Advertising
+                    <br>
+                    Blog Content & SEO
+                  </p>
+
+                  <label class="services__article-label">
+                    <input
+                    class="services__article-link"
+                    type="button"
+                    >
+                    Learn more
+                  </label>
+                </article>
+
+                <article class="services__article services__article--004">
+                  <h5 class="services__article-title">004</h5>
+
+                  <p class="services__article-text">
+                    Digital Communications
+                    <br>
+                    Influencer Marketing
+                    <br>
+                    Product Placements
+                    <br>
+                    Strategic Partnerships
+                  </p>
+
+                  <label class="services__article-label">
+                    <input
+                    class="services__article-link"
+                    type="button"
+                    >
+                    Learn more
+                  </label>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <!-- #endregion -->
+      <!-- #region testimonials -->
+      <section class="testimonials" id="testimonials">
+        <div class="testimonials__container">
+
+          <div class="testimonials__content">
+            <h4 class="testimonials__section-title">Testimonials</h4>
+
+            <h2 class="testimonials__title">What people say</h2>
+          </div>
+
+          <section class="testimonials__box">
+
+            <article class="testimonials__article">
+              <picture class="testimonials__picture">
+                <img
+                  class="testimonials__image"
+                  src="./images/testimonials/testimonial-ava-4.png"
+                  alt="photo"
+                >
+              </picture>
+
+              <p class="testimonials__text">
+                AIR&#39;s ideas are refreshing and out of the box. Authentic team that focuses on the important path of the brand.
+              </p>
+
+              <p class="testimonials__name-user">Tal Gilad</p>
+              <p class="testimonials__job-title">Teach for America</p>
+            </article>
+
+            <article class="testimonials__article">
+              <picture class="testimonials__picture">
+                <img
+                  class="testimonials__image"
+                  src="./images/testimonials/testimonial-ava-5.png"
+                  alt="photo"
+                >
+              </picture>
+
+              <p class="testimonials__text">
+                AIR is an exceptional agency that leads with creative talent, first-class account servicing.
+              </p>
+
+              <p class="testimonials__name-user">Azadeh Hawkins</p>
+              <p class="testimonials__job-title">Hawkins Consulting</p>
+            </article>
+
+            <article class="testimonials__article">
+              <picture class="testimonials__picture">
+                <img
+                  class="testimonials__image"
+                  src="./images/testimonials/testimonial-ava-6.png"
+                  alt="photo"
+                >
+              </picture>
+
+              <p class="testimonials__text">
+                AIR raises the agency bar to stratospheric heights on both creative output and client service.
+              </p>
+
+              <p class="testimonials__name-user">Michel Grover</p>
+              <p class="testimonials__job-title">Hulu</p>
+            </article>
+          </section>
+        </div>
+      </section>
+      <!-- #endregion -->
+      <!-- #region apply -->
+      <section class="apply" id="apply">
+        <div class="apply__container">
+          <div class="apply__wrap">
+            <h2 class="apply__title">Vision, Passion, Results</h2>
+
+            <p class="apply__text">
+              We are sure that first-rate job is possible only if all three components are united.
+            </p>
+          </div>
+
+          <button type="submit" class="apply__btn">Apply</button>
+        </div>
+      </section>
+      <!-- #endretion -->
+      </section>
+      <!-- #endregion -->
+
+    </main>
+    <!-- #endregion -->
+    <!-- #region footer -->
+    <section class="footer">
+
+      <div class="footer__container">
+        <div class="footer__wrap">
+          <section class="feedback-form" id="feedback-form">
+            <h2 class="feedback-form__title">Send us  a message</h2>
+
+            <form
+              class="feedback-form"
+              method="get"
+              onsubmit="this.reset(); return false;"
+            >
+
+              <label for="send-email"></label>
+              <input
+                class="feedback-form__input"
+                id="send-email"
+                type="email"
+                placeholder="Your email"
+                autocomplete="email"
+                required
+              >
+
+              <label for="send-name"></label>
+              <input
+                class="feedback-form__input"
+                id="send-name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+                >
+
+              <label for="send-message"></label>
+              <textarea
+                class="feedback-form__input feedback-form__message"
+                id="send-message"
+                name="Your message"
+                placeholder="Your message"
+                autocomplete="off"
+                required
+              ></textarea>
+
+              <button class="feedback-form__btn" type="submit">Send</button>
+            </form>
+          </section>
+
+          <section class="contact-us" id="contact-us">
+            <div class="contact-us__container">
+
+              <h2 class="contact-us__title">Contact us</h2>
+
+              <a
+                class="contact-us__contact contact-us__phone"
+                href="tel:654&#32;321&#32;987"
+              >
+                654&#32;321&#32;987
+              </a>
+
+              <a
+                class="contact-us__contact contact-us__address"
+                href="https://maps.app.goo.gl/7gzfX294Uc7YLRo8A"
+                target="_blank"
+              >
+                2905 West Drive, Buffalo Grove
+              </a>
+
+              <section class="social-networks">
+                <section class="social-networks__box">
+                  <a
+                    class="social-networks__item"
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewbox="0 0 32 32"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M22.6667 4.66674C22.6667 4.48993 22.5964 4.32036 22.4714 4.19533C22.3464 4.07031 22.1768 4.00007 22 4.00007H18.6667C16.9882 3.91646 15.3448 4.50059 14.0956 5.62484C12.8465 6.7491 12.093 8.32207 12 10.0001V13.6001H8.66667C8.48986 13.6001 8.32029 13.6703 8.19526 13.7953C8.07024 13.9204 8 14.0899 8 14.2667V17.7334C8 17.9102 8.07024 18.0798 8.19526 18.2048C8.32029 18.3298 8.48986 18.4001 8.66667 18.4001H12V27.3334C12 27.5102 12.0702 27.6798 12.1953 27.8048C12.3203 27.9298 12.4899 28.0001 12.6667 28.0001H16.6667C16.8435 28.0001 17.013 27.9298 17.1381 27.8048C17.2631 27.6798 17.3333 27.5102 17.3333 27.3334V18.4001H20.8267C20.9749 18.4022 21.1197 18.3548 21.238 18.2655C21.3563 18.1762 21.4415 18.0499 21.48 17.9067L22.44 14.4401C22.4665 14.3416 22.4701 14.2383 22.4504 14.1382C22.4308 14.0381 22.3884 13.9438 22.3265 13.8627C22.2647 13.7816 22.1851 13.7157 22.0938 13.6701C22.0025 13.6246 21.902 13.6006 21.8 13.6001H17.3333V10.0001C17.3665 9.67004 17.5215 9.36422 17.768 9.14233C18.0146 8.92044 18.335 8.79841 18.6667 8.80007H22C22.1768 8.80007 22.3464 8.72983 22.4714 8.60481C22.5964 8.47978 22.6667 8.31021 22.6667 8.1334V4.66674Z"></path>
+                    </svg>
+                  </a>
+
+                  <a
+                    class="social-networks__item"
+                    href="https://twitter.com/"
+                    target="_blank"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewbox="0 0 32 32"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M10.7724 26.6671C12.744 26.733 14.7088 26.4031 16.5507 25.6968C18.3926 24.9905 20.0743 23.9221 21.4963 22.5548C22.9183 21.1875 24.0517 19.549 24.8297 17.7362C25.6077 15.9234 26.0144 13.973 26.0257 12.0004C26.9293 10.8823 27.6002 9.59482 27.9991 8.21372C28.0289 8.1046 28.0264 7.9892 27.9922 7.88142C27.9579 7.77363 27.8931 7.67806 27.8058 7.6062C27.7184 7.53435 27.6122 7.48928 27.4998 7.47642C27.3874 7.46356 27.2737 7.48346 27.1724 7.53372C26.6997 7.76126 26.1675 7.83475 25.6509 7.74386C25.1342 7.65296 24.6591 7.40225 24.2924 7.02705C23.8243 6.51449 23.2582 6.10109 22.6274 5.81135C21.9966 5.52162 21.3141 5.36143 20.6203 5.3403C19.9265 5.31916 19.2356 5.4375 18.5883 5.6883C17.9411 5.9391 17.3508 6.31727 16.8524 6.80038C16.17 7.46126 15.6702 8.28744 15.4015 9.19862C15.1328 10.1098 15.1044 11.075 15.3191 12.0004C10.8524 12.2671 7.78574 10.1471 5.33241 7.24038C5.25871 7.15692 5.1623 7.09672 5.05495 7.06714C4.9476 7.03757 4.83396 7.03989 4.72791 7.07382C4.62186 7.10776 4.52799 7.17184 4.45775 7.25825C4.38752 7.34465 4.34397 7.44964 4.33241 7.56038C3.86504 10.1529 4.20218 12.8264 5.29857 15.2218C6.39495 17.6172 8.19807 19.6197 10.4657 20.9604C8.94526 22.7042 6.81002 23.7933 4.50575 24.0004C4.38229 24.0209 4.26833 24.0794 4.17981 24.1679C4.09129 24.2563 4.03264 24.3702 4.01207 24.4937C3.9915 24.6171 4.01003 24.7439 4.06508 24.8563C4.12013 24.9686 4.20894 25.061 4.31908 25.1204C6.32377 26.1222 8.53139 26.6513 10.7724 26.6671Z"></path>
+                    </svg>
+
+                  </a>
+
+                  <a
+                    class="social-networks__item"
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                  >
+                    <svg
+                      width="32"
+                      height="32"
+                      viewbox="-4 -5 32 32"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M12.0027 5.8467C8.59743 5.8467 5.85075 8.594 5.85075 12C5.85075 15.406 8.59743 18.1533 12.0027 18.1533C15.4079 18.1533 18.1546 15.406 18.1546 12C18.1546 8.594 15.4079 5.8467 12.0027 5.8467ZM12.0027 16.0004C9.80212 16.0004 8.00312 14.2064 8.00312 12C8.00312 9.7936 9.79677 7.99955 12.0027 7.99955C14.2086 7.99955 16.0022 9.7936 16.0022 12C16.0022 14.2064 14.2032 16.0004 12.0027 16.0004ZM19.8412 5.595C19.8412 6.39295 19.1987 7.03024 18.4062 7.03024C17.6085 7.03024 16.9713 6.38759 16.9713 5.595C16.9713 4.80241 17.6138 4.15977 18.4062 4.15977C19.1987 4.15977 19.8412 4.80241 19.8412 5.595ZM23.9157 7.05166C23.8247 5.12909 23.3856 3.42608 21.9775 2.02298C20.5747 0.619882 18.8721 0.180743 16.9499 0.0843468C14.9689 -0.0281156 9.03112 -0.0281156 7.05008 0.0843468C5.1333 0.175388 3.43068 0.614526 2.02253 2.01763C0.614389 3.42073 0.180703 5.12373 0.0843279 7.0463C-0.0281093 9.02778 -0.0281093 14.9669 0.0843279 16.9483C0.175349 18.8709 0.614389 20.5739 2.02253 21.977C3.43068 23.3801 5.12794 23.8193 7.05008 23.9157C9.03112 24.0281 14.9689 24.0281 16.9499 23.9157C18.8721 23.8246 20.5747 23.3855 21.9775 21.977C23.3803 20.5739 23.8193 18.8709 23.9157 16.9483C24.0281 14.9669 24.0281 9.03314 23.9157 7.05166ZM21.3564 19.0744C20.9388 20.1241 20.1303 20.9327 19.0755 21.3558C17.496 21.9824 13.7481 21.8378 12.0027 21.8378C10.2572 21.8378 6.50396 21.977 4.92984 21.3558C3.88042 20.9381 3.07195 20.1294 2.64897 19.0744C2.02253 17.4946 2.16709 13.7458 2.16709 12C2.16709 10.2542 2.02789 6.50006 2.64897 4.92558C3.06659 3.87593 3.87507 3.06728 4.92984 2.6442C6.50931 2.01763 10.2572 2.16222 12.0027 2.16222C13.7481 2.16222 17.5014 2.02298 19.0755 2.6442C20.1249 3.06192 20.9334 3.87058 21.3564 4.92558C21.9828 6.50541 21.8383 10.2542 21.8383 12C21.8383 13.7458 21.9828 17.4999 21.3564 19.0744Z"></path>
+                    </svg>
+                  </a>
+                </section>
+              </section>
+            </div>
+          </section>
+        </div>
+
+
+
+        <section class="menu">
+          <div class="menu__container">
+            <a href="#" class="icon icon--logo">
+              <svg
+                width="45"
+                height="26"
+                viewbox="0 0 45 26"
+                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.128 17.964L13.428 4.356L19.728 17.964H7.128ZM21.24 21.204L23.292 25.632H26.856L15.12 0.431998H11.736L0 25.632H3.564L5.616 21.204H21.24Z"></path>/>
+                <path d="M27.2025 2.448C27.2025 3.168 27.4185 3.744 27.8865 4.212C28.3545 4.68 28.9305 4.896 29.6505 4.896C30.3345 4.896 30.9105 4.68 31.3785 4.212C31.8465 3.744 32.0985 3.168 32.0985 2.448C32.0985 1.764 31.8465 1.188 31.3785 0.719999C30.9105 0.251999 30.3345 0 29.6505 0C28.9305 0 28.3545 0.251999 27.8865 0.719999C27.4185 1.188 27.2025 1.764 27.2025 2.448ZM31.1985 7.632H28.1025V25.632H31.1985V7.632Z"></path>/>
+                <path d="M37.6183 10.332V7.632H34.6303V25.632H37.7263V17.244C37.7263 16.236 37.7983 15.336 37.9783 14.472C38.1223 13.644 38.4103 12.924 38.8423 12.312C39.2743 11.736 39.8143 11.268 40.4983 10.944C41.1463 10.62 42.0103 10.44 43.0183 10.44C43.3423 10.44 43.6303 10.476 43.9183 10.512C44.2063 10.548 44.4943 10.584 44.8183 10.656V7.38C44.5303 7.344 44.2423 7.308 43.9543 7.272C43.6663 7.236 43.3423 7.2 43.0543 7.2C41.7583 7.2 40.6783 7.488 39.7783 8.028C38.8783 8.568 38.1583 9.324 37.6183 10.332Z"></path>/>
+              </svg>
+            </a>
+
+            <nav class="menu__nav">
+              <ul class="menu__bottom-list">
+                <li class="menu__item menu__item--bottom">
+                  <a href="#about-us" class="menu__link">About us</a>
+                </li>
+
+                <li class="menu__item menu__item--bottom">
+                  <a href="#" class="menu__link">Home</a>
+                </li>
+
+                <li class="menu__item menu__item--bottom">
+                  <a href="#apply" class="menu__link">Work</a>
+                </li>
+
+                <li class="menu__item menu__item--bottom">
+                  <a href="#services" class="menu__link">Services</a>
+                </li>
+
+                <li class="menu__item menu__item--bottom">
+                  <a href="#contact-us" class="menu__link">Contact us</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- #endregion -->
   </body>
 </html>
+
+
