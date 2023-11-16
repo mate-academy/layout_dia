@@ -1,6 +1,79 @@
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all $effectDuration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+/* Device Size */
+@mixin onTablet {
+  @media (min-width: $size-tablet) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $size-small-desktop) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $size-desktop) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $size-design) {
+    @content;
+  }
+}
+
+@mixin onBig {
+  @media (min-width: $size-large) {
+    @content;
+  }
+}
+
+/* Device Grids */
+@mixin pageGrid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    column-gap: 30px;
+  }
+}
+
+/* Content Position */
+@mixin contentPaddingInLine {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+    max-width: 1146px;
+    margin-inline: auto;
   }
 }
