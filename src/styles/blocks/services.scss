@@ -1,6 +1,7 @@
+@import "../utils/mixins";
+
 .services {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+  @include grid;
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
@@ -22,7 +23,8 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
-    line-height: 130%; /* 41.6px */
+    line-height: 130%;
+    /* 41.6px */
     padding: 16px 0 24px;
   }
 
@@ -32,12 +34,29 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 21px */
+    line-height: 150%;
+    /* 21px */
     padding-bottom: 48px;
+
+    @include for-tablet {
+      padding-bottom: 56px;
+    }
   }
 
   &__wrapper {
     grid-column: 1/-1;
+
+    @include for-tablet {
+      grid-column: 1/-1;
+    }
+
+    &--side {
+      width: 100%;
+
+      @include for-tablet {
+        width: 50%;
+      }
+    }
   }
 
   &__blocks {
