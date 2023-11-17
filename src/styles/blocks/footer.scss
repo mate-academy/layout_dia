@@ -1,6 +1,15 @@
+@import "../utils/mixins";
+
 .footer {
-  
+  display: flex;
+  flex-wrap: wrap;
+
+  @include for-tablet {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   &__logo {
+    width: 100%;
     padding-bottom: 48px;
 
     @include for-tablet {
@@ -10,22 +19,36 @@
 
   &__menu {
     display: grid;
-    grid-template-columns: repeat(5,20%);
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 24px;
     padding-bottom: 80px;
+    align-items: center;
+
+    @include for-tablet {
+      grid-auto-flow: column;
+      column-gap: 40px;
+
+    }
 
     &_link {
-      
+      grid-column: 1/2;
       text-decoration: none;
       color: #fff;
       font-family: Poppins, sans-serif;
       font-size: 13px;
       font-style: normal;
-      text-align: center;
+      text-align: left;
       font-weight: 700;
       line-height: 150%; /* 19.5px */
       letter-spacing: 3px;
       text-transform: uppercase;
+
+      @include for-tablet {
+        text-align: center;
+        justify-content: center;
+        grid-column: span 1;
+        white-space: nowrap;
+      }
     }
   }
 }
