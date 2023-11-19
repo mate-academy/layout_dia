@@ -29,3 +29,29 @@ rightArrow.addEventListener('click', () => {
   showSlide();
 });
 showSlide();
+
+function compressImage() {
+  const images = document.querySelectorAll('.slider');
+  const compressedWidth = 0.5;
+
+  images.forEach(function(image) {
+    const originalWidth = image.naturalWidth;
+    const compressedWidthValue = originalWidth * compressedWidth;
+
+    image.style.width = compressedWidthValue + 'px';
+  });
+}
+compressImage();
+
+const formInput = document.querySelector('.form__input');
+
+formInput.addEventListener('focus', function() {
+  formInput.setAttribute('placeholder', 'email@exa'
+  + String.fromCharCode(8203) + 'mple');
+  formInput.classList.add('red-text');
+});
+
+formInput.addEventListener('blur', function() {
+  formInput.setAttribute('placeholder', 'email@exa');
+  formInput.classList.remove('red-text');
+});
