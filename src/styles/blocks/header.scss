@@ -72,6 +72,11 @@
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
+    transition: all 1s;
+
+    &:hover {
+      color: blue;
+    }
   }
 
   &__hire-us {
@@ -80,8 +85,22 @@
   }
 
   &__hire-us--link {
+    position: relative;
     margin: 0;
     padding: 0;
+    // transition: all 1s;
+
+    &:hover {
+      &::after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        height: 2px;
+        width: 100%;
+        background-color: blue;
+      }
+    }
   }
 
   &__wraper {
@@ -150,6 +169,15 @@
 
   &__slider {
     position: relative;
+    top: 6px;
+
+    @include onTablet {
+      top: 5px;
+    }
+
+    @include onDesktop {
+      top: 0;
+    }
 
     &-buttons {
       position: absolute;
@@ -175,6 +203,8 @@
     }
 
     &-button1 {
+      width: 32px;
+      height: 32px;
       background-color: #fff;
       border-radius: 50%;
       display: block;
@@ -186,6 +216,8 @@
     }
 
     &-button2 {
+      width: 32px;
+      height: 32px;
       background-color: #fff;
       border-radius: 50%;
       display: block;
@@ -197,9 +229,11 @@
     }
 
     &-arrow {
+      margin: 7px;
+      width: 18px;
       display: block;
       box-sizing: border-box;
-      margin: 0 auto;
+      // margin: 0 auto;
 
     }
 
@@ -262,6 +296,10 @@
   }
 
   &__slide-1 {
+    @include onTablet {
+      background-image: url(../images/Photo-header5.png);
+    }
+
     @include onDesktop {
       background-image: url(../images/Photo-header2.png);
       width: 502px;
@@ -281,7 +319,7 @@
   }
 
   &__button {
-    display: flex;
+    // display: flex;
     justify-content: center;
 
     @include onTablet {
