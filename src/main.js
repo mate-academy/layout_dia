@@ -46,6 +46,8 @@ compressImage();
 const formInput = document.querySelector('.form__input');
 const additionalText = document.getElementById('additionalText');
 
+additionalText.style.visibility = 'hidden';
+
 formInput.addEventListener('input', () => {
   const inputValue = formInput.value.trim();
 
