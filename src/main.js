@@ -43,7 +43,7 @@ function compressImage() {
 }
 compressImage();
 
-const formInput = document.querySelector('.form__input');
+/* const formInput = document.querySelector('.form__input');
 const additionalText = document.getElementById('additionalText');
 
 additionalText.style.visibility = 'hidden';
@@ -64,4 +64,4 @@ formInput.addEventListener('focus', () => {
 
 formInput.addEventListener('blur', () => {
   additionalText.style.visibility = 'hidden';
-});
+}); */
