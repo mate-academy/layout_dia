@@ -32,7 +32,7 @@ showSlide();
 
 function compressImage() {
   const images = document.querySelectorAll('.slider');
-  const compressedWidth = 0.5;
+  const compressedWidth = 0.54;
 
   images.forEach(function(image) {
     const originalWidth = image.naturalWidth;
@@ -44,14 +44,22 @@ function compressImage() {
 compressImage();
 
 const formInput = document.querySelector('.form__input');
+const additionalText = document.getElementById('additionalText');
 
-formInput.addEventListener('focus', function() {
-  formInput.setAttribute('placeholder', 'email@exa'
-  + String.fromCharCode(8203) + 'mple');
-  formInput.classList.add('red-text');
+formInput.addEventListener('input', () => {
+  const inputValue = formInput.value.trim();
+
+  if (inputValue !== 'email@exa') {
+    additionalText.style.visibility = 'hidden';
+  } else {
+    additionalText.style.visibility = 'visible';
+  }
 });
 
-formInput.addEventListener('blur', function() {
-  formInput.setAttribute('placeholder', 'email@exa');
-  formInput.classList.remove('red-text');
+formInput.addEventListener('focus', () => {
+  additionalText.style.visibility = 'visible';
+});
+
+formInput.addEventListener('blur', () => {
+  additionalText.style.visibility = 'hidden';
 });
