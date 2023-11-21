@@ -1,0 +1,192 @@
+
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 120px;
+  background-color: $custom_gray;
+  padding: 72px 20px 0;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+
+  @include OnTablet {
+    margin-top: 0;
+  }
+
+  &__footer-items {
+    max-width: 1024px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include OnTablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include OnDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__content {
+    padding-bottom: 80px;
+    grid-column: span 2;
+
+    @include OnTablet {
+      grid-column: span 4;
+
+      &--full-size {
+        grid-column: span 6;
+      }
+    }
+
+    @include OnDesktop {
+      grid-column: span 6;
+
+      &--form {
+        grid-column: span 5;
+      }
+
+      &--contact-us {
+        grid-column: 7 / -1;
+      }
+
+      &--full-size {
+        display: flex;
+        justify-content: space-between;
+        grid-column: span 12;
+      }
+    }
+
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    padding-bottom: 48px;
+  }
+
+  &__form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 56px;
+  }
+
+  &__form-input {
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    padding: 0 0 16px;
+
+    border-bottom: 1px solid $custom_white;
+
+    &::placeholder {
+      color: $custom_white;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $custom_blue;
+    }
+  }
+
+  &__contact-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__contact-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    opacity: 50%;
+    text-transform: uppercase;
+  }
+
+  &__contact-text {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    text-decoration: none;
+  }
+
+  &__contact-social {
+    display: flex;
+    gap: 32px;
+    padding-top: 16px;
+  }
+
+  &__contact-link {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    &--facebook {
+      background-image: url('../images/social/facebook.svg');
+    }
+
+    &--twitter {
+      background-image: url('../images/social/twitter.svg');
+    }
+
+    &--instagram {
+      background-image: url('../images/social/instagram.svg');
+    }
+
+    transition: background-color 0.3s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $custom_blue;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+    background-image: url('../images/logo/Air.svg');
+    background-repeat: no-repeat;
+    padding-bottom: 48px;
+
+    @include OnTablet {
+      padding-bottom: 24px;
+    }
+  }
+
+  &__navigation {
+    display: block;
+  }
+
+  &__navs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style-type: none;
+    padding: 0;
+
+    @include OnTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $custom_blue;
+    }
+  }
+}
