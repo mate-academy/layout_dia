@@ -10,12 +10,27 @@
   }
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
     position: absolute;
-    bottom: 24px;
-    left: 20px;
+    bottom: 0;
     flex-wrap: wrap;
     align-items: end;
+    padding: 24px 20px;
+
+    @include for-tablet {
+      padding: 32px 41px;
+    }
+  }
+
+  &__control {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  &__text {
+    grid-column: 1/-1;
   }
 
   &__tittle {
@@ -56,29 +71,20 @@
 
   &__arrow {
     background-image: url(../../src/images/mdi_chevron_left.svg);
-    display: flex;
-    gap: 16px;
     margin-right: 16px;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #fff;
     border-radius: 50%;
-
     padding: 12px;
 
     &--prev {
       // left: 41px;
       // position: absolute;
       // bottom: 116px;
-      transform: translateY(-50%) rotate(180deg);
+      transform: rotate(180deg);
     }
 
-    &--next {
-      // right: 30px;
-      // position: absolute;
-      // top: 50%;
-      transform: translateY(-50%);
-    }
   }
 
   [id^="item"] {
