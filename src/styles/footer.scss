@@ -79,6 +79,7 @@
     outline: 0;
     border: 0;
     padding: 0 0 16px;
+    resize: none;
 
     border-bottom: 1px solid $custom_white;
 
@@ -90,14 +91,19 @@
       border-bottom: 1px solid $custom_blue;
     }
 
+    &::-webkit-scrollbar {
+      width: 1px;
+      background-color: transparent;
+    }
+
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: $custom_white;
-    background-color: transparent;
-}
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: $custom_white;
+      background-color: transparent;
+    }
   }
 
   &__contact-infos {
@@ -139,28 +145,39 @@
     display: block;
     width: 32px;
     height: 32px;
+    transition: background-image 0.3s ease;
 
     &--facebook {
       background-image: url("../images/social/facebook.svg");
+
+      &:hover {
+        background-image: url("../images/social/facebook-hover.svg");
+      }
     }
 
     &--twitter {
       background-image: url("../images/social/twitter.svg");
+
+      &:hover {
+        background-image: url("../images/social/twitter-hover.svg");
+      }
     }
 
     &--instagram {
       background-image: url("../images/social/instagram.svg");
-    }
 
-    transition: background-color 0.3s ease-in;
+      &:hover {
+        background-image: url("../images/social/instagram-hover.svg");
+      }
+    }
 
     &:hover {
       cursor: pointer;
-      background-color: $custom_blue;
     }
   }
 
   &__logo {
+    display: block;
     width: 46px;
     height: 28px;
     background-image: url("../images/logo/Air.svg");
@@ -169,6 +186,10 @@
 
     @include OnTablet {
       padding-bottom: 24px;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
