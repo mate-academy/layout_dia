@@ -1,0 +1,153 @@
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-bottom: 80px;
+
+  @include onDesktop {
+    margin-bottom: 200px;
+  }
+
+  &__button {
+    @include onTablet {
+      margin-bottom: 0;
+      grid-column: 1 / span 3;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      width: auto;
+      margin-right: -50px;
+    }
+  }
+
+  &__input {
+    row-gap: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 30px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 20px;
+      margin: 0;
+    }
+
+    &__field {
+      outline: none;
+      width: 100%;
+      padding: 0 0 16px;
+      background-color: $c-black;
+      border: none;
+      border-bottom: 1px solid $c-gray;
+
+      font-family: "Poppins", sans-serif;
+      font-size: 15px;
+      line-height: 150%;
+      text-transform: capitalize;
+
+      grid-column: span 2;
+
+      @include onTablet {
+        grid-column: 1 / span 4;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / span 5;
+      }
+
+      &:hover {
+        border-bottom: 1px solid $c-dark-gray;
+      }
+
+      &::placeholder {
+        color: $c-white;
+        opacity: 0.7;
+      }
+
+      &:not(:focus) {
+        color: $c-white;
+      }
+
+      &:focus {
+        border-color: $c-dark-gray;
+        color: $c-dark-gray;
+      }
+
+      &:-webkit-autofill {
+        -webkit-text-fill-color: $c-black;
+        -webkit-box-shadow: 0 0 0 40px $c-black inset;
+      }
+
+      &:focus:invalid {
+        border-color: #eb5757;
+        color: #eb5757;
+      }
+
+      &:focus:valid {
+        border-color: $c-blue;
+        color: $c-white;
+      }
+
+      &:-webkit-autofill::first-line {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 150%;
+      }
+
+      &:-webkit-autofill:focus {
+        -webkit-text-fill-color: $c-black;
+        border-color: $c-dark-gray;
+      }
+
+      &:-webkit-autofill:valid {
+        -webkit-text-fill-color: $c-white;
+        border-color: $c-blue;
+      }
+
+      &:-webkit-autofill:invalid {
+        -webkit-text-fill-color: #eb5757;
+        border-color: #eb5757;
+      }
+    }
+
+    &__field--textarea {
+      resize: none;
+      margin-block: 25px;
+
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 50px;
+      }
+      /* width */
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: $c-light-gray;
+        border-radius: 5px;
+      }
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: $c-blue;
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: $c-dark-blue;
+      }
+    }
+  }
+}

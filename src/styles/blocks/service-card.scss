@@ -1,0 +1,81 @@
+.service-card {
+
+  padding: 32px;
+
+  border-radius: 16px;
+  background-color: $c-white;
+
+  @include onTablet {
+    margin-bottom: 30px;
+
+    &--order--odd {
+      grid-column: 1 / span 3;
+    }
+
+    &--order--even {
+      grid-column: 4 / span 3;
+
+      transform: translateY(-50%);
+    }
+  }
+
+  @include onDesktop {
+    margin-bottom: 20px;
+
+    &--order--odd {
+      grid-column: 7 / span 3;
+    }
+
+    &--order--even {
+      grid-column: 10 / span 3;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__number {
+    color: $c-blue;
+    background-color: rgba($color: $c-blue, $alpha: 0.1);
+    border-radius: 23px;
+
+    padding-inline: 12px;
+
+    width: 46px;
+    height: 24px;
+
+    text-transform: uppercase;
+  }
+
+  &__description {
+    color: $c-dark-gray;
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    text-decoration: none;
+
+    &__arrow {
+      background-image: url(../images/services/services_arrow_forward.svg);
+      background-repeat: no-repeat;
+      background-color: $c-blue;
+      border-radius: 50%;
+      background-position: center;
+
+      width: 40px;
+      height: 40px;
+
+      border: 1px solid $c-blue;
+
+      transition: all $transition-speed;
+    }
+
+    &:hover &__arrow {
+      background-color: $c-white;
+      background-image: url(../images/services/services_arrow_forward_hover.svg);
+    }
+  }
+}
