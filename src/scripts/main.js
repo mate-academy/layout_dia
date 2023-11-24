@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 'use strict';
-// const form = document.querySelector('#form');
 
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   form.reset();
-// });
+const form = document.querySelector('#form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
 
 const images = document.querySelectorAll('.slider .slider-line img');
 const sliderLine = document.querySelector('.slider-line');
