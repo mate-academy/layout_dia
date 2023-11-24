@@ -1,0 +1,96 @@
+.top-bar {
+  grid-column: span 2;
+  padding-block: 18px;
+  background-color: $color-bg-header;
+  align-items: center;
+
+  @include onTablet {
+    grid-column: span 6;
+  }
+
+  @include onDesktop-sm {
+    grid-column: span 12;
+  }
+
+  @include grid-columns;
+
+  &__left {
+    display: flex;
+    align-self: center;
+    justify-content: flex-start;
+
+    @include onDesktop-sm {
+      grid-column: 1/-2;
+    }
+
+    @include onDesign {
+      grid-column: 1/-3;
+    }
+  }
+
+  &__right {
+    grid-column: -1;
+  }
+
+  &__logo {
+    margin-right: 32px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    transition: $transition-duration;
+
+    @include onDesktop-sm {
+      display: none;
+    }
+
+    &--menu {
+      background-image: url(../images/icons/icon-burger-menu.svg);
+
+      &:hover {
+        background-image: url(../images/icons/icon-burger-menu-hover.svg);
+      }
+    }
+
+    &--close {
+      background-image: url(../images/icons/icon-close.svg);
+    }
+  }
+
+  &__link {
+    color: $color-bg-secondary;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 97%;
+      background-color: $color-bg-btn;
+      border-radius: 4px;
+      margin-top: 8px;
+
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform $transition-duration;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
