@@ -1,0 +1,101 @@
+.nav {
+  box-sizing: border-box;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include onSmallDesktop {
+      display: flex;
+    }
+
+    &--hide {
+      flex-direction: column;
+    }
+
+    &--bottom {
+      width: 100%;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include onSmallDesktop {
+        justify-content: space-between;
+        gap: 64px;
+      }
+    }
+  }
+
+  &__item {
+
+    &--fortop {
+      &:not(:last-child) {
+        display: none;
+
+        @include onSmallDesktop {
+          display: block;
+        }
+      }
+
+      &:last-child {
+        @include onSmallDesktop {
+          margin-left: 114px;
+        }
+
+        @include onMedDesktop {
+          margin-left: 229px;
+        }
+      }
+
+      &:not(:first-child):not(:last-child) {
+        @include onSmallDesktop {
+          margin-left: 48px;
+        }
+      }
+    }
+
+    &--for-bottom {
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--for-menu {
+      margin-bottom: 44px;
+
+      @include onTablet {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  &__link {
+    @extend %poppins;
+    @extend %link-decoration;
+    text-decoration: none;
+
+    &--main {
+      @include text-decoration ($font-w-l, $font-s-xxs, $lh1, $white-color);
+    }
+
+    &--second {
+      @include text-decoration ($font-w-l, $font-s-m, $lh1, $white-color);
+    }
+
+    &--border-bottom {
+      border-bottom: 2px solid $secondary-bg;
+    }
+
+    &:hover {
+      border-color: $secondary-bg;
+    }
+  }
+}

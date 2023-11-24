@@ -1,0 +1,141 @@
+.navigation {
+  box-sizing: border-box;
+  display: grid;
+  column-gap: 20px;
+
+  &--hide {
+    grid-template-columns: max-content 1fr;
+  }
+
+  &--top {
+    grid-template-columns: 45px 18px 1fr;
+    padding: 20px 20px 0;
+
+    @include onTablet {
+      padding: 20px 41px 0;
+    }
+
+    @include onSmallDesktop {
+      padding: 52px 55px 0;
+      grid-template-columns: 45px 1px max-content;
+      justify-content: space-between;
+      column-gap: 0;
+    }
+
+    @include onMedDesktop {
+      padding: 52px 0 0;
+    }
+  }
+
+  &--bottom {
+    grid-template-rows: max-content;
+    margin-top: 85px;
+
+    @include onTablet {
+      align-items: center;
+      margin-top: 140px;
+    }
+
+    @include onSmallDesktop {
+      justify-items: end;
+      margin-top: 120px;
+    }
+
+    @include onSmallDesktop {
+      grid-template-columns: 45px 1fr;
+    }
+  }
+
+  &--center-end {
+    align-items: center;
+    justify-items: end;
+  }
+
+  &--baseline-end {
+    align-items: center;
+    justify-items: end;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+
+    &-image {
+      &--main-logo {
+        width: 45px;
+        height: 26px;
+      }
+
+      &--second-logo {
+        width: 55px;
+        height: 36px;
+      }
+
+      &:hover {
+        filter: invert(30%)
+          sepia(94%)
+          saturate(3904%)
+          hue-rotate(185deg)
+          brightness(95%)
+          contrast(104%);
+      }
+
+      &--margins {
+        margin-bottom: 50px;
+
+        @include onTablet {
+          margin-bottom: 25px;
+        }
+
+        @include onSmallDesktop {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &--margin-bottom {
+      margin-bottom: 50px;
+
+      @include onTablet {
+        margin-bottom: 25px;
+      }
+
+      @include onSmallDesktop {
+        margin-bottom: 0;
+      }
+    }
+
+    &--top-margins {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__menu {
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--menu {
+      width: 18px;
+      height: 8px;
+      background-image: url(../images/logo/Menu.svg);
+    }
+
+    &--close {
+      width: 35px;
+      height: 35px;
+      background-image: url(../images/close.png);
+      filter: brightness(0) invert(1);
+    }
+
+    &--main {
+      @include onSmallDesktop {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+      }
+    }
+  }
+}
