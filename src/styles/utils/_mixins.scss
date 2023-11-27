@@ -1,6 +1,74 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin for-tablet () {
+  @media (min-width: 640px) {
+    @content;
   }
+}
+
+@mixin for-small-desktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-desktop() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin the-design() {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large-screens() {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin grid-for-tablet() {
+  @include for-tablet() {
+    @content;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6, 68px);
+    column-gap: 30px;
+  }
+}
+
+@mixin grid-for-small-desktop() {
+  @include for-small-desktop() {
+    @content;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+}
+
+@mixin hover() {
+  box-shadow: 10px -8px 5px -6px red, -10px 8px 5px -6px teal;
+  transform: scale(1.03);
+}
+
+@mixin hover-1() {
+  box-shadow: inset red 0 0 5px 2px, blue 0 0 5px 4px;
+}
+
+@mixin visually-hidden() {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
