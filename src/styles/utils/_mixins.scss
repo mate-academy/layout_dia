@@ -4,3 +4,89 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: $desctop-min-width) {
+    @content;
+  }
+}
+
+@mixin onMediumDisplay {
+  @media (min-width: $medium-display-min-width) {
+    @content;
+  }
+}
+
+@mixin onBigDisplay {
+  @media (min-width: $big-display-min-width) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onDesctop {
+    padding-inline: 54px;
+  }
+}
+
+@mixin forSiteHeaders {
+  color: $text-c-dark-grey;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+@mixin forUppercaseText {
+  font-family: "Poppins", sans-serif;
+  color: $text-c-for-title;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 19px;
+}
+
+@mixin forSiteTexts {
+  color: $text-c-dark-grey;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+@mixin forHoveredFocusedLinks {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  bottom: - 8px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: $c-default-blue;
+}
+
+@mixin forButtons {
+    display: block;
+    color: $background-c-white;
+    background-color: $c-default-blue;
+    max-width: 280px;
+    padding: 16px 0;
+    text-align: center;
+    border-radius: $bnt-border-radius;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $c-hover-blue;
+    }
+}

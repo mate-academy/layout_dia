@@ -1,0 +1,154 @@
+.services {
+  @include contentPaddingInline;
+
+  &__container {
+    box-sizing: border-box;
+
+    @include onDesctop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 918px;
+      height: auto;
+    }
+
+    @include onMediumDisplay {
+      max-width: 1148px;
+    }
+  }
+
+  &__header__conteiner {
+    padding-top: 120px;
+    padding-bottom: 48px;
+    margin: 0 auto;
+    max-width: 282px;
+
+    @include onTablet {
+      max-width: 266px;
+      padding-bottom: 56px;
+      margin: 0;
+    }
+
+    @include onDesctop {
+      max-width: 294px;
+    }
+  }
+
+  &__title {
+    @include forUppercaseText;
+    line-height: 19px;
+    padding-bottom: 16px;
+  }
+
+  &__subtitle {
+    @include forSiteHeaders;
+    font-size: 32px;
+    line-height: 42px;
+    padding-bottom: 24px;
+  }
+
+  &__description {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+  }
+
+  &__items {
+    max-width: 280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      max-width: 560px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    @include onDesctop {
+      padding-top: 280px;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    background-color: $background-c-white;
+    border-radius: $card-border-radius;
+    padding: 32px 0 32px 32px;
+    box-shadow: 0 18px 9px 0 rgba(37, 41, 49, 0.03);
+    transition: all 0.3s ease-in-out;
+
+    @for $number from 1 through 4 {
+      &:nth-of-type(#{$number})::before {
+        content: "00#{$number}";
+        @include forSiteHeaders;
+        color: $c-default-blue;
+        font-size: 13px;
+        background-color: rgba(32, 96, 246, 0.1);
+        border-radius: 23px;
+        padding: 2px 12px;
+      }
+    }
+
+    @include onTablet {
+      box-sizing: border-box;
+      flex-basis: 50%;
+      max-width: 264px;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+
+      &:hover {
+        border-radius: 50px;
+        background-color: aliceblue;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__item__list {
+    padding-top: 24px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    }
+
+  &__item__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 32px;
+    gap: 16px;
+  }
+
+  &__item__link {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+    background: $c-default-blue
+      url(../images/slider/arrow.svg) center / 16px 16px no-repeat;
+
+    &:hover {
+      background-color: $c-hover-blue;
+      cursor: pointer;
+      transition: 0.3s;
+     }
+  }
+
+  &__item__more {
+    color: #334563;
+    @include forSiteTexts;
+    font-size: 15px;
+    padding-left: 56px;
+    line-height: 40px;
+
+    &:hover {
+      color: $c-default-blue;
+      cursor: pointer;
+      transition: 0.3s;
+     }
+  }
+}

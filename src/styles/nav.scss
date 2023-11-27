@@ -1,0 +1,47 @@
+.nav {
+  padding-top: 21px;
+  @include contentPaddingInline;
+
+  @include onMediumDisplay {
+    padding-left: 227px;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include forUppercaseText;
+  }
+
+  &__list__full {
+    display: none;
+
+    @include onDesctop {
+      display: flex;
+    }
+  }
+
+  &__list__full :not(:last-child) {
+    padding-right: 48px;
+  }
+
+  &__item__link {
+    color: $background-c-white;
+    position: relative;
+    transition: 0.3s;
+
+    &:hover::after {
+      @include forHoveredFocusedLinks;
+    }
+
+    &:focus::after {
+      @include forHoveredFocusedLinks;
+    }
+  }
+}
