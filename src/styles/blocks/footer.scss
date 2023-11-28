@@ -5,8 +5,11 @@
   flex-wrap: wrap;
 
   @include for-tablet {
-    flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  @include for-desktop-1024 {
+    flex-wrap: nowrap;
   }
   &__logo {
     width: 100%;
@@ -19,15 +22,18 @@
 
   &__menu {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     row-gap: 24px;
+    width: 100%;
     padding-bottom: 80px;
     align-items: center;
 
     @include for-tablet {
       grid-auto-flow: column;
       column-gap: 40px;
+    }
 
+    @include for-desktop-1024 {
+      column-gap: 64px;
     }
 
     &_link {

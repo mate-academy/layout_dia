@@ -1,12 +1,13 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
   }
 }
 
-@mixin for-desktop {
-  @media (min-width: 1260px) {
+@mixin for-mobile {
+  @media (max-width: 639px) {
     @content;
   }
 }
@@ -17,8 +18,20 @@
   }
 }
 
-@mixin for-mobile {
-  @media (max-width: 639px) {
+@mixin for-desktop-1024 {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-1600 {
+  @media (min-width: 1599px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-2560 {
+  @media (min-width: 2559px) {
     @content;
   }
 }
@@ -26,40 +39,19 @@
 @mixin grid() {
   display: grid;
   justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
 
   @include for-mobile() {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include for-tablet() {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
-@mixin square__after {
-  ::after {
-    content: "";
-    width: 109px;
-    height: 44px;
-    transform: rotate(-60deg);
-    border-radius: 12px;
-    bottom: 60%;
-    right: 30%;
-    background: #2060f6;
-    position: absolute;
-  }
-}
-
-@mixin square__before {
-  ::before {
-    content: "";
-    width: 109px;
-    height: 44px;
-    transform: rotate(-60deg);
-    border-radius: 12px;
-    background: #2060f6;
-    position: absolute;
-    top: 60%;
-    left: 29%;
-  }
+@mixin visually_hidden() {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

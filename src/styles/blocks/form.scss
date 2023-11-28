@@ -1,21 +1,37 @@
 .form {
   width: 100%;
+
   @include for-tablet {
     width: 75%;
   }
-  &:last-child {
-    padding-bottom: 96px;
-  }
-  &__label {
-    display: block;
-    height: 0;
 
+  &__wrapper {
     &::after {
       content: "";
       display: block;
       // width: 100%;
       margin-top: 17px;
       border-bottom: 1px solid white;
+    }
+  }
+
+  &__inputs {
+    & > :not(:last-child) {
+      padding-bottom: 58px;
+
+      @include for-tablet {
+        padding-bottom: 66px;
+      }
+
+      @include for-desktop-1024 {
+        padding-bottom: 66px;
+      }
+    }
+  }
+
+  &__label {
+    &:not(:focus):not(:active) {
+      @include visually_hidden();
     }
   }
 }

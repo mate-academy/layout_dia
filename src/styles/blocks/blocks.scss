@@ -2,10 +2,16 @@
 
 .blocks {
   @include grid;
+  grid-template-columns: repeat(2, 1fr);
   row-gap: 25px;
+  position: relative;
 
   @include for-tablet {
     column-gap: 30px;
+  }
+
+  @include for-desktop-1024 {
+    column-gap: 20px;
   }
   
   &__content {
@@ -18,11 +24,32 @@
     padding: 32px;
     box-sizing: border-box;
     width: 100%;
-    grid-column: span 4;
+    grid-column: 1/-1;
+    transition-duration: 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     @include for-tablet {
+      grid-column: span 1;
       &:nth-child(2n) {
         transform: translateY(-132px);
+        &:hover {
+          scale: 1.05;
+          // transform: scale(1.05);
+        }
+      }
+    }
+
+    @include for-desktop-1024 {
+      grid-column: span 1;
+      &:nth-child(2n) {
+        transform: translateY(-103px);
+        &:hover {
+          scale: 1.05;
+          // transform: scale(1.05);
+        }
       }
     }
   }

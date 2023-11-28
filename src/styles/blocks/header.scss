@@ -1,26 +1,61 @@
 @import "../utils/mixins";
+@import "../utils/vars";
 
 .header {
   background-color: #2c2c2c;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  width: 100%;
 
   &__content {
+    max-height: 800px;
+    width: 100%;
+    position: relative;
     @include grid;
-    padding: 20px 20px 0;
+    grid-template-columns: repeat(2, 1fr);
 
-    @include for-tablet {
-      padding: 20px 41px 0;
+    &--left {
+      @include for-mobile {
+        grid-column: 1/-1;
+      }
+
+      @include for-tablet {
+        grid-column: 1/-1;
+      }
+
+      @include for-desktop-1024 {
+        grid-column: span 1;
+      }
     }
   }
 
   &__navigation {
     @include for-mobile {
+      padding: 20px 20px 0;
       grid-column: 1/-1;
     }
+
     @include for-tablet {
       grid-column: 1/-1;
+      padding: 20px 41px 0;
+      margin-top: 20px;
     }
+
+    @include for-desktop-1024 {
+      grid-row: 1/2;
+      padding: 48px 54px 0;
+    }
+
+    @include for-desktop-1600 {
+      grid-row: 1/2;
+      padding: 48px 227px 0;
+    }
+
+    @include for-desktop-2560 {
+      grid-row: 1/2;
+      padding: 48px 707px 0;
+    }
+
   }
 
   &__title {
@@ -32,19 +67,34 @@
     line-height: 120%;
     /* 62.4px */
     letter-spacing: -2px;
-    padding: 48px 0 32px;
 
     @include for-mobile {
+      padding: 48px 20px 0;
       grid-column: 1/-1;
+      margin-top: 48px;
     }
 
     @include for-tablet {
       font-size: 64px;
       line-height: 68px;
-      /* 106.25% */
       letter-spacing: -2px;
       text-align: start;
       grid-column: 1/-1;
+      padding: 56px 41px 0;
+    }
+
+    @include for-desktop-1024 {
+      grid-column: span 6;
+      grid-row: 2/3;
+      padding: 164px 54px 0;
+    }
+
+    @include for-desktop-1600 {
+      padding: 164px 196px 0 227px;
+    }
+
+    @include for-desktop-2560 {
+      padding: 164px 196px 0 707px;
     }
   }
 
@@ -55,23 +105,37 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    padding-bottom: 72px;
 
     @include for-mobile {
       grid-column: 1/-1;
+      padding: 32px 20px 0;
     }
 
     @include for-tablet {
       text-align: start;
+      grid-column: 1/-1;
+      padding: 24px 237px 0 41px;
+      margin-top: 24px;
+    }
+
+    @include for-desktop-1024 {
+      margin-top: 32px;
       grid-column: span 6;
-      padding-right: 30px;
+      grid-row: 3/4;
+      padding: 32px 115px 0 41px;
+    }
+
+    @include for-desktop-1600 {
+      padding: 32px 324px 0 227px;
+    }
+
+    @include for-desktop-2560 {
+      padding: 32px 324px 0 707px;
     }
   }
 
   &__button {
     display: block;
-    border-radius: 8px;
-    background: #2060f6;
     width: 100%;
     height: 50px;
     text-decoration: none;
@@ -83,15 +147,48 @@
     font-style: normal;
     font-weight: 600;
     line-height: 50px;
-    margin-bottom: 48px;
 
+    &-wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      grid-column: span 1;
+
+      @include for-mobile {
+        grid-column: 1/-1;
+        padding: 72px 20px 48px;
+      }
+
+      @include for-tablet {
+        padding: 56px 355px 147px 41px;
+      }
+
+      @include for-desktop-1024 {
+        padding: 83px 204px 205px 54px;
+      }
+
+      @include for-desktop-1600 {
+        padding: 83px 422px 205px 227px;
+      }
+
+      @include for-desktop-2560 {
+        padding: 83px 422px 205px 707px;
+      }
+    }
+  }
+
+  &__carousel {
     @include for-mobile {
       grid-column: 1/-1;
     }
 
     @include for-tablet {
-      grid-column: span 4;
-      box-sizing: border-box;
+      grid-column: 1/-1;
+    }
+
+    @include for-desktop-1024 {
+      grid-column: span 1;
+      max-height: 800px;
+      padding-top: 54px;
     }
   }
 
