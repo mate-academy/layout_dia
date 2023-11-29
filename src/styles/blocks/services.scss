@@ -1,0 +1,161 @@
+.services {
+  @include gapBtwBlocks;
+  @include contentPaddingInline;
+  @include pageGrid;
+
+  justify-items: center;
+  align-items: center;
+
+  @include onTablet {
+    justify-items: start;
+    align-items: start;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onSmallDesktop {
+      grid-column: span 4;
+      margin-top: 103px;
+    }
+  }
+
+  &__sub-heading {
+    color: $lightGrayColor;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  &__header {
+    font-size: 32px;
+    line-height: 42px;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    line-height: 21px;
+    margin: 0;
+    margin-bottom: 48px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      column-gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      grid-column: 7 / span 6;
+      padding-top: 56px;
+    }
+  }
+}
+
+.service {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 264px;
+  border-radius: 16px;
+  background-color: $whiteColor;
+  padding: 32px;
+
+  margin-bottom: 24px;
+
+  @include hover (transform, scale(110%));
+
+  @include onTablet {
+    &:first-child {
+      margin-top: 56px;
+    }
+
+    &:nth-child(2) {
+      margin-top: -56px;
+    }
+
+    &:last-child {
+      margin-top: -112px;
+    }
+  }
+
+  &__number {
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: rgba(32, 96, 246, 0.1);
+    color: $blueColor;
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+
+    &--link {
+      display: flex;
+      text-decoration: none;
+      align-items: center;
+      font-weight: 600;
+      color: $darkGrayColor;
+      gap: 16px;
+    }
+
+    &--button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+
+      transition-duration: 0.3s;
+      transition-property: height, width;
+
+      &:hover {
+        height: 48px;
+        width: 48px;
+      }
+
+      &-arrow {
+        display: block;
+        background-image: url(../images/arrows/arrow_forward.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}
