@@ -13,8 +13,36 @@
   letter-spacing: $letterSpacing;
 }
 
-// #region media breakpoints
+// #region media-indents
+@mixin padding-media-breakpoints (
+  $padding-L-R,
+  $padding-max,
+  $media-min,
+  $media-max) {
+  padding: calc(
+    #{$padding-L-R}#{px} + (#{$padding-L-R} - #{$padding-max}) * (
+      (100vw - #{$media-min}#{px}) / (#{$media-min} - #{$media-max})
+    )
+  );
+}
 
+@mixin paddings-top-bottom ($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin padding-lg {
+  @include padding-media-breakpoints (
+    $lg-padding-L-R, $xxl-padding-L-R, $desktop, $desing);
+}
+
+@mixin padding-xxl {
+  @include padding-media-breakpoints (
+    $xxl-padding-L-R, $xxxl-padding-L-R, $desing, $large-screen);
+}
+// #endregion
+
+// #region media breakpoints
 @mixin initial-page-markup ($name-block) {
   #{$name-block} {
     @content;

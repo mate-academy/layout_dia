@@ -1,7 +1,7 @@
 // #region tablet
 @include media-breakpoints ($sm, ".about-us") {
   &__container {
-    padding: 148px 41px;
+    padding: 148px $sm-padding-L-R;
   }
 
   &__description {
@@ -11,14 +11,14 @@
 
 @include media-breakpoints ($sm, ".our-expertise") {
   &__container {
-    padding: 148px 39px;
+    padding: 148px $sm-padding-L-R;
   }
 }
 
 @include media-breakpoints ($sm, ".services") {
 
   &__container {
-    padding: 148px 39px;
+    padding: 148px $sm-padding-L-R 0;
   }
 
   &__grid {
@@ -42,7 +42,11 @@
     align-items: center;
 
     margin-top: 236px;
-    grid-gap: 30px;
+    gap: 30px;
+  }
+
+  &__article {
+    max-width: 264px;
   }
 
   &__article--001 {
@@ -58,7 +62,7 @@
 
 @include media-breakpoints ($sm, ".testimonials") {
   &__container {
-    padding: 0 41px 148px;
+    padding: 0 $sm-padding-L-R 148px;
   }
 
   &__title {
@@ -77,7 +81,7 @@
   background-size: 150%;
 
   &__container {
-    padding: 200px 41px;
+    padding: 200px $sm-padding-L-R;
   }
 
   &__wrap {
@@ -93,39 +97,40 @@
 // #region small desktop
 @include media-breakpoints ($lg, ".about-us") {
   &__container {
-    padding: 148px 154px;
+    width: clamp(716px, 75%, 754px);
   }
 }
 
 @include media-breakpoints ($lg, ".our-expertise") {
   &__container {
-    padding: 128px 54px;
+    @include padding-lg;
+    @include paddings-top-bottom (128px, 128px);
   }
 
   &__block-card {
-    --num-of-columns: 3;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__card {
+    width: clamp(214px, 75%, 264px);
   }
 }
 
 @include media-breakpoints ($lg, ".services") {
   &__container {
-    padding: 148px 52px;
-  }
-}
-
-@include media-breakpoints ($lg, ".services") {
-  &__container {
-    padding: 148px 52px;
+    @include padding-lg;
+    @include paddings-top-bottom (148px, 0);
   }
 
   &__grid {
     --num-of-columns: 12;
+    justify-items: normal;
   }
 
   &__content {
     grid-column: 1 / 5;
     margin-top: 103px;
-    max-width: 364px;
   }
 
   &__article-blocks {
@@ -139,15 +144,12 @@
 
 @include media-breakpoints ($lg, ".testimonials") {
   &__container {
-    padding: 0 54px 186px;
+    @include padding-lg;
+    @include paddings-top-bottom (0, 186px);
   }
 
   &__box {
     flex-direction: row;
-  }
-
-  &__article {
-    max-width: 250px;
   }
 
   &__title {
@@ -177,43 +179,22 @@
 
 @include media-breakpoints ($xxl, ".our-expertise") {
   &__container {
-    padding: 128px 227px;
-  }
-
-  &__card {
-    max-width: 264px;
+    @include padding-xxl;
+    @include paddings-top-bottom (128px, 128px);
   }
 }
 
 @include media-breakpoints ($xxl, ".services") {
   &__container {
-    padding: 148px 225px;
+    @include padding-xxl;
+    @include paddings-top-bottom (148px, 0);
   }
 }
 
 @include media-breakpoints ($xxl, ".testimonials") {
   &__container {
-    padding: 148px 225px;
-  }
-}
-// #endregion
-
-// #region the large screen
-@include media-breakpoints ($xxxl, ".about-us") {
-  &__container {
-    padding: 148px 903px;
-  }
-}
-
-@include media-breakpoints ($xxxl, ".our-expertise") {
-  &__container {
-    padding: 128px 707px;
-  }
-}
-
-@include media-breakpoints ($xxxl, ".services") {
-  &__container {
-    padding: 148px 705px;
+    @include padding-xxl;
+    @include paddings-top-bottom (0, 148px);
   }
 }
 // #endregion
