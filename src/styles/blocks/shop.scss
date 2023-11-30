@@ -1,0 +1,222 @@
+.shop {
+  &__slider {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 7;
+      position: relative;
+
+      &::before {
+        content: "shop";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        text-transform: uppercase;
+        left: -119px;
+        top: -40px;
+        color: rgba(52, 79, 16, 0.5);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 60px;
+        left: -150px;
+        width: 100px;
+        height: 1px;
+        background-color: rgba(52, 79, 16, 0.5);
+      }
+    }
+  }
+
+  &__slides {
+    grid-column: span 2;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+    @include onTablet {
+      grid-column: span 6;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / -1;
+      padding-left: 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $beigh;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $beigh;
+    }
+  }
+
+  &__slide-item {
+    width: 100vw;
+    height: 100%;
+    margin-right: 50px;
+    position: relative;
+    @include paddingInline;
+    @include hover (scale, 1.02);
+
+    @include onTablet {
+      width: 44vw;
+      margin-right: 30px;
+      padding-inline: 0;
+    }
+
+    @include onDesktop {
+      margin-right: 70px;
+    }
+  }
+
+  &__slide-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &--card {
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &--card {
+      @include onDesktop {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  &__subtitle {
+    text-decoration: none;
+    color: $black;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__price {
+    text-decoration: none;
+    color: $black;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include onTablet {
+      color: $green;
+    }
+  }
+
+  &__photo {
+    object-fit: contain;
+    min-width: 310px;
+    min-height: 320px;
+    max-width: 520px;
+    max-height: 480px;
+
+    @include onDesktop {
+      width: 520px;
+      height: 480px;
+    }
+  }
+
+  &__product {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+    margin: 0;
+    opacity: 0;
+    @include paddingInline;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+      background-color: $beigh;
+      overflow: auto;
+    }
+
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    @include onDesktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__main,
+  &__hidden {
+    @include onTablet {
+      grid-column: 2 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__hidden {
+    @include onDesktop {
+      flex-direction: column-reverse;
+      height: fit-content;
+    }
+
+    &-wrapper {
+      @include onDesktop {
+        width: 70%;
+      }
+    }
+  }
+}

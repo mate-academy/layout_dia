@@ -1,0 +1,88 @@
+.about {
+  @include onDesktop {
+    flex-direction: column;
+    justify-content: end;
+  }
+  &__wrapper {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+      grid-row: 1;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+      position: relative;
+
+      &::before {
+        content: "witch of mountain winds";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        text-transform: uppercase;
+        left: -195px;
+        top: 18%;
+        color: rgba(52, 79, 16, 0.5);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        transform: rotate(-90deg);
+        position: absolute;
+        top: 52%;
+        left: -146px;
+        width: 100px;
+        height: 1px;
+        background-color: rgba(52, 79, 16, 0.5);
+      }
+    }
+  }
+
+  &__description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-block: 40px;
+    }
+  }
+
+  &__big-img {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      height: 530px;
+      background-image: url(../images/about.png);
+      background-position: bottom;
+      background-repeat: no-repeat;
+      width: 100%;
+      grid-column: span 3;
+      @include hover (scale, 1.05);
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__small-img {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 100%;
+      grid-column: 11 / -1;
+      background-image: url(../images/about-small.png);
+      background-position: bottom;
+      background-repeat: no-repeat;
+      @include hover (scale, 1.05);
+    }
+  }
+}

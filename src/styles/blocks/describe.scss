@@ -1,0 +1,72 @@
+.describe {
+  position: relative;
+  @include onDesktop {
+    &::before {
+      content: "";
+      display: block;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 1px;
+      height: 1px;
+      background-color: $green;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: $green;
+    }
+  }
+
+  &__hidden {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      grid-column: 2 / 6;
+      padding-block: 100px;
+      position: relative;
+    }
+  }
+
+  &__text {
+    grid-column: span 2;
+    color: $green;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    @include onDesktop {
+      display: flex;
+      grid-column: 7 / -1;
+      padding-block: 100px;
+      position: relative;
+
+      // &::after {
+      //   content: "";
+      //   display: block;
+      //   width: 50vw;
+      //   position: absolute;
+      //   right: -27%;
+      //   bottom: 0;
+      //   height: 1px;
+      //   background-color: $green;
+      // }
+    }
+  }
+}
