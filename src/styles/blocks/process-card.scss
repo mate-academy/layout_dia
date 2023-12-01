@@ -1,0 +1,108 @@
+.process-card {
+  height: 264px;
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: $white-color;
+  border-radius: 16px;
+
+  @include on-tablet {
+    &:nth-of-type(odd) {
+      grid-column: 1 / 4;
+    }
+
+    &:nth-of-type(even) {
+      transform: translateY(-50%);
+      grid-column: -1 / -4;
+    }
+  }
+
+  @include on-desktop {
+    &:nth-of-type(odd) {
+      grid-column: -4 / -7;
+    }
+
+    &:nth-of-type(even) {
+      grid-column: -1 / -4;
+    }
+
+    transition: all $effect-duration;
+
+    &:hover {
+      box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.7);
+    }
+  }
+
+  &__num {
+    position: relative;
+    width: 46px;
+    height: 24px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $blue-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      opacity: 0.1;
+      background-color: $blue-color;
+      border-radius: 23px;
+    }
+  }
+
+  &__description {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__redirection {
+    display: flex;
+    gap: 16px;
+
+    @include on-desktop {
+      transition: all $effect-duration;
+
+      &:hover {
+        transform:translateX(10px) ;
+      }
+    }
+  }
+
+  &__btn {
+    height: 40px;
+    width: 40px;
+
+    border-radius: 50%;
+    border: none;
+
+    background-image: url(../images/mdi_arrow_forward.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $blue-color;
+
+    cursor: pointer;
+  }
+
+  &__btn-title {
+    display: flex;
+    align-items: center;
+
+    color: $text-200;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
