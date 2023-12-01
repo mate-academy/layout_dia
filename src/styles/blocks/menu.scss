@@ -1,0 +1,57 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: $color-black;
+  color: $color-white;
+  font-family: $font-title;
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: hidden;
+  transition: opacity 1s ease-out;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-small-desktop {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__contant {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    cursor: pointer;
+  }
+
+  &__contant--info {
+    margin-top: 10px;
+    color: $color-white;
+    letter-spacing: 3px;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__top--logo,
+  &__top--close {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+  }
+}
