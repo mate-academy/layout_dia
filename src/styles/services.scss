@@ -91,15 +91,13 @@
   &__blocks {
     margin: 0 auto;
     display: grid;
-    row-gap: 24px;
     justify-content: center;
     grid-column: 1 / -1;
-    column-gap: 24px;
+    gap: 24px;
 
     @include onSmallDesktop {
       grid-column: 7 / 13;
-      row-gap: 30px;
-      column-gap: 30px;
+      gap: 30px;
     }
   }
 
@@ -110,25 +108,28 @@
     padding: 32px;
     box-sizing: border-box;
     box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
-
-    @include hover(transform, scale(1.2));
-
+    display: flex;
+    flex-direction: column;
     grid-column: 1 / -1;
 
-    &:nth-child(odd) {
-      @include onTablet {
+    @include hover(transform, scale(1.05));
+
+    @include onTablet {
+
+      &--001,
+      &--003 {
         grid-column: 1 / 4;
       }
-    }
 
-    &:nth-child(2n) {
-      @include onTablet {
+      &--002,
+      &--004 {
         grid-column: 4 / 7;
-        transform: translateY(-40%);
-      }
-
-      @include onSmallDesktop {
         transform: translateY(-50%);
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.05) translateY(-50%);
+        }
       }
     }
 
@@ -139,7 +140,7 @@
     @include onSmallDesktop {
       width: 214px;
     }
-    
+
     @include onDesktop {
       width: 264px;
     }
