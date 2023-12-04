@@ -1,39 +1,28 @@
 .services {
-  &__container {
-    display: flex;
-    justify-content: center;
-  }
-
   &__content {
     @include onTablet {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+      @include pageGrid;
     }
 
     @include onDesktop {
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 130px;
+      padding-top: 103px;
       width: 100%;
     }
   }
-    
+
   &__info {
     margin-bottom: 48px;
-    max-width: 264px;
+    grid-column: 1/-1;
+    max-width: 362px;
 
     @include onTablet {
+      grid-column: 1/4;
       margin-bottom: 56px;
     }
 
     @include onDesktop {
-      width: 292px;
+      grid-column: 1/5;
       margin-bottom: 0;
-    }
-
-    @include onLargeScreen {
-      width: 362px;
     }
   }
   &__name {
@@ -62,53 +51,50 @@
   }
 
   &__list {
+    display: grid;
+    row-gap: 24px;
+    grid-column: 1/-1;
     list-style: none;
 
     @include onTablet {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 558px;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 24px;
+      row-gap: 30px;
     }
 
     @include onDesktop {
-      width: 448px;
+      grid-column: 7/-1;
+      row-gap: 20px;
     }
   }
 
   &__item {
-    width: 280px;
-    padding: 32px;
+    display: flex;
+    justify-content: start;
+    height: 264px;
     border-radius: 16px;
     background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0;
 
     @include onTablet {
-      width: 264px;
-      height: 264px;
+      display: block;
+      grid-column: span 3;
     }
 
-    @include onDesktop {
-      width: 216px;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 24px;
-      @include onTablet {
-        margin-bottom: 0;
-      }
-    }
-
-    &:nth-child(-n + 2) {
-      @include onTablet {
-        margin-bottom: 30px;
-      }
-    }
-
-    &--top {
+    &--right {
       @include onTablet {
         transform: translateY(-50%);
       }
     }
+
+    &:hover {
+      box-shadow: 0 -4px 7px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__card {
+    padding: 32px;
   }
 
   &__number {
@@ -156,6 +142,8 @@
       background-size: 16px;
       background-repeat: no-repeat;
       background-position: center;
+      transform: none;
+      transition: all 0.3s ease-in-out;
     }
 
     &-text {
@@ -166,5 +154,9 @@
       text-align: center;
       color: #334563;
     }
+  }
+
+  &__learn-link:hover &__learn-button {
+    background-color: $btn-hover;
   }
 }

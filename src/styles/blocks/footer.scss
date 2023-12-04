@@ -10,72 +10,78 @@
   }
 
   &__contact {
+    @include pageGrid;
+    row-gap: 80px;
     margin-bottom: 80px;
 
     @include onTablet {
+      row-gap: 120px;
       margin-bottom: 140px;
     }
 
     @include onDesktop {
-      display: flex;
-      justify-content: space-between;
       margin-bottom: 121px;
     }
   }
 
   &__message {
-    margin-bottom: 80px;
+    grid-column: 1/-1;
 
     @include onTablet {
-      margin-bottom: 80px;
+      grid-column: span 4;
     }
 
     @include onDesktop {
-      margin-bottom: 0;
+      grid-column: 1/6;
+    }
+  }
+
+  &__contact-us {
+    grid-column: 1/-1;
+
+    @include onTablet {
+      grid-column: span 4;
+    }
+
+    @include onDesktop {
+      grid-column: 7/-2;
     }
   }
 
   &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include onTablet {
+      gap: 25px;
+    }
+
     @include onDesktop {
-      display: flex;
+      flex-direction: row;
+      gap: 0;
       justify-content: space-between;
       align-items: center;
     }
   }
 
   &__logo {
-    margin-bottom: 50px;
-
-    @include onTablet {
-      margin-bottom: 25px;
-    }
-
-    @include onDesktop {
-      margin-bottom: 0;
-    }
+    display: inline-block;
   }
 
   &__menu {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
     @include onTablet {
-      display: flex;
-      justify-content: center;
+      flex-direction: row;
+      gap: 0;
+      justify-content: space-between;
     }
-  }
 
-  &__menu-item {
-    &:not(:last-child) {
-      margin-bottom: 24px;
-
-      @include onTablet {
-        margin-bottom: 0;
-        margin-right: 40px;
-      }
-
-      @include onDesktop {
-        margin-right: 64px;
-      }
+    @include onDesktop {
+      gap: 64px;
     }
   }
 

@@ -26,63 +26,62 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    list-style: none;
+    @include pageGrid;
+    row-gap: 24px;
 
     @include onTablet {
-      gap: 30px;
+      row-gap: 30px;
     }
 
     @include onDesktop {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
+      column-gap: 20px;
     }
 
     @include onLargeScreen {
-      gap: 30px;
+      column-gap: 30px;
     }
   }
 
   &__item {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    background-color: $white;
+    border-radius: 16px;
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 280px;
-    height: 456px;
     padding: 75px 39px 32px;
-    background-color: $white;
-    border-radius: 16px;
 
     @include onTablet {
-      height: 478px;
-      width: 558px;
+      max-width: 558px;
     }
 
     @include onDesktop {
-      height: 456px;
-      width: 292px;
+      max-width: 292px;
     }
 
     @include onLargeScreen {
-      width: 362px;
-      height: 494px;
+      max-width: 362px;
     }
   }
 
   &__photo {
     position: relative;
-    transition: transform linear 0.3s;
+    cursor: pointer;
 
     &:hover {
       transform: scale(120%);
     }
-  
+
     &::before,
     &::after {
       position: absolute;

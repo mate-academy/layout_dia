@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 48px;
+    opacity: 0;
+    transition: opacity $effect-duration-scroll ease-out;
   }
 
   &__title {
@@ -56,32 +58,32 @@
   }
 
   &__slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: end;
     height: 390px;
-    margin: 0 -20px;
     padding: 0 20px 24px;
-    background-image: url(../images/slider/slide-img-1.jpg);
+    background-image: none;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 30px;
 
     @include onTablet {
-      margin: 0 -41px;
       padding: 0 41px 32px;
     }
 
     @include onDesktop {
-      position: absolute;
-      right: 0;
-      bottom: 0;
+      left: auto;
       width: 50%;
       flex-direction: row;
       justify-content: start;
       align-items: end;
-      height: $strategic-height;
+      height: 85vh;
       margin: 0;
       padding: 0 78px 48px;
       border-radius: 30px 0;
@@ -89,6 +91,18 @@
 
     @include onLargeScreen {
       width: 45%;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/slide-1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slide-2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/slider/slide-3.png);
     }
   }
 
@@ -99,6 +113,7 @@
 
   &__slider-button {
     @include madeIcon (32px);
+    transform: scale(1);
     background-color: $white;
     border-color: transparent;
     border-radius: 50%;
@@ -110,6 +125,10 @@
 
     &--next {
       background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 
