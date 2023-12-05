@@ -1,0 +1,92 @@
+.services {
+  &__cards {
+    display: grid;
+    row-gap: 24px;
+    padding-top: 48px;
+
+    &--001,
+    &--003 {
+      @include hover(transform, scale(1.05));
+    }
+
+    &--002,
+    &--004 {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @include onTablet {
+    @include pageGrid;
+    grid-template-rows: 2;
+
+    &__content {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+
+    &__cards {
+      @include pageGrid;
+      grid-template-rows: 2;
+      grid-column: 1 / 7;
+      grid-row: 2 / 3;
+      row-gap: 30px;
+
+      &--001 {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+      }
+
+      &--002 {
+        grid-column: 4 / 7;
+        grid-row: 1 / 2;
+        transform: translateY(-132px);
+
+        &:hover {
+          transform: translateY(-132px) scale(1.05);
+        }
+      }
+
+      &--003 {
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+      }
+
+      &--004 {
+        grid-column: 4 / 7;
+        grid-row: 2 / 3;
+        transform: translateY(-132px);
+
+        &:hover {
+          transform: translateY(-132px) scale(1.05);
+        }
+      }
+    }
+  }
+
+  @include onSmallDesktop {
+    @include pageGrid;
+    grid-template-rows: 0;
+
+    &__content {
+      grid-column: 1 / 5;
+    }
+
+    &__cards {
+      @include pageGrid;
+      grid-column: 7 / 13;
+      row-gap: 30px;
+
+      &--001,
+      &--003 {
+        grid-column: 1 / 7;
+      }
+
+      &--002,
+      &--004 {
+        grid-column: 7 / 13;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.page {
+  background-color: $page-backround-color;
+  margin: 0;
+  min-width: 320px;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+  }
+
+  &__menu {
+    top: 0;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    position: fixed;
+    transition: all $durationTime;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
+
+p,
+h1,
+h4 {
+  margin: 0;
+}
