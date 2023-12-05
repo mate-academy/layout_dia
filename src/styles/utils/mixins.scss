@@ -1,0 +1,90 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: $large-screen-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include desktop {
+    gap: 30px;
+  }
+}
+
+@mixin padding-inline() {
+  padding-inline: 20px;
+
+  @include tablet {
+    padding-inline: 41px;
+  }
+
+  @include small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include desktop {
+    padding-inline: 227px;
+  }
+
+  @include large-screen {
+    padding-inline: 707px;
+  }
+}
+
+@mixin gap-btw-blocks {
+  margin-bottom: 120px;
+
+  @include tablet {
+    margin-bottom: 148px;
+  }
+
+  @include desktop {
+    margin-bottom: 120px;
+  }
+
+  @include large-screen {
+    margin-bottom: 120px;
+  }
+}

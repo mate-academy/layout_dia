@@ -1,0 +1,182 @@
+.header {
+  height: 100%;
+
+  background-color: $dark-bg-color;
+  color: $white-color;
+  border-radius: 0 0 40px 40px;
+
+  @include gap-btw-blocks;
+
+  @include small-desktop {
+    border-radius: 0 0 30px;
+  }
+
+  &__container {
+    @include page-grid;
+
+    grid-auto-flow: row;
+    padding-top: 20px;
+  }
+
+  &__top {
+    @include page-grid;
+  }
+
+  &__middle {
+    grid-column: 1 / -1;
+
+    @include padding-inline;
+
+    @include  small-desktop {
+      grid-column: 1 / 4;
+      margin-top: 120px;
+
+    }
+
+    &--title {
+      font-family: Poppins, sans-serif;
+      font-size: 52px;
+      line-height: 112%;
+      margin-top: 48px;
+      margin-bottom: 32px;
+
+      grid-column: 1 / -1;
+
+      @include tablet {
+        margin-top: 56px;
+        margin-bottom: 24px;
+      }
+    }
+
+    & :nth-child(2n) {
+      margin: 0;
+      grid-column: 1 / -1;
+      font-size: 18px;
+      line-height: 27px;
+
+      @include tablet {
+        width: 362px;
+      }
+    }
+
+    & :last-child {
+      margin-top: 72px;
+      margin-bottom: 48px;
+      grid-column: 1 / -1;
+
+      @include tablet {
+        margin-top: 56px;
+        margin-bottom: 147px;
+
+        grid-column: 1 / span 3;
+      }
+
+      @include small-desktop {
+        width: 264px;
+      }
+    }
+
+    &--button {
+      height: 50px;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    height: 390px;
+    position: relative;
+
+    @include small-desktop {
+      grid-column-start: 7;
+      margin-top: 48px;
+      height: auto;
+    }
+
+    @include large-screen {
+      grid-column-start: 4;
+    }
+
+    &--image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      grid-column: 1 / -1;
+
+      @include small-desktop {
+        border-radius: 30px 0;
+      }
+    }
+
+    &--container {
+      position: absolute;
+      bottom: 0;
+      padding-inline: 20px;
+      padding-bottom: 24px;
+
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        padding-inline: 41px;
+        padding-bottom: 32px;
+      }
+
+      @include small-desktop {
+        flex-direction: row;
+        padding-inline: 78px;
+        gap: 24px;
+        padding-bottom: 48px;
+      }
+
+    }
+    &--buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      @include small-desktop {
+        align-self: center;
+      }
+    }
+
+    &--button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      border: none;
+      background-color: $white-color;
+      transition: translate 0.5s;
+
+      &:first-child {
+        transform: rotate(180deg);
+      }
+
+      &-arrow {
+        display: block;
+        background-image: url(../images/arrows/arrow.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    &--subtitle {
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      line-height: 13px;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+
+    &--text {
+      margin: 0;
+    }
+  }
+}
