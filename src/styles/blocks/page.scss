@@ -1,0 +1,42 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    font-family: Poppins, sans-serif;
+    background-color: $main-bg-color;;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all $animation-time;
+    transform: translate(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
+    }
+  }
+
+  &__main {
+    color: $second-text-color;
+    display: grid;
+    row-gap: 120px;
+
+    @include on-tablet {
+      row-gap: 148px;
+    }
+  }
+}
