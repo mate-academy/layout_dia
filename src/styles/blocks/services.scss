@@ -1,0 +1,91 @@
+.services {
+  @include on-desctop-small {
+    padding-top: 103px;
+  }
+
+  &__content {
+    @extend %padding-inline;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 48px;
+
+    @include on-tablet {
+      row-gap: 56px;
+      font-size: 14px;
+      line-height: 150%;
+    }
+
+  }
+
+  &__text {
+    grid-column: span 2;
+    display: grid;
+    row-gap: 24px;
+    height: fit-content;
+    max-width: 362px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      max-width: 362px;
+    }
+  }
+  &__description {
+    @extend %open-sans;
+  }
+
+  &__cards {
+    --count-rows: 4;
+
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(var(--count-rows), 1fr);
+    gap: 24px 30px;
+
+    @include on-tablet {
+      --count-rows: 2;
+    }
+
+    @include on-desctop-small {
+      grid-column: 2 / 3;
+      column-gap: 20px;
+    }
+
+    @include on-desctop {
+      column-gap: 30px;
+    }
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      --count-rows: 2;
+    }
+
+    &--1,
+    &--2 {
+      @include on-tablet {
+        grid-column: 1 / 2;
+      }
+    }
+
+    &--3,
+    &--4 {
+      @include on-tablet {
+        grid-column: 2 / 3;
+        transform: translateY(-50%);
+      }
+    }
+
+    &--3 {
+      @include on-tablet {
+        grid-row: 1 / 2;
+      }
+    }
+
+
+
+  }
+}
