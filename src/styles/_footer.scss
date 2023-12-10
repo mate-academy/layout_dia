@@ -1,0 +1,98 @@
+.footer {
+  background-color: $background-color;
+  @include constentPaddingInLine;
+  padding-top: 80px;
+
+  .footer__links {
+    display: flex;
+    row-gap: 48px;
+    flex-direction: column;
+    align-items: start;
+    text-transform: uppercase;
+
+    @include onTablet {
+      row-gap: 24px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .foooter--logo {
+    width: 46px;
+    height: 28px;
+
+    @include onSmallDesktop {
+      align-items: left;
+    }
+  }
+
+  .footer-nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 80px;
+
+    @include onTablet {
+      flex-direction: row;
+      text-transform: uppercase;
+      justify-content: space-between;
+      width: 100%;
+      gap: 40px;
+      max-width: 1146px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      text-transform: uppercase;
+      justify-content: space-between;
+      align-items: right;
+      gap: 64px;
+      max-width: 1146px;
+    }
+
+    @include onSmallDesktop {
+      align-items: right;
+    }
+
+  }
+
+  .footer-nav__link {
+    font-family: $poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-align: left;
+    cursor: pointer;
+
+    color: $white-color;
+
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $blue-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+}

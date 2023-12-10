@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  text-transform: uppercase;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1300npx;
+
+  &__link {
+    font-family: $poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: $white-color;
+
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $blue-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: flex;
+      list-style: none;
+      gap: 48px;
+    }
+
+    @include onSmallDesktop {
+      display: flex;
+      list-style: none;
+      gap: 48px;
+    }
+  }
+}

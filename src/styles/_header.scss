@@ -1,0 +1,295 @@
+.header {
+  background-color: $background-color;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 48px;
+  border-bottom-left-radius: 29px;
+  border-bottom-right-radius: 29px;
+
+  @include onDesktop {
+    padding-left: 227px;
+  }
+
+  @include onSmallDesktop {
+    padding-left: 54px;
+  }
+
+  .header__top {
+    padding: 20px 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 20px;
+
+    @include onTablet {
+      padding-inline: 41px;
+    }
+
+    /* #region logoinnav */
+
+    .logo {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    /* #endregion */
+
+    .header__top--logo {
+      width: 46px;
+      height: 28px;
+    }
+
+    .icon {
+      display: flex;
+      background-image: url(../images/Menu.svg);
+      width: 24px;
+      height: 24px;
+      margin-right: 111px;
+      margin-left: 32px;
+
+      @include hover(transform, scale(1.1));
+      transition: 0.3s;
+
+      @include onSmallDesktop {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      @include onLarge {
+        display: none;
+      }
+    }
+
+    .hire-link {
+      font-family: $poppins;
+      color: $white-color;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 3px;
+      position: relative;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        background-color: $blue-color;
+      }
+    }
+  }
+
+  .header__grid {
+    @include PageGrid;
+
+    @include onTablet {
+      @include PageGrid;
+    }
+
+    @include onDesktop {
+      @include PageGrid;
+    }
+
+    @include onSmallDesktop {
+      @include PageGrid;
+    }
+    /* #region Mid Part of Header */
+    .header__mid {
+      justify-content: start;
+      width: 90%;
+      grid-column: 1 / -1;
+      padding-inline: 20px;
+
+      @include onTablet {
+        padding-inline: 41px;
+        grid-column: span 6;
+      }
+
+      @include onSmallDesktop {
+        grid-column: 1 / 6;
+
+        &__title {
+          padding-top: 164px;
+          justify-self: start;
+        }
+
+        &__description {
+          justify-self: start;
+        }
+
+        &__button {
+          justify-self: start;
+        }
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 6;
+        justify-self: center;
+        text-align: center;
+
+        &__title {
+          padding-top: 164px;
+        }
+
+        &__description {
+          justify-self: start;
+        }
+
+        &__button {
+          display: block;
+          justify-self: start;
+        }
+      }
+
+      &__title {
+        color: $white-color;
+        font-family: $poppins;
+        font-size: 52px;
+        font-weight: 600;
+        line-height: 62px;
+        letter-spacing: -2px;
+        text-align: left;
+        margin-bottom: 32px;
+
+        @include onTablet {
+          font-size: 64px;
+        }
+      }
+
+      &__description {
+        color: $white-color;
+        font-family: $open-sans;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27px;
+        text-align: left;
+        margin-bottom: 72px;
+        width: 100%;
+      }
+
+      &__button {
+        background-color: $blue-color;
+        border-radius: 8px;
+        color: $white-color;
+        font-family: $poppins;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 23px;
+        text-align: center;
+        box-shadow: none;
+        margin-bottom: 48px;
+        border: none;
+        cursor: pointer;
+
+        height: 50px;
+        width: 264px;
+
+        @include onTablet {
+          margin-bottom: 150px;
+        }
+      }
+
+    }
+    /* #endregion */
+    /* #region Bottom Part of Header */
+    .header__bottom {
+      grid-column: -1 / 1;
+      width: 100%;
+      height: 390px;
+      border-radius: 29px;
+      background-image: url(../images/Photo.svg);
+      background-size: cover;
+      background-position: 50%;
+
+      @include onSmallDesktop {
+        @include PageGrid;
+        grid-column: 7 / 13;
+        height: 100%;
+        border-bottom-right-radius: 29px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 29px;
+      }
+      @include onDesktop {
+        @include PageGrid;
+        grid-column: 8 / 13;
+        height: 100%;
+        border-bottom-right-radius: 29px;
+        border-top-left-radius: 29px;
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 16px;
+        padding: 250px 20px 24px;
+        @include onTablet {
+          padding: 242px 41px 32px auto;
+        }
+        @include onSmallDesktop {
+          padding: 564px 78px 48px 54px;
+        }
+        @include onDesktop {
+          padding: 564px 48px 48px auto;
+        }
+
+        .arrows {
+          width: 80px;
+          height: 32px;
+
+          &__right,
+          &__left {
+            width: 32px;
+            height: 32px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+          }
+
+          &__right {
+            background-image: url(../images/Arrowright.svg);
+          }
+
+          &__left {
+            background-image: url(../images/Arrowleft.svg);
+          }
+
+          @include onTablet {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        .header__bottom__title {
+          color: $white-color;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+        }
+
+        .header__bottom__desc {
+          width: 264px;
+          color: $white-color;
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 140%;
+        }
+      }
+    }
+    /* #endregion */
+  }
+}
