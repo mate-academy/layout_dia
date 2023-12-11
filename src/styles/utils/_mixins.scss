@@ -1,6 +1,84 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin onTablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop-s {
+  @media (min-width: $desktop-width--s) {
+    @content;
+  }
+}
+
+@mixin onDesktop-m {
+  @media (min-width: $desktop-width--m) {
+    @content;
+  }
+}
+
+@mixin onDesktop-l {
+  @media (min-width: $desktop-width--l) {
+    @content;
+  }
+}
+
+@mixin centered {
+  margin-inline: auto;
+}
+
+@mixin transition {
+  transition: all 500ms ease-in-out;
+}
+
+@mixin scale-1-1 {
+  transform: scale(1.1);
+}
+
+@mixin scale-1-03 {
+  transform: scale(1.03);
+}
+
+@mixin one-to-12-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include onDesktop-s {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onDesktop-m {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin page-button {
+  display: block;
+  background-color: #2060f6;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  border: none;
+  margin-bottom: 72px;
+
+  @include transition;
   &:hover {
-    #{$_property}: $_toValue;
+    @include scale-1-1;
+  }
+
+  @include onTablet {
+    max-width: 264px;
   }
 }

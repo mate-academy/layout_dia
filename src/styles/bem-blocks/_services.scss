@@ -1,0 +1,158 @@
+.services {
+  padding-top: 120px;
+  position: relative;
+  @include one-to-12-grid;
+  @include onTablet {
+
+    padding-top: 287px;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 48px;
+
+    @include onTablet {
+      padding-bottom: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop-s {
+      position: absolute;
+      top: 250px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__head {
+    color: #c0cdd7;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  &__label {
+    color: #253757;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    max-width: 280px ;
+  }
+
+  &__description {
+    color: #6c788b;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: "Open Sane", Helvetica, sans-serif;
+  }
+
+  &__card {
+    display: flex;
+    padding: 32px;
+    grid-column: 1 / 1;
+    background-color: #fff;
+    border-radius: 30px;
+    flex-direction: column;
+    max-height: 264px;
+
+    width: 280px;
+    @include centered;
+
+    @include onTablet {
+      width: 264px;
+      &--lower-card {
+        grid-column: 1 / 4;
+      }
+
+      &--higher-card {
+        grid-column: 4 / -1;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include onDesktop-s {
+      margin-bottom: 0;
+      &--lower-card {
+        grid-column: 7 / 10;
+      }
+
+      &--higher-card {
+        grid-column: 10 / -1;
+      }
+    }
+
+    &__numbers {
+      color: #2060f6;
+      font-size: 13px;
+      font-weight: 600;
+      width: 46px;
+      line-height: 24px;
+      border-radius: 23px;
+      text-align: center;
+      background-color: #e9f0ff;
+      margin-bottom: 26px;
+    }
+
+    &__description {
+      font-family: "Open Sans", Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 19px;
+      font-weight: 600;
+      color: #6c788b;
+      margin-bottom: 42px;
+    }
+
+    &__link {
+      position: relative;
+      line-height: 40px;
+      padding-left: 56px;
+      text-decoration: none;
+      color: #334563;
+      font-weight: 600;
+      font-size: 15px;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        background-color: #2060f6;
+        background-image: url(../images/vector-images/right-arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+      }
+
+      @include transition;
+      &:hover {
+        font-size: 16px;
+      }
+
+      &:hover::before {
+        @keyframes move-both {
+          from {
+            left: 0;
+          }
+          to {
+            left: 10px;
+          }
+        }
+
+        animation: 0.4s
+          cubic-bezier(0.55, 0.09, 0.68, 0.53)
+          0s
+          infinite
+          alternate
+          both
+          running
+          move-both;
+      }
+    }
+  }
+
+}
