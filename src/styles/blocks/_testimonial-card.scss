@@ -1,0 +1,129 @@
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 32px;
+  padding-inline: 42px;
+  border-radius: 16px;
+  background-color: $color-white;
+
+  @include transition(box-shadow);
+  @include hover-shadow;
+
+  @include on-desktop {
+    padding-inline: 48px;
+  }
+
+  @include on-wide-screen {
+    padding-inline: 56px;
+  }
+
+  &__photo {
+    position: relative;
+    display: flex;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-desktop {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-wide-screen {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &__decor {
+    width: 55.6%;
+    height: 22.4%;
+    border-radius: 12px;
+    background-color: $color-blue;
+
+    &--left {
+      transform: translate(10%, 90%) rotate(-60deg);
+    }
+
+    &--right {
+      align-self: end;
+      transform: translate(-10%, -90%) rotate(-60deg);
+    }
+
+    &-azure--light-theme {
+      background-color: $color-azure;
+    }
+
+    &-yellow--light-theme {
+      background-color: $color-yellow;
+    }
+
+    &-red--light-theme {
+      background-color: $color-red;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55.6%;
+    height: 55.6%;
+  }
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__comment {
+    max-width: 362px;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @extend %text-m;
+
+    &::before {
+      content: "";
+      display: block;
+      margin: 0 auto 8px;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/testimonials/quote-blue.svg);
+    }
+
+    &-azure--light-theme::before {
+      background-image: url(../images/testimonials/quote-azure.svg);
+    }
+
+    &-yellow--light-theme::before {
+      background-image: url(../images/testimonials/quote-yellow.svg);
+    }
+
+    &-red--light-theme::before {
+      background-image: url(../images/testimonials/quote-red.svg);
+    }
+  }
+
+  &__name {
+    @extend %text-m-black;
+
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  &__workplace{
+    @extend %text-upcase;
+
+    text-align: center;
+  }
+}

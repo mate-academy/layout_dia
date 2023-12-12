@@ -1,0 +1,180 @@
+.header {
+  background-color: $color-dark-theme;
+  border-radius: 0 0 $dark-theme-border-radius $dark-theme-border-radius;
+
+  @include transition(all);
+
+  @include on-desktop {
+    position: relative;
+  }
+
+  &--light-theme {
+    background-color: $color-blue-theme;
+    border-radius: 0 0 0 $light-theme-border-radius;
+  }
+
+  &__main {
+    padding: 20px 0 48px;
+
+    @include on-tablet {
+      padding-bottom: 147px;
+    }
+
+    @include on-desktop {
+    padding: 48px 0 205px;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 164px;
+    }
+  }
+
+  &__top-bar-left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 32px;
+  }
+
+  &__menu-button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-right: 22px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__theme-switcher {
+    margin-right: 22px;
+  }
+
+  &__nav {
+    position: fixed;
+    top: -100%;
+    left: 0;
+
+    @include transition(top);
+
+    &--mobile-visible {
+      top: 0;
+    }
+
+    @include on-desktop {
+      position: initial;
+    }
+  }
+
+  &__hire-us-link {
+    position: relative;
+
+    @extend %nav-link;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $color-blue;
+
+      @include transition(background-color);
+    }
+
+    &--light-theme {
+      &::after {
+        background-color: $color-coral;
+      }
+
+      &:hover {
+        color: $color-coral;
+
+        &::after {
+          background-color: $color-coral-hover;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+
+    @extend %h1-white;
+
+    @include on-tablet {
+      margin-bottom: 24px;
+    }
+
+    @include on-desktop {
+    grid-column: 1 / 6;
+    margin-bottom: 32px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    margin-bottom: 72px;
+
+    @extend %text-l-white;
+
+    @include on-tablet {
+    grid-column: 1 / 4;
+    margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+    grid-column: 1 / 5;
+    margin-bottom: 83px;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__slider {
+    @include on-desktop {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}

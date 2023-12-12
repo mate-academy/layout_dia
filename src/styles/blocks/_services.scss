@@ -1,0 +1,66 @@
+.services {
+  @include on-desktop {
+    padding-top: 132px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 48px;
+
+    @include on-tablet {
+      grid-row: 56px;
+    }
+  }
+
+  &__info {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+
+    &-name {
+      margin-bottom: 16px;
+
+      @extend %text-upcase;
+    }
+
+    &-title {
+      margin-bottom: 24px;
+
+      @extend %h3-low;
+    }
+
+    &-description {
+      @extend %text-s;
+    }
+  }
+
+  &__cards {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

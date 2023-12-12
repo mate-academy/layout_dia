@@ -1,0 +1,82 @@
+.service-card {
+  --card-color-hex: #{$color-blue};
+  --card-color-rgb: #{$color-blue-rgb};
+
+  padding: 32px;
+  border-radius: 16px;
+  background-color: $color-white;
+
+  @include transition(box-shadow);
+  @include hover-shadow;
+
+  &-azure--light-theme {
+    --card-color-hex: #{$color-azure};
+    --card-color-rgb: #{$color-azure-rgb};
+  }
+
+  &-yellow--light-theme {
+    --card-color-hex: #{$color-yellow};
+    --card-color-rgb: #{$color-yellow-rgb};
+  }
+
+  &-green--light-theme {
+    --card-color-hex: #{$color-green};
+    --card-color-rgb: #{$color-green-rgb};
+  }
+
+  &-red--light-theme {
+    --card-color-hex: #{$color-red};
+    --card-color-rgb: #{$color-red-rgb};
+  }
+
+  &__number {
+    display: inline-block;
+    padding: 2px 12px;
+    margin-bottom: 24px;
+    border-radius: 23px;
+    background-color: rgba(var(--card-color-rgb), .1);
+    color: var(--card-color-hex);
+  }
+
+  &__services {
+    margin-bottom: 32px;
+  }
+
+  &__service {
+    @extend %text-m;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    @extend %form-text;
+
+    &::before {
+      content: "";
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: var(--card-color-hex);
+      background-image: url(../images/buttons/arrow_forward.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include transition(transform);
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
+    }
+
+    &:active::before {
+      transform: scale(1);
+    }
+  }
+}

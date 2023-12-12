@@ -17,7 +17,7 @@ Adapt the page to the following screens:
 3. Implement `Who we are` block.
 4. Implement `Our expertise` block with the card reused 3 times.
 5. Implement `Process` block with 4 process cards.
-    - use `trasnlateY(-50%)` to move cards up
+    - use `translateY(-50%)` to move cards up
 6. Implement `Testimonials` block.
      - each card should have a fixed width and on the small screens the whole block should switch to column layout
 8. Implement `Vision, Passion, Results` block.
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://oleksii-mishchenko.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
