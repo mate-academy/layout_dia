@@ -1,0 +1,74 @@
+.text-us {
+  &__title {
+    margin-bottom: 48px;
+
+    @extend %h3-high-white;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-white;
+    outline: none;
+    box-sizing: border-box;
+
+    @extend %form-text-white;
+    @include transition(border-bottom);
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $color-white;
+      -webkit-box-shadow: 0 100px 0 0 $color-dark-theme inset;
+    }
+
+    &::placeholder {
+      opacity: 0.7;
+
+      @extend %form-text-white;
+      @include transition(opacity);
+    }
+
+    &:hover {
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+
+    &:focus {
+      border-bottom: 1px solid $color-blue;
+
+      &::placeholder {
+        opacity: 0.7;
+      }
+    }
+
+    &--light-theme {
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 100px 0 0 $color-blue-theme inset;
+      }
+
+      &:focus {
+        border-bottom: 1px solid $color-coral-hover;
+      }
+    }
+
+    &--message {
+      resize: none;
+      margin-bottom: 56px;
+
+      @include on-tablet {
+        margin-bottom: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.slider {
+  position: relative;
+  height: 390px;
+  border-radius: $dark-theme-border-radius;
+  overflow: hidden;
+
+  @include transition(border-radius);
+
+  @include on-desktop {
+    position: absolute;
+    height: 680px;
+    width: 45%;
+    border-radius: $dark-theme-border-radius 0 $dark-theme-border-radius 0;
+  }
+
+  &--light-theme {
+    border-radius: 20% 0 0;
+  }
+
+  &__list {
+    display: flex;
+    width: $slider-width;
+    height: 100%;
+
+    @include transition(transform);
+  }
+
+  &__slide {
+    width: $slide-width;
+    object-fit: cover;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: 24px;
+    padding-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      bottom: 32px;
+      padding-inline: 41px;
+    }
+
+    @include on-desktop {
+      bottom: 48px;
+      padding-inline: 48px;
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50px;
+    background-color: $color-white;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    &--left {
+      background-image: url(../images/buttons/chevron_left.svg);
+    }
+
+    &--right {
+      background-image: url(../images/buttons/chevron_right.svg);
+    }
+  }
+
+  &__info {
+    max-width: 264px;
+  }
+
+  &__intro {
+    margin-bottom: 8px;
+
+    @extend %text-upcase-white;
+  }
+
+  &__description {
+    @extend %text-s-white;
+  }
+}
