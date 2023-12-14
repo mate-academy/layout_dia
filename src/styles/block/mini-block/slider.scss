@@ -1,0 +1,89 @@
+.slider {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+
+  &__image {
+    height: 390px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.5s;
+    border-radius: 30px;
+
+    @include desktop {
+      height: 680px;
+      border-radius: 30px 0;
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &__image--#{$i} {
+      background-image: url("../images/slider-#{$i}.jpeg") ;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 0 24px 20px;
+    display: flex;
+    gap: 16px;
+
+    @include tablet {
+      margin: 0 0 32px 41px;
+    }
+
+    @include desktop {
+      margin: 0 0 48px 78px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+
+    @include hover(background-color, $blue-color);
+
+    &-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+
+    &:hover &-svg {
+      filter: brightness(500%);
+    }
+  }
+
+  &__intro-name {
+    color: $white-color;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__intro {
+    max-width: 240px;
+    color: $white-color;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
