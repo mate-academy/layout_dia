@@ -57,7 +57,7 @@ Use `Sharp Sans No2 Medium` and `Avenir`, which you can find in fonts directory.
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://Fedos17.github.io/Eco_cosmetics/).
+  [DEMO LINK](https://Fedos17.github.io/layout_diaEco_cosmetics/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
