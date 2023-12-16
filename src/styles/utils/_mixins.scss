@@ -30,3 +30,34 @@
     padding-top: 52px;
   }
 }
+
+@mixin gridRules {
+  --column-count: 2;
+  --column-width: 1fr;
+  display: grid;
+  grid-template-columns: repeat(var(--column-count),var(--column-width));
+  column-gap: 20px;
+  max-width: 1280px;
+
+  @include onTablet {
+    --column-count: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --column-count: 12;
+    margin: 0 auto;
+  }
+}
+
+@mixin sectionPaddingInline {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 40px;
+  }
+
+  @include onDesktop {
+    padding-inline: 54px;
+  }
+}
