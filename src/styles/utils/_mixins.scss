@@ -6,6 +6,14 @@
   }
 }
 
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin on640 {
   @media (min-width: 640px) {
     @content;
@@ -33,5 +41,27 @@
 @mixin on2560 {
   @media (min-width: 2560px) {
     @content;
+  }
+}
+
+
+@mixin pageGrid {
+  display: grid;
+  --columns: 2;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on640 {
+    column-gap: 30px;
+    --columns: 6;
+  }
+
+  @include on1024 {
+    column-gap: 20px;
+    --columns: 12;
+  }
+
+  @include on1600 {
+    column-gap: 30px;
   }
 }

@@ -1,9 +1,7 @@
 .header {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   background-color: $headerColor;
-
-  @include on1024 {
-    height: 100vh;
-  }
 
   &__top {
     margin-bottom: 48px;
@@ -17,22 +15,49 @@
     }
   }
 
+  &__content {
+    &__wrapper {
+      @include pageGrid;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include on640 {
+      grid-column: 1 / -1;
+    }
+
+    @include on1024 {
+      grid-column: 1 / 6;
+    }
+
+    @include on1600 {
+      grid-column: 1 / 5;
+    }
+  }
+
   &__title {
     font-weight: 600;
     font-size: 52px;
     line-height: 120%;
     letter-spacing: -2px;
     color: $colorWight;
-    margin: 0 0 24px;
+    margin: 0 0 32px;
 
     @include on640 {
       font-size: 64px;
       line-height: 68px;
+      margin-bottom: 24px;
     }
 
     @include on1024 {
       width: min-content;
-      margin: 166px 0 32px;
+      margin: 0 0 32px;
     }
   }
 
@@ -52,6 +77,18 @@
 
     @include on1024 {
       margin: 0 0 83px;
+    }
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+
+    @include on1024 {
+      grid-column-start: 7;
+    }
+
+    @include on1600 {
+      grid-column-start: 8;
     }
   }
 }
