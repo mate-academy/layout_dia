@@ -1,0 +1,93 @@
+.card {
+  width: 248px;
+  background-color: $white;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  padding: 34px 0 32px 32px;
+  transition: all $effect-duration;
+
+  @include hover(transform, scale(1.2));
+  @include hover(box-shadow, 0 9px 18px rgba(15, 82, 255, 0.13));
+
+  @include on-tablet {
+    &:nth-child(2n) {
+      transform: translateY(-50%);
+    }
+
+    width: 232px;
+    height: 198px;
+  }
+
+  @include on-desktop-mini {
+    &:nth-child(2n) {
+      transform: translateY(-180%);
+    }
+
+    &:nth-child(2n-1) {
+      transform: translateY(-120%);
+    }
+
+    width: 182px;
+  }
+
+  @include on-desktop-max {
+    width: 232px;
+  }
+
+  &__number {
+    width: 46px;
+    height: 24px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 24px;
+    color: $basic-blue;
+
+    margin-bottom: 26px;
+    border-radius: 23px;
+    background-color: rgba(32, 96, 246, 0.1);
+  }
+
+  &__description {
+    @extend %text-s-os;
+    @include hover(transform, scale(1.05));
+
+    transition: transform $effect-duration;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: $basic-blue;
+    border-radius: 50%;
+    transition: transform $effect-duration;
+
+  }
+
+  &__link {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    transition: color $effect-duration;
+  }
+
+  &__button {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover .card__icon {
+      transform: scale(1.2);
+    }
+
+    &:hover .card__link {
+      color: $basic-blue;
+    }
+  }
+}
