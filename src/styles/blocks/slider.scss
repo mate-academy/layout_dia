@@ -1,0 +1,159 @@
+.slider {
+  &__image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    height: 390px;
+
+    margin-left: -20px;
+    margin-right: -20px;
+  
+    @include on640 {
+      margin-left: -40px;
+      margin-right: -40px;
+    }
+  
+    @include on1024 {
+      margin-left: 0;
+      margin-right: -54px;
+      height: 680px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    @include on1280 {
+      margin-right: -120px;
+    }
+  
+    @include on1600 {
+      margin-right: -227px;
+    }
+  
+    @include on2560 {
+      margin-right: -707px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: absolute;
+    left: 20px;
+    bottom: 108px;
+
+    @include on640 {
+      left: 41px;
+      bottom: 116px;
+    }
+
+    @include on1024 {
+      left: 78px;
+      bottom: 66px;
+    }
+
+    @include on1600 {
+      left: 48px;
+    }
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    background-color: $colorWight;
+    border-radius: 50%;
+    border-color: transparent;
+    cursor: pointer;
+    margin: 0;
+
+    &--left {
+      background-image: url(../images/slider/slider-left.svg);
+      background-size: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &--right {
+      background-image: url(../images/slider/slider-right.svg);
+      background-size: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @include effect-hover(transform, scale(1.1));
+    @include effect-hover (background-color, $c-greyActive);
+    @include effect-active(transform, scale(0.9));
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    @include on640 {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include on1024 {
+      left: 182px;
+      bottom: 48px;
+    }
+
+    @include on1600 {
+      left: 152px;
+    }
+
+    &--title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $colorWight;
+    }
+
+    &--paragraph {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      color: $colorWight;
+    }
+  }
+}
+
+.slide {
+  height: 390px;
+  transition: 1s;
+
+  @include on1024 {
+    height: 680px;
+  }
+
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+
+  &--1 {
+    left: 0%;
+    background-image: url(../images/slider/photo1.jpg);
+  }
+
+  &--2 {
+    left: 100%;
+    background-image: url(../images/slider/photo2.png);
+  }
+
+  &--3 {
+    left: 200%;
+    background-image: url(../images/slider/photo3.png);
+  }
+}
