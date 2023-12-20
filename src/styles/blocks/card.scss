@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: $c-bg-white;
 
   &--our-expertise {
     align-items: center;
@@ -14,18 +15,39 @@
     height: 264px;
     border-radius: 16px;
     padding: 32px;
-    background-color: $c-bg-white;
 
-    &:nth-child(even) {
-      transform: translateY(-50%);
+    @include onTablet {
+      &:nth-child(even) {
+        transform: translateY(-50%);
+      }
     }
+  }
 
+  &--testimonials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    border-radius: 16px;
+    padding: 70px 42px;
+    padding-bottom: 32px;
   }
 
   &__img {
     &--our-expertise {
       width: fit-content;
       border-radius: 12px;
+    }
+
+    &--testimonials {
+      position: absolute;
+      width: 109px;
+      height: 109px;
+      top: 2px;
+      left: 39px;
+      border-radius: 50%;
     }
   }
 
@@ -57,6 +79,14 @@
       font-size: 13px;
       font-weight: 600;
     }
+
+    &--testimonials {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 150%;
+      max-width: 362px;
+    }
   }
 
   &__number {
@@ -78,13 +108,54 @@
 
   &__button-folder {
     display: flex;
+    justify-content: last baseline;
     gap: 16px;
     margin-top: 32px;
 
     color: #334563;
-    text-align: center;
     font-family: Poppins, sans-serif;
     font-size: 15px;
+    line-height: 250%;
     font-weight: 600;
+  }
+
+  &__img-folder {
+    position: relative;
+    width: 170px;
+    padding-bottom: 56px;
+  }
+
+  &__rectangle {
+    height: 44px;
+    width: 109px;
+    background-color: $c-button-blue;
+    border-radius: 12px;
+    transform: rotate(-60deg);
+
+    &:nth-child(2) {
+      transform: rotate(-60deg) translate(17px, 78px);
+    }
+  }
+
+  &__koma {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__name {
+    color: $c-title-dark;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__company {
+    color: #c0cdd7;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
   }
 }
