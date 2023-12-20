@@ -1,0 +1,122 @@
+@use "../utils/mixins" as *;
+
+.opinion {
+  @include grid;
+
+  &__article {
+    margin-bottom: 148px;
+    padding-top: calc(87px - 55px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+    align-items: center;
+
+    grid-column: span 4;
+
+    @include for-tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 148px;
+      }
+    }
+
+    @include for-mobile {
+      grid-column: 1 / -1;
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 120px;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding: 55px 38px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -25px;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: #2060f6;
+      z-index: -1;
+      transform: rotate(-60deg);
+      transform-origin: bottom right;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 75px;
+      right: 0;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: #2060f6;
+      z-index: -1;
+      transform: rotate(-60deg);
+      transform-origin: bottom right;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 79px;
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  &__quote {
+    margin-bottom: 8px;
+    background-image: url(./images/testimonials/quote.svg);
+    width: 24px;
+    height: 24px;
+  }
+
+  &__paragraph {
+    margin-bottom: 16px;
+    padding: 0 56px;
+    color: #6c788b;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 19.5px */
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    color: #253757;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 19.5px */
+  }
+
+  &__firm {
+    margin-bottom: 32px;
+    color: #c0cdd7;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
