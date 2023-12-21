@@ -1,0 +1,127 @@
+.card {
+  background-color: $main-header-color;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  &__content {
+    padding: 32px;
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 46px ;
+    height: 24px;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+
+    &-number {
+      display: block;
+      margin: 0;
+
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+      color: #2060f6;
+    }
+  }
+
+  &__description {
+    margin-bottom: 32px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    color: #6c788b;
+  }
+
+  &--left--position {
+    margin-bottom: 24px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      grid-column: 1 / 4;
+    }
+
+    @include onSmalldesctop {
+      margin-bottom: 20px;
+      grid-column: 7 / 10;
+    }
+
+    @include onDesctop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &--right--position {
+    margin-bottom: 24px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      grid-column: 4 / -1;
+      transform: translateY(-50%);
+    }
+
+    @include onSmalldesctop {
+      margin-bottom: 20px;
+      grid-column: 10 / -1;
+    }
+
+    @include onDesctop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    &-arrow {
+      background-image: url(../images/services/cardarrow.png);
+      background-position: center;
+      width: 40px;
+      height: 40px;
+      background-color: #2060f6;
+      border-radius: 50%;
+
+      &--big--arrow {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &-link {
+      position: relative;
+      padding-left: 16px;
+      display: block;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 23px;
+      color: #334563;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 80%;
+        bottom: -8px;
+        height: 2px;
+        background-color: #334563;
+
+        transition: transform 0.3s;
+        transform: scale(0);
+      }
+    }
+
+    &:hover &-link::after {
+      transform: scale(1);
+    }
+  }
+}
