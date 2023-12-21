@@ -1,0 +1,114 @@
+.footer {
+  background-color: $c-bg-dark;
+  border-radius: 40px;
+
+  padding: 72px 20px 80px;
+
+  @include onTablet {
+    padding: 180px 41px 80px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+      column-gap: 30px;
+      grid-template-areas: "form form . info info ."
+        "bar bar bar bar bar bar";
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+
+    @include onDesktop {
+      margin-bottom: 120px;
+    }
+
+    &--form {
+      grid-area: form;
+    }
+
+    &--contact-us {
+      grid-area: info;
+    }
+  }
+
+  &__title {
+    color: $c-bg-white;
+    text-align: left;
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 0;
+  }
+
+  &__text {
+    color: rgba($color: #fff, $alpha: 0.5);
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    display: flex;
+    color: #fff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  &__link-folder {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__icon {
+    display: flex;
+    text-decoration: none;
+
+    &:hover .footer__img {
+      transition: all 0.3s;
+      filter: invert(80%) sepia(92%) saturate(2038%)
+        hue-rotate(208deg) brightness(104%) contrast(91%);
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__menu {
+    grid-area: bar;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+    @include onDesktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

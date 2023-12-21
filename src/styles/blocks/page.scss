@@ -13,6 +13,24 @@
     margin: 0;
   }
 
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
   &__section-main {
     display: flex;
     flex-direction: column;
@@ -23,5 +41,9 @@
     @include onDesktop {
       gap: 148px;
     }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
   }
 }
