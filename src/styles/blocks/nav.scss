@@ -28,6 +28,8 @@
   }
 
   &__link {
+    position: relative;
+
     color: $color-white;
 
     font-family: Poppins, sans-serif;
@@ -37,5 +39,23 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      display: block;
+      background-color: $color-blue;
+
+      transition: transform $transition-time;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 }

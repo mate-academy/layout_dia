@@ -15,22 +15,9 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    @include page-grid;
 
-    @include on-tablet {
-      gap: 30px;
-    }
-
-    @include on-desktop {
-      flex-direction: row;
-      gap: 20px;
-    }
-
-    @include on-large-screen {
-      gap: 30px;
-    }
+    row-gap: 24px;
   }
 
   &__point {
@@ -46,6 +33,14 @@
     border-radius: 16px;
     background: $color-white;
     box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+    @include hover-transition(transform, scale($hover-scale-block));
+
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
   }
 
   &__reviewer-avatar {
