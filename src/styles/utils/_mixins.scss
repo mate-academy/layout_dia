@@ -9,13 +9,72 @@
   @media (min-width: 640px) {
     @content;
   }
-  
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin spaceBetween() {
+  margin-bottom: 120px;
+
+  @include onTablet {
+    margin-bottom: 148px;
+  }
 }
 
 @mixin contentPaddingInline() {
   padding-inline: 20px;
 
   @include onTablet {
-    padding-inline: 72px;
+    padding-inline: 40px;
+  }
+
+  @include onSmallDesktop() {
+    padding-inline: 54px;
+  }
+
+  @include onDesign() {
+    padding-inline: 227px;
+  }
+
+  @include onLargeScreen() {
+    padding-inline: 708px;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
   }
 }
