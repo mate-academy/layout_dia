@@ -85,6 +85,7 @@
     }
 
     @include on-desktop-s {
+      margin-top: 36px;
       row-gap: 20px;
       grid-row: 1;
     }
@@ -97,14 +98,20 @@
   &__services-card {
     grid-column: 1 / -1;
 
+    @include hover(transform, scale(1.05));
+
     &:nth-child(2n) {
       @include on-tablet {
-        margin-top: -50%;
         grid-column: 4 / -1;
+        transform: translateY(-50%);
       }
 
       @include on-desktop-s {
         grid-column: 10 / -1;
+
+        &:hover {
+          transform: scale(1.05) translateY(-50%);
+        }
       }
     }
 
@@ -170,9 +177,9 @@
 
   &__testimonials-content {
     margin-top: 48px;
-    display: flex;
-    flex-direction: column;
     gap: 24px;
+
+    @include page-grid;
 
     @include on-tablet {
       gap: 30px;
@@ -188,6 +195,14 @@
     @include on-desktop-m {
       flex-direction: row;
       gap: 30px;
+    }
+  }
+
+  &__testimonials-card {
+    grid-column: 1 / -1;
+
+    @include on-desktop-s {
+      grid-column: span 4;
     }
   }
 
