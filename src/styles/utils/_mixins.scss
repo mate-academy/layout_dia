@@ -1,6 +1,93 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: $min-width-tablet){
+    @content;
+  }
+}
+
+@mixin on-desktop-s {
+  @media (min-width: $min-width-desktop-s){
+    @content;
+  }
+}
+
+@mixin on-desktop-m {
+  @media (min-width: $min-width-desktop-m){
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @include on-desktop-s {
+    padding-inline: $padding-inline-desktop-s;
+  }
+
+  @include on-desktop-m {
+    padding-inline: $padding-inline-desktop-m;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop-s {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desktop-m {
+    column-gap: 30px;
+  }
+}
+
+@mixin bag-ava-blue-rectangle {
+  display: block;
+  content: "";
+  position: relative;
+  width: 109px;
+  height: 44px;
+  transform: rotate(-60deg);
+  border-radius: 12px;
+  background-color: $color-accent-blue;
+  z-index: 0;
+
+  @include on-tablet {
+    width: 139px;
+    height: 56px;
+  }
+
+  @include on-desktop-s {
+    width: 109px;
+    height: 44px;
+  }
+
+  @include on-desktop-m {
+    width: 139px;
+    height: 56px;
+  }
+}
+
+@mixin hover($property, $to-value) {
+  transition: #{$property} $efect-duration;
+  transform-origin: center;
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $to-value;
   }
 }

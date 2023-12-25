@@ -1,0 +1,77 @@
+.nav {
+  display: none;
+
+  @include on-desktop-s {
+    display: block;
+  }
+
+  &--aside {
+    display: block;
+  }
+
+  &--footer {
+    display: block;
+  }
+
+  &__list {
+    height: 100%;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 40px;
+    }
+
+    @include on-desktop-s {
+      gap: 48px;
+    }
+
+    &--footer {
+      flex-direction: column;
+      align-items: start;
+
+      @include on-tablet {
+        flex-direction: row;
+      }
+
+      @include on-desktop-s {
+        gap: 64px;
+      }
+    }
+
+    &--aside {
+      flex-direction: column;
+      gap: 48px;
+
+      @include on-tablet {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__item {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 1;
+    transition: all $efect-duration;
+
+    &:hover {
+      color: $color-accent-blue;
+      opacity: 0.7;
+    }
+
+    &--aside {
+      padding-bottom: 8px;
+      border-bottom: 1px solid  $color-white;
+    }
+  }
+}
