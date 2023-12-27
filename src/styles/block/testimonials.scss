@@ -1,0 +1,168 @@
+.testimonials {
+  &__subtitle {
+    color: rgb(192, 205, 215);
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+
+    @include tablet {
+      margin-bottom: 56px;
+    }
+
+    @include desktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      gap: 30px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+
+  &__block {
+    background-color: $white-color;
+    border-radius: 16px;
+    width: 100%;
+    padding: 32px 42px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: all .3s;
+
+    @include desktop {
+      flex: 1 0 calc(33.33% - 20px);
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__image {
+    margin-bottom: 67px;
+    margin-top: 43px;
+    position: relative;
+    width: 110px;
+    height: 110px;
+
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: $blue-color;
+      bottom: 0;
+      right: -35px;
+      transform: rotate(-60deg);
+      z-index: -1;
+      transition: all .3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: $blue-color;
+      top: 0;
+      left: -35px;
+      transform: rotate(-60deg);
+      z-index: -1;
+      transition: all .3s;
+    }
+
+    &:hover::before {
+      transform: rotate(-45deg);
+    }
+
+    &:hover::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover .testimonials__img {
+      transform: scale(1.2);
+      box-shadow: 10px -10px 20px rgba(0, 0, 0, .3);
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+
+    transition: all .3s;
+  }
+
+  &__description {
+    color: $gray-text-color;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%; /* 19.5px */
+    margin: 8px 0 16px;
+    max-width: 362px;
+  }
+
+  &__name {
+    color: $dark-text-color;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%; /* 19.5px */
+    margin-bottom: 4px;
+
+    @include hover(color, $blue-color);
+  }
+
+  &__work {
+    color: rgb(192, 205, 215);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include hover(color, $dark-text-color);
+  }
+}
