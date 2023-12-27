@@ -1,9 +1,17 @@
 'use strict';
 
 const form = document.querySelector('.form');
+const inputs = document.querySelectorAll('.form__input');
+
+const reset = () => {
+  inputs.forEach(input => {
+    input.value = '';
+  });
+};
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  reset();
 });
 
 const body = document.querySelector('.page__body');
