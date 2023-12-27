@@ -1,0 +1,41 @@
+.page {
+  background-color: #f2f6fa;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: $min-width-mobile;
+
+    margin: 0;
+  }
+
+  // &__header {
+  //   background-color: $color-background-dark-gray;
+  // }
+
+  &__side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+
+  &:has(&__side-menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+}
