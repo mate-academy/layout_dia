@@ -1,12 +1,24 @@
 @use "../utils/mixins" as *;
 
 .header {
+  position: relative;
   box-sizing: border-box;
   background-color: #2c2c2c;
-  min-height: 100vh;
+  height: 800px;
   padding-bottom: 205px;
+  border-radius: 0 0 30px 30px;
 
   grid-template-rows: 1fr 1fr auto auto;
+
+  @include for-tablet {
+    height: 893px;
+    grid-template-rows: 105px 92px 110px 50px;
+  }
+
+  @include for-mobile {
+    height: 893px;
+    grid-template-rows: 100px 155px 153px 50px;
+  }
 
   @include grid;
 
@@ -36,12 +48,14 @@
 
     @include for-tablet {
       grid-column: span 6;
+      align-self: start;
     }
 
     @include for-mobile {
       font-size: 52px;
       line-height: 120%; /* 62.4px */
       grid-column: span 2;
+      align-self: start;
     }
   }
 
@@ -64,10 +78,12 @@
 
     @include for-tablet {
       grid-column: span 4;
+      align-self: start;
     }
 
     @include for-mobile {
       grid-column: span 2;
+      align-self: start;
     }
   }
 
@@ -87,5 +103,11 @@
     @include for-mobile {
       grid-column: span 2;
     }
+  }
+
+  &__slider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }

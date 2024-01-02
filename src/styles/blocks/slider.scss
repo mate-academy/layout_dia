@@ -1,0 +1,166 @@
+@use "../utils/mixins" as *;
+
+.slider {
+  padding-top: 120px;
+
+  @include for-tablet {
+    padding-top: 147px;
+  }
+
+  @include for-mobile {
+    padding-top: 48px;
+  }
+
+  &__items {
+    display: flex;
+    transition: all 1s ease-in-out;
+    width: auto;
+
+    @include for-large-screen {
+      width: 1167px;
+      height: 680px;
+    }
+
+    @include for-design {
+      width: 687px;
+      height: 680px;
+    }
+
+    @include for-desktop {
+      width: 502px;
+      height: 680px;
+    }
+
+    @include for-tablet {
+      width: 640px;
+      height: 390px;
+    }
+
+    @include for-mobile {
+      width: 320px;
+      height: 390px;
+    }
+  }
+
+  &__foto {
+    flex-shrink: 0;
+    width: 100%;
+    border-radius: 30px 0;
+    overflow: hidden;
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+    @include for-tablet {
+      border-radius: 30px;
+    }
+
+    @include for-mobile {
+      border-radius: 30px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    cursor: url(./images/button/pointer.svg), pointer;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--prev {
+      left: 48px;
+      bottom: 66px;
+
+      @include for-tablet {
+        left: 41px;
+        bottom: 116px;
+      }
+
+      @include for-mobile {
+        left: 20px;
+        bottom: 108px;
+      }
+    }
+
+    &--next {
+      left: 96px;
+      bottom: 66px;
+
+      @include for-tablet {
+        left: 89px;
+        bottom: 116px;
+      }
+
+      @include for-mobile {
+        left: 68px;
+        bottom: 108px;
+      }
+    }
+  }
+
+  &__arrow {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__text {
+    position: absolute;
+    left: 152px;
+    bottom: 48px;
+
+    @include for-tablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include for-mobile {
+      left: 20px;
+      bottom: 24px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__paragraph {
+    width: 264px;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+  }
+}
