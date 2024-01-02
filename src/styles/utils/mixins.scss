@@ -1,0 +1,137 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $effectDuration;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $min-width-ontablet) {
+    @content;
+  }
+}
+
+@mixin on-small-desctop {
+  @media (min-width: $width-on-small-desctop) {
+    @content;
+  }
+}
+
+@mixin on-desctop {
+  @media (min-width: $width-on-desctop) {
+    @content;
+  }
+}
+
+@mixin on-big-desctop {
+  @media (min-width: $width-on-big-desctop) {
+    @content;
+  }
+}
+
+
+
+@mixin card {
+  @media (min-width:640px) {
+    column-gap: 30px;
+    display: grid;
+  }
+}
+
+
+
+@mixin section-grid {
+  --columns: 2;
+
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desctop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desctop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+
+  @include on-big-desctop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+
+@mixin padding-inline {
+  padding-inline: $padding-inline-mobile;
+
+  @include on-tablet {
+    padding-inline: $padding-inline-on-tablett;
+  }
+
+  @include on-small-desctop {
+    padding-inline: $padding-inline-small-desctop;
+  }
+
+  @include on-desctop {
+    padding-inline: $padding-inline-on-desctop;
+  }
+
+  @include on-big-desctop {
+    padding-inline: $padding-inline-on-big-desctop;
+  }
+}
+
+@keyframes left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes top {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes bottom {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

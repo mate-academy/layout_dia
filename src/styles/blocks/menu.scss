@@ -1,0 +1,115 @@
+.menu {
+  @include padding-inline;
+
+  background-color: $background-dark;
+  height: 100vh;
+  box-sizing: border-box;
+  position: fixed;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    animation: $animation-left;
+    transition: all 500ms;
+  }
+
+  &__top {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    padding-top: 18px;
+    display: grid;
+  }
+
+  &__icon {
+    display: flex;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-content;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    margin-top: 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &-item {
+    &:hover {
+      transition: $animation-content;
+      transform: $transform-button;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 20px;
+    text-transform: $nav-text-transform;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-content;
+      color: $color-text-hover;
+    }
+  }
+
+  // header-nav
+  &__nav {
+    align-items: center;
+    display: none;
+    animation: $animation-top;
+
+      @media (min-width:1024px) {
+        display: flex;
+        grid-column: 6/11;
+      }
+
+      @media (min-width:2560px) {
+        grid-column: 6/10;
+      }
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+    margin: 0;
+  }
+
+  &__item {
+    list-style: none;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-content;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-white;
+    font-size: $nav-size;
+    text-transform: $nav-text-transform;
+    line-height: 150%;
+    letter-spacing: 3px;
+    padding-bottom: 8px;
+    animation: $animation-top;
+
+    &:hover {
+      color: $color-text-hover;
+    }
+  }
+}
