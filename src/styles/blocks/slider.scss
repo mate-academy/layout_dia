@@ -1,0 +1,128 @@
+.slider {
+  width: 100vw;
+  height: calc(50vh - 120px);
+  position: relative;
+  overflow: hidden;
+
+  @include onSmallDesktop {
+    width: calc(50vw - 10px);
+    height: calc(100vh - 120px);
+  }
+
+  @include onMediumDesktop {
+    width: calc(50vw - 115px);
+  }
+
+  &__content {
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: absolute;
+
+    bottom: 24px;
+    left: 20px;
+
+    @include onTablets {
+      bottom: 32px;
+      left: 41px;
+    }
+
+    @include onSmallDesktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      bottom: 48px;
+      left: 78px;
+    }
+
+    @include onMediumDesktop {
+      left: 48px;
+    }
+  }
+
+  &__slides {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+  }
+
+  &__slide--1 {
+    background-image: url(../images/slider/Photo.png);
+    border-radius: 30px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    @include onSmallDesktop {
+      border-radius: 30px 0;
+      background-image: url(../images/slider/slide-img-1-L.jpg);
+    }
+  }
+
+  &__slide {
+    border-radius: 30px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    display: block;
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 50%;
+
+    &--right {
+      background-image: url(../images/slider/right-arrow.svg);
+    }
+
+    &--left {
+      background-image: url(../images/slider/left-arrow.svg);
+    }
+  }
+
+  &__text {
+    display: flex;
+
+    gap: 8px;
+    flex-direction: column;
+
+  }
+
+  &__title {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
