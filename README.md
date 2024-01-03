@@ -43,8 +43,8 @@ Adapt the page to the following screens:
 14. In the PROCESS section add a hover effect to cards (for example, let them increase in size a little)
 15. Inside the cards in PROCESS sections, make a link out of the "Learn More" text, so that it hovers simultaneously with the arrow button on the left
 16. In the Vision, Passion, Results section, the “Apply” button also should lead to the contact form
-17. In the Testimonials and Our expertise section add hover effects for each review
-18. After clicking the menu buttons, the landing page will scroll exactly to the beginning of the desired block (exactly where its section begins)
+17. In the Teonials and Our expertise section add hover effects for each review
+18. After clicking the menu stimbuttons, the landing page will scroll exactly to the beginning of the desired block (exactly where its section begins)
 19. The arrows at the bottom of the first block should not respond slowly to pressing (this is possible if the pictures are too large)
 20. When a user clicks on Address Google Maps is opened in a new tab
 21. The user must have the opportunity to conveniently write 2-3 lines of text in the message field
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://Mortalbat.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

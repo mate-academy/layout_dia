@@ -1,0 +1,102 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+
+
+  @include on-design {
+    width: 1148px;
+  }
+
+  &__logo-link {
+    margin: 0;
+  }
+
+  &__logo-button-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo {
+    display: block;
+    width: 46px;
+    height: 28px;
+
+    @include scale-transform;
+  }
+
+  &__button {
+    cursor: pointer;
+    background-image: url(../images/logo/button.png);
+    background-size: cover;
+    background-position: center;
+
+    width: 24px;
+    height: 24px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked + &__button {
+    background-image: url(../images/logo/close.png);
+  }
+
+  &__list {
+    margin: 0;
+    display: none;
+    list-style-type: none;
+    gap: 48px;
+
+    @include on-small-desktop {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-weight: $bold;
+    font-size: $font-small-size;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include scale-transform;
+  }
+
+  &__hire-us {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-family: $poppins;
+    position: relative;
+    font-size: $font-small-size;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include scale-transform;
+
+    &::after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      width: 67px;
+      bottom: -8px;
+      display: block;
+      border: 1px solid $blue-color;
+      border-radius: 4px;
+    }
+  }
+}
