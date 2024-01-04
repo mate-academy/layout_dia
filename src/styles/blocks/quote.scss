@@ -1,0 +1,171 @@
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 456px;
+  border-radius: 16px;
+  padding-block: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  @extend %Transition;
+
+  @include onTablet {
+    @media (max-width: $small-desktop-min-width) {
+      min-height: 478px;
+    }
+  }
+
+  @include onMediumDesktop {
+    min-height: 494px;
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__photo-group {
+    position: relative;
+    @include square(196px);
+    @include onTablet-and-MediumDesk (width, 196px, 250px);
+    @include onTablet-and-MediumDesk (height, 196px, 250px);
+    margin-bottom: 24px;
+  }
+
+  &__rectangle {
+    @include centerPosition;
+    border-radius: 12px;
+    background-color: $accent-color;
+    @include onTablet-and-MediumDesk (width, 109px, 139px);
+    @include onTablet-and-MediumDesk (height, 44px, 56px);
+
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+
+    &--left {
+      transform-origin: bottom left;
+      transform: translate(-50%, -50%) rotate(-60deg);
+    }
+
+    &--right {
+      transform-origin: top right;
+      transform: translate(-50%, -50%) rotate(-60deg);
+    }
+  }
+
+  &__image {
+    @include centerPosition;
+    @include onTablet-and-MediumDesk (width, 110px, 140px);
+    @include onTablet-and-MediumDesk (height, 110px, 140px);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @extend %Transition;
+
+    &--gilad {
+      background-image: url("../images/quote/gilad-mobile.png");
+
+      @include onTablet {
+        background-image: url("../images/quote/gilad.png");
+      }
+    }
+
+    &--hawkins {
+      background-image: url("../images/quote/hawkins-mobile.png");
+
+      @include onTablet {
+        background-image: url("../images/quote/hawkins.png");
+      }
+    }
+
+    &--grover {
+      background-image: url("../images/quote/grover-mobile.png");
+
+      @include onTablet {
+        background-image: url("../images/quote/grover.png");
+      }
+    }
+  }
+
+  &__icon {
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+  }
+
+  &__text-block {
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 16px;
+    display: flex;
+
+    @include onTablet {
+      @media (max-width: $small-desktop-min-width) {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+      }
+    }
+  }
+
+  &__text {
+    width: 196px;
+    text-align: center;
+    @extend %OpenSans600;
+
+    @include onTablet {
+      @media (max-width: $small-desktop-min-width) {
+        width: 100%;
+        grid-column: 2 / -2;
+      }
+    }
+
+    @include onMediumDesktop {
+      width: 250px;
+    }
+  }
+
+  &__name {
+    padding-bottom: 4px;
+    grid-column: 1 / -1;
+    @extend %OpenSans600;
+    color: $dark-font-color;
+  }
+
+  &__organization {
+    grid-column: 1 / -1;
+    @extend %Poppins700;
+  }
+
+  &:hover {
+    transform: $standart-scale;
+    @extend %Boxshadow;
+  }
+
+  &:hover .quote__rectangle {
+    transform: translate(-50%, -50%)
+      rotate(300deg)
+      $standart-scale;
+
+    filter: blur(4px) opacity(85%);
+    @extend %Boxshadow;
+
+  }
+
+  &:hover .quote__image {
+    @extend %Boxshadow;
+    transform: translate(-50%, -50%) $standart-scale;
+  }
+
+  &:hover .quote__text {
+    transform: $standart-scale;
+    @extend %FilterContrast;
+  }
+
+}

@@ -1,0 +1,48 @@
+.header {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 100vh;
+
+  background-color: $dark-background-color;
+  color: #fff;
+
+  @include onSmallDesktop {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: calc(50% + (#{$column-gap-onSmallDesktop} / 2)) 1fr;
+  }
+
+  @include onMediumDesktop {
+    grid-template-columns: calc(50% + 1.5 * #{$column-gap-onMediumDesktop} +
+    ((#{$max-width-container} - 11 * #{$column-gap-onMediumDesktop}) / 12)) 1fr;
+  }
+
+  &__top-bar {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+  }
+
+  &__strategic {
+    grid-row: 2 / 3;
+
+    @include onSmallDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__slider-box {
+    position: relative;
+    grid-row: 3 / 4;
+
+    @include onSmallDesktop {
+      grid-row: 2 / 3;
+      grid-column: 2 / -1;
+    }
+
+    &:has(.slider--2:target) .slider--1,
+    &:has(.slider--3:target) .slider--1 {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.process {
+  @include onTablet {
+    padding-top: 36px;
+  }
+
+  @include onSmallDesktop {
+    padding-top: 132px;
+  }
+
+  &__content {
+    @include pageGrid;
+    grid-template-rows: auto auto;
+
+    @include onSmallDesktop {
+      grid-template-rows: 1fr;
+
+    }
+  }
+
+  &__text-block {
+
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onSmallDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__title {
+    padding-bottom: 24px;
+  }
+
+  &__text {
+    margin-bottom: 48px;
+    min-height: 105px;
+    color: $light-font-color;
+    @extend %OpenSans400;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__cards-block {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @include onSmallDesktop {
+      gap: 20px;
+      grid-column: 7 / -1;
+      grid-row: 1 / 2;
+    }
+
+    @include onMediumDesktop {
+      gap: 30px;
+    }
+  }
+}

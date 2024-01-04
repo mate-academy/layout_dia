@@ -1,0 +1,80 @@
+.card {
+  padding: 32px;
+  height: 264px;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @extend %Transition;
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    height: 24px;
+    width: 46px;
+    border-radius: 23px;
+    color: $accent-color;
+    background-color: #2060f61a;
+    font-size: 13px;
+    line-height: 20px;
+    @extend %Poppins600;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    padding-bottom: 32px;
+    @extend %OpenSans600;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include square(40px);
+    border-radius: 50%;
+    background-color: $accent-color;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: fit-content;
+    @extend %Poppins600;
+    font-size: 15px;
+    line-height: 150%;
+    color: $color-text-200;
+    text-decoration: none;
+
+    &:hover .card__arrow {
+      @extend %Boxshadow;
+      transform: $standart-scale;
+    }
+
+    &:hover .card__learn-more {
+      @extend %FilterContrast;
+    }
+  }
+
+  &:hover {
+    @extend %Boxshadow;
+    transform: $standart-scale;
+  }
+
+  &:hover .card__text {
+    @extend %FilterContrast;
+  }
+
+  &--upped {
+    @include onTablet {
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-50%) $standart-scale;
+      }
+    }
+  }
+}
