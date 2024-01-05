@@ -1,7 +1,15 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
+    cursor: pointer;
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverOnlyCursorPointer {
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -13,6 +21,12 @@
 
 @mixin onDesktop {
   @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $design-min-width) {
     @content;
   }
 }
@@ -37,7 +51,7 @@
   display: grid;
   grid-template-columns: repeat(var(--column-count),var(--column-width));
   column-gap: 20px;
-  max-width: 1280px;
+  max-width: 1146px;
 
   @include onTablet {
     --column-count: 6;
