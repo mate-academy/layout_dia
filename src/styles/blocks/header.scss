@@ -1,18 +1,64 @@
 .header {
-  min-height: 120px;
+  --min-heigth: 120px;
+
+  min-height: 100vh;
+
   background-color: $bg-color;
-  padding: 48px 0 44px 0;
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: var(--min-heigth);
+    position: relative;
+    z-index: 1;
+
+    column-gap: 32px;
+
+    @media (max-width: $width-small-desk) {
+      --min-heigth: 80px;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media (max-width: $width-small-desk) {
+      display: flex;
+      flex: 1 0 auto;
+    }
+
+    &-link {
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__menu {
+    @media (max-width: $width-small-desk) {
+      position: fixed;
+      inset: 0;
+      top: var(--min-heigth);
+
+      background-color: gray;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      // display: flex;  //todo
+      display: none;
+      overflow-y: auto;
+      padding: 140px 0 60px;
+    }
   }
 
   &__link {
     display: block;
     color: #FFF;
-    font-family: $ff-Poppins;
+    font-family: $ff-poppins;
     font-size: 13px;
     font-style: normal;
     font-weight: 700;
@@ -21,10 +67,9 @@
     text-transform: uppercase;
     padding-bottom: 8px;
     position: relative;
-
     transition: 0.3s;
 
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -33,41 +78,62 @@
       height: 2px;
       width: 0;
       border-radius: 4px;
-      background-color: $btn-color;
+      background-color: $color-active;
       transition: 0.3s;
+
     }
 
     &:hover {
       opacity: 0.8;
 
-      &:after {
+      &::after {
         width: 100%;
       }
     }
   }
 
-  &__bottom {}
-}
+  &__bottom {
+    @include grid-template;
+  }
 
-
-.menu {
-
-  &__list {
+  &__info {
+    padding-top: 120px;
     display: flex;
-    align-items: center;
-    gap: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    grid-column: span 5;
+
   }
 
-  &__item {}
-
-  &__link {
+  &__title {
     color: #FFF;
-    font-family: $ff-Poppins;
-    font-size: 13px;
+    font-family: $ff-poppins;
+    font-size: 64px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 106.25%;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
   }
+
+  &__text {
+    color: #FFF;
+
+    font-family: $ff-ppen-sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 83px;
+  }
+
+  .slider {
+    grid-column: 8 / -1;
+    width: 100%;
+    height: 100vh;
+
+
+  }
+
 }
