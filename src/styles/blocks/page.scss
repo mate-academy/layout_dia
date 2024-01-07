@@ -8,20 +8,51 @@ html {
 
 .page {
   margin: 0;
-  font-family: 'Poppins', sans-serif; // also: 'Open Sans', sans-serif;
+  font-family: Poppins, sans-serif;
   background-color: $background-color;
 
-  section,
-  footer {
+  .container {
     padding-inline: 20px;
+
+    @include container-media;
   }
 
-  .footer__contact {
-    padding: 0;
+  .air-icon {
+    height: 28px;
+  }
+
+  .close-icon {
+    height: 24px;
   }
 
   .logo {
     width: 46px;
     height: 28px;
+    transition: transform $animation-duration ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all $animation-duration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  .footer__contact {
+    padding: 0;
   }
 }

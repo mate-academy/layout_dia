@@ -1,31 +1,81 @@
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include space-between-center;
 
   &__items {
     display: flex;
+    align-items: center;
     column-gap: 32px;
   }
 
+  &__nav {
+    display: none;
+  }
+
   &__hiring {
+    text-decoration: none;
     position: relative;
-    color: #fff;
+    color: $white-color;
     font-size: 13px;
     font-weight: 700;
-    line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
+    transition: color $animation-duration ease;
 
     &::after {
       position: absolute;
       content: "";
       width: 67px;
       left: 0;
-      bottom: -5px;
+      bottom: -8px;
       height: 2px;
       border-radius: 4px;
-      background: #2060F6;
+      background: $blue-color;
+    }
+
+    &:hover {
+      color: $blue-color;
+    }
+  }
+
+  &__burger {
+    height: 24px;
+  }
+}
+
+@include on-small-desktop {
+  .top-bar {
+    &__burger {
+      display: none;
+    }
+
+    &__nav {
+      display: block;
+
+      &-list {
+        display: flex;
+        column-gap: 48px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      &-item {
+        line-height: 13px;
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $white-color;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        transition: color $animation-duration ease;
+
+        &:hover {
+          color: $metallic-color;
+        }
+      }
     }
   }
 }

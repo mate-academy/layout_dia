@@ -1,50 +1,108 @@
 .our-expertise {
-  background-color: #fff;
+  background-color: $white-color;
   padding-block: 72px;
   border-radius: 30px;
+
+  &__title,
+  &__block-title,
+  &__block-description {
+    text-align: center;
+  }
+
+  &__title,
+  &__block-title {
+    font-weight: 600;
+  }
 
   &__title {
     margin: 0;
     color: $title-color;
-    text-align: center;
     font-size: 44px;
-    font-weight: 600;
     line-height: 120%;
   }
 
   &__content {
     margin-top: 56px;
-    display: flex;
-    flex-direction: column;
+
+    @include flex-column;
+
     row-gap: 56px;
   }
 
   &__block {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
+
     align-items: center;
 
     &-image {
       border-radius: 16px;
+      transition: transform $animation-duration ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &-title {
       margin: 0;
       margin-top: 32px;
       color: $title-color;
-      text-align: center;
       font-size: 20px;
-      font-weight: 600;
       line-height: 140%;
     }
 
     &-description {
       margin-top: 16px;
       color: $description-color;
-      text-align: center;
       font-family: 'Open Sans', sans-serif;
       font-size: 14px;
       line-height: 150%;
+    }
+  }
+}
+
+@include on-tablet {
+  .our-expertise {
+    padding-block: 128px;
+
+    &__title {
+      font-size: 52px;
+      line-height: 150%;
+    }
+
+    &__content {
+      margin-top: 64px;
+      row-gap: 64px;
+    }
+
+    &__block {
+      &-description {
+        width: 362px;
+      }
+    }
+  }
+}
+
+@include on-small-desktop {
+  .our-expertise {
+    &__content {
+      flex-direction: row;
+      justify-content: center;
+      column-gap: 137px;
+    }
+
+    &__block {
+      &-description {
+        width: 214px;
+      }
+    }
+  }
+}
+
+@include on-design {
+  .our-expertise {
+    &__content {
+      column-gap: 177px;
     }
   }
 }

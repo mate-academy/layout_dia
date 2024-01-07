@@ -1,48 +1,74 @@
 .testimonials {
   margin-top: 120px;
 
-  &__subtitle {
-    margin: 0;
-    color: $subtitle-color;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
+  &__subtitle,
   &__title {
     margin: 0;
+  }
+
+  &__subtitle,
+  &__block-description,
+  &__block-name,
+  &__block-job {
+    font-size: 13px;
+  }
+
+  &__subtitle,
+  &__block-job {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $subtitle-color;
+  }
+
+  &__title,
+  &__block-name {
     margin-top: 16px;
     color: $title-color;
-    font-size: 32px;
+  }
+
+  &__title,
+  &__block-description,
+  &__block-name {
     font-weight: 600;
     line-height: 150%;
   }
 
+  &__content,
+  &__block {
+    @include flex-column;
+  }
+
+  &__title {
+    font-size: 32px;
+  }
+
   &__content {
+    align-items: center;
     margin-top: 48px;
-    display: flex;
-    flex-direction: column;
     row-gap: 24px;
   }
 
   &__block {
-    z-index: -1;
+    z-index: 1;
     width: 280px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     padding-top: 35.49px;
     padding-bottom: 32px;
-    background-color: #fff;
+    background-color: $white-color;
     border-radius: 16px;
 
     &-photo {
       position: relative;
       height: 192.5px;
       width: 182px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+      @include flex-center-center;
+
+      &--shape,
+      &--person {
+        transition: transform $animation-duration ease;
+      }
+
       &--shape {
         position: absolute;
         z-index: -1;
@@ -68,6 +94,19 @@
         height: 109.76px;
         border-radius: 50%;
       }
+
+      &:hover {
+        .testimonials__block-photo--person {
+          transform: scale(1.15);
+        }
+
+        .testimonials__block-photo--shape--1 {
+          transform: rotate(-60deg) translateX(15%);
+        }
+        .testimonials__block-photo--shape--2 {
+          transform: rotate(-60deg) translateX(-15%);
+        }
+      }
     }
 
     &-marks {
@@ -78,36 +117,102 @@
       background-image: url('../images/chevrons-and-marks/quotation-marks.svg');
     }
 
+    &-description,
+    &-name,
+    &-job {
+      text-align: center;
+    }
+
+    &-description,
+    &-name {
+      font-family: 'Open Sans', sans-serif;
+    }
+
     &-description {
       height: 80px;
       width: 196px;
       margin-top: 8px;
-      text-align: center;
       color: $description-color;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 150%;
-    }
-
-    &-name {
-      margin-top: 16px;
-      color: $title-color;
-      text-align: center;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 150%;
     }
 
     &-job {
       margin-top: 4px;
-      color: $subtitle-color;
-      text-align: center;
-      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    }
+  }
+}
+
+@include on-tablet {
+  .testimonials {
+    margin-top: 148px;
+
+    &__title {
+      width: 179px;
+    }
+
+    &__content {
+      margin-top: 56px;
+      row-gap: 30px;
+    }
+
+    &__block {
+      width: 560px;
+      padding-top: 55px;
+
+      &-photo {
+        height: 232.5px;
+        width: 232.5px;
+
+        &--shape {
+          width: 139px;
+          height: 56px;
+
+          &--1 {
+            top: 36.45px;
+          }
+
+          &--2 {
+            top: 129.17px;
+          }
+        }
+
+        &--person {
+          width: 140px;
+          height: 140px;
+        }
+      }
+
+      &-marks {
+        margin-top: 40px;
+      }
+
+      &-description {
+        margin-top: 16px;
+        width: 250px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@include on-small-desktop {
+  .testimonials {
+    &__content {
+      flex-flow: row wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    &__block {
+      width: 362px;
+    }
+  }
+}
+
+@include on-desktop {
+  .testimonials {
+    &__content {
+      flex-wrap: nowrap;
     }
   }
 }
