@@ -1,17 +1,35 @@
 .page {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  // font-family: "Open-sans", sans-serif;
 
   &__body {
+    background: $c-gray;
     margin: 0;
+
+    &--with-menu {
+      display: none;
+    }
   }
-}
 
-.header {
-  height: 100vh;
-  padding-top: 20px;
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-  &__top {
-    display: flex;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0%);
+      pointer-events: all;
+    }
   }
 }
 
@@ -20,5 +38,18 @@
 }
 
 .menu {
-  display: none;
+  box-sizing: border-box;
+  height: 100vh;
+  // background-color: $c-black;
+  background-color: red;
+  overflow: auto;
+
+  text-transform: uppercase;
 }
+
+.aside {
+  height: 100vh;
+
+  background-color: $c-black;
+}
+
