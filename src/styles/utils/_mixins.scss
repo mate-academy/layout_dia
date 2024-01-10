@@ -1,8 +1,32 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.3s ease;
 
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: $laptop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onWideScreen {
+  @media (min-width: $wide-screeen-min-width) {
+    @content;
   }
 }
 
@@ -15,6 +39,4 @@
 @mixin p {
   font-size: 18px;
   line-height: 150%;
-  font-family: "Open-sans", sans-serif;
-  font-weight: 400;
 }
