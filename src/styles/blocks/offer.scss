@@ -1,0 +1,69 @@
+@use "../utils/mixins" as *;
+@import "../utils/vars";
+
+.offer {
+  display: grid;
+  grid-template-columns: repeat(6, 68px);
+  grid-template-rows: repeat(5, 132px);
+  gap: 15px 30px;
+
+  @include for-desktop {
+    grid-template-columns: repeat(6, 58px);
+    column-gap: 20px;
+  }
+
+  @include for-mobile {
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: repeat(4, 264px);
+    gap: 24px 20px;
+  }
+
+  &__block {
+    box-sizing: border-box;
+    height: 264px;
+    padding: 34px 32px 32px 30px;
+    border-radius: 16px;
+    background-color: $main-title-color;
+    box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+    &--one {
+      grid-column: 1 / 4;
+      grid-row: 2 / 5;
+
+      @include for-mobile {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+    }
+
+    &--two {
+      grid-column: 4 / 7;
+      grid-row: 1 / 3;
+
+      @include for-mobile {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+    }
+
+    &--three {
+      grid-column: 1 / 4;
+      grid-row: 4 / 7;
+
+      @include for-mobile {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+      }
+    }
+
+    &--four {
+      grid-column: 4 / 7;
+      grid-row: 3 / 6;
+
+      @include for-mobile {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+      }
+    }
+  }
+}
