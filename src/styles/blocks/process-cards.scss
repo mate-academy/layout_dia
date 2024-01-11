@@ -1,0 +1,93 @@
+.proc-card {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  width: 280px;
+  cursor: pointer;
+  height: 264px;
+
+  @include hover(box-shadow, 0 0 10px 5px white);
+
+  @include on-tablet {
+    width: 100%;
+
+    &--right {
+      transform: translateY(-50%);
+    }
+  }
+
+  &__item-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background: $color-light-blue;
+  }
+
+  &__number {
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+    color: $color-blue;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__overview {
+    margin: 0;
+    color: $title-info;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%; /* 19.5px */
+    margin-block: 24px 32px;
+  }
+
+  &__button-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__button {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background-color: $color-blue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include hover(background-color, $color-hover-blue);
+    @include hover(transform, scale(1.1));
+
+    &::after {
+      content: "";
+      height: 24px;
+      width: 24px;
+      display: block;
+      background-image: url(../images/icons/mdi_arrow_forward.svg);
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__button-text {
+    // cursor: pointer;
+    color: #334563;
+    font-size: 15px;
+    font-weight: 600;
+
+    @include underline-text-hover(-8px);
+
+    transform-origin: left;
+  }
+}
