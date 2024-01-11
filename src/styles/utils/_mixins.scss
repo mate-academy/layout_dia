@@ -1,8 +1,16 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s ease;
+  transition: #{$_property} $transition-duration $animation-timing-function;
 
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverScale {
+  transition: scale $transition-duration $animation-timing-function;
+
+  &:hover {
+    scale: $scale-value;
   }
 }
 
@@ -36,7 +44,29 @@
   letter-spacing: -2px;
 }
 
+@mixin h2 {
+  color: $text-blue;
+}
+
+@mixin article {
+  color: $text-gray;
+}
+
 @mixin p {
   font-size: 18px;
   line-height: 150%;
+}
+
+@mixin article13gray {
+  color: $text-gray;
+  font-size: 13px;
+  line-height: 150%;
+}
+
+@mixin sectionName {
+  color: $text-light-gray;
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
