@@ -1,0 +1,35 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.page {
+  box-sizing: border-box;
+  background-color: #f2f6fa;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+  margin: 0;
+  padding: 0;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all 0.4s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
