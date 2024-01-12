@@ -2,165 +2,94 @@
 @import "../utils/vars";
 
 .slider {
-  @include for-tablet {
-    padding-top: 147px;
+  display: flex;
+  position: absolute;
+  height: 390px;
+  width: 100%;
+  bottom: -390px;
+  left: 0;
+  background: linear-gradient(to bottom, $dark-bg-color 50%, $bg-grey 50%);
+
+  @include for-desktop {
+    width: 50%;
+    height: 80%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
   }
 
-  @include for-mobile {
-    padding-top: 48px;
-  }
-
-  &__items {
-    display: flex;
-    width: auto;
-    transition: all 0.3s ease-in-out;
-
-    @include for-large-screen {
-      width: 1167px;
-      height: 680px;
-    }
-
-    @include for-design {
-      width: 687px;
-      height: 680px;
-    }
+  &__item {
+    position: relative;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
 
     @include for-desktop {
-      height: 680px;
+      border-radius: 30px 0;
     }
 
-    @include for-tablet {
-      width: 650px;
-      height: 390px;
+    &--1 {
+      background-image: url(../images/slider/slider-1.jpeg);
     }
 
-    @include for-mobile {
-      width: 320px;
-      height: 390px;
-    }
-  }
-
-  &__foto {
-    overflow: hidden;
-    flex-shrink: 0;
-    width: 100%;
-    border-radius: 30px 0;
-    animation-name: fade;
-    animation-duration: 1.5s;
-
-    @include for-tablet {
-      border-radius: 30px;
+    &--2 {
+      background-image: url(../images/slider/slider-2.jpeg);
     }
 
-    @include for-mobile {
-      border-radius: 30px;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    &--hidden {
-      display: none;
+    &--3 {
+      background-image: url(../images/slider/slider-3.jpeg);
     }
   }
 
-  @keyframes fade {
-    from {
-      opacity: 0.4;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  &__button {
-    cursor: url('../images/buttons/pointer.svg'), pointer;
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
     position: absolute;
+    left: 20px;
+    bottom: 24px;
+    z-index: 1;
+
+    @include for-desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 32px;
     height: 32px;
-    border: none;
     border-radius: 50%;
-
     background-color: $main-title-color;
+    border: none;
 
-    &--prev {
-      bottom: 66px;
-      left: 48px;
-
-      @include for-tablet {
-        bottom: 116px;
-        left: 41px;
-      }
-
-      @include for-mobile {
-        bottom: 108px;
-        left: 20px;
-      }
-    }
-
-    &--next {
-      bottom: 66px;
-      left: 96px;
-
-      @include for-tablet {
-        bottom: 116px;
-        left: 89px;
-      }
-
-      @include for-mobile {
-        bottom: 108px;
-        left: 68px;
-      }
-    }
-  }
-
-  &__arrow {
-    width: 18px;
-    height: 18px;
-  }
-
-  &__text {
-    position: absolute;
-    bottom: 48px;
-    left: 152px;
-
-    @include for-tablet {
-      bottom: 32px;
-      left: 41px;
-    }
-
-    @include for-mobile {
-      bottom: 24px;
-      left: 20px;
-    }
+    @include hoverOnlyCursorPointer;
   }
 
   &__title {
-    margin-bottom: 8px;
     color: $main-title-color;
+
+    text-align: left;
     font-family: Poppins, sans-serif;
     font-size: 13px;
-    font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
 
-  &__paragraph {
-    width: 264px;
+  &__subtitle {
     color: $main-title-color;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 140%;
+    margin-top: 18px;
   }
 }

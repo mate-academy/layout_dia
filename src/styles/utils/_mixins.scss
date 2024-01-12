@@ -2,75 +2,81 @@
   transition: #{$_property} 0.3s;
 
   &:hover {
+    cursor: pointer;
     #{$_property}: $_toValue;
   }
 }
 
-@mixin for-large-screen() {
-  @media (min-width: 2560px) {
+@mixin hover-only-cursor-pointer {
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-min-width) {
     @content;
   }
 }
 
-@mixin for-design() {
-  @media (min-width: 1600px) and (max-width: 2559px) {
+@mixin for-desktop {
+  @media (min-width: $desktop-min-width) {
     @content;
   }
 }
 
-@mixin for-desktop() {
-  @media (min-width: 1024px) and (max-width: 1599px) {
+@mixin for-design {
+  @media (min-width: $design-min-width) {
     @content;
   }
 }
 
-@mixin for-tablet() {
-  @media (min-width: 640px) and (max-width: 1023px) {
-    @content;
+@mixin padding-header {
+  padding-inline: 20px;
+  padding-top: 20px;
+
+  @include for-tablet {
+    padding-inline: 40px;
+  }
+
+  @include for-desktop {
+    padding-inline: 52px;
+    padding-top: 52px;
   }
 }
 
-@mixin for-mobile() {
-  @media (min-width: 320px) and (max-width: 639px) {
-    @content;
-  }
-}
+@mixin grid-rules {
+  --column-count: 2;
+  --column-width: 1fr;
 
-@mixin grid() {
   display: grid;
-  justify-content: center;
+  grid-template-columns: repeat(var(--column-count), var(--column-width));
+  column-gap: 20px;
+  max-width: 1146px;
 
-  @include for-design {
-    grid-template-columns: repeat(12, 68px);
-    column-gap: 30px;
-  }
+  @include for-tablet {
+    --column-count: 6;
 
-  @include for-large-screen {
-    grid-template-columns: repeat(12, 68px);
     column-gap: 30px;
   }
 
   @include for-desktop {
-    grid-template-columns: repeat(12, 58px);
-    column-gap: 20px;
-  }
+    --column-count: 12;
 
-  @include for-tablet {
-    grid-template-columns: repeat(6, 68px);
-    column-gap: 30px;
-  }
-
-  @include for-mobile {
-    grid-template-columns: repeat(2, 130px);
+    margin: 0 auto;
   }
 }
 
-@mixin visually-hidden() {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+@mixin section-padding-inline {
+  padding-inline: 20px;
+
+  @include for-tablet {
+    padding-inline: 40px;
+  }
+
+  @include for-desktop {
+    padding-inline: 54px;
+  }
 }
