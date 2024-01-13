@@ -1,6 +1,94 @@
 @use "../utils/mixins" as *;
+@import "../utils/vars";
 
 .container {
-  position: relative;
-  width: 100%;
+  min-width: 280px;
+  max-width: 1146px;
+  margin: 0 auto;
+
+  @include grid-rules;
+
+  &--services {
+    @include for-desktop {
+      padding-top: 90px;
+    }
+  }
+
+  &--passione {
+    background-color: $main-title-color;
+    padding: 20px;
+
+    @include for-tablet {
+      background-image: url(../images/Shapes.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    @include for-desktop {
+      flex-direction: row;
+    }
+
+    @include for-design {
+      column-gap: 30px;
+    }
+
+    &--our-expertise {
+      margin-top: 32px;
+      gap: 56px;
+
+      @include for-desktop {
+        margin-top: 64px;
+      }
+    }
+
+    &--direction-column {
+      @include for-desktop {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+
+    &--title {
+      @include for-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include for-desktop {
+        grid-column: 1 / 5;
+        max-width: 332px;
+      }
+    }
+
+    &--card {
+      grid-column: 1 / -1;
+      margin-top: 48px;
+
+      @include for-tablet {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 30px;
+      }
+
+      @include for-desktop {
+        grid-column: 7 / -1;
+        row-gap: 20px;
+      }
+
+    }
+  }
 }
