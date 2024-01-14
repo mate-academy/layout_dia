@@ -1,4 +1,14 @@
 .services {
+  @include onLaptop {
+    margin-top: 64px;
+  }
+
+  &__content {
+    @include onLaptop {
+      @include pageGrid;
+    }
+  }
+
   &__blocks {
     display: flex;
     flex-direction: column;
@@ -7,6 +17,19 @@
     @include onTablet {
       @include pageGrid;
       max-width: 546px;
+    }
+
+    @include onLaptop {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+      row-gap: 30px;
+      grid-column: 7 / 12;
+    }
+  }
+
+  &__info {
+    @include onLaptop {
+      grid-column: span 4;
     }
   }
 
