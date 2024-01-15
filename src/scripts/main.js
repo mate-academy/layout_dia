@@ -42,4 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   prevBtn.addEventListener('click', () => changeSlide(-1));
   nextBtn.addEventListener('click', () => changeSlide(1));
+
+  document.querySelectorAll('.slider__foto').forEach((foto, i) => {
+    if (i !== currentIndex) {
+      foto.classList.add('slider__foto--hidden');
+    }
+  });
 });
