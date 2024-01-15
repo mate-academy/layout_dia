@@ -1,0 +1,118 @@
+.page {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  height: 100%;
+
+  &__body {
+    background: $c-gray;
+    margin: 0;
+    min-width: 320px;
+    height: 100%;
+  }
+
+  &__header {
+    padding-top: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 120px;
+
+    @include onTablet {
+      margin-bottom: 148px;
+    }
+
+    @include onLaptop {
+      padding-top: 48px;
+    }
+  }
+
+  &__menu {
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0%);
+      pointer-events: all;
+    }
+  }
+
+  &__main {
+    margin-bottom: 120px;
+    min-height: 100%;
+
+    @include onTablet {
+      margin-bottom: -56px;
+    }
+  }
+}
+
+.container {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 42px;
+  }
+
+  @include onLaptop {
+    padding-inline: 56px;
+    min-width: 1024px;
+    max-width: 1146px;
+    margin-inline: auto;
+  }
+}
+
+.container-white-rounded {
+  background-color: #fff;
+  padding-inline: 20px;
+  border-radius: 30px;
+
+   @include onTablet {
+    padding-inline: 42px;
+  }
+
+  @include onLaptop {
+    padding-inline: 56px;
+    max-width: 1146px;
+  }
+}
+
+.container-white {
+  background-color: #fff;
+  padding-inline: 20px;
+
+   @include onTablet {
+    padding-inline: 42px;
+  }
+
+  @include onLaptop {
+    padding-inline: 56px;
+  }
+}
+
+.aside {
+  height: 100vh;
+
+  background-color: $c-black;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+

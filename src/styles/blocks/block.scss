@@ -1,0 +1,76 @@
+.block {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 32px;
+
+  @include hover(box-shadow, 0 0 11px rgba(33,33,33,.2));
+
+  @include onTablet {
+    grid-column: span 3;
+    min-width: 264px;
+
+    &:nth-child(even) {
+      transform: translateY(-50%);
+    }
+  }
+
+  @include onLaptop {
+    min-width: 214px;
+  }
+
+  @include onDesktop {
+    min-width: 264px;
+  }
+
+  &__number {
+    margin-bottom: 24px;
+    margin-top: 0px;
+    color: $c-blue;
+    position: relative;
+    width: 46px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 46px;
+      background-color: $c-blue;
+      opacity: 0.1;
+      border-radius: 23px;
+      height: 23px;
+    }
+  }
+
+  &__article {
+    @include article13gray;
+    margin-bottom: 32px;
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__arrow {
+    border-radius: 50%;
+    background-color: $c-blue;
+    width: 40px;
+    height: 40px;
+    background-image: url('../images/icons/mdi_arrow_forward.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    @include hover(background-color, $c-green)
+  }
+
+  &__learn-more {
+    color: $text-blue-gray;
+    text-align: center;
+    font-size: 15px;
+    line-height: normal;
+  }
+}

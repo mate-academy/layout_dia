@@ -1,6 +1,86 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-duration $animation-timing-function;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverScale {
+  transition: scale $transition-duration $animation-timing-function;
+
+  &:hover {
+    scale: $scale-value;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: $laptop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desctop-min-width) {
+    @content;
+  }
+}
+
+@mixin onWideScreen {
+  @media (min-width: $wide-screeen-min-width) {
+    @content;
+  }
+}
+
+@mixin h1 {
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: -2px;
+}
+
+@mixin h2 {
+  color: $text-blue;
+}
+
+@mixin article {
+  color: $text-gray;
+}
+
+@mixin p {
+  font-size: 18px;
+  line-height: 150%;
+}
+
+@mixin article13gray {
+  color: $text-gray;
+  font-size: 13px;
+  line-height: 150%;
+}
+
+@mixin sectionName {
+  color: $text-light-gray;
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+@mixin pageGrid {
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include onLaptop {
+    grid-template-columns: repeat(12, 1fr);
   }
 }
