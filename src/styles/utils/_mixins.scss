@@ -1,6 +1,82 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
+    cursor: pointer;
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hover-only-cursor-pointer {
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin for-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-header {
+  padding-inline: 20px;
+  padding-top: 20px;
+
+  @include for-tablet {
+    padding-inline: 40px;
+  }
+
+  @include for-desktop {
+    padding-inline: 52px;
+    padding-top: 52px;
+  }
+}
+
+@mixin grid-rules {
+  --column-count: 2;
+  --column-width: 1fr;
+
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), var(--column-width));
+  column-gap: 20px;
+  max-width: 1146px;
+
+  @include for-tablet {
+    --column-count: 6;
+
+    column-gap: 30px;
+  }
+
+  @include for-desktop {
+    --column-count: 12;
+
+    margin: 0 auto;
+  }
+}
+
+@mixin section-padding-inline {
+  padding-inline: 20px;
+
+  @include for-tablet {
+    padding-inline: 40px;
+  }
+
+  @include for-desktop {
+    padding-inline: 54px;
   }
 }

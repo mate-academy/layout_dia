@@ -1,0 +1,126 @@
+@use "../utils/mixins" as *;
+@import "../utils/vars";
+
+.footer {
+  background-color: $dark-bg-color;
+  border-radius: 40px;
+
+  padding: 72px 20px 80px;
+
+  @include for-tablet {
+    padding: 180px 41px 80px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+    max-width: 1146px;
+    margin: 0 auto;
+
+    @include for-desktop {
+      display: grid;
+      grid-template: "form form . info info ." "bar bar bar bar bar bar";
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+      column-gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+
+    @include for-desktop {
+      margin-bottom: 120px;
+    }
+
+    &--form {
+      grid-area: form;
+    }
+
+    &--contact-us {
+      grid-area: info;
+    }
+  }
+
+  &__title {
+    color: $main-title-color;
+    text-align: left;
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 0;
+  }
+
+  &__text {
+    color: rgba($color: $main-title-color, $alpha: 0.5);
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    font-family: Poppins, sans-serif;
+    display: flex;
+    color: $main-title-color;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: $bg-blue;
+      transition: all .8s ease-out;
+    }
+  }
+
+  &__link-folder {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__icon {
+    display: flex;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:hover .footer__img {
+      transition: all 0.3s;
+      filter: invert(80%) sepia(92%) saturate(2038%) hue-rotate(208deg) brightness(104%) contrast(91%);
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__menu {
+    grid-area: bar;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include for-tablet {
+      gap: 24px;
+    }
+
+    @include for-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
