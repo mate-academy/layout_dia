@@ -1,0 +1,202 @@
+.footer {
+  background-color: #fff;
+
+  &__bg {
+    background-color: $dark-bg;
+    padding-block: 72px 80px;
+    border-radius: $border-radius $border-radius 0 0;
+
+    @include on-tablet {
+      padding-block: 180px 80px;
+    }
+
+  }
+
+  &__content {
+    @include content-padding-inline;
+
+    display: grid;
+    gap: 80px;
+  }
+
+  &__grid-container {
+    display: grid;
+    gap: 80px;
+
+    @include on-tablet {
+      display: grid;
+      gap: 120px;
+
+      @include page-grid;
+
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+
+}
+
+.send-us {
+  @include on-tablet {
+    grid-column: 1 / 5;
+    grid-row: 1 / -1;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 6;
+    grid-row: 1 / -1;
+  }
+
+  &__title {
+    margin: 0;
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%; /* 41.6px */
+    background: none;
+  }
+
+  &__inputs {
+    display: grid;
+    gap: 40px;
+    margin-block: 48px 56px;
+  }
+
+
+  &__input{
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 600;
+
+    height: 41px;
+    width: 100%;
+    background: none;
+    padding-bottom: 14px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+
+    &--email:-webkit-autofill,
+    &--email:-webkit-autofill:hover,
+    &--email:-webkit-autofill:focus {
+      -webkit-text-fill-color: #fff;
+      -webkit-background-origin:  none;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &:focus {
+      transition: 0.3s;
+      border-color: $color-hover-blue;
+    }
+
+    &::placeholder {
+      color: #FFF;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      opacity: 0.7;
+    }
+
+    &--massage{
+      resize: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 600;
+
+    height: 56px;
+    width: 100%;
+    border-radius: 8px;
+    background: $color-blue;
+    border: none;
+
+    @include on-tablet {
+      width: 264px;
+    }
+
+    @include hover(background-color, $color-hover-blue);
+  }
+}
+
+.contact-us {
+  @include on-tablet {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  @include on-desktop {
+    grid-column: 7 / -1;
+    grid-row: 1 / -1;
+  }
+
+  display: grid;
+  gap: 40px;
+
+  &__content {
+    display: grid;
+    gap: 40px;
+  }
+
+  &__title {
+    margin: 0;
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%; /* 48px */
+  }
+
+  &__info {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__type {
+    margin: 0;
+    opacity: 0.5;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    width: fit-content;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%; /* 36px */
+    text-decoration: none;
+
+    @include hover(color, $color-hover-blue);
+    @include underline-text-hover(-8px);
+  }
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: cover;
+
+    &-link {
+      display: flex;
+
+      @include hover(transform, scale(1.1));
+
+      &:hover svg path {
+        transition: 0.3s;
+        fill: $color-hover-blue;
+    }
+    }
+  }
+}
