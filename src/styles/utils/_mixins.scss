@@ -4,3 +4,98 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet(){
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop(){
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-big(){
+  @media (min-width: $desktop-big-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-huge(){
+  @media (min-width: $desktop-huge-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop {
+    max-width: 1020px;
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include on-desktop-big {
+    padding-inline: 227px;
+  }
+
+  @include on-desktop-huge {
+    padding-inline: 691px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+@mixin page-grid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+    column-gap: 24px;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+h2,
+h3,
+h4 {
+  color: $color-for-title;
+}
+
+p {
+  color: $color-for-text;
+}
