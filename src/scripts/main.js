@@ -1,17 +1,32 @@
+import { animOnScroll } from './lib/animOnScroll';
 import { menuToggle } from './lib/menu';
 import { resetForm } from './lib/form';
+import { nextSlides, previousSlides } from './lib/slider';
 
-const menuBtnRef = document.querySelector('[data-menu-button]');
-const menuLinks = document.querySelectorAll('.nav__link');
-const form = document.querySelector('.form');
+const refs = {
+  menuBtnRef: document.querySelector('[data-menu-button]'),
+  menuLinks: document.querySelectorAll('.nav__link'),
+  form: document.querySelector('.form'),
+  animItems: document.querySelectorAll('.js-anim-items'),
+  sliderArrowLeft: document.querySelector('.slider__arrow--left'),
+  sliderArrowRight: document.querySelector('.slider__arrow--right'),
+};
 
-menuBtnRef.addEventListener('click', menuToggle);
-form.addEventListener('submit', resetForm);
+refs.menuBtnRef.addEventListener('click', menuToggle);
+refs.form.addEventListener('submit', resetForm);
 
-if (menuLinks.length > 0) {
-  menuLinks.forEach(menuBurgerLink => {
+if (refs.animItems.length > 0) {
+  window.addEventListener('scroll', animOnScroll);
+}
+
+setTimeout(() => {
+  animOnScroll();
+}, 300);
+
+if (refs.menuLinks.length > 0) {
+  refs.menuLinks.forEach(menuBurgerLink => {
     menuBurgerLink.addEventListener('click', function(e) {
-      const expanded = menuBtnRef
+      const expanded = refs.menuBtnRef
         .getAttribute('aria-expanded') === 'true' || false;
 
       if (expanded) {
@@ -20,3 +35,8 @@ if (menuLinks.length > 0) {
     });
   });
 }
+
+refs.sliderArrowRight.addEventListener('click', nextSlides);
+refs.sliderArrowLeft.addEventListener('click', previousSlides);
+
+setInterval(nextSlides, 5000);

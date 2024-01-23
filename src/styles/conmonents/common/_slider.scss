@@ -5,27 +5,66 @@
   width: 100%;
   height: $slider-height-mobile;
 
+
   @include on-small-desktop {
     height: 100%;
   }
 
-  &__image {
+  &__list {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    display: block;
 
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      border-radius: 30px;
+    overflow: hidden;
 
-      @include on-small-desktop {
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-        width: calc(50vw - (20px / 2));
+    @include on-small-desktop {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      width: calc(50vw - (20px / 2));
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    z-index: 0;
+
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1000ms;
+    transition-timing-function: linear;
+
+    @include on-small-desktop {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      width: calc(50vw - (20px / 2));
+    }
+  }
+
+  &__item {
+    width: 100%;
+    overflow: hidden;
+
+    @include on-small-desktop {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      width: calc(50vw - (20px / 2));
+    }
+
+    &.active {
+      .slider__image {
+        opacity: 1;
+        z-index: 2;
       }
     }
   }

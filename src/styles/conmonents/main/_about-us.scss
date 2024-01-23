@@ -1,5 +1,15 @@
 .about-us {
+  @include anim-on-scroll(__title, transform, translate(-120%, 0), translate(0, 0), 200ms);
+  @include anim-on-scroll(__description, transform, translate(120%, 0), translate(0, 1000ms), 400ms);
+
+  @include on-small-desktop {
+    @include anim-on-scroll(__title, transform, translate(-120%, 0), translate(0, 0), 0);
+    @include anim-on-scroll(__description, transform, translate(120%, 0), translate(0, 1000ms), 0);
+  }
+
   &__content {
+    overflow: hidden;
+
     @include page-grid;
 
     row-gap: 24px;

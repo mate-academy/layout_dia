@@ -1,8 +1,15 @@
 .expertise {
   background-color: $card-background-color;
   border-radius: 30px;
-
+  overflow: hidden;
   padding-block: 72px;
+
+  @include anim-on-scroll(__title, transform, translate(-120%, 0), translate(0, 0), 0);
+  @include anim-on-scroll(__item, transform, translate(120%, 0), translate(0, 0), 500ms);
+
+  @include on-small-desktop {
+    @include anim-on-scroll(__item, transform, translate(0, 120%), translate(0, 0), 500ms);
+  }
 
   @include on-tablet {
     padding-block: 128px;
@@ -41,7 +48,12 @@
   }
 
   &__item {
+    box-sizing: content-box;
+    padding: 20px;
     grid-column: span 2;
+    border-radius: 20px;
+
+    @include hover(box-shadow, 2px 2px 17px -1px rgba(0, 0, 0, 0.75));
 
     @include on-tablet {
       grid-column: 2 / -2;
