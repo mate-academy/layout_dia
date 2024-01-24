@@ -1,6 +1,113 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin add-transition {
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0, .98, .79, .97);
+}
+
+@mixin anim-on-scroll($nameClass, $property, $toValue, $activValue, $delay) {
+  &#{$nameClass}.anim-show {
+    transition: $property, opacity;
+
+    @include add-transition;
+
+    transition-delay: $delay;
+
+    #{$property}: $toValue;
+    opacity: 0;
+
+    &.active {
+      #{$property}: $activValue;
+      opacity: 1;
+    }
+  }
+
+  &.active .anim-show {
+    #{$property}: $activValue;
+    opacity: 1;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  @include add-transition;
+
+  transition-property: #{$property};
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+    max-width: $tablet-min-width;
+    margin-inline: auto;
+  }
+
+  @include on-small-desktop {
+    max-width: $small-desktop-min-width;
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    max-width: $desktop-min-width;
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+
+  @include on-large-desktop {
+    max-width: $large-desktop-min-width;
+    margin-inline: auto;
+    padding-inline: 707px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    column-gap: 30px;
   }
 }

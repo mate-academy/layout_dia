@@ -1,0 +1,97 @@
+.top-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__menu {
+    width: 100%;
+    position: absolute;
+    background-color: $common-background-color;
+    color: $common-text-color;
+    top: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition-property: transform;
+    z-index: 1;
+
+    @include on-small-desktop {
+      display: block;
+      transform: none;
+      position: static;
+      width: fit-content;
+    }
+
+    @include add-transition;
+
+    &.open-menu {
+      transform: scaleY(1);
+    }
+  }
+
+  &__mobile-menu {
+    width: 24px;
+    height: 24px;
+    background-color: $common-background-color;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__icon-menu {
+    display: block;
+  }
+
+  &__icon-close {
+    display: none;
+  }
+
+  &__icons {
+    width: 100%;
+    height: 100%;
+
+    @include hover(transform, scale(1.1));
+
+    &.open-menu .top-bar__icon-menu {
+      display: none;
+    }
+
+    &.open-menu .top-bar__icon-close {
+      display: block;
+    }
+  }
+
+  &__hire-us {
+    height: 100%;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__hire-us-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $common-text-color;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 2px solid $button-background-color;
+
+  }
+}

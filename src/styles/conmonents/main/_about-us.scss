@@ -1,0 +1,59 @@
+.about-us {
+  @include anim-on-scroll(__title, transform, translate(-120%, 0), translate(0, 0), 200ms);
+  @include anim-on-scroll(__description, transform, translate(120%, 0), translate(0, 1000ms), 400ms);
+
+  @include on-small-desktop {
+    @include anim-on-scroll(__title, transform, translate(-120%, 0), translate(0, 0), 0);
+    @include anim-on-scroll(__description, transform, translate(120%, 0), translate(0, 1000ms), 0);
+  }
+
+  &__content {
+    overflow: hidden;
+
+    @include page-grid;
+
+    row-gap: 24px;
+
+    @include on-small-desktop {
+      row-gap: 16px;
+    }
+  }
+
+  &__title {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 12;
+    }
+  }
+
+  &__description {
+    grid-column: span 2;
+
+    color: $main-text-color;
+
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 150%;
+
+    @include on-tablet {
+      grid-column: span 6;
+      font-size: 24px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 2 / -2;
+      padding-inline: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+      padding-inline: 0;
+    }
+  }
+}
