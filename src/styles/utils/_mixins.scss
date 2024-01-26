@@ -1,6 +1,30 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin underline-nav {
+  &::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 28px;
+    content: "";
+    height: 4px;
+    width: 0;
+    background-color: $c-blue;
+    transition: width 0.3s ease-out;
   }
+
+  &:hover::after,
+  &:focus::after {
+    width: 100%
+  }
+}
+
+@mixin bg-slider-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin main-exp-content {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
 }
