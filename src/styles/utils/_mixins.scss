@@ -1,6 +1,142 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-max-width-mobile {
+  @media (max-width:639px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-big-tablet {
+  @media (min-width: $big-tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-big-desktop {
+  @media (min-width: $big-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin header-padding-block {
+  padding-block: 20px;
+
+  @include on-desktop {
+    padding-block: 52px;
+  }
+}
+
+@mixin padding-block-section {
+  padding-block: 120px;
+
+  @include on-tablet {
+    padding-block: 148px;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+
+  --columns: 2fr;
+
+  grid-template-columns: repeat(var(--columns) 1fr);
+
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+  }
+
+  @include on-big-tablet {
+    --columns: 12;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+  }
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin base-grid-content {
+  grid-column: span 2;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+
+  @include on-big-tablet {
+    grid-column: span 12;
+  }
+}
+
+@mixin short-base-grid-content {
+  grid-column: span 2;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+}
+
+@mixin short-text-style {
+  font-family: $font-poppins;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: $light-gray;
+}
+
+@mixin link-line-style {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    bottom: -8px;
+    height: 2px;
+    width: 100%;
+    background-color: $blue;
+
+    transition: transform $effect-duration;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
   }
 }
