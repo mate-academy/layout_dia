@@ -1,0 +1,113 @@
+.service {
+  @include padding-block-section;
+
+  padding-top: 0;
+
+  background: $block-gray;
+
+  &__title-content {
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-big-tablet {
+      grid-column: span 4;
+    }
+  }
+
+  &__id {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__block-content {
+    @include page-grid;
+
+    justify-content: center;
+    grid-column: span 2;
+    margin-top: 48px;
+    row-gap: 24px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      row-gap: 30px;
+    }
+
+    @include on-big-tablet {
+      grid-row: 1;
+      grid-column: 8 / 13;
+    }
+
+  }
+
+  &__article {
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    box-sizing: border-box;
+    min-height: 264;
+    max-width: 274px;
+    border-radius: 16px;
+    background: $white;
+    padding: 32px;
+    transition-duration: $effect-duration;
+    grid-column: span 2;
+
+    @include on-tablet {
+      &:nth-child(odd) {
+        grid-column: span 3;
+      }
+
+      &:nth-child(even) {
+        grid-column: span 3;
+        transform: translateY(-50%) scale(1);
+        transition: transform $effect-duration ease-in-out;
+
+        &:hover {
+          transform: translateY(-50%) scale(1.1);
+        }
+      }
+    }
+
+    @include on-big-tablet {
+      &:nth-child(odd) {
+        grid-column: span 6;
+      }
+
+      &:nth-child(even) {
+        grid-column: span 6;
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    margin-bottom: 32px;
+  }
+
+  &__link-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link-img {
+    @include hover(transform, scale(1.1));
+
+    margin-right: 16px;
+  }
+
+  &__link {
+    @include link-line-style;
+  }
+}
