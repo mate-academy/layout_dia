@@ -4,3 +4,166 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onSmollDesktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesign {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --colums: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--colums), 1fr);
+
+  @include onTablet {
+    column-gap: 30px;
+    --colums: 6;
+  }
+
+  @include onSmollDesktop {
+    column-gap: 20px;
+    --colums: 12;
+  }
+
+  @include onDesign {
+    column-gap: 28px;
+    --colums: 12;
+  }
+
+  @include onLargeScreens {
+    column-gap: 28px;
+    --colums: 12;
+  }
+}
+
+@mixin contentPaddingInLine() {
+  padding-inline: $padding-inline-320px;
+
+  @include onTablet {
+    padding-inline: $padding-inline-640px;
+  }
+
+  @include onSmollDesktop {
+    margin-inline: auto;
+    padding-inline: $padding-inline-1024px;
+  }
+  @include onDesign {
+    padding-inline: $padding-inline-1600px;
+  }
+  @include onLargeScreens {
+    max-width: 1146px;
+    margin-inline: auto;
+    padding-inline: $padding-inline-2560px;
+  }
+}
+
+
+@mixin containerNormalizePadding {
+  padding-inline: $padding-inline-320px;
+  margin-inline: -$padding-inline-320px;
+
+  @include onTablet {
+    padding-inline: $padding-inline-640px;
+    margin-inline: -$padding-inline-640px;
+  }
+
+  @include onSmollDesktop {
+    padding-right: $padding-inline-1024px;
+    margin-right: -$padding-inline-1024px;
+  }
+
+  @include onDesign {
+    padding-right: $padding-inline-1600px;
+    margin-right: -$padding-inline-1600px;
+  }
+  @include onLargeScreens {
+    padding-right: $padding-inline-2560px;
+    margin-right: -$padding-inline-2560px;
+  }
+}
+
+@mixin containerNormalizePaddingMain {
+  padding-inline: $padding-inline-320px;
+  margin-inline: -$padding-inline-320px;
+
+  @include onTablet {
+    padding-inline: $padding-inline-640px;
+    margin-inline: -$padding-inline-640px;
+  }
+
+  @include onSmollDesktop {
+    padding-inline: $padding-inline-1024px;
+    margin-inline: -$padding-inline-1024px;
+  }
+
+  @include onDesign {
+    padding-inline: $padding-inline-1600px;
+    margin-inline: -$padding-inline-1600px;
+  }
+  @include onLargeScreens {
+    padding-inline: $padding-inline-2560px;
+    margin-inline: -$padding-inline-2560px;
+  }
+}
+
+@mixin sizePortraitElement {
+  @include onTablet {
+    width: 140px;
+    height: 56px;
+  }
+
+  @include onSmollDesktop {
+    width: 110px;
+    height: 44px;
+  }
+
+  @include onDesign {
+    width: 140px;
+    height: 56px;
+  }
+}
+
+@mixin autofill-styles {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 9999s ease-in-out 0s;
+    -webkit-text-fill-color: $color-header-text;
+  }
+}
+
+@mixin hover-effect {
+  transition: $transition-time;
+
+  &:hover {
+    box-shadow: 1px 4px 16px 2px rgba(20, 78, 212, 0.70);
+    transition: $transition-time;
+    cursor: pointer;
+  }
+}

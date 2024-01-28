@@ -1,0 +1,59 @@
+.nav {
+  &__content {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+
+    @include onSmollDesktop {
+      gap: 48px;
+      flex-direction: row;
+    }
+
+    &--bottom-bar {
+      @include onTablet {
+        gap: 40px;
+        flex-direction: row
+      }
+
+      @include onSmollDesktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__list {
+    font-family: $font-family-poppins;
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    color: $color-header-text;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      background-color: $color-button-blue;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
