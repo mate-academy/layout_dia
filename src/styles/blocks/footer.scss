@@ -3,27 +3,82 @@
   margin-top: $gap-between-sections 0 0;
   padding: 72px $inline-padding 80px;
 
+  @include on-tablet {
+    padding: 180px $inline-padding-tablet 80px;
+  }
+
+  @include on-small-desktop {
+    padding: 180px $inline-padding-small-screen 80px;
+    @include grid-layout;
+  }
+
+  @include on-design {
+    padding: 180px $inline-padding-design 80px;
+    @include grid-layout;
+  }
+
+  @include on-large-screen {
+    padding: 180px $inline-padding-large-screen 80px;
+    @include grid-layout;
+  }
+
   &__message-title {
     @include section__title;
 
     text-align: left;
     color: #fff;
     line-height: 130%;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/-1;
+      margin-bottom: 0;
+    }
   }
 
   &__title {
     @include section__title;
     text-align: left;
     color: #fff;
-    margin-bottom: 48px;
+    margin: 0 0 8px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+    @include on-small-desktop {
+      grid-column: 1/-1;
+      margin: 0 0 8px;
+    }
   }
 
   &__container {
+    @include grid-layout;
+
+    @include on-small-desktop {
+      grid-column: 1/6;
+    }
+
     &__form {
       display: flex;
       flex-direction: column;
       gap: 40px;
-      margin: 48px 0 56px;
+      margin: 48px 0 80px;
+      grid-column: span 2;
+
+      @include on-tablet {
+        margin: 56px 0 120px;
+        grid-column: 1/5;
+      }
+
+      @include on-small-desktop {
+        grid-column: 1/-1;
+        gap: 40px;
+      }
 
       &__name,
       &__email,
@@ -41,20 +96,55 @@
         font-size: 15px;
         font-weight: 600;
         line-height: normal;
+        @include hover(border-bottom, 2px solid #144ED4);
+        @include hover(resize, none);
+
+        @include on-small-desktop {
+          grid-column: 1/-1;
+        }
+
+        &::placeholder {
+          color: #fff;
+          font-family: Poppins;
+          font-size: 15px;
+          font-weight: 600;
+          opacity: 0.7;
+        }
       }
+
       &__button {
         @include button-style;
+        grid-column: span 2;
 
-        margin-bottom: 80px;
+        margin: 16px 0 0;
+
+        @include on-tablet {
+          margin: 40px 0 0;
+        }
+
+        @include on-small-desktop{
+          margin: 40px 0 0;
+        }
       }
     }
   }
   &__contact__container {
-    display: flex;
-    flex-direction: column;
+    @include grid-layout;
     align-items: start;
     justify-content: center;
     gap: 40px;
+
+    @include on-tablet {
+      gap: 48px;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      grid-column: 7/13;
+      gap: 48;
+    }
   }
 
   &__call,
@@ -65,6 +155,15 @@
     align-items: start;
     justify-content: center;
     gap: 4px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/-1;
+    }
 
     &__label {
       margin: 0;
@@ -86,15 +185,50 @@
   }
   &__social__label {
     margin-bottom: 12px;
+    grid-column: span 2;
   }
 
   &__menu {
     opacity: 1;
     margin-top: 40px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+      margin-top: 99px;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0;
+    }
+
+    &__container {
+
+      @include on-small-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 
     &__nav {
       @include label-style;
       margin-top: 48px;
+
+      @include on-tablet {
+        grid-column: span 2;
+        margin-top: 24px;
+      }
+
+      @include on-small-desktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      }
     }
   }
-}

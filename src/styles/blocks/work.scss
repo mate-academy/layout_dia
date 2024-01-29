@@ -1,22 +1,66 @@
 .work {
-  padding: 72px $inline-padding 0;
+  padding: 72px $inline-padding;
+  background-color: #fff;
+  @include grid-layout;
+
+  @include on-tablet {
+    padding: 128px $inline-padding-tablet;
+  }
+
+  @include on-small-desktop {
+    padding: 128px $inline-padding-small-screen;
+  }
+
+  @include on-design {
+    padding: 128px $inline-padding-design;
+  }
+
+  @include on-design {
+    padding: 128px $inline-padding-large-screen;
+  }
 
   &__variety {
     display: grid;
     row-gap: 56px;
     justify-content: center;
     align-content: center;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 2/6;
+      row-gap: 72px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/-1;
+      display: flex;
+      gap: 137px;
+    }
   }
 
   &__direction {
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-column: span 2;
   }
 
   &__main-title {
     @include section__title;
+    margin-bottom: 32px;
     font-size: 44px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      font-size: 52px;
+      margin-bottom: 38px;
+      grid-column: 2/6;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/-1;
+      margin-bottom: 64px;
+    }
   }
 
   &__photo {
@@ -25,6 +69,7 @@
     width: 166px;
     border-radius: 16px;
     background: #c4c4c4;
+    grid-column: span 2;
   }
 
   &__title {
@@ -35,8 +80,13 @@
     font-style: normal;
     font-weight: 600;
     line-height: 140%;
+    grid-column: span 2;
 
     margin: 32px 0 16px;
+
+    @include on-tablet {
+      grid-column: 3/5;
+    }
   }
 
   &__description {
@@ -47,7 +97,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    grid-column: span 2;
 
     margin: 0;
+
+    @include on-tablet {
+      grid-column: 2/6;
+    }
   }
 }

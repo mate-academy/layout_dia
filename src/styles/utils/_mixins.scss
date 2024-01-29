@@ -1,6 +1,44 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $large-screen-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
+    #{$_property}: $_toValue;
+    cursor: pointer;
+  }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:active {
     #{$_property}: $_toValue;
   }
 }
@@ -29,7 +67,6 @@
 
 @mixin button-style {
   border: none;
-  width: 100%;
   height: 50px;
   border-radius: 8px;
   background: #2060f6;
@@ -40,4 +77,31 @@
   font-size: 15px;
   font-weight: 600;
   line-height: normal;
+}
+
+@mixin grid-layout {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include on-tablet {
+    column-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include on-small-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-design {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-large-screen {
+    grid-template-columns: repeat(12, 1fr);
+  }
 }

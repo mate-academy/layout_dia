@@ -1,5 +1,37 @@
 .services {
-  padding: 192px $inline-padding 0;
+  padding: $gap-between-sections $inline-padding 0;
+  @include grid-layout;
+
+  @include on-tablet {
+    padding: $gap-between-sections-tablet $inline-padding-tablet 0;
+  }
+
+  @include on-small-desktop {
+    padding: $small-screen-extra-gap + $gap-between-sections
+      $inline-padding-small-screen 0;
+  }
+
+  @include on-design {
+    padding: $small-screen-extra-gap + $gap-between-sections
+      $inline-padding-design 0;
+  }
+
+  @include on-large-screen {
+    padding: $small-screen-extra-gap + $gap-between-sections
+      $inline-padding-large-screen 0;
+  }
+
+  &__intro {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/5;
+    }
+  }
 
   &__label {
     color: #c0cdd7;
@@ -32,6 +64,17 @@
     display: grid;
     gap: 24px;
     justify-content: center;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/-1;
+      @include grid-layout;
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7/13;
+    }
 
     &__article {
       padding: 32px;
@@ -44,6 +87,28 @@
       display: flex;
       flex-direction: column;
       align-items: start;
+
+      @include on-tablet {
+        width: 100%;
+        height: 264px;
+
+        &:nth-child(odd) {
+          grid-column: 1/4;
+        }
+        &:nth-child(even) {
+          grid-column: 4/-1;
+          margin-top: -$small-screen-extra-gap;
+        }
+
+        @include on-small-desktop {
+          &:nth-child(odd) {
+            grid-column: 1/7;
+          }
+          &:nth-child(even) {
+            grid-column: 7/13;
+          }
+        }
+      }
 
       &__number {
         display: flex;
