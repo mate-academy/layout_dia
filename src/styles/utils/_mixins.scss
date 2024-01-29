@@ -1,6 +1,84 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 53px;
+  }
+
+  @include on-desktop {
+    padding-inline: 120px;
+  }
+
+  @include on-design {
+    padding-inline: 226px;
+  }
+
+  @include on-large-screens {
+    padding-inline: 706px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+@mixin header-button-style {
+  font-family: inherit;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 64px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 27px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.40);
+  }
+
+  &:active {
+    box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.64);
   }
 }
