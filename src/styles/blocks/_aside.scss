@@ -1,0 +1,76 @@
+.aside {
+  background-color: $background-color;
+  height: 100vh;
+
+  &__top-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding-top: 20px;
+    padding-bottom: 48px;
+  }
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo-link {}
+
+  &__logo-img {
+    @include hover (transform, scale(1.2));
+  }
+
+  &__icon-close {
+    background-image: url(../images/logo/aside-icon-close.svg);
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    @include on-small-desktop {
+      display: none;
+      align-items: center;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 22px;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__nav-link {
+    position: relative;
+    color: #FFF;
+    font-family: inherit;
+    font-size: 22px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      display: block;
+      width: 100%;
+      background-color: $pink-color;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

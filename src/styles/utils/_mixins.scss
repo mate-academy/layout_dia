@@ -64,21 +64,45 @@
   @include content-padding-inline;
 }
 
-@mixin header-button-style {
+@mixin button-style {
+  width: 100%;
+  color: #fff;
+  background-color: $pink-color;
   font-family: inherit;
-  padding: 14px 48px;
+  padding: 14px 50px;
   border: none;
   border-radius: 64px;
   font-size: 15px;
-  font-weight: 700;
-  line-height: 27px;
+  font-weight: 600;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.40);
+  &:hover {}
+
+  &:active {}
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
   }
 
-  &:active {
-    box-shadow: 1px 4px 16px 0 rgba(232, 232, 240, 0.64);
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
   }
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+
 }
