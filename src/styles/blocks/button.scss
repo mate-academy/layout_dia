@@ -1,0 +1,119 @@
+.button {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+
+  text-decoration: none;
+  cursor: pointer;
+  background-color: $blue-color;
+  color: $second-color;
+
+  height: 50px;
+  width: 100%;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+
+  @include hover(background-color, $blue-hover);
+  
+  transition: all 0.3s;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+  }
+
+  &--shape {
+    &--round {
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      outline: none;
+      cursor: pointer;
+
+      width: 32px;
+      height: 32px;
+      border-radius: 32px;
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../images/slider/arrow-left.svg);
+      background-color: $second-color;
+
+      @include hover(background-color, $blue-color);
+
+      &-left {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &--place {
+    &--header {
+      grid-column: span 3;
+
+      @include on-small-desktop {
+        width: 264px;
+      }
+    }
+
+    &--components {
+      grid-column: span 2;
+      height: 56px;
+      line-height: 56px;
+
+      margin-top: 56px;
+
+      @include on-tablet {
+        grid-column: 3 / 5;
+        width: 264px;
+
+        margin-top: 64px;
+      }
+
+      @include on-small-desktop {
+        grid-column: 6 / 8;
+      }
+    }
+
+    &--card {
+      width: 40px;
+      height: 40px;
+      background-image: url(../images/services/arrow-forward.svg);
+      background-color: $blue-color;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--form {
+      height: 56px;
+      margin-top: 16px;
+
+      @include on-tablet {
+        grid-column: span 3;
+
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+.button-color {
+  background-color: $bg-orange-button;
+  border-radius: 64px;
+
+  @include hover(background-color, $bg-orange-button-hover);
+
+  transition: all 0.3s;
+}
+
+@each $i, $color in $colors-for-buttons {
+  .button-color-#{$i} {
+    background-color: $color;
+    transition: all 0.3s;
+  }
+}

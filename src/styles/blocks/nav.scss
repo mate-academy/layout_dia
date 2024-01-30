@@ -1,0 +1,101 @@
+.nav {
+  &--top-bar {
+    position: absolute;
+    top: 14px;
+    left: 52px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background-color: rgba(32, 96, 246, 0.9);
+    z-index: 1;
+    opacity: 0;
+
+    transition: all $transition-duration;
+
+    &--show {
+      animation: nav-show 1s 1 ease forwards;
+    }
+
+    &--hide {
+      animation: nav-hide 1s 1 ease forwards;
+    }
+
+    @include on-small-desktop {
+      position: relative;
+      display: inline;
+      overflow: visible;
+      opacity: 1;
+      width: auto;
+      height: auto;
+      top: auto;
+      left: auto;
+      background-color: transparent;
+    }
+  }
+
+  &--footer {
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-small-desktop {
+      flex-direction: row;
+      gap: 48px;
+    }
+
+    &--footer {
+      margin-top: 48px;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+
+        margin-top: 24px;
+      }
+
+      @include on-small-desktop {
+        margin-top: 0;
+        gap: 64px;
+      }
+    }
+  }
+
+  &_link {
+    position: relative;
+    display: inline;
+    padding-block: 4px;
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 2px;
+    }
+
+    &:hover::after {
+      background: $animation-color;
+      animation: color-moove 8s infinite linear;
+    }
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $second-color;
+  }
+}
