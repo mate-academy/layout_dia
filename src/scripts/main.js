@@ -1,6 +1,6 @@
 'use strict';
 
-const PAGE = document.querySelector('.page');
+const PAGE = document.querySelector('.page__body');
 const MENU = document.querySelector('#menu');
 const NAV_TOP = document.querySelector('#nav-top-bar');
 const HEADER = document.querySelector('#header');
