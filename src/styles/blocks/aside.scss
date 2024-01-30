@@ -1,0 +1,57 @@
+.aside {
+  &-container {
+    position: fixed;
+    left: 100%;
+    right: -100%;
+    z-index: 2;
+    overflow-y: scroll;
+    background-color: $bg-color;
+    padding: 20px;
+
+    transition: left $transition-duration, right $transition-duration;
+
+    @include on-tablet {
+      padding-inline: 27px;
+      
+      @include page-grid;
+
+      --columns: 6;
+
+      column-gap: 30px;
+    }
+
+    @include on-desktop {
+      --columns: 12;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-block: 20px;
+
+    @include on-tablet {
+      padding-inline: 0;
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / span 6;
+    }
+  }
+
+  &--show {
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &--display-block {
+    display: block;
+  }
+
+  &--display-none {
+    display: none;
+  }
+}

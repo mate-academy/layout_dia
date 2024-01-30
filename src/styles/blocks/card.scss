@@ -1,0 +1,239 @@
+.card {
+  &__container {
+    row-gap: 24px;
+    display: grid;
+    grid-column: span 2;
+
+    &--services {
+      @include on-tablet {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding-bottom: 0;
+      }
+
+      @include on-small-desktop {
+        @include page-grid;
+        
+        grid-column: 7 / -1;
+        margin-bottom: 148px;
+        gap: 20px;
+      }
+    }
+
+    &--testimonials {
+      @include on-tablet {
+        display: grid;
+        grid-column: span 6;
+        column-gap: 30px;
+      }
+
+      @include on-small-desktop {
+        @include page-grid;
+        
+        grid-template-columns: repeat(3, 1fr);
+        grid-column: 1 / -1;
+        column-gap: 30px;
+      }
+    }
+  }
+
+  background-color: $second-color;
+  border-radius: 16px;
+  font-size: 13px;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  padding: 32px;
+
+  &--services {
+    @include on-tablet {
+      grid-column: 1 / 2;
+
+      &:nth-child(2n) {
+        grid-column: 2 / -1;
+        position: relative;
+        top: -132px;
+      }
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 2;
+      position: relative;
+      top: 139px;
+
+      &:nth-child(2n) {
+        grid-column: 2 / -1;
+        position: relative;
+        top: 0;
+      }
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    color: $blue-color;
+    background-color: rgba($blue-color, 0.1);
+    padding: 2px 12px;
+    border-radius: 23px;
+    margin-bottom: 24px;
+  }
+
+  @each $i, $color in $colors-for-buttons {
+    .card-color-#{$i} {
+      background-color: $color;
+      transition: all 0.3s;
+    }
+  }
+
+  &__description {
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  &_links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__aside {
+    display: none;
+  }
+
+  &__aside--show {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  &_link {
+    font-family: Poppins, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: $link-color;
+
+    cursor: pointer;
+
+    &:hover {
+      background: $animation-color;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: color-moove 8s infinite linear;
+    }
+  }
+
+  &--testimonials {
+    padding-inline: 39px;
+    padding-block: 75px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @media ($tablet-width <= width < $small-desktop-width) {
+      padding-top: 87px;
+    }
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__img-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 67px;
+
+    @media ($tablet-width <= width < $small-desktop-width) {
+      width: 140px;
+      height: 140px;
+
+      margin-bottom: 79px;
+    }
+
+    &--before {
+      position: absolute;
+      display: block;
+      content: "";
+      background-color: $blue-color;
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      transform: rotateZ(-60deg) translateX(-15px) translateY(-37px);
+
+      @media ($tablet-width <= width < $small-desktop-width) {
+        width: 139px;
+        height: 56px;
+        transform: rotateZ(-60deg) translateX(-15px) translateY(-50px);
+      }
+    }
+
+    &--after {
+      position: absolute;
+      display: block;
+      content: "";
+      background-color: $blue-color;
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      transform: rotateZ(-60deg) translateX(55px) translateY(15px);
+
+      @media ($tablet-width <= width < $small-desktop-width) {
+        width: 139px;
+        height: 56px;
+        transform: rotateZ(-60deg) translateX(67px) translateY(22px);
+      }
+    }
+  }
+
+  @each $i, $color in $colors-for-before {
+    .before-color-#{$i} {
+      background-color: $color;
+      transition: all 0.3s;
+    }
+
+    .after-color-#{$i} {
+      background-color: $color;
+      transition: all 0.3s;
+    }
+  }
+
+  &__quotes {
+    grid-column: span 6;
+    align-self: center;
+    margin-bottom: 8px;
+
+    @media ($tablet-width <= width < $small-desktop-width) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__testimonial {
+    text-align: center;
+    font-weight: 600;
+
+    margin-bottom: 16px;
+
+    @media ($tablet-width <= width < $small-desktop-width) {
+      padding-inline: 59px;
+    }
+  }
+
+  &__author {
+    color: $main-color;
+    font-weight: 600;
+    line-height: 150%;
+
+    margin-bottom: 4px;
+  }
+
+  &__company {
+    font-family: Poppins, serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: $grey-color;
+    font-weight: 700;
+    letter-spacing: 2.9px;
+  }
+}

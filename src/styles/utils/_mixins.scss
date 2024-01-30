@@ -4,3 +4,136 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin page-grid {
+  --columns: 2;
+  
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: $gap-column-width;
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-width) {
+    @content;
+  }  
+}  
+
+@mixin on-large-desktop {
+  @media (min-width: $desktop-large-width) {
+    @content;
+  }
+}
+
+@keyframes color-moove {
+  to {
+    background-position: 400% 0;
+  }
+}
+
+@keyframes menu-before-show {
+  50% {
+    transform: translateX(34px) scaleX(7.8) translateY(4px);
+  }
+
+  100% {
+    transform: translateX(34px) scaleX(7.8) translateY(5px);
+  }
+}
+
+@keyframes menu-after-show {
+  50% {
+    transform: translateX(34px) scaleX(7.8) translateY(9px);
+  }
+
+  100% {
+    transform: translateX(34px) scaleX(7.8) translateY(169px);
+  }
+}
+
+@keyframes menu-before-hide {
+  0% {
+    transform: translateX(34px) scaleX(7.8) translateY(5px);
+  }
+  50% {
+    transform: translateX(34px) scaleX(7.8) translateY(4px);
+  }
+
+  100% {
+    width: 20px;
+    height: 2px;
+    top: 8px;
+  }
+}
+
+@keyframes menu-after-hide {
+  0% {
+    transform: translateX(34px) scaleX(7.8) translateY(169px);
+  }
+  50% {
+    transform: translateX(34px) scaleX(7.8) translateY(9px);
+  }
+
+  100% {
+    width: 20px;
+    height: 2px;
+    top: 18px;
+  }
+}
+
+@keyframes nav-hide {
+  0% {
+    width: $nav-width;
+    height: $nav-height;
+    padding: 10px;
+    opacity: 1;
+  }
+
+  50% {
+    width: $nav-width;
+    padding-inline: 10px;
+    height: 0;
+    opacity: 1;
+  }
+  
+  100% {
+    width: 0;
+    height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes nav-show {
+  50% {
+    width: $nav-width;
+    padding-inline: 10px;
+    height: 0;
+    opacity: 1;
+  }
+  
+  100% {
+    width: $nav-width;
+    height: $nav-height;
+    padding: 10px;
+    opacity: 1;
+  }
+}
