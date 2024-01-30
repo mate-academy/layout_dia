@@ -1,0 +1,105 @@
+.services {
+  @include container;
+
+  margin-top: 120px;
+
+  @include on-tablet {
+    margin-top: 148px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__title-block {
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 100px;
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__name {
+    @extend %h4;
+
+    margin: 0;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $name-color;
+  }
+
+  &__title {
+    @extend %h3;
+
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__text-top {
+    @extend %p;
+
+    font-size: 14px;
+    margin: 0;
+    margin-top: 24px;
+  }
+
+  &__text-bottom {
+    @extend %p;
+
+    font-size: 14px;
+    margin: 0;
+    margin-top: 24px;
+  }
+
+  &__modules {
+    width: max-content;
+    display: grid;
+    margin: 0 auto;
+    row-gap: 24px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      box-sizing: border-box;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+
+    }
+
+    @include on-small-desktop {
+      grid-column: 6 / -1;
+      padding-top: 140px;
+    }
+  }
+
+  &__module {
+    &:nth-child(2n) {
+      transition: all $effect-duration;
+
+      @include on-tablet {
+        grid-column: 4 / 7;
+        transform: translateY(-50%);
+      }
+    }
+
+    &:nth-child(odd) {
+      transition: all $effect-duration;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
