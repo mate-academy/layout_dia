@@ -11,6 +11,7 @@ const CARD_NUMBER = document.querySelectorAll('.card__number');
 const CARD_BEFORE = document.querySelectorAll('.card__img-container--before');
 const CARD_AFTER = document.querySelectorAll('.card__img-container--after');
 const IMAGE_SLIDER = document.querySelector('#image-slider');
+const IMAGE_IN_SLIDER = document.querySelector('.slider__image');
 
 const BUTTON_HEADER = document.querySelector('#button-header');
 const BUTTON_ASIDE = document.querySelector('.button--aside');
@@ -118,6 +119,7 @@ BUTTON_CHANGE_COLOR.addEventListener('click', () => {
     HEADER.classList.add('color-header');
     FOOTER.classList.add('color-footer');
     IMAGE_SLIDER.classList.add('color-image');
+    IMAGE_IN_SLIDER.style.borderRadius = '0';
 
     for (const button of BUTTONS) {
       button.classList.add('button-color');
