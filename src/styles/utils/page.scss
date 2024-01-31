@@ -1,0 +1,29 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all $time-transition;
+    transform: translateX(-100%);
+    z-index: 1;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
