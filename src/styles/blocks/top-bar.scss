@@ -1,0 +1,97 @@
+.top-bar {
+  display: flex;
+  gap: 32px;
+  padding-top: 20px;
+  padding-bottom: 48px;
+  margin-inline: auto;
+  align-items: center;
+
+  @include padding-inline;
+
+  @include on-small-desktop {
+    gap: 0;
+
+    @include grid-small-desktop;
+  }
+
+  @include on-design-width {
+    @include grid-1600;
+    @include content-width-on-1600px;
+  }
+
+  &__nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+  @include on-small-desktop {
+    grid-column: 3/span 8;
+  }
+
+    @include on-desktop {
+      grid-column: 4/span 8;
+    }
+  }
+
+  &__menu-icon {
+    background-image: url(/src/images/icons/menu-icon.svg);
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__close-icon {
+    background-image: url(/src/images/icons/icon-close.svg);
+  }
+}
+
+.top-bar-nav {
+  display: none;
+
+  @include on-small-desktop {
+    display: flex;
+  }
+}
+
+.top-bar-hire {
+  position: relative;
+  max-width: 70px;
+  min-width: 70px;
+  bottom: 5px;
+
+  @include on-small-desktop {
+    grid-column: 12/span 1;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 96%;
+    border-bottom: 2px solid $button-color;
+    border-radius: 4px;
+    bottom: -6px;
+    left: 0;
+  }
+}
+
+.logo-image-hover {
+  display: none;
+}
+
+.logo-link {
+  box-sizing: border-box;
+  height: 28px;
+
+  &:hover {
+    @include on-small-desktop {
+      .logo-image {
+        display: none;
+      }
+
+      .logo-image-hover {
+        display: block;
+      }
+    }
+  }
+}
