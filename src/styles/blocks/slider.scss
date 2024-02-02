@@ -14,7 +14,7 @@
   }
 
   &__content {
-    z-index: 100;
+    z-index: 20;
 
     display: flex;
     flex-direction: column;
@@ -43,28 +43,29 @@
   }
 
   &__slides {
+    display: flex;
+    flex-direction: row;
     z-index: 10;
-    width: 100%;
+    width: 300%;
     height: 100%;
 
     position: absolute;
 
     top: 0;
     left: 0;
-  }
 
-  &__slide--1 {
-    background-image: url(../images/slider/Photo.png);
-    border-radius: 30px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+    transition: transform 0.3s;
 
-    @include onSmallDesktop {
-      border-radius: 30px 0;
-      background-image: url(../images/slider/slide-img-1-L.jpg);
+    &--1-slide {
+      transform: translateX(0);
+    }
+
+    &--2-slide {
+      transform: translateX(calc(-100% / 3));
+    }
+
+    &--3-slide {
+      transform: translateX(calc((-100% / 3) * 2));
     }
   }
 
@@ -75,6 +76,43 @@
     background-size: cover;
     width: 100%;
     height: 100%;
+
+    @include onSmallDesktop {
+      border-radius: 30px 0;
+    }
+
+    &--1 {
+      background-image: url(../images/slider/Photo.png);
+
+      @include onSmallDesktop {
+        background-image: url(../images/slider/slide-img-1-L.jpg);
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slide-2.png);
+
+      @include onSmallDesktop {
+        background-image: url(../images/slider/slide-2-L.png);
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/slider/slide-3.png);
+
+      @include onTablets {
+        background-position: 50% 90%;
+      }
+
+      @include onSmallDesktop {
+        background-image: url(../images/slider/slide-3-L.png);
+        background-position: 50%;
+      }
+
+      @include onLargeDesktop {
+        background-position: 50% 90%;
+      }
+    }
   }
 
   &__arrows {
