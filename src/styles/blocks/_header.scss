@@ -2,13 +2,18 @@
   background-color: $background-color;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+  overflow: hidden;
 
   &__container {
     position: relative;
+
+    @include content-padding-inline;
+
   }
 
   &__content {
     @include page-grid;
+
   }
 
   &__top {
@@ -19,30 +24,72 @@
     grid-column: 1 / -1;
   }
 
-  &__title {
-    color: #FFF;
-    font-size: 52px;
-    line-height: 120%;
-    letter-spacing: -2px;
-    margin: 0;
-    padding-bottom: 32px;
+  &__body-wrapper {
+    @include page-grid;
+
   }
 
-  &__texture {
-    color: #FFF;
+  &__title {
+    grid-column: 1 / -1;
+    color: $white-color;
+    margin: 0;
+    padding: 48px 0 32px;
+
+    @include on-tablet {
+      padding: 56px 0 24px;
+      font-size: 64px;
+      line-height: 106.25%;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 5;
+      padding: 168px 0 32px;
+    }
+
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    color: $white-color;
     font-size: 18px;
     line-height: 150%;
     margin: 0;
     padding-bottom: 72px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      padding-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
   }
 
   &__button {
+    grid-column: 1 / -1;
+
     @include button-style;
     
     margin-bottom: 48px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      width: 264px;
+      margin-bottom: 147px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 /5;
+      margin-bottom: 105px;
+    }
   }
 
   &__carousel {
     grid-column: 1 / -1;
+  }
+
+  @include on-small-desktop {
+    grid-column: 5 / -1;
   }
 }
