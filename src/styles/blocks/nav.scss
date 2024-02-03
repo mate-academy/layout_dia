@@ -1,0 +1,56 @@
+.nav {
+  &__list {
+    padding: 0;
+    list-style: none;
+    color: $white-color;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &--footer {
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include on-desktop {
+        gap: 64px;
+      }
+    }
+
+    &--header {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    font-size: 13px;
+    letter-spacing: 3px;
+    line-height: 19.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: -8px;
+      height: 1px;
+      width: 100%;
+      background-color: $blue-color;
+
+      transition: transform, $animation-time;
+      transform: scale(0);
+      transform-origin: right;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
