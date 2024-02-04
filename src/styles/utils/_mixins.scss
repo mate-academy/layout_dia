@@ -1,31 +1,53 @@
-// @mixin on-tablet {
-//   @media (min-width: $tablet-min-width) {
-//     @content;
-//   }
-// }
-
-// @mixin on-desktop {
-//   @media (min-width: $desktop-min-width) {
-//     @content;
-//   }
-// }
-
-@mixin content-padding-inline {
-  padding-inline: 20px;
-
-  // @include on-tablet {
-  //   padding-inline: 72px;
-  // }
-
-  // @include on-desktop {
-  //   max-width: 1020px;
-  //   margin-inline: auto;
-  //   padding-inline: 120px;
-  // }
+@mixin on-small-screen {
+  @media (min-width: $small-min-width) {
+    @content;
+  }
 }
 
-.container {
-  @include content-padding-inline;
+@mixin on-medium-screen {
+  @media (min-width: $medium-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $large-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-extra-screen {
+  @media (min-width: $large-extra-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-small-screen {
+    padding-inline: 41px;
+    max-width: $small-min-width;
+    margin-inline: auto;
+  }
+
+  @include on-medium-screen {
+    max-width: $medium-min-width;
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include on-large-screen {
+    max-width: $large-min-width;
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+
+  @include on-large-extra-screen {
+    max-width: $large-extra-min-width;
+    margin-inline: auto;
+    padding-inline: 707px;
+  }
 }
 
 @mixin hover($property, $toValue) {
@@ -36,6 +58,10 @@
   }
 }
 
+@mixin transition-duration {
+  transition-duration: 0.5s;
+}
+
 @mixin page-grid {
   --columns: 2;
 
@@ -43,13 +69,19 @@
   column-gap: 20px;
   grid-template-columns: repeat(var(--columns), 1fr);
 
-  // @include on-tablet {
-  //   --columns: 6;
+  @include on-small-screen {
+    --columns: 6;
 
-  //   column-gap: 24px;
-  // }
+    column-gap: 30px;
+  }
 
-  // @include on-desktop {
-  //   --columns: 12;
-  // }
+  @include on-medium-screen {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-large-screen {
+    column-gap: 30px;
+  }
 }

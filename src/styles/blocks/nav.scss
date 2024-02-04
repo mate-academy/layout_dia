@@ -1,30 +1,46 @@
 .nav {
   &__list {
-    margin: 0;
     padding: 0;
+    margin: 0;
+    display: grid;
+    row-gap: 24px;
+
+    @include on-medium-screen {
+      display: flex;
+      gap: 48px;
+    }
+  }
+
+  &__item {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
   }
 
   &__link {
     position: relative;
-    color: $white-color;
     text-decoration: none;
-    font-size: 22px;
-    line-height: 22px;
-    letter-spacing: 2px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: inherit;
+
+    transition: all;
 
     &::after {
-      content: '';
       position: absolute;
-      bottom: -8px;
+      content: '';
       display: block;
-      height: 1px;
       width: 100%;
+      bottom: -8px;
+      height: 2px;
+      background: $blue-color;
+      border-radius: 1px;
 
-      transition: transform 0.3s;
+      @include transition-duration;
+
       transform: scale(0);
       transform-origin: left;
     }
@@ -35,5 +51,4 @@
     }
   }
 }
-
 
