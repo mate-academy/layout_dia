@@ -8,11 +8,11 @@ Technologies:
 
 Preview - [LINK](https://kovachhh.github.io/layout_dia)
 
-Mock-up - [LINK](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia))?type=design&node-id=22904-1969&mode=design&t=B6V6cIiHx1LYsT3b-0)
+Mock-up - [LINK](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35)
 
 Instructions to launch the project:
 1. Install NodeJs
 2. Clone a repository
 3. Open a repository
 4. Enter 'npm i' or 'npm install' command in cmd in project repository
-5. Enter 'npm start' command in cmd in project repository
+5. Enter 'npm start' command in cmd in project repositorys
