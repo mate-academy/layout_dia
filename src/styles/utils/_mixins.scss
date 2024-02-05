@@ -1,6 +1,85 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-time;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    padding-inline: 54px;
+    max-width: 916px;
+    margin-inline: auto;
+  }
+
+  @include on-large-desktop {
+    max-width: 1146px;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat($columns-on-mobile, 1fr);
+
+  @include on-tablet {
+    grid-template-columns: repeat($columns-on-tablet, 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat($columns-on-desktop, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-large-desktop {
+    grid-template-columns: repeat($columns-on-desktop, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin flex-beetwen-align-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin text-favor-and-card {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19.5px;
+}
+
+@mixin card-img-idth110 {
+  width: 110px;
+  height: 110px;
+}
+
+@mixin card-img-idth140 {
+  width: 140px;
+  height: 140px;
 }

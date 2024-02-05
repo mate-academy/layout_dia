@@ -1,0 +1,91 @@
+.slider {
+  position: relative;
+  height: inherit;
+  overflow: hidden;
+  width: inherit;
+
+  &__images {
+    height: inherit;
+    width: inherit;
+  }
+
+  &__link {
+    display: block;
+    height: inherit;
+  }
+
+  &__photo {
+    border-radius: 30px;
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__activities {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 24px;
+      left: 78px;
+      bottom: 48px;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__btn {
+    background-color: $white-color;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: none;
+
+      &--next {
+        background-image: url(../images/slider/arrow-right.svg);
+
+        @include hover(transform, scale(1.2));
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &--prev {
+        background-image: url(../images/slider/arrow-left.svg);
+
+        @include hover(transform, scale(1.2));
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+  &__info {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__intro {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
