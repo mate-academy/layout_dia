@@ -14,10 +14,18 @@
   border: none;
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
+
+  @include on-tablet {
+    width: 264px;
+  }
 
   &::before {
-    border: 3px outset #aaa8a8;
     border-radius: 8px;
+    box-shadow:
+      inset rgba(0,0,0,.5) -3px -3px 8px,
+      inset rgba(255,255,255,.9) 3px 3px 8px,
+      rgba(0,0,0,.8) 3px 3px 8px -3px;
     background: linear-gradient(160deg, #807e7e, #383838);
     content: '';
     display: block;
@@ -27,15 +35,24 @@
     left: 0;
     opacity: 0;
     width: 100%;
-
     z-index: -1;
     transition: .5s;
   }
 
-   &:hover::before {
+  &:hover::before {
     opacity: 1;
     transition-delay: 1s;
+  }
 
+  &:active {
+    box-shadow:
+    rgba(0, 0, 0, 0.39) 0 0 0 2px;
+    width: 279px;
+    height: 49px;
+
+    @include on-tablet {
+      width: 263px;
+    }
   }
 
   &__span {
@@ -95,13 +112,5 @@
   &:hover &__span:nth-child(4) {
     bottom: -100%;
     transition: 1.5s;
-  }
-
-  @include on-tablet {
-    width: 264px;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 }

@@ -4,52 +4,27 @@
   height: 390px;
   right: 0;
   bottom: 0;
+  display: block;
 
-  &-1:checked ~ &__control--photo-1 {
-    display: block;
-  }
-
-  &-2:checked ~ &__control--photo-2 {
-    display: block;
-  }
-
-  &-3:checked ~ &__control--photo-3 {
-    display: block;
-  }
-
-  &-4:checked ~ &__control--photo-4 {
-    display: block;
-  }
-
-  @include on-small-desktop {
-    width: 48%;
-    height: 680px;
-  }
-
-  @include on-desktop {
-    width: 43%;
-  }
-
-  @include on-large-screens {
-    width: 45%;
+  &__input {
+    display: none;
   }
 
   &__items {
     position: absolute;
+    height: 100%;
+    width: 100%;
     opacity: 0;
-  }
-
-  &__input:checked + &__items {
-    position: static;
-    opacity: 1;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
   }
 
   &__img {
-    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 30px;
+
 
     @include on-small-desktop {
       border-radius: 30px 0;
@@ -71,6 +46,16 @@
     text-align: center;
     user-select: none;
     cursor: pointer;
+    outline-color: rgba(255, 255, 255, .5);
+
+    &:hover {
+      outline: 5px solid;
+      outline-color: rgba(255, 255, 255, 0);
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388;
+      transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: scale(1.1);
+    }
 
     @include on-tablet {
       left: 41px;
@@ -101,11 +86,29 @@
         left: 96px;
       }
     }
+  }
 
-    &:hover {
-      background: $header-footer-background-color;
-      color: $text-color-wiht;
-    }
+  &__input:checked + &__conteiner > &__items {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+  }
+
+  &__input:checked + &__conteiner > &__control {
+    display: block;
+  }
+
+  @include on-small-desktop {
+    width: 48%;
+    height: 680px;
+  }
+
+  @include on-desktop {
+    width: 43%;
+  }
+
+  @include on-large-screens {
+    width: 45%;
   }
 
   &__intro {

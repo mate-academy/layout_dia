@@ -85,18 +85,48 @@
       font-weight: 400;
       color: $text-color-wiht;
       line-height: 36px;
+      position:relative;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        $hover-color,
+        $hover-color 50%,
+        $text-color-wiht 50%);
+      background-size: 200% 100%;
+      background-position: -100%;
+      transition: all 0.5s ease-in-out;
+
+      &::before{
+        content: '';
+        width: 0;
+        height: 1px;
+        left: 0;
+        bottom: -3px;
+        z-index: 0;
+        position: absolute;
+        background: $hover-color;
+        transition: all 0.5s ease-in-out;
+      }
 
       &:hover {
-        color: #0562DA;
+        background-position: 0;
+        &::before{
+          width:100%;
+        }
       }
 
       @include on-tablet {
         margin-bottom: 48px;
-        width: 362px;
+        width: 352px;
       }
 
       @include on-small-desktop {
         margin-bottom: 38px;
+      }
+
+      &--size {
+        width: 140px;
       }
     }
   }
@@ -149,7 +179,7 @@
     }
 
     &:focus {
-      border-bottom: 2px solid #144ed4;
+      border-bottom: 2px solid $hover-color;
     }
   }
 
