@@ -1,0 +1,155 @@
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 390px;
+  right: 0;
+  bottom: 0;
+  display: block;
+
+  &__input {
+    display: none;
+  }
+
+  &__items {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+
+
+    @include on-small-desktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  &__control {
+    position: absolute;
+    display: none;
+    border-radius: 50%;
+    background: $text-color-wiht;
+    color: $header-footer-background-color;
+    width: 32px;
+    height: 32px;
+    bottom: 108px;
+    left: 20px;
+    font-size: 30px;
+    line-height: 26px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    outline-color: rgba(255, 255, 255, .5);
+
+    &:hover {
+      outline: 5px solid;
+      outline-color: rgba(255, 255, 255, 0);
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388;
+      transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      left: 41px;
+      bottom: 116px;
+    }
+
+    @include on-small-desktop {
+      bottom: 66px;
+      left: 78px;
+    }
+
+    @include on-desktop {
+      left: 48px;
+    }
+
+    &--next {
+      left: 68px;
+
+      @include on-tablet {
+        left: 89px;
+      }
+
+      @include on-small-desktop {
+        left: 126px;
+      }
+
+      @include on-desktop {
+        left: 96px;
+      }
+    }
+  }
+
+  &__input:checked + &__conteiner > &__items {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+  }
+
+  &__input:checked + &__conteiner > &__control {
+    display: block;
+  }
+
+  @include on-small-desktop {
+    width: 48%;
+    height: 680px;
+  }
+
+  @include on-desktop {
+    width: 43%;
+  }
+
+  @include on-large-screens {
+    width: 45%;
+  }
+
+  &__intro {
+    position: absolute;
+    height: 68px;
+    width: 280px;
+    left: 20px;
+    bottom: 24px;
+    color: $text-color-wiht;
+    font-family: $font-family-poppins;
+    user-select: none;
+
+    @include on-tablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      bottom: 48px;
+      left: 182px;
+    }
+
+    @include on-desktop {
+      left: 152px;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    &-text {
+      height: 28px;
+
+      font-family: $font-family-opensans;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
+}
