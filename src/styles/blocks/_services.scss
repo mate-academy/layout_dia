@@ -1,0 +1,136 @@
+.services {
+  padding-block: 120px;
+
+  @include on-small-desktop {
+    padding-block: 250px 150px;
+  }
+
+  &__wrapper {
+    @include on-small-desktop {
+      display: flex;
+      gap: 175px;
+    }
+
+    @include on-design {
+      gap: 225px;
+    }
+  }
+
+  &__content {
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+      max-width: 265px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+    color: $color-text-subtitle;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__text:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  &-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-flow: row wrap;
+      gap: 30px;
+    }
+
+    &__card {
+      padding: 32px;
+      background-color: #FFF;
+      border-radius: 16px;
+      box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+      transition: all $time-animation;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &:nth-of-type(even) {
+        @include on-tablet {
+          transform: translateY(-132px);
+
+          &:hover {
+            transform: translateY(-132px) scale(1.05);
+          }
+        }
+      }
+
+      @include on-tablet {
+        width: calc(50% - 15px);
+      }
+    }
+
+    &__number {
+      display: block;
+      margin-bottom: 24px;
+      width: 46px;
+      border-radius: 23px;
+      background: #E8EFFE;
+      text-align: center;
+
+      color: $color-bg-elements;
+      font-size: 13px;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+
+    &__list {
+      margin-bottom: 32px;
+      list-style: none;
+    }
+
+    &__item {
+      color: $color-text-main;
+      font-family: $font-second;
+      font-size: 13px;
+      line-height: 150%;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      color: #334563;
+      font-family: $font-first;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 23px;
+      text-align: center;
+      text-decoration: none;
+      transition: color $time-animation;
+
+      &:hover {
+        color: $color-bg-elements;
+      }
+
+      &-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background-color: $color-bg-elements;
+
+        & > img {
+          width: 16px;
+        }
+      }
+    }
+  }
+}
