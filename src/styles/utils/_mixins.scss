@@ -70,6 +70,8 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+
+  @include hover (transform, scale(1.1));
 }
 
 @mixin page-grid {
@@ -104,4 +106,56 @@
   height: 44px;
   border-radius: 12px;
   transform: rotate(-60deg);
+}
+
+@mixin form-input-style {
+  background-color: #008AFF;
+  height: 41px;
+  font-weight: 600;
+  color: $white-color;
+  font-family: Poppins, sans-serif;
+  line-height: 22.5px;
+  border: none;
+  padding-bottom: 17px;
+  border-bottom: 1px solid $white-color;
+  outline: none;
+
+  &:active,
+  &:focus {
+    border-bottom: 2px solid $white-color;
+  }
+
+  &::placeholder {
+    color: inherit;
+    font-size: 15px;
+    line-height: 22.5px;
+    opacity: 0.3;
+  }
+}
+
+@mixin box-shadow {
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+  }
+}
+
+@mixin nav-link-hover {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    height: 2px;
+    display: block;
+    width: 100%;
+    background-color: $pink-color;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
 }

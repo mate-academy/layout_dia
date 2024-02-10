@@ -5,6 +5,10 @@
   border-bottom-left-radius: 30px;
   overflow: hidden;
 
+  @include on-small-desktop {
+    border-radius: 0 0 0 200px;
+  }
+
   &__container {
     @include content-padding-inline;
   }
@@ -31,14 +35,21 @@
   }
 
   &__content {
-    @include page-grid;
+    display: grid;
+
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
 
     @include on-small-desktop {
       grid-column: span 1;
       grid-row: span 2;
+      column-gap: 24px;
     }
-
-
   }
 
   &__title {
@@ -54,6 +65,7 @@
     }
 
     @include on-small-desktop {
+      grid-column: span 4;
       margin-bottom: 32px;
     }
   }
@@ -103,5 +115,4 @@
       grid-row: 2 / -1;
     }
   }
-
 }
