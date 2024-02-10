@@ -1,6 +1,11 @@
 .footer {
   background-color: #2C2C2C;
   border-radius: 30px 30px 0 0;
+  padding-bottom: 80px;
+
+  @include on-desktop {
+    padding-bottom: 84px;
+  }
 }
 
 .contact-form__title {
@@ -13,6 +18,10 @@
   color: #fff;
   padding-top: 72px;
   padding-bottom: 8px;
+
+  @include on-tablet {
+    padding-top: 180px;
+  }
 }
 
 .form__input {
@@ -33,6 +42,10 @@
   font-weight: 600;
   line-height: normal;
   resize: none;
+
+  &:focus {
+    outline: none;
+}
 
   &:hover {
     border-bottom: 1px solid $main-color;
@@ -73,13 +86,6 @@
 .input__textare {
   resize: none;
 }
-
-.send-us-a-message__form {
-  flex-direction: column;
-  gap: 40px;
-  display: flex;
-}
-
 
 .contact-us-title {
   padding-top: 80px;
@@ -209,10 +215,11 @@
 
   @include on-tablet {
     margin-top: 139px;
+    margin-bottom: 24px;
   }
 
   @include on-desktop {
-    margin-top: 104px;
+    margin: 0;
   }
 }
 
@@ -222,8 +229,19 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding-bottom: 80px;
+  gap: 24px;
+
+
+  @include on-tablet {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  @include on-desktop {
+    flex-direction: row;
+    gap: 40px;
+    padding-bottom: 0;
+  }
 }
 
 .nav__link--footer {
@@ -238,5 +256,40 @@
 
   &:hover {
     color: $main-color;
+  }
+}
+
+.footer-top-bar {
+
+  @include on-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 104px;
+  }
+}
+
+.contact-form {
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 30px;
+  }
+}
+
+.send-us-a-message__form {
+    flex-direction: column;
+    gap: 40px;
+    display: flex;
+
+  @include on-tablet {
+    grid-column: 1/5;
+  }
+}
+
+.contact-us-footer {
+  @include on-tablet {
+    grid-column: 1/5;
   }
 }
