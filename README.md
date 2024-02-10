@@ -2,18 +2,18 @@
 Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35) - Use BEM and SCSS
 
 Adapt the page to the following screens:
-- Large screens 2560
-- The design 1600
-- Desktop 1280
+- Large screens 2560px
+- The design 1600px
+- Desktop 1280px
 - Small desktop 1024px
-- Tablet 640
-- Mobile (> 320)
+- Tablet 640px
+- Mobile (> 320px)
 
 1. Implement the header with `nav`.
 1. Implement `Strategic agency` block.
 1. Implement slider (You may start with a single picture).
     - implement slider block as absolutely positioned element with `right: 0` and `bottom: 0` position inside the black container
-    - on large screens limit the width of black container to 1600, so that left outer space have a standart grey background color
+    - on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
 3. Implement `Who we are` block.
 4. Implement `Our expertise` block with the card reused 3 times.
 5. Implement `Process` block with 4 process cards.
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://asushko25.github.io/layout_dia/).
+  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
