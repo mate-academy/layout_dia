@@ -1,0 +1,118 @@
+.header {
+  position: relative;
+  background-color: $background-color;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  overflow: hidden;
+
+  @include on-small-desktop {
+    border-radius: 0 0 0 200px;
+  }
+
+  &__container {
+    @include content-padding-inline;
+  }
+
+  &__top {
+    width: 100%;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 168px;
+    }
+  }
+
+  &__content-wrapper {
+    @include on-small-desktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+
+  &__content {
+    display: grid;
+
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 1;
+      grid-row: span 2;
+      column-gap: 24px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    color: $white-color;
+    margin: 0 0 32px;
+
+    @include on-tablet {
+      font-size: 64px;
+      font-weight: 400px;
+      line-height: 68px;
+      margin-bottom: 24px;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    color: $white-color;
+    font-size: 18px;
+    line-height: 27px;
+    margin: 0 0 72px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 83px;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
+
+    @include button-style;
+
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      width: 264px;
+      margin-bottom: 147px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 205px;
+    }
+  }
+
+  &__carousel {
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-small-desktop {
+      grid-column: 2 / -1;
+      grid-row: 2 / -1;
+    }
+  }
+}

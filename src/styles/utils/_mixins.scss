@@ -1,6 +1,161 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 53px;
+  }
+
+  @include on-desktop {
+    padding-inline: 120px;
+  }
+
+  @include on-design {
+    padding-inline: 226px;
+  }
+
+  @include on-large-screens {
+    padding-inline: 706px;
+  }
+}
+
+@mixin button-style {
+  color: $white-color;
+  background-color: $pink-color;
+  font-family: inherit;
+  padding: 14px 50px;
+  border: none;
+  border-radius: 64px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  @include hover (transform, scale(1.1));
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin card-feedback-background {
+  content: "";
+  position: absolute;
+  width: 109px;
+  height: 44px;
+  border-radius: 12px;
+  transform: rotate(-60deg);
+}
+
+@mixin form-input-style {
+  background-color: #008AFF;
+  height: 41px;
+  font-weight: 600;
+  color: $white-color;
+  font-family: Poppins, sans-serif;
+  line-height: 22.5px;
+  border: none;
+  padding-bottom: 17px;
+  border-bottom: 1px solid $white-color;
+  outline: none;
+
+  &:active,
+  &:focus {
+    border-bottom: 2px solid $white-color;
+  }
+
+  &::placeholder {
+    color: inherit;
+    font-size: 15px;
+    line-height: 22.5px;
+    opacity: 0.3;
+  }
+}
+
+@mixin box-shadow {
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+  }
+}
+
+@mixin nav-link-hover {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    height: 2px;
+    display: block;
+    width: 100%;
+    background-color: $pink-color;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
   }
 }

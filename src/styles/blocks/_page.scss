@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: Poppins, sans-serif;
+  scroll-behavior: smooth;
+  cursor: url(../images/cursor.svg), auto;
+
+  &:has(.page__aside:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    background: $c-gray;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__aside {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+    overflow: auto;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
