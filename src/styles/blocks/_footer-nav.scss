@@ -1,0 +1,56 @@
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include on-small-desktop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-small-desktop {
+      gap: 64px;
+    }
+  }
+
+  &__link {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $main-white-color;
+    padding: 10px 0;
+    position: relative;
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $main-white-color;
+      content: "";
+      transition: width 0.3s ease-out;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+    }
+  }
+}
