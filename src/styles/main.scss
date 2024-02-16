@@ -1,7 +1,82 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/btn';
+@import './utils/text';
+@import './utils/icons';
+@import './fonts';
+@import './blocks/about-us';
+@import './blocks/footer-nav';
+@import './blocks/footer';
+@import './blocks/form';
+@import './blocks/header';
+@import './blocks/main';
+@import './blocks/menu';
+@import './blocks/nav';
+@import './blocks/our';
+@import './blocks/results';
+@import './blocks/services';
+@import './blocks/slider';
+@import './blocks/testimonials';
+@import './blocks/top-bar';
 
-body {
-  background: $c-gray;
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: $font-first;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1148px;
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+}
+
+.subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.title-section {
+  color: $color-text-title;
+  font-size: 32px;
+  line-height: 150%;
+  text-align: center;
+
+  &-left {
+    text-align: left;
+  }
+}
+
+.logo {
+  width: fit-content;
+  & > img{
+    width: 46px;
+    height: 28px;
+    transition: all $time-animation;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
