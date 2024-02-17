@@ -1,46 +1,71 @@
 .slider {
+  position: absolute;
+  margin-top: 30px;
+  top: 500px;
+  left: 0;
+  right: 0;
   display: flex;
   box-sizing: border-box;
-  padding: 24px 20px;
-  position: absolute;
-  background-image: url(../images/header/photo.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  border-radius: 30px;
-  right: 0;
-  bottom: -93px;
-  height: 390px;
-  width: 100%;
 
   @include onTablet {
-    padding: 32px 41px;
+    position: absolute;
   }
 
   @include minScreen {
-    padding: 66px 48px;
-  }
-
-  @include onSmallDesktop {
-    left: 52%;
-    right: 0%;
-    bottom: 0;
-    width: 48%;
-    height: 680px;
+    top: 120px;
+    left: auto;
+    right: 0;
+    margin-top: 0;
     border-radius: 200px 0 0;
   }
 
-  @media (min-width: 1280px) {
-    left: 56%;
-    right: 0%;
-    bottom: 0;
-    width: 44%;
-    height: 680px;
-    border-radius: 200px 0 0;
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 390px;
+
+    @include minScreen {
+      display: flex;
+      width: 687px;
+      height: 680px;
+    }
+
+    @include onSmallDesktop {
+      display: flex;
+      width: 540px;
+      height: 680px;
+    }
+
+    @include onLargeSreens {
+      display: flex;
+      width: 1160px;
+      height: 680px;
+    }
+  }
+
+  &__slide {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: none;
+
+    @include minScreen {
+      border-radius: 200px 0 0;
+    }
+  }
+
+  &__slide.active {
+    opacity: 1;
+    display: block;
   }
 
   &__panel {
+    position: absolute;
+    bottom: 0;
     display: flex;
+    padding: 40px;
     flex-direction: column;
     justify-content: end;
 
@@ -61,6 +86,9 @@
     &-left {
       width: 32px;
       height: 32px;
+      border: none;
+      background: none;
+      cursor: pointer;
       background-image: url(../images/header/Arrow-left.svg);
     }
 
@@ -69,6 +97,10 @@
 
       width: 32px;
       height: 32px;
+
+      border: none;
+      background: none;
+      cursor: pointer;
       background-image: url(../images/header/Arrow-right.svg);
     }
   }
