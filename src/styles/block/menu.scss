@@ -1,0 +1,70 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 22px;
+  box-sizing: border-box;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgb(37, 31, 63) 37%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  @include onDesktopM {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--logo {
+      width: 45px;
+      height: 26px;
+    }
+
+    &--icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.menu:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
