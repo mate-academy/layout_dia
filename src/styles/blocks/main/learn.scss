@@ -1,0 +1,102 @@
+.learn {
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  height: min-content;
+  text-wrap: nowrap;
+  box-shadow: 0 9px 18px 0 #25293108;
+  grid-column: 1 / -1;
+
+  &--forth {
+    @include on-small-desktop {
+      top: 57px !important;
+    }
+  }
+  &--left {
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      position: relative;
+      top: 139px;
+      grid-column: 7 / 10;
+    }
+  }
+
+  &--right {
+    &:last-child {
+      @include on-small-desktop {
+        top: 284px;
+      }
+    }
+
+    @include on-tablet {
+      position: relative;
+      bottom: 132px;
+      grid-column: 4/7;
+    }
+
+    @include on-small-desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      grid-column: 10 / 13;
+    }
+  }
+
+  &__number {
+    color: $blue;
+    background-color: $light-blue;
+    border-radius: 23px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 12px;
+  }
+
+  &__text {
+    @include description;
+    
+    font-weight: 600;
+    font-size: 13px;
+    margin: 24px 0 32px;
+  }
+
+  &__link {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+  }
+
+  &__arrow {
+    background-color: $blue;
+    background-image: url(../images/services/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__more {
+    font-size: 15px;
+    font-weight: 600;
+    color: $learn;
+    transition: all .3s;
+    position: relative;
+    &::after {
+      @include after-line;
+    }
+  }
+}
+
+.learn__link:hover > .learn__arrow {
+  transition: all .3s;
+  transform: scale(105%);
+}
+
+.learn__link:hover > .learn__more::after {
+  transform: scale(1);
+}

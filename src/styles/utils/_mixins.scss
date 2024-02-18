@@ -1,6 +1,119 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large {
+  @media (min-width: $large-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+  margin: 0 auto;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    max-width: 1146px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin mini-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 3px;
+  color: $mini-title;
+}
+
+@mixin small-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 140%;
+  padding-bottom: 24px;
+  color: $title;
+}
+
+@mixin huge-title {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 53px;
+  color: $title;
+
+  @include on-tablet {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 78px;
+  }
+}
+
+@mixin description {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $description;
+}
+
+@mixin after-line {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: $blue;
+  transition: transform .3s;
+  transform: scale(0);
+  transform-origin: left;
+}
+
+@mixin grid {
+  display: grid;
+  
+  --columns: 2;
+
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
   }
 }
