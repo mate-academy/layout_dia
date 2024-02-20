@@ -1,0 +1,89 @@
+@import "../utils";
+
+.menu {
+  position: fixed;
+  display: flex;
+  background-color: $blue;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  transform: translateX(100%);
+  justify-content: center;
+  transition: $main-transition;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__navigation {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 150px;
+    color: $white;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    transition: all 0.3s;
+
+    &:hover {
+      color: $gray;
+    }
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &__close {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__icon-close {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: $all-transition;
+
+    &::after {
+      background-color: $white;
+      bottom: 0;
+    }
+
+    &::before {
+      transition: $all-transition;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 2px;
+      left: 45%;
+      background-color: $white;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      color: $gray;
+
+      &::before {
+        background-color: $gray;
+      }
+    }
+
+  }
+}

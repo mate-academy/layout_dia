@@ -1,7 +1,492 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import './reset';
+@import 'blocks/header';
+@import 'blocks/topBar';
+@import 'blocks/strategic';
+@import 'blocks/menu';
+@import 'blocks/whoWe';
+@import 'blocks/experience';
+@import 'blocks/itemProcess';
+@import 'blocks/process';
+@import 'blocks/testimonials';
+@import 'blocks/creed';
+@import 'blocks/about';
+@import 'blocks/message';
+@import 'blocks/contact';
+@import 'blocks/footer';
 
 body {
-  background: $c-gray;
+  background-color: rgba(32, 96, 246, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[class*="__container"] {
+  margin: 0 auto;
+  max-width: 1144px;
+}
+
+.title-font {
+  font-family: Poppins, sans-serif;
+}
+
+.after {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    transition: $main-transition;
+    transform: scale(0);
+    transform-origin: right;
+    width: 100%;
+    height: 1px;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+.button {
+  display: block;
+  color: $white;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  background-color: $blue;
+  border-radius: 8px;
+  transition: all 0.3s;
+
+  &:active {
+    transform: scale(.95);
+  }
+  &:hover {
+    background-color: $c-gray;
+    color: black;
+  }
+}
+
+.swiper {
+  margin-top: 50px;
+  width: 100%;
+  height: 390px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__text {
+    position: absolute;
+    bottom: 7%;
+    left: 160px;
+    z-index: 10;
+    color: $white;
+    max-width: 266px;
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+
+  &-button {
+    &-prev {
+      left: 40px!important;
+    }
+    &-next {
+      left: 100px!important;
+    }
+
+    &-prev,
+    &-next {
+      background-color: $white;
+      width: 32px!important;
+      height: 32px!important;
+      border-radius: 50%;
+      top: 90%!important;
+      transition: all 0.3s;
+
+
+
+      &:active {
+        transform: scale(.9);
+      }
+
+      &:hover {
+        background-color: $c-gray;
+      }
+
+      &::after {
+        font-size: 9px!important;
+        color: rgb(37, 55, 87)!important;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &-slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--1 {
+      background-image: url(../images/slider/Photo.svg);
+    }
+    &--2 {
+      background-image: url(../images/slider/Photo2.svg);
+    }
+    &--3 {
+      background-image: url(../images/slider/Photo3.svg);
+    }
+  }
+}
+
+.contact-title {
+font-size: 13px;
+font-weight: 700;
+line-height: 20px;
+letter-spacing: 3px;
+opacity: 0.5;
+text-transform: uppercase;
+margin-bottom: 8px;
+}
+
+.about,
+.footer {
+  background-color: rgb(44, 44, 44);
+}
+
+.page-body {
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .strategic {
+    &__title {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  .strategic__main,
+  .top-bar {
+    padding: 0 40px;
+  }
+
+  .swiper {
+    margin-top: 150px;
+  }
+
+  .who-we-are {
+    &__text {
+      max-width: 558px;
+      font-size: 24px;
+    }
+  }
+
+  .process {
+    padding: 0 40px;
+
+    &__text {
+      max-width: 264px;
+    }
+
+    &__item {
+      max-width: 264px;
+
+      &--up {
+        transform: translateY(-50%);
+      }
+    }
+
+    &__main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .testimonials {
+    padding: 0 40px;
+
+    &__title {
+      max-width: 200px;
+    }
+  }
+
+  .creed {
+    transform: translateY(20px);
+    &__container {
+      background-image: url(../images/creed/bg.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__title {
+      font-size: 52px;
+    }
+
+    &__subtitle {
+      font-size: 24px;
+    }
+
+    &__content {
+      padding: 92px 40px;
+    }
+  }
+
+  .about {
+    position: relative;
+    z-index: 20;
+
+    &__message {
+      margin-top: 0;
+    }
+
+    &__container {
+      padding: 0 40px;
+    }
+  }
+
+  .message {
+    &__legend {
+      padding-top: 180px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 0 40px;
+    }
+
+    &__list {
+      flex-direction: row;
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .header {
+    height: 800px;
+    &__container {
+      height: 100%;
+    }
+
+    &__navigation {
+      display: block;
+    }
+  }
+
+  .top-bar {
+    &__menu {
+      display: none;
+    }
+  }
+
+  .strategic {
+    margin-top: 0;
+    &__main {
+      gap: 83px;
+      position: absolute;
+      top: 30%;
+    }
+
+    &__text {
+      max-width: 362px;
+    }
+  }
+
+  .swiper {
+    position: absolute!important;
+    bottom: 0;
+    right: 0;
+    margin: 0!important;
+    width: 502px;
+    height: 680px;
+  }
+
+  .menu {
+    &__navigation {
+      font-size: 20px;
+    }
+
+    &__icon-close {
+      &::before {
+        width: 70px;
+      }
+    }
+  }
+
+  .who-we-are {
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    &__text {
+      max-width: 717px;
+    }
+  }
+
+  .experience {
+    padding: 0 50px;
+
+    &__container {
+      padding-bottom: 155px;
+    }
+
+    &__main {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__item-subtitle {
+      max-width: 214px;
+    }
+
+  }
+
+  .process {
+    margin-top: 150px;
+
+    &__text {
+      max-width: 292px;
+    }
+
+    &__container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__item {
+      &--up {
+        transform: translateY(0);
+      }
+
+      &--down {
+        transform: translateY(140px);
+      }
+    }
+
+  }
+
+  .testimonials {
+    margin-top: 270px;
+
+    &__main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+      max-width: 292px;
+    }
+  }
+
+  .about {
+    &__container {
+      flex-direction: row;
+      gap: 98px;
+    }
+  }
+
+  .contact {
+    padding-top: 180px;
+  }
+
+  .footer {
+    &__container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__list {
+      gap: 64px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .top-bar,
+  .strategic__main,
+  .experience,
+  .process {
+    padding: 0;
+  }
+
+  .header {
+    &__top-bar {
+      height: 125px;
+    }
+  }
+
+  .testimonials {
+    padding: 0;
+
+    &__item {
+      max-width: 362px;
+    }
+  }
+
+  .creed {
+    &__content {
+      padding: 199px 0;
+    }
+  }
+
+  .message {
+    padding: 0;
+  }
+
+  .about {
+    &__container {
+      padding: 0;
+      gap: 226px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .swiper {
+    width: 687px;
+  }
+
+  .who-we-are {
+    &__text {
+      max-width: 754px;
+    }
+  }
+
+  .process {
+    &__text {
+      max-width: 362px;
+    }
+  }
+
+}
+
+@media (min-width: 2560px) {
+  .swiper {
+    width: 1167px;
+  }
 }
