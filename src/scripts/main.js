@@ -12,3 +12,11 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
+
+window.addEventListener('hashchange', function() {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page-body');
+  } else {
+    document.body.classList.remove('page-body');
+  }
+});
