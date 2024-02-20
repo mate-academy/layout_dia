@@ -1,0 +1,157 @@
+.footer {
+  background-color: $header-bg;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding: 72px 0;
+
+  &__container {
+    display: grid;
+    gap: 20px;
+
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include on-tablet {
+      --columns: 6;
+    }
+
+    @include on-small-desktop {
+      --columns: 12;
+    }
+  }
+}
+
+.message {
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+  }
+
+  @include on-small-desktop {
+    grid-column: 1 / 6;
+  }
+
+  &__title {
+    @include small-title;
+
+    color: white;
+    padding-bottom: 48px;
+  }
+
+  &__input {
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    margin-top: 56px;
+  }
+}
+
+.contacts {
+  margin-block: 80px;
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+  }
+
+  @include on-small-desktop {
+    margin-block: 0;
+
+    grid-column: 7 / 13;
+  }
+
+  &__title {
+    @include small-title;
+
+    color: white;
+    padding-bottom: 48px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px
+  }
+
+  &__data {
+    transition: all .3s;
+    &:hover {
+      transform: scale(105%);
+    }
+
+    &--title {
+      @include mini-title;
+
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      color: white;
+      opacity: .5;
+    }
+
+    &--text {
+      @include description;
+      
+      font-size: 24px;
+      font-weight: 600;
+      color: white;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 32px;
+}
+
+.icon {
+  display: block;
+  background-repeat: round;
+  transition: all .3s;
+
+  &--facebook {
+    background-image: url(../images/contacts/facebook.svg);
+    &:hover {
+      background-image: url(../images/contacts/facebook--blue.svg);
+    }
+  }
+
+  &--twitter {
+    background-image: url(../images/contacts/twitter.svg);
+    &:hover {
+      background-image: url(../images/contacts/twitter--blue.svg);
+    }
+  }
+
+  &--instagram {
+    background-image: url(../images/contacts/instagram.svg);
+    &:hover {
+      background-image: url(../images/contacts/instagram--blue.svg);
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  grid-column: 1 / -1;
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+  }
+
+  @include on-tablet {
+    gap: 24px;
+  }
+
+  @include on-small-desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 104px;
+  }
+}

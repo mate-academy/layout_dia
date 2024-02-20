@@ -1,0 +1,45 @@
+.nav {
+  &--header {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 40px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+  &__link {
+    @include mini-title;
+
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      @include after-line;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
+
+.nav--menu > .nav__ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
