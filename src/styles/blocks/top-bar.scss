@@ -1,0 +1,74 @@
+.top-bar {
+  @include page-grid;
+  @include content-padding-inline;
+
+  align-items: center;
+
+  padding-top: 20px;
+
+  grid-column: 1 / -1;
+
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: $top-bar-letter-spacing;
+
+  text-transform: uppercase;
+
+  @include on-tablet {
+    padding: 20px 48px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 48px;
+  }
+
+  &--bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+  }
+
+  &__icons {
+    grid-column: 1;
+    display: flex;
+  }
+
+  &__logo {
+    display: flex;
+    height: 28px;
+
+    @include hover(filter, drop-shadow(1px 4px 6px #FFFFFF77));
+  }
+
+  &__menu {
+    display: flex;
+    margin-left: 20px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+    width: max-content;
+
+    grid-column: -1 / -2;
+
+    @include hover(filter, drop-shadow(1px 4px 6px #FFFFFF77));
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(100% - $top-bar-letter-spacing);
+
+      display: block;
+      margin-top: 8px;
+
+      height: 2px;
+      border-radius: 4px;
+      background-color: #2060F6;
+    }
+  }
+}

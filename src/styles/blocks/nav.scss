@@ -1,13 +1,32 @@
 .nav {
-  grid-column: 4 / 10;
+  display: none;
+
+  @include on-small-desktop {
+    display:block;
+    grid-column: 4 / 10;
+
+    &--to-end {
+      grid-column: 6 / -1;
+    }
+  }
 
   &__list {
-    display: flex;
-    justify-content: space-evenly ;
-    align-items: center;
+    width: max-content;
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: space-evenly ;
+      align-items: center;
+    }
   }
 
   &__item {
+    font-family: Poppins, sans-serif;
     padding: 0;
+    text-decoration: none;
+    color: #FFF;
+
+    @include hover(filter, drop-shadow(1px 4px 6px #FFFFFF77));
   }
 }
