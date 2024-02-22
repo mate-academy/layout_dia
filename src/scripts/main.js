@@ -4,7 +4,7 @@ const PAGE = document.querySelector('.page__body');
 const MENU = document.querySelector('#menu');
 const NAV_TOP = document.querySelector('#nav-top-bar');
 const HEADER = document.querySelector('#header');
-const FOOTER = document.querySelector('#footer');
+const FOOTER_CONTENT = document.querySelector('#footer__content');
 const BUTTONS = document.querySelectorAll('.button');
 const BUTTONS_IN_CARD = document.querySelectorAll('.button--place--card');
 const CARD_NUMBER = document.querySelectorAll('.card__number');
@@ -117,7 +117,7 @@ BUTTON_CHANGE_COLOR.addEventListener('click', () => {
   if (counter % 2 === 0) {
     BUTTON_CHANGE_COLOR.classList.add('top-bar__color-changer--to-black');
     HEADER.classList.add('color-header');
-    FOOTER.classList.add('color-footer');
+    FOOTER_CONTENT.classList.add('color-footer');
     IMAGE_SLIDER.classList.add('color-image');
     IMAGE_IN_SLIDER.style.borderRadius = '0';
 
@@ -137,7 +137,7 @@ BUTTON_CHANGE_COLOR.addEventListener('click', () => {
   } else {
     BUTTON_CHANGE_COLOR.classList.remove('top-bar__color-changer--to-black');
     HEADER.classList.remove('color-header');
-    FOOTER.classList.remove('color-footer');
+    FOOTER_CONTENT.classList.remove('color-footer');
     IMAGE_SLIDER.classList.remove('color-image');
 
     for (const button of BUTTONS) {
