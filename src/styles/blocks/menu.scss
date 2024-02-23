@@ -1,0 +1,33 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  height: 100vh;
+  background-color: $menu-background-color;
+
+  font-size: 28px;
+  z-index: 2;
+
+  &__content {
+    @include content-padding-inline;
+
+    padding-top: 20px;
+
+    @include on-tablet {
+      padding: 20px 48px;
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+}

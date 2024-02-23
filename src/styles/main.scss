@@ -5,6 +5,7 @@
 @import "blocks/button";
 @import "blocks/top-bar";
 @import "blocks/nav";
+@import "blocks/menu";
 
 // Header
 @import "blocks/header/header";
@@ -32,7 +33,10 @@ body {
 
   color: #FFF;
   background: $background-color;
-  overflow: hidden scroll;
+
+  &:has(.menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
 }
 
 h1, h2, h3, h4, p {
@@ -42,4 +46,9 @@ h1, h2, h3, h4, p {
 
 p, a {
   font-family: "Open Sans", sans-serif;
+}
+
+input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #FFF;
 }

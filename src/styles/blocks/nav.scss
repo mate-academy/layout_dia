@@ -2,22 +2,57 @@
   display: none;
 
   @include on-small-desktop {
-    display:block;
-    grid-column: 4 / 10;
+    display: block;
 
-    &--to-end {
+    box-sizing: border-box;
+    padding-inline: 20px;
+
+    grid-column: 3 / 11;
+  }
+
+  @include on-desktop {
+    grid-column: 4 / 10;
+    padding-inline: 0;
+  }
+
+  &--footer {
+    display: block;
+
+    grid-column: 1 / -1;
+
+    @include on-small-desktop {
       grid-column: 6 / -1;
     }
   }
 
+  &--footer,
+  &--sidebar {
+    padding-top: 20px;
+    display: block;
+  }
+
   &__list {
-    width: max-content;
+    width: 100%;
     display: none;
+
+    list-style: none;
+    padding: 0;
 
     @include on-small-desktop {
       display: flex;
-      justify-content: space-evenly ;
+      justify-content: space-between;
       align-items: center;
+    }
+  }
+
+  &--footer &__list,
+  &--sidebar &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-small-desktop {
+      flex-direction: row;
     }
   }
 
