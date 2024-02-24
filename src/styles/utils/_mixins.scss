@@ -48,11 +48,7 @@
   }
 
   @include on-desktop {
-    padding-inline: 227px;
-  }
-
-  @include on-large-screens {
-    padding-inline: 707px;
+    max-width: 1148px;
   }
 }
 
@@ -79,5 +75,41 @@
     --column-count: 12;
 
     column-gap: 30px;
+  }
+}
+
+@mixin hover-line-effect {
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 2px;
+    bottom: -4px;
+    border-radius: 4px;
+    background-color: $main-blue-color;
+
+    transition: transform $effect-duretion;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin text-color-effect {
+  &:hover {
+    color: $main-blue-color;
+    transition: $effect-duretion;
+  }
+}
+
+@mixin hover-effect($proprty, $toValue) {
+  transition: #{$proprty} $effect-duretion;
+  &:hover {
+    #{$proprty}: #{$toValue};
   }
 }
