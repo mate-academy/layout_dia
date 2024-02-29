@@ -18,14 +18,14 @@ const moveToSlide = (track, currentSlide, targetSlide) => {
   targetSlide.classList.add('current-slide');
 };
 
-prevButton.addEventListener('click', e => {
+prevButton.addEventListener('click', (e) => {
   const currentSlide = track.querySelector('.current-slide');
   const prevSlide = currentSlide.previousElementSibling;
 
   moveToSlide(track, currentSlide, prevSlide);
 });
 
-nextButton.addEventListener('click', e => {
+nextButton.addEventListener('click', (e) => {
   const currentSlide = track.querySelector('.current-slide');
   const nextSlide = currentSlide.nextElementSibling;
 
