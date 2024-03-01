@@ -1,6 +1,7 @@
 'use strict';
 
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.slider__btn');
+/* global alert */
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', () => {
