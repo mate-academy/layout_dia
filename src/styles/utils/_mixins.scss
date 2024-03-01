@@ -4,3 +4,117 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $min-width-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop-s {
+  @media (min-width: $min-width-desktop-s) {
+    @content;
+  }
+}
+
+@mixin on-desktop-m {
+  @media (min-width: $min-width-desktop-m) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: $padding-page-mobile;
+
+  @include on-tablet {
+    padding-inline: $padding-page-tablet;
+  }
+
+  @include on-desktop-s {
+    padding-inline: $padding-page-desktop-s;
+  }
+
+  @include on-desktop-m {
+    max-width: $min-width-desktop-m;
+    margin-inline: auto;
+    padding-inline: $padding-page-desktop-m;
+  }
+}
+
+@mixin text-main {
+  font-family: $font-text;
+  font-size: 22px;
+  line-height: 33px;
+  color: $c-text-main;
+  margin: 0;
+
+  @include on-tablet {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@mixin text-secondary {
+  font-family: $font-text;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $c-text-main;
+  margin: 0;
+}
+
+@mixin text-thirdary {
+  font-family: $font-text;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $c-text-main;
+  margin: 0;
+}
+
+@mixin title-add {
+  font-family: $font-title;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color:#C0CDD7;
+  margin: 0;
+}
+
+@mixin property-on-devices($_property, $_toValueMob, $_toValueTab, $_toValueDesk){
+  #{$_property}: $_toValueMob;
+
+  @include on-tablet {
+    #{$_property}: $_toValueTab;
+  }
+
+  @include on-desktop-s {
+    #{$_property}: $_toValueDesk;
+  }
+}
+
+@mixin grid-tablet {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat($grid-col-tablet, 1fr);
+    column-gap: $grid-gap-tablet;
+  }
+}
+
+@mixin grid-desktop-s {
+  @include on-desktop-s {
+    display: grid;
+    grid-template-columns: repeat($grid-col-desktop-s, 1fr);
+    column-gap: $grid-gap-desktop-s;
+  }
+}
+
+@mixin grid-desktop-m {
+  @include on-desktop-m {
+    display: grid;
+    grid-template-columns: repeat($grid-col-desktop-m, 1fr);
+    column-gap: $grid-gap-desktop-m;
+  }
+}

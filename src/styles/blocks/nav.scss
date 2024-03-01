@@ -1,0 +1,40 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    @include title-add;
+
+    color: white;
+    text-decoration: none;
+    padding-bottom: 8px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      left: 50%;
+      right: 50%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: var(--btn-default);
+      position: absolute;
+      bottom: 0;
+      transition: all $effect-duration ease-out;
+    }
+
+    &:hover::after,
+    &:focus:after {
+      width: 100%;
+      left: 0;
+      right: 0;
+    }
+  }
+}

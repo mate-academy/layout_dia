@@ -1,0 +1,50 @@
+.page {
+  --bg-header: #{$c-dt-main};
+  --bg-page: #{$c-dt-page};
+  --btn-default: #{$c-dt-secondary-default};
+  --btn-hover: #{$c-dt-secondary-hover};
+  --border-radius: #{$border-radius-dt};
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
+
+  &__body {
+    min-width: $min-width-phone;
+    margin: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+
+    @include on-desktop-s {
+      display: none;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.page--theme--light {
+  --bg-header: #{$c-bt-main};
+  --bg-page: #{$c-bt-page};
+  --btn-default: #{$c-bt-btn-default};
+  --btn-hover: #{$c-bt-btn-hover};
+  --border-radius: #{$border-radius-bt};
+}

@@ -1,0 +1,124 @@
+.footer {
+  background-color: var(--bg-header);
+  padding-top: 72px;
+  padding-bottom: 80px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  z-index: 3;
+
+  &--theme-light {
+    border-radius: 0 var(--border-radius) 0 0;
+  }
+
+  @include on-tablet {
+    padding-top: 180px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    @include grid-tablet;
+
+    @include on-tablet {
+      row-gap: 120px;
+    }
+
+    @include grid-desktop-s;
+    @include grid-desktop-m;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      gap: 56px;
+    }
+
+    @include on-desktop-s {
+      gap: 48px;
+    }
+
+    &--message {
+      @include on-desktop-s {
+        grid-column: 1 / 6;
+      }
+
+      @include on-desktop-m {
+        grid-column: 1 / 6;
+      }
+    }
+
+    &--contacts {
+      @include on-desktop-s {
+        grid-column: 7 / -2;
+      }
+
+      @include on-desktop-m {
+        grid-column: 8 / -2;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      gap: 24px;
+    }
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    text-decoration: none;
+    display: block;
+    height: 28px;
+    width: 46px;
+    background-image: url(../images/icons/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(background-image, url(../images/icons/logo-hover.svg));
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include on-desktop-s {
+      gap: 64px;
+    }
+  }
+
+  &__nav-link {
+    @include title-add;
+
+    text-decoration: none;
+    display: block;
+    color: white;
+
+    @include hover(color, var(--btn-default));
+  }
+}
