@@ -3,11 +3,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   const burger = document.querySelector('.header__burger');
   const menu = document.querySelector('.header__menu');
-  const body = document.body;
+  const html = document.querySelector('.html');
+  const body = document.querySelector('.html__body');
 
   burger.addEventListener('click', function() {
     burger.classList.toggle('active');
     menu.classList.toggle('active');
+    html.classList.toggle('lock');
     body.classList.toggle('lock');
   });
 });

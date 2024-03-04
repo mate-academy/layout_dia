@@ -1,10 +1,20 @@
 .services {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 150px;
-  background-color: $background-light;
+  padding: 0 54px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 150px 0;
+    margin-bottom: 150px;
+
+    @include onTablet {
+      display: block;
+      margin: auto;
+    }
+  }
 
   &__description {
+    padding-top: 100px;
     max-width: 364px;
   }
 
@@ -44,8 +54,29 @@
 
   &__cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    // grid-template-rows:  132px 132px 132px 132px;
+    gap: 20px;
+    grid-template-rows: repeat(5);
+    width: 448px;
+
+    &--item {
+      @for $start from 1 through 5 {
+        @for $end from $start through 5 {
+          &-#{$start}-#{$end} {
+            grid-row: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    
+      // @for $start from 1 through 5 {
+      //   @for $end from $start through 4 {
+      //     &-#{$start}-#{$end} {
+      //       @include onDesktop {
+      //         grid-row: #{$start} / #{$end + 1};
+      //       }
+      //     }
+      //   }
+      // }
+    }
   }
 
   &__card {
