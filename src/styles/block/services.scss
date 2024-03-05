@@ -1,21 +1,45 @@
 .services {
+  display: flex;
   padding: 0 54px;
+
+  @include onPhone {
+    padding: 0 20px;
+  }
 
   &__container {
     display: flex;
+    position: relative;
     justify-content: space-between;
     padding: 150px 0;
     margin-bottom: 150px;
 
     @include onTablet {
       display: block;
-      margin: auto;
+      padding: 0;
+    }
+
+    @include onPhone {
+      margin-bottom: 0;
     }
   }
 
   &__description {
-    padding-top: 100px;
+    padding-top: 150px;
     max-width: 364px;
+
+    @include onTablet {
+      position: absolute;
+      top: 50px;
+      padding-top: 100px;
+      max-width: 264px;
+    }
+
+    @include onPhone {
+      position: initial;
+      top: 0;
+      margin: auto;
+      max-width: 320px;
+    }
   }
 
   &__name {
@@ -56,7 +80,18 @@
     display: grid;
     gap: 20px;
     grid-template-rows: repeat(5);
-    width: 448px;
+
+    @include onTablet {
+      padding-top: 384px;
+    }
+
+    @include onPhone {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px 0 120px;
+      gap: 24px;
+    }
 
     &--item {
       @for $start from 1 through 5 {
@@ -85,6 +120,8 @@
     padding: 32px;
     border-radius: 16px;
     background-color: $white-color;
+    transition: all 0.3s ease 0s;
+
   
     &--num {
       margin-bottom: 24px;
@@ -108,11 +145,24 @@
       line-height: 150%;
       text-align: left;
       list-style: none;
+
+      & li {
+        &:hover {
+          cursor: pointer;
+          text-shadow: 0 0 1em $text-grey-color;
+          transition: all 0.3s ease 0s;
+        }
+      }
     }
   
     &--control {
       display: flex;
       align-items: center;
+      &:hover {
+        cursor: pointer;
+        text-shadow: 0 0 1em $text-grey-color;
+        transition: all 0.3s ease 0s;
+      }
     }
   
     &--button {
@@ -127,9 +177,9 @@
       transition: 300ms;
   
       &:hover {
-        width: 50px;
-        height: 50px;
-        transition: 300ms;
+        width: 48px;
+        height: 48px;
+        transition: all 0.3s ease 0s;
       }
     }
   
@@ -141,6 +191,11 @@
       font-weight: 600;
       line-height: 23px;
       text-align: center;
+    }
+
+    &:hover {
+      box-shadow: 2px 10px 5px 5px $text-grey-transparent-color;
+      transition: all 0.3s ease 0s;
     }
   }
 }
