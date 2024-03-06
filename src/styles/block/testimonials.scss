@@ -1,0 +1,134 @@
+.testimonials {
+  padding-bottom: 200px;
+
+  &__name {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    max-width: 200px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include onTablet {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    padding: 0 56px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 290px;
+    max-width: 360px;
+    border-radius: 16px;
+
+    box-shadow: 0 9px 18px 0 $background-dark;
+    background: $white-color;
+
+    @include onTablet {
+      max-width: 560px;
+    }
+
+    @include onPhone {
+      max-width: 280px;
+    }
+    
+    &--photo {
+      display: block;
+      position: relative;
+      z-index: 2;
+      object-fit: cover;
+      margin: 55px;
+      border-radius: 140px;
+      height: 140px;
+      width: 140px;
+    }
+
+    &--photo-container {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 24px;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 55px;
+        transform-origin: center;
+        transform: rotate(-60deg);
+        border-radius: 12px;
+        background-color: $background-blue;
+        transition: all 600ms ease-in-out 0.3ms;
+      }
+
+      &::before {
+        top: 18%;
+        right: 43%;
+      }
+
+      &::after {
+        bottom: 18%;
+        left: 43%;
+      }
+
+      &:hover {
+        &::before {
+          right: 0;
+
+          transform: rotate(60deg);
+          transition: all 600ms ease-in-out 0.3ms;
+          background-color: $text-blue-color;
+        }
+        &::after {
+          left: 0;
+          transform: rotate(60deg);
+          transition: all 600ms ease-in-out 0.3ms;
+          background-color: $text-blue-color;
+
+        }
+      }
+    }
+
+    &--icon {
+      margin-bottom: 10px;
+      width: 20px;
+      height: 18px;
+    }
+
+    &--description {
+      margin-bottom: 16px;
+      color: $text-grey-color;
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 150%;
+      text-align: center;
+    }
+
+    &--name {
+      margin-bottom: 4px;
+      color: $text-blue-color;
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 150%;
+      text-align: center;
+    }
+
+    &--profesion {
+      margin-bottom: 32px;
+    }
+  }
+}
