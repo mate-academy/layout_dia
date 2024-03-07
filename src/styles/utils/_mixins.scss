@@ -48,3 +48,23 @@
     margin-inline: auto;
   }
 }
+
+@mixin grid {
+  --colums: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--colums), 1fr);
+  align-items: center;
+  justify-content: center;
+
+  @include on-tablet {
+    column-gap: 24px;
+
+    --colums: 6;
+  }
+
+  @include on-small-desktop {
+    --colums: 12;
+  }
+}
