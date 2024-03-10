@@ -1,14 +1,37 @@
 .testimonial {
+  display: flex;
+  flex-direction: column;
   padding: px-to-rem(32px) px-to-rem(42px);
   border-radius: px-to-rem(16px);
   background-color: $section-bg-c-white;
   box-shadow: 0 9px 18px 0 $service-bx-shadow-c;
 
+  @include desktop-narrow {
+    grid-column: span 4;
+  }
+
   &__photo-box {
     position: relative;
     display: grid;
     place-content: center;
-    height: px-to-rem(193px);
+    height: px-to-rem(196px);
+    width: px-to-rem(196px);
+    margin-inline: auto;
+
+    @include on-tablet {
+      height: px-to-rem(250px);
+      width: px-to-rem(250px);
+    }
+
+    @include desktop-narrow {
+      height: px-to-rem(196px);
+      width: px-to-rem(196px);
+    }
+
+    @include on-desktop {
+      height: px-to-rem(250px);
+      width: px-to-rem(250px);
+    }
   }
 
   &__photo {
@@ -18,6 +41,21 @@
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
+
+    @include on-tablet {
+      height: px-to-rem(140px);
+      width: px-to-rem(140px);
+    }
+
+    @include desktop-narrow {
+      height: px-to-rem(110px);
+      width: px-to-rem(110px);
+    }
+
+    @include on-desktop {
+      height: px-to-rem(140px);
+      width: px-to-rem(140px);
+    }
   }
 
   &__photo-rect {
@@ -28,22 +66,73 @@
     background-color: $testimonial-photo-rect;
     transform: rotate(-60deg);
 
+    @include on-tablet {
+      height: px-to-rem(56px);
+      width: px-to-rem(139px);
+    }
+
+    @include desktop-narrow {
+      height: px-to-rem(44px);
+      width: px-to-rem(110px);
+    }
+
+    @include on-desktop {
+      height: px-to-rem(56px);
+      width: px-to-rem(139px);
+    }
+
     &--top-left {
       top: px-to-rem(44px);
       left: 0;
+
+      @include on-tablet {
+        top: px-to-rem(56px);
+      }
+
+      @include desktop-narrow {
+        top: px-to-rem(44px);
+      }
+
+      @include on-desktop {
+        top: px-to-rem(56px);
+      }
     }
 
     &--bottom-right {
       bottom: px-to-rem(44px);
       right: 0;
+
+      @include on-tablet {
+        bottom: px-to-rem(56px);
+      }
+
+      @include desktop-narrow {
+        bottom: px-to-rem(44px);
+      }
+
+      @include on-desktop {
+        bottom: px-to-rem(56px);
+      }
     }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
   &__quote {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(8px);
     margin-block: px-to-rem(24px) px-to-rem(16px);
+    row-gap: px-to-rem(8px);
+
+    @include on-tablet {
+      row-gap: px-to-rem(16px);
+    }
+
   }
 
   &__quote-icon {
@@ -58,6 +147,18 @@
     color: $text-c-white-theme;
     text-align: center;
     line-height: px-to-rem(20px);
+
+    @include on-tablet {
+      padding-inline: px-to-rem(58px);
+    }
+
+    @include desktop-narrow {
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      padding-inline: px-to-rem(16px);
+    }
   }
 
   &__person-prof {

@@ -1,6 +1,12 @@
 .strategic-agency {
   @include page-grid;
 
+  @include desktop-narrow {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 5;
+  }
+
   &__title {
     color: $text-color-dark-theme;
     padding-bottom: px-to-rem(32px);
@@ -11,7 +17,6 @@
       padding-bottom: px-to-rem(24px);
       font-size: px-to-rem(64px);
       line-height: px-to-rem(68px);
-      color: black;
     }
   }
 
@@ -29,15 +34,25 @@
       grid-column: span 4;
       padding-bottom: px-to-rem(56px);
     }
+
+    @include desktop-narrow {
+      grid-column: 1 / -1;
+      padding-bottom: px-to-rem(83px);
+    }
   }
 
   &__link-bt {
     grid-column: 1 / -1;
+    height: 50px;
 
     @include on-tablet {
       grid-column: span 3;
     }
-    
+
+    @include desktop-narrow {
+      width: px-to-rem(256px);
+    }
+
     @extend %link-button;
   }
 }

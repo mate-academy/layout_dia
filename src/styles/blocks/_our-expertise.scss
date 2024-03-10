@@ -8,14 +8,21 @@
   }
 
   &__contant {
-    display: flex;
-    flex-direction: column;
-    gap: px-to-rem(56px);
+    row-gap: px-to-rem(56px);
 
     @include page-grid;
-    
+
     @include on-tablet {
       row-gap: px-to-rem(72px);
+    }
+
+    @include desktop-narrow {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: px-to-rem(137px);
+    }
+
+    @include on-desktop {
+      column-gap: px-to-rem(177px);
     }
   }
 
@@ -35,8 +42,14 @@
   }
 
   &__card {
+    grid-column: 1 / -1;
+
     @include on-tablet {
       grid-column: 2 / -2;
+    }
+
+    @include desktop-narrow {
+      grid-column: span 1;
     }
   }
 

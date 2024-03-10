@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-block: px-to-rem(20px);
+
+  @include desktop-narrow {
+    padding-block: px-to-rem(48px);
+  }
 
   &__left-side {
     display: flex;
@@ -18,6 +23,55 @@
     height: px-to-rem(24px);
 
     background-image: url(../images/icons/menu.svg);
+
+    @include desktop-narrow {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    display: none;
+
+    @include desktop-narrow {
+      display: flex;
+    }
+  }
+
+  &__list {
+    display: flex;
+    column-gap: px-to-rem(48px);
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    position: relative;
+    padding-bottom: px-to-rem(8px);
+    font-family: $header-font-family;
+    font-size: px-to-rem(13px);
+    font-weight: 700;
+    color: $text-color-dark-theme;
+    text-transform: uppercase;
+    line-height: px-to-rem(20px);
+    letter-spacing: px-to-rem(3px);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      height: 2px;
+      width: calc(100% - 3px);
+      background-color: $def-bt-color;
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 
   &__hireus-link {
@@ -29,7 +83,7 @@
     color: $text-color-dark-theme;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: px-to-rem(19.5px);
+    line-height: px-to-rem(20px);
     letter-spacing: px-to-rem(3px);
 
     &::after {
@@ -41,7 +95,6 @@
       height: 2px;
       background-color: $def-bt-color;
       border-radius: 4px;
-
     }
   }
 }

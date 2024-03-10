@@ -1,16 +1,39 @@
 .send-us {
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: span 4;
+  }
+
+  @include desktop-narrow {
+    grid-column: span 5;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   &__title {
     margin-bottom: px-to-rem(48px);
     font-size: px-to-rem(32px);
     color: $text-color-dark-theme;
     text-align: left;
     line-height: px-to-rem(42px);
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: px-to-rem(56px);
+    }
   }
 
   &__form-fields {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(40px);
+    row-gap: px-to-rem(40px);
+
+    grid-column: 1 / -1;
   }
 
   &__form-field {
@@ -34,9 +57,16 @@
   }
 
   &__form-bt {
+    grid-column: 1 / -1;
     margin-top: px-to-rem(56px);
     border: none;
-    
+
+    @include on-tablet {
+      width: px-to-rem(264px);
+      grid-column: span 3;
+      margin-top: px-to-rem(80px);
+    }
+
     @extend %link-button;
   }
 }

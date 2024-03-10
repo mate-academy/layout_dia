@@ -1,8 +1,21 @@
 .services {
+  &__container {
+    @include desktop-narrow {
+      @include page-grid;
+      
+      margin-top: px-to-rem(140px);
+    }
+  }
+
   &__top {
     margin-bottom: px-to-rem(48px);
 
     @include page-grid;
+
+    @include desktop-narrow {
+      display: block;
+      grid-column: span 4;
+    }
   }
 
   &__section-name {
@@ -12,6 +25,12 @@
     color: $section-name-c;
     line-height: px-to-rem(20px);
     letter-spacing: px-to-rem(3px);
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__title {
@@ -19,17 +38,40 @@
     font-size: px-to-rem(32px);
     color: $title-c-white-theme;
     line-height: px-to-rem(42px);
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__text {
     font-size: px-to-rem(14px);
     color: $text-c-white-theme;
     line-height: px-to-rem(21px);
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__items {
-    display: flex;
-    flex-direction: column;
+    @include page-grid;
+
     gap: px-to-rem(24px);
+
+    @include desktop-narrow {
+      grid-template-columns: repeat(6, 1fr);
+      grid-column: 7 / -1;
+    }
+  }
+
+  &--transform {
+    @include on-tablet {
+      transform: translateY(-50%);
+    }
   }
 }

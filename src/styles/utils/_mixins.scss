@@ -11,6 +11,18 @@
   }
 }
 
+@mixin desktop-narrow {
+  @media (width >= $desktop-narrow-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (width >= $desktop-width) {
+    @content;
+  }
+}
+
 @mixin page-grid {
   --columns: 2;
 
@@ -21,6 +33,16 @@
   @include on-tablet {
     --columns: 6;
 
+    column-gap: 30px;
+  }
+
+  @include desktop-narrow {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
     column-gap: 30px;
   }
 }
