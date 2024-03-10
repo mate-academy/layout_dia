@@ -11,7 +11,7 @@
   }
 
   @include desktop-narrow {
-    grid-column: span 3;
+    @include hover(scale, 1.05);
   }
 
   &__number {
@@ -39,6 +39,25 @@
     align-items: center;
     gap: px-to-rem(16px);
     width: max-content;
+    transition: all .3s;
+
+    &-text {
+      font-family: $header-font-family;
+      font-size: px-to-rem(15px);
+      font-weight: 600;
+      color: $service-section-link-c;
+      line-height: px-to-rem(23px);
+    }
+
+    &:hover {
+      padding-right: px-to-rem(15px);
+      border-radius: px-to-rem(30px);
+      background-color: $service-bt-hover;
+    }
+
+    &:hover &-text {
+      color: $service-link-hover-c;
+    }
   }
 
   &__arrow-bt {
@@ -48,13 +67,5 @@
     width: px-to-rem(40px);
     border-radius: 50%;
     background-color: $def-bt-color;
-  }
-
-  &__link-text {
-    font-family: $header-font-family;
-    font-size: px-to-rem(15px);
-    font-weight: 600;
-    color: $service-section-link-c;
-    line-height: px-to-rem(23px);
   }
 }

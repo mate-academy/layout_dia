@@ -6,23 +6,28 @@
   height: 100%;
   margin: 0;
   padding: 0;
+  border-radius: px-to-rem(30px);
+  overflow: hidden;
+
+  @include desktop-narrow {
+    border-radius: px-to-rem(30px) 0 px-to-rem(30px) 0;
+  }
 
   @include on-desktop {
     width: 50vw;
-    left: px-to-rem(-15px);
+    left: px-to-rem(-30px);
+  }
+
+  &--theme-light {
+    border-radius: px-to-rem(200px) 0 0 0;
   }
 
   &__image {
     display: block;
     height: 100%;;
     width: 100%;
-    border-radius: px-to-rem(30px);
     object-fit: cover;
     object-position: center;
-
-    @include desktop-narrow {
-      border-radius: px-to-rem(30px) 0 px-to-rem(30px) 0;
-    }
   }
 
   &__bt {
@@ -49,10 +54,22 @@
 
   &__bt-left {
     @extend %slider-button;
+
+    transition: $effect-duration;
+
+    &:hover {
+      transform: scale(1.1)
+    }
   }
 
   &__bt-right {
     @extend %slider-button;
+
+    transition: $effect-duration;
+
+    &:hover {
+      transform: scale(1.1)
+    }
   }
 
   &__desc {
