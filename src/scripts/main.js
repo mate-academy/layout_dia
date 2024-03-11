@@ -41,22 +41,24 @@ nextButton.addEventListener('click', () => {
 
 updateSlides();
 
-const form = document.querySelector('form');
+function serializeForm(formNode) {
+  const { elements } = formNode;
+  const data = Array.from(elements)
+    .filter((item) => !!item.name)
+    .map((element) => {
+      const { name, value } = element;
 
-form.addEventListener('submit', (event) => {
+      return { name, value };
+    });
+    return data;
+}
+
+function handleFormSubmit(event) {
   event.preventDefault();
+  serializeForm(applicantForm);
+  applicantForm.reset();
+}
 
-  form.reset();
-});
+const applicantForm = document.getElementById('form');
 
-document.querySelector('form').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  const inputs = this.querySelectorAll('input');
-  const isEmpty = Array.from(inputs).some((input) => input.value === '');
-
-  if (isEmpty) {
-    alert('Please fill in all fields of the form.');
-  } else {
-  }
-});
+applicantForm.addEventListener('submit', handleFormSubmit);
