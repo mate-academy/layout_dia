@@ -50,7 +50,8 @@ function serializeForm(formNode) {
 
       return { name, value };
     });
-    return data;
+
+  return data;
 }
 
 function handleFormSubmit(event) {
