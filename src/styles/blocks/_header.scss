@@ -2,6 +2,7 @@
   padding-bottom: 0;
   border-radius: 0 0 $border-radius $border-radius;
   background-color: $header-footer-bg-color;
+  overflow-x: hidden;
 
   &--theme-light {
     @include desktop-narrow {
@@ -26,11 +27,12 @@
     position: relative;
     right: px-to-rem(20px);
     height: px-to-rem(390px);
-    width: 100vw;
+    width: calc(100% + px-to-rem(40px));
     margin-top: px-to-rem(48px);
 
     @include on-tablet {
       right: px-to-rem(40px);
+      width: calc(100% + px-to-rem(80px));
       margin-top: px-to-rem(147px);
     }
 
@@ -40,6 +42,11 @@
       width: calc(100% + px-to-rem(54px));
       height: px-to-rem(680px);
       margin-top: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -1;
+      width: calc(100% + px-to-rem(226px));
     }
   }
 
