@@ -1,0 +1,86 @@
+.service-card {
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+  background-color: #fff;
+
+  @include on-desktop-md {
+    padding-inline: 25px;
+  }
+
+  @include on-desktop-lg {
+    padding-inline: 32px;
+  }
+
+  &__number {
+    display: inline-block;
+    margin-bottom: 32px;
+    padding: 2px 12px;
+    border-radius: 23px;
+    background-color: #2060f626;
+
+    font-family: $title-font-family;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    color: $design-main-color;
+  }
+
+  &__list {
+    margin-bottom: 32px;
+
+    font-family: $main-font-family;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $text-primary-color;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__arrow {
+    @include hover(transform, scale(1.1));
+
+    width: 40px;
+    height: 40px;
+
+    background-image: url(../images/icons/blue-arrow.svg);
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: $title-font-family;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.53;
+    color: #334563;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+
+      background-color: $design-main-color;
+      transition: transform $effect-duration;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(0.9);
+    }
+  }
+}

@@ -1,64 +1,55 @@
 .services {
-  padding-block: 72px;
-  border-radius: $design-border-radius;
+  padding-block: 120px;
 
-  background-color: $article-bg-second-color;
-
-  @include on-tablet {
-    padding-block: 128px;
-  }
-
-  &__title {
-    margin-bottom: 56px;
-
-    font-family: $title-font-family;
-    font-size: 44px;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-    color: $title-primary-color;
-
-    @include on-tablet {
-      margin-bottom: 64px;
-
-      font-size: 52px;
-      line-height: 1.5;
-    }
-  }
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 56px;
-
     @include on-tablet {
-      gap: 70px;
-    }
-
-    @include on-desktop-sm {
-      flex-direction: row;
-      justify-content: space-between;
+      @include page-grid;
     }
   }
 
-  &__service {
+  &__first {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
 
     @include on-tablet {
-      width: 362px;
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop-sm {
+      grid-column: 7 / 10;
+      margin-top: 132px;
+      margin-bottom: 0;
     }
   }
 
-  &__image {
-    width: 166px;
-    border-radius: 15px;
-    margin-bottom: 32px;
+  &__second {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: 4 / 7;
+      transform: translateY(-25%);
+    }
 
     @include on-desktop-sm {
-      margin-bottom: 40px;
+      grid-column: 10 / 13;
+      transform: translateY(0);
+    }
+  }
+
+  &__text {
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop-sm {
+      grid-column: span 4;
+      align-self: center;
     }
   }
 
@@ -66,29 +57,32 @@
     margin-bottom: 16px;
 
     font-family: $title-font-family;
-    font-size: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $subtitle-color;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    font-family: $title-font-family;
+    font-size: 32px;
     font-weight: 600;
-    line-height: 1.4;
-    text-align: center;
+    line-height: 1.3;
     color: $title-primary-color;
   }
 
-  &__text {
-    width: 100%;
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     font-family: $main-font-family;
     font-size: 14px;
     font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0;
-    text-align: center;
+    line-height: 1.5;
     color: $text-primary-color;
-
-    @include on-desktop-sm {
-      width: 214px;
-    }
-
-    @include on-desktop-md {
-      width: 264px;
-    }
   }
 }
