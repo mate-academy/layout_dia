@@ -1,1 +1,3 @@
-'use strict';
+import Menu from './components/menu';
+
+Menu();
