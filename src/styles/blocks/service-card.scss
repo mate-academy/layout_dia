@@ -44,15 +44,17 @@
   }
 
   &__arrow {
-    @include hover(transform, scale(1.1));
-
     width: 40px;
     height: 40px;
 
     background-image: url(../images/icons/blue-arrow.svg);
 
-    &:active {
-      transform: scale(1);
+    @include on-desktop-sm {
+      @include hover(transform, scale(1.1));
+
+      &:active {
+        transform: scale(1);
+      }
     }
   }
 
@@ -79,10 +81,14 @@
       transform: scale(0);
     }
 
-    &:hover::after {
-      transform: scale(0.9);
+    @include on-desktop-sm {
+      &:hover::after {
+        transform: scale(0.9);
+      }
     }
   }
 
-  @include hover(transform, scale(1.1));
+  @include on-desktop-sm {
+    @include hover(transform, scale(1.1));
+  }
 }
