@@ -1,7 +1,6 @@
-import Menu from './components/menu';
+import './components/menu';
 import Slider from './components/slider';
-import Form from './components/form';
+import './components/form';
+import './components/theme-switcher';
 
-Menu();
 Slider();
-Form();

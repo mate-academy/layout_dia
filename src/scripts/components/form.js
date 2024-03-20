@@ -1,16 +1,16 @@
-export default function Form() {
-  const form = document.querySelector('.contacts_form');
+'use strict';
 
-  form.onsubmit = (event) => {
-    event.preventDefault();
+const form = document.querySelector('.js-contacts_form');
 
-    const formData = new FormData(form);
+form.onsubmit = (event) => {
+  event.preventDefault();
 
-    for (let [name, value] of formData.entries()) {
-      console.log(name, ':', value);
-    }
+  const formData = new FormData(form);
 
-    form.reset();
-    window.scrollTo(0, 0);
-  };
-}
+  for (let [name, value] of formData.entries()) {
+    console.log(name, ':', value);
+  }
+
+  form.reset();
+  window.scrollTo(0, 0);
+};

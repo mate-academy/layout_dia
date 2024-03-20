@@ -1,8 +1,11 @@
+'use strict';
+
 export default function Slider() {
-  const block = document.querySelector('.header__bottom');
-  const slider = block.querySelector('.header__animation');
-  const backArrow = block.querySelector('.header__slide-back');
-  const forwardArrow = block.querySelector('.header__slide-forward');
+  const block = document.querySelector('.js-header__bottom');
+  const header = document.querySelector('.js-header__top');
+  const slider = block.querySelector('.js-header__animation');
+  const backArrow = block.querySelector('.js-header__slide-back');
+  const forwardArrow = block.querySelector('.js-header__slide-forward');
 
   const totalSlides = slider.children.length;
   const totalWidth =
@@ -11,6 +14,13 @@ export default function Slider() {
   let hover = false;
   let count = 0;
   let transformation = 0;
+  let interval = setInterval(() => {
+    slideForward();
+  }, 3000);
+  let margin = 0;
+
+  let touchStart = 0;
+  let touchEnd = 0;
 
   function slideForward() {
     if (count === 3) {
@@ -39,38 +49,47 @@ export default function Slider() {
     }
   }
 
-  function sliderShif() {
-    slideForward();
-  }
+  block.addEventListener(
+    'mouseenter',
+    () => {
+      if (window.innerWidth > 1024) {
+        hover = true;
+        clearInterval(interval);
 
-  let interval = setInterval(() => {
-    sliderShif();
-  }, 3000);
-
-  block.addEventListener('mouseenter', () => {
-    hover = true;
-    clearInterval(interval);
-    document.body.style.overflow = 'hidden';
-  });
+        header.style.marginRight = `${window.innerWidth - document.body.clientWidth}px`;
+        document.body.style.overflow = 'hidden';
+      }
+    },
+    { passive: true },
+  );
 
   slider.addEventListener('mouseleave', () => {
-    document.body.style.overflow = 'auto';
-    hover = false;
+    if (window.innerWidth > 1024) {
+      document.body.style.overflow = 'auto';
+      header.style.marginRight = '0';
+      hover = false;
 
-    interval = setInterval(() => {
-      sliderShif();
-    }, 3000);
-  });
-
-  block.addEventListener('mousewheel', (event) => {
-    if (hover) {
-      if (event.wheelDeltaY < 0) {
+      interval = setInterval(() => {
         slideForward();
-      } else {
-        slideBack();
-      }
+      }, 3000);
     }
   });
+
+  block.addEventListener(
+    'mousewheel',
+    (event) => {
+      clearInterval(interval);
+
+      if (hover) {
+        if (event.wheelDeltaY < 0) {
+          slideForward();
+        } else {
+          slideBack();
+        }
+      }
+    },
+    { passive: true },
+  );
 
   backArrow.addEventListener('click', () => {
     slideBack();
@@ -78,5 +97,33 @@ export default function Slider() {
 
   forwardArrow.addEventListener('click', () => {
     slideForward();
+  });
+
+  function checkDirection() {
+    if (touchEnd < touchStart) {
+      clearInterval(interval);
+      slideForward();
+
+      interval = setInterval(() => {
+        slideForward();
+      }, 3000);
+    }
+    if (touchEnd > touchStart) {
+      clearInterval(interval);
+      slideBack();
+
+      interval = setInterval(() => {
+        slideForward();
+      }, 3000);
+    }
+  }
+
+  block.addEventListener('touchstart', (e) => {
+    touchStart = e.changedTouches[0].screenX;
+  });
+
+  block.addEventListener('touchend', (e) => {
+    touchEnd = e.changedTouches[0].screenX;
+    checkDirection();
   });
 }
