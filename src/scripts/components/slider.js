@@ -6,6 +6,7 @@ export default function Slider() {
   const slider = block.querySelector('.js-header__animation');
   const backArrow = block.querySelector('.js-header__slide-back');
   const forwardArrow = block.querySelector('.js-header__slide-forward');
+  const aboutContainer = document.querySelector('.js-about-container');
 
   const totalSlides = slider.children.length;
   const totalWidth =
@@ -17,7 +18,6 @@ export default function Slider() {
   let interval = setInterval(() => {
     slideForward();
   }, 3000);
-  let margin = 0;
 
   let touchStart = 0;
   let touchEnd = 0;
@@ -52,27 +52,31 @@ export default function Slider() {
   block.addEventListener(
     'mouseenter',
     () => {
-      if (window.innerWidth > 1024) {
-        hover = true;
-        clearInterval(interval);
+      clearInterval(interval);
 
-        header.style.marginRight = `${window.innerWidth - document.body.clientWidth}px`;
+      if (window.innerWidth > 1024) {
+        const scrollWidth = `${window.innerWidth - document.body.clientWidth}px`;
+        hover = true;
+
+        header.style.marginRight = scrollWidth;
+        aboutContainer.style.marginRight = scrollWidth;
         document.body.style.overflow = 'hidden';
       }
     },
     { passive: true },
   );
 
-  slider.addEventListener('mouseleave', () => {
+  block.addEventListener('mouseleave', () => {
     if (window.innerWidth > 1024) {
       document.body.style.overflow = 'auto';
       header.style.marginRight = '0';
+      aboutContainer.style.marginRight = '0';
       hover = false;
-
-      interval = setInterval(() => {
-        slideForward();
-      }, 3000);
     }
+
+    interval = setInterval(() => {
+      slideForward();
+    }, 3000);
   });
 
   block.addEventListener(
@@ -92,10 +96,14 @@ export default function Slider() {
   );
 
   backArrow.addEventListener('click', () => {
+    clearInterval(interval);
+
     slideBack();
   });
 
   forwardArrow.addEventListener('click', () => {
+    clearInterval(interval);
+
     slideForward();
   });
 
