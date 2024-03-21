@@ -1,0 +1,121 @@
+.testimonials {
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $grey-100;
+    margin-bottom: 16px;
+  }
+
+  &__slogan {
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      width: 250px;
+      text-align: left;
+    }
+  }
+
+  &__list {
+    @include grid-container;
+
+    row-gap: 24px;
+    justify-content: center;
+  }
+
+  &__item {
+    grid-column: span 2;
+    padding: 75px 32px 42px;
+    background-color: $white;
+    border-radius: 16px;
+
+    @include on-tablet {
+      padding: 87px 0 32px;
+      grid-column: span 6;
+
+      @include grid-container;
+    }
+
+    @include on-desktop-s {
+      grid-column: span 4;
+
+      display: flex;
+      padding: 75px 48px 32px;
+    }
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      grid-column: 2 / span 4;
+    }
+  }
+}
+
+@for $i from 1 through 3 {
+  .testimonials__list :nth-child(#{$i}) {
+    .testimony__img-wrap::before {
+      content: ' ';
+      position: absolute;
+      left: 20px;
+      top: 2px;
+      transform: rotate(-60deg);
+      width: 108px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: var(--testimony-card-#{$i});
+      z-index: 1;
+
+      @include on-tablet {
+        top: -2px;
+        left: 90px;
+      }
+
+      @include on-desktop-s {
+        top: -1px;
+        left: 6px;
+      }
+
+      @include on-desktop-l {
+        width: 139px;
+        height: 56px;
+        top: -1px;
+        left: 17px;
+      }
+    }
+
+    .testimony__img-wrap::after {
+      content: ' ';
+      position: absolute;
+      top: 67px;
+      right: 23px;
+      transform: rotate(-60deg);
+      width: 108px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: var(--testimony-card-#{$i});
+      z-index: 1;
+
+      @include on-tablet {
+        top: 69px;
+        right: 88px;
+      }
+
+      @include on-desktop-s {
+        top: 69px;
+        right: 7px;
+      }
+
+      @include on-desktop-l {
+        width: 139px;
+        height: 56px;
+        top: 91px;
+        right: 17px;
+      }
+    }
+
+    .testimony__quotes {
+      filter: var(--testimony-quotes-filter-#{$i});
+    }
+  }
+}

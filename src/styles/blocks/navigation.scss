@@ -1,0 +1,150 @@
+.navigation {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: auto;
+  background: center / cover no-repeat url(../images/icons/Menu.png);
+
+  @include on-desktop-s {
+    width: 550px;
+    height: fit-content;
+    background: none;
+    margin-right: 0;
+  }
+
+  &__wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    z-index: 3;
+    max-width: 100vw;
+    transform-origin: top center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-180px);
+    background-color: $blue-300;
+    color: $black-900;
+    padding: 100px 20px;
+    transition:
+      opacity $transition,
+      transform $transition;
+
+    @include on-desktop-s {
+      position: static;
+      min-height: fit-content;
+      z-index: 1;
+      transform-origin: 0;
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+      background-color: transparent;
+      padding: 0;
+      transition: none;
+    }
+  }
+
+  &__close {
+    background: center / cover no-repeat url('../images/icons/close.png');
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+
+    @include on-desktop-s {
+      display: none;
+    }
+  }
+
+  &__list {
+    @include on-desktop-s {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__list :nth-child(2) {
+    display: none;
+  }
+
+  &__item {
+    margin-bottom: 15px;
+
+    @include on-desktop-s {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-link {
+    font-size: 13px;
+    line-height: 150%;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    @include on-desktop-s {
+      color: $white;
+    }
+
+    @include hover(text-shadow, (1px 1px 3px $white, -1px -1px 3px $white));
+  }
+
+  &--footer {
+    background: none;
+    width: auto;
+    height: fit-content;
+    margin-right: 0;
+
+    .navigation__wrapper {
+      position: static;
+      display: flex;
+      min-height: fit-content;
+      max-width: 100vw;
+      z-index: 1;
+      transform-origin: 0;
+      opacity: 1;
+      pointer-events: all;
+      transform: none;
+      background-color: transparent;
+      padding: 0;
+    }
+
+    .navigation__close {
+      display: none;
+    }
+
+    .navigation__list {
+      position: static;
+      margin-bottom: 80px;
+
+      @include on-tablet {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .navigation__list :nth-child(2) {
+      display: list-item;
+    }
+
+    .navigation__item {
+      margin-bottom: 24px;
+    }
+
+    .navigation__nav-link {
+      color: $white;
+    }
+  }
+}
+
+.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: all;
+}
