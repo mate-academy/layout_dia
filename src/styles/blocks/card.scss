@@ -1,0 +1,171 @@
+.card {
+  border-radius: 16px;
+  padding: 32px;
+  background-color: $white-color;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @include hover(box-shadow, $shadow);
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 23px;
+    width: 46px;
+    height: 24px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: $blue-color;
+    background-color: rgba(32, 96, 246, 0.1);
+  }
+
+  &__image-container {
+    position: relative;
+    width: 196px;
+    height: 196px;
+    margin-inline: auto;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-small-desktop {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-medium-desktop {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__image-background {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    &::after {
+      content: '';
+
+      @include card-image-background;
+
+      top: 2px;
+      left: -40px;
+      transform-origin: right top;
+
+      @include on-tablet {
+        left: -46px;
+      }
+
+      @include on-small-desktop {
+        left: -40px;
+      }
+
+      @include on-medium-desktop {
+        left: -46px;
+      }
+    }
+
+    &::before {
+      content: '';
+
+      @include card-image-background;
+
+      right: -2px;
+      bottom: -20px;
+      transform-origin: 0 0;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-small-desktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include on-medium-desktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__description {
+    margin-top: 24px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: $text-color;
+    height: 80px;
+    width: max-content;
+    max-width: 200px;
+  }
+
+  &__name {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 16px;
+    color: $title-color;
+  }
+
+  &__company {
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    color: $text-color;
+  }
+
+  &__button {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: max-content;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $dark-grey-color;
+
+    @include hover(transform, scale(1.1));
+
+    &::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: url('../images/icons/icon-link-arrow.svg'), $blue-color;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+    }
+  }
+}
