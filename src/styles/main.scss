@@ -1,7 +1,85 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './hero_screen/header';
+@import './hero_screen/hero_screen';
+@import './welcome/welcome';
+@import './what-we-do/what-we-do';
+@import './process/process';
+@import './testimonials/testimonials';
+@import './cta-block/cta-block';
+@import './footer/footer';
+
+* {
+  margin: 0;
+  scroll-behavior: smooth;
+  transition: 0.3s;
+}
 
 body {
-  background: $c-gray;
+  background: $g-white;
+  margin: 0;
+}
+
+.container {
+  padding-inline: 20px;
+  padding-top: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+    padding-top: 48px;
+  }
+
+  @include on-desktop {
+    padding-inline: 127px;
+  }
+
+  @include on-large {
+    padding-inline: 227px;
+  }
+
+  &--header {
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &--title {
+    @include on-small-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &--welcome {
+    @include on-small-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &--what_we_do {
+    background-color: $white;
+    border-radius: 30px;
+  }
+
+  &--cta_block {
+    @include on-tablet {
+      background: url(../images/Shapes.png) no-repeat center;
+      background-size: contain;
+      padding-bottom: 250px;
+    }
+
+    @include on-small-desktop {
+      @include page-grid;
+    }
+  }
+
+  &--footer {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
 }
