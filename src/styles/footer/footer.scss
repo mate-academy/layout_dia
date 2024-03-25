@@ -34,6 +34,7 @@
       -webkit-text-fill-color: $white;
       font-size: 15px;
       font-weight: 600;
+      padding-left: 10px;
       color: $white;
 
       &:hover {
@@ -94,6 +95,8 @@
       }
 
       &__phone {
+        display: flex;
+
         @include white-text;
 
         text-decoration: none;
@@ -110,6 +113,9 @@
 
       &__adress {
         @include white-text;
+
+        
+        display: flex;
 
         text-decoration: none;
         cursor: pointer;
@@ -149,7 +155,6 @@
           width: 32px;
 
           &:hover {
-            box-shadow: 0 9px 18px 0 $blue;
             border-radius: 5px;
             border: none;
             appearance: none;
@@ -200,13 +205,35 @@
         &__link {
           @include grey-text;
 
+          @include hover-and-focus-menu;
+
           color: $white;
           text-decoration: none;
           cursor: pointer;
 
-          @include hover-and-focus-menu;
+          @include on-tablet {
+            &--header {
+              font-size: 25px;
+            }
+          }
+        }
+
+        @include on-tablet {
+          &--header {
+            display: flex;
+            justify-content: center;
+          }
         }
       }
+
+     @include on-tablet {
+      &--header {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        list-style: none;
+      }
+     }
     }
   }
 }
