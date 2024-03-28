@@ -1,0 +1,130 @@
+.testimonials-card {
+  background-color: $white;
+  border-radius: 16px;
+  padding: 75px 32px 42px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19.5px;
+  grid-column: 1 / -1;
+  display: grid;
+
+  @include hover(scale, 1.03);
+
+  @include onLaptop {
+    grid-column: span 4;
+  }
+
+  &__image {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    justify-self: center;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: $blue;
+      transform: rotate(-60deg);
+
+      @include onTable {
+        width: 140px;
+        height: 56px;
+      }
+
+      @include onLaptop {
+        width: 109px;
+        height: 44px;
+      }
+    }
+
+    &::before {
+      left: -35px;
+
+      @include onTable {
+        left: -47px;
+      }
+
+      @include onLaptop {
+        left: -35px;
+      }
+    }
+
+    &::after {
+      left: 35px;
+      bottom: 0;
+
+      @include onTable {
+        left: 47px;
+      }
+
+      @include onLaptop {
+        left: 35px;
+      }
+    }
+  }
+
+  &__img {
+    border-radius: 100%;
+    overflow: hidden;
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+    object-position: top;
+
+    @include onTable {
+      height: 140px;
+      width: 140px;
+    }
+
+    @include onLaptop {
+      height: 110px;
+      width: 110px;
+    }
+  }
+
+  &__text {
+    color: $grey;
+    position: relative;
+    padding-top: 100px;
+    margin: 0 auto 16px;
+    max-width: 360px;
+    text-align: center;
+    overflow: hidden;
+    word-wrap: break-word;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url(/src/images/testimonials/bracket.png);
+      position: absolute;
+      top: 68px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__surname {
+    color: $text-black;
+    text-align: center;
+    margin-bottom: 4px;
+
+  }
+
+  &__profession {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: $light-grey;
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+}
