@@ -19,22 +19,45 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 80px;
+    gap: 40px;
 
-    &--input {
-      width: 280px;
-      height: 41px;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid $c-white;
-    }
-
+    &--input,
     &--textarea {
       width: 280px;
       height: 41px;
       background-color: transparent;
       border: none;
       border-bottom: 1px solid $c-white;
+
+      @include placeholder {
+        color: $c-white;
+        opacity: 70%;
+        font-family: $main-font-family;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      &:hover {
+        outline: none;
+        border-bottom: 1px solid $blue-color;
+
+      }
+      &:focus-within {
+        color: $c-white;
+        font-family: $main-font-family;
+        font-size: 15px;
+        line-height: 1.5;
+
+        @include placeholder {
+          opacity: 0;
+        }
+
+      }
+    }
+
+    &--textarea {
       margin-bottom: 56px;
+      resize: none;
     }
 
     &--btn {

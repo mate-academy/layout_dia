@@ -32,3 +32,4 @@ function updateSlider() {
 
 updateSlider();
 
+
