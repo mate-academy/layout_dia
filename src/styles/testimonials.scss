@@ -1,6 +1,12 @@
 .testimonials {
   padding: 0 20px;
 
+  @include page-grid;
+
+  @include on-tablet {
+    padding: 0 41px;
+  }
+
   &__title {
     text-transform: uppercase;
     color: $subtitle-color;
@@ -18,14 +24,26 @@
     font-size: 32px;
     font-weight: 600;
     line-height: 1.5;
-    text-align: center;
     margin-bottom: 48px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+      grid-column: 1 / 3;
+    }
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
+    @include page-grid;
+    
     gap: 24px;
+    grid-column: span 2;
+
+
+    @include on-tablet {
+      grid-column: span 6;
+      gap: 30px;
+    }
   }
 
   &__card {
@@ -33,10 +51,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 280px;
-    height: 456px;
     background-color: $c-white;
     border-radius: 16px;
+    padding: 32px 0;
+
+    grid-column: span 2;
 
     &__img {
       width: 196px;
@@ -46,6 +65,11 @@
       justify-content: center;
       position: relative;
       margin-bottom: 24px;
+
+      @include on-tablet {
+        width: 250px;
+        height: 250px;
+      }
 
       &--rect {
         display: block;
@@ -57,6 +81,13 @@
         background-color: $blue-color;
         border-radius: 12px;
         transform: rotate(-60deg);
+
+        @include on-tablet {
+          width: 139px;
+          height: 56px;
+          top: 55px;
+          left: 5px;
+        }
       }
 
       &--rect2 {
@@ -69,6 +100,13 @@
         background-color: $blue-color;
         border-radius: 12px;
         transform: rotate(-60deg);
+
+        @include on-tablet {
+          width: 139px;
+          height: 56px;
+          top: 135px;
+          right: 5px;
+        }
       }
 
       &--photo {
@@ -76,6 +114,10 @@
         width: 110px;
         border-radius: 50%;
         z-index: 999;
+
+        @include on-tablet {
+          width: 140px;
+        }
       }
     }
 
@@ -86,6 +128,10 @@
       width: 24px;
       height: 24px;
       margin-bottom: 8px;
+
+      @include on-tablet {
+        margin-bottom: 16px;
+      }
     }
 
     &--cont {
@@ -94,7 +140,12 @@
       color: $c-grey;
       font-size: 13px;
       line-height: 1.5;
+      letter-spacing: 0.02em;
       text-align: center;
+
+      @include on-tablet {
+        max-width: 362px;
+      }
     }
 
     &--name {

@@ -1,10 +1,16 @@
 .services {
-  padding: 120px 18px 0;
+  padding: 120px 20px 0;
+
+  @include page-grid;
+
+  @include on-tablet {
+    padding: 148px 39px 0;
+  }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include page-grid;
+    
+    grid-column: 1 / -1;
     gap: 24px;
   }
 
@@ -20,21 +26,33 @@
   }
 
   &__descr {
-    max-width: 280px;
     color: $c-dark;
     font-family: $main-font-family;
     font-size: 32px;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 24px;
+
+    grid-column: 1 / 2;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__text {
     margin-bottom: 48px;
 
+    @include on-tablet {
+      margin-bottom: 56px;
+      grid-row: 3 / 3;
+      grid-column: span 3;
+    }
+
     &--par {
       color: $c-grey;
       font-size: 14px;
+      letter-spacing: 0.01em;
       line-height: 1.5;
       margin-bottom: 24px;
 
@@ -50,6 +68,11 @@
     height: 264px;
     border-radius: 30px;
     padding: 32px;
+
+    @include on-tablet {
+      max-width: 264px;
+      grid-column: span 3;
+    }
 
     &__number {
       display: flex;
@@ -82,6 +105,20 @@
       display: flex;
       align-items: center;
       gap: 16px;
+    }
+  }
+
+  &__card2 {
+    background-color: white;
+    max-width: 280px;
+    height: 264px;
+    border-radius: 30px;
+    padding: 32px;
+
+    @include on-tablet {
+      max-width: 264px;
+      grid-column: span 3;
+      transform: translateY(-50%);
     }
   }
 
