@@ -9,6 +9,11 @@
     padding: 180px 41px 80px;
   }
 
+  @include on-desktop-small {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+
   &__form-name {
     color: $c-white;
     font-family: $main-font-family;
@@ -20,8 +25,12 @@
     grid-column: span 2;
 
     @include on-tablet {
-      grid-column: span 4;
+      grid-column: 1 / 5;
       margin-bottom: $margin-bottom-tablet;
+    }
+
+    @include on-desktop-small {
+      grid-column: 1 / 6;
     }
   }
 
@@ -36,6 +45,12 @@
       gap: 48px;
       grid-column: span 4;
       margin-bottom: 120px;
+    }
+
+    @include on-desktop-small {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+      margin-bottom: 104px;
     }
 
     &--input {
@@ -71,7 +86,11 @@
       }
 
       @include on-tablet {
-        grid-column: span 4;
+        grid-column: 1 / span 4;
+      }
+
+      @include on-desktop-small {
+        grid-column: 1 / span 5;
       }
     }
 
@@ -110,8 +129,12 @@
       }
 
       @include on-tablet {
-        grid-column: span 4;
+        grid-column: 1 / span 4;
         margin-bottom: 80px;
+      }
+
+      @include on-desktop-small {
+        grid-column: 1 / span 5;
       }
     }
 
@@ -133,6 +156,10 @@
       @include on-tablet {
         grid-column: 1 / 3;
       }
+
+      @include on-desktop-small {
+        grid-column: 1 / span 4;
+      }
     }
   }
 
@@ -150,6 +177,10 @@
       grid-column: 1 / 3;
       margin-bottom: $margin-bottom-tablet;
     }
+
+    @include on-desktop-small {
+      grid-column: 7 / span 4;
+    }
   }
 
   &__contacts {
@@ -158,27 +189,73 @@
     grid-column: span 2;
 
     @include on-tablet {
-      grid-column: span 6;
+      grid-column: 1 / span 5;
+    }
+
+    @include on-desktop-small {
+      grid-column: 1 / -1;
+      grid-row: 2;
     }
 
 
     &--list {
-      @include page-grid;
-
       grid-column: span 2;
-      gap: 40px;
       list-style: none;
 
       @include on-tablet {
         grid-column: span 6;
-        gap: 48px;
+      }
+
+      @include on-desktop-small {
+        grid-column: 7 / span 5;
+      }
+    }
+  }
+
+  .footer-list {
+    margin-bottom: 40px;
+    font-style: normal;
+
+    @include on-desktop-small {
+      margin-bottom: 0;
+    }
+
+    &__item {
+      grid-column: span 2;
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        grid-column: span 4;
+        margin-bottom: 48px;
+      }
+
+      @include on-desktop-small {
+        margin-bottom: $margin-bottom-tablet;
+        grid-column: 7 / span 4;
+      }
+
+      &--name {
+        text-transform: uppercase;
+        color: $c-white;
+        margin-bottom: 8px;
+        opacity: 50%;
+        font-family: $main-font-family;
+        font-size: $small-font-size;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 3px;
+      }
+
+      &--cont {
+        text-decoration: none;
+        color: $c-white;
+        font-size: 24px;
+        line-height: 1.5;
       }
     }
   }
 
   &__social {
-    @include page-grid;
-
     margin-bottom: 80px;
     grid-column: span 2;
 
@@ -187,8 +264,14 @@
       margin-bottom: 139px;
     }
 
+    @include on-desktop-small {
+      grid-column: 7 / span 4;
+      margin-bottom: 164px;
+    }
+
     &--name {
       text-transform: uppercase;
+      font-style: normal;
       color: $c-white;
       margin-bottom: 16px;
       opacity: 50%;
@@ -203,6 +286,10 @@
       @include on-tablet {
         grid-column: span 6;
       }
+
+      @include on-desktop-small {
+        grid-column: 7 / span 4;
+      }
     }
 
     &--list {
@@ -216,6 +303,10 @@
 
       @include on-tablet {
         grid-column: span 6;
+      }
+
+      @include on-desktop-small {
+        grid-column: 7 / span 4;
       }
 
     }
@@ -239,20 +330,31 @@
       margin-bottom: 24px;
       grid-column: 1 / -1;
     }
+
+    @include on-desktop-small {
+      grid-row: 3;
+      grid-column: 1 / 2;
+      margin-bottom: 0;
+    }
   }
 
   &__nav {
     @include page-grid;
 
+    align-items: center;
     grid-column: span 2;
 
     @include on-tablet {
       grid-column: 1 / -1;
     }
 
+    @include on-desktop-small {
+      grid-row: 3;
+    }
+
     &__list {
       @include page-grid;
-
+      
       grid-column: span 2;
       gap: 24px;
       list-style: none;
@@ -260,6 +362,11 @@
       @include on-tablet {
         gap: 40px;
         grid-column: span 6;
+      }
+
+      @include on-desktop-small {
+        gap: 64px;
+        grid-column: 4 / 12;
       }
 
       &--item {
@@ -279,35 +386,5 @@
     }
   }
 
-  .footer-list {
-    margin-bottom: 40px;
-    font-style: normal;
 
-    &__item {
-      grid-column: span 2;
-
-      @include on-tablet {
-        grid-column: span 4;
-      }
-
-      &--name {
-        text-transform: uppercase;
-        color: $c-white;
-        margin-bottom: 8px;
-        opacity: 50%;
-        font-family: $main-font-family;
-        font-size: $small-font-size;
-        font-weight: 700;
-        line-height: 1.5;
-        letter-spacing: 3px;
-      }
-
-      &--cont {
-        text-decoration: none;
-        color: $c-white;
-        font-size: 24px;
-        line-height: 1.5;
-      }
-    }
-  }
 }
