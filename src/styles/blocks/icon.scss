@@ -1,0 +1,43 @@
+$height-bar: 2px;
+
+.icon {
+  box-sizing: border-box;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__bar {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 3px;
+    width: 18px;
+    height: $height-bar;
+    background-color: #fff;
+    transition: all 0.5s;
+    transition-property: transform, top, bottom;
+
+    &--top {
+      top: 8px;
+    }
+
+    &--bottom {
+      bottom: 8px;
+    }
+
+    &--top-rotate {
+      top: calc(50% - $height-bar / 2);
+      transform: rotate(45deg);
+    }
+
+    &--bottom-rotate {
+      bottom: calc(50% - $height-bar / 2);
+      transform: rotate(-45deg);
+    }
+  }
+}
