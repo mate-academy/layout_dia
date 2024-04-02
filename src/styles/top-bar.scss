@@ -1,7 +1,7 @@
 .top-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 48px;
 
   @include page-grid;
@@ -11,6 +11,11 @@
   @include on-tablet {
     margin-bottom: 56px;
     grid-column: span 6;
+  }
+
+  @include on-desktop-small {
+    grid-column: span 12;
+    margin-bottom: 164px;
   }
 
   &__cont {
@@ -28,6 +33,10 @@
 
   &__nav {
     display: none;
+
+    @include on-desktop-small {
+      display: block;
+    }
   }
 
   &__img {
@@ -41,6 +50,10 @@
     align-items: center;
     width: 24px;
     height: 24px;
+
+    @include on-desktop-small {
+      display: none;
+    }
   }
 
   &__button {
@@ -54,11 +67,16 @@
     line-height: 1.5;
     letter-spacing: 2px;
     padding-bottom: 8px;
+    white-space: nowrap;
     grid-column: span 1;
     grid-row: 1 / -1;
 
     @include on-tablet {
       grid-column: 6 / span 1;
+    }
+
+    @include on-desktop-small {
+      grid-column: 12 / span 1;
     }
 
     &::after {
