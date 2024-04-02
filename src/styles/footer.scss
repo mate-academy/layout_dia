@@ -3,30 +3,48 @@
   background-color: $header-bc-c;
   border-radius: 30px 30px 0 0;
 
+  @include page-grid;
+
+  @include on-tablet {
+    padding: 180px 41px 80px;
+  }
+
   &__form-name {
-    width: 280px;
     color: $c-white;
     font-family: $main-font-family;
     font-size: 32px;
     font-weight: 600;
     line-height: 1.3;
+    letter-spacing: 0.02em;
     margin-bottom: 48px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 4;
+      margin-bottom: 56px;
+    }
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include page-grid;
+
     margin-bottom: 80px;
     gap: 40px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      gap: 48px;
+      grid-column: span 4;
+      margin-bottom: 120px;
+    }
 
     &--input {
-      width: 280px;
+      width: 100%;
       height: 41px;
       background-color: transparent;
       border: none;
       border-bottom: 1px solid $c-white;
+      grid-column: span 2;
 
       @include placeholder {
         color: $c-white;
@@ -51,16 +69,21 @@
           opacity: 0;
         }
       }
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
     }
 
     &--textarea {
-      width: 280px;
+      width: 100%;
       height: 41px;
       background-color: transparent;
       border: none;
       border-bottom: 1px solid $c-white;
       margin-bottom: 56px;
       resize: none;
+      grid-column: span 2;
 
       @include placeholder {
         color: $c-white;
@@ -84,6 +107,11 @@
         @include placeholder {
           opacity: 0;
         }
+      }
+
+      @include on-tablet {
+        grid-column: span 4;
+        margin-bottom: 80px;
       }
     }
 
@@ -100,6 +128,11 @@
       line-height: 1.5;
       letter-spacing: 0.02em;
       text-align: center;
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: 1 / 3;
+      }
     }
   }
 
@@ -110,25 +143,67 @@
     font-weight: 600;
     line-height: 1.5;
     margin-bottom: 48px;
+
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+      margin-bottom: 56px;
+    }
   }
 
   &__contacts {
+    @include page-grid;
+
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+
     &--list {
-      display: flex;
-      flex-direction: column;
+      @include page-grid;
+
+      grid-column: span 2;
       gap: 40px;
       list-style: none;
       padding: 0;
+
+      @include on-tablet {
+        grid-column: span 6;
+        gap: 48px;
+      }
     }
   }
 
   &__social {
+    @include page-grid;
+
     margin-bottom: 80px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin-bottom: 139px;
+    }
 
     &--name {
+      text-transform: uppercase;
       color: $c-white;
       margin-bottom: 16px;
       opacity: 50%;
+      font-family: $main-font-family;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 3px;
+
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
     }
 
     &--list {
@@ -138,6 +213,13 @@
       align-items: center;
       gap: 32px;
       padding: 0;
+
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
+
     }
 
     &--icon {
@@ -153,16 +235,39 @@
     width: 46px;
     height: 28px;
     margin-bottom: 48px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      margin-bottom: 24px;
+      grid-column: 1 / -1;
+    }
   }
 
   &__nav {
+    @include page-grid;
+
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
 
     &__list {
-      display: flex;
-      flex-direction: column;
+      @include page-grid;
+
+      grid-column: span 2;
       gap: 24px;
       list-style: none;
       padding: 0;
+
+      @include on-tablet {
+        gap: 40px;
+        grid-column: span 6;
+      }
+
+      &--item {
+        white-space: nowrap;
+      }
 
       &--link {
         text-transform: uppercase;
@@ -182,10 +287,22 @@
     font-style: normal;
 
     &__item {
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
       &--name {
+        text-transform: uppercase;
         color: $c-white;
         margin-bottom: 8px;
         opacity: 50%;
+        font-family: $main-font-family;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 3px;
       }
 
       &--cont {
