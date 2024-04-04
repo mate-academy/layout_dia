@@ -8,12 +8,6 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const button = document.getElementById('button');
-
-button.addEventListener('click', function(event) {
-  event.preventDefault();
-}, false);
-
 document.addEventListener('DOMContentLoaded', function() {
   const images = document.querySelectorAll('.slider__photo');
   let currentImageIndex = 0;
