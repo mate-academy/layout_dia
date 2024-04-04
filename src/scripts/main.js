@@ -13,3 +13,34 @@ const button = document.getElementById('button');
 button.addEventListener('click', function(event) {
   event.preventDefault();
 }, false);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const images = document.querySelectorAll('.slider__photo');
+  let currentImageIndex = 0;
+
+  function showImage(index) {
+    images.forEach((image, i) => {
+      if (i === index) {
+        image.classList.remove('hidden');
+      } else {
+        image.classList.add('hidden');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    showImage(currentImageIndex);
+  }
+
+  function prevSlide() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    showImage(currentImageIndex);
+  }
+
+  const nextButton = document.querySelector('.button--slider.next');
+  const prevButton = document.querySelector('.button--slider.prev');
+
+  nextButton.addEventListener('click', nextSlide);
+  prevButton.addEventListener('click', prevSlide);
+});
