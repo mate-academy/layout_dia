@@ -3,7 +3,7 @@
   box-sizing: border-box;
   height: 100vh;
   overflow: auto;
-  padding: $inline-padding-small;
+  padding: $inline-padding-small $inline-padding-small 100px;
 
   @include on-tablet {
     padding: $inline-padding-small $inline-padding-tablet;
@@ -13,6 +13,7 @@
     position: sticky;
     top: 0;
     z-index: 5;
+    height: 100%;
   }
 
   &__nav {
@@ -20,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: auto;
 
     &--list {
       list-style: none;
@@ -30,7 +32,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 150px;
 
     &--link {
       text-transform: uppercase;
@@ -41,6 +43,37 @@
       font-weight: 700;
       line-height: 1.5;
       letter-spacing: 3px;
+    }
+  }
+
+  &__social {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    &--list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
+
+    }
+
+    &--icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
     }
   }
 }
