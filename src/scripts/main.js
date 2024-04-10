@@ -24,14 +24,20 @@ const moveToSlide = (track, currentSlide, targetSlide) => {
 
 prevButton.addEventListener('click', (e) => {
   const currentSlide = track.querySelector('.current-slide');
-  const prevSlide = currentSlide.previousElementSibling;
+  let prevSlide = currentSlide.previousElementSibling;
 
+  if (!prevSlide) {
+    prevSlide = slides[slides.length - 1];
+  }
   moveToSlide(track, currentSlide, prevSlide);
 });
 
 nextButton.addEventListener('click', (e) => {
   const currentSlide = track.querySelector('.current-slide');
-  const nextSlide = currentSlide.nextElementSibling;
+  let nextSlide = currentSlide.nextElementSibling;
 
+  if (!nextSlide) {
+    nextSlide = slides[0];
+  }
   moveToSlide(track, currentSlide, nextSlide);
 });
