@@ -1,0 +1,29 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    overflow: hidden;
+
+    @include transition-duration;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

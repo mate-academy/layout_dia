@@ -1,6 +1,90 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin big-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: $property 0.3s;
   &:hover {
-    #{$_property}: $_toValue;
+    cursor: pointer;
+    #{$property}: $toValue;
+  }
+}
+
+@mixin hover-scale {
+  &:hover {
+    color: $blue-color;
+  }
+}
+
+@mixin transition-duration {
+  transition-duration: 0.5s;
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+    margin-inline: auto;
+  }
+
+  @include small-desktop {
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include big-desktop {
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include design {
+    column-gap: 30px;
   }
 }
