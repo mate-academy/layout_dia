@@ -1,0 +1,125 @@
+.testimonials {
+  &__container {
+    @include page-grid;
+  }
+
+  &__label {
+    margin-bottom: 16px;
+    grid-column: span 2;
+
+    @include on-mobile {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    grid-column: span 2;
+
+    @include on-mobile {
+      grid-column: 1 / -1;
+    }
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__items {
+    grid-column: span 2;
+    display: grid;
+    gap: 24px;
+
+    @include on-mobile {
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 767.98px) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+}
+
+.testimonial {
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+  border-radius: 30px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 42px;
+
+  & .label {
+    text-align: center;
+  }
+
+  &__image {
+    position: relative;
+    height: 196px;
+    width: 196px;
+    margin-bottom: 24px;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: 12px;
+      width: 108px;
+      height: 43px;
+      background: $blue;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 6px;
+      left: -40px;
+      transform-origin: top right;
+    }
+
+    &::after {
+      bottom: 6px;
+      right: -40px;
+      transform-origin: bottom left;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 110px;
+      width: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+  }
+
+  &__feedback {
+    font-family: $second-family;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: $text-color;
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    column-gap: 8px;
+
+    &::before {
+      content: '';
+      background: url(../images/icons/quotes.svg) center/24px 24px cover
+        no-repeat;
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    text-align: center;
+  }
+}

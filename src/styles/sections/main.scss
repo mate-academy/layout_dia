@@ -1,0 +1,106 @@
+.main {
+  background-color: $dark-bg;
+  border-radius: 0 0 30px 30px;
+
+  &__container {
+    @include page-grid;
+
+    @include on-desktop {
+      grid-template-rows: auto auto 1fr;
+      grid-template-areas:
+        'title title title title title title slider slider slider slider slider slider'
+        'text text text text plug plug slider slider slider slider slider slider'
+        'button button button button plug plug slider slider slider slider slider slider';
+    }
+  }
+
+  &__plug {
+    grid-area: plug;
+  }
+
+  &__title {
+    color: $text-light;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 62px;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+    font-family: $font-family;
+    grid-column: 1 / -1;
+
+    @include on-mobile {
+      grid-column: 1 / 7;
+    }
+
+    @include on-desktop {
+      grid-area: title;
+      margin-top: 120px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 27px;
+    color: $text-light;
+    grid-column: span 2;
+    margin-bottom: 72px;
+    font-family: $second-family;
+
+    @include on-mobile {
+      grid-column: span 4;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 7;
+    }
+
+    @include on-desktop {
+      grid-area: text;
+    }
+  }
+
+  &__link {
+    grid-column: span 2;
+    height: 50px;
+
+    @include on-mobile {
+      grid-column: span 3;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-area: button;
+    }
+  }
+
+  &__slider {
+    margin: 48px -20px 0;
+    grid-column: span 2;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @include on-mobile {
+      grid-column: span 6;
+      margin: 48px -40px 0;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-area: slider;
+      grid-column: 7 / -1;
+      border-radius: 30px 0;
+      margin: 0 -40px;
+    }
+
+    @media (min-width: $max-viewport) {
+      margin: 0;
+      margin-right: calc(((100vw - #{$max-width-container}) / 2) * -1);
+    }
+  }
+}

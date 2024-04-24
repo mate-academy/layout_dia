@@ -1,0 +1,87 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: $padding-header-v 0;
+  height: $height-header;
+  background-color: $dark-bg;
+
+  @include on-desktop {
+    height: $height-header-desktop;
+    padding: $padding-header-v-desktop 0;
+  }
+
+  & .menu {
+    .menu__body {
+      @media (max-width: $desktop) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 30%;
+        padding: $height-header + 20px $padding-container-tablet;
+        background-color: $dark-bg;
+        transition: left $duration;
+      }
+
+      @media (max-width: $tablet) {
+        padding: $height-header + 20px $padding-container-mobile;
+        width: 100%;
+      }
+
+      .menu-open & {
+        left: 0;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+.icon-menu {
+  display: none;
+
+  @media (max-width: $desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 24px;
+    width: 24px;
+    flex: 0 0 24px;
+    position: relative;
+    cursor: pointer;
+    z-index: 5;
+
+    &::before,
+    &::after {
+      content: '';
+      transition: all 0.3s ease 0s;
+      left: 3px;
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background-color: $text-light;
+    }
+
+    &::before {
+      top: 8px;
+    }
+
+    &::after {
+      bottom: 8px;
+    }
+
+    .menu-open & {
+      &::before {
+        transform: rotate(-45deg);
+        top: calc(50% - 1px);
+      }
+
+      &::after {
+        transform: rotate(45deg);
+        bottom: calc(50% - 1px);
+      }
+    }
+  }
+}
