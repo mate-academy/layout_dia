@@ -12,9 +12,25 @@
   }
 
   &__items {
-    display: grid;
-    gap: 30px 56px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    @include page-grid;
+
+    row-gap: 56px;
+
+    @include on-mobile {
+      row-gap: 72px;
+    }
+  }
+
+  &__item {
+    grid-column: 1 / -1;
+
+    @include on-mobile {
+      grid-column: 2 / -2;
+    }
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
   }
 
   &__image {
