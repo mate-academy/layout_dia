@@ -1,0 +1,195 @@
+.testimonials {
+  @include content-padding-inline;
+
+  padding-bottom: 120px;
+
+  @include on-tablet {
+    padding-bottom: 148px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 186px;
+  }
+
+  &__container {
+    max-width: 1148px;
+    margin: 0 auto;
+  }
+
+  &__sub-title {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 24px;
+
+    @include on-tablet {
+      row-gap: 30px;
+      justify-items: stretch;
+    }
+  }
+
+  &__item {
+    background-color: $white-color;
+    border-radius: 16px;
+    padding-block: 75px 32px;
+    padding-inline: 42px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__person {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 67px;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-desktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @media (min-width: 1600px) {
+      width: 140px;
+      height: 140px;
+    }
+
+    &::after,
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 44px;
+      height: 110px;
+      border-radius: 12px;
+      background-color: $blue-color;
+
+      @include on-tablet {
+        width: 56px;
+        height: 140px;
+      }
+
+      @include on-desktop {
+        width: 44px;
+        height: 110px;
+      }
+
+      @media (min-width: 1600px) {
+        width: 56px;
+        height: 140px;
+      }
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      transform: rotate(30deg) translate(-55%, -25%);
+    }
+
+    &::before {
+      right: 0;
+      bottom: 0;
+      transform: rotate(30deg) translate(55%, 25%);
+    }
+
+    & img {
+      z-index: 2;
+      position: absolute;
+
+      @include hover(transform, scale(1.05));
+
+      @include on-tablet {
+        width: 140px;
+        height: 140px;
+      }
+
+      @include on-desktop {
+        width: 110px;
+        height: 110px;
+      }
+
+      @media (min-width: 1600px) {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 172px;
+    gap: 16px;
+    align-items: center;
+
+    @include on-tablet {
+      height: 140px;
+    }
+
+    @include on-desktop {
+      height: 172px;
+    }
+  }
+
+  &__quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    margin: 0 auto;
+    flex: 1 1 auto;
+    max-width: 362px;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      height: 24px;
+      width: 24px;
+      background-image: url('../images/testimonials/quotes.svg');
+    }
+  }
+
+  &__person-info {
+    text-align: center;
+  }
+
+  &__name {
+    color: $second-text-color;
+    margin-bottom: 4px;
+  }
+
+  &__profession {
+    font-family: $second-font-family;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    width: 205px;
+    color: $light-text-color;
+  }
+}
