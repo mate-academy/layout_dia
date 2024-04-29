@@ -5,34 +5,23 @@ const buttonLeft = document.querySelector('.slider-button--left');
 const buttonRight = document.querySelector('.slider-button--right');
 const body = document.querySelector('body');
 const page = document.querySelector('html');
+const form = document.querySelector('form');
 const info = document.querySelector('.header-bottom__info');
 const topBar = document.querySelector('.top-bar');
 const menuOpen = document.querySelector('.icon--menu');
 const menuClose = document.querySelector('.icon--close');
-const submitButton = document.querySelector('.footer__button');
-const link = document.querySelector('.menu-link');
+const menuLink = document.querySelector('.menu-link');
 
 menuOpen.addEventListener('click', () => {
   page.classList.add('scroll-lock');
 });
 
-// function removeScrollLock() {
-//   body.classList.remove('scroll-lock');
-// }
-
 menuClose.addEventListener('click', () => {
   page.classList.remove('scroll-lock');
 });
 
-link.addEventListener('click', () => {
+menuLink.addEventListener('click', () => {
   page.classList.remove('scroll-lock');
-});
-
-form.addEventListener('submit', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
 });
 
 const numberOfSlides = sliderList.childElementCount;
@@ -74,4 +63,11 @@ window.addEventListener('resize', () => {
   if (parseInt(documentWidth) < 1148) {
     info.style.paddingLeft = topBar.style.paddingLeft;
   }
+});
+
+form.addEventListener('submit', (event) => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 });
