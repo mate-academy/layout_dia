@@ -67,5 +67,4 @@ Adapt the page to the following screens:
 13. Replace `<your_account>` with your Github username in the
   [DEMO LINK](https://vinogradova8.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
-
 > To update you PR repeat steps 7-11.
