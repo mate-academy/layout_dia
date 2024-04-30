@@ -1,0 +1,168 @@
+.slider {
+  width: 100vw;
+  height: calc(50vh - 120px);
+  position: relative;
+  overflow: hidden;
+
+  @include on-small-desktop {
+    width: calc(50vw - 10px);
+    height: calc(100vh - 120px);
+  }
+
+  @include on-medium-desktop {
+    width: calc(50vw - 115px);
+  }
+
+  &__content {
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: absolute;
+
+    bottom: 24px;
+    left: 20px;
+
+    @include on-tablet {
+      bottom: 32px;
+      left: 41px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      bottom: 48px;
+      left: 78px;
+    }
+
+    @include on-medium-desktop {
+      left: 48px;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    width: 300%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    transition: transform 0.3s;
+
+    &--1-slide {
+      transform: translateX(0);
+    }
+
+    &--2-slide {
+      transform: translateX(calc(-100% / 3));
+    }
+
+    &--3-slide {
+      transform: translateX(calc((-100% / 3) * 2));
+    }
+  }
+
+  &__slide {
+    border-radius: 30px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    max-height: 1320px;
+
+    @include on-small-desktop {
+      border-radius: 30px 0;
+    }
+
+    &--1 {
+      background-image: url(/src/images/slider/slide_1.png);
+      transition: background-image $effectDuration;
+
+      @include on-small-desktop {
+        background-image: url(/src/images/slider/slide_1_big.png);
+      }
+    }
+
+    &--2 {
+      background-image: url(/src/images/slider/slide_2.png);
+      transition: background-image $effectDuration;
+    }
+
+    &--3 {
+      background-image: url(/src/images/slider/slide_3.png);
+      transition: background-image $effectDuration;
+
+      @include on-tablet {
+        background-position: 50% 90%;
+      }
+
+      @include on-small-desktop {
+        background-position: 50%;
+      }
+
+      @include on-large-desktop {
+        background-position: 50% 90%;
+      }
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    display: block;
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+
+    &--right {
+      background-image: url(/src/images/arrow/arrow_right.png);
+    }
+
+    &--left {
+      background-image: url(/src/images/arrow/arrow_left.png);
+    }
+  }
+
+  &__text {
+    display: flex;
+
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+  }
+}
