@@ -1,0 +1,45 @@
+.nav {
+  @include on-desktop-small {
+    @include page-grid;
+
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 48px;
+    grid-column: 3 / 9;
+
+    @include on-desktop {
+      grid-column: 4 / 9;
+    }
+
+    &--item {
+      white-space: nowrap;
+
+      @include hover(transform, scale(1.2));
+
+      &:first-child{
+        margin-left: 20px;
+      }
+    }
+
+    &--link {
+      color: $c-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: $main-font-family;
+      font-size: $small-font-size;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 3px;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: $blue-color;
+      }
+    }
+  }
+}

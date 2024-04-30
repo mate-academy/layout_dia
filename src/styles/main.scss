@@ -1,7 +1,113 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './icon';
+@import './header';
+@import './top-bar';
+@import './nav';
+@import './slideshow';
+@import './welcome';
+@import './what-we-do';
+@import './menu';
+@import './services';
+@import './testimonials';
+@import './cta';
+@import './footer';
 
-body {
-  background: $c-gray;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  background-color: $c-blue;
+  font-family: $second-font-family;
+  scroll-behavior: smooth;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $c-white;
+  -webkit-box-shadow: 0 0 0 1000px $header-bc-c inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+  &__body {
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    @include on-tablet;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
+
+.main {
+  display: grid;
+
+  &__section {
+    padding-bottom: 120px;
+    padding-left: $inline-padding-small;
+    padding-right: $inline-padding-small;
+
+    @include on-tablet {
+      padding-bottom: 148px;
+      padding-left: $inline-padding-tablet;
+      padding-right: $inline-padding-tablet;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    @include on-desktop-small {
+      padding-left: $inline-padding-desktop-small;
+      padding-right: $inline-padding-desktop-small;
+    }
+
+    @include on-desktop {
+      padding-left: $inline-padding-desktop;
+      padding-right: $inline-padding-desktop;
+    }
+
+    @include on-desktop-xl {
+      padding-left: $inline-padding-desktop-xl;
+      padding-right: $inline-padding-desktop-xl;
+    }
+  }
+
+  &__footer {
+    @include on-tablet {
+      background-color: $c-white;
+    }
+  }
 }
