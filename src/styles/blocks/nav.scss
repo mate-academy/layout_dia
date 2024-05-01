@@ -1,0 +1,69 @@
+.nav {
+  @include on-desktop-sm {
+    display: block;
+  }
+
+  font-family: $title-font-family;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 3px;
+  text-align: center;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+
+    &--menu {
+      flex-direction: column;
+      align-items: end;
+      color: #fff;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 35px;
+      }
+    }
+
+    &--footer {
+      flex-direction: column;
+      align-items: start;
+
+      @include on-tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+
+      background-color: $design-main-color;
+      transition: transform $effect-duration;
+      transform: scale(0);
+    }
+
+    @include on-desktop-sm {
+      &:hover::after {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &__item {
+    text-transform: uppercase;
+  }
+}
