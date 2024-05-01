@@ -1,0 +1,44 @@
+.cards {
+  display: grid;
+
+  --card-columns: 2;
+
+  grid-template-columns: repeat(var(--card-columns), 1fr);
+
+  gap: 24px 20px;
+  grid-column: span 2;
+
+  @include on-tablet {
+    --card-columns: 6;
+
+    grid-template-columns: repeat(var(--card-columns), 1fr);
+    gap: 30px 30px;
+    grid-column: span 6;
+  }
+
+  @include on-desktop {
+    gap: 20px 20px;
+    grid-column: 7 / -1;
+  }
+
+  &__item {
+    background: $white-color;
+    border-radius: 16%;
+    padding: 32px 105px 32px 32px;
+    max-width: 280px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+      padding-right: 55px;
+    }
+
+    @include on-desktop {
+      padding-right: 39px;
+    }
+
+    @media (min-width: 1300px) {
+      padding-right: 85px;
+    }
+  }
+}
