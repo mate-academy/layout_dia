@@ -67,10 +67,6 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-<<<<<<< HEAD
     [DEMO LINK](https://vinogradova8.github.io/layout_dia/).
-=======
-  [DEMO LINK](https://vinogradova8.github.io/layout_dia/).
->>>>>>> fe93fce47f0692ea92aea3fc18ec03d95a6b46f9
 14. Copy `DEMO LINK` to the PR description.
 > To update you PR repeat steps 7-11.
