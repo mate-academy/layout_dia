@@ -1,0 +1,95 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: bottom;
+  transition: background-image 300ms;
+  touch-action: pan-y pinch-zoom;
+
+  $column-gap: 30px;
+
+  @include onDesktop {
+    background-position: center;
+    padding: 48px;
+    border-radius: 200px 0 0;
+    width: calc(50vw - 18.1px);
+  }
+
+  @for $img-index from 1 through $slider-img-amount {
+    &--slide-num--#{$img-index} {
+      background-image: url(../images/slider/slide-img-#{$img-index}.jpg);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $c-white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
+    &--left {
+      background-image: url(../images/slider/arrow.svg);
+      transform: rotateY(180deg);
+      @include hover(transform, scale(1.2) rotateY(180deg));
+    }
+    
+    &--right {
+      background-image: url(../images/slider/arrow.svg);
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 18px;
+    gap: 8px;
+
+    @include onDesktop {
+      padding-top: 0;
+    }
+  }
+
+  &__img-name {
+    color: $c-white;
+    text-transform: uppercase;
+    font-family: $accent-font;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+  }
+
+  &__img-desc {
+    max-width: 264px;
+    color: $c-white;
+    font-family: $main-font;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

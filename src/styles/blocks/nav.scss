@@ -1,0 +1,84 @@
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @include onDesktop {
+    justify-content: space-between;
+  }
+
+  &__logo-link {
+    @include hover(opacity, 0.8);
+    @include hover(transform, scale(1.1));
+  }
+
+  &__list {
+    display: flex;
+    gap: 48px;
+    list-style-type: none;
+    margin-left: 32px;
+
+    &-item {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+  
+      &--burger {
+        display: block;
+        padding-block: 20px;
+
+        @include onDesktop {
+          display: none;
+        }
+      }
+    }
+
+    &-link {
+      @include navlink;
+      padding-block: 20px;
+      display: block;
+
+      @include onDesktop {
+        padding-block: 48px;
+      }
+
+      @include hover(opacity, 0.8);
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__hire-us {
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    font-family: $accent-font;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    color: $c-white;
+    display: flex;
+    flex-direction: column;
+
+    @include hover(opacity, 0.8);
+    @include hover(transform, scale(1.1));
+
+    @include onDesktop {
+      position: relative;
+
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background-color: $c-salmon-pink;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+  }
+}
