@@ -1,0 +1,135 @@
+.slider {
+  position: relative;
+  margin-inline: $padding-inline-mobile * (-1);
+  height: 390px;
+  border-radius: $page-radius;
+  overflow: hidden;
+
+  @include media-breakpoint-up($screen-width-tablet) {
+    margin-inline: $padding-inline-tablet * (-1);
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    margin-left: 0;
+    margin-right: $padding-inline-desktop * (-1);
+    height: 680px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @include media-breakpoint-up($screen-width-large) {
+    margin-right: $padding-inline-large * (-1);
+  }
+
+  @include media-breakpoint-up($screen-width-extra-large) {
+    margin-right: calc(((100vw - $max-width-content) / 2) * (-1));
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    object-fit: cover;
+    object-position: center;
+    animation: fade-in 5000ms;
+
+    &--1 {
+      display: block;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 24px;
+    left: $padding-inline-mobile;
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up($screen-width-tablet) {
+      bottom: 32px;
+      left: $padding-inline-tablet;
+    }
+
+    @include media-breakpoint-up($screen-width-desktop) {
+      bottom: 48px;
+      left: 78px;
+      flex-direction: row;
+    }
+
+    @include media-breakpoint-up($screen-width-large) {
+      bottom: 48px;
+      left: 48px;
+    }
+  }
+
+  &__control {
+    margin: 0 0 16px;
+    display: flex;
+    gap: 16px;
+
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin: 0 24px 0 0;
+      align-self: center;
+    }
+  }
+
+  &__button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &__button-icon {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    transition: all $effect-duration;
+
+    &--left {
+      background-image: url(../icons/arrow-left.svg);
+
+      &:hover {
+        background-image: url(../icons/arrow-left-hover.svg);
+      }
+    }
+
+    &--right {
+      background-image: url(../icons/arrow-right.svg);
+
+      &:hover {
+        background-image: url(../icons/arrow-right-hover.svg);
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    text-transform: uppercase;
+
+    @extend %main-font-styles;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+    color: $text-main-color;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
