@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  color: $text-main-color;
+
+  &__input {
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    height: 41px;
+    font-family: $main-font-family;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+    color: $text-main-color;
+    background-color: $page-second-color;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    transition:
+      border-color $effect-duration,
+      border-bottom $effect-duration;
+
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-bottom: 48px;
+    }
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 56px;
+
+      @include media-breakpoint-up($screen-width-tablet) {
+        margin-bottom: 80px;
+      }
+    }
+
+    &::placeholder {
+      color: $text-main-color;
+      opacity: 70%;
+    }
+
+    &:hover {
+      border-color: $button-color;
+    }
+
+    &:focus {
+      border-bottom: 2px solid $button-hover-color;
+    }
+
+    &--textarea {
+      resize: none;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $page-second-color inset;
+      -webkit-text-fill-color: $text-main-color;
+    }
+  }
+
+  &__button {
+    border: none;
+  }
+}

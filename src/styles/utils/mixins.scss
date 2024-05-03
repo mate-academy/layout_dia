@@ -1,0 +1,115 @@
+@mixin media-breakpoint-up($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} $effect-duration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include media-breakpoint-up($screen-width-tablet) {
+    --columns: 6;
+
+    column-gap: 24px;
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    --columns: 12;
+  }
+}
+
+@mixin stretching-inline-page {
+  margin-inline: $padding-inline-mobile * (-1);
+
+  @include media-breakpoint-up($screen-width-tablet) {
+    margin-inline: $padding-inline-tablet * (-1);
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    margin-inline: $padding-inline-desktop * (-1);
+  }
+
+  @include media-breakpoint-up($screen-width-large) {
+    margin-inline: $padding-inline-large * (-1);
+  }
+
+  @include media-breakpoint-up($screen-width-extra-large) {
+    margin-inline: calc(((100vw - $max-width-content) / 2) * (-1));
+  }
+}
+
+@mixin margins-inline-content {
+  margin-inline: $padding-inline-mobile;
+
+  @include media-breakpoint-up($screen-width-tablet) {
+    margin-inline: $padding-inline-tablet;
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    margin-inline: $padding-inline-desktop;
+  }
+
+  @include media-breakpoint-up($screen-width-large) {
+    margin-inline: $padding-inline-large;
+  }
+
+  @include media-breakpoint-up($screen-width-extra-large) {
+    margin-inline: calc((100vw - $max-width-content) / 2);
+  }
+}
+
+@mixin transform-item {
+  transform: translateY(-50%);
+}
+
+@mixin position-services-column-1 {
+  @include media-breakpoint-up($screen-width-tablet) {
+    grid-column: 1 / 4;
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    grid-column: 7 / 10;
+  }
+}
+
+@mixin position-services-column-2 {
+  @include media-breakpoint-up($screen-width-tablet) {
+    grid-column: 4 / -1;
+
+    @include transform-item;
+  }
+
+  @include media-breakpoint-up($screen-width-desktop) {
+    grid-column: 10 / -1;
+  }
+}
+
+@mixin decoration-line {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $button-hover-color;
+    transition: transform $effect-duration;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
