@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  color: $text-main-color;
 
   &__input {
     box-sizing: border-box;
@@ -16,7 +17,9 @@
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
-    transition: all $effect-duration;
+    transition:
+      border-color $effect-duration,
+      border-bottom $effect-duration;
 
     @include media-breakpoint-up($screen-width-tablet) {
       margin-bottom: 48px;
@@ -31,6 +34,7 @@
     }
 
     &::placeholder {
+      color: $text-main-color;
       opacity: 70%;
     }
 
@@ -44,6 +48,11 @@
 
     &--textarea {
       resize: none;
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $page-second-color inset;
+      -webkit-text-fill-color: $text-main-color;
     }
   }
 

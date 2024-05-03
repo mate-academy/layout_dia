@@ -1,50 +1,72 @@
 'use strict';
 
-let slideIndex = 1;
-let intervalId;
+document.addEventListener('DOMContentLoaded', (event) => {
+  let slideIndex = 1;
+  let intervalId;
 
-function plusDivs(n) {
-  showDivs((slideIndex += n));
-}
-
-function showDivs(n) {
-  let x = document.getElementsByClassName('slider__img');
-  if (n > x.length) {
-    slideIndex = 1;
+  function plusDivs(n) {
+    showDivs((slideIndex += n));
   }
-  if (n < 1) {
-    slideIndex = x.length;
+
+  function showDivs(n) {
+    let x = document.getElementsByClassName('slider__img');
+    if (n > x.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = x.length;
+    }
+    for (let i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+    x[slideIndex - 1].style.display = 'block';
   }
-  for (let i = 0; i < x.length; i++) {
-    x[i].style.display = 'none';
+
+  function autoPlay() {
+    plusDivs(1);
   }
-  x[slideIndex - 1].style.display = 'block';
-}
 
-function autoPlay() {
-  plusDivs(1);
-}
+  function startAutoPlay() {
+    intervalId = setInterval(autoPlay, 5000);
+  }
 
-function startAutoPlay() {
-  intervalId = setInterval(autoPlay, 5000);
-}
+  function stopAutoPlay() {
+    clearInterval(intervalId);
+  }
 
-function stopAutoPlay() {
-  clearInterval(intervalId);
-}
+  let prevButton = document.querySelector('.slider__button--prev');
+  let nextButton = document.querySelector('.slider__button--next');
 
-startAutoPlay();
+  prevButton.addEventListener('click', function () {
+    stopAutoPlay();
+    plusDivs(-1);
+  });
 
-function clearForm() {
-  event.preventDefault();
-  document.getElementById('myForm').reset();
-  window.scrollTo({ top: 0 });
-}
+  nextButton.addEventListener('click', function () {
+    stopAutoPlay();
+    plusDivs(1);
+  });
 
-function inputAutofocus() {
-  event.preventDefault();
-  document
-    .getElementById('myForm')
-    .querySelector('input:first-of-type')
-    .focus();
-}
+  startAutoPlay();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  let links = document.querySelectorAll('.autofocus-link');
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      window.location.hash = 'contact-form';
+
+      document
+        .getElementById('myForm')
+        .querySelector('input:first-of-type')
+        .focus();
+
+      document
+        .getElementById('contact-form')
+        .scrollIntoView({ block: 'start' });
+    });
+  });
+});
