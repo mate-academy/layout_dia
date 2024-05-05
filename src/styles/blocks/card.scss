@@ -1,0 +1,79 @@
+.card {
+  padding: 32px;
+  min-width: 214px;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, .03);
+  border-radius: 16px;
+  background-color: #FFF;
+
+  &:nth-child(even) {
+    @include on-tablet {
+      position: relative;
+      bottom: 50%;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 0;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e9effe;
+    border-radius: 23px;
+    padding: 2px 12px;
+    color: $btn-color;
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    color: $text-color;
+    font-size: 13px;
+    font-family: $ff-ppen-sans;
+    font-weight: 600;
+    line-height: 153.84%;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    height: 40px;
+    padding-left: 56px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    padding-right: 0;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images//icons/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $bg-eclipse;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      &::before {
+        transform: scale(1.2)
+      }
+    }
+  }
+}

@@ -1,9 +1,10 @@
 .header {
   --min-heigth: 120px;
 
-  min-height: 100vh;
-
+  min-height: 800px;
   background-color: $bg-color;
+  overflow: hidden;
+  border-radius: 0 0 30px 30px;
 
   &__top {
     display: flex;
@@ -12,11 +13,19 @@
     min-height: var(--min-heigth);
     position: relative;
     z-index: 1;
-
     column-gap: 32px;
 
     @media (max-width: $width-small-desk) {
       --min-heigth: 80px;
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
     }
   }
 
@@ -30,6 +39,8 @@
 
     &-link {
       transition: 0.3s;
+      border: none;
+      background-color: transparent;
 
       &:hover {
         transform: scale(1.3);
@@ -42,21 +53,27 @@
       position: fixed;
       inset: 0;
       top: var(--min-heigth);
-
       background-color: gray;
       flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      // display: flex;  //todo
-      display: none;
+      transform: translateX(-200%);
+      display: flex;
       overflow-y: auto;
       padding: 140px 0 60px;
+      transition: all 0.3s;
+
+      &--active {
+        transform: translateX(0);
+      }
     }
   }
 
   &__link {
-    display: block;
+    background: inherit;
+    border: none;
+    cursor: pointer;
     color: #FFF;
     font-family: $ff-poppins;
     font-size: 13px;
@@ -65,7 +82,7 @@
     line-height: 150%;
     letter-spacing: 3px;
     text-transform: uppercase;
-    padding-bottom: 8px;
+    padding: 10px;
     position: relative;
     transition: 0.3s;
 
@@ -80,7 +97,6 @@
       border-radius: 4px;
       background-color: $color-active;
       transition: 0.3s;
-
     }
 
     &:hover {
@@ -92,18 +108,36 @@
     }
   }
 
-  &__bottom {
+  &__wrapper {
     @include grid-template;
   }
 
-  &__info {
-    padding-top: 120px;
+  &__bottom {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+  }
 
-    grid-column: span 5;
+  &__info {
+    @include on-mobile {
+      margin-bottom: 48px;
+    }
 
+    @include on-tablet {
+      margin-bottom: 147px;
+    }
+
+    @include on-small-desk {
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      grid-column: span 5;
+      margin-bottom: 0;
+    }
+
+    grid-column: 1 /-1;
+    text-align: left;
   }
 
   &__title {
@@ -115,25 +149,18 @@
     line-height: 106.25%;
     letter-spacing: -2px;
     margin-bottom: 32px;
+
   }
 
   &__text {
-    color: #FFF;
-
-    font-family: $ff-ppen-sans;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    margin-bottom: 83px;
+    @include on-mobile {
+      margin-bottom: 56px;
+      color: #FFF;
+      font-family: $ff-ppen-sans;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+    }
   }
-
-  .slider {
-    grid-column: 8 / -1;
-    width: 100%;
-    height: 100vh;
-
-
-  }
-
 }
