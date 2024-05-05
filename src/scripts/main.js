@@ -67,9 +67,17 @@ const iconMenu = document.querySelectorAll('.nav__logo-menu');
 const asideMenu = document.querySelector('.page__menu');
 const menuLink = document.querySelectorAll('.page__list-link');
 const page = document.querySelector('.page');
+const hireLink = document.querySelectorAll('.nav__action-link');
+
 
 for (let i = 0; i < menuLink.length; i++) {
   menuLink[i].addEventListener('click', () => {
+    asideMenu.classList.remove('active');
+    page.classList.remove('active');
+  });
+}
+for (let i = 0; i < hireLink.length; i++) {
+  hireLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
     page.classList.remove('active');
   });
@@ -89,6 +97,8 @@ iconMenu[0].addEventListener('click', () => {
     iconMenu[0].classList.add('burger');
   });
 });
+
+
 
 // #endregion
 
