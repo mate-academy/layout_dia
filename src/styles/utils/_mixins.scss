@@ -1,6 +1,88 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-mobile {
+  @media (min-width: 320px) {
+    @content;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-middle-display {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-large-display {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-extra-large-display {
+  @media (min-width: 2559px) {
+    @content;
+  }
+}
+
+@mixin on-padding-page {
+  padding-inline: 20px;
+
+  @include on-middle-display {
+    padding-inline: 50px;
+  }
+}
+
+@mixin base-grid-template {
+  @include on-padding-page;
+
+  margin: 0 auto;
+  column-gap: 20px;
+
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    column-gap: 30px;
+
+    --columns: 6;
+  }
+
+  @include on-middle-display {
+    column-gap: 20px;
+
+    --columns: 12;
+  }
+
+  @include on-large-display {
+    max-width: 1280px;
+    column-gap: 30px;
+
+    --columns: 12;
+  }
+
+  @include on-extra-large-display {
+    column-gap: 30px;
+
+    --columns: 12;
+  }
+}
+
+@mixin base-grid-template-slide {
+  @include base-grid-template;
+
+  padding-inline: 0 !important;
+
+  @include on-tablet {
+    --columns: 6;
+  }
+}
+
+@mixin transition {
+  transition: all 0.3s ease-in-out;
 }
