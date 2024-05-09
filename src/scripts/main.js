@@ -1,42 +1,72 @@
 'use strict';
 
-const arrowLeft = document.getElementById('arrow-left');
-const arrowRight = document.getElementById('arrow-right');
-const slides = document.getElementById('slides');
+document.addEventListener('DOMContentLoaded', (event) => {
+  let slideIndex = 1;
+  let intervalId;
 
-arrowLeft.addEventListener('click', () => {
-  return move('left');
-});
-
-arrowRight.addEventListener('click', () => {
-  return move('right');
-});
-
-function move(direction) {
-  const slidesClasses = slides.className;
-
-  switch (true) {
-    case slidesClasses.includes(1) && direction === 'right':
-      slides.classList.remove('slider__slides--1-slide');
-      slides.classList.add('slider__slides--2-slide');
-      break;
-
-    case slidesClasses.includes(2) && direction === 'right':
-      slides.classList.remove('slider__slides--2-slide');
-      slides.classList.add('slider__slides--3-slide');
-      break;
-
-    case slidesClasses.includes(2) && direction === 'left':
-      slides.classList.remove('slider__slides--2-slide');
-      slides.classList.add('slider__slides--1-slide');
-      break;
-
-    case slidesClasses.includes(3) && direction === 'left':
-      slides.classList.remove('slider__slides--3-slide');
-      slides.classList.add('slider__slides--2-slide');
-      break;
-
-    default:
-      break;
+  function plusDivs(n) {
+    showDivs((slideIndex += n));
   }
-}
+
+  function showDivs(n) {
+    let x = document.getElementsByClassName('slider__img');
+    if (n > x.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = x.length;
+    }
+    for (let i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+    x[slideIndex - 1].style.display = 'block';
+  }
+
+  function autoPlay() {
+    plusDivs(1);
+  }
+
+  function startAutoPlay() {
+    intervalId = setInterval(autoPlay, 5000);
+  }
+
+  function stopAutoPlay() {
+    clearInterval(intervalId);
+  }
+
+  let prevButton = document.querySelector('.slider__button--prev');
+  let nextButton = document.querySelector('.slider__button--next');
+
+  prevButton.addEventListener('click', function () {
+    stopAutoPlay();
+    plusDivs(-1);
+  });
+
+  nextButton.addEventListener('click', function () {
+    stopAutoPlay();
+    plusDivs(1);
+  });
+
+  startAutoPlay();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  let links = document.querySelectorAll('.autofocus-link');
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      window.location.hash = 'contact-form';
+
+      document
+        .getElementById('myForm')
+        .querySelector('input:first-of-type')
+        .focus();
+
+      document
+        .getElementById('contact-form')
+        .scrollIntoView({ block: 'start' });
+    });
+  });
+});

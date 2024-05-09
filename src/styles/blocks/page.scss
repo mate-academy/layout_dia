@@ -1,57 +1,41 @@
 .page {
-  font-family: 'Open Sans', sans-serif;
-
+  font-family: 'Open Sans', Arial, sans-serif;
   scroll-behavior: smooth;
 
   &__body {
-    background: $main-background-color;
     margin: 0;
-    padding: 0;
     min-width: 320px;
-  }
-
-  &:has(.page__menu:target) {
-    overflow: hidden;
+    background-color: $page-main-color;
   }
 
   &__menu {
-    overflow: auto;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    opacity: 0;
-    transition: all $effectDuration;
-    transform: translateX(-100%);
     pointer-events: none;
+    opacity: 0;
+    transition: all $effect-duration;
+    transform: translateX(-100%);
 
     &:target {
-      opacity: 1;
-      z-index: 20;
       pointer-events: all;
+      opacity: 1;
       transform: translateX(0);
-    }
-
-    &:has(.page__menu:target) {
-      overflow: hidden;
     }
   }
 
-  &__main {
-    display: grid;
-    row-gap: 120px;
-    color: $main-text-title-color;
-
-    @include on-tablet {
-      row-gap: 148px;
-    }
+  &:has(&__menu:target) {
+    overflow: hidden;
   }
 
   &__footer {
-    margin-top: 120px;
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-top: -56px;
+    }
 
-    @include on-tablet {
-      margin-top: 0;
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin-top: -197px;
     }
   }
 }

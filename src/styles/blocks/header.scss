@@ -1,103 +1,102 @@
 .header {
-  background-color: #2c2c2c;
-  color: $header-text-color;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  background-color: $page-second-color;
+  border-radius: 0 0 $page-radius $page-radius;
+  overflow: hidden;
 
-  height: 100vh;
+  &__top-bar {
+    margin-bottom: 48px;
 
-  max-height: 1440px;
-
-  &__title {
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 52px;
-    line-height: 62.4px;
-    letter-spacing: -2px;
-    color: #fff;
-    margin-bottom: 0;
-
-    margin-top: 28px;
-
-    @include on-tablet {
-      font-size: 64px;
-      line-height: 68px;
-
-      margin-top: 36px;
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-bottom: 56px;
     }
 
-    @include on-small-desktop {
-      margin-top: 116px;
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin-bottom: 44px;
     }
   }
 
-  &__main {
-    display: block;
-
-    @include content-padding-inline;
+  &__bottom {
+    @include page-grid;
   }
 
   &__content {
-    margin-bottom: 40px;
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
     display: flex;
     flex-direction: column;
+    justify-content: end;
 
-    gap: 72px;
-
-    @include on-tablet {
-      gap: 56px;
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-bottom: 147px;
     }
 
-    @include on-small-desktop {
-      gap: 83px;
+    @include media-breakpoint-up($screen-width-desktop) {
+      grid-column: 1 / 6;
+      margin-bottom: 205px;
     }
   }
 
-  &__text {
-    display: flex;
-    flex-direction: column;
+  &__title {
+    margin: 0 0 32px;
+    font-family: $main-font-family;
+    font-size: 52px;
+    line-height: 62px;
+    font-weight: 600;
+    color: $text-main-color;
+    letter-spacing: -2px;
 
-    gap: 32px;
-
-    @include on-tablet {
-      gap: 24px;
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
     }
 
-    @include on-small-desktop {
-      gap: 32px;
-      width: 362px;
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin-bottom: 32px;
+    }
+
+    &--first-word {
+      @include media-breakpoint-up($screen-width-desktop) {
+        display: block;
+      }
     }
   }
 
   &__description {
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
+    margin: 0 0 72px;
     font-size: 18px;
     line-height: 27px;
-    margin: 0;
+    font-weight: 400;
+    color: $text-main-color;
 
-    @include on-tablet {
-      width: 362px;
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-bottom: 56px;
     }
-  }
 
-  &__slider {
-    // position: absolute;
-    margin: 0 auto;
-    display: flex;
-    bottom: 0;
-    right: 0;
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin-bottom: 83px;
+    }
+
+    &--first-phrase {
+      @include media-breakpoint-up($screen-width-tablet) {
+        display: block;
+      }
+    }
   }
 
   &__button {
     text-decoration: none;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 15px;
-    line-height: 50px;
-    text-align: center;
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+
+    @include media-breakpoint-up($screen-width-desktop) {
+      grid-column: 7 / -1;
+    }
+
+    @include media-breakpoint-up($screen-width-large) {
+      grid-column: 8 / -1;
+    }
   }
 }
