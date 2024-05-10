@@ -24,7 +24,6 @@ const slideTitle = document.querySelector('.slider__intro');
 const sliderText = document.querySelector('.slider__description');
 const slide = document.querySelector('.slider__photo');
 const sliderImage = document.createElement('img');
-// const sliderImage = document.querySelector('.slider__photo-img');
 
 let currentIndex = 0;
 let isTransitioning = false;
@@ -77,7 +76,6 @@ for (let i = 0; i < menuLink.length; i++) {
     page.classList.remove('active');
   });
 }
-
 for (let i = 0; i < hireLink.length; i++) {
   hireLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
