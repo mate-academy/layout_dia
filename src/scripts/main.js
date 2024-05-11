@@ -70,3 +70,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#myForm");
+  const nameInput = document.querySelector('input[name="name"]');
+  const emailInput = document.querySelector('input[name="email"]');
+  const messageInput = document.querySelector('textarea[name="message"]');
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
+    nameInput.value = "";
+    emailInput.value = "";
+    messageInput.value = "";
+
+    alert("Message sent successfully!");
+  });
+});
