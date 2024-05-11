@@ -65,22 +65,24 @@ const asideMenu = document.querySelector('.page__menu');
 const menuLink = document.querySelectorAll('.page__list-link');
 const page = document.querySelector('.page');
 const hireLink = document.querySelectorAll('.nav__action-link');
+iconMenu[0].classList.add('burger');
 
 
 for (let i = 0; i < menuLink.length; i++) {
   menuLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
     page.classList.remove('active');
+    iconMenu[0].classList.add('burger');
   });
 }
 for (let i = 0; i < hireLink.length; i++) {
   hireLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
     page.classList.remove('active');
+    iconMenu[0].classList.add('burger');
   });
 }
 
-iconMenu[0].classList.add('burger');
 iconMenu[0].addEventListener('click', () => {
   page.classList.add('active');
   asideMenu.classList.add('active');
@@ -94,4 +96,21 @@ iconMenu[0].addEventListener('click', () => {
     iconMenu[0].classList.add('burger');
   });
 });
+// #endregion
+
+//#region form
+
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const form = document.getElementById('footerForm');
+  //   const submitButton = document.getElementById('footerSubmit');
+
+  //   form.addEventListener('submit', (event) => {
+  //     event.preventDefault();
+  //   });
+  // });
+
+document.getElementById("footerForm").addEventListener("submit", function(event){
+  event.preventDefault()
+});
+
 // #endregion
