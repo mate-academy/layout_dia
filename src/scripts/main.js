@@ -67,7 +67,6 @@ const page = document.querySelector('.page');
 const hireLink = document.querySelectorAll('.nav__action-link');
 iconMenu[0].classList.add('burger');
 
-
 for (let i = 0; i < menuLink.length; i++) {
   menuLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
