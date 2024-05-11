@@ -98,19 +98,3 @@ iconMenu[0].addEventListener('click', () => {
 });
 // #endregion
 
-//#region form
-
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const form = document.getElementById('footerForm');
-  //   const submitButton = document.getElementById('footerSubmit');
-
-  //   form.addEventListener('submit', (event) => {
-  //     event.preventDefault();
-  //   });
-  // });
-
-document.getElementById("footerForm").addEventListener("submit", function(event){
-  event.preventDefault()
-});
-
-// #endregion
