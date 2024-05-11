@@ -1,0 +1,41 @@
+.page {
+  font-family: 'Open Sans', Arial, sans-serif;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background-color: $page-main-color;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: all $effect-duration;
+    transform: translateX(-100%);
+
+    &:target {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &__footer {
+    @include media-breakpoint-up($screen-width-tablet) {
+      margin-top: -56px;
+    }
+
+    @include media-breakpoint-up($screen-width-desktop) {
+      margin-top: -197px;
+    }
+  }
+}
