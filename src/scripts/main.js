@@ -1,16 +1,16 @@
 'use strict';
 // #region slider
 const slider = {
-  sliderImages: [
-    'photo_1.jpeg',
-    'photo_2.jpeg',
-    'photo_3.jpeg',
+  sliderClassNames: [
+    'photo--0',
+    'photo--1',
+    'photo--2',
   ],
 
   titleSlider: [
-    'Old computer',
-    'Book',
-    'Time',
+    'New world',
+    'Road trip',
+    'New community',
   ],
 
   sliderText: [
@@ -22,16 +22,12 @@ const slider = {
 
 const slideTitle = document.querySelector('.slider__intro');
 const sliderText = document.querySelector('.slider__description');
+const sliderImage = document.querySelector('.slider__photo-img');
 const slide = document.querySelector('.slider__photo');
-const sliderImage = document.createElement('img');
-
 let currentIndex = 0;
 let isTransitioning = false;
 
-sliderImage.src = `./images/slider/${slider.sliderImages[currentIndex]}`;
-sliderImage.alt = `${slider.titleSlider[currentIndex]}`;
-sliderImage.classList.add('slider__photo-img');
-slide.appendChild(sliderImage);
+sliderImage.classList.toggle(`${slider.sliderClassNames[currentIndex]}`);
 slideTitle.innerHTML = `${slider.titleSlider[currentIndex]}`;
 sliderText.innerHTML = `${slider.sliderText[currentIndex]}`;
 
@@ -40,16 +36,17 @@ function changeSlide(direction) {
   isTransitioning = true;
 
   if (direction === 'next') {
-    currentIndex = (currentIndex + 1) % slider.sliderImages.length;
+    sliderImage.classList.remove(`${slider.sliderClassNames[currentIndex]}`);
+    currentIndex = (currentIndex + 1) % slider.sliderClassNames.length;
+    sliderImage.classList.add(`${slider.sliderClassNames[currentIndex]}`);
   } else {
-    currentIndex = (currentIndex - 1 + slider.sliderImages.length) % slider.sliderImages.length;
+    sliderImage.classList.remove(`${slider.sliderClassNames[currentIndex]}`);
+    currentIndex = (currentIndex - 1 + slider.sliderClassNames.length) % slider.sliderClassNames.length;
+    sliderImage.classList.add(`${slider.sliderClassNames[currentIndex]}`);
   }
 
-  sliderImage.src = `./images/slider/${slider.sliderImages[currentIndex]}`;
-  sliderImage.alt = `${slider.titleSlider[currentIndex]}`;
   slideTitle.innerHTML = `${slider.titleSlider[currentIndex]}`;
   sliderText.innerHTML = `${slider.sliderText[currentIndex]}`;
-
   isTransitioning = false;
 }
 
