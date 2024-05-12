@@ -74,6 +74,7 @@ for (let i = 0; i < menuLink.length; i++) {
     iconMenu[0].classList.add('burger');
   });
 }
+
 for (let i = 0; i < hireLink.length; i++) {
   hireLink[i].addEventListener('click', () => {
     asideMenu.classList.remove('active');
