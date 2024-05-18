@@ -1,0 +1,26 @@
+.page {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: $background-gray;
+  min-width: 320px;
+  font-family: $first-font-family;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-duration ease;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
