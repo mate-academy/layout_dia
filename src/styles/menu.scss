@@ -1,0 +1,43 @@
+.menu {
+  overflow: hidden;
+  background-color: var(--header-bg-color);
+  box-sizing: border-box;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+
+
+  &__nav {
+    margin-bottom: 48px;
+  }
+
+  &__top {
+    margin-bottom: 32px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #E5E6E8;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target{
+        opacity: 1;
+        transform: translateX(0%);
+        pointer-events: all;
+    }
+  }
+}
