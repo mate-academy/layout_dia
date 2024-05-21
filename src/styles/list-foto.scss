@@ -1,0 +1,140 @@
+.img-header {
+  position:  absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 503px;
+  height: 390px;
+  width: 100%;
+  border-radius: var(--img-header-border);
+
+  @include on-desktop {
+    border-radius: 0;
+    border-top-left-radius: var(--img-header-left-border);
+    border-bottom-right-radius: var(--img-header-right-borde);
+    top: 120px;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 680px;
+  }
+
+  &__container {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    gap: 16px;
+    padding-left: 20px;
+    bottom: 24px;
+
+    @include on-tablet {
+      bottom: 32px;
+      padding-left: 41px;
+      width: calc(50% - 41px);
+    }
+
+    @include on-desktop {
+      margin-left: 50%;
+      padding-left: 48px;
+      width: calc(50% - 48px);
+      bottom: 0;
+      padding-bottom: 48px;
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+}
+
+.img-header img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+
+  @include on-desktop {
+    margin-bottom: 148px;
+  }
+
+  @include on-tablet {
+    margin-bottom: 0;
+  }
+}
+
+.btn {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+
+  &:hover {
+    @include hover(transform, scale(1.05));
+
+  }
+
+  &-prev {
+    background-image: url('/src/images/icons/btn-prev.svg');
+  }
+
+  &-next {
+    background-image: url('/src/images/icons/btn-next.svg');
+  }
+
+  &__container {
+    margin: auto 0;
+    display: flex;
+    gap: 16px;
+  }
+
+  &__img {
+    text-align: center;
+  }
+}
+
+.text {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 280px;
+
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+
+  &__content {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    color: $white-color;
+  }
+}
+
+.slide {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: transform 1.0s ease, opacity 2.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide.next {
+  transform: translateX(100%);
+}
+
+.slide.prev {
+  transform: translateX(-100%);
+}
