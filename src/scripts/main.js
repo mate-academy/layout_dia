@@ -1,6 +1,5 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-
 const totalSlides = slides.length;
 
 function showSlide(n) {
@@ -32,10 +31,20 @@ showSlide(currentSlide);
 
 let root = document.querySelector(":root");
 let button = document.querySelector("#dark");
-let cardNumber = document.querySelector(".card__number")
-let cardClick = document.querySelector(".card__click")
+let cardNumber = document.querySelector(".card__number");
+let cardClick = document.querySelector(".card__click");
 
-button.addEventListener('click', () => {
+button.addEventListener('click', (event) => {
   event.preventDefault();
   root.classList.toggle('dark');
-  })
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    form.reset();
+  });
+});
+
