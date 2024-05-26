@@ -1,0 +1,84 @@
+.header {
+  min-width: $contentMinWidth;
+  background-color: $darkBgColor;
+
+  &__content {
+    @include grid-container;
+
+    align-items: end;
+
+    box-sizing: border-box;
+    height: 96px;
+    padding-top: 18px;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      height: 104px;
+      padding-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      align-items: center;
+      height: 120px;
+      padding: 0;
+    }
+  }
+
+  &__icons {
+    grid-column: 1;
+    justify-self: start;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+      grid-column: span 8;
+      justify-self: center;
+    }
+  }
+
+  &__hire-us {
+    grid-column: -2 / -1;
+    place-self: start end;
+
+    @include on-tablet {
+      grid-column: -3 / -1;
+    }
+
+    @include on-small-desktop {
+      align-self: center;
+    }
+
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $blueColor;
+      border-radius: 4px;
+      bottom: -10px;
+    }
+  }
+
+  &__hire-us-link {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: right;
+
+    @include pointer-cursor;
+    @include hover(color, $blueColor);
+  }
+}
