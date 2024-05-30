@@ -1,0 +1,78 @@
+.card {
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__image {
+    width: 166px;
+    height: 166px;
+    margin-inline: auto;
+    display: block;
+  }
+
+  &__title {
+    text-align: center;
+    color: $midnight-blue;
+  }
+
+  &__user-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    color: $midnight-blue;
+
+    margin-bottom: 4px;
+  }
+
+  &__link {
+    width: 100%;
+    margin-top: 56px;
+    padding-block: 14px;
+    border-radius: 8px;
+    background-color: $blue;
+    color: white; /* Assuming white text color for better contrast */
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* To remove underline */
+    transition: background-color $transition-duration; /* Smooth background color transition */
+
+    @include on-tablet {
+      width: 264px;
+      margin-top: 64px;
+    }
+
+    @include on-desktop-sm {
+      // grid-column: 1 / 5;
+      margin-top: 51px;
+    }
+
+    @include on-desktop-reg {
+      // grid-column: 1 / 4;
+    }
+
+    @include hover(background-color, $blue-hover);
+
+    &:focus {
+      background-color: $blue-focus;
+    }
+
+    &:active::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: wave-blink ($transition-duration * 2) ease-out;
+      pointer-events: none;
+    }
+  }
+}

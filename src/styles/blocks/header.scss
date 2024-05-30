@@ -1,0 +1,68 @@
+.header {
+  background-color: $bg-black;
+  color: $white;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 48px;
+
+    @include on-tablet {
+      padding: 20px 0 56px;
+    }
+
+    @include on-desktop-sm {
+      padding-block: 44px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include on-desktop-sm {
+      & :last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop-sm {
+      display: block;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $blue-hover;
+
+      transition:
+        color $transition-duration,
+        background-color $transition-duration;
+    }
+
+    @include hover(color, $blue-hover);
+
+    &:hover::after {
+      background-color: $white;
+    }
+
+    &:focus::after {
+      background-color: $blue-focus;
+    }
+  }
+}

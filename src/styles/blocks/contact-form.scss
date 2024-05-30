@@ -1,0 +1,109 @@
+.contact-form {
+  &__input {
+    text-align: left;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    background-color: $bg-black;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $white;
+    color: $white;
+    padding: 14px 16px;
+    width: 100%;
+    height: 48px;
+
+    @include hover(border-bottom, (1px solid $blue-hover));
+
+    &:active,
+    &:focus {
+      border-bottom: 1px solid $blue-focus;
+    }
+  }
+
+  &__textarea {
+    text-align: left;
+    box-sizing: border-box;
+    background-color: $bg-black;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $white;
+    color: $white;
+    padding: 14px 16px;
+    width: 100%;
+    resize: none;
+    height: 44px;
+
+    @include hover(border-bottom, (1px solid $blue-hover));
+
+    &:active,
+    &:focus {
+      border-bottom: 1px solid $blue-focus;
+    }
+  }
+
+  &__btn {
+    border: none;
+    width: 280px;
+    height: 56px;
+    margin-top: 65px;
+    padding-block: 14px;
+    border-radius: 8px;
+    background-color: $blue;
+    color: white; /* Assuming white text color for better contrast */
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* To remove underline */
+    transition: background-color $transition-duration; /* Smooth background color transition */
+
+    @include on-tablet {
+      width: 264px;
+      margin-top: 80px;
+    }
+
+    // @include on-desktop-sm {
+    //   margin-top: 51px;
+    // }
+
+    // @include on-desktop-reg {
+    // }
+
+    @include hover(background-color, $blue-hover);
+
+    &:focus {
+      background-color: $blue-focus;
+    }
+
+    &:active::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: wave-blink ($transition-duration * 2) ease-out;
+      pointer-events: none;
+    }
+  }
+}
+
+// Change Autocomplete styles in Chrome
+
+.contact-form__input:-webkit-autofill,
+.contact-form__input:-webkit-autofill:hover,
+.contact-form__input:-webkit-autofill:focus,
+.contact-form__textarea:-webkit-autofill,
+.contact-form__textarea:-webkit-autofill:hover,
+.contact-form__textarea:-webkit-autofill:focus {
+  border-bottom: 1px solid $blue-hover;
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  background-color: $bg-black;
+  transition: background-color $transition-duration ease-in-out 0s;
+}
