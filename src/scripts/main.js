@@ -1,10 +1,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const images = [
-    'slider-img-1.f0972838.png',
-    'slider-img-2.32d51007.png',
-    'slider-img-3.f4897c5e.png',
-    'slider-img-4.71b42479.png',
+    '../images/images/slider-img-1.png',
+    '../images/images/slider-img-2.png',
+    '../images/images/slider-img-3.png',
+    '../images/images/slider-img-4.png',
     // Add more image paths as needed from dist
   ];
   let currentIndex = 0;
