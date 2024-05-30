@@ -1,0 +1,106 @@
+.slider {
+  grid-column: 1/-1;
+
+  position: relative;
+  background-image: url('../images/images/slider-img-1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% center;
+  height: 390px;
+  border-radius: $page-border-rad;
+
+  @include on-desktop-sm {
+    height: 680px;
+    grid-column: 7/-1;
+    border-radius: $page-border-rad 0 $page-border-rad 0;
+  }
+
+  &__wrap {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include on-desktop-sm {
+      flex-direction: row;
+    }
+  }
+
+  &__icons {
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    all: unset;
+    background-color: inherit;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Ensure the ripple is contained within the button */
+    display: inline-block;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow $transition-duration ease-in-out;
+
+    @include hover(box-shadow, (0 8px 16px rgba(0, 0, 0, 0.3)));
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      transform: scale(0);
+      transform-origin: center;
+      pointer-events: none; /* Ensure it doesn't interfere with button clicks */
+    }
+
+    &:active::after {
+      animation: wave-blink $transition-duration ease-out;
+    }
+
+    @keyframes wave-blink {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+      }
+    }
+  }
+
+  &__icon {
+    border-radius: 50%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__title {
+    text-align: left;
+  }
+  &__text {
+    text-align: left;
+  }
+}

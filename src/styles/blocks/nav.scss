@@ -1,0 +1,36 @@
+.nav {
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $blue-hover;
+
+      transition: transform $transition-duration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &:focus::after {
+      transform: scale(1);
+      background-color: $blue-focus;
+    }
+  }
+}

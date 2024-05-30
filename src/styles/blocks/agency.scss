@@ -1,0 +1,113 @@
+.agency {
+  background-color: $bg-black;
+  color: $white;
+  border-bottom-left-radius: $page-border-rad;
+  border-bottom-right-radius: $page-border-rad;
+
+  @include page-grid;
+
+  row-gap: 48px;
+
+  &__wrap {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      place-self: center start;
+    }
+
+    @include on-desktop-sm {
+      grid-column: 1/6;
+      width: 362px;
+      justify-self: auto;
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 32px;
+
+    @include on-tablet {
+      row-gap: 24px;
+      margin-bottom: 90px;
+    }
+
+    @include on-desktop-sm {
+      --columns: 6;
+
+      row-gap: 32px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+  }
+
+  &__text {
+    grid-column: 1/-1;
+  }
+
+  &__link {
+    grid-column: 1 / -1;
+    margin-top: 40px;
+    padding-block: 14px;
+    border-radius: 8px;
+    background-color: $blue;
+    color: white; /* Assuming white text color for better contrast */
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* To remove underline */
+    transition: background-color $transition-duration; /* Smooth background color transition */
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-top: 32px;
+    }
+
+    @include on-desktop-sm {
+      grid-column: 1 / 5;
+      margin-top: 51px;
+    }
+
+    @include on-desktop-reg {
+      grid-column: 1 / 4;
+    }
+
+    @include hover(background-color, $blue-hover);
+
+    &:focus {
+      background-color: $blue-focus;
+    }
+
+    &:active::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: wave-blink ($transition-duration * 2) ease-out;
+      pointer-events: none;
+    }
+  }
+
+  @keyframes wave-blink {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+  }
+}
