@@ -1,0 +1,220 @@
+.header {
+  background-color: $c-bg-flank;
+  padding-top: 20px;
+
+  @include desktop {
+    padding-top: 48px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: initial;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 101px;
+      top: 32px;
+      display: block;
+      width: 18px;
+      height: 8px;
+      background-image: url(../images/logo/burger-menu.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 4px;
+        background-color: $c-bg-button;
+        transition-duration: 300ms;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+
+      @include tablet {
+        left: 122px;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
+  &-top {
+    @include padding-inline;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 46px;
+      height: 28px;
+    }
+  }
+
+  &-bottom {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include tablet {
+      margin-top: 56px;
+      gap: 147px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      margin-top: 168px;
+    }
+
+    .presentation {
+      display: flex;
+      flex-direction: column;
+
+      @include padding-inline;
+
+      @include desktop {
+        width: 362px;
+      }
+
+      &-name {
+        margin-bottom: 32px;
+        font-family: Poppins, sans-serif;
+        font-size: 52px;
+        font-weight: 600;
+        line-height: 62.4px;
+        letter-spacing: -2px;
+        color: $c-bg-centre;
+
+        @include tablet {
+          font-size: 64px;
+          line-height: 68px;
+        }
+      }
+
+      &-idea {
+        margin-bottom: 72px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 27px;
+        color: $c-bg-centre;
+      }
+    }
+
+    .slider {
+      border-start-start-radius: 5%;
+      background-image: url(../images/slider/bg-header-slide-1.png);
+      box-sizing: border-box;
+      padding-top: 250px;
+      padding-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      overflow-x: hidden;
+
+      &:has(.vector-left:focus) {
+        background-image: url(../images/slider/bg-header-slide-2.png);
+      }
+      &:has(.vector-right:focus) {
+        background-image: url(../images/slider/bg-header-slide-3.png);
+      }
+
+      @include padding-inline;
+
+      @include tablet {
+        padding-top: 242px;
+        padding-bottom: 32px;
+      }
+
+      @include desktop {
+        padding-top: 564px;
+        padding-bottom: 48px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      @include design {
+        padding-left: 78px;
+      }
+
+      &-button {
+        display: flex;
+        gap: 24px;
+      }
+
+      &-description {
+        color: $c-bg-centre;
+
+        &-top {
+          font-family: Poppins, sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 19.5px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          padding-bottom: 8px;
+        }
+
+        &-bottom {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 19.6px;
+        }
+      }
+      .img {
+        display: block;
+
+        /** position: absolute;
+      margin: auto;
+      top: 0; left: 0; bottom: 0; right: 0; */
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+/** &-slide {
+      position: absolut;
+      width: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .slide-1 {
+      background-image: url(../images/slider/bg-header-slide-1.png);
+
+    }
+    .slide-2{
+      transform: translateX(100%);
+      background-image: url(../images/slider/bg-header-slide-2.png);
+
+    }
+
+    .slide-3{
+      transform: translateX(200%);
+      background-image: url(../images/slider/bg-header-slide-3.png);
+      }
+    } */
