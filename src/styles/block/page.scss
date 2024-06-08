@@ -1,0 +1,39 @@
+.page {
+  background: linear-gradient(
+    to top,
+    $c-bgc-dark 3%,
+    $c-gray 3% 97%,
+    $c-bgc-dark 97%
+  );
+  scroll-behavior: smooth;
+
+  &__body {
+    display: grid;
+    margin: 0;
+    min-width: 320px;
+
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all $effect-duration;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
