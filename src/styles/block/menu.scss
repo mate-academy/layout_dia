@@ -32,6 +32,8 @@
   }
 
   &-nav__link {
+    position: relative;
+    display: block;
     font-family: Poppins, sans-serif;
     font-weight: 700;
     font-size: 13px;
@@ -40,5 +42,23 @@
     color: $c-text-white;
     text-decoration: none;
     text-transform: uppercase;
+
+    &::after {
+      content: '';
+      background-color: #2060f6;
+      position: absolute;
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      bottom: -4px;
+      transition: transform $effect-duration;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 }
