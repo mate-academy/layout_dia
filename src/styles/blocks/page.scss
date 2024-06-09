@@ -1,0 +1,35 @@
+.page {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19.5px;
+  color: $lightTextColor;
+
+  scroll-behavior: smooth;
+
+  &:has(.page__aside:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    background-color: $mainBgColor;
+  }
+
+  &__aside {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
