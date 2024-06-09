@@ -1,0 +1,59 @@
+@mixin on-tablet {
+  @media (min-width: $minWidthTablet) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $minWidthSmallDesktop) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $minWidthDesktop) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $minWidthLargeScreens) {
+    @content;
+  }
+}
+
+@mixin column-grid($colCount, $colWidth, $colGap) {
+  display: grid;
+  grid-template-columns: repeat($colCount, $colWidth);
+  column-gap: $colGap;
+
+  justify-content: center;
+}
+
+@mixin grid-container {
+  @include column-grid(2, $colWidthMobile, $colGapMobile);
+
+  @include on-tablet {
+    @include column-grid(6, $colWidthTablet, $colGapTablet);
+  }
+
+  @include on-small-desktop {
+    @include column-grid(12, $colWidthDeskSmall, $colGapDeskSmall);
+  }
+
+  @include on-desktop {
+    @include column-grid(12, $colWidthDesktop, $colGapDesktop);
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin pointer-cursor {
+  cursor: url(../images/cursor/cursor.svg), pointer;
+}

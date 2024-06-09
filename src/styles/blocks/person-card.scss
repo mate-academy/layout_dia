@@ -1,0 +1,175 @@
+.person-card {
+  box-sizing: border-box;
+  height: $personCardHeight;
+  padding: 32px 37px;
+
+  border-radius: 16px;
+  background-color: $lightBgColor;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include on-tablet {
+    height: $personCardHeightTablet;
+    padding-inline: 98px;
+  }
+
+  @include on-small-desktop {
+    height: $personCardHeight;
+    padding-inline: 43px;
+  }
+
+  @include on-desktop {
+    height: $personCardHeightDesktop;
+    padding-inline: 56px;
+  }
+
+  @include hover(transform, scale(1.1));
+
+  &__avatar-comment-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 196px;
+    height: 196px;
+
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-small-desktop {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+      height: 250px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+
+      background-color: $blueColor;
+      border-radius: 12px;
+
+      width: 109px;
+      height: 44px;
+
+      @include on-tablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include on-small-desktop {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include on-desktop {
+        width: 139px;
+        height: 56px;
+      }
+    }
+
+    &::before {
+      top: 0;
+      transform: translate(-35%, 90%) rotate(-60deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: translate(35%, -90%) rotate(-60deg);
+    }
+  }
+
+  &__avatar-img {
+    position: absolute;
+    z-index: 2;
+
+    object-fit: cover;
+    object-position: center;
+
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-small-desktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include on-desktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__quote {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10.5px;
+
+    background-image: url(/src/images/icons/quote-img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include on-tablet {
+      margin-bottom: 18.5px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 10.5px;
+    }
+  }
+
+  &__comment {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: $descriptionTextColor;
+  }
+
+  &__name {
+    margin: 0;
+    margin-bottom: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: $titleTextColor;
+  }
+
+  &__job {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    color: $darkTextColor;
+  }
+}
