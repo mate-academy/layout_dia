@@ -1,3 +1,9 @@
+# MISTAKES: 
+sliders don't working
+- main.js(45-53); src\scripts\main.js
+- index.html(91-118); src\index.html
+- containers.scss(31); src\styles\blocks\containers.scss
+
 # Dia landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35) - Use BEM and SCSS
 
