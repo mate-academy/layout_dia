@@ -35,6 +35,12 @@ rightBtn.addEventListener('click', () => plusDivs(1));
 const form = document.getElementById('form');
 const textArea = form.querySelector('.form__input--message');
 
+form.addEventListener('submit', function handleSubmit(event) {
+  event.preventDefault();
+
+  form.reset();
+});
+
 textArea.addEventListener('input', () => {
   textArea.style.height = textArea.scrollHeight + 'px';
   textArea.style.maxHeight = '75px';
