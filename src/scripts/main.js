@@ -39,11 +39,13 @@ form.addEventListener('submit', function handleSubmit(event) {
   event.preventDefault();
 
   form.reset();
+
+  window.location.reload();
 });
 
 textArea.addEventListener('input', () => {
   textArea.style.height = textArea.scrollHeight + 'px';
-  textArea.style.maxHeight = '82px';
+  textArea.style.maxHeight = '75px';
 
   (textArea.value === '') && (textArea.style.height = '41px');
 }); ;
