@@ -1,11 +1,12 @@
-.slider {
+/* .slider {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 30px;
-  background-image: url('../images/new-photos/slider-xl.png');
+  background-image: url('../images/new-photos/bg2.jpg');
 
-  width: 100%;
+  width: 80%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -16,7 +17,7 @@
     height: 680px;
   }
 
-  
+
 
   &__text {
     margin-left: 24px;
@@ -56,14 +57,8 @@
   }
 }
 
-.previous,
-.next {
-  text-decoration: none;
-}
 
-.slash {
-  opacity: 0;
-}
+ */
 
 .under-arrows {
   text-align: left;
@@ -81,6 +76,124 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 19.6px;
+    margin-top: 6px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  border-radius: 30px;
+  position: relative;
+  margin: 0;
+  height: 390px;
+  width: 100%;
+  
+  @media (min-width: 769px) {
+    height: 680px;
+  }
+
+  & img:not(.slider-arrow) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+
+    @media (min-width: 769px) {
+      border-radius: 30px 0;
+    }
+  }
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 60%;
+  width: auto;
+
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+
+  @media (min-width: 769px) {
+    top: 80%;
+  }
+}
+
+/* Position the "next button" to the right */
+.next {
+  margin-left: 48px;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: left;
+  margin-left: 12px;
+
+  @media (min-width: 769px) {
+    margin-left: 100px;
+    transform: translateY(-32px);
+  }
+}
+
+/* .under-arrows {
+  text-align: left;
+
+  &--1 {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+  }
+
+  &--2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
     margin-top: 8px;
+  }
+} */
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -23,6 +23,10 @@
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header
@@ -108,6 +112,13 @@
               alt="Company logo"
             />
           </a>
+          <a href="#header">
+            <img
+              src="./images/new-photos/icon-close.png"
+              alt="Company logo"
+              class="close"
+            />
+          </a>
         </div>
         <div class="menu__bottom">
           <ul class="menu__list">
@@ -165,60 +176,14 @@
           </a>
         </div>
 
-        <div
-          class="slider"
-          id="slider"
-        >
-          <!-- <picture>
-            <source media="(min-width: 1601px)"
-            srcset="./images/new-photos/slider-xl.png"
-            alt="watch"
-            class="header-photo"
-            >
-            <source media="(min-width: 769px)  and (max-width: 1600px)"
-            srcset="./images/new-photos/slider-l.png"
-            alt="watch"
-            class="header-photo"
-            >
-            <source media="(min-width: 481px) and (max-width: 768px)"
-            srcset="./images/new-photos/slider-tablet.png"
-            alt="watch"
-            class="header-photo"
-            >
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
             <img
-            src="./images/new-photos/slider-mobile.png"
-            alt="watch"
-            class="header-photo"
-            >-->
-          <div class="slash">/</div>
-          <div class="slider__text">
-            <div class="arrows-header">
-              <a
-                href="#"
-                class="previous"
-              >
-                <img
-                  src="./images/new-photos/arrow-left.png"
-                  alt="arrow-left"
-                  class="slider-arrow arrow-left"
-                  onclick="previous()"
-                  id="previous"
-                />
-              </a>
-              <a
-                onclick="next()"
-                href="#"
-              >
-                <img
-                  src="./images/new-photos/arrow-right.png"
-                  alt="arrow-left"
-                  class="slider-arrow arrow-left"
-                  id="next"
-
-                />
-              </a>
-            </div>
-            <div class="under-arrows">
+              src="./images/new-photos/slider-xl.png"
+              alt="watch"
+            />
+            <div class="text">
               <p class="under-arrows--1">INTRO</p>
               <p class="under-arrows--2">
                 By the same illusion which lifts the
@@ -227,6 +192,58 @@
               </p>
             </div>
           </div>
+
+          <div class="mySlides fade">
+            <img
+              src="./images/new-photos/bg2.jpg"
+              alt="telephone"
+            />
+            <div class="text">
+              <p class="under-arrows--1">INTRO</p>
+              <p class="under-arrows--2">
+                By the same illusion which lifts the
+                <br />
+                horizon.
+              </p>
+            </div>
+          </div>
+
+          <div class="mySlides fade">
+            <img
+              src="./images/features/features-bg.jpg"
+              alt="meeting"
+            />
+            <div class="text">
+              <p class="under-arrows--1">INTRO</p>
+              <p class="under-arrows--2">
+                By the same illusion which lifts the
+                <br />
+                horizon.
+              </p>
+            </div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a
+            class="prev"
+            onclick="plusSlides(-1)"
+          >
+            <img
+              src="./images/new-photos/arrow-left.png"
+              alt="arrow-left"
+              class="slider-arrow arrow-left"
+            />
+          </a>
+          <a
+            class="next"
+            onclick="plusSlides(1)"
+          >
+            <img
+              src="./images/new-photos/arrow-right.png"
+              alt="arrow-left"
+              class="slider-arrow arrow-left"
+            />
+          </a>
         </div>
       </section>
     </header>
@@ -639,38 +656,6 @@
                 target="_blank"
                 class="fa fa-instagram"
               ></a>
-              <!--
-              <a
-                class="contact__icon facebook"
-                href="#"
-              >
-                <img
-                src="./images/new-photos/facebook.png"
-                alt="facebook-icon"
-                class="contact__icon"
-                >
-              </a>
-              <a
-                class="contact__icon twitter"
-                href="#"
-              >
-                <img
-                src="./images/new-photos/twitter.png"
-                alt="twitter-icon"
-                class="contact__icon"
-                >
-              </a>
-              <a
-                class="contact__icon  instagram"
-                href="#"
-              >
-                <img
-                src="./images/new-photos/instagram.png"
-                alt="instagram-icon"
-                class="contact__icon"
-                >
-              </a>
-              -->
             </li>
           </ul>
         </div>
@@ -736,6 +721,39 @@
       </nav>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName('mySlides');
+        let dots = document.getElementsByClassName('dot');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+      }
+    </script>
   </body>
 </html>
