@@ -1,40 +1,60 @@
 .header {
   background-color: $c-header-footer;
-  border-radius: 0 0 30px 30px;
-  height: 100%;
+  color: $c-white;
 
-  &__top-bar {
+  &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 48px;
+    padding: 20px 0 48px;
 
-    &__logo {
-      width: 46px;
-      height: 28px;
-
-      @include hover(transform, scale(1.1));
+    @include on-tablet {
+      padding: 20px 0 56px;
     }
 
-    &__hire-us {
-      position: relative;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $c-white;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.5;
-      letter-spacing: 3px;
+    @include on-desktop-small {
+      padding-block: 44px;
+    }
+  }
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        display: block;
-        height: 1px;
-        width: 100%;
-        background-color: $c-blue;
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include on-desktop-small {
+      & :last-child {
+        display: none;
       }
     }
   }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop-small {
+      display: block;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $c-white;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $c-blue;
+  }
+}
 }

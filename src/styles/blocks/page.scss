@@ -1,0 +1,37 @@
+.page {
+  font-family: 'Open Sans', sans-serif;;
+  font-size: 14px;
+  line-height: 21px;
+  color: $c-darkblue;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin-inline: auto;
+    min-width: 320px;
+    background-color: $bg-ligtgray;
+
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all $effectDuration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
