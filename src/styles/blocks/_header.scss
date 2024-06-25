@@ -1,0 +1,91 @@
+.header {
+  background-color: $c-dark;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    min-height: 80px;
+    align-items: center;
+
+    @include tablet {
+      justify-content: start;
+    }
+  }
+
+  &__logo {
+    @include tablet {
+      margin-right: 32px;
+    }
+  }
+
+  &__menu {
+    &-list {
+      display: flex;
+      column-gap: 48px;
+      align-items: center;
+    }
+
+    &-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: $t-fw-700;
+      height: 20px;
+
+      @include hover {
+        transform: scale(1.1);
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        translate: -50%;
+        width: 0;
+        height: 2px;
+        border-radius: 4px;
+        background-color: $c-blue;
+        transition-duration: inherit;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: $t-fw-700;
+
+    @include hover {
+      transform: scale(1.1);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      width: 0;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $c-blue;
+      transition-duration: inherit;
+    }
+  }
+}
+
+.logo__img:hover {
+  @include hover {
+    transform: scale(1.1);
+  }
+}

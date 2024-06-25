@@ -1,6 +1,49 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin hover {
+  transition: transform 0.3s;
+  @include cursor;
+
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
   }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  border-color: transparent;
+  border: none;
+}
+
+@mixin flex-center($isInLine: false) {
+  @if $isInLine {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin cursor {
+  cursor: url(/images/mouse/vector.svg), pointer;
 }
