@@ -31,20 +31,40 @@ arrowRight.addEventListener('click', () => {
 updateSlider(currentIndex);
 // #endregion
 
-// #region hidden scroll
+// #region preventDefault
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  form.reset();
+});
+// #endregion
+
+// #region dialog constants
 const dialog = document.getElementById('tabletOverlay');
 const showButton = document.getElementById('show');
 const closeButton = document.getElementById('close');
+const links = document.querySelectorAll('.tablet-overlay__link');
 
+const closeDialog = () => {
+  dialog.style.display = 'none';
+  document.body.classList.remove('hide');
+  dialog.close();
+};
+
+// #endregion
+
+// #region hidden scroll
 showButton.addEventListener('click', () => {
-  document.getElementById('tabletOverlay').style.display = 'block';
+  dialog.style.display = 'block';
   document.body.classList.add('hide');
   dialog.showModal();
 });
 
-closeButton.addEventListener('click', () => {
-  document.getElementById('tabletOverlay').style.display = 'none';
-  document.body.classList.remove('hide');
-  dialog.close();
-});
+closeButton.addEventListener('click', () => closeDialog());
+// #endregion
+
+// #region move-link
+links.forEach((link) => link.addEventListener('click', () => closeDialog()));
 // #endregion
