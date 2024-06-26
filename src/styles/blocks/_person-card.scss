@@ -1,0 +1,143 @@
+.person-card {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__avatar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 24px;
+    display: flex;
+    position: relative;
+
+    @include middle-desktop {
+      width: 213px;
+      height: 200px;
+    }
+
+    @include tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @media (max-width: 375px) {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include mobile {
+      width: 196px;
+      height: 196px;
+    }
+
+    &-img {
+      position: absolute;
+      object-fit: cover;
+      object-position: center;
+      z-index: 2;
+      border-radius: 50%;
+      width: 140px;
+      height: 150px;
+
+      @include middle-desktop {
+        width: 130px;
+        height: 140px;
+      }
+
+      @include small-desktop {
+        width: 109px;
+        height: 109px;
+      }
+
+      @include tablet {
+        width: 140px;
+        height: 150px;
+      }
+
+      @media (max-width: 375px) {
+        width: 109px;
+        height: 109px;
+      }
+
+      @include mobile {
+        width: 109px;
+        height: 109px;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 12px;
+      width: 139px;
+      height: 56px;
+      background: #2060f6;
+
+      @include middle-desktop {
+        width: 130px;
+        height: 45px;
+      }
+
+      @include small-desktop {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include tablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @media (max-width: 375px) {
+        width: 109px;
+        height: 44px;
+      }
+    }
+
+    &::before {
+      top: 0;
+      transform: translate(-35%, 90%) rotate(-60deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: translate(35%, -90%) rotate(-60deg);
+    }
+  }
+
+  &__quote {
+    background-image: url(../images/testimonials/quote.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 19px;
+    margin-bottom: 10.55px;
+  }
+
+  &__comment {
+    font-family: $t-ff-openSans;
+    color: $c-text;
+    text-align: center;
+  }
+
+  &__name {
+    font-family: $t-ff-openSans;
+    text-align: center;
+    color: $c-title;
+    margin-bottom: 4px;
+  }
+
+  &__job {
+    text-align: center;
+    font-weight: $t-fw-700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-sub-title;
+  }
+}
