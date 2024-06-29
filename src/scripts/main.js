@@ -22,8 +22,8 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.slider__ellipse-right',
+    prevEl: '.slider__ellipse-left',
   },
 });
 
