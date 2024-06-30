@@ -1,0 +1,104 @@
+.card-person {
+  box-sizing: border-box;
+  padding: 32px 42px;
+  background-color: $c-white;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  font-family: $font-family-secondary;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+
+  @include hover(box-shadow, 0 0 30px $c-sub-title);
+  @include hover(scale, 1.05);
+
+  @include on-tablet {
+    padding-inline: 98px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 48px;
+  }
+
+  @include on-desktop {
+    padding-inline: 56px;
+  }
+
+  &__photo-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 196px;
+    width: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      height: 250px;
+      width: 250px;
+    }
+
+    @include on-small-desktop {
+      height: 196px;
+      width: 196px;
+    }
+
+    @include on-desktop {
+      height: 250px;
+      width: 250px;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 55.6%;
+      height: 22.4%;
+      border-radius: 12px;
+      background-color: $c-blue;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 22%;
+      left: 3%;
+    }
+
+    &::after {
+      bottom: 22%;
+      right: 3%;
+    }
+  }
+
+  &__photo {
+    width: 56%;
+    height: 56%;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__comment {
+    flex-grow: 1;
+    color: $c-section-text;
+    margin-bottom: 16px;
+
+    &::before {
+      content: '';
+      display: block;
+      margin: 0 auto 8px;
+      width: 24px;
+      height: 24px;
+      background-image: url('../images/icons/quote-card-person.svg');
+    }
+  }
+
+  &__name {
+    color: $c-section-title;
+    margin-bottom: 4px;
+  }
+}
