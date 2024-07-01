@@ -83,6 +83,8 @@
 }
 
 .header__title {
+  box-sizing: border-box;
+
   @include page-grid;
 
   row-gap: 32px;
@@ -98,6 +100,7 @@
 }
 
 .hearder__text {
+  margin: 0;
   font-family: Poppins, sans-serif;
   font-size: 52px;
   font-weight: 600;
@@ -110,9 +113,8 @@
 }
 
 .header__p {
-  font-family:
-    'Open Sans',
-    sans-serif;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
@@ -120,13 +122,21 @@
   color: $text-color;
 
   grid-column: 1/-1;
+
+  @include on-tablet {
+    grid-column: 1/5;
+  }
+
+  @include on-small-desktop {
+    grid-column: 1/6;
+  }
 }
 
 .header__btn {
   color: #fff;
   background-color: #2060f6;
   padding-block: 15px;
-  width: 280px;
+  width: 100%;
   border-radius: 8px;
 
   text-decoration: none;
@@ -139,20 +149,40 @@
 
   margin-top: 72px;
 
+  grid-column: 1/-1;
+
   @include on-tablet {
     margin-top: 56px;
+    grid-column: 1/4;
   }
 
   @include on-small-desktop {
     margin-top: 83px;
+    grid-column: 1/5;
   }
+
+  @include hover(transform, scale(1.1));
 }
 
-.header__slider {
+.header__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin-top: 48px;
-  height: 390px;
-  width: 320px;
+  min-width: 320px;
+  height: 40vh;
+  background-image: url(/src/images/slider/slider-bg.png);
   background-size: cover;
   background-position: center;
-  background-image: url(/src/images/slider/slider-bg.png);
+  background-repeat: no-repeat;
+  border-radius: 30px;
+
+  @include on-small-desktop {
+    margin-top: 120px;
+    left: 50%;
+    top: 0;
+    height: auto;
+    border-top-right-radius: 0;
+  }
 }
