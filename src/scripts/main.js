@@ -43,3 +43,7 @@ document.getElementById('fourth__button').addEventListener('click', function() {
   // Перехід до другого блоку при натисканні кнопки
   document.getElementById('expertise').scrollIntoView({ behavior: 'smooth' });
 });
+
+document.querySelector('.menu').addEventListener('wheel', function(event) {
+  event.preventDefault();
+}, { passive: false });
