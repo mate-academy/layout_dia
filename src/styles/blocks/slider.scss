@@ -1,0 +1,107 @@
+.slider {
+  display: flex;
+  height: 390px;
+  width: 100%;
+
+  @include on-small-desktop {
+    width: 50%;
+    height: 680px;
+  }
+
+  &__img {
+    object-fit: cover;
+    border-radius: 30px;
+
+    display: none;
+
+    @include animation(slider, 0.8s, ease);
+
+    @include on-small-desktop {
+      border-radius: 30px 0;
+    }
+  }
+
+  ._active {
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 280px;
+
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+
+    @include on-tablet {
+      bottom: 32px;
+      left: 41px;
+    }
+
+    @include on-small-desktop {
+      width: 370px;
+      flex-direction: row;
+      bottom: 48px;
+      left: 78px;
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+
+    transition: all $effectDuration;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+
+    @include on-small-desktop {
+      align-items: center;
+    }
+  }
+
+  &__icon-left {
+    background-image: url('../images/slider/left.svg');
+    transition: all $effectDuration;
+    &:hover {
+      filter: brightness(1) invert(1);
+    }
+  }
+
+  &__icon-right {
+    background-image: url('../images/slider/right.svg');
+    transition: all $effectDuration;
+    &:hover {
+      filter: brightness(1) invert(1);
+    }
+  }
+
+  &__descr {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: auto;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}

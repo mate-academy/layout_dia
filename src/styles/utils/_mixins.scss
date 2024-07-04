@@ -1,6 +1,134 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $effectDuration;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-wide {
+  @media (min-width: $wide-min-width) {
+    @content;
+  }
+}
+
+@mixin on-extra-wide {
+  @media (min-width: $extra-wide-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 44px;
+  }
+
+  @include on-desktop {
+    max-width: 1260px;
+    margin-inline: auto;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+@mixin grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 30px;
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-wide {
+    column-gap: 30px;
+  }
+}
+
+@mixin animation($_name, $_duration, $_term) {
+  animation-name: $_name;
+  animation-duration: $_duration;
+  animation-timing-function: $_term;
+  @content;
+
+  @keyframes wobble {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+
+    15% {
+      transform: translateX(-5px) rotate(6deg);
+    }
+
+    30% {
+      transform: translateX(5px) rotate(-6deg);
+    }
+
+    45% {
+      transform: translateX(-5px) rotate(3.6deg);
+    }
+
+    60% {
+      transform: translateX(3px) rotate(-2.4deg);
+    }
+
+    75% {
+      transform: translateX(-3px) rotate(1.2deg);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1.01);
+    }
+
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes slider {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 }

@@ -1,0 +1,136 @@
+.testimonials {
+  padding-bottom: 120px;
+
+  @include on-tablet {
+    padding-bottom: 148px;
+  }
+
+  @include on-small-desktop {
+    padding-bottom: 186px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 148px;
+  }
+
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 32px;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__wrap {
+    &::after {
+      @include on-tablet {
+        content: '\A';
+        white-space: pre;
+      }
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    padding: 32px 42px;
+    background-color: $white-color;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    align-self: stretch;
+    transition: all $effectDuration;
+
+    @include on-tablet {
+      padding-inline: 98px;
+    }
+
+    @include on-small-desktop {
+      width: 292px;
+      padding-inline: 32px;
+    }
+
+    &:hover {
+      @include animation(wobble, 1s, ease-in-out) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+
+  &__img {
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-small-desktop {
+      width: 196px;
+      height: 196px;
+    }
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 16px;
+
+    &::before {
+      content: '';
+      display: block;
+      background-image: url('../images/testimonials/quote.svg');
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 8px;
+
+      @include on-tablet {
+        margin: 0 auto 16px;
+      }
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__name {
+    color: $titles-color;
+    margin-bottom: 4px;
+  }
+
+  &__location {
+    text-align: center;
+  }
+}
