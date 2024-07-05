@@ -1,0 +1,53 @@
+.nav {
+  @include on-small-desktop {
+    display: block;
+  }
+
+  &__items {
+    display: flex;
+    gap: 48px;
+  }
+
+  &__link {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+    background: #2c2c2c;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all $effectDuration;
+    &::after,
+    &::before {
+      content: ' ';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      transition: all $effectDuration;
+    }
+    &::after {
+      top: 0;
+      left: 0;
+      border-top: 2px solid $main-blue-color;
+      border-left: 2px solid $main-blue-color;
+    }
+    &::before {
+      bottom: 0;
+      right: 0;
+      border-bottom: 2px solid $main-blue-color;
+      border-right: 2px solid $main-blue-color;
+    }
+    &:hover {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      &::before,
+      &::after {
+        width: 110%;
+        height: 120%;
+      }
+    }
+  }
+}
