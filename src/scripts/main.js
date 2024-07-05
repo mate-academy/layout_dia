@@ -47,3 +47,5 @@ document.getElementById('fourth__button').addEventListener('click', function() {
 document.querySelector('.menu').addEventListener('wheel', function(event) {
   event.preventDefault();
 }, { passive: false });
+
+document.body.style.overflowX = 'hidden';
