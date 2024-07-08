@@ -1,0 +1,2 @@
+const e=document.querySelector(".header__slider-img"),t=document.querySelector(".header__slider-buttons-first"),r=document.querySelector(".header__slider-buttons-second"),n=Array.from(e.querySelectorAll(".header__slider-img-design")),d=n.length;let l=0;function c(){n.forEach((e,t)=>{t===l?e.style.display="block":e.style.display="none"})}t.addEventListener("click",function(){l=(l-1+d)%d,c()}),r.addEventListener("click",function(){l=(l+1)%d,c()}),c();
+//# sourceMappingURL=index.734654ca.js.map
