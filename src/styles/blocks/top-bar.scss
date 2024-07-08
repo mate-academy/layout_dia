@@ -1,0 +1,97 @@
+.top-bar {
+  margin: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-link {
+    display: flex;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__logo {
+    height: 28px;
+  }
+
+  &__nav {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+
+    &-list {
+      display: none;
+
+      @include on-small-desktop {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      color: $color-for-dark-bg;
+    }
+
+    &-item {
+      @include hover(transform, scale(1.1));
+    }
+
+    &-button {
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-for-dark-bg;
+      text-decoration: none;
+      list-style-type: none;
+      font-size: 13px;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      position: relative;
+
+      @include hover(transform, scale(1.1));
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $accent-color;
+
+        @include hover(transform, scale(1.1));
+      }
+    }
+  }
+
+  &__menu {
+    display: block;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    @include on-large-screens {
+      display: none;
+    }
+  }
+}
+
+.top-bar:has(.top-bar__menu:target) {
+  overflow: hidden;
+}
