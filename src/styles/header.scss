@@ -4,15 +4,45 @@
   border-bottom-right-radius: 30px;
 
   &__center-and-slider {
-    @include pageGrid;
+
+    @include on-tablet{
+      @include pageGrid;
+    }
   }
 
   &__content-center {
-    grid-column: 1 / -1;
+    padding-top: 48px;
+
+    @include on-tablet-mini {
+      padding-top: 56px;
+    }
+
+    @include on-tablet {
+      padding-top: 164px;
+      grid-column: 1 / 6;
+    }
+
+    @include on-desktop-mini {
+      grid-column: 1 / 5;
+    }
   }
 
   &__slider {
-    grid-column: 1 / -1;
+    padding-top: 48px;
+
+    @include on-tablet-mini {
+      padding-top: 147px;
+    }
+
+    @include on-tablet {
+      padding-top: 48px;
+      grid-column: 7 / 13;
+      grid-row: 1;
+    }
+
+    @include on-desktop-mini {
+      grid-column: 8 / 13;
+    }
   }
 
   &__title {
@@ -23,22 +53,6 @@
     text-align: left;
     color: #FFF;
     margin: 0;
-    padding-top: 27px;
-
-    // grid-column: 1 / -1;
-
-    // @include on-tablet-mini {
-    //   font-size: 64px;
-    //   padding-top: 35px;
-
-    //   grid-column: 1 / -1;
-    //   }
-
-    //   @include on-tablet {
-    //   grid-column: 1 / 5;
-
-    //   padding-top: 143px;
-    //   }
   }
 
   &__description {
@@ -50,18 +64,6 @@
     color: #FFF;
     margin: 0;
     padding-top: 32px;
-
-    // grid-column: 1 / -1;
-
-    // @include on-tablet-mini {
-    //   padding-top: 24px;
-
-    //   grid-column: 1 / 5;
-    //   }
-
-    //   @include on-tablet {
-    //   grid-column: 1 / 6;
-    //   }
   }
 
   &__button {
@@ -76,30 +78,29 @@
     font-weight: 600;
     text-align: center;
     color: #FFF;
+    cursor: pointer;
 
     margin-top: 72px;
 
-    // grid-column: 1 / -1;
+    @include button-header-on-mobile {
+      width: 100%;
+    }
 
-    // @include on-tablet-mini {
-    //   margin-top: 56px;
+    &:hover {
+      box-shadow: 1px 4px 16px 0 rgba(135, 206, 250, 0.4); /* Light Sky Blue with 40% opacity */
+    }
 
-    //   grid-column: 1 / 4;
-    // }
-
-    // @include on-tablet {
-    //   margin-top: 83px;
-
-    //   grid-column: 1 / 5;
-    // }
+    &:focus {
+      box-shadow: 1px 4px 16px 0 rgba(135, 206, 250, 0.64); /* Light Sky Blue with 64% opacity */
+    }
   }
 
   &__slider {
-    @include pageGrid;
-
     padding-top: 48px;
     margin: 0;
+    padding-inline: 0;
     position: relative;
+
 
     &--contents {
       padding-inline: 20px;
@@ -128,9 +129,15 @@
           align-items: center;
           justify-content: center;
 
+          transition: transform 0.3s ease-in-out;
+
           &-first::after, &-second::after {
             content: '';
             position: absolute;
+
+            &:hover {
+              transform: scale(1.2);
+             }
           }
         }
       }
@@ -166,16 +173,35 @@
         display: block;
         border-radius: 30px;
 
-        height: auto;
+        height: 390px;
+        // height: auto;
         object-fit: cover;
         object-position: center;
 
-        // @include on-tablet {
-        //   @include pageGrid;
-
-        //   grid-column: 7 / 13;
-        // }
+        @include on-tablet {
+          height: 680px;
+          border-radius: 0;
+          border-top-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+        }
       }
     }
   }
+}
+
+.container-for-content-center {
+  // @include content-padding-inline;
+
+  // @include on-tablet {
+  //   padding-right: 0;
+  //   padding-left: 54px;
+  // }
+
+  // @include on-desktop-mini {
+  //   padding-left: 227px;
+  // }
+
+  // @include on-desktop {
+  //   padding-left: 707px;
+  // }
 }

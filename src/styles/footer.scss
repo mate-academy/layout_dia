@@ -1,19 +1,44 @@
 .footer {
   background-color: #2C2C2C;
   margin: 0;
-  padding-bottom: 80px;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include on-tablet-mini {
+      padding-top: 140px;
+      gap: 24px;
+    }
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-top: 120px;
+    }
+  }
 
   &-logo {
     margin: 0;
-    padding-bottom: 48px;
-    // display: flex;
-    // align-items: ;
 
     &-link {
       display: flex;
 
       &-image {
         height: 26px;
+
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
@@ -28,6 +53,24 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    @include on-tablet-mini {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-tablet {
+      gap: 64px;
+    }
+  }
+
+  &__item {
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__link {
