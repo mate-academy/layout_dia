@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  width: 100%;
+  background-color: $colorBlack;
+
+  &__wrapper {
+    position: relative;
+    padding: 20px 0;
+
+    @include smallDesktop {
+      padding: 48px 0 30px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.nav-header {
+  position: fixed;
+  left: 0;
+  top: 80px;
+
+  height: calc(100svh - 80px);
+  width: 100vw;
+
+  overflow-y: auto;
+
+  background-color: $colorBlack;
+
+  transform: translateX(-100%);
+  opacity: 0;
+
+  transition-duration: $transitionDuration;
+
+  @include smallDesktop {
+    position: relative;
+    left: unset;
+    top: unset;
+
+    height: auto;
+    width: max-content;
+
+    overflow-y: unset;
+
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__wrapper {
+    padding: 30px 0;
+
+    @include smallDesktop {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include smallDesktop {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &--active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
