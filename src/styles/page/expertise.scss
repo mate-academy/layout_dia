@@ -1,0 +1,125 @@
+.expertises {
+  &__wrapper {
+    @include transform-up;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 72px 0;
+
+    background-color: $colorWhite;
+
+    border-radius: 30px;
+    overflow: hidden;
+
+    @include onTablet {
+      padding: 120px 0;
+    }
+  }
+
+  &__header {
+    @include margin {
+      margin-bottom: 56px;
+    }
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__column {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+
+    @include onTablet {
+      gap: 72px;
+    }
+
+    @include smallDesktop {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+.expertise-card {
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    width: 180px;
+    height: 164px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    @include margin {
+      margin-bottom: 32px;
+    }
+    @include hover {
+      .expertise-card__img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition-duration: $transitionDuration;
+  }
+
+  &__main {
+    @include margin {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    @include title;
+
+    font-size: 20px;
+    text-align: center;
+
+    letter-spacing: -1px;
+
+    color: $darkBlue;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 362px;
+    width: 100%;
+
+    @include smallDesktop {
+      max-width: 214px;
+    }
+
+    @include Desktop {
+      max-width: 264px;
+    }
+  }
+
+  &__text {
+    font-size: $fontSizeAdditional;
+    font-weight: $fontWeightRegular;
+    text-align: center;
+  }
+}
