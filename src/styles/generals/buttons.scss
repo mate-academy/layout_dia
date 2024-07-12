@@ -32,9 +32,12 @@
   height: 40px;
   position: relative;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   text-transform: uppercase;
   letter-spacing: 3px;
-  align-items: center;
 
   color: $colorWhite;
 
@@ -50,15 +53,13 @@
     border-radius: 5px;
 
     background-color: $colorBlue;
-    animation: line-move 1.3s linear infinite alternate-reverse;
 
-    @keyframes line-move {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
+    transition-duration: $transitionDuration;
+  }
+
+  @include hover {
+    &::before {
+      width: 0;
     }
   }
 }
