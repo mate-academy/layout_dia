@@ -29,6 +29,8 @@
       justify-content: center;
       align-items: center;
       gap: 32px;
+
+      @include hover(scale, 1.1);
     }
 
     &__nav {
@@ -48,11 +50,28 @@
       flex-direction: column;
       gap: 16px;
 
+      @include on-mobile {
+        transition: 0.3s ease-out;
+        padding: 5px 30px;
+        position: absolute;
+        left: 130px;
+        top: 30px;
+        background-color: $main-page-color;
+        border: 2px solid $c-gray;
+        border-radius: 8px;
+      }
+
       @include on-desktop-s {
+        padding: 0;
+        position: relative;
+        left: 0;
+        top: 0;
         flex-direction: row;
       }
 
       &-item {
+        @include hover(scale, 1.1);
+
         .nav-list-item-link {
           text-decoration: none;
           color: $c-gray;
@@ -64,15 +83,20 @@
       display: none;
 
       &:checked ~ .top-bar__menu-toggle + .top-bar__nav {
-        display: flex;
+        display: block;
       }
     }
 
     &__menu-toggle {
+      @include hover(scale, 1.1);
+
       display: block;
       background: none;
       border: none;
       cursor: pointer;
+      position: absolute;
+      top: 25px;
+      left: 100px;
 
       @include on-desktop-s {
         display: none;
@@ -80,6 +104,8 @@
     }
 
     &__hire-us {
+      @include hover(scale, 1.1);
+
       @include on-mobile {
         white-space: nowrap;
         position: relative;
