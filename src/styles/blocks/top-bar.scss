@@ -1,0 +1,110 @@
+.page__header {
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-mobile {
+      padding: 20px;
+    }
+
+    @include on-tablet {
+      padding: 21px 41px;
+    }
+
+    @include on-desktop-s {
+      padding: 48px 54px;
+    }
+
+    @include on-desktop-m {
+      padding: 48px 227px;
+    }
+
+    @include on-desktop-l {
+      padding: 48px 707px;
+    }
+
+    &__logo-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+
+    &__nav {
+      display: none;
+      flex-direction: column;
+
+      @include on-desktop-s {
+        display: flex;
+      }
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @include on-desktop-s {
+        flex-direction: row;
+      }
+
+      &-item {
+        .nav-list-item-link {
+          text-decoration: none;
+          color: $c-gray;
+        }
+      }
+    }
+
+    &__menu-toggle-checkbox {
+      display: none;
+
+      &:checked ~ .top-bar__menu-toggle + .top-bar__nav {
+        display: flex;
+      }
+    }
+
+    &__menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      @include on-desktop-s {
+        display: none;
+      }
+    }
+
+    &__hire-us {
+      @include on-mobile {
+        white-space: nowrap;
+        position: relative;
+
+        font-family: Poppins, sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 3px;
+        color: $c-gray;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 67px;
+        height: 2px;
+        background-color: $c-blue;
+        border-radius: 4px solid transparent;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 8px;
+      }
+    }
+  }
+}
