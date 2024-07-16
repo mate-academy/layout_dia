@@ -1,0 +1,212 @@
+.footer {
+  width: 100%;
+  background-color: $background-color-dark;
+  padding-top: 72px;
+  padding-bottom: 80px;
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  justify-content: center;
+
+  @include on-tablet {
+    padding-top: 180px;
+  }
+
+  &__content {
+    width: 100%;
+    display: grid;
+    row-gap: 80px;
+
+    @include on-wide-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 97px;
+    }
+
+    @include on-desktop {
+      column-gap: 226px;
+    }
+
+    &__title {
+      color: $white;
+      font-size: 32px;
+      line-height: 48px;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    &__form {
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @include on-tablet {
+        max-width: 365px;
+        gap: 48px;
+      }
+
+      @include on-wide-tablet {
+        grid-column: 1 / 2;
+        max-width: none;
+      }
+
+      &__title {
+        padding-bottom: 8px;
+      }
+
+      &__input {
+        background-color: transparent;
+        border: none;
+        font-family: Poppins, sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22.5px;
+        text-align: left;
+        color: $white;
+        position: relative;
+        border-bottom: 1px solid $white;
+        padding-bottom: 16px;
+
+        @include hover(border-bottom, 1px solid $accent-color);
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: white;
+        }
+
+        &::placeholder {
+          font-family: Poppins, sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 22.5px;
+          text-align: left;
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid $accent-color;
+        }
+
+        &:autofill {
+          box-shadow: 0 0 0 50px $background-color-dark inset;
+          -webkit-box-shadow: 0 0 0 50px $background-color-dark inset;
+          -webkit-text-fill-color: $accent-color;
+        }
+      }
+
+      &__button {
+        margin-top: 16px;
+
+        @include on-tablet {
+          margin-top: 40px;
+        }
+      }
+    }
+
+    &__contacts {
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @include on-tablet {
+        gap: 48px;
+      }
+
+      @include on-wide-tablet {
+        grid-column: 2 / 3;
+      }
+
+      &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+
+        &__title {
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 19.5px;
+          letter-spacing: 3px;
+          text-align: left;
+          text-transform: uppercase;
+          color: gray;
+        }
+
+        &__link {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 24px;
+          line-height: 36px;
+          text-align: left;
+          color: $white;
+          text-decoration: none;
+          font-weight: 630;
+          transition: all 0.3s;
+
+          &:hover {
+            transform: scale(1.1);
+            color: $accent-color;
+          }
+        }
+
+        &__socials {
+          display: flex;
+          gap: 32px;
+        }
+      }
+    }
+
+    &__bottom_bar {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+
+      @include on-tablet {
+        gap: 24px;
+      }
+
+      @include on-wide-tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+
+        @include on-tablet {
+          flex-direction: row;
+          gap: 40px;
+        }
+
+        @include on-wide-tablet {
+          gap: 64px;
+        }
+
+        &__link {
+          text-transform: uppercase;
+          font-family: Poppins, sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 19.5px;
+          letter-spacing: 3px;
+          text-align: left;
+          text-decoration: none;
+          color: $white;
+
+          @include hover(transform, scale(1.2));
+        }
+      }
+
+      @include on-wide-tablet {
+        grid-column: 1 / 3;
+      }
+    }
+  }
+}
