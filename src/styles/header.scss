@@ -4,7 +4,6 @@
   border-bottom-right-radius: 30px;
 
   &__center-and-slider {
-
     @include on-tablet{
       @include pageGrid;
     }
@@ -29,6 +28,102 @@
 
   &__slider {
     padding-top: 48px;
+    margin: 0;
+    padding-inline: 0;
+    position: relative;
+
+
+    &--contents {
+      padding-inline: 20px;
+      padding-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      column-gap: 0;
+      bottom: 0;
+      left: 0;
+
+
+      &-arrows {
+        display: flex;
+        gap: 7px;
+        margin: 0;
+
+        &-left, &-right {
+          background-color: #FFF;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+
+          &-first::after, &-second::after {
+            content: '';
+            position: absolute;
+
+            transition: transform 0.3s ease-in-out;
+          }
+
+          &-first:hover::after, &-second:hover::after {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      &-text {
+        margin: 0;
+        padding-top: 16px;
+
+        &-intro {
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-align: left;
+          color: #FFF;
+        }
+
+        &-description {
+          padding-top: 8px;
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+          color: #FFF;
+        }
+      }
+    }
+
+    &--content {
+      width: 100%;
+
+      &-photo {
+        width: 100%;
+        display: block;
+        border-radius: 30px;
+
+        height: 390px;
+
+        // height: auto;
+        object-fit: cover;
+        object-position: center;
+
+        @include on-tablet {
+          height: 680px;
+          border-radius: 0;
+          border-top-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+        }
+      }
+    }
 
     @include on-tablet-mini {
       padding-top: 147px;
@@ -46,17 +141,20 @@
   }
 
   &__title {
-    // font-family: Poppins;
     font-size: 52px;
     font-weight: 600;
     letter-spacing: -2px;
     text-align: left;
     color: #FFF;
     margin: 0;
+
+    @include on-tablet-mini {
+      font-size: 64px;
+    }
   }
 
   &__description {
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
@@ -92,105 +190,6 @@
 
     &:focus {
       box-shadow: 1px 4px 16px 0 rgba(135, 206, 250, 0.64); /* Light Sky Blue with 64% opacity */
-    }
-  }
-
-  &__slider {
-    padding-top: 48px;
-    margin: 0;
-    padding-inline: 0;
-    position: relative;
-
-
-    &--contents {
-      padding-inline: 20px;
-      padding-bottom: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: absolute;
-      column-gap: 0;
-      bottom: 0;
-      left: 0;
-
-
-      &-arrows {
-        display: flex;
-        gap: 7px;
-        margin: 0;
-
-        &-left, &-right {
-          background-color: #FFFFFF;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          transition: transform 0.3s ease-in-out;
-
-          &:hover {
-            transform: scale(1.2);
-          }
-
-          &-first::after, &-second::after {
-            content: '';
-            position: absolute;
-
-            transition: transform 0.3s ease-in-out;
-          }
-
-          &-first:hover:after, &-second:hover:after {
-            transform: scale(1.2);
-          }
-        }
-      }
-
-      &-text {
-        margin: 0;
-        padding-top: 16px;
-
-        &-intro {
-          font-family: Open Sans;
-          font-size: 14px;
-          font-weight: 400;
-          text-align: left;
-          color: #FFFFFF;
-        }
-
-        &-description {
-          padding-top: 8px;
-          font-family: Open Sans;
-          font-size: 14px;
-          font-weight: 400;
-          text-align: left;
-          color: #FFFFFF;
-        }
-      }
-    }
-
-    &--content {
-      width: 100%;
-
-      &-photo {
-        width: 100%;
-        display: block;
-        border-radius: 30px;
-
-        height: 390px;
-        // height: auto;
-        object-fit: cover;
-        object-position: center;
-
-        @include on-tablet {
-          height: 680px;
-          border-radius: 0;
-          border-top-left-radius: 30px;
-          border-bottom-right-radius: 30px;
-        }
-      }
     }
   }
 }
