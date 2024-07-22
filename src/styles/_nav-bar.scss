@@ -1,0 +1,120 @@
+.nav {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: $accent-color;
+  padding: 20px 20px 40px;
+
+  @include on-desktop {
+    padding-inline: 180px;
+  }
+
+  &__logo {
+    display: flex;
+    gap: 38px;
+    order: 1;
+  }
+
+  &__list {
+    display: none;
+    margin-top: 30px;
+    width: 100%;
+    order: 3;
+    list-style: none;
+    flex-basis: 100%;
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+  }
+
+  .nav__toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    &_icon {
+      &--open {
+        display: block;
+      }
+      &--close {
+        display: none;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &:target {
+    flex-flow: row wrap;
+    place-content: flex-start flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 10;
+
+    .nav__toggle_icon--open {
+      display: none;
+    }
+
+    .nav__toggle_icon--close {
+      display: block;
+    }
+
+    .nav__list {
+      display: block;
+    }
+  }
+
+  &__contact {
+    order: 2;
+    margin-left: auto;
+
+    @include on-small-desktop {
+      order: 3;
+      width: 70px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 25px;
+  }
+
+  &__link {
+    position: relative;
+    color: $primary-color;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      height: 1px;
+      background-color: white;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
