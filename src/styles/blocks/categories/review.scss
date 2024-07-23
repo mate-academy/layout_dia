@@ -1,0 +1,158 @@
+.review {
+  min-height: 400px;
+  background-color: $white;
+  border-radius: 16px;
+  padding: 52px 42px;
+  box-shadow: 0 9px 18px 0 #25293108;
+  position: relative;
+  perspective: 150rem;
+
+  @include central;
+  @include hover(transform, scale(1.05));
+
+  & .container {
+    position: relative;
+
+    @include central;
+
+    margin-block: 30px;
+    width: 190px;
+    height: 190px;
+
+    &::before,
+    &::after {
+      content: '';
+      background-color: $blue;
+      width: 130px;
+      height: 54px;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+      position: absolute;
+      z-index: -1;
+    }
+
+    &::before {
+      top: 20px;
+      left: -10px;
+    }
+
+    &::after {
+      bottom: 20px;
+      right: -10px;
+    }
+  }
+
+  &__img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  &__text {
+    font-weight: 600;
+    text-align: center;
+    font-size: 13px;
+    line-height: 19.5px;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      background-image: url('../images/icons/icon-quote.svg');
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      margin: 0 auto 10px;
+
+      @include on-tablet {
+        margin: 0 auto 16px;
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    text-align: center;
+    color: $title-color;
+    font-size: 13px;
+    line-height: 19.5px;
+  }
+
+  &__company {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: $silver;
+    text-transform: uppercase;
+  }
+
+  &__rating {
+    font-family: Poppins, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    color: $silver;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  & .side {
+    margin: 32px 42px;
+    transition: all 0.8s ease;
+    backface-visibility: hidden;
+    position: absolute;
+    height: fit-content;
+
+    @include central;
+
+    flex-direction: column;
+    gap: 20px;
+
+    &-back {
+      transform: rotateY(-180deg);
+    }
+  }
+
+  &:hover .side-front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .side-back {
+    transform: rotateY(0deg);
+  }
+}
+
+.Stars {
+  $percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: $star-size;
+  font-family: Times, sans-serif;
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(
+      90deg,
+      $star-background $percent,
+      $star-color $percent
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-4\.5 {
+    --rating: 4.5;
+  }
+
+  &-5 {
+    --rating: 5;
+  }
+}

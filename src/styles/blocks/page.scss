@@ -1,0 +1,77 @@
+.page {
+  background: $bg-color;
+  font-family: 'Open sans', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: $main-color;
+
+  min-width: $min-width;
+
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all $effect-duration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__button {
+    @include central;
+
+    color: $white;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 600;
+    background-color: $blue;
+    height: 50px;
+    text-decoration: none;
+    border: 0 solid;
+    border-radius: 12px;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+      border: 1px solid;
+      box-shadow:
+        inset 0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.2);
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+
+    @include hover(transform, scale(1.2));
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: Poppins, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
