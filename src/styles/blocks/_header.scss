@@ -1,8 +1,14 @@
 .header {
+  @include page-grid;
+  position: relative;
   background: $header-footer-bg-color;
   color: $header-footer-color;
   height: 893px;
   border-radius: 0 0 30px 30px;
+
+  @include on-small-desktop {
+    height: 800px;
+  }
 
   &__top {
     grid-column: 1 / -1;
@@ -29,6 +35,7 @@
 
   &__bottom {
     @include page-grid;
+
     row-gap: 48px;
   }
 
@@ -66,7 +73,7 @@
     border-radius: 8px;
     border: none;
     color: $header-footer-color;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 15px;
     font-weight: 600;
     line-height: 22.5px;
@@ -77,8 +84,8 @@
   }
 
   &__carousel {
+    z-index: 1;
     grid-column: 1 / -1;
-    position: relative;
 
     @include on-small-desktop {
       grid-column: 7 / -1;
@@ -90,13 +97,33 @@
   }
 
   &__img {
+    height: 390px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+
+    @include on-small-desktop {
+      height: 680px;
+      border-radius: 30px 0;
+    }
+
     &-container {
+      grid-column: 1 / -1;
+      width: 100%;
       position: absolute;
       bottom: 0;
+      right: 0;
+
+      @include on-small-desktop {
+        grid-column: 7 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 8 / -1;
+      }
     }
-    height: 390px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 30px 30px 0 0;
   }
 }
