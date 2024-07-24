@@ -1,9 +1,14 @@
 $swiperHeigth: 390px;
+$swiperHeighLaptop: 680px;
 
 .swiper {
   position: relative;
   width: 100%;
   height: $swiperHeigth;
+
+  @include onLaptop{
+    height: $swiperHeighLaptop;
+  }
 
   &-wrapper {
     // Add specific styles for the wrapper if needed
@@ -14,11 +19,20 @@ $swiperHeigth: 390px;
     border-radius: 30px;
     background-size: cover;
 
+    @include onLaptop{
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+
     &--clock {
       background-image: url('../images/clock-mobile.png');
 
       @include onTablet{
         background-image: url('../images/clock-mobile-tablet.png');
+      }
+
+      @include onLaptop{
+        background-image: url('../images/clock-mobile-laptop.png');
       }
     }
   }
@@ -49,6 +63,10 @@ $swiperHeigth: 390px;
     @include onTablet{
       left: 40 !important;
     }
+    @include onLaptop{
+      left: 70 !important;
+      margin-top: 305px !important;
+    }
   }
 
   &-button-next {
@@ -56,13 +74,24 @@ $swiperHeigth: 390px;
       @include onTablet{
       left: 90 !important;
     }
+    @include onLaptop{
+      left: 120 !important;
+      margin-top: 305px !important;
+    }
   }
 
   &__container {
     display: flex;
+    justify-content: end;
+    width: 266px;
     flex-direction: column;
     height: $swiperHeigth;
-    justify-content: end;
+    
+
+    @include onLaptop{
+      height: $swiperHeighLaptop;
+      margin-left: 130px;
+    }
   }
 
   &__title {
@@ -72,5 +101,8 @@ $swiperHeigth: 390px;
   &__text {
     color: $white;
     padding-bottom: 24px;
+    @include onLaptop{
+      padding-bottom: 48px;
+    }
   }
 }

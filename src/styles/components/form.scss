@@ -1,15 +1,17 @@
 .form {
   grid-column: 1/ -1;
-  display: grid;
-  gap: 40px;
 
   @include onTablet{
     grid-column: 1 / 5;
   }
+
+  @include onLaptop{
+    grid-column: 1 / 6;
+  }
   
 
   &__input {
-    // display: flex;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 600;
     
@@ -21,21 +23,33 @@
 
     @include hover(border-bottom, .3s);
 
+    &:not(:last-child){
+      margin-bottom: 40px;
+    }
+
     &:focus {
       outline: none;
       border-bottom: 2px solid $mainBotton;
       color: $white;
+      // font-family: 'Poppins', sans-serif;
+      // font-size: 15px;
+      // font-weight: 600;
     }
   }
 
   &__button {
     grid-column: 1/-1;
     margin-top: 56px;
+    margin-bottom: 80px;
     
     @include onTablet{
       grid-column: 1/4;
       margin-top: 80px;
       margin-bottom: 120px;
+    }
+
+    @include onLaptop{
+      grid-column: 1 / 5;
     }
   }
 }
