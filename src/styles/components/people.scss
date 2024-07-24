@@ -1,82 +1,99 @@
 .people {
-    display: grid;
-    gap: 24px;
-    font-family: "Open Sans", sans-serif;
+    grid-column: 1/-1;
+    background-color: $white;
+    text-align: center;
+    padding: 75px 37px 32px;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    &:not(:last-child){
+      margin-bottom: 30px;
+    }
     
-    &__card {
-        background-color: $white;
-        text-align: center;
-        padding: 75px 37px 32px;
-        border-radius: 16px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 280px; // Adjust as necessary
-        margin: 0 auto;
-    }
-
     &__image {
-        position: relative;
-        z-index: 2;
-        width: 110px;
-        border-radius: 50%;
-        margin-bottom: 70px;
+      z-index: 2;
+      width: 110px;
+      border-radius: 50%;
+      margin-bottom: 70px;
+      @include onTablet{ 
+        width: 140px;
+      }
     }
-
+    
     &__quote {
     }
-
+    
     &__decoration {
+      justify-content: center;
+      align-items: center;
+      width: 196px;
+      height: 196px;
+      margin-bottom: 24px;
+      display: flex;
+      position: relative;
+      
+      &::before,
+      &::after {
+        z-index: 1;
+        content: '';
         position: absolute;
-        width: 100%;
-        height: 110px;
-    
-        &::before,
-        &::after {
-            z-index: 1;
-            content: '';
-            position: absolute;
-            background-color: #2060F6;
-            border-radius: 12px;
-            width: 44px; 
-            height: 109px;
-            transform: rotate(30deg);
+        background-color: #2060f6;
+        border-radius: 12px;
+        width: 44px;
+        height: 109px;
+        transform: rotate(30deg);
+        
+        @include onTablet{
+          width: 56px;
+          height: 140px;
         }
+      }
+      
+      &::before {
+        top: -25px;
+      left: 40px;
+      @include onTablet{
+        top: -50px;
+        left: 25px;
+      }
+    }
     
-        &::before {
-            bottom: 35px; 
-            left: 80px;
-        }
-    
-        &::after {
-            top: 35px;
-            right: 80px;
-        }
+    &::after {
+      bottom: 48px;
+      right: 40px;
+      @include onTablet{
+        bottom: 20px;
+        right: 25px;
+      }
     }
+  }
 
-    &__text{
-        margin-top: 8px;
-        color: #6C788B;
-        font-weight: 600;
-        margin-bottom: 16px;
-        line-height: 150%;
-        font-size: 13px;
-    }
+  &__text {
+    margin-top: 8px;
+    color: #6c788b;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 150%;
+    font-size: 13px;
+    max-width: 500px;
+  }
+  
+  &__name {
+    color: #253757;
+    font-weight: 600;
+    line-height: 150%;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
 
-    &__name{
-        color: #253757; 
-        font-weight: 600;
-        line-height: 150%;
-        font-size: 13px;
-        margin-bottom: 4px;
-    }
-
-    &__special{
-        font-weight: 700;
-        font-size: 13px;
-        color: #C0CDD7;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
+  &__special {
+    font-weight: 700;
+    font-size: 13px;
+    color: #c0cdd7;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
 }

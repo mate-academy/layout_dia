@@ -1,26 +1,41 @@
-.form{
-    display: grid;
-    gap: 40px;
+.form {
+  grid-column: 1/ -1;
+  display: grid;
+  gap: 40px;
 
-    &__input{
-        // display: flex;
-        font-size: 15px;
-        font-weight: 600;
-        background-color: inherit;
-        width: 100%;
-        height: 40px;
-        border: none;
-        border-bottom: 1px solid $white;
+  @include onTablet{
+    grid-column: 1 / 5;
+  }
+  
 
-        &:focus {
-            outline: none;
-            border-bottom: 1px solid $mainBotton;
-            color: $white;
-          }
+  &__input {
+    // display: flex;
+    font-size: 15px;
+    font-weight: 600;
+    
+    background-color: inherit;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid $white;
+
+    @include hover(border-bottom, .3s);
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $mainBotton;
+      color: $white;
     }
+  }
 
-    &__button{
-        margin-top: 16px;
+  &__button {
+    grid-column: 1/-1;
+    margin-top: 56px;
+    
+    @include onTablet{
+      grid-column: 1/4;
+      margin-top: 80px;
+      margin-bottom: 120px;
     }
-
+  }
 }

@@ -1,68 +1,76 @@
 $swiperHeigth: 390px;
 
 .swiper {
+  position: relative;
+  width: 100%;
+  height: $swiperHeigth;
+
+  &-wrapper {
+    // Add specific styles for the wrapper if needed
+  }
+
+  &-slide {
     position: relative;
-    width: 100%;
-    height: $swiperHeigth;
-  
-    &-wrapper {
+    border-radius: 30px;
+    background-size: cover;
 
-      // Add specific styles for the wrapper if needed
-    }
-  
-    &-slide {
-      position: relative;
-      border-radius: 30px;
-      background-size: cover;
-  
-      &--clock {
-        background-image: url('../images/clock-mobile.png');
+    &--clock {
+      background-image: url('../images/clock-mobile.png');
+
+      @include onTablet{
+        background-image: url('../images/clock-mobile-tablet.png');
       }
-    }
- 
-    &-button-next,
-    &-button-prev {
-      position: absolute;
-      top: 275 !important;
-      width: 32px !important;
-      height: 32px !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: none; // Remove any default background
-  
-      img {
-        width: 100%;
-        height: 100%;
-      }
-  
-      &::after {
-        display: none;
-      }
-    }
-
-    &-button-prev{
-      left: 20 !important;
-    }
-
-    &-button-next{
-      left: 70 !important;
-    }
-
-    &__container{
-      display: flex;
-      flex-direction: column;
-      height: $swiperHeigth;
-      justify-content: end;
-    }
-
-    &__title {
-      margin-bottom: 8px;
-    }
-
-    &__text {
-      color: $white;
-      padding-bottom: 24px;
     }
   }
-  
+
+  &-button-next,
+  &-button-prev {
+    position: absolute;
+    top: 275 !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none; // Remove any default background
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &-button-prev {
+    left: 20 !important;
+    @include onTablet{
+      left: 40 !important;
+    }
+  }
+
+  &-button-next {
+    left: 70 !important;
+      @include onTablet{
+      left: 90 !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: $swiperHeigth;
+    justify-content: end;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $white;
+    padding-bottom: 24px;
+  }
+}
