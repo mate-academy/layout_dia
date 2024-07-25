@@ -1,14 +1,57 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
   .course {
     padding: 32px;
-    background-color: $white;
     border-radius: 16px;
     box-shadow: 0 9px 18px #25293103;
+    background-color: $white;
+    position: relative;
+
+    &::before {
+      content: "";
+      background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+      z-index: -5;
+      border-radius: 17px;
+      animation: 2.5s linear infinite spin;
+      position: absolute;
+      top: -3px;
+      left: -3px;
+  }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+      transform: scale(0.8);
+      filter: blur(30px);
+      background-image: linear-gradient(
+        var(--rotate)
+        , #5ddcff, #3c67e3 43%, #4e00c2);
+        opacity: 1;
+      transition: opacity .5s;
+      animation: spin 2.5s linear infinite;
+    }
+
+
 
     &--1{
       margin-bottom: 30px;
       @include onTablet{
         grid-column: 1/4;
         margin-bottom: 30px;
+        &::after, &::before{
+          content:none;
+        }
       }
 
       @include onLaptop{
@@ -22,6 +65,9 @@
         grid-column: -1/-4;
         transform: translateY(-50%);
         margin-bottom: 30px;
+        &::after, &::before{
+          content:none;
+        }
       }
 
       @include onLaptop{
@@ -34,6 +80,9 @@
       @include onTablet{
         margin-bottom: 0;
         grid-column: 1/4;
+        &::after, &::before{
+          content:none;
+        }
       }
 
       @include onLaptop{
@@ -47,6 +96,9 @@
     @include onTablet{
       grid-column: -1/-4;
       transform: translateY(-50%);
+      &::after, &::before{
+        content:none;
+      }
     }
 
     @include onLaptop{
@@ -87,11 +139,27 @@
     color: #334563;
 
     &::before {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       content: '';
       margin-right: 16px;
-      background-image: url(../images/icons/Arrow.svg);
+      background-image: url('../images/icons/Arrow.svg');
+      background-size: cover;
+      background-position: center;
+      transition: .3s;
     }
+    &:hover::before {
+      background-image: url('../images/icons/Arrow-hover.svg');
+    }
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
   }
 }
