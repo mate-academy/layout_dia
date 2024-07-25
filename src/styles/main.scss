@@ -13,6 +13,7 @@
 @import './components/button';
 @import './components/top-bar';
 @import './components/icons';
+@import './layouts/sidebar';
 @import './layouts/header';
 @import './layouts/about';
 @import './layouts/expiriance';
@@ -79,4 +80,28 @@ p {
 
 .page{
   scroll-behavior: smooth;
+  // position: relative;
+
+  &__sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    transition: all .3s;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+
+    &:target{
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__sidebar:target) {
+      overflow: hidden;
+  }
 }
