@@ -28,11 +28,32 @@
   }
 
   &__value {
+    position: relative;
     font-family: 'Open Sans', sans-serif;
     line-height: 150%;
     font-size: 24px;
     text-decoration: none;
     color: white;
+
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 2px;
+      position: absolute;
+      background: $mainBotton;
+      bottom: 0;
+      left: 0;
+      margin-bottom: -13px;
+      transition: width 0.3s ease, transform 0.3s ease;
+      transform: translateX(-10%);
+    }
+
+    &:hover::after {
+      width: 100%;
+      transform: translateX(0);
+    }
+
   }
 
   &__socials {
