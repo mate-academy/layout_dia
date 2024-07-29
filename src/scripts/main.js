@@ -8,10 +8,3 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 });
-
-document
-  .getElementById('contactForm')
-  .addEventListener('submit', function (event) {
-    event.preventDefault();
-    alert('Form submitted!');
-  });
