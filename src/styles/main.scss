@@ -1,7 +1,111 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './layouts/main';
+@import './components/nav';
+@import './components/navigation';
+@import './components/contact';
+@import './components/form';
+@import './components/people';
+@import './components/course';
+@import './components/offer';
+@import './components/swiper';
+@import './components/button';
+@import './components/top-bar';
+@import './components/icons';
+@import './layouts/sidebar';
+@import './layouts/header';
+@import './layouts/about';
+@import './layouts/expiriance';
+@import './layouts/services';
+@import './layouts/comment';
+@import './layouts/vision';
+@import './layouts/footer';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
 body {
+  font-family: 'Poppins', sans-serif;
   background: $c-gray;
+  color: $white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 52px;
+  letter-spacing: -2px;
+  line-height: 120%;
+  @include onTablet{
+    font-size: 64px;
+  }
+}
+
+h2 {
+  font-size: 44px;
+  line-height: 120%;
+  @include onTablet{
+    font-size: 52px;
+    line-height: 150%;
+  }
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 150%;
+}
+
+h4 {
+  color: #253757;
+  font-size: 20px;
+  line-height: 140%;
+}
+
+h5 {
+  font-size: 13px;
+  letter-spacing: 3px;
+  line-height: 120%;
+}
+
+p {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.page{
+  scroll-behavior: smooth;
+  // position: relative;
+
+  &__sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    transition: all .3s;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+
+    &:target{
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__sidebar:target) {
+      overflow: hidden;
+  }
+}
+
+textarea {
+  resize: none;
 }

@@ -1,0 +1,116 @@
+$swiperHeigth: 390px;
+$swiperHeighLaptop: 680px;
+
+.swiper {
+  position: relative;
+  width: 100%;
+  height: $swiperHeigth;
+
+  @include onLaptop{
+    height: $swiperHeighLaptop;
+  }
+
+  &-wrapper {
+    // Add specific styles for the wrapper if needed
+  }
+
+  &-slide {
+    position: relative;
+    border-radius: 30px;
+    background-size: cover;
+
+    @include onLaptop{
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+
+    &--clock {
+      background-image: url('../images/clock-mobile.png');
+
+      @include onTablet{
+        background-image: url('../images/clock-mobile-tablet.png');
+      }
+
+      @include onLaptop{
+        background-image: url('../images/clock-mobile-laptop.png');
+      }
+
+      @include onDestop{
+        background-image: url('../images/clock-mobile-desctop.png');
+      }
+    }
+  }
+
+  &-button-next,
+  &-button-prev {
+    position: absolute;
+    top: 275 !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none; // Remove any default background
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &-button-prev {
+    left: 20 !important;
+    @include onTablet{
+      left: 40 !important;
+    }
+    @include onLaptop{
+      left: 70 !important;
+      margin-top: 305px !important;
+    }
+  }
+
+  &-button-next {
+    left: 70 !important;
+      @include onTablet{
+      left: 90 !important;
+    }
+    @include onLaptop{
+      left: 120 !important;
+      margin-top: 305px !important;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: end;
+    width: 266px;
+    flex-direction: column;
+    height: $swiperHeigth;
+    
+
+    @include onLaptop{
+      height: $swiperHeighLaptop;
+      margin-left: 130px;
+    }
+
+    @include onDestop{
+     margin-left: -40px; 
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $white;
+    padding-bottom: 24px;
+    @include onLaptop{
+      padding-bottom: 48px;
+    }
+  }
+}
