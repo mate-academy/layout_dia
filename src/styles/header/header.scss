@@ -17,23 +17,116 @@
       grid-column: 1 / 7;
     }
   }
+}
 
-  &__slider {
-    height: 390px;
-    width: 100%;
+.slider {
+  &__images {
+    position: relative;
+    display: flex;
+    overflow: hidden;
     border-radius: $border-radius;
-    background-image: url(../images/slider/slide-img-1.png);
-    background-size: cover;
-    background-position: center;
+
+    &--image-1,
+    &--image-2,
+    &--image-3 {
+      height: 390px;
+      min-width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &--image-1 {
+      background-image: url(../images/slider/slide-img-1.png);
+    }
+
+    &--image-2 {
+      background-image: url(../images/slider/slide-img-2.png);
+    }
+
+    &--image-3 {
+      background-image: url(../images/slider/slide-img-3.png);
+    }
+  }
+
+  &__info {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      bottom: 32px;
+      left: 41px;
+    }
 
     @include onSmallDesktop {
-      position: absolute;
-      height: 680px;
-      top: var(--big-nav-height);
-      left: 50%;
-      width: 50%;
-      border-radius: $border-radius 0;
-      min-height: 365px;
+      gap: 18px;
+      left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &--title {
+      color: #fff;
+      font-family: Poppins;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      text-align: left;
+    }
+
+    &--text {
+      font-family: Open Sans;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.6px;
+      text-align: left;
+
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+
+    &--left,
+    &--right {
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    &--arrow {
+      width: 6px;
+      height: 9px;
+    }
+  }
+
+  @include onSmallDesktop {
+    position: absolute;
+    min-height: 680px;
+    top: var(--big-nav-height);
+    left: 50%;
+    width: 50%;
+    border-radius: $border-radius 0;
+
+    &__images {
+      &--image-1,
+      &--image-2,
+      &--image-3 {
+        min-height: 680px;
+      }
     }
   }
 }
