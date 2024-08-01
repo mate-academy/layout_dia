@@ -19,6 +19,7 @@ form.addEventListener('submit',function(event){
     const nextButton = document.getElementById('next');
     let currentIndex = 0;
 
+
     function updateSlider() {
       for (let i = 0; i < images.length; i++) {
         images[i].classList.remove('active');
