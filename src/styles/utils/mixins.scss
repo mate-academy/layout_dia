@@ -1,0 +1,97 @@
+
+
+@mixin onTablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin onSmallDesktop {
+  @media (min-width: $small-desktop) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: $large-desktop) {
+    @content;
+  }
+}
+
+@mixin onLargeScreens {
+  @media (min-width: $large-screens) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include onTablet {
+    padding-inline: 41px;
+  }
+
+  @include onSmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include onDesktop {
+    padding-inline: 125px;
+  }
+
+  @include onLargeDesktop {
+    padding-inline: 250px;
+  }
+
+  @include onLargeScreens {
+    padding-inline: 707px;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
+@mixin pageGrid {
+  --columns: 2;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onSmallDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+
+  @include onLargeDesktop {
+    --columns: 12;
+    column-gap: 30px;
+  }
+  @include onLargeScreens {
+    --columns: 12;
+    column-gap: 30px;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} 0.3s;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}

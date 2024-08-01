@@ -1,0 +1,136 @@
+
+.slider {
+  position: relative;
+  width: 100%; 
+  overflow: hidden;
+  
+
+  &__controls {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    
+
+    @include onTablet {
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include onSmallDesktop {
+      left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      left: 48px;
+      bottom: 48px;
+    }
+  }
+
+  &__intro {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding-bottom: 8px;
+    color: #fff;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left; 
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease; /* Анімація переходу між слайдами */
+}
+
+.slide {
+  flex: 0 0 100%; /* Кожен слайд займає всю ширину контейнера */
+  height: 390px; /* Висота слайдів (замініть на потрібну) */
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+
+  @include onSmallDesktop {
+    height: calc(100vh - 48px);
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+}
+
+.slide1 {
+  background-image: url(../images/slider/slide1.png); /* URL першого зображення */
+}
+
+.slide2 {
+  background-image: url(../images/slider/slide2.png); /* URL другого зображення */
+}
+
+
+
+.slider__input {
+  display: none;
+}
+
+.slides {
+  transform: translateX(0);
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  background-color:#fff;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  
+  
+  &__wrapper {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.prev {
+  background-size: cover;
+  background-position: center;
+  background-image: url(../images/buttons/button-prev.png);
+}
+
+.next {
+  background-size: cover;
+  background-position: center;
+background-image: url(../images/buttons/button-next.png);
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#slide1:checked ~ .slides {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ .slides {
+  transform: translateX(-100%);
+}
+
+
+
