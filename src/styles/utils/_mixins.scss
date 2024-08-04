@@ -5,6 +5,14 @@
   }
 }
 
+@mixin action($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:active, &:focus {
+    outline: none;
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin on-tablet() {
   @media (min-width: $tablet-min-width) {
     @content;
