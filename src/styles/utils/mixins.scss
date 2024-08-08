@@ -1,0 +1,100 @@
+@mixin tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin hover($property, $toValue, $element: false) {
+  @if $element {
+    #{$element} {
+      transition: #{$property} 0.3s;
+    }
+    &:hover #{$element} {
+      #{$property}: $toValue;
+    }
+  } @else {
+    transition: #{$property} 0.3s;
+    &:hover {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin container {
+  padding-inline: 21px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding-inline: 41px;
+  }
+
+  @include desktop {
+    padding-inline: 54px;
+  }
+
+  @include large-desktop {
+    max-width: 1148px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include large-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin card-style {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+}
+
+@mixin accent($bg-image) {
+  position: absolute;
+  top: 0;
+  background-image: $bg-image;
+  opacity: 0;
+}
+
+@mixin autofill {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px $bg-color-dark inset;
+    -webkit-text-fill-color: #fff;
+  }
+}

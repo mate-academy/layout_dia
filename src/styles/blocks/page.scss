@@ -1,0 +1,51 @@
+.page {
+  scroll-behavior: smooth;
+  background-color: $bg-color-light;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all;
+    transition-duration: 0.3s;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__mobile-hidden {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+    }
+  }
+
+  &__tablet-hidden {
+    display: inline-block;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

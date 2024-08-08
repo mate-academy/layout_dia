@@ -1,0 +1,42 @@
+.header {
+  background-color: $bg-color-dark;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__center {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  &__right-button {
+    position: relative;
+    display: flex;
+    color: #fff;
+    transform: translateY(-8px);
+
+    @include hover(color, $color-dark-blue);
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: -8px;
+      left: 0;
+      right: $text-uppercase-letter-spasing;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $color-blue;
+    }
+
+    @include desktop {
+      transform: translateY(0);
+    }
+  }
+}
