@@ -1,0 +1,91 @@
+.vision {
+  @include element-grid;
+
+  background-color: $c-white;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+  height: calc(100% + 144px);
+  z-index: 1;
+
+  @include white-bg(0, 100%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 72px;
+    width: 100vw;
+    height: calc(100% - 144px);
+    background-image: var(--bg-image, url(../images/vision/shapes.png));
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-self: center;
+    z-index: 2;
+
+    @include on-tablet {
+      background-size: auto 70%;
+    }
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__title {
+    grid-column: span 12;
+    text-align: center;
+    margin: 199px 0 24px;
+    z-index: 3;
+
+    @include text-styler(Poppins, 600, 52px, 78px, $c-black);
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+    }
+  }
+
+  &__content {
+    grid-column: span 12;
+    text-align: center;
+    margin: 0 0 64px;
+    z-index: 3;
+
+    @include text-styler(Open Sans, 600, 24px, 36px, $c-gray);
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 264px;
+    height: 56px;
+    grid-column: span 12;
+    background-color: $c-blue;
+    border-radius: 8px;
+    border: none;
+    color: $c-white;
+    z-index: 3;
+    margin: 0 0 126px;
+
+    @include text-styler(Poppins, 600, 15px, 22.5px, $c-white);
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+    }
+  }
+}
