@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
         document.querySelector('.slide--1').src =
-          '/purple-main-2x.2ce4199f.png';
+          'images/slider/purple-main-2x.png';
         document.querySelector('.card__number--1').style.backgroundColor =
           'rgba(86, 204, 242, 0.1)';
         document.querySelector('.card__number--1').style.color =
@@ -142,22 +142,22 @@ document.addEventListener('DOMContentLoaded', function () {
           '.learn-more__ellipse--4',
         ).style.backgroundColor = 'rgb(243, 99, 99)';
         document.querySelector('.testimonial__picture--1').src =
-          '/testimonial-blue-2x.ea161dc6.png';
+          'images/testimonials/testimonial-blue-2x.png';
         document.querySelector('.testimonial__picture--2').src =
-          '/testimonial-yellow-2x.594891dc.png';
+          'images/testimonials/testimonial-yellow-2x.png';
         document.querySelector('.testimonial__picture--3').src =
-          '/testimonial-red-2x.43848943.png';
+          'images/testimonials/testimonial-red-2x.png';
         document.querySelector('.testimonial__decoration-figure--1').src =
-          '/quotes-blue-2x.9527ab50.png';
+          'images/testimonials/quotes-blue-2x.png';
         document.querySelector('.testimonial__decoration-figure--2').src =
-          '/quotes-yellow-2x.166a65ca.png';
+          'images/testimonials/quotes-yellow-2x.png';
         document.querySelector('.testimonial__decoration-figure--3').src =
-          '/quotes-red-2x.3505c6c1.png';
+          'images/testimonials/quotes-red-2x.png';
         document
           .querySelector('.vision')
           .style.setProperty(
             '--bg-image',
-            "url('colorful-shapes.3b7264f8.png')",
+            "url('images/vision/colorful-shapes.png')",
           );
         document.querySelector('.vision__button').style.borderRadius = '64px';
         document.querySelector('.vision__button').style.backgroundColor = cPink;
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
         });
-        document.querySelector('.slide--1').src = '/gray-main.f4d414f5.png';
+        document.querySelector('.slide--1').src = 'images/slider/gray-main.png';
         document.querySelector('.card__number--1').style.backgroundColor =
           'rgba(32, 96, 246, 0.1)';
         document.querySelector('.card__number--1').style.color =
@@ -264,20 +264,20 @@ document.addEventListener('DOMContentLoaded', function () {
           '.learn-more__ellipse--4',
         ).style.backgroundColor = 'rgb(32, 96, 246)';
         document.querySelector('.testimonial__picture--1').src =
-          '/testimonial-1-2x.092d444a.png';
+          'images/testimonials/testimonial-1-2x.png';
         document.querySelector('.testimonial__picture--2').src =
-          '/testimonial-2-2x.00b8c72c.png';
+          'images/testimonials/testimonial-2-2x.png';
         document.querySelector('.testimonial__picture--3').src =
-          '/testimonial-3-2x.9525e7fa.png';
+          'images/testimonials/testimonial-3-2x.png';
         document.querySelector('.testimonial__decoration-figure--1').src =
-          '/quotes-2x.37316c48.png';
+          'images/testimonials/quotes-2x.png';
         document.querySelector('.testimonial__decoration-figure--2').src =
-          '/quotes-2x.37316c48.png';
+          'images/testimonials/quotes-2x.png';
         document.querySelector('.testimonial__decoration-figure--3').src =
-          '/quotes-2x.37316c48.png';
+          'images/testimonials/quotes-2x.png';
         document
           .querySelector('.vision')
-          .style.setProperty('--bg-image', "url('shapes.738cb45c.png')");
+          .style.setProperty('--bg-image', "url('images/vision/shapes.png')");
         document.querySelector('.vision__button').style.borderRadius = '8px';
         document.querySelector('.vision__button').style.backgroundColor =
           cBlueInitial;
