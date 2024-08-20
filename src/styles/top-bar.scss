@@ -1,0 +1,83 @@
+.top-bar {
+  margin: 0;
+  height: 48px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  &__logo {
+    display: block;
+    width: 46px;
+    height: 28px;
+
+    &-link {
+      text-decoration: none;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__hire-us {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    bottom: 8px;
+    text-indent: 3px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      background-color: $c-blue;
+      transition: transform 0.3s;
+      transform: scaleX(0);
+      transform-origin: left;
+      border-radius: 4px;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop-s {
+      & {
+        display: flex;
+      }
+    }
+
+    &--link {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 19px;
+      letter-spacing: 3px;
+      text-decoration: none;
+      color: white;
+      margin-right: 48px;
+      text-transform: uppercase;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
