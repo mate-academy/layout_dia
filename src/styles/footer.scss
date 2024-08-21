@@ -1,0 +1,248 @@
+.footer {
+  padding-block: 72px;
+  background-color: $backgound-color;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+
+  @include on-tablet {
+    padding-top: 180px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+      grid-column: 1 / -1;
+    }
+
+    @include on-laptop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__navigation {
+    grid-column: 1 / -1;
+  }
+}
+
+.form {
+  grid-column: 1/ -1;
+
+  @include on-tablet {
+    grid-column: 1 / 5;
+  }
+
+  @include on-laptop {
+    grid-column: 1 / 6;
+  }
+
+  @include on-destop {
+    grid-column: 1/7;
+  }
+
+  &__input {
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: $white;
+    background-color: inherit;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid $white;
+
+    @include hover(border-bottom, 0.3s);
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $mainBotton;
+    }
+  }
+
+  &__button {
+    grid-column: 1/-1;
+    margin-top: 56px;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      margin-top: 80px;
+      margin-bottom: 120px;
+    }
+
+    @include on-laptop {
+      grid-column: 1 / 5;
+    }
+
+    @include on-destop {
+      width: 264px;
+    }
+  }
+}
+
+.contact {
+  grid-column: 1 / -1;
+
+  @include on-laptop {
+    grid-column: 7 /-1;
+  }
+
+  @include on-destop {
+    grid-column: 9 /-1;
+  }
+
+  &__wraper {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__label {
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: $white;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  &__value {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 150%;
+    font-size: 24px;
+    text-decoration: none;
+    color: $white;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 2px;
+      position: absolute;
+      background-color: $mainBotton;
+      bottom: 0;
+      left: 0;
+      margin-bottom: -13px;
+      transition:
+        width 0.3s ease,
+        transform 0.3s ease;
+      transform: translateX(-10%);
+    }
+
+    &:hover::after {
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: 80px;
+
+    :not(:last-child) {
+      margin-right: 32px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  height: 32px;
+  width: 32px;
+
+  &--facebook {
+    background-image: url(../images/icon/facebook.svg);
+
+    @include hover(background-image, url(../images/icon/facebook-hover.svg));
+  }
+
+  &--twitter {
+    background-image: url(../images/icon/twitter.svg);
+
+    @include hover(background-image, url(../images/icon/twitter-hover.svg));
+  }
+
+  &--instagram {
+    background-image: url(../images/icon/instagram.svg);
+
+    @include hover(background-image, url(../images/icon/instagram-hover.svg));
+  }
+}
+
+.navigation {
+  &__list {
+    padding: 0;
+    margin-top: 48px;
+    list-style: none;
+    display: grid;
+
+    @include on-tablet {
+      margin-top: 24px;
+      display: flex;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    font-weight: 800;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 2px;
+      position: absolute;
+      background: $mainBotton;
+      bottom: 0;
+      left: 0;
+      margin-bottom: -13px;
+      transition:
+        width 0.3s ease,
+        transform 0.3s ease;
+      transform: translateX(-10%);
+    }
+
+    &:hover::after {
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include on-laptop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
