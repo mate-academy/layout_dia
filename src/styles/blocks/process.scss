@@ -1,0 +1,136 @@
+.process {
+  height: auto;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @include on-tablet {
+    @include page-grid;
+
+    gap: 56px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 103px;
+  }
+
+  &__left {
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__type {
+    @extend %h4;
+  }
+
+  &__title {
+    @extend %h3;
+
+    line-height: 41.6px;
+    margin-bottom: 24px;
+  }
+
+  &__text {
+    @extend %p-open;
+  }
+
+  &__right {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 264px);
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7/-1;
+      padding-top: 36px;
+    }
+
+    @include on-large-screen {
+      padding-top: 29px;
+    }
+  }
+
+  &__card {
+    width: 280px;
+    height: 264px;
+    padding: 32px;
+    background-color: $color-white;
+    border-radius: 16px;
+    cursor: pointer;
+
+    @include hover(box-shadow, 0 0 10px 5px $color-white);
+
+    @include on-tablet {
+      width: 264px;
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        transform: translateY(-50%);
+      }
+    }
+
+    @include on-small-desktop {
+      width: 214px;
+    }
+  }
+
+  &__id {
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: $color-light-blue;
+    color: $color-blue;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    color: $main-text-color;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $color-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include hover(background-color, $color-hover-blue);
+    @include hover(transform, scale(1.1));
+  }
+
+  &__learn {
+    align-self: center;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    color: $color-deep-blue;
+  }
+}
