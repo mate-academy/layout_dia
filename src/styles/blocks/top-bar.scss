@@ -1,0 +1,77 @@
+.top-bar {
+  @include content-padding-inline;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__right-side {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-top: 20px;
+
+    @include on-small-desktop {
+      padding-top: 48px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      padding-top: 52px;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__button-link {
+    padding-top: 18px;
+    position: relative;
+    text-transform: uppercase;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: $color-white;
+    transition:
+      color 0.3s,
+      transform 0.3s;
+
+    &:hover {
+      color: $color-blue;
+      transform: scale(1.2);
+    }
+
+    @include on-small-desktop {
+      padding-top: 52px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background-color: $color-blue;
+
+      transition: transform 0.3s;
+      transform: scale(1);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(0);
+    }
+  }
+}
