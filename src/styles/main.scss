@@ -1,7 +1,140 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/extends";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background: $c-gray;
+  background: $main-background;
+}
+
+.container-content {
+  @extend %padding-inline;
+  margin: 0 auto;
+  max-width: 1146px;
+}
+
+.header {
+  background-color: $header-black;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+  }
+
+  &__title {
+    @extend %big-texts;
+    line-height: 62.4px;
+    letter-spacing: -2px;
+    text-align: left;
+    color: $color-white;
+  }
+
+  &__text {
+    @extend %open-sans-small-text;
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 27px;
+    color: $color-white;
+  }
+
+  &__button {
+    margin-top: 72px;
+  }
+}
+
+.container-nav {
+  padding-top: 20px;
+
+  @include onSmallDesk {
+    padding-top: 48px;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  &__icon {
+    &--logo {
+      height: 26px;
+      width: 46px;
+    }
+
+    &--menu {
+      @include onSmallDesk {
+        display: none;
+      }
+
+      height: 24px;
+      width: 24px;
+      align-self: flex-end;
+    }
+  }
+
+  &__list {
+    display: none; //temp sol.
+    gap: 48px;
+    list-style: none;
+
+    @include onSmallDesk {
+      display: flex;
+    }
+  }
+
+  &__link {
+    @extend %nav-link;
+    position: relative;
+    width: fit-content;
+    color: $color-white;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &--top::after {
+      content: "";
+      display: block;
+      position: relative;
+      height: 2px;
+      width: 100%;
+      top: 5px;
+      left: 0;
+      border-radius: 4px;
+      background-color: $color-blue;
+    }
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}
+
+.button {
+  @extend %poppins-buttons;
+  display: block;
+  height: 50px;
+  border-radius: 8px;
+  line-height: 50px;
+  text-decoration: none;
+  color: $color-white;
+  background-color: $color-blue;
+
+  &:hover {
+    color: $color-blue;
+  }
+
+  @include onTablet {
+    width: 264px;
+  }
 }
