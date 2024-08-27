@@ -31,8 +31,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   showSlides(slideIndex);
-  setInterval(function () {
+  /* setInterval(function () {
     plusSlides(1);
-  }, 2000);
+  }, 2000); */
 }
 );
