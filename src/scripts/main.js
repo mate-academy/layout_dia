@@ -1,6 +1,5 @@
 'use strict';
       let slideIndex = 1;
-      showSlides(slideIndex);
 
       // Next/previous controls
       function plusSlides(n) {
@@ -27,6 +26,13 @@
         }
 
         slides[slideIndex - 1].style.display = 'block';
-        
+
       }
 
+document.addEventListener("DOMContentLoaded", function () {
+  showSlides(slideIndex);
+  setInterval(function () {
+    plusSlides(1);
+  }, 2000);
+}
+);
