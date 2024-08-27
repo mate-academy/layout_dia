@@ -29,7 +29,7 @@
 
       }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("next-img").addEventListener("click", function () {
   showSlides(slideIndex);
   /* setInterval(function () {
     plusSlides(1);
