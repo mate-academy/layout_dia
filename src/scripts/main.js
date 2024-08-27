@@ -29,10 +29,18 @@
 
       }
 
-document.getElementById("next-img").addEventListener("click", function () {
+document.addEventListener("DOMContentLoaded", function () {
   showSlides(slideIndex);
   /* setInterval(function () {
     plusSlides(1);
   }, 2000); */
-}
-);
+
+  document.getElementById("prev-img").addEventListener("click", function () {
+    showSlides(-1);
+  });
+
+  document.getElementById("next-img").addEventListener("click", function () {
+    showSlides(1);
+  });
+
+});
