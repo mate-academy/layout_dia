@@ -3,13 +3,81 @@
 @import "utils/extends";
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
   background: $main-background;
+  scroll-behavior: smooth;
+}
+
+.grid {
+  display: block;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, max-content);
+    place-content: center;
+    column-gap: 30px
+  }
+
+  @include onSmallDesk {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include onBigDesk {
+    grid-template-columns: repeat(12, 68px);
+    column-gap: 30px;
+  }
+
+  &__items {
+    position: relative;
+
+    @include onTablet {
+      @for $left from 1 through 6 {
+        @for $right from $left through 7 {
+          @for $top from 1 through 3 {
+            @for $bottom from $top through 4 {
+              &--tablet-#{$left}-#{$right}-#{$top}-#{$bottom} {
+                grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include onSmallDesk {
+      @for $left from 1 through 12 {
+        @for $right from $left through 13{
+          @for $top from 1 through 3 {
+            @for $bottom from $top through 4 {
+              &--smalldesk-#{$left}-#{$right}-#{$top}-#{$bottom} {
+                grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include onBigDesk {
+      @for $left from 1 through 12 {
+        @for $right from $left through 13 {
+          @for $top from 1 through 3 {
+            @for $bottom from $top through 4 {
+              &--bigdesk-#{$left}-#{$right}-#{$top}-#{$bottom} {
+                grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .container-content {
@@ -19,12 +87,22 @@ body {
 }
 
 .header {
+  height: 893px;
   background-color: $header-black;
+  border-radius: 0px 0px 30px 30px;
+
+  @include onSmallDesk {
+    height: 800px;
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
     margin-top: 48px;
+
+    @include onSmallDesk {
+      margin-top: 148px;
+    }
   }
 
   &__title {
@@ -33,6 +111,11 @@ body {
     letter-spacing: -2px;
     text-align: left;
     color: $color-white;
+
+    @include onTablet {
+      font-size: 64px; //create normal extents
+      line-height: 68px;
+    }
   }
 
   &__text {
@@ -45,6 +128,42 @@ body {
 
   &__button {
     margin-top: 72px;
+  }
+
+  &__slider { //check out a js way to change width (5fr + gap + padd)
+    position: relative;
+    height: 390px;
+    width: 100%;
+    padding-top: 48px;
+
+    @include onTablet {
+      padding-top: 147px;
+    }
+
+    @include onSmallDesk {
+      position: absolute;
+      width: 50vw;
+      padding: 0;
+      top: 120px;
+      right: 0;
+      height: 680px;
+    }
+
+    @include onBigDesk {
+      width: 43vw;
+    }
+  }
+
+  &__main-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+
+    @include onSmallDesk {
+      border-radius: 30px 0;
+    }
   }
 }
 
@@ -85,7 +204,7 @@ body {
   }
 
   &__list {
-    display: none; //temp sol.
+    display: none;
     gap: 48px;
     list-style: none;
 
