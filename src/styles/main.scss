@@ -20,7 +20,7 @@ body {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, max-content);
     place-content: center;
-    column-gap: 30px
+    column-gap: 30px;
   }
 
   @include onSmallDesk {
@@ -52,7 +52,7 @@ body {
 
     @include onSmallDesk {
       @for $left from 1 through 12 {
-        @for $right from $left through 13{
+        @for $right from $left through 13 {
           @for $top from 1 through 3 {
             @for $bottom from $top through 4 {
               &--smalldesk-#{$left}-#{$right}-#{$top}-#{$bottom} {
@@ -87,13 +87,9 @@ body {
 }
 
 .header {
-  height: 893px;
+  position: relative;
   background-color: $header-black;
-  border-radius: 0px 0px 30px 30px;
-
-  @include onSmallDesk {
-    height: 800px;
-  }
+  border-radius: 0 0 30px 30px;
 
   &__info {
     display: flex;
@@ -130,39 +126,102 @@ body {
     margin-top: 72px;
   }
 
-  &__slider { //check out a js way to change width (5fr + gap + padd)
-    position: relative;
-    height: 390px;
-    width: 100%;
-    padding-top: 48px;
-
-    @include onTablet {
-      padding-top: 147px;
-    }
-
-    @include onSmallDesk {
+  &__slider {
+    &-main-image {
       position: absolute;
-      width: 50vw;
-      padding: 0;
-      top: 120px;
+      height: 390px;
+      width: 100%;
       right: 0;
-      height: 680px;
+      bottom: 0;
+      border-radius: 30px;
+      object-fit: cover;
+      object-position: center;
+
+      @include onSmallDesk {
+        height: calc(100% - 120px);
+        top: 120px;
+        left: none;
+        right: 0;
+        bottom: 0;
+        width: 50vw;
+        border-radius: 30px 0;
+      }
+
+      @include onBigDesk {
+        width: 43vw;
+      }
+
+      @include onLargeDesk {
+        width: 47vw;
+      }
     }
 
-    @include onBigDesk {
-      width: 43vw;
+    &-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-block: 298px 24px;
+
+      @include onTablet {
+        padding-block: 389px 32px;
+      }
+
+      @include onSmallDesk {
+        flex-direction: row;
+        gap: 24px;
+        padding-block: 89px 48px ;
+      }
+
+      @include onBigDesk {
+        padding-left: 48px;
+      }
     }
-  }
 
-  &__main-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 30px;
+    &-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-    @include onSmallDesk {
-      border-radius: 30px 0;
+    &-button {
+      height: 32px;
+      width: 32px;
+      background-color: $color-white;
+      background-image: url("/images/extra/arrow-left.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &--right {
+        transform: rotateZ(180deg);
+      }
+
+      @include onTablet {
+        padding-inline: 0;
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    &-title {
+      @extend %poppins-big-bold;
+      color: $color-white;
+      text-transform: uppercase;
+    }
+
+    &-text {
+      @extend %open-sans-small-text;
+      line-height: 19.6px;
+      text-align: left;
+      color: $color-white;
     }
   }
 }
@@ -214,7 +273,7 @@ body {
   }
 
   &__link {
-    @extend %nav-link;
+    @extend %poppins-big-bold;
     position: relative;
     width: fit-content;
     color: $color-white;
@@ -251,6 +310,7 @@ body {
 
   &:hover {
     color: $color-blue;
+    background-color: $color-white;
   }
 
   @include onTablet {
