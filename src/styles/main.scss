@@ -5,11 +5,15 @@
 * {
   margin: 0;
   padding: 0;
+  transition: all $transition-time ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: $main-background;
-  scroll-behavior: smooth;
 }
 
 .grid {
@@ -18,7 +22,7 @@ body {
   @include onTablet {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, max-content);
+    grid-template-rows: repeat(4, max-content);
     place-content: center;
     column-gap: 30px;
   }
@@ -39,8 +43,8 @@ body {
     @include onTablet {
       @for $left from 1 through 6 {
         @for $right from $left through 7 {
-          @for $top from 1 through 3 {
-            @for $bottom from $top through 4 {
+          @for $top from 1 through 4 {
+            @for $bottom from $top through 5 {
               &--tablet-#{$left}-#{$right}-#{$top}-#{$bottom} {
                 grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
               }
@@ -53,8 +57,8 @@ body {
     @include onSmallDesk {
       @for $left from 1 through 12 {
         @for $right from $left through 13 {
-          @for $top from 1 through 3 {
-            @for $bottom from $top through 4 {
+          @for $top from 1 through 4 {
+            @for $bottom from $top through 5 {
               &--smalldesk-#{$left}-#{$right}-#{$top}-#{$bottom} {
                 grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
               }
@@ -67,8 +71,8 @@ body {
     @include onBigDesk {
       @for $left from 1 through 12 {
         @for $right from $left through 13 {
-          @for $top from 1 through 3 {
-            @for $bottom from $top through 4 {
+          @for $top from 1 through 4 {
+            @for $bottom from $top through 5 {
               &--bigdesk-#{$left}-#{$right}-#{$top}-#{$bottom} {
                 grid-area: #{$top} / #{$left} / #{$bottom} /#{$right};
               }
@@ -315,5 +319,310 @@ body {
 
   @include onTablet {
     width: 264px;
+  }
+}
+
+.main {
+  &__top {
+    display: flex;
+    padding-top: 120px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+
+    @include onTablet {
+      padding-top: 148px;
+    }
+
+    &-title {
+      @extend %poppins;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 48px;
+      text-align: center;
+      color: $color-black;
+    }
+
+    &-text {
+      @extend %open-sans;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 33px;
+      text-align: center;
+      color: $color-gray;
+
+      @include onTablet {
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__expertise {
+    margin-top: 120px;
+    padding-bottom: 72px;
+    border-radius: 30px;
+    background-color: $color-white;
+
+    @include onTablet {
+      margin-top: 148px;
+      padding-bottom: 128px;
+    }
+
+    @include onSmallDesk {
+      padding-bottom: 134px;
+    }
+
+    @include onLargeDesk {
+      padding-bottom: 155px;
+    }
+
+    &-title {
+      @extend %big-texts;
+      padding-top: 72px;
+      font-size: 44px;
+      line-height: 52.8px;
+      text-align: center;
+
+      @include onTablet {
+        padding-top: 128px;
+        font-size: 52px;
+        line-height: 78px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__services {
+    padding-top: 120px;
+
+    @include onTablet {
+      padding-top: 148px;
+    }
+
+    @include onSmallDesk {
+      &-top {
+        position: relative;
+        top: 103px;
+      }
+    }
+
+    &-small-title {
+      @extend %poppins-big-bold;
+      text-transform: uppercase;
+      text-align: left;
+      color: $color-pale-gray;
+    }
+
+    &-main-title {
+      @extend %big-texts;
+      padding-top: 16px;
+      font-size: 32px;
+      line-height: 41.6px;
+      text-align: left;
+      color: $color-black;
+    }
+
+    &-text {
+      @extend %open-sans-small-text;
+      padding-top: 24px;
+      line-height: 21px;
+      text-align: left;
+      color: $color-gray;
+    }
+  }
+}
+
+.card-container {
+  padding-top: 56px;
+
+  &--center {
+    margin: 0 auto;
+  }
+
+  @include onTablet {
+    padding-top: 72px;
+  }
+
+  &--top {
+    padding-top: 64px;
+  }
+
+  @include onSmallDesk {
+    padding-top: 64px;
+    width: 214px;
+  }
+
+  @include onBigDesk {
+    width: 264px;
+  }
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__img {
+    height: 166px;
+    width: 166px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+  }
+
+  &__title {
+    @extend %big-texts;
+    padding-top: 32px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: $color-black;
+  }
+
+  &__text {
+    @extend %open-sans-small-text;
+    padding-top: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-gray;
+  }
+}
+
+.container-service-card {
+  padding-top: 24px;
+
+  &--top {
+    padding-top: 48px;
+  }
+
+  @include onTablet {
+    position: relative;
+    padding-top: 30px;
+  }
+
+  @include onSmallDesk {
+    padding-top: 20px;
+  }
+
+  @include onBigDesk {
+    padding-top: 30px;
+  }
+
+  &--1 {
+    top: 26px;
+
+    @include onTablet {
+      padding-top: 0;
+      top: 132px;
+    }
+
+    @include onSmallDesk {
+      top: 139px;
+    }
+
+    @include onBigDesk {
+      top: 132px;
+    }
+  }
+
+  &--2 {
+    top: -106px;
+
+    @include onTablet {
+      padding-top: 0;
+      top: 0;
+    }
+  }
+
+  &--3 {
+    top: 26px;
+
+    @include onTablet {
+      top: 132px;
+    }
+
+    @include onSmallDesk {
+      top: 139px;
+    }
+
+    @include onBigDesk {
+      top: 132px;
+    }
+  }
+
+  &--4 {
+    top: -106px;
+
+    @include onTablet {
+      top: 0;
+    }
+  }
+}
+
+.service-card {
+  padding: 32px 0 32px 32px;
+  border-radius: 16px;
+  background-color: $color-white;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &__number {
+    @extend %poppins-big-bold;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 24px;
+    color: $color-blue;
+    background-color: $color-pale-blue;
+  }
+
+  &__text {
+    @extend %open-sans;
+    padding-top: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    color: $color-gray;
+  }
+
+  &__button {
+    display: flex;
+    margin-top: 32px;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+
+    &-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $color-blue;
+
+      &:hover {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &-text {
+      @extend %poppins-buttons;
+      color: $color-button-text-gray;
+    }
   }
 }
