@@ -432,6 +432,39 @@ body {
       color: $color-gray;
     }
   }
+
+  &__testimonials {
+    padding-top: 120px;
+
+    @include onTablet {
+      margin-top: 132px;
+      padding-top: 148px;
+    }
+
+    @include onSmallDesk {
+      margin-top: 139px;
+    }
+
+    @include onBigDesk {
+      margin-top: 132px;
+    }
+
+    &-small-title {
+      @extend %poppins-big-bold;
+      text-transform: uppercase;
+      text-align: left;
+      color: $color-pale-gray;
+    }
+
+    &-big-title {
+      @extend %big-texts;
+      padding-top: 16px;
+      font-size: 32px;
+      line-height: 48px;
+      text-align: left;
+      color: $color-black;
+    }
+  }
 }
 
 .card-container {
@@ -572,10 +605,6 @@ body {
   background-color: $color-white;
   box-shadow: 0 9px 18px 0 #25293108;
 
-  &:hover {
-    transform: scale(1.1);
-  }
-
   &__number {
     @extend %poppins-big-bold;
     width: 46px;
@@ -589,12 +618,7 @@ body {
   }
 
   &__text {
-    @extend %open-sans;
-    padding-top: 24px;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 19.5px;
-    text-align: left;
+    @extend %open-sans-big;
     color: $color-gray;
   }
 
@@ -613,16 +637,127 @@ body {
       height: 40px;
       border-radius: 50%;
       background-color: $color-blue;
-
-      &:hover {
-        width: 48px;
-        height: 48px;
-      }
     }
 
     &-text {
       @extend %poppins-buttons;
       color: $color-button-text-gray;
     }
+
+    &:hover {
+      .service-card__button-arrow {
+        width: 48px;
+        height: 48px;
+      }
+
+      .service-card__button-text {
+        color: $color-blue;
+      }
+    }
+  }
+}
+
+.br-title {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+}
+
+.container-testimonials {
+  padding-top: 48px;
+
+  @include onTablet {
+    padding-top: 56px;
+  }
+
+  @include onSmallDesk {
+    padding-top: 85px;
+  }
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  padding: 32px 42px;
+  background-color: $color-white;
+  border-radius: 16px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include onTablet {
+    margin-top: 30px;
+    padding: 32px 98px;
+  }
+
+  &--top {
+    margin-top: 0;
+  }
+
+  @include onSmallDesk {
+    margin-top: 0;
+    padding: 32px 48px;
+  }
+
+  @include onBigDesk {
+    padding: 32px 56px;
+  }
+
+  &__img {
+    width: 196px;
+    height: 196px;
+
+    @include onTablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include onSmallDesk {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include onBigDesk {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &__text {
+    @extend %open-sans-big;
+    text-align: center;
+    color: $color-gray;
+
+    &::before {
+      content: "";
+      display: block;
+      position: relative;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      margin: 24px 0 8px;
+      background-image: url(/images/extra/quotes.svg);
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__name {
+    @extend %open-sans-big;
+    padding-top: 16px;
+    text-align: center;
+    color: $color-black;
+  }
+
+  &__company {
+    @extend %poppins-big-bold;
+    padding-top: 4px;
+    text-transform: uppercase;
+    color: $color-pale-gray;
   }
 }
