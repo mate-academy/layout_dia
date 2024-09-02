@@ -2,7 +2,9 @@
 @import "utils/mixins";
 @import "utils/extends";
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   transition: all $transition-time ease-in-out;
@@ -92,7 +94,7 @@ body {
 
 .header {
   position: relative;
-  background-color: $header-black;
+  background-color: $background-black;
   border-radius: 0 0 30px 30px;
 
   &__info {
@@ -192,7 +194,7 @@ body {
       height: 32px;
       width: 32px;
       background-color: $color-white;
-      background-image: url("/images/extra/arrow-left.svg");
+      background-image: url("../images/slider/arrow-left.svg");
       background-repeat: no-repeat;
       background-position: center;
       border: none;
@@ -200,7 +202,7 @@ body {
       cursor: pointer;
 
       &--right {
-        transform: rotateZ(180deg);
+        background-image: url("../images/slider/arrow-right.svg");
       }
 
       @include onTablet {
@@ -304,6 +306,7 @@ body {
 
 .button {
   @extend %poppins-buttons;
+  position: relative;
   display: block;
   height: 50px;
   border-radius: 8px;
@@ -311,10 +314,14 @@ body {
   text-decoration: none;
   color: $color-white;
   background-color: $color-blue;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 1;
 
   &:hover {
     color: $color-blue;
     background-color: $color-white;
+    border: 1px solid $color-blue;
   }
 
   @include onTablet {
@@ -463,6 +470,86 @@ body {
       line-height: 48px;
       text-align: left;
       color: $color-black;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    margin: 120px 0;
+    padding: 72px 0;
+    background-color: $color-white;
+    overflow: hidden;
+
+    @include onTablet {
+      margin: 148px 0 0;
+      padding: 200px 0;
+
+    }
+
+    @include onSmallDesk {
+      margin-top: 186px;
+      padding: 199px 0 198px;
+    }
+
+    @include onBigDesk {
+      margin-top: 148px;
+    }
+
+    &-img {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        width: 1057px;
+        height: 509px;
+        position: absolute;
+        top: 63px;
+        left: 50%;
+        transform: translateX(-50%);
+        object-fit: cover;
+      }
+
+      @include onSmallDesk {
+        width: 1297px;
+        height: 489px;
+        top: 83px;
+      }
+
+      @include onBigDesk {
+        width: initial;
+        height: initial;
+        top: 72px;
+      }
+    }
+
+    &-title {
+      @extend %big-texts;
+      font-size: 44px;
+      line-height: 52.8px;
+      text-align: center;
+      color: $color-black;
+      z-index: 2;
+    }
+
+    &-text {
+      @extend %open-sans-big;
+      padding-top: 24px;
+      font-size: 22px;
+      line-height: 33px;
+      text-align: center;
+      color: $color-pale-gray;
+      z-index: 2;
+    }
+
+    &-button {
+      margin-top: 56px;
+      height: 56px;
+      line-height: 56px;
+
+      @include onTablet {
+        width: 264px;
+        margin-inline: auto;
+      }
     }
   }
 }
@@ -759,5 +846,96 @@ body {
     padding-top: 4px;
     text-transform: uppercase;
     color: $color-pale-gray;
+  }
+}
+
+.footer {
+  background-color: $color-white;
+
+  &__background-black {
+    background-color: $background-black;
+    border-radius: 30px 30px 0 0;
+  }
+
+  &__form {
+    &-title {
+      @extend %big-texts;
+      padding-top: 72px;
+      font-size: 32px;
+      line-height: 41.6px;
+      text-align: left;
+      color: $color-white;
+
+      @include onTablet {
+        padding-top: 180px;
+      }
+    }
+
+    &-input {
+      @extend %poppins-buttons;
+      text-align: left;
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+      margin-top: 40px;
+      padding-bottom: 16px;
+      border: none;
+      border-bottom: 1px solid $color-white;
+      background-color: $background-black;
+      color: $color-white;
+      outline: none;
+
+      &:hover {
+        border-bottom: 1px solid $color-dark-blue-bottom;
+      }
+
+      &:focus {
+        border-bottom: 2px solid $color-dark-blue-bottom;
+      }
+
+      &:invalid {
+        color: $color-invalid-red;
+        border-bottom: 2px solid $color-invalid-red;
+      }
+
+      &::placeholder {
+        @extend %poppins-buttons;
+        text-align: left;
+        color: $color-gray-footer;
+      }
+
+      @include onTablet {
+        margin-top: 48px;
+      }
+
+      &--top {
+        margin-top: 48px;
+
+        @include onTablet {
+          margin-top: 56px;
+        }
+      }
+
+      &--textarea {
+        min-width: 100%;
+        max-width: 100%;
+
+        &:focus {
+          border-radius: 5px;
+          border: 2px solid $color-dark-blue-bottom;
+        }
+      }
+    }
+
+    &-button {
+      margin-top: 56px;
+      height: 56px;
+      width: 100%;
+
+      @include onTablet {
+        width: 264px;
+        margin-top: 80px;
+      }
+    }
   }
 }
