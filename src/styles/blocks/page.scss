@@ -7,4 +7,33 @@
   font-size: 62.5%;
   font-family: Roboto, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding-inline: 2rem;
+    opacity: 0;
+    transition:
+      transform $effect-duration,
+      opacity $effect-duration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+
+    @include on-tablet {
+      padding-inline: 4rem;
+    }
+  }
 }
