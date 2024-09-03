@@ -4,7 +4,8 @@
 
 *,
 *::before,
-*::after {
+*::after,
+*:target {
   margin: 0;
   padding: 0;
   transition: all $transition-time ease-in-out;
@@ -12,6 +13,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.html-menu {
+  overflow: hidden;
 }
 
 body {
@@ -245,6 +250,16 @@ body {
   flex-direction: row;
   justify-content: space-between;
 
+  &--menu {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 64px;
+    }
+  }
+
   &--footer {
     flex-direction: column;
     justify-content: unset;
@@ -282,6 +297,12 @@ body {
       width: 24px;
       align-self: flex-end;
     }
+
+    &--cross {
+      height: 24px;
+      width: 24px;
+      align-self: flex-end;
+    }
   }
 
   &__list {
@@ -291,6 +312,12 @@ body {
 
     @include onSmallDesk {
       display: flex;
+    }
+
+    &--menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     &--footer {
@@ -370,6 +397,27 @@ body {
 
   @include onTablet {
     width: 264px;
+  }
+}
+
+.menu {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $background-black;
+  transform: translateX(-100%);
+  z-index: 2;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  @include onSmallDesk {
+    display: none;
   }
 }
 
