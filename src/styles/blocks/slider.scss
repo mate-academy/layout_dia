@@ -1,0 +1,63 @@
+.slider {
+  grid-column: 1 / -1;
+  height: 390px;
+  border-radius: 30px 0;
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% center;
+
+  @include on-desktop-small {
+    height: 680px;
+    grid-column: 7 / -1;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    gap: 16px;
+
+    @include on-tablet {
+      left: 40px;
+      bottom: 32px;
+    }
+
+    @include on-desktop-small {
+      flex-direction: row;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    all: unset;
+
+    transition: all $effectDuration ease;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 3px;
+    font-family: Poppins, sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
