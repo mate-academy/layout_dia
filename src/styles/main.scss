@@ -245,6 +245,22 @@ body {
   flex-direction: row;
   justify-content: space-between;
 
+  &--footer {
+    flex-direction: column;
+    justify-content: unset;
+    gap: 48px;
+
+    @include onTablet {
+      gap: 24px;
+    }
+
+    @include onSmallDesk {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
   &__icons {
     display: flex;
     flex-direction: row;
@@ -276,12 +292,27 @@ body {
     @include onSmallDesk {
       display: flex;
     }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      @include onTablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include onSmallDesk {
+        justify-content: unset;
+        gap: 64px;
+      }
+    }
   }
 
   &__link {
     @extend %poppins-big-bold;
     position: relative;
-    width: fit-content;
     color: $color-white;
     text-transform: uppercase;
     text-decoration: none;
@@ -301,6 +332,19 @@ body {
     &:hover {
       color: $color-blue;
     }
+  }
+}
+
+.footer-container-nav {
+  margin-top: 80px;
+  padding-bottom: 80px;
+
+  @include onTablet {
+    margin-top: 139px;
+  }
+
+  @include onSmallDesk {
+    margin-top: 120px;
   }
 }
 
@@ -936,6 +980,76 @@ body {
         width: 264px;
         margin-top: 80px;
       }
+    }
+  }
+
+  &__contact {
+    margin-top: 80px;
+
+    @include onTablet {
+      margin-top: 120px;
+    }
+
+    @include onSmallDesk {
+      margin-top: 180px;
+    }
+
+    &-title {
+      @extend %big-texts;
+      font-size: 32px;
+      line-height: 48px;
+      text-align: left;
+      color: $color-white;
+    }
+
+    &-links {
+      display: flex;
+      margin-top: 48px;
+      flex-direction: column;
+      gap: 40px;
+
+      @include onTablet {
+        margin-top: 56px;
+        gap: 48px;
+      }
+    }
+
+    &-link-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &-link-title {
+      @extend %poppins-big-bold;
+      text-align: left;
+      color: $color-gray-footer;
+      text-transform: uppercase;
+    }
+
+    &-link {
+      display: block;
+      @extend %open-sans-big;
+      font-size: 24px;
+      line-height: 36px;
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    &-3-links {
+      display: flex;
+      margin-top: 8px;
+      gap: 32px;
+    }
+
+    &-link-special {
+      display: block;
+      text-decoration: none;
+    }
+
+    &-link-img {
+      height: 32px;
+      width: 32px;
     }
   }
 }
