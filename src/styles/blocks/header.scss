@@ -1,50 +1,114 @@
 .header {
-  display: grid;
+  @include page-grid;
 
-  --columns: 2;
-
-  grid-template-columns: repeat(var(--columns), 2fr);
+  padding-top: 20px;
   border-end-start-radius: 30px;
   border-end-end-radius: 30px;
   background-color: $dark-bg-color;
   color: #fff;
 
+  @include on-small-desktop {
+    padding-top: 48px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(24, 1fr);
+  }
+
   &__nav {
     grid-column: 1 / -1;
+
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 48px;
+    }
   }
 
   &__slider {
     grid-column: 1 / -1;
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 14 / -1;
+    }
   }
 
   &__content {
+    @include page-grid;
+
     grid-column: 1 / -1;
 
     @include standard-inline-paddings;
 
-    padding-block: 48px;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 147px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 7;
+      padding-top: 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 14;
+    }
   }
 
   &__title {
+    grid-column: 1 / -1;
     margin-bottom: 32px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
     font-size: 52px;
     line-height: 62.4px;
     letter-spacing: -2px;
     text-align: left;
+
+    @include on-tablet {
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 32px;
+    }
   }
 
   &__description {
+    grid-column: 1 / -1;
     margin-bottom: 72px;
     font-size: 18px;
     line-height: 27px;
     text-align: left;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+      width: 362px;
+      margin-bottom: 83px;
+    }
   }
 
   &__button {
-    background-color: #2060f6;
+    grid-column: 1 / -1;
     display: block;
+    background-color: $light-text-color;
     height: 50px;
-    width: 100%;
     border-radius: 8px;
     font-family: Poppins, sans-serif;
     font-size: 15px;
@@ -52,5 +116,11 @@
     line-height: 50px;
     text-align: center;
     color: #fff;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      width: 264px;
+    }
   }
 }
