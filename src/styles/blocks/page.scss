@@ -1,3 +1,26 @@
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//  color: $header-footer-text-color; // Sets text color
+//  background-color: $header-footer-bg-color; // Sets background color
+//  -webkit-text-fill-color: $header-footer-text-color; // Ensures autofill text color
+//  -webkit-box-shadow: 0 0 0 1000px $header-footer-bg-color inset; // Ensures background color on autofill
+//  border-bottom: 1px solid $header-footer-text-color; // Sets border color
+//  transition: background-color $effect-duration ease-in-out 0s;
+// }
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill:focus {
+//  border-bottom: 2px solid $header-footer-btn-bg-color;
+// }
+
+/* General Autofill Styles */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -7,18 +30,37 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  color: $header-footer-text-color; // Sets text color
-  background-color: $header-footer-bg-color; // Sets background color
-  -webkit-text-fill-color: $header-footer-text-color; // Ensures autofill text color
-  -webkit-box-shadow: 0 0 0 1000px $header-footer-bg-color inset; // Ensures background color on autofill
-  border-bottom: 1px solid $header-footer-text-color; // Sets border color
+  color: $header-footer-text-color; /* Text color */
+  background-color: $header-footer-bg-color; /* Background color */
+  -webkit-text-fill-color: $header-footer-text-color; /* Autofill text color */
+  -webkit-box-shadow: 0 0 0 1000px $header-footer-bg-color inset; /* Background color on autofill */
+  border-bottom: 1px solid $header-footer-text-color; /* Border color */
   transition: background-color $effect-duration ease-in-out 0s;
 }
 
+/* Focus state for Autofill */
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill:focus {
   border-bottom: 2px solid $header-footer-btn-bg-color;
+}
+
+/* Remove iOS Default Inner Shadow */
+input.form__input,
+textarea.form__input {
+  -webkit-appearance: none; /* Removes default iOS styling */
+  box-shadow: none; /* Removes inner shadow on iOS */
+  border-radius: 0; /* Ensures no rounded corners if any browser-specific rounding is applied */
+}
+
+/* iOS Specific Fix */
+@supports (-webkit-touch-callout: none) {
+  input.form__input,
+  textarea.form__input {
+    -webkit-appearance: none;
+    box-shadow: none; /* Remove the inner shadow */
+    background-clip: padding-box; /* Ensure background is clipped correctly */
+  }
 }
 
 * {
