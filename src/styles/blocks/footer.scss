@@ -1,0 +1,215 @@
+.footer {
+  color: $header-footer-text-color;
+  background-color: $header-footer-bg-color;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+
+  padding-block: 7.2rem 8rem;
+  margin-top: 12rem;
+
+  @include on-tablet {
+    padding-block: 18rem 8rem;
+    margin-top: -2rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem 2rem;
+    padding-inline: 2rem;
+    justify-items: center;
+    margin-inline: auto;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12rem 3rem;
+      padding-inline: 4rem;
+    }
+
+    @include on-s-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12rem 2rem;
+      padding-inline: 5.5rem;
+      max-width: 114.6rem;
+      margin-inline: auto;
+    }
+
+    @include on-m-desktop {
+      gap: 12rem 3rem;
+    }
+  }
+
+  &__form-container {
+    grid-column: 1 / -1;
+    justify-self: flex-start;
+    scroll-margin-top: 2rem;
+
+    @include on-tablet {
+      grid-column: 1 / span 4;
+      width: 100%;
+      scroll-margin-top: 0;
+    }
+
+    @include on-s-desktop {
+      grid-column: 1 / span 5;
+    }
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 4.16rem;
+    text-align: left;
+
+    margin-bottom: 4.8rem;
+
+    @include on-tablet {
+      margin-bottom: 5.6rem;
+      line-height: 4.8rem;
+    }
+  }
+
+  &__contact-us {
+    grid-column: 1/-1;
+    width: 100%;
+
+    @include on-tablet {
+      margin-bottom: 2rem;
+    }
+
+    @include on-s-desktop {
+      margin-bottom: 0;
+      grid-column: 7/-1;
+    }
+
+    @include on-m-desktop {
+      grid-column: 8/-1;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    color: $header-footer-text-color;
+
+    @include on-tablet {
+      gap: 4.8rem;
+    }
+  }
+
+  &__intro-title {
+    color: inherit;
+    opacity: 50%;
+    margin-bottom: 0.8rem;
+  }
+
+  &__contact {
+    font-family: OpenSans, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 3.6rem;
+    width: 90%;
+    color: inherit;
+    text-decoration: none;
+    transition: color $effect-duration ease-out;
+
+    &:hover {
+      color: $header-footer-btn-bg-color;
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 3.2rem;
+
+    &--facebook,
+    &--x,
+    &--instagram {
+      display: flex;
+      text-decoration: none;
+    }
+  }
+
+  &__svg {
+    transition: scale $effect-duration ease-in-out;
+
+    &:hover {
+      scale: 1.2;
+      fill: $header-footer-btn-bg-color;
+      stroke: $header-footer-btn-bg-color;
+    }
+  }
+
+  &__navigation {
+    grid-column: 1 / 2;
+    justify-self: flex-start;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      gap: 2.4rem;
+      justify-self: stretch;
+    }
+
+    @include on-s-desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+
+  &__icon-logo {
+    display: flex;
+    width: 4.5rem;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    @include on-s-desktop {
+      gap: 6.4rem;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.95rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: $header-footer-text-color;
+    text-transform: uppercase;
+    width: max-content;
+    padding-bottom: 8px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 2px;
+      bottom: 0;
+      width: 0;
+      background-color: $header-footer-btn-bg-color;
+      transition: width $effect-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
