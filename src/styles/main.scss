@@ -167,6 +167,10 @@ body {
       @include onLargeDesk {
         width: 47vw;
       }
+
+      &--display-none {
+        display: none;
+      }
     }
 
     &-content {
@@ -800,6 +804,7 @@ body {
 
   &__text {
     @extend %open-sans-big;
+    padding-top: 24px;
     color: $color-gray;
   }
 
@@ -945,6 +950,7 @@ body {
 
 .footer {
   background-color: $color-white;
+  overflow: hidden;
 
   &__background-black {
     background-color: $background-black;
@@ -952,6 +958,8 @@ body {
   }
 
   &__form {
+    position: relative;
+
     &-title {
       @extend %big-texts;
       padding-top: 72px;
@@ -979,6 +987,12 @@ body {
       color: $color-white;
       outline: none;
 
+      &:-webkit-autofill {
+        border-bottom: 1px solid $color-white;
+        -webkit-box-shadow: 0 0 0 1000px $background-black inset;
+        -webkit-text-fill-color: $color-white;
+      }
+
       &:hover {
         border-bottom: 1px solid $color-dark-blue-bottom;
       }
@@ -990,6 +1004,14 @@ body {
       &:invalid {
         color: $color-invalid-red;
         border-bottom: 2px solid $color-invalid-red;
+      }
+
+      &:-webkit-autofill:hover {
+        border-bottom: 1px solid $color-dark-blue-bottom;
+      }
+      
+      &:-webkit-autofill:focus {
+        border-bottom: 2px solid $color-dark-blue-bottom;
       }
 
       &::placeholder {
@@ -1011,13 +1033,26 @@ body {
       }
 
       &--textarea {
+        box-sizing: content-box;
         min-width: 100%;
         max-width: 100%;
+        resize: none;
 
         &:focus {
           border-radius: 5px;
           border: 2px solid $color-dark-blue-bottom;
         }
+      }
+
+      &--extra {
+        resize: none;
+        box-sizing: content-box;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        min-width: 100%;
+        max-width: 100%;
+        z-index: -10;
       }
     }
 

@@ -13,19 +13,45 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+let sliderImageIndexNumber = 0;
+const imagesSrc = Array.from(document.querySelectorAll('.header__slider-main-image'))
+  .map(img => img.getAttribute('src'));
 const buttonLeft = document
   .querySelector('.header__slider-button--left') as HTMLButtonElement;
 const buttonRight = document
   .querySelector('.header__slider-button--right') as HTMLButtonElement;
-let sliderImageIndexNumber = 1;
+const form = document.querySelector('.footer__form') as HTMLFormElement;
+const formInputs = Array.from(document.querySelectorAll('.footer__form-input'))
+  .map(input => {
+    input.addEventListener('input', (e) => {
+      input.setAttribute('value', (e.target as HTMLInputElement).value);
+    })
+
+    return input as HTMLInputElement;
+  })
+const textArea = formInputs[formInputs.length - 2];
+const extraTextArea = document.querySelector('.footer__form-input--extra') as HTMLTextAreaElement;
+
+textArea.addEventListener('input', () => {
+  textArea.style.height = `${extraTextArea.scrollHeight - 16}px`;
+  extraTextArea.value = textArea.value;
+})
+
+textArea.addEventListener('focus', () => {
+  textArea.style.paddingBottom = '0px';
+})
+
+textArea.addEventListener('blur', () => {
+  textArea.style.paddingBottom = '16px';
+})
 
 function slideImageLeftAndRight(direction: SlideDirection, button: HTMLButtonElement) {
   button.disabled = true;
-  const leftIndex = sliderImageIndexNumber === 1
-    ? 3
+  const leftIndex = sliderImageIndexNumber === 0
+    ? 2
     : sliderImageIndexNumber - 1;
-  const rightIndex = sliderImageIndexNumber === 3
-    ? 1
+  const rightIndex = sliderImageIndexNumber === 2
+    ? 0
     : sliderImageIndexNumber + 1;
   const sliderImage = document
     .querySelector('.header__slider-main-image') as HTMLElement;
@@ -36,7 +62,7 @@ function slideImageLeftAndRight(direction: SlideDirection, button: HTMLButtonEle
 
   newSliderImage.setAttribute(
     'src',
-    `/slider-${sliderImageIndexNumber}.png`
+    imagesSrc[sliderImageIndexNumber] || '/slider-1.png',
   );
   newSliderImage.setAttribute('alt', 'Slider Image');
   newSliderImage.classList.add('header__slider-main-image');
@@ -62,6 +88,19 @@ function slideImageLeftAndRight(direction: SlideDirection, button: HTMLButtonEle
 buttonLeft.addEventListener('click',
   () => slideImageLeftAndRight(SlideDirection.left, buttonLeft)
 );
+
 buttonRight.addEventListener('click',
   () => slideImageLeftAndRight(SlideDirection.right, buttonRight)
 );
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if (formInputs.every(input => input.getAttribute('value'))) {
+    formInputs.map(input => input.setAttribute('value', ''));
+    return form.reset();
+  }
+
+  alert('Please fill all fields');
+  return false;
+});
