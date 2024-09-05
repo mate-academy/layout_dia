@@ -96,7 +96,7 @@ buttonRight.addEventListener('click',
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  if (formInputs.every(input => input.getAttribute('value'))) {
+  if (formInputs.slice(0,3).every(input => input.getAttribute('value'))) {
     formInputs.map(input => input.setAttribute('value', ''));
     return form.reset();
   }

@@ -109,7 +109,7 @@ buttonRight.addEventListener('click', function() {
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  if (formInputs.every(function(input) {
+  if (formInputs.slice(0, 3).every(function(input) {
     return input.getAttribute('value');
   })) {
     formInputs.map(function(input) {
