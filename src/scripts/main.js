@@ -69,10 +69,8 @@ function slideImageLeftAndRight(direction, button) {
     ? leftIndex
     : rightIndex;
 
-  newSliderImage.setAttribute(
-    'src',
-    imagesSrc[sliderImageIndexNumber] || '/slider-1.png',
-  );
+  newSliderImage
+    .setAttribute('src', imagesSrc[sliderImageIndexNumber] || '/slider-1.png');
   newSliderImage.setAttribute('alt', 'Slider Image');
   newSliderImage.classList.add('header__slider-main-image');
   newSliderImage.style.opacity = '0';
