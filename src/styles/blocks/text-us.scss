@@ -1,0 +1,74 @@
+.text-us {
+  &__title {
+    @extend %h3-high-white;
+
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $white-color;
+    outline: none;
+    box-sizing: border-box;
+
+    @extend %button-text;
+    @include transition(border-bottom);
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $white-color;
+      -webkit-box-shadow: 0 100px 0 0 var(--header-color) inset;
+    }
+
+    &::placeholder {
+      opacity: 0.7;
+
+      @extend %form-text;
+      @include transition(opacity);
+    }
+
+    &:hover {
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+
+    &:focus {
+      border-bottom: 1px solid var(--button-color);
+
+      &::placeholder {
+        opacity: 0.7;
+      }
+    }
+
+    &--theme--dark {
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 100px 0 0 var(--header-color) inset;
+      }
+
+      &:focus {
+        border-bottom: 1px solid var(--button-color);
+      }
+    }
+
+    &--message {
+      resize: none;
+      margin-bottom: 56px;
+
+      @include on-tablet {
+        margin-bottom: 80px;
+      }
+    }
+  }
+}

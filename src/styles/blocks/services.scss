@@ -1,0 +1,148 @@
+.services {
+  padding-block: 120px;
+
+  @include on-tablet {
+    padding-block: 148px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 48px;
+
+    @include on-tablet {
+      grid-row: 56px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 48px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+
+    &-name {
+      @extend %text-upcase;
+
+      margin-bottom: 16px;
+    }
+
+    &-title {
+      @extend %h3-low;
+
+      margin-bottom: 24px;
+    }
+
+    &-text {
+      @extend %text-w;
+    }
+  }
+
+  &__cards {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      padding-top: 148px;
+    }
+  }
+
+  &__card {
+    background-color: $white-color;
+    border-radius: 16px;
+    padding: 32px;
+
+    @include on-tablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.15);
+    }
+  }
+}
+
+.service {
+  &-card {
+    &__number {
+      padding: 2px 12px;
+      font-family: $font-family-h;
+      color: var(--button-color);
+      border-radius: 23px;
+      background-color: var(--bg-numbers);
+      margin-bottom: 24px;
+
+      &--theme--dark {
+        color: var(--button-color);
+        background-color: var(--bg-numbers);
+      }
+    }
+
+    &__services {
+      font-weight: 600;
+      line-height: 19.5px;
+      padding-block: 24px 32px;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      font-family: $font-family-h;
+      font-size: 15px;
+      color: $title-color;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: var(--button-color);
+        background-image: url(../images/icons/button-arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include transition(transform);
+      }
+
+      &:hover::before {
+        transform: scale(1.1);
+        background-color: var(--button-hover-color);
+      }
+
+      &:active::before {
+        transform: scale(1);
+      }
+
+      &--theme--dark {
+        &::before {
+          background-color: var(--button-color);
+        }
+
+        &:hover::before {
+          background-color: var(--button-hover-color);
+        }
+      }
+    }
+  }
+}

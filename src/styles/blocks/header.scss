@@ -1,0 +1,98 @@
+.header {
+  border: none;
+  border-radius: var(--borders-mob-header);
+  background-color: var(--header-color);
+
+  @include transition(all);
+
+  @include on-desktop {
+    position: relative;
+    height: 820px;
+    border-radius: var(--borders-header);
+  }
+
+  &__main {
+    padding: 20px 0 48px;
+
+    @include on-tablet {
+      padding-bottom: 147px;
+    }
+
+    @include on-desktop {
+      padding: 52px 0 205px;
+    }
+  }
+
+  &__theme-switcher {
+    margin-right: 22px;
+  }
+
+  &__nav {
+    position: fixed;
+    top: -100%;
+    left: 0;
+
+    @include transition(top);
+
+    &--mobile-visible {
+      top: 0;
+    }
+
+    @include on-desktop {
+      position: initial;
+    }
+  }
+
+  &__button {
+    height: 50px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+    color: $white-color;
+
+    @include on-desktop {
+      padding-top: 56px;
+      width: 490px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    color: $white-color;
+
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    @extend %text1;
+
+    margin-bottom: 72px;
+  }
+
+  &__slider {
+    @include on-desktop {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &--theme--dark {
+    background-color: var(--header-color);
+    border-radius: var(--borders-header);
+
+    @include on-desktop {
+      border-radius: var(--borders-header);
+    }
+  }
+}
