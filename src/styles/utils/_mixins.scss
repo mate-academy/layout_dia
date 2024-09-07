@@ -15,14 +15,20 @@
   width: 1px;
 }
 
-@mixin media-tablet {
+@mixin for-tablet {
   @media (min-width: 640px) and (max-width: 1024px) {
     @content;
   }
 }
 
-@mixin media-desktop {
-  @media (min-width: 1024px) {
+@mixin for-desktop {
+  @media (min-width: 1024px) and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin for-large {
+  @media (min-width: 1600px) {
     @content;
   }
 }
@@ -33,13 +39,18 @@
   grid-template-columns: repeat(2, minmax(130px, 180px));
   column-gap: 20px;
 
-  @include media-tablet {
+  @include for-tablet {
     grid-template-columns: repeat(6, 68px);
     column-gap: 30px;
   }
 
-  @include media-desktop {
+  @include for-desktop {
     grid-template-columns: repeat(12, 58px);
     column-gap: 20px;
+  }
+
+  @include for-large {
+    grid-template-columns: repeat(12, 68px);
+    column-gap: 30px;
   }
 }
