@@ -5,7 +5,7 @@ const switcher = document.querySelector('.theme-switcher');
 
 switcher.addEventListener('click', ( ) => {
   switcher.classList.toggle('theme-switcher--dark');
-  
+
   if (page.classList.contains('page--theme--dark')) {
     page.classList.remove('page--theme--dark');
 
@@ -90,3 +90,11 @@ const openMenu = () => {
 };
 
 menuButton.addEventListener('click', openMenu);
+
+
+const form = document.querySelector('.text-us__form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+  });
