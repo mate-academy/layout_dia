@@ -1,0 +1,113 @@
+.swiper {
+  position: relative;
+  width: 100%;
+  height: $swiperHeigth;
+
+  @include on-laptop {
+    height: $swiperHeighLaptop;
+  }
+
+  &-slide {
+    position: relative;
+    border-radius: 30px;
+    background-size: cover;
+
+    @include on-laptop {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &--clock {
+      background-image: url('../images/clock-mobile.png');
+
+      @include on-tablet {
+        background-image: url('../images/clock-mobile-tablet.png');
+      }
+
+      @include on-laptop {
+        background-image: url('../images/clock-mobile-laptop.png');
+      }
+
+      @include on-destop {
+        background-image: url('../images/clock-mobile-desctop.png');
+      }
+    }
+  }
+
+  &-button-next,
+  &-button-prev {
+    position: absolute;
+    top: 250px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &-button-prev {
+    left: 20;
+
+    @include on-tablet {
+      left: 40;
+    }
+
+    @include on-laptop {
+      left: 70;
+      margin-top: 305px;
+    }
+  }
+
+  &-button-next {
+    left: 70;
+
+    @include on-tablet {
+      left: 90;
+    }
+
+    @include on-laptop {
+      left: 120;
+      margin-top: 305px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: end;
+    width: 266px;
+    flex-direction: column;
+    height: $swiperHeigth;
+
+    @include on-laptop {
+      height: $swiperHeighLaptop;
+      margin-left: 130px;
+    }
+
+    @include on-destop {
+      margin-left: -40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $white;
+    padding-bottom: 24px;
+
+    @include on-laptop {
+      padding-bottom: 48px;
+    }
+  }
+}
