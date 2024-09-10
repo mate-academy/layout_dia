@@ -1,0 +1,57 @@
+.nav {
+  flex: 1;
+
+  @include central;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    font-family: Poppins, sans-serif;
+    font-size: 19px;
+    line-height: 24.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $white;
+    text-decoration: none;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-flex;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 20px;
+      background: url(https://assets.codepen.io/162656/long-arrow.svg) no-repeat -85px
+        0 / contain;
+      transition: background-position 0.3s ease-in-out;
+    }
+
+    & span {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover span {
+      transform: translateX(85px);
+      color: #648df9;
+    }
+
+    &:hover::before {
+      background-position: 0;
+    }
+  }
+}
