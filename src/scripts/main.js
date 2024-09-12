@@ -69,6 +69,7 @@ leftButton.addEventListener('click', () => {
 const pageBody = document.querySelector('.page__body');
 const menuButton = document.querySelector('.icon--menu');
 const menu = document.querySelector('.header__nav');
+const bgNav = document.querySelector('.nav--top');
 
 const closeMenu = (event) => {
   if (
@@ -77,6 +78,7 @@ const closeMenu = (event) => {
   ) {
     menu.classList.remove('header__nav--mobile-visible');
     pageBody.classList.remove('page__body--no-scroll');
+    bgNav.classList.remove('nav--top-menu-open');
 
     menu.removeEventListener('click', closeMenu);
   }
@@ -85,6 +87,8 @@ const closeMenu = (event) => {
 const openMenu = () => {
   menu.classList.add('header__nav--mobile-visible');
   pageBody.classList.add('page__body--no-scroll');
+  bgNav.classList.add('nav-menu-open');
+
 
   menu.addEventListener('click', closeMenu);
 };
