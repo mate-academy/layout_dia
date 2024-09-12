@@ -1,0 +1,126 @@
+.cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / -1;
+  }
+
+  @include on-small-desctop {
+    grid-column: 7 / -1;
+    align-self: center;
+    padding-top: 148px;
+    grid-row: 1;
+  }
+
+  &--wrapper {
+    @include page-grid;
+
+    gap: 30px;
+  }
+}
+
+.card {
+  background-color: $white;
+  height: 264px;
+  width: 100%;
+  border-radius: 16px;
+  padding-left: 32px;
+  padding-top: 32px;
+  box-sizing: border-box;
+  grid-column: 1 / -1;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include on-tablet {
+    width: 264px;
+  }
+
+  @include on-small-desctop {
+    width: 214px;
+  }
+
+  @include on-desctop {
+    width: 234px;
+  }
+
+  &--left {
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &--right {
+    @include on-tablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__number {
+    color: $blue;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    font-size: 13px;
+
+    @include hover(transform, scale(1.1));
+
+    &--wrapper {
+      height: 24px;
+      width: 46px;
+      background-color: $c-gray;
+      border-radius: 23px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__desc {
+    color: $text-color;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    font-size: 13px;
+    padding-top: 24px;
+    margin: 0;
+  }
+
+  &__learn-more {
+    background-image: url(/src/images/icon/arrow-button.svg);
+
+    background-repeat: no-repeat;
+    margin-top: 32px;
+    align-items: center;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    &__container {
+      display: flex;
+      gap: 70px;
+    }
+
+    &--button {
+      border: none;
+    }
+
+    &--description {
+      font-size: 15px;
+      line-height: 22.5px;
+      font-weight: 600;
+      text-align: center;
+      color: $dark;
+    }
+  }
+}
