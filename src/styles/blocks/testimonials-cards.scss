@@ -1,0 +1,104 @@
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 32px;
+  padding-inline: 42px;
+  border-radius: 16px;
+  background-color: $white-color;
+
+  @include on-desktop {
+    padding-inline: 48px;
+  }
+
+  &__photo {
+    position: relative;
+    display: flex;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-desktop {
+      width: 196px;
+      height: 196px;
+    }
+  }
+
+  &__decor {
+    width: 55.6%;
+    height: 22.4%;
+    border-radius: 12px;
+    background-color: var(--button-color);
+
+    &--theme--dark {
+      background-color: var(--button-color);
+    }
+
+    &--left {
+      transform: translate(10%, 90%) rotate(-60deg);
+    }
+
+    &--right {
+      align-self: end;
+      transform: translate(-10%, -90%) rotate(-60deg);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    border-radius: 110%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55.6%;
+    height: 55.6%;
+  }
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__comment {
+    max-width: 362px;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @extend %text-m;
+
+    &::before {
+      content: '';
+      display: block;
+      margin: 0 auto 8px;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/testimonials/quote-blue.svg);
+    }
+
+    &--theme--dark {
+      &::before {
+        background-image: url(../images/testimonials/quote-orange.svg);
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    text-align: center;
+
+    @extend %text-m-black;
+  }
+
+  &__workplace {
+    text-align: center;
+
+    @extend %text-upcase;
+  }
+}

@@ -1,0 +1,86 @@
+.page {
+  --header-color: #2c2c2c;
+  --nav-link-lines: #008aff;
+  --button-color: #2060f6;
+  --button-hover-color: #1847b3;
+  --borders-header: 0 0 30px 30px;
+  --borders-mob-header: 0 0 30px 30px;
+  --borders-slider: 30px 0 30px 0;
+  --borders-mob-slider: 30px;
+  --borders-footer: 30px 30px 0 0;
+  --borders: 30px;
+  --bg-numbers: rgba(32, 96, 246, 0.1);
+  --move-switcher: translate(10%, -50%);
+
+  @extend %text;
+
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all $transition-time;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__body {
+    margin: 0;
+    background: $bg-main;
+
+    &--no-scroll {
+      overflow: hidden;
+    }
+  }
+
+  &__header {
+    margin-bottom: 120px;
+
+    @include on-tablet {
+      margin-bottom: 148px;
+    }
+  }
+
+  &__main {
+    margin-bottom: 120px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %h;
+}
+
+.page--theme--dark {
+  --header-color: #008aff;
+  --nav-link-lines: #ff9c8e;
+  --button-color: #ff9c8e;
+  --button-hover-color: #fb7655;
+  --borders-header: 0 0 0 200px;
+  --borders-mob-header: 0;
+  --borders-slider: 200px 0 0 0;
+  --borders-mob-slider: 200px 0 0 0;
+  --borders: 0;
+  --borders-footer: 0 200px 0 0;
+  --bg-numbers: rgba(255, 156, 142, 0.1);
+  --move-switcher: translate(105%, -50%);
+}
