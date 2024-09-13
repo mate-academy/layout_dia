@@ -1,0 +1,134 @@
+
+.testimonials__cards {
+  --columns: 2;
+
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  display: grid;
+  gap: 24px;
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    margin-bottom: 38px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 0;
+  }
+}
+
+.testimonials__card {
+  grid-column: 1 / -1;
+  background-color: $header-footer-text-color;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 31px;
+  padding-block: 32px;
+
+  @include on-small-desktop {
+    grid-column: span 4;
+  }
+
+  @include hover (transform, scale(1.08));
+
+  &:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &-photo {
+    display: flex;
+    position: relative;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-small-desktop {
+      height: 196px;
+      width: 196px;
+    }
+  }
+
+  &-decor {
+    background-color: $accent-blue-color-gradient-r;
+    border-radius: 12px;
+    width: 55.6%;
+    height: 22.4%;
+  }
+
+  &-decor--left {
+    transform: translate(10%, 90%) rotate(-60deg);
+  }
+
+  &-decor--right {
+    align-self: end;
+    transform: translate(-10%, -90%) rotate(-60deg);
+  }
+
+  &-img {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 55%;
+  object-fit: cover;
+  }
+
+  &-text-wrapper {
+    background-image: url(../images/testimonials/Group.png);
+    background-repeat: no-repeat;
+    display: grid;
+    gap: 16px;
+    background-size: 24px 24px;
+    background-position: top center;
+  }
+
+  &-text {
+    margin-bottom: 0;
+    margin-top: 35px;
+    text-align: center;
+    font-family: $open-sans-font-family;
+    font-size: 13px;
+    font-weight: $font-weight-add;
+    color: $main-add-color;
+    line-height: 19.5px;
+  }
+
+  &-title-wrapper {
+    display: grid;
+    gap: 4px;
+  }
+
+  &-title {
+    margin: 0;
+    font-family: $open-sans-font-family;
+    font-size: 13px;
+    font-weight: $font-weight-add;
+    color: $main-accent-color;
+    line-height: 19.5px;
+    text-align: center;
+  }
+
+  &-add-title {
+    margin: 0;
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-accent;
+    color: $main-add2-color;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 19.5px;
+    text-align: center;
+  }
+}

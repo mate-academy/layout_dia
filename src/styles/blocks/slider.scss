@@ -1,0 +1,137 @@
+.slider {
+  grid-column: span 2;
+  padding-inline: 0;
+  margin: 0;
+  position: relative;
+  height: 390px;
+
+  @include on-small-desktop {
+    grid-column: 2 / span 1;
+    height: 674px;
+    padding-top: 48px;
+  }
+
+   @include on-desktop {
+    max-width: 1200px;
+    margin-inline: auto ;
+   }
+
+   &__nav-container {
+     z-index: 2;
+     position: absolute;
+     gap: 16px !important;
+     bottom: 24px;
+
+     @include on-tablet {
+      bottom: 32px;
+     }
+
+     @include on-small-desktop {
+      grid-template-columns: 1fr 3fr;
+      display: grid;
+      padding-left: 78px;
+      bottom: 48px;
+      position: absolute;
+      column-gap: 24px !important;
+    }
+
+    @include on-desktop {
+      padding-left: 48px;
+    }
+  }
+
+    &__nav-switches {
+      display: flex;
+      gap: 16px;
+
+      @include on-small-desktop {
+        align-items: center;
+      }
+    }
+
+  &__switch {
+    background-color: $header-footer-text-color;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0;
+    background-position: center;
+    cursor: pointer;
+
+    @include hover (transform, scale(0.9));
+
+    &--prev {
+      background-image: url(../images/header/Prev.png);
+    }
+
+    &--next {
+      background-image: url(../images/header/Next.png);
+    }
+  }
+
+  &__nav-text {
+    margin: 0;
+
+    @include on-small-desktop {
+      padding-top: 10px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $header-footer-text-color;
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-accent;
+    text-align: left;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    margin: 0;
+  }
+
+  &__description {
+    color: $header-footer-text-color;
+    font-family: $open-sans-font-family;
+    font-size: 14px;
+    line-height: 19.6px;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  &__photos {
+    overflow: hidden;
+
+    display: grid;
+    height: 390px;
+    width: 100%;
+
+    @include on-small-desktop {
+      height: 100%;
+    }
+
+  }
+
+  &__photo {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+    grid-column: span 1;
+    object-fit: cover;
+
+    @include on-small-desktop{
+      border-radius: 30px 30px 30px 0;
+    }
+
+    @for $i from 0 through 2 {
+      &.photo--#{$i} {
+        background-image: url('../images/slider/Slide-#{$i}.png');
+      }
+    }
+  }
+}
