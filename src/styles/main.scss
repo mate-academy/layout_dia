@@ -1,7 +1,50 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@import "utils";
+@import "fonts";
 
-body {
+@import "blocks/header/header";
+@import "blocks/header/icons";
+@import "blocks/header/top-bar";
+@import "blocks/header/slider";
+
+@import "blocks/main/section";
+@import "blocks/main/who-we";
+@import "blocks/main/our-expertise";
+@import "blocks/main/creative-agency";
+@import "blocks/main/testimonials";
+@import "blocks/main/qualities";
+
+@import "blocks/footer/footer";
+@import "blocks/footer/message";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
   background: $c-gray;
+  margin: 0;
+  padding: 0;
+
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0%);
+      pointer-events: all;
+    }
+  }
 }
