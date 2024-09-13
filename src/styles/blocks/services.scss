@@ -1,0 +1,178 @@
+.services {
+  --columns: 2;
+
+  grid-template-columns: repeat(var(--columns), 1fr);
+  display: grid;
+
+  @include on-tablet {
+    --columns: 6;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    max-width: 1148px;
+    margin: auto;
+  }
+
+  &__text-wrapper {
+    grid-column: 1 / span 2;
+
+    @include on-tablet {
+      grid-column: 1 / span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / span 6;
+      margin-right: 176px;
+      margin-top: 100px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / span 6;
+      margin-right: 226px;
+      max-width: 364px;
+    }
+  }
+
+  &__add-title {
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-accent;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: left;
+    text-transform: uppercase;
+    color: $main-add2-color;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    display: grid;
+    gap: 24px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-add;
+    font-size: 32px;
+    line-height: 41.6px;
+    color: $main-accent-color;
+  }
+
+  &__description {
+    margin: 0;
+    font-family: $open-sans-font-family;
+    font-size: 13px;
+    line-height: 21px;
+    color: $main-add-color;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__cards {
+    grid-column: 1 / -1;
+    gap: 24px;
+    display: grid;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+      padding-top: 148px;
+      max-width: 558px;
+    }
+  }
+
+  &__card {
+    background-color: $header-footer-text-color;
+    border-radius: 30px;
+    padding: 32px;
+    position: relative;
+
+    @include on-tablet {
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    &:hover {
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &-number-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 23px;
+      background-color:rgba(32, 96, 246, 0.1);
+      height: 24px;
+      width: 46px;
+    }
+
+    &-number {
+      color: $accent-blue-color-gradient-r;
+      font-family: $poppins-font-family;
+      font-size: 13px;
+      font-weight: $font-weight-add;
+      line-height: 19.5px;
+      padding-top: 2px;
+    }
+
+    &-text {
+      margin-top: 24px;
+      margin-bottom: 32px;
+      font-family: $open-sans-font-family;
+      color: $main-add-color;
+      font-size: 13px;
+      line-height: 19.5px;
+      font-weight: $font-weight-add;
+    }
+
+    &-button-wrapper {
+      display: flex;
+    }
+
+    &-button {
+      background: linear-gradient(90deg, $accent-blue-color-gradient-l, $accent-blue-color-gradient-r);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
+      align-self: center;
+
+      @include hover (transform, scale(1.1));
+
+      &:active {
+        background: linear-gradient(90deg, $accent-blue-color-gradient-R, $accent-blue-color-gradient-r);
+      }
+    }
+
+    &-button-img {
+      padding-top: 3px;
+      height: 16px;
+      width: 16px;
+    }
+
+    &-name {
+      font-family: $poppins-font-family;
+      font-size: 15px;
+      line-height: 22.5px;
+      color: $button-name-color;
+      font-weight: $font-weight-add;
+    }
+  }
+}

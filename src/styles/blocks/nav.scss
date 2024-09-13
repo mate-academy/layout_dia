@@ -1,0 +1,92 @@
+.nav {
+  &__list {
+    list-style-type: none;
+    gap: 48px;
+    padding-top: 6px;
+    display: none;
+    justify-content: center;
+
+    @include on-small-desktop {
+      display: flex;
+      }
+    }
+
+  &__item {
+    @include hover (transform, scale(1.1));
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, $accent-blue-color-gradient-l, $accent-blue-color-gradient-r);
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $header-footer-text-color;
+    text-transform: uppercase;
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-accent;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 19.5px;
+    font-size: 13px;
+  }
+}
+
+.hiring {
+  display: flex;
+  text-decoration: none;
+
+  &__hire-us {
+    position: relative;
+    text-align: center;
+    margin-block: 0;
+    color: $header-footer-text-color;
+    font-family: $poppins-font-family;
+    font-weight: $font-weight-accent;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    display: flex;
+
+    @include hover (transform, scale(1.1));
+
+    @include on-small-desktop {
+      padding-top: 6px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, $accent-blue-color-gradient-l, $accent-blue-color-gradient-r);
+      border-radius: 4px;
+
+      @include on-tablet {
+        bottom: -8px;
+      }
+
+      @include on-desktop {
+        bottom: -8px;
+      }
+    }
+  }
+}
+
+
+
