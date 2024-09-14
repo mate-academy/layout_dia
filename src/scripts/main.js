@@ -1,20 +1,28 @@
 'use strict';
 
+import purpleMainImage from '../images/slider/purple-main-2x.png';
+import grayMainImage from '../images/slider/gray-main.png';
+import blueTestimonial1 from '../images/testimonials/testimonial-blue-2x.png';
+import yellowTestimonial2 from '../images/testimonials/testimonial-yellow-2x.png';
+import redTestimonial3 from '../images/testimonials/testimonial-red-2x.png';
+import testimonial1 from '../images/testimonials/testimonial-1-2x.png';
+import testimonial2 from '../images/testimonials/testimonial-2-2x.png';
+import testimonial3 from '../images/testimonials/testimonial-3-2x.png';
+import quotesBlue from '../images/testimonials/quotes-blue-2x.png';
+import quotesYellow from '../images/testimonials/quotes-yellow-2x.png';
+import quotesRed from '../images/testimonials/quotes-red-2x.png';
+import quotesDefault from '../images/testimonials/quotes-2x.png';
+import visionDefault from '../images/vision/shapes.png';
+import visionColorful from '../images/vision/colorful-shapes.png';
+
 const cWhite = '#FFFFFF';
 const cPink = '#FF9C8E';
-const cOrange = '#FF7E6C';
 const cBlueBackground = '#008AFF';
 const cBlueInitial = '#2060F6';
 const cBlueFooter = '#144ED4';
-const cBlueHover = '#D2EBFF';
-const cArcticBlue = '#56CCF2';
-const cLightBlue = '#D2EBFF';
 const cDarkGray = '#2C2C2C';
 const cGray = '#6C788B';
 const cGrayishBlue = '#C0CDD7';
-const cGreen = '#15D850';
-const cRed = '#F36363';
-const cYellow = '#FCC91D';
 
 document.addEventListener('DOMContentLoaded', function () {
   let slideIndex = 0;
@@ -71,7 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
         isThemeGray = false;
 
         elements.forEach((element) => {
-          element.style.setProperty('color', cGrayishBlue, 'important');
+          element.style.setProperty('--color-text', cGrayishBlue, 'important');
+          element.style.setProperty('--color-after', cGrayishBlue, 'important');
         });
 
         document.querySelector('.menu').style.backgroundColor = cBlueBackground;
@@ -81,14 +90,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.header').style.backgroundColor =
           cBlueBackground;
         document.querySelector('.top-bar__hire').classList.add('pink');
-        document.querySelector('.header__button').style.borderRadius =
-          '64px';
-        document.querySelector('.header__button').style.backgroundColor =
-          cPink;
+        document.querySelector('.header__button').style.borderRadius = '64px';
+        document.querySelector('.header__button').style.backgroundColor = cPink;
         document.querySelectorAll('.button').forEach(function (button) {
           button.classList.add('button--pink-animated');
           button.classList.remove('button--animated');
-        })
+        });
         document.querySelectorAll('.slide').forEach(function (slide) {
           if (window.matchMedia('(max-width: 1023px)').matches) {
             if (isThemeGray === true) {
@@ -111,53 +118,61 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
         });
-        document.querySelector('.slide--1').src =
-          'images/slider/purple-main-2x.png';
-        document.querySelector('.card__number--1').style.backgroundColor =
-          'rgba(86, 204, 242, 0.1)';
-        document.querySelector('.card__number--1').style.color =
-          'rgb(86, 204, 242)';
+
+        document.querySelector('.slide--1').src = purpleMainImage;
+        document.querySelector(
+          '.card__number--1',
+        ).style.backgroundColor = 'rgba(86, 204, 242, 0.1)';
+        document.querySelector(
+          '.card__number--1',
+        ).style.color = 'rgb(86, 204, 242)';
         document.querySelector(
           '.learn-more__ellipse--1',
         ).style.backgroundColor = 'rgb(86, 204, 242)';
-        document.querySelector('.card__number--2').style.backgroundColor =
-          'rgba(252, 201, 29, 0.1)';
-        document.querySelector('.card__number--2').style.color =
-          'rgb(252, 201, 29)';
+        document.querySelector(
+          '.card__number--2',
+        ).style.backgroundColor = 'rgba(252, 201, 29, 0.1)';
+        document.querySelector(
+          '.card__number--2',
+        ).style.color = 'rgb(252, 201, 29)';
         document.querySelector(
           '.learn-more__ellipse--2',
         ).style.backgroundColor = 'rgb(252, 201, 29)';
-        document.querySelector('.card__number--3').style.backgroundColor =
-          'rgba(21, 216, 80, 0.1)';
-        document.querySelector('.card__number--3').style.color =
-          'rgb(21, 216, 80)';
+        document.querySelector(
+          '.card__number--3',
+        ).style.backgroundColor = 'rgba(21, 216, 80, 0.1)';
+        document.querySelector(
+          '.card__number--3',
+        ).style.color = 'rgb(21, 216, 80)';
         document.querySelector(
           '.learn-more__ellipse--3',
         ).style.backgroundColor = 'rgb(21, 216, 80)';
-        document.querySelector('.card__number--4').style.backgroundColor =
-          'rgba(243, 99, 99, 0.1)';
-        document.querySelector('.card__number--4').style.color =
-          'rgb(243, 99, 99)';
+        document.querySelector(
+          '.card__number--4',
+        ).style.backgroundColor = 'rgba(243, 99, 99, 0.1)';
+        document.querySelector(
+          '.card__number--4',
+        ).style.color = 'rgb(243, 99, 99)';
         document.querySelector(
           '.learn-more__ellipse--4',
         ).style.backgroundColor = 'rgb(243, 99, 99)';
         document.querySelector('.testimonial__picture--1').src =
-          'images/testimonials/testimonial-blue-2x.png';
+          blueTestimonial1;
         document.querySelector('.testimonial__picture--2').src =
-          'images/testimonials/testimonial-yellow-2x.png';
+          yellowTestimonial2;
         document.querySelector('.testimonial__picture--3').src =
-          'images/testimonials/testimonial-red-2x.png';
+          redTestimonial3;
         document.querySelector('.testimonial__decoration-figure--1').src =
-          'images/testimonials/quotes-blue-2x.png';
+          quotesBlue;
         document.querySelector('.testimonial__decoration-figure--2').src =
-          'images/testimonials/quotes-yellow-2x.png';
+          quotesYellow;
         document.querySelector('.testimonial__decoration-figure--3').src =
-          'images/testimonials/quotes-red-2x.png';
+          quotesRed;
         document
           .querySelector('.vision')
           .style.setProperty(
             '--bg-image',
-            "url('images/vision/colorful-shapes.png')",
+            `url(${visionColorful})`,
           );
         document.querySelector('.vision__button').style.borderRadius = '64px';
         document.querySelector('.vision__button').style.backgroundColor = cPink;
@@ -195,7 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
         isThemeGray = true;
 
         elements.forEach((element) => {
-          element.style.setProperty('color', cGray, 'important');
+          element.style.setProperty('--color-text', cGray, 'important');
+          element.style.setProperty('--color-after', cGray, 'important');
         });
 
         document.querySelector('.menu').style.backgroundColor = cDarkGray;
@@ -204,8 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '30px';
         document.querySelector('.header').style.backgroundColor = cDarkGray;
         document.querySelector('.top-bar__hire').classList.remove('pink');
-        document.querySelector('.header__button').style.borderRadius =
-          '8px';
+        document.querySelector('.header__button').style.borderRadius = '8px';
         document.querySelector('.header__button').style.backgroundColor =
           cBlueInitial;
         document.querySelectorAll('.button').forEach(function (button) {
@@ -234,7 +249,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
         });
-        document.querySelector('.slide--1').src = 'images/slider/gray-main.png';
+
+        document.querySelector('.slide--1').src = grayMainImage;
         document.querySelector('.card__number--1').style.backgroundColor =
           'rgba(32, 96, 246, 0.1)';
         document.querySelector('.card__number--1').style.color =
@@ -263,21 +279,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(
           '.learn-more__ellipse--4',
         ).style.backgroundColor = 'rgb(32, 96, 246)';
-        document.querySelector('.testimonial__picture--1').src =
-          'images/testimonials/testimonial-1-2x.png';
-        document.querySelector('.testimonial__picture--2').src =
-          'images/testimonials/testimonial-2-2x.png';
-        document.querySelector('.testimonial__picture--3').src =
-          'images/testimonials/testimonial-3-2x.png';
+        document.querySelector('.testimonial__picture--1').src = testimonial1;
+        document.querySelector('.testimonial__picture--2').src = testimonial2;
+        document.querySelector('.testimonial__picture--3').src = testimonial3;
         document.querySelector('.testimonial__decoration-figure--1').src =
-          'images/testimonials/quotes-2x.png';
+          quotesDefault;
         document.querySelector('.testimonial__decoration-figure--2').src =
-          'images/testimonials/quotes-2x.png';
+          quotesDefault;
         document.querySelector('.testimonial__decoration-figure--3').src =
-          'images/testimonials/quotes-2x.png';
+          quotesDefault;
         document
           .querySelector('.vision')
-          .style.setProperty('--bg-image', "url('images/vision/shapes.png')");
+          .style.setProperty('--bg-image', `url(${visionDefault})`);
         document.querySelector('.vision__button').style.borderRadius = '8px';
         document.querySelector('.vision__button').style.backgroundColor =
           cBlueInitial;
@@ -304,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.media__icon').forEach(function (icon) {
           icon.classList.add('media__icon--gray');
           icon.classList.remove('media__icon--pink');
-        })
+        });
       }
     });
   });
