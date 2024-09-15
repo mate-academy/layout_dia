@@ -1,0 +1,42 @@
+.page {
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  min-width: 320px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+
+    .top-bar__menu-link {
+      opacity: 0;
+      transform: scale(-1);
+    }
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    background: $c-light-gray;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    transform: translateY(-100%);
+
+    &:target {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.header {
+  @include element-grid;
+
+  width: 100%;
+  height: 100vh;
+  background-color: $c-dark-gray;
+  align-content: start;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+
+  @include on-tablet {
+    height: 100%;
+  }
+
+  &__content {
+    @include element-grid;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    @include on-phone {
+      grid-column: span 2;
+      grid-row: unset;
+    }
+  }
+
+  &__title {
+    @include text-styler(Poppins, 600, 64px, 68px, $c-white);
+
+    letter-spacing: -2px;
+    grid-column: 1 / 5;
+    margin: 120px 0 0;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin: 56px 0 0;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      margin: 48px 0 0;
+
+      @include text-styler(Poppins, 600, 52px, 62.4px, $c-white);
+    }
+  }
+
+  &__subtitle {
+    @include text-styler(Open Sans, 400, 18px, 27px, $c-white);
+
+    grid-column: 1 / 5;
+    margin: 32px 0 0;
+
+    @include on-tablet {
+      grid-column: span 4;
+      margin: 24px 0 0;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      margin: 32px 0 0;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    grid-column: 1 / 4;
+    height: 50px;
+    border-radius: 8px;
+    margin: 83px 0 0;
+    background-color: $c-blue;
+    outline: none;
+    border: none;
+
+    @include text-styler(Poppins, 600, 15px, 22.5px, $c-white);
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin: 56px 0 0;
+    }
+
+    @include on-phone {
+      grid-column: span 2;
+      margin: 72px 0 0;
+    }
+  }
+}
