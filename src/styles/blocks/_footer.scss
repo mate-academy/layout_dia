@@ -1,0 +1,35 @@
+.footer {
+  position: relative;
+  border-radius: $border-radius $border-radius 0 0;
+  background-color: $header-footer-bg-color;
+
+  &--theme-light {
+    @include desktop-narrow {
+      border-radius: 0 px-to-rem(200px) 0 0;
+      background-color: $header-footer-light-bg-c;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: px-to-rem(80px);
+    padding-block: px-to-rem(72px) px-to-rem(80px);
+
+    @include on-tablet {
+      row-gap: px-to-rem(120px);
+      padding-block: px-to-rem(180px) px-to-rem(80px);
+    }
+  }
+}
