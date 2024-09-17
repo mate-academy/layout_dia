@@ -26,9 +26,6 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = 'block';
 }
 
-document.addEventListener('click', function () {
-  showSlides(slideIndex);
-
   document
     .getElementById('prev-img')
     .addEventListener('click', function (event) {
@@ -42,4 +39,3 @@ document.addEventListener('click', function () {
       event.preventDefault(); // Запобігти стандартному переходу по посиланню
       plusSlides(1);
     });
-});
