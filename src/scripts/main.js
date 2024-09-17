@@ -26,7 +26,7 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = 'block';
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('click', function () {
   showSlides(slideIndex);
 
   document
