@@ -30,12 +30,12 @@ function showSlides(n) {
     .getElementById('prev-img')
     .addEventListener('click', function (event) {
       event.preventDefault(); // Запобігти стандартному переходу по посиланню
-      plusSlides(-1);
+      showSlides(-1);
     });
 
   document
     .getElementById('next-img')
     .addEventListener('click', function (event) {
       event.preventDefault(); // Запобігти стандартному переходу по посиланню
-      plusSlides(1);
+      showSlides(1);
     });
