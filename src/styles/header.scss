@@ -1,0 +1,370 @@
+.header {
+  background-color: #2C2C2C;
+  border-radius: 0 0 30px 30px;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    @include tablet {
+      gap: 56px;
+    }
+
+    @include small-desktop {
+      gap: 48px;
+    }
+  }
+
+  &__navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 54px);
+    max-width: 1062px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    @include tablet {
+      width: calc(100% - 54px);
+    }
+
+    @include small-desktop {
+      margin-top: 48px;
+    }
+
+    @include design {
+      width: 1062px;
+    }
+
+    &-icons {
+      width: 102px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    &-logo {
+      @include small-desktop {
+        transition: transform 0.4s ease;
+
+        &:hover {
+        transform: scale(1.1);
+        }
+      }
+    }
+
+    &-list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #FFFFFF;
+      padding: 10px 0;
+      border-radius: 8px;
+      list-style: none;
+      display: none;
+      width: 150px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+
+      &.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+
+        @include small-desktop {
+          position: static;
+          margin: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 48px;
+          opacity: 1;
+          transform: none;
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+    }
+
+    &-item {
+      margin: 0;
+      padding: 10px 20px;
+
+      @include small-desktop {
+        padding: 0;
+      }
+    }
+
+    &-link {
+      font-family: $font-family-main;
+      font-size: 14px;
+      color: #333;
+      display: block;
+      text-decoration: none;
+
+      @include small-desktop {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFFFFF;
+        font-family: $font-family-main;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 150%;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+
+    &-button {
+      position: relative;
+      height: 30px;
+      font-family: $font-family-main;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #FFFFFF;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 2px;
+        background-color: $accent-color;
+        border-radius: 4px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        transform: scale(1);
+        transform-origin: right;
+        transition: transform 0.4s ease;
+      }
+
+      @include small-desktop {
+        &:hover::after {
+          transform: scale(0);
+        }
+      }
+    }
+
+    &-menu {
+      cursor: pointer;
+
+      @include small-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include small-desktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      margin: 0 auto;
+
+    }
+
+    &-main {
+      box-sizing: border-box;
+      padding-bottom: 0;
+      color: #FFFFFF;
+      width: 490px;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        width: 558px;
+      }
+
+      @include small-desktop {
+        width: 490px;
+      }
+    }
+
+    &-title {
+      margin: 0;
+      font-family: $font-family-main;
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: -2px;
+
+      @include tablet {
+        font-size: 64px;
+        font-weight: 600;
+      }
+    }
+
+    &-text {
+      margin-top: 32px;
+      margin-bottom: 72px;
+      font-family: $font-family-extra;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 27px;
+
+      @include tablet {
+        margin-top: 24px;
+        margin-bottom: 56px;
+        max-width: 362px;
+      }
+    }
+
+    &-button {
+      box-sizing: border-box;
+      display: block;
+      width: 280px;
+      margin: 0;
+      padding: 14px 93px 13px 94px;
+      border-radius: 8px;
+      font-family: $font-family-main;
+      font-size: 15px;
+      line-height: 150%;
+      background-color: $accent-color;
+      color: #FFFFFF;
+      text-decoration: none;
+      text-align: center;
+
+      @include small-desktop {
+        max-width: 264px;
+        padding: 14px 88px 13px 89px;
+
+        &:hover {
+          background-color: #FFFFFF;
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    margin-top: 48px;
+    height: 390px;
+    overflow: hidden;
+    width: 100%;
+
+
+    @include tablet {
+      margin-top: 147px;
+    }
+
+    @include small-desktop {
+      margin-top: 0;
+      height: 680px;
+    }
+
+    &-images {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    &-image {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    &-content {
+      width: 280px;
+      position: absolute;
+      top: 250px;
+      left: 20px;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        top: 242px;
+        left: 41px;
+        bottom: 32px;
+      }
+
+      @include small-desktop {
+        width: 370px;
+        flex-direction: row;
+        top: 564px;
+        left: 78px;
+        bottom: 48px;
+        height: 68px;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      @include design {
+        left: 48px;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+
+      @include small-desktop {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &-button {
+      width: 32px;
+      height: 32px;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+
+    &-title {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-family: $font-family-main;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 3px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+
+      @include small-desktop {
+        margin-top: 0;
+      }
+    }
+
+    &-text {
+      margin: 0;
+      font-family: $font-family-extra;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: #FFFFFF;
+    }
+  }
+}
+
