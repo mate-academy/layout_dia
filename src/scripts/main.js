@@ -1,12 +1,10 @@
 'use strict';
 let slideIndex = 1;
 
-// Next/previous controls
 function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
-// Thumbnail image controls
 function currentSlide(n) {
   showSlides((slideIndex = n));
 }
@@ -31,11 +29,17 @@ function showSlides(n) {
 document.addEventListener('DOMContentLoaded', function () {
   showSlides(slideIndex);
 
-  document.getElementById('prev-img').addEventListener('click', function () {
-    plusSlides(-1);
-  });
+  document
+    .getElementById('prev-img')
+    .addEventListener('click', function (event) {
+      event.preventDefault(); // Запобігти стандартному переходу по посиланню
+      plusSlides(-1);
+    });
 
-  document.getElementById('next-img').addEventListener('click', function () {
-    plusSlides(1);
-  });
+  document
+    .getElementById('next-img')
+    .addEventListener('click', function (event) {
+      event.preventDefault(); // Запобігти стандартному переходу по посиланню
+      plusSlides(1);
+    });
 });
