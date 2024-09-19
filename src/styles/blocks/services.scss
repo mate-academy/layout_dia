@@ -5,6 +5,20 @@
 
   padding: 120px 20px 48px;
 
+  @include for-tablet {
+    padding: 148px 41px 48px;
+
+    grid-template-rows: auto auto 51px 132px 162px 132px 162px 132px;
+  }
+
+  @include for-desktop {
+    grid-template-rows: 103px 36px 109px 36px 139px 145px 139px;
+  }
+
+  @include for-large {
+    grid-template-rows: 103px 36px 109px 36px 139px 145px 139px;
+  }
+
   &__section-name {
     margin-bottom: 16px;
     font-family: Poppins, sans-serif;
@@ -15,10 +29,16 @@
     text-transform: uppercase;
     text-align: left;
     color: #c0cdd7;
-    grid-column: 1 /2;
+
+    grid-column: span 2;
 
     @include for-tablet {
       grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+
+    @include for-desktop {
+      grid-row: 2 / 3;
     }
   }
 
@@ -26,28 +46,107 @@
     margin-bottom: 24px;
     line-height: 42px;
     text-align: left;
+
     grid-column: span 2;
 
     @include for-tablet {
       grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+
+    @include for-desktop {
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
     }
   }
 
   &__paragraph {
     margin-bottom: 48px;
     text-align: left;
+
     grid-column: span 2;
 
     @include for-tablet {
+      display: inline-block;
+      width: 260px;
       grid-column: 1 / 4;
+      grid-row: 3 / 5;
+    }
+
+    @include for-desktop {
+      width: auto;
+      display: inline;
+      grid-column: 1 / 5;
+      grid-row: 4 / 6;
     }
   }
 
   &__card-learn {
+    margin-bottom: 24px;
     grid-column: span 2;
 
     @include for-tablet {
-      grid-column: span 3;
+      margin-bottom: 30px;
+    }
+
+    @include for-desktop {
+      margin-bottom: 20px;
+    }
+
+    &:nth-of-type(odd) {
+      @include for-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include for-desktop {
+        grid-column: 10 / 13;
+      }
+    }
+
+    &:nth-of-type(even) {
+      @include for-tablet {
+        grid-column: 4 / 7;
+      }
+
+      @include for-desktop {
+        grid-column: 7 / 10;
+      }
+    }
+
+    &:first-of-type {
+      @include for-tablet {
+        grid-row: 5 / 7;
+      }
+
+      @include for-desktop {
+        grid-row: 1 / 5;
+      }
+    }
+
+    &:nth-of-type(2) {
+      @include for-tablet {
+        grid-row: 4 / 6;
+      }
+
+      @include for-desktop {
+        grid-row: 3 / 6;
+      }
+    }
+
+    &:nth-of-type(3) {
+      @include for-tablet {
+        grid-row: 7 / 9;
+      }
+
+      @include for-desktop {
+        grid-row: 5 / 7;
+      }
+    }
+
+    &:nth-of-type(4) {
+      @include for-tablet {
+        grid-row: 6 / 8;
+      }
     }
   }
 }
