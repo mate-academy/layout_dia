@@ -30,9 +30,13 @@ console.log('hello dear');
   slides[slideIndex - 1].style.display = 'block';
 }
 
-const element1 = document.getElementById("prev-img");
-element1.addEventListener("click", plusSlides(-1));
-console.log(element1);
-const element2 = document.getElementById("next-img");
-element2.addEventListener("click", plusSlides(1));
-console.log(element2);
+const element1 = document.getElementById('prev-img');
+element1.addEventListener('click', (e) => {
+  e.preventDefault();
+  plusSlides(-1);
+});
+const element2 = document.getElementById('next-img');
+element2.addEventListener('click', (e) => {
+  e.preventDefault();
+  plusSlides(1);
+});
