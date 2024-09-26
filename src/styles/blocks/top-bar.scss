@@ -1,0 +1,50 @@
+.top-bar {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  &__logo-and-icon {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: contents;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+    margin-bottom: 8px;
+    font-family: $poppins-font;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: #2060f6;
+      border-radius: 4px;
+      transition: bottom 0.3s;
+    }
+
+    &:hover::after {
+      bottom: -6.4px;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+}
