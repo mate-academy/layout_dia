@@ -1,0 +1,95 @@
+.service {
+  @include page-grid;
+
+  row-gap: 48px;
+  padding: 120px 0;
+
+  @include on-tablet {
+    row-gap: 56px;
+    padding: 148px 0;
+
+  }
+
+  &__content {
+    grid-column: 1/-1;
+
+  &--contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    max-width: 264px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+    }
+  }
+
+    &--cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
+
+      @include on-small-desktop {
+        grid-column: -1/-7;
+        gap: 20px;
+      }
+    }
+
+    &__card {
+      box-sizing: border-box;
+      height: 264px;
+
+      @include on-tablet {
+        min-width: 264px;
+      }
+
+      @include on-small-desktop {
+        min-width: 214px;
+      }
+    }
+  }
+  
+  &__block {
+    @media (min-width: 639px) {
+      flex: 1 1 calc(50% - 30px); // Два блока в строке на экранах шире 768px
+      max-width: calc(50% - 30px);
+    }
+
+    &--first {
+      grid-row: 1/2;
+    }
+
+    &--second {
+      margin-top: -132px;    }
+    }
+
+  &__title {
+    font-family: $font-open-sans;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 41.6px;
+    color: $h2-color;
+    padding-bottom: 24px;
+    padding-top: 16px;
+  }
+
+  &__text {
+    color: $text-color;
+    font-family: $font-open-sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    &--first {
+      padding-bottom: 21px;
+    }
+  }
+}
