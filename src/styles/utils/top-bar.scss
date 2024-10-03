@@ -1,3 +1,10 @@
+@mixin hover($property, $toValue) {
+  transition: #{$property} $effectDuration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
 .top-bar {
   justify-content: space-between;
   align-items: center;
@@ -22,6 +29,8 @@
     width: 24px;
     background-image: url(../images/img/Menu.svg);
 
+    @include hover(transform, $IconTransform);
+
     @include on-small-desktop {
       display: none;
     }
@@ -41,7 +50,7 @@
   }
 
   &__hire {
-    font-family: Roboto, sans-serif;
+    font-family: $font-poppins;
     font-weight: $font-weight-700;
     color: $white-color;
     font-size: 13px;

@@ -1,80 +1,71 @@
 .service {
   @include page-grid;
 
-  row-gap: 48px;
+  max-width: 1600px;
   padding: 120px 0;
 
   @include on-tablet {
-    row-gap: 56px;
     padding: 148px 0;
 
   }
 
   &__content {
     grid-column: 1/-1;
-
-  &--contents {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     max-width: 264px;
+    padding-bottom: 48px;
 
     @include on-tablet {
       grid-column: span 3;
+      padding-bottom: 56px;
     }
 
     @include on-small-desktop {
-      grid-column: span 4;
+      grid-column: span 6;
     }
   }
-
-    &--cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-
-      @include on-tablet {
-        grid-column: span 6;
-      }
-
-      @include on-small-desktop {
-        grid-column: -1/-7;
-        gap: 20px;
-      }
-    }
 
     &__card {
-      box-sizing: border-box;
-      height: 264px;
+      grid-column: -1/1;
+      margin-bottom: 24px;
 
       @include on-tablet {
-        min-width: 264px;
+        grid-column: 1/4;
+        width: 264px;
+        margin-bottom: 30px;
       }
 
       @include on-small-desktop {
-        min-width: 214px;
+        grid-column: 7/-4;
+        width: 214px;
+        margin-bottom: 20px;
       }
-    }
-  }
-  
-  &__block {
-    @media (min-width: 639px) {
-      flex: 1 1 calc(50% - 30px); // Два блока в строке на экранах шире 768px
-      max-width: calc(50% - 30px);
-    }
 
-    &--first {
-      grid-row: 1/2;
-    }
+      @include on-normal-wight {
+        width: 264px;
+        height: 264px;
+        margin-bottom: 20px;
+      }
 
-    &--second {
-      margin-top: -132px;    }
+      &--up {
+        @include on-tablet {
+          grid-column: 4/-1;
+          position: relative;
+          transform: translateY(-50%);
+        }
+
+        @include on-small-desktop {
+          grid-column: -1/-4;
+
+        }
+      }
     }
 
   &__title {
     font-family: $font-open-sans;
     font-size: 32px;
-    font-weight: 600;
+    font-weight: $font-weight-600;
     line-height: 41.6px;
     color: $h2-color;
     padding-bottom: 24px;
@@ -85,7 +76,7 @@
     color: $text-color;
     font-family: $font-open-sans;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: $font-weight-400;
     line-height: 21px;
 
     &--first {
