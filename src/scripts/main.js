@@ -16,10 +16,6 @@ document.onclick = function(event) {
     }
 };
 
-
-
-
-
 // Image carousel
 let currentSlide = 0;
 const slides = document.querySelectorAll(".header__carousel-image");
