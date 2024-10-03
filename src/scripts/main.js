@@ -9,11 +9,13 @@ menuButton.onclick = function(event) {
     dropdownMenu.classList.toggle('active');
 };
 
+// Закриття меню при кліку поза його межами
 document.onclick = function(event) {
     if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
         dropdownMenu.classList.remove('active');
     }
 };
+
 
 
 
