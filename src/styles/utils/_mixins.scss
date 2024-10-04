@@ -4,3 +4,67 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-mobile {
+  @media (min-width: $mobile-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-s {
+  @media (min-width: $desktop-s-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-m {
+  @media (min-width: $desktop-m-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-l {
+  @media (min-width: $desktop-l-min-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  padding: 0 20px;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 24px;
+    padding: 0 41px;
+  }
+
+  @include on-desktop-s {
+    --columns: 12;
+
+    padding: 0 55px;
+  }
+
+  @include on-desktop-m {
+    --columns: 12;
+
+    padding: 0 227px;
+  }
+
+  @include on-desktop-l {
+    --columns: 12;
+
+    padding: 0 708px;
+  }
+}

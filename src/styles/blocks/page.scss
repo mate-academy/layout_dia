@@ -1,0 +1,61 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+
+    &:target {
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 100;
+      pointer-events: all;
+    }
+  }
+
+  &__header {
+    background-color: $main-page-color;
+    border-radius: 0 0 30px 30px;
+
+    @include on-mobile {
+      height: 893px;
+    }
+
+    @include on-tablet {
+      height: 893px;
+    }
+
+    @include on-desktop-s {
+      height: 800px;
+    }
+
+    @include on-desktop-m {
+      height: 800px;
+    }
+
+    @include on-desktop-l {
+      height: 800px;
+    }
+  }
+}
