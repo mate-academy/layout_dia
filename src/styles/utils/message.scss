@@ -98,8 +98,10 @@ input:-webkit-autofill:focus {
     font-weight: $font-weight-700;
     line-height: 19.5px;
     letter-spacing: $letter-spacing;
-    text-align: left;
-    padding-bottom: 40px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
   }
 
   &__information {
@@ -108,18 +110,49 @@ input:-webkit-autofill:focus {
     font-size: 24px;
     font-weight: $font-weight-600;
     line-height: 36px;
-    text-align: left;
+    text-transform: lowercase;
+    color: $white-color;
+
   }
 
-  &__tel,
-  &__address {
-    color: $white-color;
+  &__block {
+    padding-bottom: 40px;
+
+    @include on-tablet {
+      padding-bottom: 48px;
+    }
   }
 
   &__icons {
-    padding-top: 16px;
     display: flex;
     gap: 32px;
+    padding-top: 8px;
+  }
+
+  &__icon {
+    padding-top: 16px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    transition: transform $effectDuration ease;
+
+  &:hover {
+    transform: $FotoTransform;
+  }
+
+    &--facebook {
+      background-image: url(../images/img/facebook.svg);
+    }
+
+    &--twitter {
+      background-image: url(../images/img/twitter.svg);
+    }
+
+    &--instagram {
+      background-image: url(../images/img/instagram.svg);
+    }
   }
 
   &__nav {
