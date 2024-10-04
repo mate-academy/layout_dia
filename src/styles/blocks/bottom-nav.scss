@@ -1,0 +1,42 @@
+.bottom-nav {
+  display: flex;
+  align-items: center;
+  grid-column: -8 / -1;
+  justify-self: end;
+  flex-wrap: wrap;
+
+  @include on-tablet {
+    grid-column: span 6;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  &__list {
+    @include nav-list-styles(64px);
+
+    @include on-tablet {
+      @include nav-list-styles(40px);
+    }
+
+    @include on-phone {
+      flex-direction: column;
+
+      @include nav-list-styles(24px);
+    }
+  }
+
+  &__link {
+    @include nav-link-styles;
+    @include animated-undescore($c-white);
+
+    &--theme-changer {
+      @include on-tablet {
+        display: none;
+      }
+
+      @include on-phone {
+        display: initial;
+      }
+    }
+  }
+}

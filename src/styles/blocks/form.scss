@@ -1,0 +1,87 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 5;
+  grid-row: 2;
+
+  @include on-tablet {
+    grid-column: span 4;
+  }
+
+  @include on-phone {
+    grid-column: 1 / -1;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    position: relative;
+    height: 41px;
+    border: none;
+    background-color: $c-dark-gray;
+    border-bottom: 2px solid $c-white;
+    transition: border-color 0.3s ease-in-out;
+    transform-origin: left;
+    padding: 0;
+    margin: 0 0 48px;
+
+    @include text-styler(Poppins, 600, 15px, 22.5px, $c-white);
+
+    @include on-phone {
+      margin: 0 0 40px;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $c-blue;
+      transition: border-bottom-color 0.3s ease;
+    }
+
+    &:not(:focus) {
+      border-bottom-color: initial;
+    }
+
+    &:last-child {
+      margin: 0 0 80px;
+
+      @include on-phone {
+        margin: 0 0 56px;
+      }
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border-bottom-color: $c-blue;
+      -webkit-text-fill-color: $c-white;
+      -webkit-box-shadow: 0 0 0px 1000px $c-dark-gray inset;
+      caret-color: $c-white;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 264px;
+    height: 56px;
+    background-color: $c-blue;
+    border-radius: 8px;
+    color: $c-white;
+    outline: none;
+    border: none;
+    margin: 0;
+
+    &:active {
+      filter: brightness(0.95);
+    }
+
+    @include text-styler(Poppins, 600, 15px, 22.5px, $c-white);
+    @include hover(background-color, $c-blue-footer);
+
+    @include on-phone {
+      width: 280px;
+    }
+  }
+}
