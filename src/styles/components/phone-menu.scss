@@ -1,0 +1,43 @@
+.phone-menu {
+  background-color: $c-dark-gray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  &--visible {
+    display: flex;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &_link {
+      color: $c-white;
+      position: relative;
+      width: max-content;
+
+      &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background-color: $c-blue;
+        transition: width $transition ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}

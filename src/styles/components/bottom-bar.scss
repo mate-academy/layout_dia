@@ -1,0 +1,49 @@
+.bottom-bar {
+    &_wrapper {
+      @include on-small-desktop {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    &_list {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      gap: 24px;
+
+      @include on-tablet {
+        flex-direction: row;
+      }
+
+      @include on-small-desktop {
+        gap: 64px;
+      }
+
+    &_link {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      color: $c-white;
+      text-transform: uppercase;
+      position: relative;
+      width: max-content;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background-color: $c-blue;
+        transition: width $transition ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}

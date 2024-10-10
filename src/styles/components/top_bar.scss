@@ -1,0 +1,89 @@
+.top_bar {
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_left {
+    display: flex;
+    align-items: center;
+
+    &_img {
+      cursor: pointer;
+
+      &-logo {
+        margin-right: 32px;
+      }
+
+      &-burger_btn {
+        width: 24px;
+        height: 24px;
+
+        @include on-small-desktop {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &_center {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &_list {
+    display: flex;
+    gap: 48px;
+    padding: 0;
+
+    &_link {
+      text-transform: uppercase;
+      color: $c-white;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      width: max-content;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background-color: $c-blue;
+        transition: width $transition ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &_right {
+    &_hire_us {
+      color: $c-white;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 2px;
+        background-color: $c-blue;
+      }
+    }
+  }
+}
