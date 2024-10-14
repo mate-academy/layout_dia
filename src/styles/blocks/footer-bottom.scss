@@ -1,0 +1,63 @@
+.bottom{
+
+  @include onDesktop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  &__logo{
+    margin: 0;
+    margin-bottom: 48px;
+
+    @include onTablet{
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop{
+      margin: 0;
+    }
+  }
+
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include onTablet{
+      flex-direction: row;
+    }
+  }
+
+  &__list--link{
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: -8px;
+      height: 2px;
+      background-color: #2060F6;
+      border-radius: 4px;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

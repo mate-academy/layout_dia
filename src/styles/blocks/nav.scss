@@ -1,0 +1,70 @@
+.nav {
+  display: none;
+
+  &__button {
+    padding: 10px 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  &__button::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2060f6;
+    border-radius: 4px;
+  }
+
+  @include onDesktop {
+    display: block;
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+
+      &--item {
+        height: 20px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      &--link {
+        position: relative;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 19.5px;
+        letter-spacing: 3px;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          position: absolute;
+          bottom: -8px;
+          height: 2px;
+          background-color: #2060f6;
+          border-radius: 4px;
+
+          transition: transform 0.3s;
+          transform: scale(0);
+          transform-origin: left;
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
