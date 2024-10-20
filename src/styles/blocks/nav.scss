@@ -1,0 +1,58 @@
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  list-style: none;
+
+  &--footer {
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include on-small-desktop {
+      gap: 64px;
+    }
+  }
+
+  @include on-small-desktop {
+    flex-direction: row;
+    gap: 48px;
+  }
+}
+
+.nav__link {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 3px;
+  color: $menu-text-color;
+  text-transform: uppercase;
+
+  display: inline-flex;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    position: absolute;
+    bottom: -8px;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: $hover-color;
+    transition: transform $animation-duration;
+
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+
+  &:active {
+    color: $hover-color;
+  }
+}

@@ -1,0 +1,123 @@
+.services {
+  &__content {
+    display: grid;
+    row-gap: 48px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      row-gap: 56px;
+    }
+  }
+
+  &__services-article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__services-cards {
+    grid-column: 1 / -1;
+
+    justify-content: center;
+    justify-items: stretch;
+    row-gap: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+}
+
+.services-article {
+  &__title {
+    font-size: 32px;
+    line-height: 41.3px;
+  }
+
+  &__services-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.services-card {
+  box-sizing: border-box;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  @include hover(transform, scale(1.1));
+
+  @include on-tablet {
+    &:nth-child(2),
+    &:nth-child(4) {
+      transform: translateY(-50%);
+
+      @include hover(transform, scale(1.1) translateY(-50%));
+    }
+  }
+
+  &__number {
+    display: block;
+    background-color: rgba(32, 96, 246, 0.1);
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #2060f6;
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+  }
+
+  &__button {
+    display: flex;
+    margin-top: 32px;
+    justify-content: space-between;
+    width: 143px;
+    height: 40px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+    color: #334563;
+
+    @include hover(transform, scale(1.1));
+    @include hover(color, $hover-color);
+  }
+}
