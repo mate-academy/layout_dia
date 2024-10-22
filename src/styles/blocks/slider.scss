@@ -1,0 +1,113 @@
+.slider {
+  width: 100%;
+  height: 320px;
+
+  @include on-small-desktop {
+    height: 680px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &__photo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    height: inherit;
+
+    @include on-small-desktop {
+      left: 50%;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    &--1 {
+      background-image: url(../images/slider/slide-img-2.png);
+    }
+
+    &--2 {
+      background-image: url(../images/slider/slide-img-1.jpg);
+    }
+  }
+  &__photo-slide {
+    // left: 0;
+    // right: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &:target {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    display: block;
+    position: absolute;
+    margin-bottom: 24px;
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      left: 50%;
+      margin: 0 0 48px 78px;
+    }
+
+    @include on-desktop {
+      margin: 0 0 48px 48px;
+    }
+  }
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    margin: 0 0 16px;
+
+    @include on-small-desktop {
+      margin: 0;
+    }
+  }
+  &__arrow {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: $white-color;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+      border-radius: 20%;
+    }
+
+    &--left {
+      background-image: url(../images/slider/arrow-left.png);
+    }
+
+    &--right {
+      background-image: url(../images/slider/arrow-right.png);
+    }
+  }
+
+  &__text-title {
+    margin: 0 0 8px;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+  }
+  &__text-paragraph {
+    margin: 0;
+    font-family: OpenSans, sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: $white-color;
+  }
+}

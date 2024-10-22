@@ -1,0 +1,48 @@
+.nav {
+  &__list {
+    font-family: Poppins, sans-serif;
+
+    @include on-mobile {
+      display: none;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-small-desktop {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 48px;
+      list-style: none;
+
+      .nav__link {
+        color: $white-color;
+        font-size: 13px;
+        line-height: 19.5px;
+        letter-spacing: 3px;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: $blue-color;
+          position: relative;
+          bottom: -8px;
+          border-radius: 4px;
+          transition: all 0.3s;
+          transform: scale(0);
+        }
+
+        &:hover::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
