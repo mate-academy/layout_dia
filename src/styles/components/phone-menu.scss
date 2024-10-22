@@ -1,0 +1,91 @@
+.phone-menu {
+  background-color: $c-dark-gray;
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: $transition;
+  animation-name: menu-appears;
+  animation-duration: $transition;
+  animation-fill-mode: forwards;
+
+  &--visible {
+    display: flex;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &_link {
+      color: $c-white;
+      position: relative;
+      width: max-content;
+
+      &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background-color: $c-blue;
+        transition: width $transition ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  z-index: 1000;
+  cursor: pointer;
+
+  &_stick {
+    background-color: $c-white;
+    width: 24px;
+    height: 2px;
+    margin: 3px 0;
+    transition: transform 0.3s ease;
+  }
+
+  &_stick:first-child {
+    transform: rotate(45deg);
+    position: absolute;
+  }
+
+  &_stick:last-child {
+    transform: rotate(-45deg);
+    position: absolute;
+  }
+}
+
+@keyframes menu-appears {
+  from {
+    opacity: 0.1;
+    left: -100vw;
+  }
+
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
