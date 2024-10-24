@@ -1,0 +1,115 @@
+.testimonial-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: $border-radius-medium;
+  padding: 75px 42px 32px;
+  box-shadow: $box-shadow;
+  transition: box-shadow $effect-duration;
+  width: 100%;
+
+  @include on-desktop {
+    height: 28.5rem;
+  }
+
+  &__image-wrap {
+    display: flex;
+    position: relative;
+    margin-bottom: 67px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $accent-color;
+      border-radius: 12px;
+      height: 109px;
+      width: 44px;
+      z-index: 1;
+      left: -30px;
+      top: -30px;
+      transform: rotate(30deg);
+      transform-origin: bottom right;
+      transition: all $effect-duration;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $accent-color;
+      border-radius: 12px;
+      height: 109px;
+      width: 44px;
+      z-index: 1;
+      right: -30px;
+      bottom: -30px;
+      transform: rotate(30deg);
+      transform-origin: top left;
+      transition: all $effect-duration;
+    }
+  }
+
+  &:hover {
+    box-shadow: $box-shadow-hover;
+    .testimonial-card__image-wrap::before {
+      transform: rotate(30deg) translateY(30px);
+    }
+
+    .testimonial-card__image-wrap::after {
+      transform: rotate(30deg) translateY(-30px);
+    }
+  }
+
+  &__image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    display: flex;
+    z-index: 10;
+  }
+
+  &__info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../images/icons/quote.svg');
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    color: $text-regular-color;
+    margin-bottom: auto;
+    flex-grow: 1;
+  }
+
+  &__author {
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: $text-headers-color;
+  }
+
+  &__origin {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}

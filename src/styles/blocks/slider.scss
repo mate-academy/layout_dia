@@ -1,0 +1,41 @@
+.slider {
+  border-radius: $border-radius-big;
+  transform: translateY(0);
+  overflow: hidden;
+
+  @include on-desktop {
+    border-radius: $border-radius-big 0 $border-radius-big 0;
+    height: auto;
+    top: 7.5rem;
+    width: 45%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__images {
+    display: flex;
+    height: 390px;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    @include on-desktop {
+      height: 100%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

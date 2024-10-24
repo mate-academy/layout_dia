@@ -1,0 +1,65 @@
+.menu {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  &__list--footer {
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    left: 0;
+    display: block;
+    width: calc(100% - $letter-spacing);
+    height: 2px;
+    opacity: 0;
+    background-color: $text-light-color;
+    transition: all $effect-duration;
+  }
+
+  .header &__item::after {
+    bottom: 0;
+  }
+
+  .footer &__item::after {
+    top: 0;
+  }
+
+  .header &__item:hover::after {
+    bottom: -5px;
+    opacity: 1;
+  }
+
+  .footer &__item:hover::after {
+    top: -3px;
+    opacity: 1;
+  }
+
+  &__link {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+    font-weight: 700;
+    text-align: center;
+  }
+}
