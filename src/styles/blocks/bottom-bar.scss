@@ -1,0 +1,55 @@
+.bottom-bar {
+  @include element-grid;
+
+  place-content: center space-between;
+  margin: 120px 0 80px;
+  grid-column: span 12;
+
+  @include on-tablet {
+    grid-column: span 6;
+    gap: 24px;
+    margin: 140px 0 80px;
+  }
+
+  @include on-phone {
+    grid-column: 1 / -1;
+    gap: 48px;
+    margin: 80px 0;
+  }
+
+  &__logo-link {
+    width: 46px;
+    height: 28px;
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-row: 1;
+    }
+  }
+
+  &__logo-image {
+    height: 28px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__theme-changer {
+    display: none;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+    width: 136px;
+
+    @include text-styler(Poppins, 700, 13px, 19.5px, $c-white);
+
+    @include on-tablet {
+      display: initial;
+      grid-row: 3;
+    }
+
+    @include on-phone {
+      display: none;
+    }
+  }
+}
