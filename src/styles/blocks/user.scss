@@ -1,0 +1,205 @@
+.user {
+  height: 456px;
+  max-width: 558px;
+  background-color: $secondary-bg-color;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+  margin: 0 auto;
+  padding: 75px 32px 0;
+
+  @for $i from 1 through length($users-photo) {
+    &:nth-child(#{$i}) {
+      .user__avatar--image {
+        background-image: url(nth($users-photo, $i));
+      }
+    }
+  }
+
+  @include on-tablet {
+    height: 478px;
+    width: 558px;
+    padding: 87px 98px 0;
+  }
+
+  @include on-small-desktop {
+    grid-column: span 4;
+    height: 456px;
+    width: auto;
+    max-width: none;
+    padding: 75px 43px 0;
+  }
+
+  @include on-the-design {
+    height: 494px;
+    max-width: 362px;
+    padding: 87px 56px 0;
+  }
+
+  &__avatar {
+    position: relative;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    z-index: 1;
+
+    display: flex;
+    margin: 0 auto 67px;
+
+    @include on-tablet {
+      height: 140px;
+      width: 140px;
+      margin-bottom: 79px;
+    }
+
+    @include on-small-desktop {
+      height: 110px;
+      width: 110px;
+      margin-bottom: 67px;
+    }
+
+    @include on-the-design {
+      height: 140px;
+      width: 140px;
+      margin-bottom: 79px;
+    }
+
+    &--image {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 44px;
+      width: 109px;
+      background-color: $highlight-color;
+      border-radius: 12px;
+      transform: rotate(-60deg);
+
+      @include on-tablet {
+        height: 56px;
+        width: 139px;
+      }
+
+      @include on-small-desktop {
+        height: 44px;
+        width: 109px;
+      }
+
+      @include on-the-design {
+        height: 56px;
+        width: 139px;
+      }
+    }
+
+    &::before {
+      top: -3px;
+      left: -38px;
+
+      @include on-tablet {
+        top: -2px;
+        left: -48px;
+      }
+
+      @include on-small-desktop {
+        top: -2px;
+        left: -39px;
+      }
+
+      @include on-the-design {
+        top: -4px;
+        left: -48px;
+      }
+    }
+
+    &::after {
+      top: 69px;
+      left: 41px;
+
+      @include on-tablet {
+        top: 88px;
+        left: 48px;
+      }
+
+      @include on-small-desktop {
+        top: 67px;
+        left: 40px;
+      }
+
+      @include on-the-design {
+        top: 87px;
+        left: 50px;
+      }
+    }
+  }
+
+  &__quote {
+    text-align: center;
+
+    &--image {
+      height: 24px;
+      width: 24px;
+      background-image: url(../images/icons/curly_quotes.svg);
+      background-repeat: no-repeat;
+      margin: 0 auto 8px;
+
+      @include on-tablet {
+        margin-bottom: 16px;
+      }
+
+      @include on-small-desktop {
+        margin-bottom: 8px;
+      }
+    }
+
+    &--text {
+      font-family: $secondary-font-family;
+      color: $main-text-color;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 19.5px;
+      margin-bottom: 16px;
+
+      @include on-small-desktop {
+        height: 64px;
+        margin-bottom: 32px;
+      }
+
+      @include on-the-design {
+        height: auto;
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__info {
+    text-align: center;
+
+    &--name {
+      font-family: $secondary-font-family;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 19.5px;
+      margin-bottom: 4px;
+    }
+
+    &--source {
+      font-family: $main-font-family;
+      color: $bg-text-color;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}

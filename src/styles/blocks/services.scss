@@ -1,0 +1,88 @@
+.services {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include on-small-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include on-the-design {
+    gap: 30px;
+  }
+
+  &__top {
+    @include on-tablet {
+      grid-column: span 6;
+      width: 266px;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+      width: 294px;
+      transform: translateY(103px);
+    }
+
+    @include on-the-design {
+      width: auto;
+    }
+  }
+
+  &__description {
+    font-family: $secondary-font-family;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: $main-text-color;
+
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      width: 262px;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  &__card {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include on-tablet {
+        margin-bottom: 0;
+      }
+    }
+
+    @include on-tablet {
+      &:nth-child(odd) {
+        transform: translateY(-132px);
+      }
+    }
+
+    @include on-small-desktop {
+      &:nth-child(even) {
+        grid-column: 7 / 10;
+        transform: translateY(139px);
+      }
+
+      &:nth-child(odd) {
+        grid-column: 10 / 13;
+        transform: translateY(0);
+      }
+    }
+
+    @include on-the-design {
+      &:nth-child(even) {
+        grid-column: 7 / 10;
+        transform: translateY(132px);
+      }
+    }
+  }
+}
