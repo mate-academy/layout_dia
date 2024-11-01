@@ -1,6 +1,90 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
   }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $large-screen-min-width) {
+    @content;
+  }
+}
+
+@mixin hover($property, $toValue) {
+  transition: $property $effectduration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    column-gap: 30px;
+
+    --columns: 6;
+  }
+
+  @include on-small-desktop {
+    column-gap: 20px;
+
+    --columns: 12;
+  }
+
+  @include on-large-screen {
+    column-gap: 30px;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-design {
+    padding-inline: 228px;
+  }
+
+  @include on-large-screen {
+    padding-inline: 708px;
+  }
+}
+
+@mixin poppins($font-weight) {
+  font-family: poppins, sans-serif;
+  font-weight: $font-weight;
+}
+
+@mixin open-sans($font-weight) {
+  font-family: open-sans, sans-serif;
+  font-weight: $font-weight;
 }
