@@ -1,0 +1,131 @@
+.testimonials {
+  padding-bottom: 120px;
+
+  @include on-tablet {
+    padding-bottom: 148px;
+  }
+
+  @include on-small-desktop {
+    padding-bottom: 186px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 148px;
+  }
+
+  &__title {
+    margin: 16px 0 48px;
+  }
+
+  &__cards {
+    @include on-small-desktop {
+      grid-template-columns: repeat(3, 4fr);
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    padding: 75px 42px 32px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    // &:hover {
+    //   .testimonials__wrap::before {
+    //     transform: translateX(0) translateY(0);
+    //     transition: 1s;
+    //   }
+
+    //   .testimonials__wrap::after {
+    //     transform: translateX(0) translateY(0);
+    //     transition: 1s;
+    //   }
+    // }
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 67px;
+
+    &::before {
+      content: '';
+      background-color: rgba(32, 96, 246, 1);
+      width: 44px;
+      height: 109px;
+      border-radius: 12px;
+      position: absolute;
+      background-repeat: no-repeat;
+      z-index: -1;
+      top: -30px;
+      left: -30px;
+      transform: rotate(30deg);
+      transform-origin: 100% 100%;
+    }
+
+    &::after {
+      content: '';
+      background-color: rgba(32, 96, 246, 1);
+      width: 44px;
+      height: 109px;
+      border-radius: 12px;
+      position: absolute;
+      background-repeat: no-repeat;
+      z-index: -1;
+      bottom: -30px;
+      right: -30px;
+      transform: rotate(30deg);
+      transform-origin: 0 0;
+    }
+  }
+
+  &__card:hover {
+    .testimonials__wrap::before {
+      transform: translateX(0) translateY(0);
+      transition: 0.3s;
+    }
+    .testimonials__wrap::after {
+      transform: translateX(0) translateY(0);
+      transition: 0.3s;
+    }
+  }
+
+  &__ava {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &__quotes {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    flex-grow: 1;
+  }
+
+  &__author {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    color: rgba(37, 55, 87, 1);
+    margin: 16px 0 4px;
+  }
+}
