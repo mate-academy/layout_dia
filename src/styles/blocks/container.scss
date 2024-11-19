@@ -1,0 +1,84 @@
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include tablet {
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include small-desktop {
+    width: 1024px;
+    padding: 0 54px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include large-desktop {
+    width: 1600px;
+    padding: 0 227px;
+    column-gap: 30px;
+  }
+
+  @include screen {
+    width: 2560px;
+    padding: 0 707px;
+  }
+}
+
+.container--flex {
+  display: flex; /* Используем flex для центровки */
+  justify-content: center; /* Центрируем блок по горизонтали */
+  align-items: center; /* Центрируем блок по вертикали */
+  padding: 0 20px;
+
+  @include tablet {
+    padding: 0 40px;
+  }
+
+  @include small-desktop {
+    width: 1024px;
+    padding: 0 54px;
+  }
+
+  @include large-desktop {
+    width: 1600px;
+    padding: 0 227px;
+  }
+
+  @include screen {
+    width: 2560px;
+    padding: 0 707px;
+  }
+}
+
+.services__container {
+  grid-column: 1 / -1;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 24px;
+
+  @include tablet {
+    margin-top: 56px;
+    flex-flow: row wrap;
+    gap: 30px;
+
+    & > .card:nth-child(even) {
+      transform: translateY(-50%);
+    }
+  }
+
+  @include small-desktop {
+    margin-top: 16px;
+    grid-column: 6 / -1;
+    grid-row: 2;
+  }
+}
