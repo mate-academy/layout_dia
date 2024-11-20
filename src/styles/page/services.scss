@@ -1,0 +1,161 @@
+.services {
+  &__wrapper {
+    @include transform-up;
+
+    position: relative;
+    z-index: 1;
+
+    padding: 120px 0 60px;
+
+    background-color: $colorBackgroundGray;
+
+    @include onTablet {
+      padding: 148px 0 75px;
+    }
+
+    @include smallDesktop {
+      padding-top: 280px;
+    }
+  }
+
+  &__content {
+    @include smallDesktop {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+    }
+
+    @include smallDesktop {
+      gap: 20px;
+    }
+  }
+}
+
+.service-card {
+  padding: 32px;
+
+  background-color: $colorWhite;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  transition-duration: $transitionDuration;
+
+  &--transform {
+    @include onTablet {
+      transform: translateY(-50%);
+    }
+  }
+
+  &__header {
+    max-width: 46px;
+    width: 100%;
+
+    padding: 2px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 23px;
+    overflow: hidden;
+
+    background-color: $colorBackgroundGray;
+
+    @include margin {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__numbers {
+    text-align: center;
+
+    color: $colorBlue;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    @include margin {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    @include before {
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+
+      width: 0;
+      height: 1px;
+
+      background-color: #6c788b;
+
+      transition-duration: $transitionDuration;
+    }
+
+    @include hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  &__button {
+    @include title;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 15px;
+
+    @include before {
+      content: '\e902';
+      font-family: 'icomoon';
+
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 40px;
+      height: 40px;
+
+      font-size: 20px;
+      font-weight: $fontWeightRegular;
+
+      border-radius: 50%;
+      overflow: hidden;
+
+      color: $colorWhite;
+      background-color: $colorBlue;
+
+      transition-duration: $transitionDuration;
+    }
+    @include hover {
+      &::before {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  @include hover {
+    background-color: #f3f3fd;
+  }
+}
