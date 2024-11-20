@@ -1,0 +1,93 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 390px;
+  width: 100%;
+  background-image: url('https://snipboard.io/VpZ8aF.jpg');
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px;
+
+  @include on-small-desktop {
+    height: 680px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &__content {
+    @include page-grid;
+    @include standard-inline-paddings;
+
+    row-gap: 16px;
+    padding-bottom: 24px;
+
+    @include on-small-desktop {
+      align-items: center;
+      padding-bottom: 48px;
+    }
+
+    @include on-desktop {
+      padding-inline: 48px;
+    }
+  }
+
+  &__arrow-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 16px;
+
+    @include on-small-desktop {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__arrow-button {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+
+    &--left {
+      background-image: url('../images/slider/arrow-left.svg');
+    }
+
+    &--right {
+      background-image: url('../images/slider/arrow-right.svg');
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 4 / 12;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 12;
+    }
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+  }
+
+  &__description {
+    line-height: 19.6px;
+  }
+}
