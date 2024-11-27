@@ -1,0 +1,79 @@
+@use 'sass:color';
+
+.vision {
+  background-color: $c-white;
+  background-image: url(../images/Shapes.png);
+  background-repeat: repeat-x;
+  background-position: 50% 35%;
+  background-size: contain;
+  background-attachment: inherit;
+
+  @media (max-width: 639px) {
+    background-image: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 571px;
+
+  @include on-tablet {
+    height: 596px;
+  }
+
+  @include on-desktop {
+    height: 688px;
+  }
+
+  @include on-wide {
+    height: 888px;
+  }
+
+  &__wrap {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 558px;
+    }
+
+    @include on-desktop {
+      width: 754px;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22.5px;
+    text-align: center;
+    background-color: $c-blue;
+    height: 55px;
+    width: 275px;
+    border-radius: 8px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 2px solid $c-blue;
+    transition: all 0.3s ease;
+    margin-top: 56px;
+
+    &:hover {
+      background-color: $c-white;
+      color: $c-blue;
+      border: 2px solid $c-blue;
+    }
+
+    &:active {
+      background-color: color.adjust($c-blue, $lightness: -20%);
+      color: $c-black;
+    }
+  }
+}

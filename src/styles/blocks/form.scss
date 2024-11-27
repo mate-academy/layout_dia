@@ -1,0 +1,98 @@
+@use 'sass:color';
+
+.form {
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  &__field {
+    position: relative;
+    background-color: $c-header-bg;
+    border-bottom: solid 2.5px $c-white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    height: 41px;
+    font-size: 15px;
+    line-height: 22.5px;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    transition: all 0.3s;
+    color: $c-white;
+
+    @include on-tablet {
+      width: 370px;
+    }
+
+    &:hover {
+      border-bottom: solid 2.5px $c-blue;
+    }
+
+    &:focus {
+      border-color: $c-blue;
+    }
+
+    &--textarea {
+      z-index: 1;
+      height: 48px;
+      padding-top: 10px;
+      text-wrap: wrap;
+      resize: none;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+
+    &:-webkit-autofill {
+      background-color: $c-header-bg !important;
+      color: $c-white !important;
+      -webkit-text-fill-color: $c-white !important;
+      font-family: Poppins, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      box-shadow: 0 0 0 1000px $c-header-bg inset !important;
+      border-bottom: solid 2.5px $c-white !important;
+      transition:
+        background-color 0s,
+        color 0s,
+        box-shadow 0s;
+    }
+
+    &:-moz-autofill,
+    &:-ms-autofill {
+      background-color: $c-header-bg !important;
+      color: $c-white !important;
+      font-family: Poppins, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+    }
+
+    &:not(:-webkit-autofill) {
+      color: $c-white !important;
+      -webkit-text-fill-color: $c-white !important;
+    }
+  }
+
+  &__button {
+    margin-top: 32px;
+    margin-bottom: 48px;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    cursor: pointer;
+
+    @include button-set;
+
+    &:hover {
+      background-color: $c-white;
+      color: $c-blue;
+      border: 2px solid $c-blue;
+    }
+
+    &:active {
+      background-color: color.adjust($c-blue, $lightness: -20%);
+      color: $c-black;
+    }
+  }
+}

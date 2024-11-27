@@ -1,0 +1,75 @@
+.menu {
+  background-color: $c-header-bg;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out,
+    visibility 0s linear 0.3s;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+    transform: translateX(0);
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    .menu:target & {
+      display: flex;
+    }
+
+    &--main-text {
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+
+      @include hover(transform, scale(1.2));
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        border-radius: 4px;
+        background-color: $c-blue;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+body:has(.menu:target) .slider {
+  visibility: hidden;
+}
+
+body:has(.menu:target) .slider-desktop {
+  visibility: hidden;
+}

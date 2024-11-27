@@ -4,3 +4,97 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-wide {
+  @media (min-width: $wide-min-width) {
+    @content;
+  }
+}
+
+@mixin on-big {
+  @media (min-width: $big-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    max-width: 1024px;
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include on-wide {
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+
+  @include on-big {
+    margin-inline: auto;
+    padding-inline: 707px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include on-tablet {
+    column-gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include on-desktop {
+    column-gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-wide {
+    column-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin button-set {
+  background-color: $c-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 1px $main-text-color solid;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 56px;
+  width: 280px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 27px;
+  transition: all 0.3s;
+
+  @include on-tablet {
+    width: 264px;
+  }
+}
