@@ -1,31 +1,20 @@
-const menu = document.getElementById('menu');
-const menuToggle = document.querySelector('.icon__menu');
-const menuLinks = document.querySelectorAll('.slip-menu__link');
+export const toggleScroll = (isVisible) => {
+  if (isVisible) {
+    document.body.classList.add('no-scroll');
+  } else {
+    document.body.classList.remove('no-scroll');
+  }
+};
 
-export function openMenu() {
-  menu.style.opacity = 1;
-  menu.style.transform = 'translate(0)';
-  document.body.classList.add('no-scroll');
-}
+export const initMenuObserver = (menuId) => {
+  const menu = document.getElementById(menuId);
 
-export function closeMenu() {
-  menu.style.opacity = 0;
-  menu.style.transform = 'translate(-100%)';
-  document.body.classList.remove('no-scroll');
-}
-
-export function initializeMenu() {
-  menuToggle.addEventListener('click', () => {
-    if (menu.style.opacity === '1') {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMenu();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      toggleScroll(entry.isIntersecting);
     });
-  });
-}
+  }, { threshold: 0.1 });
+
+  observer.observe(menu);
+};
+
