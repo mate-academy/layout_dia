@@ -1,0 +1,194 @@
+.header {
+  position: relative;
+  background-color: $main-bc-color;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  &__text {
+    @include page-grid;
+  }
+
+  &__nav {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 48px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__logo {
+    display: block;
+    width: 46px;
+    height: 28px;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__title {
+    grid-column: 1/-1;
+
+    @include header-style($size: 52px, $lineHeight: 62.4px);
+
+    margin: 0;
+    letter-spacing: -2px;
+    color: $text-color;
+    text-align: left;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: span 6;
+
+      @include header-style($size: 64px, $lineHeight: 68px);
+    }
+
+    @include on-desktop {
+      margin-top: 168px;
+      grid-column: span 4;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    grid-column: 1/-1;
+    font-family: $font-stack-2;
+    color: $text-color;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 72px;
+    text-align: left;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+      grid-row: 2;
+    }
+  }
+
+  &__btn {
+    grid-column: 1/-1;
+    display: block;
+    text-decoration: none;
+    color: $text-color;
+
+    @include header-style($size: 15px, $lineHeight: 22.5px);
+
+    text-align: center;
+    background-color: $main-btn-color;
+    padding: 25px 50px;
+    border-radius: 8px;
+    margin-bottom: 48px;
+
+    @include hover(background-color,  #144ED4);
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 3;
+    }
+
+    @include on-desktop {
+      margin-bottom: 205px;
+      grid-column: span 4;
+    }
+  }
+}
+
+.menu-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  @include hover(transform, scale(1.2));
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.header__icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  @include hover(transform, scale(1.2));
+}
+
+.icon--close {
+  color: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+.header__icons-left {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 40px;
+}
+
+.hire__logo__link {
+  display: block;
+  text-decoration: none;
+  color: $text-color;
+  font-family: $font-stack-1;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+
+  @include hover(transform, scale(1.2));
+
+  &::after {
+    content:"";
+    min-width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #2060F6;
+  }
+}
+
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: $main-bc-color;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav__desktop {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+  }
+}
+
+.header__nav__desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
