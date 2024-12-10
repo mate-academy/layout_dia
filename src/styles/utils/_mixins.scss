@@ -1,6 +1,20 @@
+@use 'vars' as vars;
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: vars.$width-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop-small {
+  @media (min-width: vars.$width-screen-desktop-small) {
+    @content;
   }
 }
