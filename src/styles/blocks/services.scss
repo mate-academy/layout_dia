@@ -1,0 +1,148 @@
+
+
+.service{
+  @include page-grid;
+
+  padding-top: 120px;
+  font-family: poppins, Arial, Helvetica, sans-serif;
+
+  @include on-tablet{
+    padding-top: 148px;
+  }
+
+  @include on-small-desktop{
+    padding-top: 251px;
+  }
+
+  & p{
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    color: #C0CDD7;
+  }
+
+
+  &__title{
+    font-size: 32px;
+    line-height: 130%;
+    font-weight: 600;
+    color: #253757;
+
+    &--column{
+      grid-column: 1 / -1;
+
+      @include on-tablet{
+        grid-column: span 3;
+      }
+
+      @include on-small-desktop{
+        grid-column: span 4;
+      }
+    }
+  }
+
+  &__information{
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    font-family: "open sans", Arial, Helvetica, sans-serif;
+    color: #6C788B;
+    padding-bottom: 48px;
+  }
+
+  &--items-subgrid{
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    @include on-tablet{
+      grid-column: 1 / -1;
+
+      &>:nth-child(2n){
+        transform: translateY(-50%);
+      }
+    }
+
+    @include on-small-desktop{
+      grid-column: 7 / -1;
+    }
+
+
+  }
+
+  @each $number in '1' '2' '3' '4'{
+    &__item-#{$number} {
+      grid-column: 1 / -1;
+
+      @include on-tablet{
+        grid-column: span 3;
+      }
+
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      margin: 24px 0;
+      filter: drop-shadow(#25293108 0 9px 18px);
+
+
+    }
+  }
+
+  &__item--number{
+    display: flex;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: rgba(32, 96, 246, .1);
+
+    & p{
+      color: #2060F6;
+      font-size: 13px;
+      line-height: 150%;
+      font-weight: 600;
+      align-content: center;
+      margin: auto;
+    }
+  }
+
+  &__item--jobs{
+    padding-top: 24px;
+    padding-bottom: 32px;
+    font-size: 13px;
+    line-height: 150%;
+    font-weight: 600;
+    font-family: "open sans", Arial, Helvetica, sans-serif;
+    color: #6C788B;
+  }
+
+  &__item--learn-more{
+    display: flex;
+    align-items: center;
+
+    &-button{
+      width: 40px;
+      height: 40px;
+      background-color: #2060F6;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & img{
+        width: 16px;
+        height: 16px;
+      }
+
+    }
+
+    & label{
+      padding-left: 16px;
+      font-size: 15px;
+      line-height: 150%;
+      font-weight: 600;
+      color: #334563;
+    }
+  }
+}
