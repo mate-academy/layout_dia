@@ -4,3 +4,76 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width){
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width){
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-min-width){
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --column: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--column), 1fr);
+
+  @include on-tablet {
+    --column: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --column: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-large-desktop {
+    --column: 12;
+
+    column-gap: 30px;
+  }
+}
+
+.container {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+    margin-inline: auto;
+    max-width: 1200px;
+  }
+
+  @include on-large-desktop {
+    padding-inline: 227px;
+
+  }
+
+}
+
+.block-margin{
+  margin-block: 120px;
+
+  @include on-tablet {
+    margin-block: 148px;
+  }
+
+}
