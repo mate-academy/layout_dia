@@ -1,0 +1,94 @@
+.swiper {
+  @include on-big-tablet {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    height: 100%;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+
+    @include on-tablet {
+      height: 390px;
+    }
+
+    @include on-big-tablet {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-button {
+    position: relative;
+
+    &-prev,
+    &-next {
+      width: 32px;
+      height: 32px;
+    }
+
+    &-prev {
+      @include swiper-button-settings(
+        20px,
+        41px,
+        78px,
+        '../images/slider/arrow-left.svg'
+      );
+    }
+
+    &-next {
+      @include swiper-button-settings(
+        68px,
+        89px,
+        126px,
+        '../images/slider/arrow-right.svg'
+      );
+    }
+  }
+
+  &-description {
+    position: absolute;
+    bottom: 35px;
+    left: 20px;
+
+    &__title {
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    &__text {
+      opacity: 0.8;
+      font-family: $font-secondary;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+    }
+
+    @include on-tablet {
+      left: 41px;
+    }
+
+    @include on-big-tablet {
+      bottom: 53px;
+      left: 182px;
+    }
+  }
+  &-horizontal {
+    border-radius: $border-radius;
+
+    @include on-big-tablet {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: $border-radius;
+    }
+  }
+}

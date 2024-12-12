@@ -1,0 +1,36 @@
+.header {
+  &__menu-open {
+    display: inline-block;
+
+    @include on-big-tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-big-tablet {
+      display: block;
+    }
+  }
+
+  @include on-big-tablet {
+    &__nav-list {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+    }
+
+    &__nav-link {
+      &::before {
+        @include nav-link-before;
+      }
+
+      &:hover::before {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}

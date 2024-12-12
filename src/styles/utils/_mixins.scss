@@ -4,3 +4,111 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-big-tablet {
+  @media (min-width: $big-tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-lnline {
+  padding-inline: 20px;
+
+  @include on-big-tablet {
+    padding-inline: 54px;
+  }
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    margin-inline: auto;
+    max-width: 1500px;
+    padding-inline: 120px;
+  }
+}
+
+.container {
+  @include content-padding-lnline;
+}
+
+@mixin swiper-button-settings(
+  $default-left,
+  $tablet-left,
+  $big-tablet-left,
+  $bg-url
+) {
+  top: -108px;
+  left: $default-left;
+
+  @include on-tablet {
+    top: -116px;
+    left: $tablet-left;
+  }
+
+  @include on-big-tablet {
+    top: -66px;
+    left: $big-tablet-left;
+  }
+
+  &::after {
+    content: '';
+    background-image: url($bg-url);
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-size: cover;
+    left: 0;
+  }
+}
+
+@mixin nav-link-before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  border-radius: 4px;
+  background-color: $color-link-bg;
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin svg-mask($path) {
+  width: 32px;
+  height: 32px;
+  background-color: $white;
+  mask: url($path) no-repeat center;
+  mask-size: cover;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $color-link-bg;
+  }
+}
+
+@mixin card-hover-effect {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+}

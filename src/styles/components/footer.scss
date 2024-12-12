@@ -1,0 +1,254 @@
+.footer {
+  font-family: $font-primary;
+  background: $dark-bg;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  padding: 72px 0 80px;
+  position: relative;
+  overflow-x: hidden;
+
+  @include on-tablet {
+    top: -40px;
+  }
+
+  &__form-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    margin-bottom: 48px;
+    color: $white;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    @include on-big-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__form {
+    label {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    input,
+    textarea {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      color: $white;
+      width: 100%;
+      height: 40px;
+      resize: none;
+      background: transparent;
+      outline: 0;
+      padding-bottom: 18px;
+      border: none;
+      border-bottom: 2px solid $white;
+      overflow: auto;
+      transition: all 0.4s;
+      scrollbar-width: none;
+
+      &:active,
+      &:focus {
+        border-color: $color-link-bg;
+      }
+    }
+
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-tablet {
+      max-width: 65%;
+    }
+
+    @include on-big-tablet {
+      width: 40%;
+    }
+  }
+
+  &__form-button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;
+    border: none;
+    outline: 0;
+    color: $white;
+
+    @include on-tablet {
+      max-width: 264px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__contacts-info {
+    p {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: $white;
+      opacity: 0.5;
+    }
+
+    &:last-child p {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__contacts-link {
+    font-family: $font-secondary;
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    font-size: 24px;
+    line-height: 150%;
+    margin-bottom: 40px;
+    text-decoration: none;
+    color: $white;
+    position: relative;
+    max-width: max-content;
+    &::before {
+      @include nav-link-before;
+    }
+
+    &:hover::before {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__socials-item {
+    list-style: none;
+  }
+
+  &__socials-link {
+    display: flex;
+  }
+
+  .facebook {
+    @include svg-mask('../images/footer/facebook.svg');
+  }
+
+  .twitter {
+    @include svg-mask('../images/footer/twitter.svg');
+  }
+
+  .instagram {
+    @include svg-mask('../images/footer/instagram.svg');
+  }
+
+  &__nav {
+    margin-top: 80px;
+
+    @include on-tablet {
+      margin-top: 139px;
+    }
+
+    @include on-big-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+
+    @include svg-mask('../images/logo/air-logo.svg');
+
+    width: 46px;
+    height: 28px;
+  }
+
+  &__nav-list {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 64px;
+    }
+
+    @include on-big-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__nav-link {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+    position: relative;
+
+    &::before {
+      @include nav-link-before;
+    }
+
+    &:hover::before {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .alert {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px;
+    font-size: 20px;
+    line-height: 1.5;
+    top: 20px;
+    transform: translateX(150%);
+    transition: all 0.5s ease;
+    right: 0;
+
+    &-success {
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+
+    &-icon {
+      margin-right: 15px;
+      background-image: url('../images/footer/success.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+  }
+}
