@@ -4,3 +4,85 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin pre-title-style {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 3px;
+  color: #c0cdd7;
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin the-design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large-screens {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+
+  --columns: 2;
+
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+
+  @include large-screens {
+    --columns: 12;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  max-width: 1148px;
+  margin-inline: auto;
+}
+
+@mixin padding-block {
+  padding-block: 120px;
+}
