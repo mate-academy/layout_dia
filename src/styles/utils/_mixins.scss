@@ -4,3 +4,123 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $large-screens) {
+    @content;
+  }
+}
+
+@mixin container-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 53px;
+  }
+
+  max-width: 1148px;
+  margin-inline: auto;
+}
+
+@mixin slider-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 78px;
+  }
+
+  @include on-design {
+    padding-inline: 48px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-design {
+    column-gap: 30px;
+  }
+}
+
+@mixin btn-style {
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  background-color: $btn-color;
+  color: $main-text-color;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin menu-hover {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $btn-color;
+    height: 2px;
+    width: 100%;
+    bottom: -8px;
+
+    transition: transform 0.3s;
+    transform: scale(0);
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
