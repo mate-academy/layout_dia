@@ -1,3 +1,96 @@
+@mixin top-bar {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+@mixin footer {
+  @media (max-width: 639px) {
+    display: none;
+  }
+}
+
+@mixin br-none {
+  br {
+    display: none;
+  }
+}
+
+@mixin br {
+  br {
+    display: inline;
+  }
+}
+
+@mixin icon-menu {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: 2559px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), var(--size));
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fit, 1fr);
+    justify-content: space-between;
+
+    --columns: 6;
+    --size: 70px;
+
+    column-gap: 25px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(auto-fit, 1fr);
+    justify-content: space-between;
+
+    --columns: 12;
+    --size: 55px;
+
+    column-gap: 20px;
+  }
+
+  @include design {
+    --columns: 12;
+    --size: 60px;
+
+    column-gap: 30px;
+  }
+
+  @include large-screen {
+    --columns: 12;
+
+    column-gap: 41px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
