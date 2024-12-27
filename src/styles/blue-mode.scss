@@ -1,0 +1,115 @@
+.blue-mode {
+  .header {
+    background-color: $blue-mode-color;
+    border-radius: 0 0 0 25%;
+
+    &__top-bar--hire {
+      border-bottom: 2px solid $blue-mode-buttons-color;
+    }
+
+    &__main {
+      &--slider {
+        border-radius: 15% 0 0;
+      }
+    }
+  }
+
+  .header-menu {
+    background-color: $blue-mode-color;
+  }
+
+  @for $i from 1 through length($blue-mode-cards-colors) {
+    .s-card:nth-of-type(#{$i}) .s-card__button--arrow {
+      background-color: list.nth($blue-mode-cards-colors, $i);
+    }
+    .s-card:nth-of-type(#{$i}) .s-card__block {
+      background-color: list.nth($blue-mode-cards-colors-opacity, $i);
+    }
+    .s-card:nth-of-type(#{$i}) .s-card__block--number {
+      color: list.nth($blue-mode-cards-colors, $i);
+    }
+  }
+
+  $blue-mode-quotes: url('../images/testimonials/quote-light-blue.png'), url('../images/testimonials/quote-yellow.png'), url('../images/testimonials/quote-red.png');
+
+  @for $i from 1 through length($blue-mode-quotes) {
+    .r-card:nth-of-type(#{$i}) .r-card__wrap--quote {
+      background-image: list.nth($blue-mode-quotes, $i);
+    }
+  }
+
+  @for $i from 1 through length($blue-mode-r-cards-colors) {
+    .r-card__wrap--photo--#{$i} {
+      &::after, &::before {
+        background-color: list.nth($blue-mode-r-cards-colors, $i);
+      }
+    }
+  }
+
+  .ending__wrap {
+    background-image: url(../images/backgrounds/Shapes-2.png);
+  }
+
+  .footer__wrap {
+    background-color: $blue-mode-color;
+    border-radius: 0 150px 0 0;
+
+    @include on-small-desktop {
+      border-radius: 0 25% 0 0;
+    }
+
+    .message {
+      &__form {
+        &--email, &--name, &--message {
+          background-color: $blue-mode-color;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+          }
+
+          &:hover, &:active {
+            border-bottom: 2px solid $text-color-white;
+          }
+        }
+      }
+    }
+
+    .contact__socials--icons {
+      .icon {
+        &--facebook, &--twitter, &--inst {
+          @include hover(opacity, 0.5);
+        }
+
+        &--facebook {
+          @include hover(background-image, url(../images/icons/facebook-1.png));
+        }
+
+        &--twitter {
+          @include hover(background-image, url(../images/icons/twitter-1.png));
+        }
+
+        &--inst {
+          @include hover(background-image, url(../images/icons/instagram-1.png));
+        }
+      }
+    }
+  }
+
+  .button {
+    background-color: $blue-mode-buttons-color;
+    border-radius: 64px;
+    
+    @include hover(background-color, $blue-mode-button-hover);
+  }
+
+  .grey-text {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .description-text {
+    a {
+      @include hover(color, $text-color-white);
+      @include hover(opacity, 0.5);
+    }
+  }
+}

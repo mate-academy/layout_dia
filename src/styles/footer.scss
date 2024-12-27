@@ -1,0 +1,236 @@
+.footer {
+  @include on-tablet {
+    background-color: $text-color-white;
+  }
+
+  &__wrap {
+    background-color: $black-background-color;
+    border-radius: 30px 30px 0 0;
+
+    @include page-paddings;
+
+    padding-top: 72px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      margin-top: -20px;
+    }
+
+    .message {
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-small-desktop {
+        grid-column: 1 / 5;
+      }
+
+      &__title {
+        color: $text-color-white;
+        margin-bottom: 48px;
+
+        @include on-tablet {
+          margin-top: 180px;
+          line-height: 48px;
+          margin-bottom: 56px;
+        }
+      }
+
+      &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 40px;
+
+        @include on-tablet {
+          gap: 48px;
+        }
+
+        &--message {
+          padding: 0;
+          height: 40px;
+        }
+
+        &--email, &--name, &--message {
+          font-family: $poppins-font;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 22.5px;
+          color: $text-color-white ;
+          padding-bottom: 16px;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+          background-color: $black-background-color;
+
+          &:active, &:hover {
+            border-bottom: 2px solid $blue-color;
+          }
+        }
+
+        .button__send {
+          margin-top: 56px;
+
+          @include on-tablet {
+            width: 264px;
+            margin-top: 80px;
+          }
+        }
+
+        &--email::placeholder, &--name::placeholder, &--message::placeholder {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 40px;
+      margin-bottom: 80px;
+
+      @include on-tablet {
+        gap: 48px;
+        margin-bottom: 140px;
+      }
+
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
+
+      @include on-small-desktop {
+        grid-column: -6 / -1;
+      }
+
+      &__title {
+        line-height: 48px;
+        color: $text-color-white;
+        margin-top: 80px;
+        margin-bottom: 48px;
+
+        @include on-tablet {
+          margin-top: 120px;
+          margin-bottom: 56px;
+        }
+
+        @include on-small-desktop {
+          margin-top: 180px;
+        }
+      }
+
+      &__call, &__location {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      &__call--number, &__location--address {
+        a {
+          @include hover (color, $blue-color);
+        }
+      }
+
+
+      &__socials {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &--icons {
+          display: flex;
+          flex-direction: row;
+          gap: 32px;
+
+          .icon {
+            width: 32px;
+            height: 32px;
+
+            &--twitter, &--facebook, &--inst {
+              background-size: cover;
+            }
+
+            &--facebook {
+              background-image: url(../images/icons/facebook-1.png);
+
+              @include hover (background-image, url(../images/icons/facebook-2.png));
+            }
+
+            &--twitter {
+              background-image: url(../images/icons/twitter-1.png);
+
+              @include hover (background-image, url(../images/icons/twitter-2.png));
+            }
+
+            &--inst {
+              background-image: url(../images/icons/instagram-1.png);
+
+              @include hover (background-image, url(../images/icons/instagram-2.png));
+            }
+          }
+        }
+      }
+    }
+
+    .footer-bar {
+      margin-bottom: 80px;
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: span 6;
+      }
+
+      @include on-small-desktop {
+        grid-column: span 12;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 104px;
+      }
+
+      &__logo {
+        width: 46px;
+        height: 28px;
+        background-image: url(../images/top-bar/Air.png);
+        background-size: cover;
+        margin-bottom: 48px;
+
+        @include on-tablet {
+          margin-bottom: 24px;
+        }
+      }
+
+      &__nav {
+        &--list {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          justify-content: start;
+
+          @include on-tablet {
+            flex-direction: row;
+            gap: 40px;
+          }
+
+          @include on-small-desktop {
+            gap: 64px;
+          }
+        }
+
+        &--item {
+          color: $text-color-white;
+          white-space: nowrap;
+
+          @include hover (text-decoration, underline);
+        }
+      }
+    }
+  }
+}

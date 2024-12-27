@@ -1,0 +1,67 @@
+.header-menu {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  background-color: $black-background-color;
+
+  @include page-paddings;
+
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    height: 68px;
+    align-items: center;
+
+    @include on-small-desktop {
+      height: 120px;
+    }
+
+    &--logo {
+      width: 46px;
+      height: 28px;
+      background-image: url(../images/top-bar/Air.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &--cross {
+      width: 32px;
+      height: 32px;
+      background-image: url(../images/icons/cross.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__nav {
+    margin-top: 80px;
+    &--list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 48px;
+      flex-direction: column;
+    }
+
+    &--item {
+      color: $text-color-white;
+      line-height: 48px;
+
+      @include hover(text-decoration, underline);
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-small-desktop {
+    display: none;
+  }
+}
