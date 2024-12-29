@@ -1,0 +1,62 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  color: $header-footer-text-color; // Sets text color
+  background-color: $header-footer-bg-color; // Sets background color
+  -webkit-text-fill-color: $header-footer-text-color; // Ensures autofill text color
+  -webkit-box-shadow: 0 0 0 1000px $header-footer-bg-color inset; // Ensures background color on autofill
+  border-bottom: 1px solid $header-footer-text-color; // Sets border color
+  transition: background-color $effect-duration ease-in-out 0s;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  border-bottom: 2px solid $header-footer-btn-bg-color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-size: 62.5%;
+  font-family: Poppins, OpenSans, sans-serif;
+  scroll-behavior: smooth;
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding-inline: 2rem;
+    opacity: 0;
+    transition:
+      transform $effect-duration,
+      opacity $effect-duration;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+
+    @include on-tablet {
+      padding-inline: 4rem;
+    }
+  }
+}
