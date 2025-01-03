@@ -1,0 +1,36 @@
+.page {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: $main-text;
+  font-weight: 400;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: $bg-pale;
+
+    min-width: $phone-min-width;
+  }
+
+  &__menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden; /* not to scroll the page */
+}
