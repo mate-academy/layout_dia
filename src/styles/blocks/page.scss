@@ -1,0 +1,35 @@
+.page {
+  font-family: $font-family-main;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background: $c-gray;
+  }
+
+  &__menu {
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all $transition-duration;
+    transform: translateY(-100%);
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+
+      & ~ .header,
+      & ~ .main,
+      & ~ .footer {
+        display: none;
+      }
+    }
+  }
+}
