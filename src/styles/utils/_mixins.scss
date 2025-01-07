@@ -1,6 +1,77 @@
+@use 'sass:map';
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+$breakpoints: (
+  large: 2560px,
+  design: 1600px,
+  desktop: 1280px,
+  small-desktop: 1024px,
+  tablet: 640px,
+  mobile: 320px,
+);
+
+@mixin responsive($size) {
+  $width: map.get($breakpoints, $size);
+
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include responsive(tablet) {
+    padding-inline: 40px;
+  }
+
+  @include responsive(small-desktop) {
+    padding-inline: 54px;
+  }
+
+  @include responsive(desktop) {
+    padding-inline: 54px;
+  }
+
+  @include responsive(design) {
+    padding-inline: 72px;
+    margin-inline: auto;
+  }
+
+  @include responsive(large) {
+    padding-inline: 120px;
+    margin-inline: auto;
+  }
+}
+
+
+@mixin section-title {
+  color: $title-color;
+  font: 600 32px/48px Poppins, sans-serif;
+}
+
+@mixin section-description {
+  font: 400 14px/21px 'Open Sans',
+  sans-serif;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: $text-color;
+}
+
+@mixin card-title {
+  font: 600 20px/28px Poppins,
+  sans-serif;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+}
+
+@mixin card-description {
+  font: 600 13px/19.5px 'Open Sans',
+  sans-serif;
 }
