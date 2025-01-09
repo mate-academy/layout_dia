@@ -1,0 +1,68 @@
+.top-bar {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include on-small-desktop {
+    padding-top: 48px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__menu {
+    position: relative;
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url('../images/menu.png');
+
+    @include hover(transform, scale(1.2));
+
+    @include on-small-desktop {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &__hire-us-link {
+    @include font-poppins-bold;
+
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    font-size: 13px;
+    height: 28px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: $white-color;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: right;
+
+    @include hover(transform, scale(1.2));
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -1px;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: $blue-color;
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+  }
+}
