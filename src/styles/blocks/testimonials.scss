@@ -1,0 +1,139 @@
+@use '../utils/vars' as vars;
+@use '../utils/mixins' as mix;
+
+.testimonials {
+  text-align: left;
+  width: 100%;
+
+  &__title--small {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-text-white-grey;
+  }
+
+  &__cards {
+    padding-top: 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include mix.on-desktop-small {
+      padding-top: 48px;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__card {
+    background-color: #fff;
+    box-shadow: 0 9px 18px 0 #25293108;
+    border-radius: 16px;
+    padding-block: 87px 32px;
+
+    &__photo {
+      width: 140px;
+      height: 140px;
+      z-index: 1;
+      margin: 0 auto 79px;
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 56px;
+        height: 139px;
+        background-color: $c-main-blue;
+        position: absolute;
+        z-index: -1;
+        top: -30%;
+        left: -33%;
+        border-radius: 12px;
+        transform: rotate(30deg);
+        transform-origin: bottom right;
+        transition: transform vars.$transition-time;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 56px;
+        height: 139px;
+        background-color: $c-main-blue;
+        position: absolute;
+        z-index: -1;
+        top: 30%;
+        right: -33%;
+        border-radius: 12px;
+        transform: rotate(30deg);
+        transform-origin: top left;
+        transition: transform vars.$transition-time;
+      }
+    }
+
+    &__img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform vars.$transition-time;
+    }
+
+    &__quot {
+      background-image: url(../icons/quotes.svg);
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: center;
+      margin: 0 auto 16px;
+    }
+
+    &__text {
+      color: $c-text-white-grey;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 19.5px;
+      padding-inline: 42px;
+      width: 70%;
+      margin: 0 auto 16px;
+    }
+
+    &__name {
+      color: $c-dark-blue;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 19.5px;
+      margin-bottom: 4px;
+    }
+
+    &__title {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 19.5px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $c-text-white-grey;
+    }
+
+    &:hover {
+      box-shadow: 0 9px 18px 0 #252931ff;
+
+      .testimonials__card__photo::before {
+        transform: rotate(0deg);
+      }
+
+      .testimonials__card__photo::after {
+        transform: rotate(0deg);
+      }
+
+      .testimonials__card__img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

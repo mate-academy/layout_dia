@@ -3,13 +3,51 @@
 @use '../utils/extends' as ext;
 
 .nav {
+  // &--footer {
+
+  // }
+
   &__list {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
+
     align-items: center;
     gap: 28px;
+    display: none;
+
+    @include mix.on-desktop-small {
+      display: flex;
+    }
+
+    &--menu {
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+    }
+
+    &--footer {
+      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+
+      @include on-tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include mix.on-desktop-small {
+        justify-content: flex-start;
+        margin: 0;
+        gap: 64px;
+      }
+    }
   }
 
   &__link {
@@ -22,14 +60,13 @@
     line-height: 19.5px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    display: none;
 
-    @include mix.on-desktop-small {
-      display: block;
-    }
+    @include hover(color, vars.$c-main-blue);
 
     &--burger {
       display: block;
+
+      @include hover(scale, 1.2);
 
       @include mix.on-desktop-small {
         display: none;
@@ -39,10 +76,9 @@
     &--hire {
       display: block;
       position: relative;
-      // outline: 1px solid red;
 
       &::after {
-        content: "";
+        content: '';
         width: 96%;
         height: 2px;
         background-color: vars.$c-main-blue;
@@ -50,7 +86,6 @@
         display: block;
         bottom: -8px;
         left: 0;
-        // z-index: 1;
         border-radius: 4px;
       }
     }

@@ -1,0 +1,85 @@
+@use '../utils/vars' as vars;
+@use '../utils/mixins' as mix;
+
+.expertise {
+  background-color: #fff;
+  border-radius: 30px;
+  width: calc(100% + 40px);
+  margin-inline: -20px;
+
+  @include on-tablet {
+    width: calc(100% + 82px);
+  }
+
+  @include on-desktop-small {
+    width: calc(100% + 108px);
+    margin-bottom: 134px;
+  }
+
+  @include on-desktop-large {
+    width: calc(100% + 208px);
+  }
+
+  &__title {
+    font-size: 44px;
+    line-height: 52.8px;
+    padding-block: 72px 56px;
+
+    @include on-tablet {
+      padding-block: 128px 64px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 72px;
+
+    @include mix.content-padding-inline;
+
+    @include on-tablet {
+      margin-bottom: 128px;
+    }
+
+    @include on-desktop-small {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 134px;
+    }
+  }
+
+  &__card {
+    max-width: 362px;
+
+    @include on-desktop-small {
+      max-width: 214px;
+    }
+
+    @include on-desktop-large {
+      max-width: 264px;
+    }
+
+    &--img {
+      width: 166px;
+      height: 166px;
+      border-radius: 15px;
+      margin-bottom: 32px;
+    }
+
+    &--title {
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 16px;
+      color: vars.$c-dark-blue;
+    }
+
+    &--text {
+      color: vars.$c-text-grey;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+}
