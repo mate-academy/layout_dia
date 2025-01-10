@@ -1,0 +1,93 @@
+@use '../utils/vars' as vars;
+@use '../utils/mixins' as mix;
+@use '../utils/extends' as ext;
+
+.nav {
+  // &--footer {
+
+  // }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    align-items: center;
+    gap: 28px;
+    display: none;
+
+    @include mix.on-desktop-small {
+      display: flex;
+    }
+
+    &--menu {
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+    }
+
+    &--footer {
+      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+
+      @include on-tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include mix.on-desktop-small {
+        justify-content: flex-start;
+        margin: 0;
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    @include hover(color, vars.$c-main-blue);
+
+    &--burger {
+      display: block;
+
+      @include hover(scale, 1.2);
+
+      @include mix.on-desktop-small {
+        display: none;
+      }
+    }
+
+    &--hire {
+      display: block;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 96%;
+        height: 2px;
+        background-color: vars.$c-main-blue;
+        position: absolute;
+        display: block;
+        bottom: -8px;
+        left: 0;
+        border-radius: 4px;
+      }
+    }
+  }
+}
