@@ -1,0 +1,176 @@
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+
+  :last-child {
+    margin-bottom: 20px;
+  }
+
+  @include respond-to('tablet') {
+    flex-flow: row wrap;
+  }
+
+  &__header {
+    width: 100%;
+    position: relative;
+
+    font-family: Poppins, sans-serif;
+    color: $title-color;
+
+    @include weigh-size-line-height-text-align(600, 32px, 48px, left);
+
+    &::before {
+      content: 'Testimonials';
+
+      color: #c0cdd7;
+
+      @include weigh-size-line-height-text-align(700, 13px, 19.5px, center);
+
+      position: absolute;
+      top: -18px;
+    }
+  }
+}
+
+.testimonials-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  border-radius: 16px;
+  background-color: #fff;
+
+  @include respond-to('desktop') {
+    flex: 1;
+    width: 33.33%;
+
+    margin-bottom: 30px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__avatar {
+    display: flex;
+
+    width: 109px;
+    height: 109px;
+
+    object-position: top;
+    object-fit: cover;
+
+    border: 5px solid #11a5f4;
+    border-radius: 100%;
+
+    margin: 32px auto;
+
+    @include respond-to('tablet') {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__review {
+    color: #6c788b;
+    margin-bottom: 16px;
+
+    width: 196px;
+    height: 80px;
+
+    @include weigh-size-line-height-text-align(600, 13px, 19.5px, center);
+
+    @include respond-to('desktop') {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__client {
+    color: $title-color;
+
+    @include weigh-size-line-height-text-align(600, 13px, 19.5px, center);
+
+    @for $i from 1 through 3 {
+      @include job(nth($jobs, $i), $i);
+    }
+  }
+}
+
+.prefooter--margin-top {
+  margin-top: 120px;
+}
+
+.prefooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: $title-color;
+
+  background-color: #fff;
+
+  height: 100%;
+
+  @include respond-to('tablet') {
+    height: 680px;
+
+    background-image: url('/src/images/Shapes3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  @include respond-to('desktop') {
+    height: 880px;
+
+    background-size: auto;
+  }
+}
+
+.prefooter__title {
+  font-family: Poppins, sans-serif;
+
+  margin-bottom: 24px;
+
+  @include weigh-size-line-height-text-align(600, 44px, 52.8px, center);
+}
+
+.prefooter__text {
+  max-width: 80%;
+  margin-bottom: 56px;
+
+  @include weigh-size-line-height-text-align(600, 22px, 33px, center);
+}
+
+.prefooter__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $first-text-color;
+
+  background-color: #6791d9;
+  border-radius: 8px;
+
+  width: 100%;
+  height: 56px;
+
+  margin: 0 0 72px;
+
+  text-decoration: none;
+
+  @include weigh-size-line-height-text-align(600, 15px, 22.5px, center);
+
+  @include respond-to('tablet') {
+    width: 264px;
+  }
+
+  &:hover {
+    background-color: #2060f6;
+  }
+}
