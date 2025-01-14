@@ -4,3 +4,135 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-normal-desktop {
+  @media (min-width: $normal-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+.container {
+  @include padding-inline;
+
+  max-width: $design-min-width;
+  margin: 0 auto;
+}
+
+@mixin my-grid {
+  --col-count: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --col-count: 6;
+
+    column-gap: 24px;
+  }
+
+  @include on-desktop {
+    --col-count: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-normal-desktop {
+    column-gap: 24px;
+  }
+}
+
+@mixin third-title {
+  color: $second-title-color;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+@mixin second-title {
+  color: $h-color;
+  font-family: Poppins, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 41.6px;
+}
+
+@mixin text-font {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: $second-text-font;
+}
+
+@mixin name-testimonials {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: $h-color;
+}
+
+@mixin letter-spacing-3 {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 3px;
+  color: $person-service;
+  text-transform: uppercase;
+}
+
+@mixin display-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-input-font {
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22.5px;
+}
+
+@mixin second-main-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+}
