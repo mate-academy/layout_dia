@@ -1,0 +1,63 @@
+.people {
+  &__person {
+    background-color: $white-color;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    width: 280px;
+    height: 456px;
+    box-sizing: border-box;
+
+    &:hover {
+      box-shadow: 0 9px 18px 0 rgba(0, 0, 0, 0.35);
+      transition: 0.3s;
+
+      .person__picture::before {
+        transform: translateX(0) translateY(0);
+        transition: 0.3s;
+      }
+
+      .person__picture::after {
+        transform: translateX(0) translateY(0);
+        transition: 0.3s;
+      }
+
+      .person__picture {
+        transform: scale(1.1);
+        transition: 0.3s;
+      }
+    }
+
+    @include on-tablet {
+      width: 558px;
+      height: 478px;
+    }
+
+    @include on-small-desktop {
+      width: 292px;
+      height: 456px;
+    }
+
+    @include on-desktop {
+      width: 362px;
+      height: 494px;
+    }
+  }
+  &__cards {
+    margin: 0 auto;
+    grid-column: 1 / 3;
+
+    @include on-tablet {
+      grid-column: 1 / 7;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+      gap: 20px;
+      justify-content: space-around;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+}
