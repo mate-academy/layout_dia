@@ -1,0 +1,133 @@
+.card-testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding-block: 32px;
+
+  &__top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__photo-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 196px;
+    width: 196px;
+
+    @include on-tablet {
+      height: 250px;
+      width: 250px;
+    }
+
+    @include on-small-desktop {
+      height: 196px;
+      width: 196px;
+    }
+
+    @include on-desktop {
+      height: 250px;
+      width: 250px;
+    }
+  }
+
+  &__photo {
+    transition: $transition-page;
+    z-index: 2;
+    border-radius: 50%;
+    width: 56%;
+    height: 56%;
+  }
+
+  &:hover &__photo {
+    transition: $transition-page;
+    transform: scale(1.2);
+  }
+
+  &__rectangle {
+    position: absolute;
+    width: 55.6%;
+    height: 22.4%;
+    background-color: $background-blue-page;
+
+    &--top {
+      transition: all $transition-page;
+      transform-origin: left bottom;
+      transform: rotate(-60deg);
+      top: 40%;
+      left: 26%;
+    }
+
+    &--bottom {
+      transition: all $transition-page;
+      transform-origin: right top;
+      transform: rotate(-60deg);
+      bottom: 40%;
+      right: 26%;
+    }
+  }
+
+  &:hover &__rectangle {
+    transition: all $transition-page;
+    transform: scale(1.2);
+    transform: rotate(-90deg);
+  }
+
+  &__quot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    max-width: 196px;
+    max-height: 96px;
+
+    @include on-tablet {
+      max-width: 362px;
+      gap: 16px;
+    }
+
+    @include on-small-desktop {
+      max-width: 196px;
+      gap: 8px;
+    }
+  }
+
+  &__quot-text {
+    margin: 0;
+
+    @include content-text-cards;
+
+    font-family: $font-family-open-sans;
+    color: $second-color-text;
+  }
+
+  &__identification {
+    margin-top: 32px;
+
+    @include content-text-cards;
+
+    font-family: $font-family-open-sans;
+  }
+
+  &__name {
+    margin: 0;
+  }
+
+  &__ocupation {
+    margin: 4px 0 0;
+    font-family: $font-family-poppins;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 3px;
+    color: #c0cdd7;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,125 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-family-poppins;
+  align-items: center;
+
+  &--header {
+    @include content-padding-inline;
+
+    padding-top: 20px;
+
+    @include on-small-desktop {
+      padding-top: 48px;
+    }
+
+    @include on-design {
+      max-width: 1146px;
+      margin-inline: auto;
+    }
+  }
+
+  &--footer {
+    flex-direction: column;
+    gap: 48px;
+    align-items: start;
+    margin-top: 80px;
+
+    @include on-tablet {
+      margin-top: 139px;
+      gap: 48px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 104px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__icon-dropdown {
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+    &--header {
+      display: none;
+
+      @include on-small-desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    &--header {
+      @include on-small-desktop {
+        gap: 48px;
+      }
+    }
+
+    &--footer {
+      @include on-small-desktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__icon-logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__item {
+    list-style: none;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__link {
+    @include hover(transform, scale(1.1));
+
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-light-text;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__hire-us {
+    display: flex;
+    position: relative;
+    margin-top: -2px;
+
+    &--is-active::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $background-blue-page;
+    }
+  }
+}
