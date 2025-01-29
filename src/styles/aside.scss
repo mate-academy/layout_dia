@@ -1,0 +1,59 @@
+.aside-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #2c2c2c;
+  padding-block: 20px;
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.aside-nav-bar {
+  &__logo-n-menu {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+    padding-block: 20px;
+  }
+
+  &__link {
+    @include nav-link-options;
+
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $c-gray;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
