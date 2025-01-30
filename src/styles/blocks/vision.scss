@@ -1,0 +1,46 @@
+.vision {
+  background-color: $c-white;
+  padding-block: 72px;
+
+  @include on-tablet {
+    background-image: url('../images/shapes-tablet.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    padding-block: 200px;
+  }
+
+  @include on-laptop {
+    background-image: url('../images/shapes.png');
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    @include responsive-property(margin-bottom, 24px);
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+  }
+
+  &__description {
+    @extend %typography-big-semi-bold;
+    @include responsive-property(margin-bottom, 56px, 64px);
+
+    grid-column: 1 / -1;
+    text-align: center;
+
+    @include on-laptop {
+      grid-column: 3 / -3;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+  }
+}

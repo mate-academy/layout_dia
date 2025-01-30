@@ -1,0 +1,80 @@
+.services-card {
+  @extend %base-card;
+  @include hover-card-lift;
+
+  grid-column: 1 / -1;
+  transition: all $transition-duration-base ease-in-out;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 32px;
+  width: 100%;
+  max-width: 280px;
+
+  @include on-tablet {
+    grid-column: span 3;
+    max-width: 264px;
+    max-height: 264px;
+  }
+
+  @include on-laptop {
+    grid-column: span 6;
+    min-width: 220px;
+  }
+
+  &--up {
+    @include on-tablet {
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-52%);
+      }
+    }
+  }
+
+  &__number {
+    @extend %typography-small-semi-bold;
+
+    display: inline-block;
+    margin-bottom: 24px;
+    border-radius: 23px;
+    background-color: rgba($c-blue, 0.1);
+    padding: 2px 12px;
+    color: $c-blue;
+  }
+
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    @extend %typography-small-semi-bold;
+  }
+
+  &__link {
+    @extend %typography-medium-semi-bold;
+
+    display: flex;
+    column-gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    color: $c-midnight-blue;
+
+    &::before {
+      @extend %active-brightness-effect;
+
+      transition: all $transition-duration-base ease-in-out;
+      border-radius: 50%;
+      background-image: url('../images/icons/arrow-right.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: $c-blue;
+      width: 40px;
+      height: 40px;
+      content: '';
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
+    }
+  }
+}

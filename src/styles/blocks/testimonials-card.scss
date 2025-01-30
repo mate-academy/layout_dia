@@ -1,0 +1,92 @@
+.testimonials-card {
+  @extend %flex-center-column;
+  @extend %base-card;
+  @include hover-card-lift;
+
+  grid-column: 1 / -1;
+  transition: all $transition-duration-base ease-in-out;
+  padding: 32px 42px;
+
+  @include on-laptop {
+    grid-column: span 4;
+  }
+
+  &__img-container {
+    position: relative;
+    width: 196px;
+    height: 196px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @extend %flex-center;
+
+    margin-bottom: 24px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: 1;
+      border-radius: 12px;
+      background-color: $c-blue;
+      width: 109px;
+      height: 44px;
+      content: '';
+
+      @include on-tablet {
+        width: 139px;
+        height: 56px;
+      }
+    }
+
+    &::before {
+      transform: rotate(120deg) translate(-12%, 110%);
+    }
+
+    &::after {
+      transform: rotate(120deg) translate(12%, -110%);
+    }
+  }
+
+  &__img {
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__comment {
+    @extend %flex-center-column;
+    @extend %typography-small-semi-bold;
+    @include responsive-property(row-gap, 8px, 16px);
+
+    margin-bottom: 16px;
+    max-width: 362px;
+    text-align: center;
+
+    &::before {
+      content: url('../images/testimonials/quote-icon.svg');
+    }
+  }
+
+  &__person {
+    @extend %typography-small-semi-bold;
+
+    margin-bottom: 4px;
+    color: $c-dark-blue;
+  }
+
+  &__company {
+    @extend %typography-small-bold-uppercase;
+
+    color: $c-silver;
+  }
+}
