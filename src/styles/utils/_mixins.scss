@@ -1,6 +1,61 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($properties...) {
+  transition: all 0.3s ease;
   &:hover {
-    #{$_property}: $_toValue;
+    @each $property, $value in $properties {
+      #{$property}: $value;
+      cursor: pointer;
+    }
+  }
+}
+
+@mixin hover-after($properties...) {
+  transition: all 0.3s ease;
+  &:hover::after {
+    @each $property, $value in $properties {
+      #{$property}: $value;
+      cursor: pointer;
+    }
+  }
+}
+
+// 2560
+@mixin large-screens {
+  @media (min-width: $large) {
+    @content;
+  }
+}
+
+// 1600
+@mixin design-screens {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+// 1280
+@mixin desktop-screens {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// 1024
+@mixin small-screens {
+  @media (min-width: $small) {
+    @content;
+  }
+}
+
+// 640
+@mixin tablet-screens {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+// 320
+@mixin mobile-screens {
+  @media (min-width: $mobile) {
+    @content;
   }
 }

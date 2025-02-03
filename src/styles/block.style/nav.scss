@@ -1,0 +1,96 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+
+  @include mobile-screens {
+    padding-top: 20px;
+  }
+
+  @include small-screens {
+    padding-top: 49px;
+  }
+
+  &__block-logo {
+    display: flex;
+  }
+
+  &__logo {
+    width: 45px;
+    height: 26px;
+  }
+
+  &__link-menu {
+    margin-left: 32px;
+
+    @include small-screens {
+      display: none;
+    }
+  }
+
+  &__menu-img {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/Menu-header.png);
+  }
+
+  &__list,
+  &__list-footer {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    gap: 48px;
+
+    @include mobile-screens {
+      display: none;
+    }
+
+    @include small-screens {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    text-decoration: none;
+    color: $color-text-hed;
+  }
+
+  &__item {
+    position: relative;
+    grid-column: span 1;
+    transition: all 0.3s;
+
+    @include hover-after(transform scale(1));
+  }
+
+  &__item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    display: block;
+    height: 2px;
+    background-color: #2060f6;
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 0.3s;
+  }
+
+  &__item:nth-child(5) {
+    grid-column: span 2;
+    justify-self: end;
+
+    @include small-screens {
+      grid-column: span 1;
+    }
+  }
+}

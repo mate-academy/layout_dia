@@ -1,0 +1,249 @@
+.footer {
+  background-color: #2c2c2c;
+  margin-top: 126px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 20px;
+    padding-top: 72px;
+    padding-bottom: 80px;
+
+    @include small-screens {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__message {
+    grid-column: span 2;
+
+    @include small-screens {
+      grid-column: 1 / span 5;
+    }
+  }
+
+  &__contacts {
+    grid-column: span 2;
+
+    @include small-screens {
+      grid-column: 7 / span 5;
+    }
+
+    @include design-screens {
+      grid-column: 8 / span 4;
+    }
+  }
+
+  &__nav {
+    grid-column: span 2;
+    padding-bottom: 49px;
+
+    @include small-screens {
+      grid-column: span 12;
+    }
+  }
+}
+
+// Стилидля блока формы
+
+.form-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: $bg-header;
+
+  @include small-screens {
+    gap: 48px;
+  }
+
+  legend {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    padding-bottom: 16px;
+  }
+
+  input:-webkit-autofill {
+    background-color: $bg-header !important;
+    box-shadow: 0 0 0 1000px $bg-header inset !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+
+  input:hover,
+  input:focus {
+    border-bottom: 1px solid #144ed4;
+  }
+
+  input:nth-child(4) {
+    margin-bottom: 16px;
+
+    @include small-screens {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__btn {
+    @include tablet-screens {
+      width: 256px;
+    }
+
+    @include small-screens {
+      margin-bottom: 16px;
+    }
+  }
+
+  // &__contacts {
+  // }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  &__h2 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  &__p {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+
+  &__link:nth-of-type(-n + 2)::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    display: block;
+    height: 2px;
+    background-color: #2060f6;
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 0.3s;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &--hover {
+      @include hover-after(transform scale(1));
+    }
+  }
+
+  &__link:hover {
+    transform: scale(1.1);
+  }
+
+  &__wrapper-icon {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+// SVG иконки и hover эффект
+
+.link-fb {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  mask-image: url(../images/facebook\ 1.svg);
+  -webkit-mask-image: url(../images/facebook\ 1.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+
+.link-twitter {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  mask-image: url(../images/twitter\ 1.svg);
+  -webkit-mask-image: url(../images/twitter\ 1.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+
+.link-instag {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  mask-image: url(../images/instagram.svg);
+  -webkit-mask-image: url(../images/instagram.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+
+.link-twitter:hover,
+.link-instag:hover,
+.link-fb:hover {
+  background-color: #2060f6;
+  transform: scale(1.3);
+}
+
+.nav__list-footer {
+  list-style: none;
+
+  @include mobile-screens {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @include tablet-screens {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 48px;
+  }
+}
+
+// ВАЖНОЕ СВОЙСТВО ДЛЯ INPUT при автозаполнении.
+// input:-webkit-autofill {
+//   box-shadow: 0 0 0 1000px $bg-header inset !important;
+//   -webkit-text-fill-color: #fff !important; /* Обязателен для правильной работы */
+// }
+// Таким образом, фон задается через box-shadow, а -webkit-text-fill-color заставляет браузер принять этот стиль.
+
+// Для управления псевдоэлементом созданным под элементом, что бы он соответствовал размеру родителя нужно указать у Псевдоэлемента: width: 100%; - Ширина 100% от родителя. А для родителя: display: inline-block; Если же для элемента необходим display: block; тогда нужно добавить свойство: width: max-content;

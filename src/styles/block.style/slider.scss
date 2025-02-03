@@ -1,0 +1,123 @@
+.slider {
+  width: clamp(687px, 50%, 1167px);
+  height: 680px;
+  overflow: hidden;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+
+  // #region Media
+  // размеры Блока картинки на экранах
+
+  @include mobile-screens {
+    width: 100%;
+    height: 390px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+
+  @include small-screens {
+    width: 502px;
+    height: 680px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @include desktop-screens {
+    width: 687px;
+  }
+
+  @include design-screens {
+    width: clamp(687px, 50%, 1167px);
+    height: 680px;
+  }
+
+  @include large-screens {
+    width: 1167px;
+    height: 680px;
+  }
+
+  // #endregion Media
+
+  // картинка
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__block-arrow {
+    position: absolute;
+    padding-left: 48px;
+    padding-bottom: 48px;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    @include mobile-screens {
+      flex-direction: column;
+      align-items: start;
+      padding-left: 20px;
+      padding-bottom: 24px;
+    }
+
+    @include tablet-screens {
+      padding-left: 41px;
+      padding-bottom: 32px;
+    }
+
+    @include small-screens {
+      padding-left: 78px;
+      padding-bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__item1 {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow-left,
+  &__arrow-right {
+    all: unset;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-image: url(../images/slider/Arrow-left.png);
+    background-size: cover;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    @include hover(transform scale(1.2), box-shadow (0 0 10px 5px #6d6c6c));
+  }
+
+  &__arrow-right {
+    background-image: url(../images/slider/Arrow-right.png);
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.23em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  &__p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+}
