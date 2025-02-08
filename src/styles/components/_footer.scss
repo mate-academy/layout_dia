@@ -1,0 +1,176 @@
+@import '../utils/mixins';
+@import '../utils/vars';
+
+.footer {
+  background-color: $color-white;
+  margin-top: 120px;
+
+  @include on-tablet {
+    margin: 0;
+    padding-top: 120px;
+  }
+
+  &__content {
+    background-color: $color-main-black;
+    color: $color-white;
+    border-radius: 30px 30px 0 0;
+    padding-block: 72px 80px;
+
+    @include padding-inline-content;
+    @include grid;
+
+    row-gap: 80px;
+
+    @include on-tablet {
+      row-gap: 120px;
+    }
+
+    @include on-small-desktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 42px;
+
+    &--small {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $color-text-grey;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__message {
+    grid-column: 1 / 3;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__contacts {
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+
+    @include on-large-desktop {
+      grid-column: 8 / 12;
+    }
+
+    &__call {
+      &--tel {
+        font-family: $font-secondary;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36px;
+        color: $color-white;
+        text-decoration: none;
+
+        @include hover(color, $color-main-blue);
+      }
+    }
+
+    &__visit {
+      &--map {
+        font-family: $font-secondary;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36px;
+        color: $color-white;
+        text-decoration: none;
+
+        @include hover(color, $color-main-blue);
+      }
+    }
+
+    &__social {
+      &--all {
+        display: flex;
+        gap: 32px;
+      }
+
+      &--facebook {
+        width: 32px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        background-image: url(/src/icons/facebook.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all $transition-time;
+
+        &:hover {
+          background-image: url(/src/icons/facebook-blue.svg);
+        }
+      }
+
+      &--twitter {
+        width: 32px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        background-image: url(/src/icons/twitter.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all $transition-time;
+
+        &:hover {
+          background-image: url(/src/icons/twitter-blue.svg);
+        }
+      }
+
+      &--instagram {
+        width: 32px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        background-image: url(/src/icons/instagram.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all $transition-time;
+
+        &:hover {
+          background-image: url(/src/icons/instagram-blue.svg);
+        }
+      }
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 67px;
+
+    @include on-tablet {
+      grid-column: 1 / 7;
+      gap: 24px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 13;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

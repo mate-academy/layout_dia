@@ -1,0 +1,48 @@
+@import '../utils/mixins';
+@import '../utils/vars';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  margin: 0;
+  padding: 0;
+  background-color: $color-gray;
+  font-size: 16px;
+  font-family: $font-primary;
+  font-weight: 600;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all $transition-time;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
