@@ -1,0 +1,110 @@
+.aside {
+  box-sizing: border-box;
+  background: var(--c-bg-accent);
+  overflow-y: auto;
+  padding-top: 100px;
+  z-index: 2;
+}
+
+.aside__nav {
+  margin-bottom: 32px;
+}
+
+.aside__contacts {
+  margin-bottom: 32px;
+
+  .contacts__title {
+    color: #fff;
+  }
+}
+
+.aside__contacts .contacts__link:not(:hover) {
+  color: #fff;
+}
+
+.aside__list {
+  display: block;
+}
+
+.action-button {
+  margin: 0 auto 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 18px;
+    background: #fff;
+    top: 8px;
+    left: 3px;
+    transform-origin: center;
+    transition: transform $effectDuration;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 18px;
+    background: #fff;
+    bottom: 8px;
+    left: 3px;
+    transition: transform $effectDuration;
+  }
+
+  &.active {
+    &::before {
+      transform: rotate(45deg) translate(2px, 2px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(2px, -2px);
+    }
+  }
+
+  @include on-small-desktop {
+    display: none;
+  }
+}
+
+.action-button__close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 18px;
+    background: #fff;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 3px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 18px;
+    background: #fff;
+    transform: rotate(-45deg);
+    bottom: 8px;
+    left: 3px;
+  }
+}

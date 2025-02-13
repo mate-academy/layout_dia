@@ -1,0 +1,145 @@
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 390px;
+  cursor: grab;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 30px;
+  background-color: var(--c-bg-site);
+
+  @media (max-width: $small-desktop-min-width) {
+    bottom: -30px;
+  }
+
+  @include on-small-desktop {
+    border-radius: 30px 0;
+    height: 100%;
+  }
+}
+
+.slider__wrapper {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: max-content;
+  position: relative;
+  left: 0;
+  display: flex;
+  transition: left $effectDuration;
+}
+
+.slider__slide {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+  }
+}
+
+.slider__button {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  bottom: 108px;
+  background-image: url(../images/icons/slider-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.non-active,
+  &.non-active:hover {
+    cursor: no-drop;
+    opacity: 0.2;
+  }
+
+  @include on-tablet {
+    bottom: 116px;
+  }
+
+  @include on-small-desktop {
+    bottom: 66px;
+  }
+}
+
+.slider__button--prev {
+  left: 20px;
+
+  @include on-tablet {
+    left: 41px;
+  }
+
+  @include on-small-desktop {
+    left: 78px;
+  }
+
+  @include on-desktop {
+    left: 48px;
+  }
+}
+
+.slider__button--next {
+  left: 68px;
+  transform: rotate(180deg);
+
+  @include on-tablet {
+    left: 89px;
+  }
+
+  @include on-small-desktop {
+    left: 126px;
+  }
+
+  @include on-desktop {
+    left: 96px;
+  }
+}
+
+.slider__texts {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  max-width: 280px;
+
+  @include on-tablet {
+    bottom: 32px;
+    left: 41px;
+  }
+
+  @include on-small-desktop {
+    bottom: 48px;
+    left: 182px;
+  }
+
+  @include on-desktop {
+    left: 152px;
+  }
+}
+
+.slider__name {
+  font-family: $font-family;
+  font-size: 13px;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.slider_description {
+  font-size: 14px;
+  line-height: 1.4;
+}
