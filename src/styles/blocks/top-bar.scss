@@ -1,0 +1,68 @@
+.top__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+
+  @include on-small-desktop {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  @include content-padding-in-line;
+
+  &__header__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      height: 20px;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      gap: 48px;
+      text-align: center;
+    }
+  }
+
+  &-icon-slider {
+    position: relative;
+    height: 30px;
+  }
+
+  &-slider {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $main-text-color;
+    display: block;
+    transition: all;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.is-active::after {
+  content: '';
+  display: block;
+  background-color: $accent-color;
+  border-radius: 4px;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
