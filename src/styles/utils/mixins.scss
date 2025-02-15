@@ -1,0 +1,86 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $transition-duration;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-1024 {
+  @media (min-width: $desktop-1024-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-1600 {
+  @media (min-width: $desktop-1600-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop-1024 {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop-1600 {
+    padding-inline: 230px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+@mixin page-grid {
+  --colums: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--colums), 1fr);
+
+  @include on-tablet {
+    --colums: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop-1024 {
+    --colums: 12;
+  }
+}
+
+@mixin line {
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: -6px;
+    height: 1px;
+    width: 100%;
+    background-color: $background-button-line;
+
+    transition: transform $transition-duration;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
+
+@mixin cursor {
+  cursor: url(../images/cursor.png), auto;
+}
