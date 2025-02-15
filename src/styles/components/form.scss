@@ -1,0 +1,40 @@
+.form {
+  @include flex;
+
+  align-items: flex-start;
+
+  &__input-container {
+    position: relative;
+    width: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: $c-white;
+      width: 100%;
+    }
+
+    &:hover::after {
+      background-color: $c-border-bottom-hover;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    height: 41px;
+    background-color: $c-bg-header;
+    color: $c-white;
+    outline: none;
+    border: none;
+    width: 100%;
+
+    @include input-font;
+
+    &::placeholder {
+      @include input-font;
+    }
+  }
+}

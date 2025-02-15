@@ -1,6 +1,90 @@
+@mixin on-mobile {
+  @media (min-width: $mobile-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.5s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin inline-padding-content {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-design {
+    padding-inline: 227px;
+  }
+}
+
+@mixin title {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+@mixin page-grid {
+  @content;
+
+  --columns: 1;
+
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-small-desktop {
+    --columns: 3;
+  }
+}
+
+@mixin input-font {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
