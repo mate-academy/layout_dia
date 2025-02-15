@@ -1,7 +1,106 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'blocks/apply';
+@import 'blocks/button';
+@import 'blocks/carousel';
+@import 'blocks/footer';
+@import 'blocks/header';
+@import 'blocks/icon';
+@import 'blocks/menu';
+@import 'blocks/ourExpertise';
+@import 'blocks/services';
+@import 'blocks/testimonials';
+@import 'blocks/topbar';
+@import 'blocks/whoWeAre';
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  box-sizing: border-box;
+  background-color: $background-color-light;
+
+  @include on-tablet {
+    gap: 148px;
+  }
+
+  .body__section {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+
+    &--bb {
+      box-sizing: border-box;
+    }
+
+    &__content {
+      max-width: 1148px;
+    }
+
+    @include on-tablet {
+      padding-left: 41px;
+      padding-right: 41px;
+    }
+
+    @include on-wide-tablet {
+      padding-left: 54px;
+      padding-right: 54px;
+    }
+
+    @media (min-width: 1256px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &--no-padding {
+      padding: 0;
+      width: 100%;
+      max-width: none;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+  color: $title-color;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-align: center;
+  color: $text-color;
+}
+
+button {
+  background-color: transparent;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
