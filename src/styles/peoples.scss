@@ -1,0 +1,103 @@
+.peoples {
+
+  &__title {
+    @include contest-pading-inline;
+
+    &--mod {
+      text-align: left;
+      }
+  }
+
+  &__cards {
+    @include page-grid;
+    @include contest-pading-inline;
+
+    grid-row-gap: 24px;
+    margin: 48px auto 120px;
+
+    @include on-tablet {
+      margin: 56px auto 148px;
+      grid-row-gap: 30px;
+    }
+
+    @include on-desktop {
+      margin: 85px auto 186px;
+    }
+  }
+}
+
+
+
+.people {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  border-radius: 16px;
+  padding: 32px 42px;
+  text-align: center;
+  justify-content: center;
+  grid-column: 1 / -1;
+  cursor: pointer;
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) .people__icon path {
+      fill: var(--color-people-#{$i});
+    }
+
+    &:nth-child(#{$i}) .people__foto {
+      background-image: var(--people-foto-#{$i});
+    }
+  }
+
+
+  @include on-tablet {
+    padding: 32px 98px;
+  }
+
+  @include on-desktop {
+    grid-column: span 4;
+    padding: 32px 48px;
+  }
+
+  &:hover {
+    @include hover(transform, scale(1.05));
+  }
+
+  &:not(:hover) {
+    @include hover(transform, scale(1.05));
+  }
+
+  &__icon {
+    height: 24px;
+    width: 24px;
+    margin: 24px auto 8px;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__foto {
+    margin: auto;
+    height: 250px;
+    width: 250px;
+  }
+
+  &__content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+
+    &--name {
+      color: $title-text-color;
+      margin-bottom: 4px;
+    }
+  }
+}
