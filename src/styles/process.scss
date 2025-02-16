@@ -1,0 +1,168 @@
+@use 'utils/vars';
+
+.process {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 226px;
+
+  background-color: #f2f6fa;
+
+  &__text-block {
+    margin-top: 250px;
+  }
+
+  &__sub-title {
+    font-weight: 700;
+    font-size: 13px;
+
+    height: 20px;
+    line-height: 20px;
+
+    letter-spacing: 3px;
+
+    color: #c0cdd7;
+  }
+
+  &__title {
+    font-size: 32px;
+
+    height: 84px;
+    line-height: 42px;
+
+    color: #253757;
+  }
+
+  &__paragraph {
+    font-size: 14px;
+
+    height: 105px;
+    line-height: 21px;
+
+    color: #6c788b;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template:
+      '. block2'
+      'block1 block2'
+      'block1 block4'
+      'block3 block4'
+      'block3 .' 132px / 264px 264px; // Визначте рядки та стовпці в одному рядку
+
+    column-gap: 30px;
+    margin: 148px 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  height: 264px;
+
+  border-radius: 16px;
+
+  background-color: vars.$main-color-white;
+
+  transform: perspective(800px) rotateY(25deg) scale(0.9) rotateX(10deg);
+  transition: 0.6s ease all;
+
+  &:hover {
+    transform: perspective(800px) rotateY(-15deg) translateY(-50px)
+      rotateX(10deg) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 24px;
+
+    background-color: #e9effe;
+    border-radius: 23px;
+
+    margin: 32px auto 24px 32px;
+  }
+
+  &__number-text {
+    font-size: 13px;
+    color: #2060f6;
+  }
+
+  &__paragraph {
+    font-weight: 600;
+    font-size: 13px;
+
+    height: 80px;
+    line-height: 20px;
+
+    color: #6c788b;
+
+    margin: 0 32px 32px;
+  }
+
+  &__arrow-container {
+    width: 144px;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    margin: 0 auto 32px 32px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+
+    background-color: #2060f6;
+    border: #2060f6;
+    border-radius: 50%;
+  }
+
+  &__button-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__learn-more {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+
+    height: 22px;
+    line-height: 22px;
+
+    color: #334563;
+  }
+}
+
+.card-1 {
+  grid-area: block1;
+}
+
+.card-2 {
+  grid-area: block2;
+}
+
+.card-3 {
+  grid-area: block3;
+  margin-top: 30px;
+}
+
+.card-4 {
+  grid-area: block4;
+  margin-top: 30px;
+}

@@ -1,7 +1,145 @@
+@use 'utils/vars';
+@use 'utils/mixins';
 @import 'utils';
 @import 'fonts';
 @import 'typography';
 
-body {
-  background: $c-gray;
+* {
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
+.body {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__welcome {
+    background-color: #f2f6fa;
+    width: 100%;
+  }
+
+  &__welcome-container {
+    width: 754px;
+    height: 208px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 148px auto;
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 48px;
+
+    color: #253757;
+  }
+
+  &__paragraph {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+
+    text-align: center;
+
+    color: #6c788b;
+  }
+}
+
+.nav {
+  &__dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    &-btn-wrapper {
+      margin-top: 42px;
+      width: fit-content;
+      height: fit-content;
+    }
+    &-button {
+      background-color: #2c2c2c;
+      border: none;
+      cursor: pointer;
+    }
+    &-ul {
+      all: unset;
+      display: flex;
+      align-items: center;
+      top: 100%;
+      left: 100%;
+      transform: translateX(-120%);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+    &-btn-wrapper:hover + &-ul {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 48px;
+    height: 20px;
+    list-style: none;
+
+    margin-top: 52px;
+
+    &-on-desktop {
+      @include mixins.on-phone {
+        display: none;
+      }
+
+      @include mixins.on-big-tablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 13px;
+    color: white;
+    line-height: 20px;
+    position: relative;
+
+    transition: all 0.3s;
+
+    overflow: hidden;
+    background: linear-gradient(to right, #2060f6, #2060f6 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+
+    &:hover {
+      cursor: pointer;
+      background-position: 0 100%;
+    }
+  }
+}
+
+.paragraph {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.title {
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
 }
