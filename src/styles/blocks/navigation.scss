@@ -1,0 +1,42 @@
+.navigation {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #2c2c2c;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+
+    &:has(.navigation:target) {
+      overflow: hidden;
+    }
+  }
+
+  .container {
+    @include content-padding-inline;
+  }
+
+  &__menu {
+    @media (max-width: 900px) {
+      display: block;
+    }
+    
+    margin-top: 24px;
+  }
+
+  &__list {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 32px;
+  }
+}
