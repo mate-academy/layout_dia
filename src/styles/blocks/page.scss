@@ -1,0 +1,59 @@
+.page {
+  font-family: 'Open Sans', sans-serif;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: #fff;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background-color: #1d1d1d;
+    min-width: 320px;
+
+    @include on-tablet {
+      min-width: 640px;
+    }
+
+    @include on-small-desktop {
+      min-width: 1024px;
+    }
+
+    @include on-desktop {
+      min-width: 1280px;
+    }
+
+    @include on-design {
+      min-width: 1600px;
+    }
+
+    @include on-large-screens {
+      min-width: 2560px;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all $effectsDuration;
+
+    // all = transform and opacity
+
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
