@@ -1,0 +1,169 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-top: 20px;
+  margin-bottom: 54px;
+
+  @include on-tablet {
+    margin-top: 48px;
+  }
+
+  &__menu-burger {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+
+  &__menu-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    transition-duration: $effect-duration;
+
+    &:hover {
+      transform: scale(1.5);
+      transition-duration: $effect-duration;
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    height: 28px;
+    transition-duration: $effect-duration;
+
+    @include on-small-desktop {
+      padding: 0;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  .change-height {
+    transition-duration: $effect-duration;
+    height: max-content;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    pointer-events: none;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition-duration: $effect-duration;
+
+    @include on-small-desktop {
+      opacity: 1;
+      pointer-events: all;
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      align-items: center;
+      transform: translateY(0);
+    }
+  }
+
+  .menu-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: all;
+    padding-top: 48px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: $effect-duration;
+
+    @include on-small-desktop {
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+
+  &__img {
+    height: 28px;
+
+    &--desktop {
+      display: none;
+
+      @include on-small-desktop {
+        display: block;
+      }
+    }
+
+    &--mobile {
+      display: block;
+
+      @include on-small-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  &__link {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: $effect-duration;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      margin-top: 5px;
+      background-color: $color-blue;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+        transition-duration: $effect-duration;
+      }
+    }
+  }
+
+  .hire-us {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin-top: 10px;
+      background-color: $color-blue;
+      position: absolute;
+    }
+  }
+}
