@@ -1,0 +1,88 @@
+body {
+  cursor: url('../images/Mice.png'), pointer;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  cursor: inherit;
+  padding-inline: $mobile-padding;
+
+  @include on-tablet {
+    padding-inline: $tablet-padding;
+  }
+
+  @include on-desktop {
+    max-width: 916px;
+    margin: 0;
+    margin-inline: auto;
+    padding-inline: $desktop-padding;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  cursor: inherit;
+  font-family: inherit;
+  user-select: none;
+}
+
+.logo {
+  display: flex;
+  height: 28px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: Poppins, Arial, sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+
+  &__menu {
+    opacity: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: translate(-100%);
+    transition: all 0.3s;
+    pointer-events: none;
+    width: 100%;
+    background-color: $main-brown;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+
+      @include on-desktop {
+        transform: translateX(-100%);
+      }
+    }
+  }
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

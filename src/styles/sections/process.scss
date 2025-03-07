@@ -1,0 +1,111 @@
+.process {
+  &__container {
+    @include page-grid;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 41.6px;
+    color: $gray-color;
+    margin: 0 0 24px;
+    text-align: left;
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #6c788b;
+  }
+  &__cards {
+    grid-column: 1 / -1;
+    margin-top: 48px;
+
+    @include on-tablet {
+      margin-top: 56px;
+
+      @include page-grid;
+    }
+
+    @include on-desktop {
+      margin-top: 0;
+      grid-column: 6 / -1;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  &__card {
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 32px;
+    transition: all 0.3s;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+      grid-column: 1 / 4;
+
+      &--second,
+      &--fourth {
+        grid-column: 4 / -1;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include on-desktop {
+      margin-bottom: 20px;
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px $btn-color;
+    }
+  }
+  &__number {
+    border-radius: 23px;
+    background-color: #e9f0ff;
+    color: #2060f6;
+    display: inline-block;
+    padding: 3px 10px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19.5px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  &__list {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19.5px;
+    color: #6c788b;
+    margin-bottom: 32px;
+  }
+
+  &__learn {
+    color: #334563;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    & img {
+      transition: all 0.3s;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+}
