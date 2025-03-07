@@ -1,0 +1,121 @@
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 30px;
+  top: 48px;
+  @include onDesktop {
+    top: 0;
+    border-radius: 30px 30px 0 0;
+    margin-left: auto;
+    width: 70%;
+  }
+  &__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  &__slide {
+    min-width: 100%;
+  }
+  &__img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 390px;
+    width: 100%;
+    @include onDesktop {
+      height: 680px;
+    }
+  }
+  &__bottom {
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+.navigation {
+  @include contentPaddingInline;
+  position: absolute;
+  top: 55%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include onDesktop {
+    padding-inline: 78px;
+    top: 85%;
+  }
+  @include onBigDesktop {
+    padding-inline: 48px;
+  }
+}
+
+.navigation .prev,
+.navigation .next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: background-color 0.3s;
+  height: 20px;
+  width: 20px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#slide1:checked ~ .slider__slides {
+  transform: translateX(0);
+}
+
+#slide2:checked ~ .slider__slides {
+  transform: translateX(-100%);
+}
+
+.prev {
+  position: absolute;
+}
+
+.next {
+  position: absolute;
+  transform: translateX(180%);
+}
+
+.information {
+  @include contentPaddingInline;
+  position: absolute;
+  width: 220px;
+  height: 20px;
+  top: 70%;
+  @include onDesktop {
+    padding-inline: 78px;
+    top: 80%;
+    transform: translateX(35%);
+  }
+  @include onBigDesktop {
+    padding-inline: 68px;
+  }
+
+  &__intro {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    color: white;
+    text-transform: uppercase;
+  }
+  &__descr {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.6px;
+    color: white;
+  }
+}
