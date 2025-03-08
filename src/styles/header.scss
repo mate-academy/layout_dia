@@ -1,0 +1,364 @@
+.header {
+  background-color: rgba(44, 44, 44, 1);
+  border-radius: 0 0 30px 30px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+    padding-top: 20px;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      padding: 0 41px;
+      padding-top: 20px;
+      padding-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      padding: 0 54px;
+      padding-top: 48px;
+      padding-bottom: 44px;
+    }
+
+    @include on-desktop {
+      padding: 0 227px;
+      padding-top: 48px;
+      padding-bottom: 44px;
+    }
+
+    @include on-large-desktop {
+      padding: 0 707px;
+      padding-top: 48px;
+      padding-bottom: 44px;
+    }
+  }
+
+  &__top-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__logo {
+    width: 48px;
+    height: 28px;
+
+    transition: all $timeAnimation;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__burger-menu {
+    background-image: url('../images/icons/burger-menu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 8px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+    }
+  }
+
+  &__nav-ul {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+  }
+
+  &__nav-content {
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 2px;
+      bottom: -8px;
+      left: -2px;
+      width: 100%;
+      background-color: rgba(32, 96, 246, 1);
+      border-radius: 4px;
+
+      transition: all $timeAnimation;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__nav-text {
+    position: relative;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 1);
+
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 2px;
+      bottom: -8px;
+      width: 100%;
+      background-color: rgba(32, 96, 246, 1);
+      border-radius: 4px;
+    }
+  }
+
+  @include on-small-desktop {
+    &__bottom {
+      display: flex;
+    }
+  }
+
+  &__bottom-one {
+    padding: 0 20px;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      padding: 0;
+      padding-left: 41px;
+      padding-right: 0;
+      padding-bottom: 147px;
+    }
+
+    @include on-small-desktop {
+      padding: 0;
+      padding-left: 54px;
+      padding-right: 106px;
+      padding-bottom: 0;
+    }
+
+    @include on-desktop {
+      padding: 0;
+      padding-right: 324px;
+      padding-left: 227px;
+      padding-bottom: 0;
+    }
+
+    @include on-large-desktop {
+      padding: 0;
+      padding-right: 324px;
+      padding-left: 707px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__bottom-one-title {
+    padding-bottom: 38px;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62.4px;
+    letter-spacing: -2px;
+    color: rgba(255, 255, 255, 1);
+
+    @include on-tablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include on-small-desktop {
+      padding-top: 100px;
+      padding-bottom: 38px;
+    }
+  }
+
+  &__bottom-one-text {
+    padding-bottom: 72px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 1);
+
+    @include on-tablet {
+      padding-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      padding-bottom: 83px;
+    }
+  }
+
+  &__bottom-one-button {
+    border: 0;
+    background-color: rgba(32, 96, 246, 1);
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+
+
+    transition: all $timeAnimation;
+
+    &:hover {
+      background-color: rgb(12, 58, 167);
+    }
+
+    &:active {
+      background-color: rgb(76, 115, 208);
+    }
+
+    @include on-tablet {
+      width: 264px;
+    }
+  }
+
+  &__bottom-two {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    background-image: url('../images/bg/clock_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+    width: 100%;
+    height: 390px;
+
+    @include on-tablet {
+      background-image: url('../images/bg/clock_bg_tablet.png');
+    }
+
+    @include on-small-desktop {
+      background-image: url('../images/bg/clock-bg_small-desktop.png');
+      width: 100%;
+      height: 680px;
+      border-radius: 30px 0;
+      flex-direction: row;
+      align-items: end;
+      justify-content: start;
+    }
+
+    @include on-desktop {
+      background-image: url('../images/bg/clock_bg_desktop.png');
+    }
+  }
+
+  &__bottom-two-title {
+    padding: 0 20px;
+    padding-bottom: 8px;
+    font-size: 13px;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 1);
+    text-transform: uppercase;
+
+    @include on-tablet {
+      padding: 0 41px;
+      padding-bottom: 8px;
+    }
+
+    @include on-small-desktop {
+      padding: 0;
+      padding-bottom: 8px;
+    }
+  }
+
+  &__bottom-two-text {
+    padding: 0 20px;
+    padding-bottom: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.6px;
+    color: rgba(255, 255, 255, 1);
+
+    @include on-tablet {
+      padding: 0 41px;
+      padding-bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      padding: 0;
+      padding-bottom: 48px;
+    }
+  }
+
+  &__bottom-two-buttons {
+    padding: 0 20px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+
+    @include on-tablet {
+      padding: 0 41px;
+      padding-bottom: 16px;
+    }
+
+    @include on-small-desktop {
+      padding: 0;
+      padding-left: 78px;
+      padding-right: 24px;
+      padding-bottom: 66px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+      padding-left: 48px;
+      padding-right: 24px;
+      padding-bottom: 66px;
+    }
+  }
+
+  &__bottom-two-button {
+    margin-right: 16px;
+
+
+
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all $timeAnimation;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
