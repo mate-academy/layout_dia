@@ -1,0 +1,46 @@
+.page {
+  font-family: Poppins, serif;
+  color: $main-text-color-dark;
+  size: 16px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+    background: #f2f6fa;
+    box-sizing: border-box;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translate(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translate(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.aside-menu:target) {
+    overflow: hidden;
+  }
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+
+  @include on-tablet {
+    gap: 148px;
+  }
+}
