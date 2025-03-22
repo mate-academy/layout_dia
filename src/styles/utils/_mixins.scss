@@ -1,6 +1,112 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+$large: 2560px;
+$on-desktop: 1600px;
+$middle-desktop: 1280px;
+$small-desktop: 1024px;
+$small-desktop-less: 1023px;
+$tablet-above: 641px;
+$on-tablet: 640px;
+$on-tablet-less: 639px;
+$on-mobile: 320px;
+
+@mixin large {
+  @media (max-width: $large) {
+    @content;
   }
+}
+
+@mixin on-desktop {
+  @media (max-width: $on-desktop) {
+    @content;
+  }
+}
+
+@mixin middle-desktop {
+  @media (max-width: $middle-desktop) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (max-width: $small-desktop) {
+    @content;
+  }
+}
+
+@mixin small-desktop-less{
+  @media (max-width: $small-desktop-less) {
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (min-width: $tablet-above) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (max-width: $on-tablet) {
+    @content;
+  }
+}
+
+@mixin on-tablet-less {
+  @media (max-width: $on-tablet-less) {
+    @content;
+  }
+}
+
+@mixin on-mobile {
+  @media (max-width: $on-mobile) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include cursor;
+
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  border: none;
+  border-color: transparent;
+}
+
+@mixin flex-center($isInLine: false) {
+  @if $isInLine {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin cursor {
+  cursor: url(../images/mouse/mouse.svg), pointer;
 }

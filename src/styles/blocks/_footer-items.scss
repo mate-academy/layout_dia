@@ -1,0 +1,68 @@
+.footer-items {
+  background-color: $c-dark;
+  padding-bottom: 80px;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include on-tablet-less {
+      gap: 48px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: clamp(24px, 5vw, 64px);
+
+    @include on-tablet-less {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: $fw-popp-700;
+
+    @include hover {
+      transform: scale(1.1);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: $fw-popp-700;
+
+    @include hover {
+      transform: scale(1.1);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      width: 0;
+      height: 2px;
+      border-radius: 4px;
+      background-color: $c-blue;
+      transition-duration: inherit;
+    }
+  }
+}

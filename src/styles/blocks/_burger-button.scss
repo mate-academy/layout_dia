@@ -1,0 +1,41 @@
+.burger-button {
+  display: none;
+
+  @include small-desktop-less {
+    display: block;
+  }
+
+  @include reset-button;
+  @include square(36px);
+
+  margin-right: auto;
+  margin-left: 32px;
+  background-color: $c-dark;
+
+  position: relative;
+
+  &::after {
+    @include abs-center;
+
+    content: '';
+    width: 50%;
+    height: 3px;
+    top: 65%;
+    background-color: $c-fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 -8px $c-fff;
+  }
+
+  @include hover {
+    background-color: $c-gray;
+    border-radius: var(--border-radius);
+    color: $c-dark;
+
+    &::after {
+      content: '';
+      top: 65%;
+      background-color: $c-dark;
+      box-shadow: 0 -8px $c-dark;
+    }
+  }
+}
