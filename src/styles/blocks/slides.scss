@@ -1,0 +1,137 @@
+.slides {
+  position: relative;
+  grid-column: 1 / -1;
+  overflow: hidden;
+
+  @include on-small-desktop {
+    grid-column: 7 / 13;
+  }
+
+  &__fade {
+    height: 390px;
+    position: relative;
+
+    @include on-small-desktop {
+      height: 100%;
+    }
+  }
+
+  &__image {
+    display: block;
+    min-width: 100%;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    @include animate;
+    @include keyframes {
+      0% {
+        opacity: .4;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    /*&--gadget {
+      opacity: 0;
+    }
+
+    &--mac {
+      opacity: 0;
+    }
+
+    &--active {
+      opacity: 1;
+    }*/
+
+    @include on-small-desktop {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      border-radius: 30px 0;
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    z-index: 2;
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__arrows {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $button-color;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $header-footer-text-color;
+
+    &:hover {
+        background-color: $button-color;
+        color: $header-footer-text-color;
+      }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    padding: 0;
+    font-size: 13px;
+    color: $header-footer-text-color;
+    font-family: 'Poppins';
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    margin: 0 0 8px;
+    padding: 0;
+    color: $header-footer-text-color;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__circles {
+    margin: 2px 0;
+    gap: 8px;
+  }
+
+  &__dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+
+    &:hover, :active {
+      background-color: #717171;
+    }
+  }
+}
