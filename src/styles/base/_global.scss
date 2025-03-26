@@ -1,0 +1,63 @@
+:root {
+  --container-padding: 20px;
+
+  @include media-tablet {
+    --container-padding: 41px;
+  }
+
+  @include media-desktop {
+    --container-padding: 54px;
+  }
+}
+
+.page {
+  scroll-padding-top: 130px;
+  overflow-x: hidden;
+
+  &--no-scroll {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  &__body {
+    font-family: $font-family-base;
+    font-size: $font-size-text-base;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-text-base;
+    color: $color-text-base;
+
+    background-color: $color-body-bg;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: calc(
+    #{$container-max-width} + (var(--container-padding) * 2)
+  );
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.icon-bg {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-mask {
+  display: inline-block;
+
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+.section {
+  margin-bottom: 120px;
+
+  @include media-tablet {
+    margin-bottom: 148px;
+  }
+}
