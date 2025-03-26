@@ -1,6 +1,84 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'sass:list';
+
+@mixin font-face(
+  $font-name,
+  $file-path,
+  $weight: normal,
+  $style: normal
+) {
+  @font-face {
+    font-family: '#{$font-name}';
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    src:
+      url('../fonts/#{$file-path}.woff2') format('woff2'),
+      url('../fonts/#{$file-path}.woff') format('woff');
+  }
+}
+
+@mixin page-grid {
+  --page-grid-columns: 2;
+  --page-grid-column-gap: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(
+    var(--page-grid-columns),
+    1fr
+  );
+  column-gap: var(--page-grid-column-gap);
+
+  @include media-tablet {
+    --page-grid-columns: 6;
+    --page-grid-column-gap: 30px;
+  }
+
+  @include media-desktop {
+    --page-grid-columns: 12;
+    --page-grid-column-gap: 20px;
+  }
+
+  @include media-large {
+    --page-grid-column-gap: 30px;
+  }
+}
+
+@mixin media-tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-large {
+  @media (min-width: $large-breakpoint) {
+    @content;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin img-cover {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
   }
 }
