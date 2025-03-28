@@ -1,0 +1,198 @@
+.testimonials {
+  margin-bottom: 120px;
+
+  @include on-tablet {
+    margin-bottom: 148px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 151px;
+    margin-bottom: 181px;
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: $main-text-color-grey-titles;
+    letter-spacing: 3px;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: $main-text-accent;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      padding-bottom: 56px;
+      max-width:200px;
+    }
+
+    @include on-small-desktop {
+      padding-bottom: 85px;
+    }
+  }
+
+  &__cards-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+
+    @include on-tablet {
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: $main-text-color-white;
+    font-size: 13px;
+    border-radius: 16px;
+    padding: 32px 42px;
+    width: 100%;
+    font-weight: 600;
+
+    @include on-tablet {
+      width: calc(100% - 10px);
+      padding: 32px 98px;
+    }
+
+    @include on-small-desktop {
+      padding: 32px 48px;
+    }
+
+    @include on-desktop {
+      padding: 32px 56px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__image-wrapper {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 196px;
+    width: 196px;
+
+    @include on-tablet {
+      height: 250px;
+      width: 250px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: #2060F6;
+      border-radius: 12px;
+      z-index: 1;
+      transform: rotate(-60deg);
+    }
+
+    img {
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      height: 109px;
+      width: 109px;
+      z-index: 2;
+    }
+
+    &::before {
+      width: 109px;
+      height: 44px;
+      top: 48%;
+      left: 5px;
+      transform: translateY(-120%) rotate(-60deg);
+    }
+
+    &::after {
+      width: 109px;
+      height: 44px;
+      bottom: 48%;
+      right: 5px;
+      transform: translateY(120%) rotate(-60deg);
+    }
+
+    @include on-tablet {
+      img {
+        height: 140px;
+        width: 140px;
+      }
+
+      &::before,
+      &::after {
+      width: 140px;
+      height: 56px;
+      }
+
+      &::before {
+        left: 5px;
+        transform: translateY(-120%) rotate(-60deg);
+      }
+
+      &::after {
+        right: 5px;
+        transform: translateY(120%) rotate(-60deg)
+      }
+    }
+  }
+
+  &__symbol {
+    color: $blue-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 24px 8px;
+
+    &::before {
+      content: '';
+      background: url('../images/testimonials/symbol-icon.svg') no-repeat center / contain;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__description {
+    padding-bottom: 16px;
+    text-align: center;
+  }
+
+  &__name {
+    color: $main-text-accent;
+    padding-bottom: 4px;
+  }
+
+  &__occupation {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $main-text-color-grey-titles;
+  }
+}

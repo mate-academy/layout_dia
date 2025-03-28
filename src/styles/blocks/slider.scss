@@ -1,0 +1,121 @@
+.slider {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 380px;
+
+  @include on-small-desktop {
+    height: 80vh;
+    width: 100%;
+  }
+
+  &__images {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    &__img {
+      position: absolute;
+      max-height: 100%;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 30px;
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      @include on-small-desktop {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &--active {
+        position: relative;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    bottom: 24px;
+
+    @include on-tablet {
+      padding-inline: 41px;
+      bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      justify-content: space-between;;
+      gap: 24px;
+      align-items: center;
+      padding-inline: 78px;
+      bottom: 48px;
+    }
+
+    @include on-desktop {
+      padding-inline: 48px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    padding-bottom: 16px;
+    gap: 16px;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $main-text-color-white;
+    border-width: 0;
+    padding: 7px;
+    box-sizing: border-box;
+    outline: none;
+
+    &--left,
+    &--right {
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &--left {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &--right {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__text {
+    text-align: left;
+    color: $main-text-color-white;
+
+    &--title {
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding-bottom: 8px;
+    }
+
+    &--description {
+      line-height: 1.4;
+    }
+  }
+}

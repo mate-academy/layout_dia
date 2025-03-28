@@ -1,0 +1,56 @@
+.nav {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+
+    &--bottom {
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include on-small-desktop {
+        gap: 64px;
+      }
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: Poppins, sans-serif;
+    color: $main-text-color-white;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $blue-color;
+      position: absolute;
+      bottom: -8px;
+      border-radius: 4px;
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
