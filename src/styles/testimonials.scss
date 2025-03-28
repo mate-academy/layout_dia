@@ -1,0 +1,222 @@
+.testimonials {
+  @include on-desktoplittle {
+    transform: translateY(-39%);
+  }
+
+  @include on-desktopmiddle {
+    transform: translateY(-40%);
+  }
+
+  &__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    display: grid;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+    }
+
+    @include on-desktopmiddle {
+      column-gap: 30px;
+    }
+  }
+
+  &__cards {
+    grid-column: 1 / -1;
+    display: grid;
+    row-gap: 24px;
+
+    @include on-tablet {
+      row-gap: 30px;
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 20px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 25px;
+
+    @include on-desktopmiddle {
+      margin: 0 0 12px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 48px;
+    grid-column: span 2;
+    justify-self: left;
+
+    @include on-tablet {
+      text-align: left;
+      margin-bottom: 56px;
+      letter-spacing: -2px;
+      grid-column: span 2;
+    }
+
+    @include on-desktoplittle {
+      margin-bottom: 85px;
+      letter-spacing: 1px;
+      grid-column: span 3;
+    }
+
+    @include on-desktopmiddle {
+      letter-spacing: -2px;
+      grid-column: span 2;
+    }
+  }
+
+  &__card {
+    width: 280px;
+    justify-self: center;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    display: grid;
+
+    position: relative;
+
+    padding-block: 32px;
+    border-radius: 16px;
+    background-color: #fff;
+    transition: transform 0.5s;
+
+    &:hover {
+      @include hover(transform, scale(1.1));
+
+      box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+    }
+
+    @include on-tablet {
+      width: 558px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 30px;
+    }
+
+    @include on-desktoplittle {
+      width: 292px;
+    }
+
+    @include on-desktopmiddle {
+      width: 362px;
+    }
+
+    &::before {
+      content: url('../icon/quote.svg');
+      position: absolute;
+      bottom: 40%;
+      right: 45%;
+      width: 24px;
+      height: 24px;
+
+      @include on-tablet {
+        bottom: 31%;
+        right: 48%;
+      }
+
+      @include on-desktoplittle {
+        bottom: 40%;
+        right: 45%;
+      }
+
+      @include on-desktopmiddle {
+        bottom: 34%;
+        right: 46%;
+      }
+    }
+  }
+
+  &__img {
+    grid-column: span 2;
+    justify-self: center;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 58px;
+    transition: all 0.5s;
+
+    &:hover {
+      @include hover(transform, scale(1.1));
+    }
+
+    @include on-tablet {
+      justify-self: center;
+      grid-column: span 6;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 61px;
+    }
+
+    @include on-desktoplittle {
+      width: 196px;
+      height: 196px;
+      margin-bottom: 55px;
+    }
+
+    @include on-desktopmiddle {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__text {
+    grid-column: span 2;
+    position: relative;
+    margin: 0 auto 16px;
+    width: 200px;
+    height: 80px;
+    overflow-y: auto;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      width: auto;
+      height: 40px;
+    }
+
+    @include on-desktoplittle {
+      width: 200px;
+      height: 80px;
+    }
+
+    @include on-desktopmiddle {
+      width: 250px;
+      height: 64px;
+    }
+  }
+
+  &__name {
+    grid-column: span 2;
+    color: $main-title-color;
+    margin: 0;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+  }
+
+  &__role {
+    grid-column: span 2;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 3px;
+    color: #c0cdd7;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin-bottom: 5px;
+    }
+  }
+}
