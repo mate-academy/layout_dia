@@ -1,0 +1,121 @@
+.header {
+  &__slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border-radius: 40px;
+    transition: background-image 0.3s ease;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    @include on-tablet {
+      height: 100%;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      justify-content: flex-start;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .slider {
+    &__images {
+      width: auto;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      max-width: max-content;
+      position: relative;
+      left: 0;
+      display: flex;
+      transition: left $efferctDuration;
+    }
+
+    &__slide {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        display: block;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 24px;
+    justify-self: end;
+    position: absolute;
+
+    @include on-tablet {
+      margin: 41px 32px;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      margin-left: 0;
+      margin-bottom: 48px;
+      padding-left: 78px;
+      column-gap: 24px;
+      align-items: center;
+      align-self: flex-end;
+    }
+  }
+
+  &__bottom-text {
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+
+    @include on-tablet {
+      max-width: 280px;
+    }
+  }
+
+  &__bottom-title {
+    margin: 16px 0 8px;
+
+    @include on-desktop {
+      margin: 0 0 8px;
+    }
+  }
+
+  &__bottom-note {
+    margin: 0;
+  }
+
+  &__slider-buttons {
+    display: flex;
+    gap: 16px;
+    pointer-events: none;
+  }
+
+  &__slider-button {
+    display: flex;
+    border-radius: 50%;
+    border: 0 solid transparent;
+    background-color: transparent;
+    padding: 0;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: $efferctDuration;
+
+    @include hover(transform, scale(1.1));
+  }
+}

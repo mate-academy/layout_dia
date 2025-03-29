@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+}
+
+.page {
+  &__body {
+    scroll-behavior: smooth;
+    color: $main-text-color;
+    background: linear-gradient(to bottom, $c-gray 50%, $white-color 50%);
+    padding: auto;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.container {
+  @include content-padding-inline;
+}
+
+textarea {
+  all: unset;
+  box-sizing: content-box;
+}
+
+input::placeholder {
+  color: $white-color;
+}
+
+textarea::placeholder {
+  color: $white-color;
+}
