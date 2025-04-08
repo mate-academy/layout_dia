@@ -1,0 +1,55 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-small-desktop {
+      flex-direction: row;
+      gap: 48px;
+    }
+
+    &--bottom {
+      gap: 24px;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include on-small-desktop {
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    @include set-poppins-font(13px, 700);
+
+    line-height: 150%;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      @include create-line-after-text;
+
+      transform-origin: left;
+      transform: scale(0);
+      transition: transform $animation-speed;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

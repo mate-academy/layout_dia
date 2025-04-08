@@ -1,0 +1,93 @@
+.review {
+  @include hover(transform, scale(1.1));
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-block: 32px;
+  padding-inline: 42px;
+  border-radius: 16px;
+
+  text-align: center;
+
+  background-color: #fff;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  &__person {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include set-width-height(196px, 196px);
+
+    @include on-desktop {
+      @include set-width-height(250px, 250px);
+    }
+  }
+
+  &__photo {
+    z-index: 2;
+
+    @include set-width-height(109px, 109px);
+
+    border-radius: 50%;
+
+    @include on-desktop {
+      @include set-width-height(140px, 140px);
+    }
+  }
+
+  &__rectangle {
+    position: absolute;
+    z-index: 1;
+
+    @include set-width-height(109px, 44px);
+
+    border-radius: 12px;
+    background-color: $default-button-color;
+
+    @include on-desktop {
+      @include set-width-height(139px, 56px);
+    }
+
+    &--left {
+      bottom: 55%;
+      left: 10px;
+      transform: rotate(-60deg);
+    }
+
+    &--right {
+      top: 55%;
+      right: 10px;
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__description {
+    @include set-open-sans-font(13px, 600);
+
+    line-height: 150%;
+    color: $default-text-color;
+  }
+
+  &__name {
+    margin: 0;
+
+    @include set-open-sans-font(13px, 600);
+
+    line-height: 150%;
+    color: $section-title-color;
+  }
+
+  &__role {
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: #c0cdd7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}

@@ -1,6 +1,145 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-speed;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $large-screen-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  --padding-inline: 20px;
+
+  padding-inline: var(--padding-inline);
+
+  @include on-tablet {
+    --padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    --padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    --padding-inline: 227px;
+  }
+
+  @include on-large-screen {
+    --padding-inline: 707px;
+  }
+}
+
+@mixin create-line-after-text {
+  content: '';
+
+  position: absolute;
+  bottom: -8px;
+
+  display: block;
+
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+
+  background-color: #2060f6;
+}
+
+@mixin content-padding-left {
+  --padding-left: 20px;
+
+  padding-left: var(--padding-left);
+
+  @include on-tablet {
+    --padding-left: 41px;
+  }
+
+  @include on-small-desktop {
+    --padding-left: 54px;
+  }
+
+  @include on-desktop {
+    --padding-left: 227px;
+  }
+
+  @include on-large-screen {
+    --padding-left: 707px;
+  }
+}
+
+@mixin page-grid {
+  @include page-grid-with-gap(24px, 30px, 20px, 30px);
+}
+
+@mixin page-grid-no-gap {
+  @include page-grid-with-gap(0, 0, 0, 0);
+}
+
+@mixin page-grid-with-gap(
+  $mobile-gap,
+  $tablet-gap,
+  $small-desktop-gap,
+  $desktop-gap
+) {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: $mobile-gap;
+
+  @include on-tablet {
+    --columns: 6;
+
+    gap: $tablet-gap;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    gap: $small-desktop-gap;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    gap: $desktop-gap;
+  }
+}
+
+@mixin set-poppins-font($font-size, $font-weight) {
+  font-family: Poppins, sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+@mixin set-open-sans-font($font-size, $font-weight) {
+  font-family: OpenSans, sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+@mixin set-width-height($width, $height) {
+  width: $width;
+  height: $height;
 }

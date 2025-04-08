@@ -1,0 +1,99 @@
+.services {
+  padding-block: 120px;
+
+  @include on-tablet {
+    padding-block: 148px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 251px;
+    padding-bottom: 151px;
+  }
+
+  @include on-desktop {
+    padding-top: 251px;
+    padding-bottom: 148px;
+  }
+
+  &__wrapper {
+    @include page-grid-no-gap;
+
+    row-gap: 48px;
+
+    @include on-tablet {
+      row-gap: 56px;
+    }
+
+    @include on-small-desktop {
+      row-gap: 0;
+    }
+  }
+
+  &__content {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    line-height: 130%;
+  }
+
+  &__description {
+    margin: 0;
+
+    @include set-open-sans-font(14px, 400);
+
+    line-height: 150%;
+  }
+
+  &__cards {
+    @include page-grid;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-top: 36px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+      margin-top: 29px;
+    }
+  }
+
+  &__card {
+    grid-column: span 2;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      grid-column: span 3;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+
+      &:hover {
+        @include hover(transform, scale(1.1) translateY(0));
+
+        &:nth-child(2n) {
+          @include hover(transform, scale(1.1) translateY(-50%));
+        }
+      }
+    }
+
+    @include on-small-desktop {
+      grid-column: span 6;
+    }
+  }
+}
