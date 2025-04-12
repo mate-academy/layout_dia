@@ -1,0 +1,145 @@
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-inline: 42px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+
+  @include for-tablet {
+    padding-inline: 98px;
+  }
+
+  @include for-small-desktop {
+    padding-inline: 48px;
+    grid-column: span 4;
+    height: 456px;
+  }
+
+  &__image {
+    z-index: 10;
+    position: relative;
+    margin-bottom: 68px;
+    margin-top: 75px;
+
+    &::before {
+      content: "";
+      z-index: -1;
+      width: 56px;
+      height: 140px;
+      background-color: rgba(32, 96, 246, 1);
+      border-radius: 12px;
+      position: absolute;
+      top: -50px;
+      left: -46px;
+      transform: rotate(30deg);
+      transform-origin: 100% 100%;
+
+      @include for-small-desktop {
+        width: 44px;
+        height: 110px;
+        top: -36px;
+        left: -36px;
+      }
+    }
+
+    &::after {
+      content: "";
+      z-index: -1;
+      width: 56px;
+      height: 140px;
+      background-color: rgba(32, 96, 246, 1);
+      border-radius: 12px;
+      position: absolute;
+      bottom: -50px;
+      right: -46px;
+      transform: rotate(30deg);
+      transform-origin: 0 0;
+
+      @include for-small-desktop {
+        width: 44px;
+        height: 110px;
+        bottom: -36px;
+        right: -36px;
+      }
+    }
+  }
+
+  &__picture {
+    width: 140px;
+    height: 140px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+
+    @include for-small-desktop {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 8px 12px #2c2c2c;
+    transition: 0.3s;
+
+    .person__image::before {
+      transform: translateX(0) translateY(0);
+      transition: 0.3s;
+    }
+
+    .person__image::after {
+      transform: translateX(0) translateY(0);
+      transition: 0.3s;
+    }
+
+    .person__picture {
+      transform: scale(1.2);
+      transition: 0.3s;
+    }
+  }
+
+  &__quote {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/testimonials/testimonial-quote.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
+
+  &__paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    color: rgba(108, 120, 139, 1);
+  }
+
+  &__name {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  &__specialization {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: rgba(192, 205, 215, 1);
+    margin-bottom: 32px;
+  }
+}

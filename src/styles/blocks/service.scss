@@ -1,0 +1,107 @@
+.service {
+@include grid;
+
+  @include for-tablet {
+    grid-gap: 30px;
+  }
+
+  @include for-small-desktop {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    height: 264px;
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 1);
+    grid-column: span 2;
+    margin-bottom: 24px;
+
+    @include for-tablet {
+      grid-column: 1 / 4;
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    @include for-small-desktop {
+      width: auto;
+      grid-column: 7 / 10;
+      margin-bottom: 0;
+    }
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__number {
+    box-sizing: border-box;
+    padding: 2px 20px;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: rgba(233, 239, 254, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &--text {
+      font-family: Poppins, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19.5px;
+      text-align: center;
+      color: rgba(32, 96, 246, 1);
+    }
+  }
+
+  &__text {
+    margin-bottom: 32px;
+    width: 200px;
+  }
+
+  &__paragraph {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    color: rgba(108, 120, 139, 1);
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    width: 200px;
+
+    &--text {
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 22.5px;
+      text-align: center;
+      color: rgba(51, 69, 99, 1);
+    }
+  }
+
+  &--up {
+    @include for-tablet {
+      grid-column: 4 / 7;
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+      }
+    }
+
+    @include for-small-desktop {
+      grid-column: 10 / 13;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@use '../utils/mixins' as *;
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-block: 20px;
+
+
+  @include for-small-desktop {
+    padding-block: 48px;
+  }
+
+  @include padding-inline;
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__logo {
+    background-image: url(../images/logo/header-Air.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 28px;
+    width: 46px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__burger {
+    background-image: url(../images/logo/header-burger.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+
+    @include for-small-desktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include for-small-desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__paragraph {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+
+    @include hover (transform, scale(1.1));
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: rgba(32, 96, 246, 1);
+      position: absolute;
+      bottom: -8px;
+    }
+  }
+}
