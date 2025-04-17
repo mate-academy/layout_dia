@@ -1,0 +1,131 @@
+.person {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 75px;
+  padding-bottom: 16px;
+  background-color: $header-footer-text-color;
+  border-radius: 16px;
+  padding-inline: 42px;
+
+  @include on-tablet {
+    padding-top: 87px;
+    padding-inline: 98px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 75px;
+    padding-inline: 48px;
+  }
+
+  &__image {
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin: 0 auto 75px;
+
+    &::before {
+      content: '';
+      display: block;
+      z-index: -1;
+      width: 56px;
+      height: 140px;
+      background-color: $button-color;
+      border-radius: 12px;
+      position: absolute;
+      top: -30%;
+      left: -33%;
+      transform: rotate(30deg);
+      transition: transform 0.3s;
+      transform-origin: bottom right;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      z-index: -1;
+      width: 56px;
+      height: 140px;
+      background-color: $button-color;
+      border-radius: 12xp;
+      position: absolute;
+      border-radius: 12px;
+      top: 30%;
+      right: -33%;
+      transform: rotate(30deg);
+      transition: transform 0.3s;
+      transform-origin: top left;
+    }
+  }
+
+  &__picture {
+    width: 140px;
+    height: 140px;
+    object-position: top;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    box-shadow: 0 9px 18px #252931;
+    transition: 0.3s;
+
+    .person__image::before {
+      transform: rotate(0);
+    }
+
+    .person__image::after {
+      transform: rotate(0);
+    }
+  }
+
+  &__quote {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/testimonials/testimonial-quote.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto 16px;
+  }
+
+  &__description {
+    margin: 0 auto;
+  }
+
+  &__paragraph {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    color: $main-text-color;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  &__specializations {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 19.5px;
+    text-align: center;
+    color: $second-text-color;
+    margin: 0 auto;
+  }
+}
