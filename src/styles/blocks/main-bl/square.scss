@@ -1,0 +1,156 @@
+.squares {
+  display: grid;
+  gap: 20px;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  @include on-tablet {
+    gap: 30px;
+  }
+
+  @include on-small-desktop {
+    gap: 20px;
+  }
+
+  @include on-large-desktop {
+    gap: 30px;
+  }
+
+  &__square {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: span 1;
+    }
+
+    @include on-small-desktop {
+      justify-self: right;
+    }
+
+    &--to-top {
+      grid-column: 1/-1;
+
+      @include on-tablet {
+        grid-column: span 1;
+        transform: translateY(-50%);
+      }
+
+      @include on-small-desktop {
+        justify-self: left;
+      }
+    }
+  }
+}
+
+.square {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 32px;
+  background-color: #fff;
+  box-shadow: 0 9px 18px 0 #25293108;
+  border-radius: 16px;
+
+  @include on-small-desktop {
+    width: 264px;
+  }
+
+  @include hover(transform, scale(1.1));
+
+  &__number {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background-color: $c-gray;
+    margin-bottom: 24px;
+    position: relative;
+
+    @for $i from 1 through 4 {
+      &--00#{$i}::after {
+        position: absolute;
+        display: block;
+        margin: 0;
+        padding: 0;
+        top: 6px;
+        left: 11px;
+        content: '00#{$i}';
+
+        font-family: Poppins, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 100%;
+        letter-spacing: 0;
+
+        text-transform: uppercase;
+        color: #2060f6;
+      }
+    }
+  }
+
+  &__description {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 32px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 0;
+    color: #6c788b;
+  }
+
+  &__link {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+.link {
+  &__address {
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: #2060f6;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__img {
+    display: block;
+    box-sizing: border-box;
+    height: 16px;
+    width: 16px;
+  }
+
+  &__name {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    color: #334563;
+
+    @include hover(transform, scale(1.2));
+  }
+}
