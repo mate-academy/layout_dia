@@ -1,0 +1,41 @@
+.page {
+  background-color: $color-white-bg;
+  margin: 0;
+  min-width: 320px;
+  color: $color-white;
+  position: relative;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+
+    @include on-desktop {
+      overflow: visible;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    background-color: $color-black;
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

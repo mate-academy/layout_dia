@@ -1,0 +1,44 @@
+@mixin hover-button() {
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+  &:hover {
+    transform: scale(1.05);
+    background-color: $color-blue-hover;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: rgb(58, 158, 251);
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-xl {
+  @media (min-width: $desktop-xl-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    padding-inline: 54px;
+  }
+}
