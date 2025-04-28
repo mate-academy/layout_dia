@@ -1,0 +1,229 @@
+.cards {
+  grid-column: span 2;
+  row-gap: 24px;
+  padding-top: 48px;
+
+  @include on-tablet {
+    grid-column: span 6;
+    row-gap: 30px;
+  }
+
+  @include on-desktop {
+    grid-column: -1 / -7;
+    padding-top: 0;
+    row-gap: 20px;
+  }
+
+  @include card-grid;
+
+  &--testimonials {
+    @include page-grid;
+  }
+
+  &__card {
+    position: relative;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: $font-header-color;
+    transition: all 0.3s;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    &--group {
+      &-1 {
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      &-2 {
+        @include on-tablet {
+          @media (max-width: 1023px) {
+            transform: translateY(-30%);
+            &:hover {
+              transform: translateY(-30%) scale(1.1);
+            }
+          }
+        }
+
+        @include on-desktop {
+          transform: translateY(-50%);
+          &:hover {
+            transform: translateY(-50%) scale(1.1);
+          }
+        }
+      }
+    }
+
+    &--testimonials {
+      display: flex;
+      grid-column: span 2;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding-inline: 42px;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include on-tablet {
+        padding-inline: 0;
+      }
+
+      @include on-desktop {
+        grid-column: span 4;
+        padding-inline: 48px;
+      }
+
+      @include on-design {
+        padding-inline: 56px;
+      }
+    }
+  }
+
+  &__numbering {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 24px;
+    border-radius: 23px;
+    background: $card-number-bg-color;
+  }
+
+  &__number {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 100%;
+    text-align: center;
+    color: $card-number-color;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    text-align: left;
+
+    &--services {
+      width: max-content;
+    }
+
+    &--testimonials {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &__quotes {
+    width: 24px;
+    height: 24px;
+
+    font-size: 24px;
+    color: $card-quotes-color;
+  }
+
+  &__links {
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $card-number-color;
+      transition: transform 0.3s ease;
+      border-radius: 50%;
+    }
+
+    &:hover::before {
+      transform: scale(1.2);
+    }
+  }
+
+  &__button-icon {
+    z-index: 1;
+    pointer-events: none;
+    transition: none;
+  }
+
+  &__link-text {
+    padding: 8px 0;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0;
+    color: $card-link-text-color;
+  }
+
+  &__avatar {
+    width: 196px;
+    height: 196px;
+    justify-self: center;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+
+    &-text {
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    &-label {
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 100%;
+      letter-spacing: 3px;
+      text-align: center;
+      text-transform: uppercase;
+      color: $card-name-label-color;
+    }
+  }
+}
