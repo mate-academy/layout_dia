@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+}
+
+.page {
+  font-family: 'Open Sans', serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 150%;
+  color: $main-grey;
+  background-color: $page-bg;
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: 320px;
+    position: relative;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 300ms;
+    transform: translateX(-100%);
+  }
+
+  &:has(.page__menu:target) .page__menu {
+    pointer-events: all;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}
