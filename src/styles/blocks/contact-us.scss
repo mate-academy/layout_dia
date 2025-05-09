@@ -1,0 +1,228 @@
+.contact-us {
+  background-color: $darkgrey-color;
+  padding: 72px 0 80px;
+  border-radius: 30px 30px 0 0;
+
+  @include on-tablet {
+    padding: 180px 0 139px;
+    margin-top: -56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @include on-small-desktop {
+    padding: 180px 0 120px;
+  }
+
+  &__container {
+    @include page-grid;
+
+    row-gap: 80px;
+
+    @include on-tablet {
+      row-gap: 120px;
+    }
+  }
+
+  &__title {
+    font-family: Poppins, serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $white-color;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      line-height: 150%;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+
+    &--socials {
+      gap: 16px;
+      margin: 0 !important;
+    }
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__label {
+    font-family: Poppins, serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $white-color;
+    opacity: 50%;
+  }
+
+  &__value {
+    font-family: OpenSans, serif;
+    font-weight: 600;
+    font-size: 24px;
+    text-decoration: none;
+    line-height: 150%;
+    color: $white-color;
+    transition: color $effectDuration ease;
+
+    &:hover {
+      color: $light-blue-color;
+    }
+
+    @include on-small-desktop {
+      width: max-content;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__logo svg {
+    fill: $white-color;
+    transition: fill $effectDuration ease;
+
+    &:hover {
+      fill: $light-blue-color;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__form-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    margin-bottom: 56px;
+
+    @include on-tablet {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__field {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid $white-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1;
+      height: 1px;
+      width: 100%;
+      background-color: $blue-color;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $effectDuration ease;
+      z-index: 2;
+    }
+
+    &:focus-within::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__input {
+    all: unset;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    height: 41px;
+    padding-bottom: 17px;
+    color: $white-color;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: Poppins, serif;
+    line-height: 100%;
+    z-index: 3;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 50px $darkgrey-color;
+      -webkit-text-fill-color: $white-color;
+    }
+
+    &::placeholder {
+      font-family: Poppins, serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: $white-color;
+      opacity: 70%;
+    }
+
+    &--textarea {
+      resize: none;
+      overflow: hidden;
+      border: none;
+      border-bottom: none;
+
+      &:-webkit-autofill {
+        -webkit-box-shadow: inset 0 0 0 50px $darkgrey-color;
+        -webkit-text-fill-color: $white-color;
+      }
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    color: $white-color;
+    text-align: center;
+    border: none;
+    background-color: $blue-color;
+    width: 100%;
+    height: 56px;
+    border-radius: 8px;
+    font-family: Poppins, serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+
+    &:active {
+      background-color: $light-blue-color;
+    }
+
+    @include on-tablet {
+      width: 264px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-design {
+      grid-column: 8 / -1;
+    }
+  }
+}
