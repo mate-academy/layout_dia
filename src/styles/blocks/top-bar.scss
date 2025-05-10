@@ -1,0 +1,77 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 52px 0 48px;
+
+  @include r640 {
+    padding: 20px 0;
+  }
+
+  &__menu {
+    @include r640 {
+      display: none;
+    }
+  }
+
+  &__link {
+    @extend %poppins-700;
+
+    position: relative;
+    display: flex;
+    text-transform: uppercase;
+    color: white;
+    text-decoration-line: none;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 3px;
+
+    &::after {
+      @extend %link-after;
+
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__logo-link {
+    @include hover(opacity, 0.5);
+  }
+
+  &__mobile-menu-button {
+    display: none;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    margin-inline: 32px auto;
+
+    @include hover(transform, scale(1.1));
+
+    @include r640 {
+      display: inline-flex;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 18px;
+      background-color: white;
+    }
+
+    &::before {
+      top: 8px;
+      left: 3px;
+    }
+
+    &::after {
+      bottom: 8px;
+      left: 3px;
+    }
+  }
+}

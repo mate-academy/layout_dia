@@ -1,0 +1,81 @@
+.services-card {
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: white;
+
+  &__number {
+    @extend %poppins-600;
+
+    display: inline-block;
+    padding: 5px 12px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1;
+    color: $accent-color;
+    border-radius: 23px;
+    background-color: rgba(32, 96, 246, 0.1);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+  }
+
+  &__item {
+    @extend %open-sans-600;
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: $main-text-color;
+  }
+
+  &__button {
+    @extend %poppins-600;
+
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding: 8px 0 8px 56px;
+    text-decoration-line: none;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #334563;
+
+    &::before {
+      content: '';
+      background-image: url(../images/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      background-color: $accent-color;
+      border-radius: 50%;
+      left: 0;
+      transition: transform 0.3s;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 60%;
+      background-color: #334563;
+      left: 56px;
+      bottom: 5px;
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover::before {
+      transform: scale(1.1);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}

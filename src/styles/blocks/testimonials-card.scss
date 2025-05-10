@@ -1,0 +1,138 @@
+.testimonials-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 42px;
+  background-color: white;
+  border-radius: 16px;
+
+  @include r1024 {
+    padding: 32px 48px;
+  }
+
+  @include r320 {
+    padding: 32px 35px;
+  }
+
+  &__img-wrapper {
+    padding: 55px;
+    margin-bottom: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include r1024 {
+      padding: 45px;
+    }
+
+    @include r640 {
+      padding: 55px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $accent-color;
+      height: 139px;
+      width: 56px;
+      border-radius: 12px;
+      transform: rotate(30deg);
+
+      @include r1024 {
+        height: 109px;
+        width: 44px;
+      }
+
+      @include r640 {
+        height: 139px;
+        width: 56px;
+      }
+
+      @include r320 {
+        height: 109px;
+        width: 44px;
+      }
+    }
+
+    &::before {
+      left: 20%;
+      top: 5%;
+    }
+
+    &::after {
+      bottom: 5%;
+      right: 20%;
+    }
+  }
+
+  &__img {
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 1;
+    width: 100%;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+
+    @include r1024 {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include r640 {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include r320 {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  &__blockquote {
+    @extend %open-sans-600;
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: $main-text-color;
+    padding-top: 32px;
+    margin: 0 0 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../images/quotes.svg);
+      background-repeat: no-repeat;
+      height: 24px;
+      width: 24px;
+      top: 0;
+    }
+  }
+
+  &__name {
+    @extend %open-sans-600;
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: $title-color;
+    margin: 0 0 4px;
+  }
+
+  &__company {
+    @extend %poppins-700;
+
+    display: block;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 3px;
+    color: $secondary-text-color;
+    text-transform: uppercase;
+  }
+}
