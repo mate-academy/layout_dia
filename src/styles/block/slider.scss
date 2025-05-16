@@ -1,0 +1,124 @@
+.slider {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include on-desktop {
+    position: absolute;
+    width: 49vw;
+    top: 120px;
+    right: 0;
+  }
+
+  @include on-tv {
+    width: 45vw;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    display: none;
+    border-radius: 30px;
+    min-height: 390px;
+    max-height: 640px;
+    width: 100vw;
+    object-fit: cover;
+
+    @include on-desktop {
+      width: 49vw;
+      min-height: 680px;
+      border-radius: 0;
+      border-bottom-right-radius: 30px;
+      border-top-left-radius: 30px;
+    }
+
+    @include on-tv {
+      width: 45vw;
+    }
+  }
+
+  &__bottom {
+    padding-inline: 20px;
+
+    @include on-tablet {
+      padding-inline: 41px;
+    }
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+
+    @include on-desktop {
+      padding-left: 48px;
+    }
+
+    &__text {
+      font-family: Poppins, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 100%;
+      letter-spacing: 3px;
+      text-align: left;
+      text-transform: uppercase;
+      margin: 16px 0 8px;
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    &__description {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      margin: 0 0 24px;
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    &__icon {
+      cursor: pointer;
+      display: flex;
+      gap: 16px;
+
+      &__prev {
+        background-color: #fff;
+        height: 18px;
+        width: 18px;
+        padding: 7px;
+        border-radius: 50%;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      &__next {
+        background-color: #fff;
+        height: 18px;
+        width: 18px;
+        padding: 7px;
+        border-radius: 50%;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.block {
+  display: block;
+}
