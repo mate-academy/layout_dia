@@ -1,0 +1,109 @@
+.nav {
+  &__menu-btn {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    mask-image: url('../images/icons/menu.svg');
+    mask-size: contain;
+    background-color: $color-background-light;
+    transition: background-color $transition-time;
+
+    &:hover {
+      background-color: $color-btn-primary;
+    }
+
+    @include on-desktop-sm {
+      display: none;
+    }
+
+    &.is-open {
+      z-index: 4;
+
+      mask-image: url('../images/icons/close.svg');
+
+      position: absolute;
+      top: 20px;
+      left: 20px;
+
+      animation: fade-in-button $transition-time--menu + 0.2 ease-in-out;
+
+      @keyframes fade-in-button {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__menu-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    @include only-mobiles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $color-background-primary;
+      z-index: 3;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 60px 0 0;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-100%);
+
+      transition:
+        opacity $transition-time--menu ease-in-out,
+        visibility $transition-time--menu ease-in-out,
+        transform $transition-time--menu ease-in-out;
+    }
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &__menu-item {
+    margin: 0 0 26px;
+    list-style: none;
+
+    @include on-desktop-sm {
+      margin: 0 48px 0 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__menu-link {
+    @extend %menu-text;
+
+    text-decoration: none;
+
+    transition: color $transition-time;
+
+    &:hover {
+      color: $color-btn-primary;
+    }
+  }
+}

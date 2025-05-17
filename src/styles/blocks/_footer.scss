@@ -1,0 +1,289 @@
+.footer {
+  @include grid-layout;
+  @include padding-layout;
+
+  background-color: $color-background-primary;
+  padding-block: 72px 80px;
+  border-radius: 16px 16px 0 0;
+
+  .blue-version & {
+    border-radius: 0 200px 0 0;
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+
+    &--form {
+      width: 280px;
+      margin: 0 0 80px;
+
+      // border: 1px dotted red;
+      @include on-tablet {
+        width: 362px;
+        margin: 0 0 120px;
+      }
+
+      @include on-desktop-sm {
+        grid-column: 1 / 6;
+        width: 370px;
+        margin: 0 0 105px;
+      }
+
+      @include on-desktop {
+        width: 460px;
+      }
+    }
+    &--contact-us {
+      // display: none;
+      margin: 0 0 80px;
+
+      @include on-tablet {
+        margin: 0 0 140px;
+      }
+
+      @include on-desktop-sm {
+        grid-column: 7 / -1;
+        width: 362px;
+        margin: 0;
+      }
+
+      @include on-desktop-sm {
+        grid-column: 8 / -1;
+      }
+    }
+
+    &--menu {
+      @include on-desktop-sm {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $color-background-light;
+
+    margin: 0 0 48px;
+
+    @include on-tablet {
+      margin: 0 0 56px;
+    }
+  }
+
+  &__input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    color: $color-text-light;
+
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color-text-light;
+    width: 98%;
+    transition: border-color $transition-time ease;
+
+    &--name {
+      padding-top: 40px;
+
+      @include on-tablet {
+        padding-top: 48px;
+      }
+    }
+
+    &:hover {
+      border-color: $color-btn-primary-hover;
+      border-width: 2px;
+    }
+  }
+
+  &__textarea {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    resize: none;
+
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+
+    color: $color-text-light;
+    padding-block: 40px 4px;
+    border-bottom: 1px solid $color-text-light;
+    width: 98%;
+    transition: border-color $transition-time ease;
+
+    @include on-tablet {
+      padding-top: 48px;
+    }
+
+    &:hover {
+      border-color: $color-btn-primary-hover;
+      border-width: 2px;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 280px;
+    height: 56px;
+    border-radius: 8px;
+    background-color: $color-btn-primary;
+
+    text-decoration: none;
+
+    font-family: $font-primary;
+    font-weight: 600;
+    font-style: 15px;
+    line-height: 100%;
+    color: $color-text-light;
+
+    border: none;
+
+    transition: background-color $transition-time ease;
+
+    margin: 56px 0 0;
+
+    @include on-tablet {
+      width: 264px;
+      margin: 80px 0 0;
+    }
+
+    &:hover {
+      background-color: $color-btn-primary-hover;
+    }
+  }
+
+  &__invite {
+    @extend %text-place;
+
+    margin: 0 0 8px;
+
+    &:nth-of-type(3) {
+      margin: 0 0 16px;
+    }
+  }
+
+  &__contact {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: $color-text-light;
+
+    display: block;
+
+    text-decoration: none;
+    margin: 0 0 40px;
+
+    transition: color $transition-time ease;
+
+    @include on-tablet {
+      margin: 0 0 48px;
+    }
+
+    &:hover {
+      color: $color-btn-primary-hover;
+    }
+  }
+
+  &__social-media {
+    width: 32px;
+    height: 32px;
+
+    display: inline-block;
+    background-color: $color-background-light;
+
+    mask-size: contain;
+    mask-position: center;
+
+    transition: background-color $transition-time ease;
+
+    &--facebook {
+      mask-image: url('../images/icons/facebook.svg');
+    }
+
+    &--twitter {
+      mask-image: url('../images/icons/twitter.svg');
+      margin-inline: 32px;
+    }
+
+    &--instagram {
+      mask-image: url('../images/icons/instagram.svg');
+    }
+
+    &:hover {
+      background-color: $color-btn-primary-hover;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+
+    display: block;
+
+    mask-image: url('../images/logo/air-logo.svg');
+    background-color: $color-background-light;
+
+    margin: 0 0 48px;
+
+    transition: background-color $transition-time ease;
+
+    @include on-tablet {
+      margin: 0 0 24px;
+    }
+
+    @include on-desktop-sm {
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: $color-btn-primary-hover;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    @extend %text-place;
+
+    color: $color-text-light;
+
+    margin: 0 0 24px;
+    text-decoration: none;
+
+    @include on-tablet {
+      margin: 0 40px 0 0;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    transition: color $transition-time ease;
+
+    &:hover {
+      color: $color-btn-primary-hover;
+    }
+  }
+}

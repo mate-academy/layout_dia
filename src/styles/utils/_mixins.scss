@@ -4,3 +4,93 @@
     #{$_property}: $_toValue;
   }
 }
+
+// #region Screens
+@mixin on-mobile {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop-sm {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on-desktop-xl {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin only-mobiles {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+// #endregion
+
+// #region Grid Layout
+@mixin grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 68px);
+    column-gap: 30px;
+  }
+
+  @include on-desktop-sm {
+    grid-template-columns: repeat(12, 58px);
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 68px);
+    column-gap: 30px;
+  }
+
+  @include on-desktop-xl {
+    grid-template-columns: repeat(12, 68px);
+  }
+}
+
+// #endregion
+
+// #region Padding-Inline
+@mixin padding-layout {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop-sm {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    padding-inline: 227px;
+  }
+
+  @include on-desktop-xl {
+    padding-inline: 707px;
+  }
+}
+
+// #endregion

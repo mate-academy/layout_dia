@@ -1,0 +1,345 @@
+.testimonials {
+  @include grid-layout;
+  @include padding-layout;
+
+  padding-bottom: 120px;
+
+  @include on-tablet {
+    padding-bottom: 148px;
+  }
+
+  @include on-desktop-sm {
+    padding-bottom: 186px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 148px;
+  }
+
+  &__place {
+    @extend %text-place;
+
+    grid-column: 1 / -1;
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    @extend %title;
+
+    line-height: 150%;
+    grid-column: 1 / -1;
+    margin: 0 0 48px;
+
+    @include on-tablet {
+      margin: 0 0 56px;
+    }
+
+    @include on-desktop-sm {
+      margin: 0 0 85px;
+    }
+  }
+
+  &__title-break {
+    display: none;
+
+    @include on-desktop-sm {
+      display: inline;
+    }
+  }
+
+  &__cards {
+    @include on-desktop-sm {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: subgrid;
+    }
+  }
+
+  &__text {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $color-text-primary;
+
+    width: 196px;
+    text-align: center;
+    margin: 0 0 16px;
+
+    @include on-tablet {
+      width: 362px;
+    }
+
+    @include on-desktop-sm {
+      width: 196px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+    }
+  }
+
+  &__location {
+    @extend %text-place;
+
+    margin: 0;
+  }
+
+  &__card {
+    width: 280px;
+    height: 456px;
+
+    background-color: $color-background-light;
+    box-shadow: 0 9 18 0 rgba(37, 41, 49, 0.03);
+    box-sizing: border-box;
+    border-radius: 16px;
+
+    padding-block: 32px;
+    padding-inline: 42px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 0 24px;
+
+    transition:
+      transform $transition-time ease-in-out,
+      box-shadow $transition-time ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 32px 0 rgba(32, 96, 246, 0.22);
+    }
+
+    &--001 {
+      @include on-desktop-sm {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &--002 {
+      @include on-desktop-sm {
+        grid-column: 5 / 9;
+      }
+      .testimonials__text {
+        margin: 0 0 32px;
+      }
+
+      .testimonials__location {
+        white-space: nowrap;
+      }
+    }
+
+    .blue-version &--001:hover {
+      box-shadow: 0 16px 32px 0 rgba(86, 204, 242, 0.22);
+    }
+
+    .blue-version &--002:hover {
+      box-shadow: 0 16px 32px 0 rgba(252, 195, 4, 0.22);
+    }
+
+    .blue-version &--003:hover {
+      box-shadow: 0 16px 32px 0 rgba(242, 86, 86, 0.22);
+    }
+
+    @include on-tablet {
+      width: 558px;
+      height: 478px;
+
+      padding-inline: 98px;
+      margin: 0 0 30px;
+    }
+
+    @include on-desktop-sm {
+      width: 292px;
+      height: 456px;
+
+      padding-inline: 48px;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      width: 362px;
+      height: 494px;
+
+      padding-inline: 56px;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__photo-container {
+    width: 196px;
+    height: 196px;
+    margin: 0 0 24px;
+    align-content: center;
+    position: relative;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-desktop-sm {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+      height: 250px;
+    }
+
+    .blue-version &--001::before,
+    .blue-version &--001::after {
+      background-color: $color-vivid-sky-blue;
+    }
+
+    .blue-version &--002::before,
+    .blue-version &--002::after {
+      background-color: $color-jonquil;
+    }
+
+    .blue-version &--003::before,
+    .blue-version &--003::after {
+      background-color: $color-bittersweet;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 38px;
+      left: 6px;
+      width: 109px;
+      height: 44px;
+      transform: rotate(-60deg);
+      border-radius: 16px;
+      background-color: $color-btn-primary;
+      z-index: 1;
+
+      @include on-tablet {
+        width: 140px;
+        height: 56px;
+      }
+
+      @include on-desktop-sm {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include on-desktop {
+        width: 140px;
+        height: 56px;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 38px;
+      right: 6px;
+      width: 109px;
+      height: 44px;
+      transform: rotate(-60deg);
+      border-radius: 16px;
+      background-color: $color-btn-primary;
+      z-index: 1;
+
+      @include on-tablet {
+        width: 140px;
+        height: 56px;
+      }
+
+      @include on-desktop-sm {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include on-desktop {
+        width: 140px;
+        height: 56px;
+      }
+    }
+  }
+
+  &__photo {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+    border: 1px solid $color-malachite;
+
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+
+    position: relative;
+    z-index: 2;
+
+    &--001 {
+      background-image: url('../images/testimonials/testimonial-ava-1.png');
+    }
+
+    &--002 {
+      background-image: url('../images/testimonials/testimonial-ava-2.png');
+    }
+
+    &--003 {
+      background-image: url('../images/testimonials/testimonial-ava-3.png');
+    }
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-desktop-sm {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include on-desktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__comma {
+    width: 24px;
+    height: 24px;
+
+    display: block;
+    mask-image: url('../images/icons/comma.png');
+    mask-size: contain;
+
+    background-color: $color-btn-primary;
+    margin: 0 0 8px;
+
+    .blue-version &--001 {
+      background-color: $color-vivid-sky-blue;
+    }
+
+    .blue-version &--002 {
+      background-color: $color-jonquil;
+    }
+
+    .blue-version &--003 {
+      background-color: $color-bittersweet;
+    }
+  }
+
+  &__name {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: $color-text-title;
+
+    margin: 0 0 4px;
+  }
+}

@@ -1,7 +1,9 @@
 # Dia landing page
+
 Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35) - Use BEM and SCSS
 
 Adapt the page to the following screens:
+
 - Large screens 2560px
 - The design 1600px
 - Desktop 1280px
@@ -21,7 +23,7 @@ Adapt the page to the following screens:
 6. Implement `Testimonials` block.
      - each card should have a fixed width and on the small screens the whole block should switch to column layout
 8. Implement `Vision, Passion, Results` block.
-    - use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
+    - use <https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png> as background picture
 9. Implement `Send us  a message` block.
 10. Implement `Contact us` block.
 11. Implement the footer.
@@ -50,8 +52,8 @@ Adapt the page to the following screens:
 21. The user must have the opportunity to conveniently write 2-3 lines of text in the message field
 22. OPTIONAL: After everything is done, you can implement the slider on the hero page (you can find images for it on Unsplash)
 
-
 ## Github flow
+
 1. **Fork** the repo.
 2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
 3. Run `npm install` (or just `npm i`).
@@ -65,7 +67,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://alexandre-a11.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
