@@ -1,0 +1,107 @@
+footer {
+  box-sizing: border-box;
+  padding: 20px 54px 80px;
+  background-color: #2c2c2c;
+  margin-top: -1px;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.footer__content {
+  display: grid; /* Используем Grid для гибкого размещения */
+  grid-template-columns: 1fr; /* По умолчанию для мобильных: одна колонка */
+  gap: 24px; /* Отступ между элементами */
+  align-items: center; /* Выравнивание по центру по вертикали */
+  padding: 18px 0 0;
+  max-width: 1146px;
+}
+
+/* На планшетах и выше (min-width: 640px), если требуется другое расположение, но ваш nav-list-bottom уже имеет flex-direction: row, поэтому для footer__content пока оставим так же */
+
+// @media (min-width: 640px) {
+//   .footer__content {
+//     grid-template-columns: auto 1fr;
+//     justify-content: space-between;
+//   }
+// }
+
+@media (min-width: 1024px) {
+  .footer__content {
+    margin: 0 auto;
+    grid-template-columns: auto 1fr; /* На десктопе: логотип (авто) и навигация (1fr) */
+    justify-content: space-between; /* Распределяет пространство между логотипом и навигацией */
+    padding: 18px 0 0; /* Или скорректируйте по макету */
+  }
+}
+
+.bottom-bar__logo {
+  width: 46px; /* Базовый размер */
+  height: 28px; /* Базовый размер */
+  transition: transform 0.3s ease; /* Добавим плавность для hover */
+}
+
+@media (min-width: 640px) {
+  .bottom-bar__logo {
+    height: 24px; /* Размер на планшетах */
+    width: auto; /* Позволим ширине подстраиваться */
+  }
+}
+
+.bottom-bar__logo-link {
+  display: flex;
+}
+
+.bottom-bar__logo-link:hover .bottom-bar__logo {
+  transform: scale(1.2);
+}
+
+.nav-list-bottom {
+  padding-top: 48px; /* Отступ сверху для мобильных */
+  display: flex;
+  flex-direction: column; /* По умолчанию вертикально */
+  list-style: none;
+  gap: 64px; /* Отступ между элементами списка */
+  margin: 0;
+  align-items: flex-start; /* Выравнивание элементов по левому краю */
+}
+
+@media (min-width: 640px) {
+  .nav-list-bottom {
+    flex-direction: row; /* На планшетах и выше: горизонтально */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding-top: 24px;
+    padding-left: 0; /* Уберем отступ сверху, так как теперь он будет рядом с логотипом */
+    justify-content: space-between; /* Выравнивание элементов навигации по правому краю в гриде */
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-list-bottom {
+    flex-direction: row; /* На планшетах и выше: горизонтально */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding-top: 24px;
+    padding-left: 0; /* Уберем отступ сверху, так как теперь он будет рядом с логотипом */
+    justify-content: flex-end; /* Выравнивание элементов навигации по правому краю в гриде */
+  }
+}
+
+.nav-item-bottom {
+  padding-top: 0;
+}
+
+.nav__link-bottom {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.3s ease; /* Добавим плавность для hover */
+}
+
+.nav__link-bottom:hover {
+  color: #144ed4; /* Цвет при наведении */
+}
