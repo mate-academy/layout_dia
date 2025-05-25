@@ -3,9 +3,17 @@
 @use '../../fonts';
 
 .about {
-  grid-column: -1 / 1;
+  @include media.grid;
+  @include media.grid-640;
+  @include media.grid-1024;
+  @include media.grid-1600;
+  @include media.grid-2560;
+
+  grid-column: 1 / -1;
 
   &__title {
+    grid-column: 1 / -1;
+
     margin-top: 120px;
 
     @include fonts.f32w600h150;
@@ -14,6 +22,8 @@
   }
 
   &__text {
+    grid-column: 1 / -1;
+
     margin: 24px 0 120px;
 
     @include fonts.f22w600h150;
@@ -41,6 +51,14 @@
   }
 
   @include media.grid-1024 {
-    grid-column: 3/11;
+    &__text {
+      grid-column: 2 / span 10;
+    }
+  }
+
+  @include media.grid-1600 {
+    &__text {
+      grid-column: 3 / span 9;
+    }
   }
 }
