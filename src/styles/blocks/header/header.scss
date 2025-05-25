@@ -8,6 +8,7 @@
   @include media.grid-640;
   @include media.grid-1024;
   @include media.grid-1600;
+  @include media.grid-2560;
 
   grid-template-rows: 68px 1fr;
 
@@ -216,10 +217,11 @@
 
       &-title {
         grid-column: 1 / 4;
+        margin-top: 164px;
       }
 
       &-text {
-        grid-column: 1 / 7;
+        grid-column: 1 / 6;
 
         margin-top: 32px;
         margin-bottom: 83px;
@@ -227,7 +229,6 @@
 
       &-btn {
         grid-column: 1 / 5;
-
         margin-bottom: 205px;
       }
     }
@@ -260,9 +261,35 @@
     }
   }
 
-  @include media.grid-1024 {
-    .photoslider {
-      width: calc(100% + media.$grid-desktop-side-gap-1600);
+  @include media.grid-1600 {
+    &__content {
+      &-title {
+        grid-column: 1 / 3;
       }
+
+      &-text {
+        grid-column: 1 / 5;
+
+        margin-top: 32px;
+        margin-bottom: 83px;
+      }
+
+      &-btn {
+        grid-column: 1 / 4;
+        margin-bottom: 205px;
+      }
+    }
+
+    .photoslider {
+      grid-column: 8 / span 5;
+
+      width: calc(100% + media.$grid-desktop-side-gap-1600);
+    }
+  }
+
+  @include media.grid-2560 {
+   .photoslider {
+      width: calc(100% + media.$grid-desktop-2k-side-gap-2560);
+    }
   }
 }

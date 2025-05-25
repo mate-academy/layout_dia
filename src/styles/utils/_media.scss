@@ -3,6 +3,7 @@ $grid-tablet-gap: 24px;
 $grid-tablet-side-gap: 41px;
 $grid-desktop-side-gap-1024: 54px;
 $grid-desktop-side-gap-1600: 207px;
+$grid-desktop-2k-side-gap-2560: 707px;
 
 @mixin grid-640() {
   @media (min-width: 640px) {
@@ -18,6 +19,12 @@ $grid-desktop-side-gap-1600: 207px;
 
 @mixin grid-1600() {
   @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin grid-2560() {
+  @media (min-width: 2560px) {
     @content;
   }
 }
@@ -51,5 +58,12 @@ $grid-desktop-side-gap-1600: 207px;
 
     padding-left: $grid-desktop-side-gap-1600;
     padding-right: $grid-desktop-side-gap-1600;
+  }
+
+  @include grid-2560 {
+    grid-template-columns: repeat(12, 1fr);
+
+    padding-left: $grid-desktop-2k-side-gap-2560;
+    padding-right: $grid-desktop-2k-side-gap-2560;
   }
 }
