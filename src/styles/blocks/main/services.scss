@@ -30,10 +30,13 @@
   &__text {
     grid-column: 1 / -1;
 
-    margin-bottom: 48px;
     color: vars.$article-dark-text;
 
     @include fonts.f22w600h150;
+
+    &--second {
+      margin-bottom: 48px;
+    }
   }
 
   &__window {
@@ -45,13 +48,18 @@
 
     padding: 32px;
 
-    &:not(:first-child) {
-      margin-top: 24px;
-    }
+    margin-top: 0;
+
   }
 
   .windows {
     grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+    gap: media.$grid-tablet-gap;
   }
 
   .window {
@@ -85,6 +93,8 @@
 
       align-items: center;
 
+      margin: 0;
+
       &-arrow {
         width: 40px;
         height: 40px;
@@ -107,7 +117,127 @@
 
   @include media.grid-640 {
     &__title {
-      grid-column: 1 / 2;
+      grid-column: 1 / 4;
+
+      &-subtitle {
+        grid-column: 1 / 4;
+
+        margin-top: 147px;
+      }
+    }
+
+    &__text {
+      grid-column: 1 / 4;
+
+      margin-bottom: 24px;
+
+      &--second {
+        margin-bottom: 74px;
+      }
+    }
+
+    .windows {
+      grid-column: 1 / -1;
+
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, auto);
+
+      gap: media.$grid-tablet-gap;
+    }
+
+    &__window {
+      margin-top: 0;
+
+      &--1 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 4;
+      }
+
+      &--2 {
+        grid-row: 2 / 3;
+        grid-column: 1 / 4;
+      }
+
+      &--3 {
+        grid-row: 1 / 2;
+        grid-column: 4 / 7;
+
+        position: relative;
+        top: -205px;
+      }
+
+      &--4 {
+        grid-row: 1 / 2;
+        grid-column: 4 / 7;
+
+        position: relative;
+        top: 90px;
+      }
+    }
+  }
+
+  @include media.grid-1024 {
+    &__title {
+      grid-column: 1 / 6;
+
+      &-subtitle {
+        grid-column: 1 / 6;
+
+        margin-top: 251px;
+      }
+    }
+
+    &__text {
+      grid-column: 1 / 6;
+
+      margin-bottom: 24px;
+
+      &--second {
+        margin-bottom: 0;
+      }
+    }
+
+    .windows {
+      grid-column: 7 / 13;
+
+      margin: 0;
+
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+
+      column-gap: media.$grid-tablet-gap;
+    }
+
+    .window {
+      &__text {
+        margin-top: 24px;
+        margin-bottom: 28px;
+      }
+    }
+
+    &__window {
+      grid-column: 1 / -1;;
+
+      padding: 20px;
+
+      &--1 {
+        grid-column: 1 / 4;
+      }
+
+      &--2 {
+        grid-column: 1 / 4;
+      }
+
+      &--3 {
+        grid-column: 4 / 7;
+
+        top: -168px;
+      }
+
+      &--4 {
+        grid-column: 4 / 7;
+      }
     }
   }
 }
