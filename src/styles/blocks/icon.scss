@@ -1,0 +1,76 @@
+.icon {
+  --size: 24px;
+
+  width: var(--size);
+  height: var(--size);
+  background-size: var(--size) var(--size);
+  background-repeat: no-repeat;
+
+  @include hover(transform, scale(1.2));
+
+  &--burger {
+    background-image: url(../icons/burger.svg);
+
+    @include on-small-desctop {
+      display: none;
+    }
+  }
+
+  &--close {
+    background-image: url(../icons/close.svg);
+  }
+
+  &--arrow {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+  }
+
+  &--arrow-left {
+    background-image: url(../icons/arrow-left.svg);
+  }
+
+  &--arrow-right {
+    background-image: url(../icons/arrow-right.svg);
+  }
+
+  &--quotes {
+    background-image: url(../icons/quotes.svg);
+  }
+
+  &--footer {
+    --size: 32px;
+    --url: url('/src/icons/facebook.svg');
+
+    position: relative;
+    color: $icon-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      mask-image: var(--url);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      transition: background-color 0.3s;
+    }
+
+    &:hover::before {
+      background-color: $icon-hover-color;
+    }
+  }
+
+  &--twitter {
+    --url: url('/src/icons/twitter.svg');
+  }
+
+  &--instagram {
+    --url: url('/src/icons/instagram.svg');
+  }
+}

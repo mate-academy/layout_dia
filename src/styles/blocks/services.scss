@@ -1,0 +1,49 @@
+.services {
+  @include page-grid;
+
+  row-gap: 48px;
+  counter-reset: block-counter 0;
+
+  &__text-content {
+    display: grid;
+    row-gap: 24px;
+    grid-column: 1/ -1;
+
+    @include on-tablet {
+      --span-column: 3;
+
+      width: fit-content;
+      height: fit-content;
+      grid-column: 1 / span var(--span-column);
+    }
+
+    @include on-small-desctop {
+      --span-column: 4;
+
+      transform: translateY($card-shifting);
+    }
+  }
+
+  &__carts {
+    --column: 1;
+
+    display: grid;
+    grid-template-columns: repeat(var(--column), minmax(214px, 280px));
+    justify-items: center;
+    justify-content: center;
+    row-gap: 24px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      --column: 2;
+
+      gap: 30px;
+      grid-template-rows: repeat(2, 264px) 132px;
+    }
+
+    @include on-small-desctop {
+      transform: none;
+      grid-column: 7/-1;
+    }
+  }
+}

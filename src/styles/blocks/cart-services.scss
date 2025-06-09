@@ -1,0 +1,66 @@
+.cart-services {
+  counter-increment: block-counter;
+  background-color: $services-cart-bg;
+  display: grid;
+  row-gap: 32px;
+  max-width: 280px;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @include hover(transform, scale(1.1));
+
+  @include on-tablet {
+    &:nth-child(odd) {
+      transform: translateY($card-shifting);
+
+      &:hover {
+        transform: translateY($card-shifting) scale(1.1);
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+
+    &::before {
+      content: '00' counter(block-counter);
+      display: block;
+      position: relative;
+      border-radius: 23px;
+      left: 0;
+      padding: 2px 12px;
+      width: fit-content;
+      margin-bottom: 24px;
+      text-align: center;
+      color: $services-text-psevdoElement-color;
+      background-color: rgba($services-text-psevdoElement-color, 0.1);
+    }
+  }
+
+  &__button {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: relative;
+      border-radius: 50%;
+      left: 0;
+      width: 40px;
+      aspect-ratio: 1/1;
+      margin-right: 16px;
+      background-image: url(../icons/arrow-services.png);
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $button-color;
+      transition: all 0.3s;
+    }
+
+    &:hover::before {
+      transform: scale(1.2);
+      background-color: $button-hover-color;
+      transition: all 0.3s;
+    }
+  }
+}

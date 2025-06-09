@@ -1,0 +1,56 @@
+.page {
+  font-family: 'Poppins ', sans-serif;
+  color: $header-footer-text-color;
+  font-weight: 400;
+  font-size: $root-font-size;
+  background-color: $main-bg;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    display: grid;
+    min-width: 320px;
+    margin: 0;
+
+    counter-increment: block-counter;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 10;
+    overflow-x: hidden;
+
+    transition: all 0.3s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: 48px;
+    color: white;
+
+    @include on-tablet {
+      gap: 147px;
+    }
+
+    @include on-small-desctop {
+      flex-direction: row;
+      gap: 0;
+      max-height: 680px;
+    }
+  }
+}
