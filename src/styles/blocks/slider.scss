@@ -1,0 +1,124 @@
+.slider {
+  box-sizing: border-box;
+  width: 100%;
+  height: 390px;
+
+  @include onDesktop {
+    width: 50vw;
+    height: 680px;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    border-top-left-radius: 200px;
+    transition: opacity 0.3s;
+    animation: slider-animation 9s infinite;
+  }
+
+  &__image:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &__image:nth-child(2) {
+    animation-delay: 3s;
+  }
+  &__image:nth-child(3) {
+    animation-delay: 6s;
+  }
+
+  @keyframes slider-animation {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    /*40% { opacity: 0; }
+  100% { opacity: 0; } */
+  }
+
+  &__content--bottom {
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 20px 24px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+
+    @include onTablet {
+      margin: 0 0 32px 41px;
+    }
+
+    @include onDesktop {
+      margin: 0 0 48px 78px;
+    }
+
+    @include onBigDesktop {
+      margin: 0 0 48px 48px;
+    }
+  }
+
+  &__navigation {
+    gap: 16px;
+    display: flex;
+  }
+
+  &__button {
+    cursor: pointer;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__button--left {
+    background-image: url(../images/icons/arrow-left.png);
+  }
+  &__button--right {
+    background-image: url(../images/icons/arrow-right.png);
+    left: 50px;
+  }
+
+  &__description {
+    color: #fff;
+    flex-direction: column;
+    gap: 8px;
+    display: flex;
+  }
+
+  &__description--title {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  &__description--text {
+    margin: 0;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}

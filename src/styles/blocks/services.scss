@@ -1,0 +1,114 @@
+.services {
+  padding-block: 120px;
+
+  @include onTablet {
+    padding-block: 148px;
+  }
+
+  @include onDesktop {
+    padding-top: 251px;
+    padding-bottom: 151px;
+  }
+
+  @include onBigDesktop {
+    padding-bottom: 148px;
+  }
+
+  &__wrapper {
+    --columns: 2;
+    display: grid;
+    gap: 48px;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablet {
+      --columns: 6;
+      row-gap: 56px;
+      gap: 0;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      gap: 0;
+      row-gap: 0;
+    }
+  }
+
+  &__content {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__title {
+    margin: 16px 0 24px;
+    line-height: 130%;
+  }
+
+  &__description {
+    margin: 0;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__cards {
+    --columns: 2;
+    display: grid;
+    gap: 24px;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablet {
+      --columns: 6;
+      gap: 30px;
+      margin-top: 36px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      gap: 20px;
+      grid-column: 7 / -1;
+      margin-top: 29px;
+    }
+
+    @include onBigDesktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    grid-column: span 2;
+    transition: transform 0.3s ease;
+
+    @include onTablet {
+      grid-column: span 3;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+
+        &:hover {
+          transform: translateY(-50%) scale(1.08);
+        }
+      }
+
+      &:nth-child(2n + 1):hover {
+        transform: scale(1.08);
+      }
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
