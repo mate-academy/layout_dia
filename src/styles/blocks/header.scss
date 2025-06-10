@@ -1,172 +1,82 @@
 .header {
-  /*display: none !important;*/
-  box-sizing: border-box;
-  height: 100vh;
-  background-color: #008AFF;
-  background-size: cover;
+  /* display: none !important; */
+  background-color: #008aff;
+  border-bottom-left-radius: 200px;
 
-&__middle {
-  margin: 0;
-  padding: 0 19px 0 21px;
-}
+  &__bottom {
+    align-items: center;
 
-&__title {
-  margin: 0;
-  padding-bottom: 32px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 52px;
-  font-weight: 600;
-  line-height: 62.4px;
-  letter-spacing: -2px;
-  color: #fff;
-}
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 106px;
+    }
 
-&__title-description {
-  margin: 0;
-  padding-bottom: 72px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  color: #fff;
-}
+    @include onBigDesktop {
+      gap: 196px;
+    }
+  }
 
-.button--first {
-  width: 280px;
-  height: 50px;
-  top: 309px;
-  border-radius: 8px;
-  background-color: #FF9C8E;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22.5px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
+  &__info {
+    color: #fff;
+    padding-right: 0;
+    margin-bottom: 48px;
+    @include contentPaddingLeft;
+  }
 
-.button--first:hover {
-  background-color: #FFA99D;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-}
+  &__info-title {
+    margin: 0;
+    padding-bottom: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 62.4px;
+    letter-spacing: -2px;
 
-.button--first:active {
-  background-color: #FFB7AB;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+    @include onTablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
 
-&__bottom {
-  display: flex;
-  padding-top: 48px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #008AFF;
-}
+  &__info-description {
+    margin: 0;
+    padding-bottom: 72px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
 
-&__slider {
-  position: relative;
-  width: 320px; /* Ширина під розмір картинок */
-  height: 390px; /* Фіксована висота */
-  overflow: hidden;
-  border-radius: 30px;
-}
+    @include onTablet {
+      width: 362px;
+    }
+  }
 
-&__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
-  object-fit: cover;
-  opacity: 0;
-  animation: sliderAnimation 9s infinite;
-}
+  &__info-button {
+    width: 280px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #ff9c8e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-/* Задаємо анімацію кожному зображенню */
-&__image:nth-child(1) {
-  animation-delay: 0s;
-}
-&__image:nth-child(2) {
-  animation-delay: 3s;
-}
-&__image:nth-child(3) {
-  animation-delay: 6s;
-}
+  &__info-button:hover {
+    background-color: #ffa99d;
+    box-shadow: 6px 10px rgba(0, 0, 0, 0.15);
+  }
 
-/* Анімація плавної зміни */
-@keyframes sliderAnimation {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.button--left,
-.button--right {
-  display: flex;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  bottom: 82px;
-  background-color: #fff;
-  border: none;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.button--left {
-  background-image: url(../images/icons/arrow-left.png);
-}
-.button--right {
-  background-image: url(../images/icons/arrow-right.png);
-  left: 50px; /* відступ від лівої кнопки */
-}
-
-.button--left:hover,
-.button--right:hover {
-    background-color: #fff; /* Суцільний білий при наведенні */
-    transform: scale(1.1); /* Збільшення кнопки */
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.button--left:active,
-.button--right:active {
-    transform: scale(0.95); /* Легке зменшення при натисканні */
-    transition: transform 0.1s ease-in-out;
-}
-
-&__content {
-  position: absolute;
-  bottom: 24px;
-  left: 20px;
-  right: 20px;
-  color: #fff;
-  text-align: left;
-}
-
-&__intro {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-&__description {
-  margin: 0;
-  padding: 8px 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  line-height: 19.6px;
+  &__info-button:active {
+    background-color: #ffb7ab;
+    box-shadow: 2px 4px rgba(0, 0, 0, 0.1);
   }
 }

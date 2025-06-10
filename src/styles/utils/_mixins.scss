@@ -11,8 +11,20 @@
   }
 }
 
-@mixin onSmallDesktop {
-  @media (min-width: $small-desktop-min-width) {
+@mixin onDesktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onBigDesktop {
+  @media (min-width: $big-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin onLargeDesktop {
+  @media (min-width: $large-desktop-min-width) {
     @content;
   }
 }
@@ -21,13 +33,44 @@
   padding-inline: 20px;
 
   @include onTablet {
-    padding-inline: 72px;
+    padding-inline: 41px;
   }
 
-  @include onSmallDesktop() {
-    max-width: 1020px;
-    margin-inline: auto;
-    padding-inline: 120px;
+  @include onDesktop() {
+    padding-inline: 54px;
+  }
+
+  @include onBigDesktop() {
+    padding-inline: 227px;
+  }
+
+  @include onLargeDesktop() {
+    padding-inline: 707px;
   }
 }
 
+@mixin contentPaddingLeft() {
+  padding-left: 20px;
+
+  @include onTablet {
+    padding-left: 41px;
+  }
+
+  @include onDesktop() {
+    padding-left: 54px;
+  }
+
+  @include onBigDesktop() {
+    padding-left: 227px;
+  }
+
+  @include onLargeDesktop() {
+    padding-left: 707px;
+  }
+}
+
+/* @include onDesktop() {
+    min-width: 1020px;
+    margin-inline: auto;
+    padding-inline: 120px;
+  } */

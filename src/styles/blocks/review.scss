@@ -1,0 +1,103 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  padding-block: 32px;
+  padding-inline: 42px;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 16px;
+  transition: transform 0.3s;
+  box-shadow: 0 9px 18px #25293108;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &__person {
+    display: flex;
+    position: relative;
+    width: 196px;
+    height: 196px;
+    justify-content: center;
+    align-items: center;
+
+    @include onBigDesktop {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &__photo {
+    width: 109px;
+    height: 109px;
+    border-radius: 50%;
+    z-index: 2;
+    object-fit: cover;
+
+    @include onBigDesktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__rectangle {
+    position: absolute;
+    background-color: #56ccf2;
+    width: 109px;
+    height: 44px;
+    border-radius: 12px;
+    z-index: 1;
+
+    @include onBigDesktop {
+      width: 139px;
+      height: 56px;
+    }
+  }
+
+  &__rectangle--left {
+    bottom: 55%;
+    left: 10px;
+    transform: rotate(-60deg);
+  }
+
+  &__rectangle--right {
+    top: 55%;
+    right: 10px;
+    transform: rotate(-60deg);
+  }
+
+  &__description {
+    font-family: 'OpenSans', sans-serif;
+    color: #6c788b;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__name {
+    margin: 0;
+    font-family: 'OpenSans', sans-serif;
+    color: #253757;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__role {
+    margin: 0;
+    color: #c0cdd7;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
+
+@each $name, $color in $rectangle-colors {
+  .review--#{$name} {
+    .review__rectangle {
+      background-color: $color;
+    }
+  }
+}
