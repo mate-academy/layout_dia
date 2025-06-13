@@ -1,0 +1,196 @@
+.slider {
+  position: relative;
+
+  // Hide radio buttons
+  &__radio {
+    display: none;
+  }
+
+  // Slides container
+  &__slides {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 390px;
+    border-radius: 30px;
+
+    @include on-small-desktop {
+      height: 100%;
+      border-radius: 30px 0;
+    }
+  }
+
+  // All slides hidden by default
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  // Show specific slide when its radio button is checked
+  &__radio:nth-child(1):checked ~ &__slides &__slide:nth-child(1) {
+    opacity: 1;
+  }
+  &__radio:nth-child(2):checked ~ &__slides &__slide:nth-child(2) {
+    opacity: 1;
+  }
+  &__radio:nth-child(3):checked ~ &__slides &__slide:nth-child(3) {
+    opacity: 1;
+  }
+
+  // Image styling
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Controls container - responsive positioning
+  &__controls {
+    position: absolute;
+    bottom: 78px;
+    left: 21px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+
+    @include on-tablet {
+      left: 41px;
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+    }
+
+    @include on-small-desktop {
+      left: 61px;
+    }
+  }
+
+  // Arrows container
+  &__arrows {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  // Arrow buttons
+  &__arrow {
+    cursor: pointer;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background-color: $text-color;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      pointer-events: none;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Navigation labels - invisible clickable areas over arrows
+  &__nav {
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  // Simple navigation logic - show correct label based on current slide
+
+  // When slide 1 is active
+  &__radio:nth-child(1):checked ~ &__controls &__arrows {
+    .slider__arrow--prev .slider__nav:nth-child(1) {
+      display: block;
+    } // Go to slide 3
+    .slider__arrow--next .slider__nav:nth-child(1) {
+      display: block;
+    } // Go to slide 2
+  }
+
+  // When slide 2 is active
+  &__radio:nth-child(2):checked ~ &__controls &__arrows {
+    .slider__arrow--prev .slider__nav:nth-child(2) {
+      display: block;
+    } // Go to slide 1
+    .slider__arrow--next .slider__nav:nth-child(2) {
+      display: block;
+    } // Go to slide 3
+  }
+
+  // When slide 3 is active
+  &__radio:nth-child(3):checked ~ &__controls &__arrows {
+    .slider__arrow--prev .slider__nav:nth-child(3) {
+      display: block;
+    } // Go to slide 2
+    .slider__arrow--next .slider__nav:nth-child(3) {
+      display: block;
+    } // Go to slide 1
+  }
+
+  // Text content
+  &__text {
+    @include on-tablet {
+      margin-left: 0;
+    }
+
+    @include on-small-desktop {
+      margin-left: 0;
+    }
+  }
+
+  &__text-title {
+    margin-bottom: 8px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $text-color;
+    text-transform: uppercase;
+  }
+
+  &__text-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    color: $text-color;
+
+    @include on-small-desktop {
+      width: 264px;
+    }
+  }
+}

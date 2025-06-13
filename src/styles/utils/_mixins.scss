@@ -1,6 +1,72 @@
+@mixin on-mobile {
+  @media (min-width: $mobile-min-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-the-design {
+  @media (min-width: $the-design) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $large-screens-min-width) {
+    @content;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin page-grid {
+  --colums: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--colums), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --colums: 6;
+
+    column-gap: 24px;
+  }
+
+  @include on-small-desktop {
+    --colums: 12;
+  }
+}
+
+@mixin transition-mixin {
+  transition-duration: $effect-duration;
+
+  &:hover {
+    transform: translate(0, -20px);
+  }
+}
+
+@mixin button-mixin {
+  transition-duration: $effect-duration;
 }

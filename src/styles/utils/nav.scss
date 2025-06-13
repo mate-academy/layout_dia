@@ -1,0 +1,147 @@
+.nav {
+  position: relative;
+  flex-grow: 1;
+  text-transform: uppercase;
+
+  &__target {
+    display: none;
+  }
+
+  &__list {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    background-color: $background-color;
+
+    transition: transform 0.3s ease-in-out;
+
+    @include on-small-desktop {
+      position: static;
+      z-index: auto;
+      transform: none;
+
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      align-items: center;
+      justify-content: flex-start;
+
+      width: auto;
+      height: auto;
+
+      background-color: transparent;
+
+      transition: none;
+    }
+  }
+
+  &__target:target ~ &__list {
+    transform: translateX(0);
+
+    @include on-small-desktop {
+      transform: none;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+
+    padding: 16px 0;
+
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-color;
+    text-align: center;
+    text-decoration: none;
+
+    @include on-small-desktop {
+      padding: 0;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    &:hover {
+      animation: color $effect-duration linear;
+
+      @keyframes color {
+        from {
+          color: $color-button;
+        }
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    display: block;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__close-btn {
+    cursor: pointer;
+
+    font-size: 32px;
+    line-height: 1;
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-line;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+    display: flex;
+    padding-left: 35px;
+    text-decoration: none;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__burger-icon {
+    width: 20px;
+    height: 20px;
+
+    @include on-tablet {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__menu--burger {
+    padding-inline: 32px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  @include on-small-desktop {
+    flex-grow: 0;
+  }
+}
