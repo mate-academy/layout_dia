@@ -1,0 +1,288 @@
+@use '../../utils/media';
+@use '../../utils/vars';
+@use '../../fonts';
+@use '../../utils/button';
+@use '../../utils/mixins';
+
+.footer {
+  @include media.grid;
+
+  background-color: vars.$bg-dark-color;
+
+  border-radius: 30px 30px 0 0;
+
+  .message {
+    grid-column: -1 / 1;
+
+    &__title {
+      @include fonts.f32w600h150;
+      color: vars.$white-color;
+      line-height: 130%;
+
+      padding: 72px media.$grid-phone-gap 48px;
+    }
+  }
+
+  .form {
+    &__label {
+      &:not(:focus, :active) {
+        @include mixins.visually-hidden;
+      }
+
+      @include fonts.f15w600;
+    }
+
+    &__input {
+      width: 100%;
+      height: 41px;
+
+      background-color: vars.$bg-dark-color;
+
+      border: none;
+      outline: none;
+      border-bottom: 1px solid vars.$white-color;
+
+      &:focus {
+        border-bottom: 1px solid blue;
+        color: vars.$white-color;
+      }
+    }
+
+    &__item {
+      &:not(:first-child) {
+        margin-top: 40px;
+      }
+    }
+
+    &__button {
+      @include button.button;
+
+      margin-top: 56px;
+    }
+  }
+
+  .contacts {
+    grid-column: -1 / 1;
+
+    margin-top: 80px;
+
+    &__title {
+      @include fonts.f32w600h150;
+      color: vars.$white-color;
+
+      margin-bottom: 8px;
+    }
+
+    &__call, &__visit, &__social {
+      @include fonts.f13w700h150;
+      opacity: 0.5;
+
+      text-transform: uppercase;
+
+      margin: 40px 0 8px;
+
+      &--number, &--adress {
+        @include fonts.f24w600h150;
+
+        margin-bottom: 40px;
+      }
+    }
+
+    &__social {
+      &--icons {
+        display: flex;
+
+        justify-content: flex-start;
+        align-items: center;
+        gap: 32px;
+
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  .air {
+    margin: 80px 0 80px;
+
+    &__logo {
+      margin-bottom: 24px;
+    }
+
+    &__menu {
+      display: flex;
+
+      flex-direction: column;
+
+      .menu {
+        &__item {
+          margin-top: 24px;
+
+          @include fonts.f13w700h150;
+
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .menu {
+    grid-column: 1 / -1;
+
+    margin-bottom: 80px;
+    margin-top: 80px;
+
+    &__group1 {
+      display: flex;
+
+      flex-direction: column;
+      align-items: right;
+
+      margin-bottom: 24px;
+    }
+
+    &__group2 {
+      display: flex;
+
+      flex-direction: column;
+      align-items: right;
+
+      &-link {
+        color : vars.$white-color;
+
+        text-transform: uppercase;
+        text-decoration: none;
+
+        @include fonts.f13w700h150;
+
+        margin-top: 24px;
+      }
+    }
+  }
+
+  @include media.grid-640 {
+    .message {
+      grid-column: span 4;
+      margin-top: 170px;
+      margin-left: media.$grid-phone-gap;
+      margin-right: media.$grid-phone-gap;
+
+      &__title {
+        padding: 0 0 48px;
+      }
+    }
+
+    .form {
+      &__button {
+        width: 80%;
+      }
+    }
+
+    .contacts {
+      margin-top: 120px;
+
+      &__social {
+        &--icons {
+          margin-bottom: 90px;
+        }
+      }
+    }
+
+    .menu {
+      margin-bottom: 90px;
+      margin-top: 140px;
+
+      &__group2 {
+        flex-direction: row;
+
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @include media.grid-1024 {
+    .message {
+      grid-column: span 5;
+      margin-top: 180px;
+      margin-left: 0;
+      margin-right: 0;
+
+      &__title {
+        padding: 0 0 48px;
+      }
+    }
+
+    .form {
+      &__button {
+        width: 56%;
+      }
+    }
+
+    .contacts {
+      grid-column: 7 / span 6;
+
+      margin-top: 180px;
+
+      &__social {
+        &--icons {
+          margin-bottom: 90px;
+        }
+      }
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+
+      align-items: center;
+
+      margin-bottom: 80px;
+      margin-top: 105px;
+
+      &__group1 {
+        grid-column: 1 / span 3;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        margin-bottom: 0;
+      }
+
+      &__group2 {
+        grid-column: 4 / span 9;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+
+        &-link {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  @include media.grid-1600 {
+    .message {
+      grid-column: span 5;
+    }
+
+    .contacts {
+      grid-column: 8 / span 5;
+    }
+
+    .menu {
+      &__group1 {
+
+      }
+
+      &__group2 {
+        grid-column: 6 / span 8;
+      }
+    }
+  }
+}
