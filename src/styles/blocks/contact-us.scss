@@ -1,0 +1,199 @@
+.contacts {
+  padding-top: 72px;
+  margin-top: 120px;
+
+  @include on-tablet {
+    padding-top: 180px;
+    margin-top: 0;
+  }
+
+  background-color: $header-background-color;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  &__titles {
+    color: #fff !important;
+    font-size: 32px;
+    line-height: 150%;
+  }
+}
+
+.send-message {
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &-email {
+      margin-top: 48px;
+
+      @include on-tablet {
+        margin-top: 56px;
+      }
+
+      @include form-input;
+    }
+
+    &-name {
+      margin-top: 40px;
+
+      @include on-tablet {
+        margin-top: 48px;
+      }
+
+      @include form-input;
+    }
+
+    &-message {
+      margin-top: 40px;
+
+      @include on-tablet {
+        margin-top: 48px;
+      }
+
+      @include form-input;
+
+      resize: none;
+    }
+
+    &-button {
+      margin-top: 56px;
+      width: 100%;
+
+      @include on-tablet {
+        margin-top: 80px;
+        max-width: 264px;
+      }
+
+      @include button-hover($bh-form-color, $bh-form-bg-color);
+
+      cursor: pointer;
+      height: 56px;
+
+      background-color: $contacts-hover-color;
+      border: none;
+      border-radius: 8px;
+
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: $header-text-color;
+    }
+  }
+}
+
+.contact-us {
+  margin-top: 80px;
+
+  @include on-tablet {
+    margin-top: 120px;
+  }
+
+  @include on-desktop {
+    margin-top: 0;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    display: inline-block;
+  }
+
+  &__text {
+    margin-top: 8px;
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: #fff;
+
+    &-break {
+      display: block;
+
+      @include on-tablet {
+        display: inline;
+      }
+    }
+
+    @include contacts-link-hover;
+  }
+
+  &__call {
+    margin-top: 48px;
+  }
+
+  &__visit {
+    margin-top: 40px;
+  }
+
+  &__socials {
+    margin-top: 40px;
+
+    &-icons {
+      margin-top: 16px;
+
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+
+      .facebook-icon {
+        background-image: url(/src/images/icons/facebook.svg);
+
+        @include contacts-icon-hover('facebook');
+      }
+
+      .twitter-icon {
+        background-image: url(/src/images/icons/twitter.svg);
+
+        @include contacts-icon-hover('twitter');
+      }
+
+      .instagram-icon {
+        background-image: url(/src/images/icons/instagram.svg);
+
+        @include contacts-icon-hover('instagram');
+      }
+    }
+  }
+}
+
+// grid
+.contacts__wrapper {
+  @include page-grid;
+
+  &-form {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+
+    @include on-design {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &-information {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 12;
+    }
+
+    @include on-design {
+      grid-column: 8 / 12;
+    }
+  }
+}
