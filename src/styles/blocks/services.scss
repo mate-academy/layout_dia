@@ -1,0 +1,197 @@
+.services {
+  margin-block: 120px;
+
+  @include on-tablet {
+    margin-block: 148px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__info {
+    text-align: left;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include on-small-desktop {
+      transform: translateY(50%);
+      grid-column: 1 / 5;
+      grid-row: 1;
+    }
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    color: $main-text-color-grey-titles;
+    letter-spacing: 3px;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: $main-text-accent;
+    line-height: 1.3;
+    padding-bottom: 24px;
+  }
+
+  &__description {
+    padding-bottom: 28px;
+
+    @include on-tablet {
+      padding-bottom: 26px;
+    }
+  }
+
+  &__cards-container {
+    grid-column: 1 / -1;
+    display: contents;
+
+    @include on-tablet {
+      grid-row: 2;
+
+      & > :nth-child(1) {
+        grid-column: 1 / 4;
+      }
+
+      & > :nth-child(2) {
+        grid-column: 4 / 7;
+      }
+
+      & > :nth-child(3) {
+        grid-column: 1 / 4;
+      }
+
+      & > :nth-child(4) {
+        grid-column: 4 / 7;
+      }
+
+      & > :nth-child(2),
+      & > :nth-child(4) {
+        transform: translateY(-45%);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-45%) scale(1.05);
+        }
+      }
+    }
+
+    @include on-small-desktop {
+      & > :nth-child(1) {
+        grid-column: 7 / 10;
+        grid-row: 1;
+      }
+
+      & > :nth-child(2) {
+        grid-column: 10 / 13;
+        grid-row: 1;
+      }
+
+      & > :nth-child(3) {
+        grid-column: 7 / 10;
+        grid-row: 2;
+      }
+
+      & > :nth-child(4) {
+        grid-column: 10 / 13;
+        grid-row: 2;
+      }
+
+      & > :nth-child(1),
+      & > :nth-child(3) {
+        transform: translateY(50%);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(50%) scale(1.05);
+        }
+      }
+
+      & > :nth-child(2),
+      & > :nth-child(4) {
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(0) scale(1.05);
+        }
+      }
+    }
+  }
+
+  &__card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: $main-text-color-white;
+    font-size: 13px;
+    border-radius: 16px;
+    padding: 32px 48px 32px 32px;
+    width: auto;
+    transition: transform 0.3s ease;
+
+    @include on-tablet {
+      padding: 32px;
+    }
+
+    @include hover(transform, scale(1.05) translateY(0));
+
+    &-number {
+      display: flex;
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($blue-color, 0.1);
+      color: $blue-color;
+
+      width: 46px;
+      height: 24px;
+      border-radius: 23px;
+      margin-bottom: 24px;
+    }
+
+    &-list {
+      padding: 0;
+      list-style-type: none;
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+  }
+
+  &__learn-more {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #334563;
+    position: relative;
+    line-height: 1;
+
+    &-arrow {
+      height: 40px;
+      width: 40px;
+      margin-right: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    @include hover(transform, scale(1.2));
+
+    &:hover &-arrow {
+      transform: translateX(10px);
+    }
+  }
+}
