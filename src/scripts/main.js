@@ -24,27 +24,48 @@ showSlide(current);
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
+  const fields = ['email', 'name', 'message'];
 
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // предотвращаем реальную отправку
+    e.preventDefault();
 
+    let hasErrors = false;
+
+    fields.forEach((fieldName) => {
+      const field = form.elements[fieldName];
+      const value = field.value.trim();
+
+      if (!value) {
+        field.classList.add('input-error');
+        hasErrors = true;
+      } else {
+        field.classList.remove('input-error');
+      }
+    });
+
+    if (hasErrors) {
+      return; // не отправляем
+    }
+
+    // Успешно: логика отправки
     const email = form.email.value.trim();
     const name = form.name.value.trim();
     const message = form.message.value.trim();
 
-    // Простая валидация
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    if (!email || !name || !message || !emailValid) {
-      alert('Please fill in all fields correctly.');
-      return;
-    }
-
-    // Имитируем успешную отправку
     console.log('Form data:', { email, name, message });
 
-    form.reset(); // очищаем
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // скролл наверх
+    form.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Снимаем ошибку при вводе
+  fields.forEach((fieldName) => {
+    const field = form.elements[fieldName];
+    field.addEventListener('input', () => {
+      if (field.value.trim()) {
+        field.classList.remove('input-error');
+      }
+    });
   });
 });
 
