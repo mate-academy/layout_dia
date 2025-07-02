@@ -59,6 +59,7 @@ The project was implemented based on the following : BOSE Landing Page Figma Des
 
 ## 📁 Structure
 
+```plaintext
 project-root/
 ├── index.html
 ├── /scss
@@ -70,6 +71,7 @@ project-root/
 ├── /images
 ├── favicon.ico
 └── README.md
+```
 
 ---
 
