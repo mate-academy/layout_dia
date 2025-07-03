@@ -1,0 +1,96 @@
+@use '../../utils/media';
+@use '../../utils/vars';
+@use '../../fonts';
+@use '../../utils/button';
+
+.components {
+ @include media.grid;
+
+ background-color: vars.$white-color;
+
+ margin-top: 120px;
+ margin-bottom: 113px;
+
+ &__title {
+  grid-column: 1 / -1;
+
+  @include fonts.f44w600h120;
+
+  text-align: center;
+
+  margin-top: 72px;
+  margin-bottom: 24px;
+
+  padding: 0 20px;
+ }
+
+ &__text {
+  grid-column: 1 / -1;
+
+  @include fonts.f22w600h150;
+
+  padding: 0 20px;
+ }
+
+ .button {
+  &--components {
+   grid-column: -1 / 1;
+
+   @include button.button;
+
+   width: calc(100% - 40px);
+
+   margin: 56px auto 72px;
+  }
+ }
+
+ @include media.grid-640 {
+  background-image: url('/src/images/icons/Shapes.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  background-size: 140%;
+
+  margin-top: 148px;
+  margin-bottom: 0;
+
+  &__title {
+   margin-top: 200px;
+   padding: 50px;
+  }
+
+  .button {
+   &--components {
+    grid-column: 2 / span 4;
+
+    margin: 64px auto 256px;
+   }
+  }
+ }
+
+ @include media.grid-1024 {
+  background-size: 150%;
+
+  &__text {
+   grid-column: 2 / span 10;
+  }
+
+  .button {
+   &--components {
+    grid-column: 5 / span 4;
+   }
+  }
+ }
+
+ @include media.grid-1600 {
+  background-size: 130%;
+
+  &__text {
+   grid-column: 3 / span 8;
+  }
+ }
+
+ @include media.grid-2560 {
+  background-size: 100%;
+ }
+}
