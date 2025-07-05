@@ -1,0 +1,54 @@
+@import '../utils/mixins';
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  &__body {
+    background: $c-gray;
+    margin: 0;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    overflow: hidden;
+
+    height: 100vh;
+
+    background: $c-gray;
+
+    opacity: 0;
+
+    transition: all 0.3s;
+
+    &:target {
+      pointer-events: all;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  // @include on-tablet {
+  //   overflow: hidden;
+  // }
+
+  @include on-small-desktop {
+    overflow: auto;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
+}

@@ -4,3 +4,99 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-medium-desktop {
+  @media (min-width: $medium-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin my-desktop-size-min-with {
+  @media (min-width: $my-desktop-size-min-with) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    max-width: 1024px;
+    margin-inline: auto;
+    padding-inline: 54px;
+  }
+
+  @include on-medium-desktop {
+    max-width: 1600px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-inline: 227px;
+  }
+
+  @include my-desktop-size-min-with {
+    max-width: 2100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-inline: 450px;
+  }
+
+  @include on-large-desktop {
+    max-width: 2560px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-inline: 707px;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-medium-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+
+  @include on-large-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+  }
+}
+
+@mixin transision {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}

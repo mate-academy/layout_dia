@@ -1,0 +1,96 @@
+@import '../utils/mixins';
+
+.vision {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  margin-top: 120px;
+
+  @include on-tablet {
+    background-image: url(../images/Shapes.png); // ✅ лише на планшеті+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @include my-desktop-size-min-with {
+    background-size: contain;
+  }
+  &__content {
+    @include page-grid;
+  }
+
+  &__tittle {
+    grid-column: 1 / -1;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 120%;
+    text-align: center;
+    vertical-align: middle;
+    color: #253757;
+    margin-top: 72px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-small-desktop {
+      margin-top: 170px;
+      grid-column: 3 / 11;
+    }
+  }
+  &__about {
+    grid-column: 1 / -1;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+    margin-top: 24px;
+
+    @include on-small-desktop {
+      grid-column: 3 / 11;
+    }
+  }
+  &__button__wrapper {
+    grid-column: 1 / -1;
+
+    margin-top: 72px;
+    margin-bottom: 48px;
+    display: flex;
+    background-color: #2060f6;
+    width: auto;
+    height: 50px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: blue;
+    }
+
+    @include on-tablet {
+      grid-column: 3 / 5;
+      width: 250px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 5 / 9;
+      width: auto;
+    }
+  }
+  &__button__tittle {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+  }
+}

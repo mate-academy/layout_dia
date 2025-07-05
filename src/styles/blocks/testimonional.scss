@@ -1,0 +1,267 @@
+@import '../utils/mixins';
+
+.testmonials {
+  margin-top: 120px;
+  text-align: center;
+
+  &__grid {
+    @include page-grid;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  &__top__tittle {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+  &__tittle {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    vertical-align: middle;
+    color: #253757;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+  &__pages {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0cdd7;
+  }
+  &__card__one,
+  &__card__two,
+  &__card__three {
+    background-color: #fff;
+    height: 450px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+  &__card__one {
+    grid-column: 1 / -1;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      place-items: center;
+      grid-column: 1 / -1;
+      width: auto;
+      height: 478px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+    }
+
+    @include on-small-desktop {
+      width: 292px;
+      height: auto;
+      grid-column: 1 / 5;
+    }
+
+    @include on-medium-desktop {
+      width: 360px;
+      height: auto;
+    }
+  }
+  &__card__two {
+    grid-column: 1 / -1;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      place-items: center;
+      grid-column: 1 / -1;
+      width: auto;
+      height: 478px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+    }
+
+    @include on-small-desktop {
+      width: 292px;
+      height: auto;
+      grid-column: 5 / 9;
+      grid-row: 2;
+    }
+
+    @include on-medium-desktop {
+      width: 360px;
+      height: auto;
+    }
+  }
+  &__card__three {
+    grid-column: 1 / -1;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      place-items: center;
+      grid-column: 1 / -1;
+      width: auto;
+      height: 478px;
+      border-radius: 16px;
+    }
+
+    @include on-small-desktop {
+      width: 292px;
+      height: auto;
+      grid-column: 9 / 13;
+      margin-bottom: 30px;
+    }
+
+    @include on-medium-desktop {
+      width: 360px;
+      height: auto;
+    }
+  }
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+    margin-bottom: 16px;
+    margin-left: 42px;
+    margin-right: 42px;
+  }
+
+  &__text__marg {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+    margin-bottom: 32px;
+    margin-left: 42px;
+    margin-right: 42px;
+  }
+  &__text__margin {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #6c788b;
+    margin-bottom: 11px;
+    margin-left: 42px;
+    margin-right: 42px;
+  }
+  &__name {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    text-align: center;
+    color: #253757;
+    margin-bottom: 4px;
+  }
+  &__about {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #c0cdd7;
+
+    @include on-small-desktop {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.avatar {
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 250px; // обмеження по ширині
+    aspect-ratio: 1 / 1; // квадрат
+    margin: 0 auto 24px; // центрування по горизонталі
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  &__shape {
+    position: absolute;
+    width: 140px;
+    height: 115px;
+    object-fit: contain;
+    z-index: 1;
+    border-radius: 12px;
+
+    @include on-tablet {
+      width: 190px;
+      height: 125px;
+    }
+  }
+  &__shape--top {
+    top: 30px; // раніше було 5px
+    left: 15px; // раніше -15px
+
+    @include on-tablet {
+      top: 15px;
+      left: -15px;
+    }
+  }
+  &__shape--bottom {
+    bottom: 30px; // було 0
+    right: 15px; // було -10px
+    transform: rotate(2deg);
+
+    @include on-tablet {
+      right: -20px;
+      bottom: 20px;
+    }
+  }
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__parametrs {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.quote {
+  margin-bottom: 8px;
+  width: 20.5px;
+  height: 18.4px;
+}

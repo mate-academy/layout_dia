@@ -1,0 +1,45 @@
+@import '../utils/mixins';
+
+.top__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+
+  // Виключає pointer events, щоб не ловити кліки
+  pointer-events: none;
+  flex: 1;
+  justify-content: flex-start;
+  display: flex;
+
+  .nav__list {
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+
+    @include on-small-desktop {
+      gap: 48px;
+    }
+  }
+
+  .nav__link {
+    color: #fff;
+  }
+
+  @include on-small-desktop {
+    position: static;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    display: flex;
+    margin-left: auto;
+  }
+}
