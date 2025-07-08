@@ -1,67 +1,40 @@
+let currentSlide = 0;
+const slides = document.querySelectorAll('.photoslider__image');
+let intervalId;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextImage() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevImage() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+function startAutoSlide() {
+  intervalId = setInterval(nextImage, 4000); // 1 sekundy
+}
+
+function stopAutoSlide() {
+  clearInterval(intervalId);
+}
+
+document
+  .querySelector('.photoslider__arrows-btn.prev')
+  ?.addEventListener('click', prevImage);
+document
+  .querySelector('.photoslider__arrows-btn.next')
+  ?.addEventListener('click', nextImage);
+
+// Start od razu po załadowaniu
 document.addEventListener('DOMContentLoaded', () => {
-  const slider = document.querySelector('.photoslider');
-  const texts = [
-    {
-      title: 'Intro',
-      text: 'By the same illusion which lifts the horizon.',
-    },
-    {
-      title: 'Explore',
-      text: 'The silence of the mountain meets the roar of the wind.',
-    },
-    {
-      title: 'Journey',
-      text: 'Let yourself be carried by the great unknown.',
-    },
-  ];
-
-  const images = [
-    '/src/images/slider/slide-img-1.jpg',
-    '/src/images/slider/slide-img-2.jpg',
-    '/src/images/slider/slide-img-3.jpg',
-  ];
-
-  let currentIndex = 0;
-  let autoScrollInterval;
-
-  const updateSlider = () => {
-    if (!slider) return;
-
-    slider.style.backgroundImage = `url('${images[currentIndex]}')`;
-
-    const titleEl = document.querySelector('.photoslider__arrows-title');
-    const textEl = document.querySelector('.photoslider__arrows-text');
-
-    if (titleEl && textEl && texts[currentIndex]) {
-      titleEl.textContent = texts[currentIndex].title;
-      textEl.textContent = texts[currentIndex].text;
-    }
-  };
-
-  window.prevImage = () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateSlider();
-    resetAutoScroll();
-  };
-
-  window.nextImage = () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateSlider();
-    resetAutoScroll();
-  };
-
-  const startAutoScroll = () => {
-    autoScrollInterval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateSlider();
-    }, 3000);
-  };
-
-  const resetAutoScroll = () => {
-    clearInterval(autoScrollInterval);
-    startAutoScroll();
-  };
-
-  updateSlider();
-  startAutoScroll();
+  showSlide(currentSlide);
+  startAutoSlide();
 });
