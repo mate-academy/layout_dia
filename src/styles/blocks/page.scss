@@ -1,0 +1,53 @@
+/* #region page */
+
+* {
+  scrollbar-width: none;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.page {
+  scroll-behavior: smooth;
+
+  font-family: $main-font-family;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 28px;
+
+  &__body {
+    min-width: 320px;
+    margin: 0;
+    background: $c-gray;
+    &:has(.page__menu:target) {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+
+    &:target {
+      pointer-events: auto;
+      z-index: 2;
+      opacity: 1;
+    }
+  }
+}
+
+/* #endregion */
