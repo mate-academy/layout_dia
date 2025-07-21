@@ -1,6 +1,119 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin flex(
+  $_direction: row,
+  $_justify: flex-start,
+  $_align: flex-start,
+  $_gap: null
+) {
+  display: flex;
+  flex-direction: $_direction;
+  align-items: $_align;
+  justify-content: $_justify;
+
+  @if $_gap {
+    gap: $_gap;
   }
+}
+
+@mixin font($_size, $_weight: 600, $_height: 1.5, $_spacing: normal) {
+  font-size: $_size;
+  font-weight: $_weight;
+  line-height: $_height;
+  letter-spacing: $_spacing;
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin only-on-tablet {
+  @media (min-width: 640px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-large-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin primary-heading {
+  color: $main-text-color;
+
+  @include font(44px, 600, 1.2, 0);
+
+  @include on-tablet {
+    @include font(52px, 600, 1.5);
+  }
+}
+
+@mixin secondary-heading {
+  color: $main-text-color;
+
+  @include font(32px, 600, 1.5, 0);
+}
+
+@mixin subtitle {
+  color: $subtitle-color;
+  text-transform: uppercase;
+
+  @include font(13px, 700, 1, 3px);
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin full-grid-column {
+  grid-column: 1 / -1;
+}
+
+@mixin transition(
+  $_property,
+  $_duration: $transition-duration,
+  $_timing: linear
+) {
+  transition: $_property $_duration $_timing;
 }

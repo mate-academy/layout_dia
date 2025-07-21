@@ -1,0 +1,45 @@
+.burger {
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  &::before,
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 18px;
+    height: 2px;
+
+    background-color: $white;
+
+    @include transition(transform);
+  }
+
+  &::before {
+    top: 8px;
+  }
+
+  &::after {
+    bottom: 8px;
+  }
+
+  &--close {
+    &::after,
+    &::before {
+      top: 50%;
+      left: 50%;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

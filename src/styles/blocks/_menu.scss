@@ -1,0 +1,57 @@
+.menu {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  transform: translateY(-100%);
+
+  opacity: 0;
+  background-color: $secondary-bg;
+
+  transition:
+    transform $transition-duration ease-in-out,
+    opacity $transition-duration ease-in-out;
+
+  @include on-small-desktop {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+  }
+
+  &__list {
+    @include page-grid;
+  }
+
+  &__item {
+    @include full-grid-column;
+
+    text-align: center;
+  }
+
+  &--active {
+    transform: translateY(0);
+    opacity: 1;
+
+    .menu__item {
+      transform: translateX(-100%);
+      animation: slide-in $transition-duration forwards;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i / 10}s;
+        }
+      }
+    }
+  }
+}
