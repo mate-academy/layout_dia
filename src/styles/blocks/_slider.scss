@@ -1,0 +1,122 @@
+.slider {
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    height: 100%;
+  }
+
+  &__navigation {
+    position: absolute;
+    bottom: 24px;
+
+    @include on-small-desktop {
+      @include flex($_align: center, $_gap: 24px);
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+
+    opacity: 0;
+
+    transition:
+      opacity 0.5s,
+      transform 0.5s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__slide--active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__slide-preview {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    color: $white;
+    text-transform: uppercase;
+
+    @include font(13px, 700, 1, 3px);
+  }
+
+  &__description {
+    max-width: 280px;
+    color: $white;
+
+    @include font(14px, 400, 1.4);
+  }
+
+  &__arrows {
+    @include flex($_gap: 16px);
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    position: relative;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background-color: $white;
+
+    transition:
+      background-color $transition-duration,
+      transform $transition-duration;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-30%, -50%) rotate(45deg);
+
+      width: 6px;
+      height: 6px;
+      border-bottom: 1px solid $main-text-color;
+      border-left: 1px solid $main-text-color;
+
+      transition: border-color $transition-duration;
+    }
+
+    &:disabled {
+      transform: scale(0.9);
+      background-color: rgba($white, 0.5);
+
+      &::after {
+        border-color: rgba($main-text-color, 0.5);
+      }
+    }
+
+    &--right {
+      transform: rotate(180deg);
+
+      &:disabled {
+        transform: rotate(180deg) scale(0.9);
+      }
+    }
+  }
+
+  &__info {
+    margin-top: 16px;
+
+    @include flex(column, $_gap: 8px);
+
+    @include on-small-desktop {
+      margin: 0;
+    }
+  }
+}

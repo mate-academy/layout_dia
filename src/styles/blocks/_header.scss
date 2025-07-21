@@ -1,0 +1,76 @@
+.header {
+  box-sizing: border-box;
+  padding-block: 18px;
+  background-color: $secondary-bg;
+
+  @include on-small-desktop {
+    height: $desktop-header-height;
+    padding: 0;
+    line-height: $desktop-header-height;
+  }
+
+  &__content {
+    @include flex($_justify: space-between, $_align: center, $_gap: 32px);
+  }
+
+  &__burger {
+    cursor: pointer;
+    align-self: center;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__btn-wrapper {
+    flex-grow: 1;
+
+    @include flex($_justify: flex-end);
+  }
+
+  &__hire-us-btn {
+    position: relative;
+    transform: translateY(-2px);
+    text-transform: uppercase;
+
+    @include font(13px, 700, 1.5, 3px);
+
+    @include on-small-desktop {
+      transform: translateY(0);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      transform-origin: left;
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: $accent;
+    }
+
+    @include hover {
+      &::after {
+        animation: mirror-slide #{4 * $transition-duration} infinite;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.our-expertise {
+  padding-block: 72px;
+  border-radius: $radius;
+  background-color: $white;
+
+  @include on-tablet {
+    padding-block: 128px;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    @include primary-heading;
+  }
+
+  &__cards {
+    row-gap: 56px;
+    margin-top: 56px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      margin-top: 64px;
+    }
+
+    @include on-small-desktop {
+      @include flex($_justify: space-between, $_align: center);
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+
+    @include full-grid-column;
+    @include transition(transform);
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+    }
+
+    @include on-small-desktop {
+      max-width: 264px;
+    }
+
+    @include hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,132 @@
+.review {
+  cursor: pointer;
+
+  padding: 32px 42px;
+  border-radius: $secondary-radius;
+
+  background-color: $white;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  @include transition(transform);
+  @include flex(column, $_align: center);
+
+  @include on-tablet {
+    padding: 32px 98px;
+  }
+
+  @include on-small-desktop {
+    padding: 32px 48px;
+  }
+
+  @include on-desktop {
+    padding: 32px 56px;
+  }
+
+  @include hover {
+    transform: scale(1.05);
+  }
+
+  &__avatar-wrapper {
+    position: relative;
+    width: 196px;
+    height: 196px;
+
+    @include flex($_justify: center, $_align: center);
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+
+      width: 110px;
+      height: 45px;
+      border-radius: 12px;
+
+      background-color: $accent;
+
+      @include only-on-tablet {
+        width: 140px;
+        height: 56px;
+      }
+    }
+
+    &::before {
+      top: 20%;
+      left: 2%;
+      transform: rotate(-60deg);
+    }
+
+    &::after {
+      right: 2%;
+      bottom: 20%;
+      transform: rotate(-60deg);
+    }
+
+    @include only-on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &__avatar {
+    z-index: 1;
+
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: top;
+
+    @include only-on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__quote-wrapper {
+    position: relative;
+    flex: 1;
+    gap: 6px;
+    margin-block: 24px 16px;
+
+    @include flex(column, $_align: center, $_gap: 6px);
+
+    &::before {
+      content: '';
+
+      display: block;
+
+      width: 24px;
+      height: 24px;
+
+      background-image: url('../images/testimonials/quote-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__quote {
+    font-family: $font-secondary;
+    color: $body-text-color;
+    text-align: center;
+
+    @include font(13px, 600, 1.5);
+  }
+
+  &__person-name {
+    font-family: $font-secondary;
+    color: $main-text-color;
+
+    @include font(13px, 600, 1.5);
+  }
+
+  &__person-position {
+    margin-top: 4px;
+    text-align: center;
+
+    @include subtitle;
+  }
+}

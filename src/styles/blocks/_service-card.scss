@@ -1,0 +1,83 @@
+.service-card {
+  --arrow-thickness: 2px;
+
+  box-sizing: border-box;
+  height: $service-card-height;
+  padding: 32px;
+  border-radius: $secondary-radius;
+
+  background-color: $white;
+
+  @include flex(column);
+
+  &__num {
+    display: block;
+
+    padding: 2px 12px;
+    border-radius: 23px;
+
+    color: $accent;
+
+    background: rgba($accent, 0.1);
+  }
+
+  &__list {
+    margin: 24px 0 32px;
+  }
+
+  &__item {
+    font-family: $font-secondary;
+    color: $body-text-color;
+    text-transform: capitalize;
+    letter-spacing: 0;
+
+    @include font(13px, 600, 1.5);
+  }
+
+  &__link {
+    color: $learn-more-color;
+
+    @include transition(transform);
+    @include font(15px, 600, 1);
+    @include flex($_align: center, $_gap: 16px);
+
+    @include hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__link-icon {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: $accent;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      width: 16px;
+      height: var(--arrow-thickness);
+      background-color: $white;
+    }
+
+    &::after {
+      transform: translate(-25%, -50%) rotate(45deg);
+
+      width: 8px;
+      height: 8px;
+      border: solid $white;
+      border-width: var(--arrow-thickness) var(--arrow-thickness) 0 0;
+    }
+  }
+}
