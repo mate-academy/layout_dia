@@ -1,0 +1,283 @@
+.hero {
+  &__container {
+    @include page-grid;
+
+    margin-top: -1px;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    background-color: #2c2c2c;
+    overflow: visible;
+    position: relative;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  &__content {
+    grid-column: 1/ 7;
+
+    position: relative;
+
+    @include sm {
+      grid-column: 1/ 6;
+    }
+
+    @include xs {
+      grid-column: 1/ -1;
+    }
+  }
+
+  &__title {
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -2px;
+    color: #fff;
+
+    width: 490px;
+    border-radius: 8px;
+
+    @include xs {
+      grid-column: 1/ -1;
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 120%;
+      letter-spacing: -2px;
+      width: 280px;
+    }
+
+    @include sm {
+      width: 558px;
+      white-space: nowrap;
+    }
+
+    @include md {
+      grid-column: 1/ 6;
+      margin-top: 120px;
+      margin-bottom: 32px;
+    }
+
+    @include lg {
+      grid-column: 1/ 6;
+      margin-top: 120px;
+      margin-bottom: 32px;
+    }
+
+    @include xl {
+      grid-column: 1/ 6;
+      margin-top: 120px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0;
+    width: 362px;
+    color: #fff;
+    margin-bottom: 83px;
+
+    @include xs {
+      width: 280px;
+      margin-top: 32px;
+      margin-bottom: 72px;
+    }
+
+    @include sm {
+      margin-top: 24px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 264px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #2060f6;
+    margin-bottom: 205px;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+
+    transition: background-color 0.3s ease;
+
+    transition: transform 0.3s ease;
+
+    @include hover(transform, scale(1.05));
+
+    @include xs {
+      width: 100%;
+      margin-bottom: 48px;
+    }
+
+    @include sm {
+      margin-bottom: 147px;
+    }
+
+    &:hover {
+      background-color: darken (#2060f6, 10%);
+    }
+  }
+
+  &__image {
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    grid-column: 7 / -1;
+    position: relative;
+    width: 100%;
+    margin-right: -120px;
+
+    @include xxl {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1167px;
+      height: 100%;
+    }
+
+    @include xl {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 687px;
+      height: 100%;
+    }
+
+    @include lg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 687px;
+      height: 100%;
+    }
+
+    @include md {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 502px;
+      height: 100%;
+      margin-right: -100px;
+    }
+
+    @include sm {
+      grid-column: 1 / -1;
+      width: calc(100% + 144px);
+      height: 390px;
+      margin-left: -72px;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    @include xs {
+      grid-column: 1 / -1;
+      width: calc(100% + 40px);
+      height: 390px;
+      margin-left: -20px;
+      margin-right: -20px;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+  }
+
+  .photo-slider {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    gap: 16px;
+    bottom: 40px;
+    left: 60px;
+  }
+
+  .photo-slider__buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 24px;
+  }
+
+  .photo-slider__arrow {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 6px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .photo-slider__description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-slider__intro {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-align: left;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .photo-slider__text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  @include sm {
+    .photo-slider {
+      flex-direction: column;
+      text-align: left;
+      margin-left: 18px;
+      margin-bottom: 32px;
+    }
+
+    .photo-slider__buttons {
+      justify-content: flex-start;
+      align-self: flex-start;
+      margin-left: 0;
+    }
+  }
+
+  @include xs {
+    .photo-slider {
+      flex-direction: column;
+      text-align: left;
+      margin-left: -40px;
+      margin-bottom: 24px;
+    }
+
+    .photo-slider__buttons {
+      justify-content: flex-start;
+      align-self: flex-start;
+      margin-left: 0;
+    }
+  }
+}

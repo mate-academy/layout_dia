@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background: #eee;
+}
+
+.header {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.header__container {
+  @include page-grid;
+
+  display: grid;
+  padding-top: 48px;
+  padding-bottom: 44px;
+
+  @include respond('sm') {
+    --columns: 6;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px 56px;
+  }
+
+  @include respond('xs') {
+    --columns: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 48px;
+  }
+
+  .logo-burger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    transition: transform 0.3s ease;
+
+    @include hover(transform, scale(1.1));
+
+    @include respond('sm') {
+      gap: 32px;
+    }
+
+    @include respond('xs') {
+      gap: 32px;
+    }
+  }
+
+  .logo {
+    grid-column: 1 / 3;
+
+    img {
+      width: 46px;
+      height: 28px;
+    }
+
+    @include respond('sm') {
+      grid-column: 1 / -1;
+      margin-left: 0;
+      margin-top: 0;
+    }
+
+    @include respond('xs') {
+      grid-column: 1 / -1;
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+
+  .nav {
+    grid-column: 4 / 10;
+
+    .nav__list {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      list-style: none;
+
+      li a {
+        font-family: Poppins, sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 150%;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+
+        display: inline-block;
+
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          color: #2060f6;
+        }
+      }
+    }
+
+    @include respond('sm') {
+      display: none;
+
+      &.active {
+        display: block;
+        grid-column: 1 / -1;
+
+        .nav__list {
+          position: absolute;
+          z-index: 10;
+          flex-direction: column;
+          gap: 48px;
+          padding: 24px;
+          align-items: flex-start;
+          background-color: black;
+        }
+      }
+    }
+
+    @include respond('xs') {
+      display: none;
+
+      &.active {
+        display: block;
+        grid-column: 1 / -1;
+
+        .nav__list {
+          position: absolute;
+          z-index: 10;
+          flex-direction: column;
+          gap: 48px;
+          padding: 20px;
+          align-items: flex-start;
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  .hire-us {
+    grid-column: 12 / 13;
+    display: block;
+
+    img {
+      width: 67px;
+      height: 30px;
+      cursor: pointer;
+
+      transition: transform 0.3s ease;
+
+      @include hover(transform, scale(1.05));
+    }
+
+    @include respond('sm') {
+      display: block;
+      grid-column: 1 / -1;
+      justify-self: end;
+    }
+
+    @include respond('xs') {
+      display: block;
+      grid-column: 1 / -1;
+      justify-self: end;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+
+  @include respond('sm') {
+    display: block;
+  }
+
+  @include respond('xs') {
+    display: block;
+  }
+}

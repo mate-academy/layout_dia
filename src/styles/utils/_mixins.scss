@@ -4,3 +4,108 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (min-width: 321px) and (max-width: 639px) {
+      @content;
+    }
+  } @else if $breakpoint == 'sm' {
+    @media (min-width: 640px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: 1025px) and (max-width: 1279px) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: 1280px) and (max-width: 1599px) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: 1600px) and (max-width: 2559px) {
+      @content;
+    }
+  } @else if $breakpoint == 'xxl' {
+    @media (min-width: 2560px) {
+      @content;
+    }
+  }
+}
+
+@mixin xs {
+  @include respond('xs') {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include respond('sm') {
+    @content;
+  }
+}
+
+@mixin md {
+  @include respond('md') {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include respond('lg') {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include respond('xl') {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @include respond('xxl') {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 12), 1fr);
+  column-gap: 24px;
+  margin-left: auto;
+  margin-right: auto;
+
+  --columns: 12;
+
+  padding-left: 120px;
+  padding-right: 120px;
+
+  @include respond('lg') {
+    --columns: 12;
+
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  @include respond('md') {
+    --columns: 12;
+
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  @include respond('sm') {
+    --columns: 6;
+
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  @include respond('xs') {
+    --columns: 2;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
