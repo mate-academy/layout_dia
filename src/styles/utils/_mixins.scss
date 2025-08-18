@@ -4,3 +4,61 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-small {
+  @media (min-width: $desktop-small-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-medium {
+  @media (min-width: $desktop-medium-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-large {
+  @media (min-width: $desktop-large-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop-small {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    min-width: 1146px;
+    margin-inline: auto;
+    padding-inline: 227px;
+  }
+
+  @include on-desktop-large {
+    padding-inline: 707px;
+  }
+}
+
+.container {
+  @include content-padding-inline;
+
+  position: relative;
+}

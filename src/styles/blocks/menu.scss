@@ -1,0 +1,50 @@
+.menu {
+  box-sizing: border-box;
+  height: 100vh;
+
+  background-color: $background-color;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(-100%);
+
+  opacity: 0;
+
+  transition: all 0.3s;
+
+  &:target {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  @include on-desktop-small {
+    justify-content: space-between;
+    padding: 52px 0 48px;
+  }
+
+  &__top {
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+
+    @include on-desktop-small {
+      margin-bottom: 0;
+    }
+  }
+
+  &__center {
+    display: none;
+
+    @include on-desktop-small {
+      display: block;
+    }
+  }
+}
