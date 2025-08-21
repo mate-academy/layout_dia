@@ -1,0 +1,61 @@
+.services {
+  @include page-grid;
+
+  gap: 24px;
+
+  @include on-tablet {
+    gap: 30px;
+  }
+
+  @include on-desktop-sm {
+    gap: 20px;
+    padding-bottom: 139px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 24px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop-sm {
+      grid-column: 1 / 5;
+      transform: translateY(103px);
+    }
+  }
+
+  &__card {
+    grid-column: 1 / -1;
+    background-color: $c-white;
+    box-shadow: 0 9px 18px 0 $c-shadow;
+    border-radius: 16px;
+
+    @include on-tablet {
+      &:nth-child(even) {
+        grid-column: 1 / 4;
+      }
+
+      &:nth-child(odd) {
+        grid-column: 4 / 7;
+        transform: translateY(-132px);
+      }
+    }
+
+    @include on-desktop-sm {
+      &:nth-child(even) {
+        grid-column: 7 /10;
+        transform: translateY(139px);
+      }
+
+      &:nth-child(odd) {
+        grid-column: 10 / 13;
+        transform: translateY(0);
+      }
+    }
+  }
+}

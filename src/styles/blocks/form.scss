@@ -1,0 +1,85 @@
+.form {
+  &__block {
+    width: 100%;
+  }
+
+  &__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-block: 48px 56px;
+
+    @include on-tablet {
+      gap: 48px;
+      margin-block: 56px 80px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background-color: $c-background;
+
+    @include font-button;
+
+    text-align: left;
+    border: none;
+    padding: 0;
+    margin-bottom: 17px;
+    outline: none;
+
+    &-textarea {
+      resize: none;
+      overflow: hidden;
+    }
+
+    &::placeholder {
+      color: $c-white;
+      opacity: 0.7;
+
+      @include font-button;
+
+      text-align: left;
+      transition: color 0.3s ease;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $c-white;
+    transition: background-color 0.3s ease;
+  }
+
+  &__label {
+    display: block;
+
+    &:hover .form__line {
+      /* меняет цвет линии на синий при наведении */
+      background-color: $c-hover;
+    }
+
+    &:hover .form__input::placeholder {
+      color: $c-hover;
+    }
+
+    &:focus-within .form__input::placeholder {
+      /* меняет цвет линии на синий при активном блоке формы */
+      color: $c-hover;
+    }
+
+    &:focus-within .form__line {
+      /* меняет цвет линии на синий при активном блоке формы */
+      background-color: $c-hover;
+    }
+  }
+
+  &__button {
+    @include button;
+
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 75%;
+    }
+  }
+}

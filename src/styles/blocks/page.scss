@@ -1,0 +1,49 @@
+.page {
+  scroll-behavior: smooth; /* чтоб навигация происходила плавно */
+
+  &__body {
+    margin: 0;
+    background: $c-gray;
+  }
+
+  &__menu {
+    pointer-events: none; /* Отключает клики по элементу */
+
+    position: fixed;
+    z-index: 2;
+    top: 0; /* растягивается на всю ширину экрана - топ, райт , лефт */
+    right: 0;
+    left: 0;
+    opacity: 0;
+
+    transition: all 0.3s;
+
+    &:target {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    @include on-desktop-sm {
+      pointer-events: all;
+      margin: 0;
+      opacity: 1;
+      transition: none;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-top: 120px;
+
+    @include on-tablet {
+      margin-top: 148px;
+      gap: 148px;
+    }
+  }
+}

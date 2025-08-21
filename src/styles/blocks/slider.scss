@@ -1,0 +1,123 @@
+.slider {
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 30px;
+
+  @include on-desktop-sm {
+    height: 100%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  input[type='radio'] {
+    display: none;
+  }
+
+  &__content {
+    display: flex;
+    position: relative; /* для позиционирования текста внутри */
+
+    width: 100%;
+    transition: transform 0.5s ease;
+
+    @include on-desktop-sm {
+      height: 100%;
+    }
+
+    &-item {
+      width: 100%;
+      flex-shrink: 0;
+      position: relative; /* для позиционирования кнопки внутри */
+
+      @include on-desktop-sm {
+        height: 100%;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 390px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 30px;
+
+    @include on-tablet {
+      width: 100%;
+    }
+
+    @include on-desktop-sm {
+      height: 100%;
+
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    bottom: 108px;
+    left: 20px;
+
+    @include on-tablet {
+      bottom: 116px;
+      left: 41px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    @include on-tablet {
+      bottom: 32px;
+      left: 41px;
+    }
+  }
+
+  &__title {
+    @include font-menu;
+
+    line-height: 100%;
+  }
+
+  &__main {
+    @include font-main;
+
+    text-align: left;
+    line-height: 140%;
+    color: $c-white;
+  }
+
+  // #slide1:checked ~ .slider__content {
+  //   transform: translateX(0%);
+  // }
+  // #slide2:checked ~ .slider__content {
+  //   transform: translateX(-100%);
+  // }
+  // #slide3:checked ~ .slider__content {
+  //   transform: translateX(-200%);
+  // }
+
+  &__radio:nth-of-type(1):checked ~ .slider__content {
+    transform: translateX(0%);
+  }
+
+  // второй input
+  &__radio:nth-of-type(2):checked ~ .slider__content {
+    transform: translateX(-100%);
+  }
+
+  // третий input
+  &__radio:nth-of-type(3):checked ~ .slider__content {
+    transform: translateX(-200%);
+  }
+}

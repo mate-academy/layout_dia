@@ -1,6 +1,152 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover-property($property, $value, $duration: 0.3s) {
+  /* Добавляет плавный переход и меняет указанное CSS-свойство при наведении. */
+  transition: #{$property} $duration;
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $value;
   }
+}
+
+@mixin hover-zoom-shadow(
+  /* При наведении увеличивает элемент (scale) и добавляет тень (box-shadow) с плавным переходом. */
+    $scale: 1.05,
+  $shadow: 3px 3px 6px rgba(0, 0, 0, 0.6),
+  $duration: 0.3s
+) {
+  transition:
+    transform $duration,
+    box-shadow $duration,
+    background-color $duration;
+  &:hover {
+    transform: scale($scale);
+    box-shadow: $shadow;
+  }
+}
+
+@mixin active-property($property, $value, $duration: 0.3s) {
+  /* Меняет указанное CSS-свойство при нажатии (:active), с плавным переходом. */
+  transition: #{$property} $duration;
+  &:active {
+    #{$property}: $value;
+  }
+}
+
+@mixin on-tablet() {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-sm() {
+  @media (min-width: $desktop-sm-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop() {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-xl() {
+  @media (min-width: $desktop-xl-min-width) {
+    @content;
+  }
+}
+
+.container {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop-sm {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    padding-inline: 227px;
+  }
+
+  @include on-desktop-xl {
+    padding-inline: 707px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop-sm {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    column-gap: 30px;
+  }
+}
+
+@mixin hover-underline($color) {
+  /* рисуем появляющуюся линию под навигацией */
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -8px;
+    transform: scale(0);
+
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: $color;
+
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:hover::after {
+    transform-origin: center; /* растягивается линия от левого края */
+    transform: scale(1); /* линия видима 1 */
+  }
+}
+
+@mixin button {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 50px;
+
+  text-decoration: none;
+  border-radius: 8px;
+
+  background-color: $c-blue;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+
+  @include font-button;
+  @include hover-property(background-color, $c-hover);
+  @include hover-zoom-shadow(1);
 }
