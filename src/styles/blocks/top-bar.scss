@@ -1,0 +1,98 @@
+.top-bar {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding-block: 20px;
+
+  @include on-laptop {
+    gap: 0;
+  }
+
+  &__menu-button {
+    cursor: pointer;
+
+    position: relative;
+
+    width: 24px;
+    height: 24px;
+    border: none;
+
+    background: none;
+
+    span {
+      position: absolute;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background: $white;
+
+      @include effects;
+
+      &:nth-child(1) {
+        top: 6px;
+      }
+      &:nth-child(2) {
+        top: 16px;
+      }
+    }
+
+    &.is-active {
+      span:nth-child(1) {
+        top: 11px;
+        transform: rotate(45deg);
+      }
+      span:nth-child(2) {
+        top: 11px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  &__button {
+    margin-left: auto;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      height: 2px;
+      margin-top: 8px;
+      border-radius: 4px;
+
+      background-color: $accent-color;
+    }
+
+    &:hover {
+      color: $hover-color;
+
+      &::after {
+        background-color: $hover-color;
+      }
+    }
+  }
+}

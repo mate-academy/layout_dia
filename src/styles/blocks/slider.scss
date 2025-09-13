@@ -1,0 +1,119 @@
+.slider {
+  display: flex;
+  align-items: flex-end;
+
+  height: 390px;
+  border-radius: $border-radius;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transition: opacity $effects-duration ease-in-out;
+
+  @include on-laptop {
+    width: 50vw;
+    height: 680px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @include on-desktop {
+    width: 46vw;
+  }
+
+  &.is-fading {
+    opacity: 0;
+  }
+
+  &--1 {
+    background-image: url('../images/slider/slider-img-1.png');
+  }
+
+  &--2 {
+    background-image: url('../images/slider/slider-img-2.png');
+  }
+
+  &--3 {
+    background-image: url('../images/slider/slider-img-3.png');
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding-bottom: 24px;
+    padding-left: $inline-page-padding-mobile;
+
+    @include on-tablet {
+      padding-bottom: 32px;
+      padding-left: $inline-page-padding-tablet;
+    }
+
+    @include on-laptop {
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+
+      padding-bottom: 48px;
+      padding-left: 78px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    @include effects;
+
+    display: block;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--left {
+      background-image: url(../images/slider/arrow-left.svg);
+    }
+
+    &--right {
+      background-image: url(../images/slider/arrow-right.svg);
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: rgba(225, 225, 225, 0.8);
+    }
+
+    &:active {
+      transform: scale(0.95); // відчуття «натискання»
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 140%;
+  }
+}

@@ -1,0 +1,69 @@
+.page {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  line-height: 150%;
+  background-color: $page-bg;
+
+  &__body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: $main-text;
+
+    @include on-tablet {
+      font-size: 24px;
+    }
+
+    @include on-laptop {
+      gap: 120px;
+    }
+
+    &.no-scroll {
+      overflow: hidden;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 120px;
+    align-items: center;
+
+    @include on-tablet {
+      row-gap: 148px;
+    }
+
+    @include on-laptop {
+      row-gap: 120px;
+    }
+  }
+
+  &__services {
+    margin-top: 103px;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(100%);
+
+    opacity: 0;
+
+    @include effects;
+
+    &.is-open {
+      pointer-events: auto;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.logo {
+  display: block;
+  width: 46px;
+  height: 28px;
+}

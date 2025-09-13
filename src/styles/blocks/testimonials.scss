@@ -1,0 +1,183 @@
+.testimonials {
+  &__wrapper {
+    @include page-grid;
+  }
+
+  &__sub-title {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+  }
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
+    font-size: 32px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 85px;
+    }
+  }
+}
+
+.card {
+  @include effects;
+
+  position: relative;
+
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px 37px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+
+  background-color: $white;
+  background-clip: padding-box;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+
+    border-radius: 16px;
+
+    opacity: 0;
+    background: linear-gradient(45deg, $accent-color, $hover-color);
+
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 0;
+    }
+  }
+
+  @include on-tablet {
+    padding-inline: 98px;
+  }
+
+  @include on-laptop {
+    grid-column: span 4;
+    padding-inline: 45px;
+  }
+
+  &__photo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    width: 196px;
+
+    @include on-tablet {
+      width: 250px;
+    }
+
+    @include on-laptop {
+      width: 196px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 1;
+
+      width: 55%;
+      height: 22%;
+      border-radius: 12px;
+
+      background-color: $accent-color;
+    }
+
+    &::before {
+      right: 10px;
+      bottom: 30%;
+      transform: rotate(-60deg);
+    }
+
+    &::after {
+      top: 20%;
+      left: 10px;
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__img {
+    position: relative;
+    z-index: 2;
+
+    width: 50%;
+    margin-bottom: 24px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    @include on-laptop {
+      margin-bottom: 32px;
+    }
+
+    &::before {
+      content: url(../images/icons/quotation.svg);
+
+      display: block;
+
+      width: 24px;
+      height: 24px;
+      margin: 0 auto;
+      margin-bottom: 8px;
+
+      @include on-tablet {
+        margin-bottom: 16px;
+      }
+
+      @include on-laptop {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &__fullname {
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $accent-text;
+  }
+
+  &__subtitle {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $secondary-text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
