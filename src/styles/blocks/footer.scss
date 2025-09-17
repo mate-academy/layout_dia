@@ -1,0 +1,154 @@
+.footer {
+  padding-top: 72px;
+  padding-bottom: 80px;
+  border-radius: 40px 40px 0 0;
+
+  color: $c-white;
+
+  background-color: $c-bg-header;
+
+  @include on-tablet {
+    padding-top: 180px;
+  }
+
+  &__content {
+    @include grid-layout;
+
+    @include on-small-desktop {
+      row-gap: 104px;
+    }
+  }
+
+  &__send-message {
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 120px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact-us {
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-bottom: 139px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / 12;
+      margin-bottom: 0;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    row-gap: 48px;
+
+    @include on-tablet {
+      row-gap: 24px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    &--send-message {
+      line-height: 41.6px;
+
+      @include on-tablet {
+        line-height: 48px;
+      }
+    }
+  }
+
+  &__contact-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+
+      @include on-tablet {
+        margin-bottom: 48px;
+      }
+    }
+  }
+
+  &__link-title {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+  }
+
+  &__link {
+    position: relative;
+
+    width: fit-content;
+
+    font-family: $font-family-secondary;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      transform-origin: left;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+
+      background-color: $c-blue;
+
+      transition-duration: $transition-duration;
+    }
+
+    &:hover::after {
+      transform-origin: left;
+      transform: scale(100%);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: 32px;
+    margin-top: 8px;
+  }
+}

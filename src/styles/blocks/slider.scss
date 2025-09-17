@@ -1,0 +1,92 @@
+.slider {
+  &__list {
+    height: 390px;
+
+    @include on-small-desktop {
+      height: 680px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+
+    object-fit: cover;
+
+    @include on-small-desktop {
+      border-radius: 40px 0 0 40px;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    padding-block: 24px;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      padding-inline: 41px;
+    }
+
+    @include on-small-desktop {
+      padding-inline: 78px;
+    }
+
+    @include on-desktop {
+      padding-inline: 48px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    column-gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background-color: $c-text-light;
+    background-image: url(../images/slider/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(scale, 1.2);
+
+    &--forward {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    margin-top: 8px;
+
+    font-family: $font-family-secondary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+  }
+}
