@@ -4,3 +4,42 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover-underline {
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #2060f6;
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+@mixin on-tablets {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktops {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-big-desktops {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
