@@ -1,0 +1,278 @@
+@import '../utils';
+
+.footer-wrapper {
+  background-color: white;
+}
+
+.footer {
+  background-color: $background-black;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  padding: 180px 707px 80px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 225px;
+    margin-bottom: 100px;
+  }
+}
+
+.message,
+.contact-us {
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 150%;
+    margin-bottom: 56px;
+  }
+}
+
+.message {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__email,
+  &__name,
+  &__content {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 17px;
+    color: white;
+    transition: border-bottom-color 0.3s ease;
+  }
+
+  &__email,
+  &__name {
+    margin-bottom: 48px;
+  }
+
+  &__email:focus,
+  &__name:focus,
+  &__content:focus {
+    border-bottom: 1px solid #144ed4;
+  }
+
+  &__content {
+    margin-bottom: 80px;
+  }
+
+  &__button {
+    align-self: flex-start;
+    padding: 17px 112px;
+    background-color: $blue;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+.contact-us {
+  &__element {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: $gray;
+
+    &:not(:last-of-type) {
+      margin-bottom: 8px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__value {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    line-height: 150%;
+    font-weight: 600;
+    color: white;
+  }
+
+  &__social-networks-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__facebook-image,
+  &__twitter-image,
+  &__instagram-image {
+    path {
+      transition: fill 0.3s ease;
+    }
+
+    &:hover path {
+      fill: #2060f6;
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  height: auto;
+  margin: 0;
+  gap: 463px;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__logo {
+    background: url('../images/logo/dia-logo.svg') center/contain no-repeat;
+    width: 46px;
+    height: 28px;
+  }
+
+  &__navigation {
+    padding: 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  &__link {
+    font-size: 13px;
+    line-height: 150%;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      @include link-hover;
+    }
+  }
+
+  &__link:hover::after {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 2559px) {
+  .footer {
+    padding: 180px 227px 80px;
+  }
+
+  .footer-bottom {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1599px) {
+  .footer {
+    padding: 180px 54px 80px;
+  }
+
+  .footer-bottom {
+    padding: 0;
+    gap: 233px;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .footer {
+    padding: 180px 41px 80px;
+
+    &__inner {
+      flex-direction: column;
+      gap: 80px;
+      width: 100%;
+      margin-bottom: 120px;
+    }
+  }
+
+  .contact-us {
+    &__element:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-bottom {
+    padding: 0;
+    gap: 24px;
+    flex-direction: column;
+    align-items: start;
+
+    &__navigation {
+      display: block;
+    }
+
+    &__list {
+      gap: 40px;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 639px) {
+  .footer-wrapper {
+    background-color: #f2f6fa;
+  }
+
+  .footer {
+    padding: 72px 20px 80px;
+
+    &__inner {
+      flex-direction: column;
+      gap: 80px;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+
+  .contact-us {
+    &__element:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .message {
+    &__content {
+      margin-bottom: 56px;
+    }
+  }
+
+  .footer-bottom {
+    padding: 0;
+    gap: 48px;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 0;
+
+    &__navigation {
+      display: block;
+    }
+
+    &__list {
+      gap: 24px;
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+}
