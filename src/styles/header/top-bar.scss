@@ -1,0 +1,78 @@
+.top-bar {
+  padding-bottom: 48px;
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__wrapper-icon {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+
+    @include hover(scale, 1.2);
+  }
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+
+    @include hover(scale, 1.2);
+
+    &--menu {
+      background-image: url(../images/logo/menu-logo.svg);
+    }
+
+    &--close {
+      background-image: url(../images/logo/icon-close.svg);
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__nav--big {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__hire-us {
+    display: block;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white-main-color;
+    position: relative;
+
+    @include hover(scale, 1.2);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      width: calc(100% - 3px);
+      height: 2px;
+      background-color: $dark-blue;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+  }
+}

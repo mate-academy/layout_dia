@@ -1,0 +1,131 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background: linear-gradient($dark-main-color, $c-gray);
+
+  &__slide-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  &__arrow-container {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    background-image: url(../images/slider/arrow-left-black.svg);
+    border-radius: 50%;
+    background-size: cover;
+    background-color: #fff;
+
+    &--right {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__image-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all $transition;
+
+    border-radius: 30px;
+
+    @include on-tablet {
+      width: 100%;
+    }
+
+    @include on-small-desktop {
+      // width: 502px;
+      height: 680px;
+      background-size: cover;
+      border-radius: 30px 0;
+    }
+
+    @include on-desktop {
+      height: 680px;
+      background-size: cover;
+      border-radius: 30px 0;
+    }
+
+    &--slide-one {
+      background-image: url(../images/slider/slide-1.png);
+
+      @include on-tablet {
+        background-image: url(../images/slider/slide-1-l.png);
+      }
+    }
+
+    &--slide-two {
+      background-image: url(../images/slider/slide-2.png);
+
+      transform: translateX(100%);
+    }
+
+    &--slide-three{
+      background-image: url(../images/slider/slide-3.png);
+
+      transform: translateX(200%);
+    }
+  }
+
+  &__nav-block {
+    position: absolute;
+    left: 20px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      // padding: 0 41px 32px;
+      left: 41px;
+      bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      // padding: 0 54px 48px 78px;
+      left: 78px;
+      bottom: 48px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include on-design {
+      left: 48px;
+    }
+  }
+
+  &__description {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: #fff;
+  }
+
+  &__descript-title {
+    margin: 0;
+    margin-bottom: 8px;
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+}
