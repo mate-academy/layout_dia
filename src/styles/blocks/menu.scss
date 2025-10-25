@@ -1,0 +1,36 @@
+.menu {
+  pointer-events: none;
+  scroll-behavior: smooth;
+
+  position: fixed;
+  inset: 0;
+
+  height: 100vh;
+
+  opacity: 0;
+  background-color: $header-bgc;
+
+  transition: all 0.3s;
+
+  &:target {
+    pointer-events: all;
+    z-index: 2;
+    opacity: 1;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+body:has(aside.menu:target) {
+  overflow: hidden;
+}
