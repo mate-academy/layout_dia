@@ -1,0 +1,84 @@
+.top-bar {
+  padding-block: 21px 0;
+  display: flex;
+  align-items: center;
+
+  @include SmallDesktop {
+    padding-block: 49px 0;
+  }
+
+  &__nav {
+    display: none;
+    align-self: center;
+
+    @include SmallDesktop {
+      display: flex;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 48px;
+    position: absolute;
+    min-width: 592px;
+    left: 48%;
+    transform: translate(-50%, -48%);
+  }
+
+  &__link {
+    color: var(--bg-color);
+    text-decoration: none;
+  }
+
+  &__right {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__hire-us {
+    display: flex;
+    margin-left: 30px;
+    position: relative;
+    text-decoration: none;
+    color: var(--bg-color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--button-color);
+      transition: all 0.3s ease-in-out;
+      transform: translateX(-50%);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.theme-switcher {
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  width: 30px;
+  padding: 4px;
+}
+
+.theme-switcher::after {
+  content: '';
+  width: 50%;
+  padding-bottom: 50%;
+  display: block;
+  background-color: var(--header-color);
+  border-radius: 50%;
+
+  transition: transform 0.3s;
+}
+
+.theme-switcher--theme-dark::after {
+  transform: translateX(100%);
+}

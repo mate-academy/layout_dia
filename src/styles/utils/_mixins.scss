@@ -1,6 +1,111 @@
+@mixin Tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin SmallDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin Desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin Design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin Large {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline() {
+  padding-inline: 20px;
+
+  @include Tablet {
+    padding-inline: 41px;
+  }
+
+  @include SmallDesktop {
+    padding-inline: 54px;
+  }
+
+  @include Desktop {
+    padding-inline: 180px;
+  }
+
+  @include Design {
+    padding-inline: 227px;
+  }
+
+  @include Large {
+    max-width: 2560px;
+    margin-inline: auto;
+    padding-inline: 707px;
+  }
+}
+
+.container {
+  @include contentPaddingInline;
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include Tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include SmallDesktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include Desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin button {
+  cursor: pointer;
+  font-size: 15px;
+  height: 50px;
+  width: 264px;
+  color: var(--bg-color);
+  font-weight: 600;
+  background-color: var(--button-color);
+  border-radius: var(--button-radius);
+
+  &:hover {
+    background-color: var(--button-color2);
+  }
+
+  &:active {
+    background-color: var(--button-color3);
   }
 }

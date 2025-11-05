@@ -1,0 +1,67 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding-block: 40px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &--footer {
+      gap: 24px;
+
+      @include Tablet {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include SmallDesktop {
+        justify-content: end;
+        gap: 64px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 2px;
+
+    &--footer {
+      letter-spacing: 3px;
+      font-size: 13px;
+      line-height: 150%;
+      font-weight: 700;
+      color: var(--bg-color);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: var(--bg-color);
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: center;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--hire-us {
+      font-weight: 600;
+
+      &::after {
+        height: 2px;
+        background-color: var(--button-color);
+      }
+    }
+  }
+}
