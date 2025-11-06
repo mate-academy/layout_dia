@@ -1,0 +1,129 @@
+.people {
+  @include pagegrid;
+
+  row-gap: 24px;
+
+  &__block {
+    box-sizing: border-box;
+    grid-column: 1 / -1;
+    min-width: 280px;
+    padding: 32px 42px;
+    border-radius: 16px;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include hover(transform, scale(1.1));
+
+    @include smalldesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__image {
+    display: flex;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__shapes {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__shape {
+    position: absolute;
+    width: 109px;
+    height: 44px;
+    border-radius: 12px;
+    transform: rotate(120deg);
+
+    &--1 {
+      top: 41px;
+      left: 3px;
+    }
+
+    &--2 {
+      bottom: 41px;
+      left: 83px;
+    }
+
+    &--color1 {
+      background: rgb(var(--card-color1));
+    }
+
+    &--color2 {
+      background: rgb(var(--card-color2));
+    }
+
+    &--color3 {
+      background: rgb(var(--card-color4));
+    }
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  &__quotes {
+    height: 24px;
+    width: 24px;
+    -webkit-mask-image: url('../images/logo/icons-quotes.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    mask-image: url('../images/logo/icons-quotes.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    background-image: none;
+
+    &--1 {
+      background-color: rgb(var(--card-color1));
+    }
+
+    &--2 {
+      background-color: rgb(var(--card-color2));
+    }
+
+    &--3 {
+      background-color: rgb(var(--card-color4));
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: var(--dark-content);
+    margin-bottom: 16px;
+    margin-top: 8px;
+
+    @include tablet {
+      max-width: 362px;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: var(--dark-title);
+    margin-bottom: 4px;
+  }
+
+  &__profession {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--subtitle-color);
+  }
+}
