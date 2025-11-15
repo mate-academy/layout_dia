@@ -1,0 +1,52 @@
+.page {
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-family-base;
+  font-size: $fs-16;
+  font-weight: $font-weight-regular;
+  line-height: $lh-unit-tight;
+  color: $color-text-base;
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-family-title;
+  }
+
+  &__body {
+    overflow-x: hidden;
+    min-width: $mobile-min-width;
+    margin: 0;
+    background-color: $color-site-bg;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    opacity: 0;
+
+    transition: all $effectDuration;
+
+    &:target {
+      pointer-events: all;
+      z-index: 2;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}

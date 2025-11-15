@@ -1,0 +1,257 @@
+.header {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 0 0 $radius-l $radius-l;
+
+  background-color: $color-dark-bg;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: $width-full;
+    height: $height-full;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: $spacing-xl;
+    justify-content: space-between;
+
+    margin-top: $spacing-ml;
+
+    @include on-tablet {
+      gap: $spacing-section-ml;
+      margin-top: $spacing-lg-custom;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+      height: $h-hero-lg;
+      margin-top: $spacing-phone-gap;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-l;
+
+    @include on-tablet {
+      gap: $spacing-md;
+    }
+
+    @include on-small-desktop {
+      gap: $spacing-l;
+      max-width: $w-form-max;
+    }
+
+    &--title {
+      margin: 0;
+      color: $color-white;
+      letter-spacing: $ls--2;
+
+      @include on-tablet {
+        font-size: $fs-64;
+        line-height: $lh-percent-tight;
+      }
+
+      @include on-small-desktop {
+        margin-top: $spacing-section-md;
+      }
+    }
+
+    &--text {
+      margin: 0;
+      font-size: $fs-18;
+      color: $color-white;
+
+      @include on-tablet {
+        width: $w-form-max;
+      }
+    }
+
+    &--button {
+      display: inline-block;
+
+      width: $width-full;
+      height: $h-sm-custom;
+      margin-top: $spacing-lg;
+      border: 0;
+      border-radius: $radius-xs;
+
+      font-family: $font-family-title;
+      font-size: $fs-15;
+      font-weight: $font-weight-semibold;
+      line-height: $lh-px-50;
+      color: $color-white;
+      text-align: center;
+      text-decoration: none;
+
+      background-color: $color-primary-accent;
+
+      &:hover {
+        background-color: $color-primary-hover;
+      }
+
+      @include on-tablet {
+        width: $w-card-tablet;
+        margin-top: $spacing-l;
+      }
+
+      @include on-small-desktop {
+        margin-top: $spacing-mt-lg;
+      }
+    }
+  }
+
+  &__bottom {
+    position: relative;
+
+    align-items: flex-end;
+
+    box-sizing: border-box;
+    height: $h-card-lg;
+
+    background-size: cover;
+
+    @include on-small-desktop {
+      right: 0;
+
+      box-sizing: border-box;
+      min-width: $mw-col-md;
+      height: $h-hero-lg;
+      margin-right: 0;
+    }
+
+    @include on-desktop {
+      min-width: $mw-col-lg;
+    }
+
+    @include on-design {
+      min-width: $mw-col-xl;
+    }
+
+    @include on-large {
+      min-width: $mw-col-xxl;
+    }
+
+    &-content {
+      position: absolute;
+
+      // z-index: 1;
+      bottom: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+
+      box-sizing: border-box;
+      margin-bottom: $spacing-md;
+      margin-left: $spacing-phone-gap;
+
+      @include on-tablet {
+        margin-bottom: $spacing-l;
+        margin-left: $spacing-ml-custom;
+      }
+
+      @include on-small-desktop {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: $spacing-xl;
+        margin-left: $spacing-ml-lg;
+      }
+
+      @include on-design {
+        margin-left: $spacing-xl;
+      }
+    }
+
+    &--arrows {
+      display: flex;
+      gap: $spacing-sm;
+    }
+
+    &--info {
+      z-index: 1;
+      bottom: 0;
+
+      display: flex;
+      flex-direction: column;
+
+      max-width: $mw-text-sm;
+    }
+
+    &--title {
+      margin: 0;
+      margin-bottom: $spacing-xs;
+
+      font-size: $fs-13;
+      font-weight: $font-weight-bold;
+      line-height: $lh-px-19-5;
+      color: $color-white;
+      text-transform: uppercase;
+      letter-spacing: $ls-3;
+    }
+
+    &--text {
+      margin: 0;
+
+      font-size: $fs-14;
+      font-weight: $font-weight-regular;
+      line-height: $lh-px-19-6;
+      color: $color-white;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: $h-card-lg;
+    border-radius: $radius-l $radius-l 0 0;
+
+    opacity: 0;
+    object-fit: cover;
+
+    @include on-tablet {
+      width: $w-tablet-content;
+    }
+
+    @include on-small-desktop {
+      width: $w-custom-md;
+      height: $h-hero-lg;
+      border-radius: $radius-l 0 0 0;
+    }
+
+    @include on-desktop {
+      width: $mw-col-lg;
+      height: $h-hero-lg;
+    }
+
+    @include on-design {
+      width: $mw-col-xl;
+    }
+
+    @include on-large {
+      width: $mw-col-xxl;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}
