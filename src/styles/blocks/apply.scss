@@ -1,0 +1,141 @@
+.apply {
+  position: relative;
+  z-index: 1;
+
+  width: auto;
+  height: auto;
+  margin-top: 0;
+  padding-top: 0;
+
+  background-color: rgba(242, 246, 250, 1);
+
+  @include on-tablets {
+    @include page-grid;
+
+    padding-inline: 0;
+
+    &::before {
+      pointer-events: none;
+      content: '';
+
+      position: absolute;
+      z-index: 3;
+      inset: 60px 0 0 -225px;
+
+      background-image: url('../images/Shapes.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      /* linha vazia exigida */
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+
+    @include on-tablets {
+      display: contents;
+    }
+  }
+
+  &__shape {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    margin-bottom: 120px;
+
+    /* linha vazia antes do background-color */
+    background-color: rgba(255, 255, 255, 1);
+
+    @include constent-padding-inline;
+
+    @include on-tablets {
+      grid-column: 1 / -1;
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    @include small-desktop {
+      padding-top: 199px;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    font-family: Poppins, sans-serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 120%;
+    color: rgba(37, 55, 87, 1);
+    text-align: center;
+    letter-spacing: 0;
+    vertical-align: middle;
+
+    @include on-tablets {
+      font-family: Poppins, sans-serif;
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0;
+      vertical-align: middle;
+
+      leading-trim: none;
+    }
+
+    @include small-desktop {
+      line-height: 150%;
+    }
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 150%;
+    color: rgba(108, 120, 139, 1);
+    text-align: center;
+    letter-spacing: 0;
+  }
+
+  &__buttom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 56px;
+    margin-top: 72px;
+    margin-bottom: 48px;
+    border-radius: 8px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0;
+
+    background-color: $buttom-color;
+
+    @include small-desktop {
+      margin-bottom: 198px;
+    }
+  }
+}
