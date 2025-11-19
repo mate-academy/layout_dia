@@ -1,0 +1,257 @@
+.hero {
+  position: relative;
+  width: auto;
+  height: auto;
+  background-color: $primary-color;
+
+  &__container {
+    &-texts {
+      padding-right: 20px;
+      padding-left: 20px;
+
+      @include on-tablets {
+        padding-right: 41px;
+        padding-left: 41px;
+      }
+
+      @include small-desktop {
+        padding-right: 0;
+        padding-left: 54px;
+      }
+
+      @include on-desktop {
+        padding-right: 0;
+        padding-left: 227px;
+      }
+
+      @include large-desktop {
+        padding-right: 0;
+        padding-left: 707px;
+      }
+    }
+
+    @include on-tablets {
+      @include page-grid;
+    }
+
+    @include small-desktop {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__container-image {
+    position: relative;
+
+    overflow: hidden; /* evita que a imagem "vaze" o arredondamento */
+
+    width: auto;
+    height: auto;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    background-color: rgba(
+      242,
+      246,
+      250,
+      1
+    ); /* branco igual à primeira imagem */
+
+    @include on-tablets {
+      grid-column: 1 / -1;
+      width: auto;
+      height: auto;
+    }
+
+    @include small-desktop {
+      grid-column: 3 / 7;
+      margin-top: 48px;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding-top: 49.38px;
+    padding-bottom: 32px;
+
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 120%;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: -2px;
+
+    @include on-tablets {
+      grid-column: 1 / -1;
+
+      padding-top: 56px;
+      padding-bottom: 24px;
+
+      font-family: Poppins, sans-serif;
+      font-size: 64px;
+      font-weight: 600;
+      line-height: 68px;
+      letter-spacing: -2px;
+    }
+
+    @include small-desktop {
+      grid-column: 1 / 4;
+      padding-top: 164px;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__paragrafo {
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0;
+
+    @include on-tablets {
+      grid-column: 1 / 5;
+    }
+
+    @include small-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__buttom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 50px;
+    margin-top: 72px;
+    margin-bottom: 48px;
+    border-radius: 8px;
+
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+
+    background-color: $buttom-color;
+
+    @include on-tablets {
+      grid-column: 1 / 4;
+      margin-top: 56px;
+      margin-bottom: 147px;
+    }
+
+    @include small-desktop {
+      grid-column: 1 / 4;
+      margin-top: 83px;
+      margin-bottom: 205px;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    width: auto;
+    height: 390px;
+    border-radius: 30px;
+
+    background-image: url(../images/slider/slide-img-1.jpg);
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablets {
+      grid-column: 1 / -1;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @include small-desktop {
+      grid-column: 3 / 7;
+
+      height: 710px;
+      padding-right: 0;
+      padding-left: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__arrow-shape {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background-color: white;
+
+    &--left {
+      top: 70%;
+      left: 20px; // desloca para fora da borda esquerda
+
+      @include small-desktop {
+        top: 90%;
+        left: 70px; // desloca para fora da borda esquerda
+      }
+    }
+
+    &--right {
+      top: 70%;
+      left: 70px;
+
+      @include small-desktop {
+        top: 90%;
+        left: 120px; // desloca para fora da borda esquerda
+      }
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    top: 80%;
+    left: 25px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    @include small-desktop {
+      top: 85%;
+      left: 180px; // desloca para fora da borda esquerda
+    }
+
+    &-text {
+      position: absolute;
+      top: 85%;
+      left: 25px;
+
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%;
+      color: rgba(255, 255, 255, 1);
+      letter-spacing: 0;
+
+      @include small-desktop {
+        top: 89%;
+        left: 180px; // desloca para fora da borda esquerda
+      }
+    }
+  }
+}
