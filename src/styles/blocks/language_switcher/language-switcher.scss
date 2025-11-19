@@ -1,0 +1,81 @@
+.language-switcher {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 16px;
+    cursor: pointer;
+  }
+  &__current-flag-country {
+    display: block;
+    width: 30px;
+    height: 20px;
+  }
+  &__shevron {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transform: rotate(-90deg);
+    transition: transform  $effect-duration ease;
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 16px;
+    display: grid;
+    row-gap: 12px;
+
+    overflow: hidden;
+    transform-origin: top center;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+
+    transition: all $effect-duration ease;
+
+    @include on-desktop {
+      width: auto;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    cursor: pointer;
+  }
+
+  &__language-code {
+    @extend %fm-poppins_w-700_fs-13_lh-150_c-FFFFFF;
+    
+    color: #000;
+    opacity: 1;
+    &--active {
+      opacity: 0.7;
+    }
+  }
+
+  &__flag-country {
+    display: block;
+    width: 30px;
+    height: 20px;
+  }
+}
+
+.language-switcher--active .language-switcher__content {
+  transform: translateY(0);
+  opacity: 1;
+  display: grid;
+  pointer-events: auto;
+}
+
+.language-switcher--active .language-switcher__shevron {
+  transform: rotate(90deg);
+}
