@@ -4,3 +4,59 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover-scale {
+  transition: $transition-3;
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+@mixin hover-shadow {
+  transition:
+    transform $transition-3,
+    box-shadow $transition-3;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    @content;
+  }
+}
+
+// screen breakpoint
+@mixin on-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin content-inline-padding {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    padding-inline: 227px;
+  }
+}
