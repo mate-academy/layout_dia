@@ -1,0 +1,82 @@
+.header-bottom {
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+
+  @include on-small-desktop {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+  }
+
+  @include on-small-desktop {
+    height: calc(100vh - 76px - 38px);
+  }
+
+  .wrapper-arrow {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__control {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-24px);
+
+    @include content-inline-padding;
+
+    @include on-tablet {
+      transform: translateY(-32px);
+    }
+
+    @include on-small-desktop {
+      transform: translateY(-48px);
+      padding-left: 78px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  .wrapper-content {
+    > :first-child {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    display: block;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: $transition-3;
+
+    &:hover {
+      background-color: #c0b9b9;
+    }
+
+    &--prev {
+      background-image: url(/src/images/slider/arrow-left-black.svg);
+    }
+
+    &--next {
+      background-image: url(/src/images/slider/arrow-right-black.svg);
+    }
+  }
+
+  &__text {
+    line-height: 140%;
+  }
+}
