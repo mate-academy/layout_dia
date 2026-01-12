@@ -4,3 +4,88 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $small-desktop) {
+    @content;
+  }
+}
+
+@mixin on-large-desktop {
+  @media (min-width: $large-desktop) {
+    @content;
+  }
+}
+
+@mixin on-large-screens {
+  @media (min-width: $large-screens) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-large-desktop {
+    padding-inline: 227px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-large-desktop {
+    --columns: 12;
+
+    column-gap: 30px;
+  }
+}
+
+@mixin hover-line {
+  &::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 1px;
+    bottom: -8px;
+    background-color: $main-white;
+    transition: transform 0.3s;
+    transform: scale(0);
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}
