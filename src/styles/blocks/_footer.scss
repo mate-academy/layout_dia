@@ -1,0 +1,86 @@
+.footer {
+  padding-top: 72px;
+  padding-bottom: 80px;
+  background-color: $background-color;
+  border-top-right-radius: 200px;
+
+  @include onTablet {
+    padding-top: 180px;
+  }
+
+  &__top {
+    --columns: 2;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 80px 24px;
+    margin-bottom: 80px;
+    display: grid;
+
+    @include onTablet {
+      --columns: 6;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      gap: 30px;
+    }
+
+    @include onTablet {
+      row-gap: 120px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+      gap: 20px;
+    }
+
+    @include onBigDesktop {
+      --columns: 12;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    --columns: 2;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 48px 24px;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 48px;
+
+    @include onTablet {
+      row-gap: 24px;
+    }
+
+    @include onDesktop {
+      --columns: 12;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @include onBigDesktop {
+      --columns: 12;
+      gap: 30px;
+    }
+  }
+
+  &__logo-link {
+    grid-column: span 2;
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+  }
+
+  &__menu {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+  }
+}
