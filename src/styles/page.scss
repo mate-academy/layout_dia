@@ -7,16 +7,39 @@
   padding: 0;
 
   --columns: 2;
-  
+
   font-family: Roboto, sans-serif;
 
   &__main {
     background-color: #f2f6fa;
   }
 
+  :where(.container) {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      display: grid;
+
+      grid-template-columns: subgrid;
+      // grid-column: 1 / -1;
+
+      & > * {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
   &__section {
+    // main for container
     display: grid;
+    column-gap: 20px;
     grid-template-columns: repeat(var(--columns), 1fr);
+
+    @include onTablet {
+      --columns: 6;
+      column-gap: 30px;
+    }
+    // main for container
 
     text-align: center;
     padding-top: 120px;
@@ -31,8 +54,6 @@
       line-height: 150%;
       font-size: 32px;
       color: #253757;
-
-      grid-column: -1 / 1;
     }
 
     &-description {
@@ -41,8 +62,6 @@
       font-size: 22px;
       line-height: 150%;
       color: #6c788b;
-
-      grid-column: -1 / 1;
     }
   }
 }
