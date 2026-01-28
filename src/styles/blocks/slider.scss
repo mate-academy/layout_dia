@@ -1,0 +1,130 @@
+.slider {
+  position: relative;
+  z-index: 10; // Coloca o slider acima de tudo
+
+  overflow: hidden; // ESSENCIAL: Esconde os outros 3 slides
+  grid-column: span 2;
+
+  width: 100%; // Ou a largura fixa do seu Figma (ex: 400px)
+  margin-bottom: 0; // Garante que não haja espaço extra empurrando para fora
+  border-radius: 20px;
+
+  @include on-tabblet {
+    grid-column: span 6;
+    height: 100%; // Faz o container ocupar toda a altura da célula do grid
+  }
+
+  &__content {
+    display: flex;
+    width: 400%; // 4 slides = 400% da largura do pai
+    height: 100%; // Garante que o container flex acompanhe o estiramento
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__item {
+    position: relative;
+    flex-shrink: 0; // Impede que o flexbox "esmague" o slide
+    width: 25%; // 25% de 400% = 100% da tela visível
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: 390px; // O item ocupa toda a altura do content
+      object-fit: cover;
+
+      @include on-small-desktop {
+        height: 100%; // Garante que o container flex acompanhe o estiramento
+      }
+    }
+  }
+}
+
+.slider__controls {
+  position: absolute;
+  bottom: 30%; // Altura em relação ao fundo (ajuste conforme o texto)
+
+  display: flex;
+  gap: 12px; // Espaço entre a seta esquerda e direita
+
+  padding-inline: 20px;
+
+  @include on-tabblet {
+    padding-inline: 40px;
+  }
+}
+
+.slider__info {
+  position: absolute;
+  bottom: 40px;
+  padding-inline: 20px;
+
+  @include on-tabblet {
+    padding-inline: 40px;
+  }
+
+  color: #fff;
+
+  .slider__title {
+    margin-bottom: 8px;
+
+    @include poppins-700;
+
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
+
+.arrow {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: #fff;
+
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // Use um background-image ou pseudo-elemento para a setinha interna
+  &.prev {
+    background-image: url('../images/arrow-left.png');
+    background-position: center;
+  }
+
+  &.next {
+    background-image: url('../images/arrow-right.png');
+    background-position: center;
+  }
+}
+
+.s1,
+.s2,
+.s3,
+.s4 {
+  display: none;
+}
+
+.s1:checked ~ .slider__content {
+  transform: translateX(0);
+}
+
+.s2:checked ~ .slider__content {
+  transform: translateX(-25%);
+}
+
+.s3:checked ~ .slider__content {
+  transform: translateX(-50%);
+}
+
+.s4:checked ~ .slider__content {
+  transform: translateX(-75%);
+}
