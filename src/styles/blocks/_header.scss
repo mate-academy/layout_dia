@@ -1,0 +1,151 @@
+.header {
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  color: #fff;
+  background-color: #2c2c2c;
+
+  @include page-grid;
+
+  &__bloco {
+    display: grid;
+    grid-column: span 2;
+
+    @include on-tabblet {
+      grid-column: span 6;
+      grid-template-columns: subgrid;
+    }
+  }
+
+  &__top {
+    display: flex;
+    grid-column: 1/-1;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 24px;
+    padding-block: 20px;
+
+    @include padding-page;
+
+    &-menu {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+
+      &-ul {
+        display: flex;
+        gap: 48px;
+      }
+
+      &-hidden {
+        display: none;
+
+        @include on-small-desktop {
+          pointer-events: all;
+          display: block;
+        }
+      }
+
+      &-icon {
+        text-decoration: none;
+
+        @include on-small-desktop {
+          display: none;
+        }
+      }
+    }
+
+    &-link {
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: ''; // Cria um elemento vazio "invisível"
+
+        position: absolute;
+        bottom: -5px; // Posiciona exatamente onde a borda deve ficar
+        left: 0;
+
+        width: 100%; // Faz a linha ter a mesma largura do texto
+        height: 2px; // Espessura da borda
+
+        opacity: 0;
+        background-color: #fff;
+
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover::after {
+        opacity: 1; // Fica visível quando o mouse passa por cima do link
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-column: 1/-1;
+
+    @include padding-page;
+
+    padding-block: 48px;
+
+    @include on-tabblet {
+      grid-column: 1 / span 6;
+      grid-template-columns: subgrid;
+      padding-bottom: 148px;
+    }
+
+    @include on-small-desktop {
+      padding-bottom: 205px;
+    }
+
+    &-title {
+      @include poppins-600;
+
+      grid-column: span 2;
+
+      margin: 0;
+
+      font-size: 52px;
+      line-height: 120%;
+      letter-spacing: -2px;
+
+      @include on-tabblet {
+        grid-column: span 6;
+        font-size: 64px;
+      }
+    }
+
+    &-desc {
+      @include open-400;
+
+      grid-column: span 2;
+      padding-block: 32px 72px;
+      font-size: 18px;
+      line-height: 150%;
+
+      @include on-tabblet {
+        grid-column: span 4;
+      }
+    }
+
+    &-link {
+      grid-column: span 2;
+
+      @include on-tabblet {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    &-button {
+      width: 100%;
+
+
+      @include button-blue;
+    }
+  }
+
+  &__bg {
+    width: 100%;
+  }
+}
