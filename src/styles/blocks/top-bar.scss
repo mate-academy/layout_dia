@@ -1,0 +1,104 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__icon-logo {
+    display: flex;
+    transition: scale $duration-effect ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &__icon-menu {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('../images/icons/menu-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px;
+
+    transition: scale $duration-effect ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+    }
+
+    @include on-s-desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-s-desktop {
+      display: flex;
+      gap: 48px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    padding-block: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    color: $headfoot-text-main-bg-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 0;
+      height: 2px;
+
+      background-color: $button-color;
+
+      transition: width $duration-effect;
+
+      @include on-s-desktop {
+        display: block;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__hire-us {
+    transition:
+      transform $duration-effect ease-in-out,
+      scale $duration-effect ease-in-out;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+    }
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
