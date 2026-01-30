@@ -1,0 +1,351 @@
+.header {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  height: 100vh;
+
+  background-color: $background-color;
+
+  @include on-small-desktop {
+    border-end-start-radius: 200px;
+  }
+
+  &__list {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    padding-inline: 48px;
+    list-style: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    height: 100vh;
+
+    @include on-small-desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__background {
+    height: 100%;
+    padding: 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &-0 {
+      background-image: url(../images/background-photo.png);
+      background-position: unset;
+    }
+
+    &-1 {
+      background-image: url(../images/slider-photo1.png);
+
+      @include on-small-desktop {
+        border-start-start-radius: 200px;
+      }
+    }
+
+    &-2 {
+      background-image: url(../images/slider-photo2.png);
+
+      @include on-small-desktop {
+        border-start-start-radius: 200px;
+      }
+    }
+
+    &-3 {
+      background-image: url(../images/slider-photo3.png);
+
+      @include on-small-desktop {
+        border-start-start-radius: 200px;
+      }
+    }
+  }
+
+  &__swiper {
+    position: relative;
+
+    overflow: hidden !important;
+
+    width: 100vh;
+    height: 100%;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+
+    @include on-tablet {
+      width: auto;
+    }
+
+    @include on-small-desktop {
+      width: 100vh;
+    }
+
+    // these three directives !important here to override Swiper styles
+  }
+
+  &__arrow-button {
+    font-size: 0;
+    text-decoration: none;
+  }
+
+  &__left {
+    cursor: pointer;
+    margin-right: 16px;
+  }
+
+  &__right {
+    cursor: pointer;
+    margin-right: 24px;
+  }
+
+  &__sides {
+    display: flex;
+    align-items: center;
+  }
+
+  &__intro {
+    flex-direction: column;
+
+    padding-top: 16px;
+
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    @include on-small-desktop {
+      padding-top: 0;
+    }
+  }
+
+  &__describe {
+    display: block;
+
+    margin-top: 8px;
+    margin-bottom: 24px;
+    width: 264px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 20px 20px 48px;
+  }
+
+  &__references {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__link {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+    padding-bottom: 0;
+
+    font-family: Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+    color: $main-background-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform-origin: left;
+      transform: scale($is-enabled-scale);
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+      border-radius: 1px;
+
+      background-color: $pink;
+
+      transition: transform $effect-duration;
+    }
+
+    &:hover::after {
+      transform: scale($is-active-scale);
+    }
+  }
+
+  &__center {
+    padding-inline: 21px;
+
+    @include on-tablet {
+      padding-inline: 41px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 102px;
+    }
+
+    @include on-desktop {
+      padding-inline-start: 54px;
+    }
+
+    @include on-small-desktop {
+      padding-inline-start: 54px;
+    }
+
+    @include on-desktop {
+      padding-inline-start: 80px;
+    }
+
+    @include on-the-design {
+      padding-inline-start: 227px;
+    }
+
+    @include on-large-screens {
+      padding-inline-start: 707px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-family: Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 62.4px;
+    color: $main-background-color;
+    letter-spacing: -2px;
+
+    @include on-tablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 48px;
+    padding: 0 48px;
+    border: 1px solid transparent;
+    border-radius: 64px;
+
+    font-family: Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22.5px;
+    color: $main-background-color;
+    text-decoration: none;
+
+    background-color: $pink;
+
+    transition-duration: 0.3s;
+
+    &:hover {
+      background-color: $button-hover-pink;
+      transition-duration: 0.3s;
+    }
+
+    @include on-tablet {
+      width: 264px;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__elements {
+    position: absolute;
+    z-index: 4;
+    bottom: 24px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    color: $main-background-color;
+
+    backdrop-filter: blur(3px);
+
+    @include on-tablet {
+      bottom: 32px;
+    }
+
+    @include on-small-desktop {
+      flex-direction: row;
+    }
+
+    @include on-small-desktop {
+      z-index: 4;
+      bottom: 48px;
+      left: 78px;
+    }
+  }
+
+  &__text {
+    margin-top: 32px;
+    margin-bottom: 72px;
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    color: $main-background-color;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+
+    @include on-tablet {
+      margin-top: 24px;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 32px;
+      margin-bottom: 83px;
+    }
+  }
+}
