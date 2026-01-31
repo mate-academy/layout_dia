@@ -1,0 +1,224 @@
+/* #region header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  height: 893px;
+  border-radius: 0 0 30px 30px;
+
+  color: $header-menu-text-color;
+
+  background-color: $header-footer-bg-color;
+
+  @include on-small-desktop {
+    height: 800px;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: $main-bg-color;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    margin-top: 28px;
+
+    @include on-tablet {
+      margin-top: 36px;
+    }
+
+    @include on-small-desktop {
+      @include page-grid;
+
+      margin-top: 0;
+    }
+  }
+
+  &__top {
+    @include content-padding-inline;
+
+    @include on-small-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-the-design {
+      grid-column: span 7;
+    }
+
+    &--title {
+      margin-bottom: 32px;
+      font-size: 52px;
+      line-height: 62.4px;
+      letter-spacing: -2px;
+
+      @include on-tablet {
+        margin-bottom: 24px;
+        font-size: 64px;
+        line-height: 68px;
+      }
+
+      @include on-small-desktop {
+        margin-block: 120px 32px;
+      }
+
+      @include on-desktop {
+        width: 490px;
+      }
+    }
+
+    &--text {
+      margin-bottom: 72px;
+
+      font-family: 'Open Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 27px;
+
+      @include on-tablet {
+        width: 362px;
+        margin-bottom: 56px;
+      }
+
+      @include on-small-desktop {
+        margin-bottom: 83px;
+      }
+    }
+
+    &--button {
+      all: unset;
+
+      cursor: pointer;
+
+      display: inline-block;
+
+      width: 280px;
+      height: 50px;
+      border-radius: 8px;
+
+      font-family: $main-font-family;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 50px;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+
+      background-color: $highlight-color;
+
+      @include on-tablet {
+        width: 264px;
+      }
+
+      @include hover(font-size, 17px);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 390px;
+    border-radius: 30px;
+
+    opacity: 0;
+    object-fit: cover;
+
+    transition: $std-transition;
+
+    @include on-small-desktop {
+      height: 680px;
+    }
+  }
+
+  &__image--active {
+    opacity: 1;
+  }
+
+  &__bottom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include content-padding-inline;
+
+    @include on-small-desktop {
+      grid-column: span 6;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      height: 680px;
+      padding-left: 78px;
+      border-radius: 30px 0;
+    }
+
+    @include on-the-design {
+      grid-column: span 5;
+      padding-left: 48px;
+    }
+
+    &--arrows {
+      z-index: 1;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      @include on-small-desktop {
+        align-self: flex-end;
+        margin-right: 24px;
+        margin-bottom: 66px;
+      }
+    }
+
+    &--info {
+      z-index: 1;
+      max-width: 280px;
+
+      @include on-small-desktop {
+        align-self: flex-end;
+        margin-bottom: 48px;
+      }
+    }
+
+    &--title {
+      margin-bottom: 8px;
+
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 19.5px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    &--text {
+      margin-bottom: 24px;
+
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.6px;
+
+      @include on-small-desktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* #endregion */
