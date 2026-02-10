@@ -1,0 +1,192 @@
+@use '../../utils/mixins' as *;
+
+.top {
+  display: flex;
+  gap: 32px;
+
+  width: 100%;
+  height: 46px;
+  padding: 18px 20px;
+
+  @include tablet {
+    padding: 20px 41px;
+  }
+
+  @include s-desktop {
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: space-between;
+
+    width: auto;
+    padding: 48px 54px;
+  }
+
+  @include desktop-1600 {
+    padding: 48px 227px 38px;
+  }
+
+  @include desktop-2560 {
+    grid-column: 1 / -1;
+    padding: 48px 707px 38px;
+  }
+
+  &__logo {
+    width: 45px;
+    height: 26px;
+    border: none;
+    background-color: transparent;
+
+    &-icon {
+      width: 46px;
+      height: 28px;
+    }
+  }
+
+  &__menu {
+    position: fixed; // esperyment bylo tylo: display none
+    z-index: 3;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    height: 100vh;
+    padding: 30px;
+
+    color: rgba(255, 255, 255, 1);
+
+    background-color: rgba(32, 96, 246, 1);
+
+    transition: transform 0.3s ease;
+
+    @include s-desktop {
+      position: static;
+      transform: translateX(0%);
+
+      height: 20px;
+      padding: 0;
+
+      color: rgba(0, 0, 0, 1);
+
+      background-color: transparent;
+    }
+
+    &:target {
+      transform: translateX(0%);
+    }
+
+    &-logo {
+      width: 45px;
+      height: 26px;
+      border: none;
+      background-color: transparent;
+
+      &-icon {
+        width: 43px;
+        height: 26px;
+      }
+    }
+
+    &-nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background-color: transparent;
+
+      @include s-desktop {
+        display: none;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-self: center;
+      justify-content: center;
+
+      width: auto;
+      height: auto;
+
+      list-style: none;
+
+      @include s-desktop {
+        flex-direction: row;
+        gap: 48px;
+        width: auto;
+      }
+    }
+
+    &-close-button {
+      position: relative;
+      top: -60px;
+
+      align-self: flex-start;
+
+      width: 16px;
+      height: 16px;
+      border: none;
+
+      background-color: transparent;
+    }
+
+    &-close-button-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include s-desktop {
+      &-item {
+        display: none;
+      }
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+
+    width: auto;
+    height: 20px;
+    margin-left: auto;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    @include s-desktop {
+      margin: 0;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+
+      height: 2px;
+
+      background-color: rgba(32, 96, 246, 1);
+    }
+  }
+}
+
+body:has(.top__menu:target) {
+  overflow: hidden;
+  height: 100vh;
+}

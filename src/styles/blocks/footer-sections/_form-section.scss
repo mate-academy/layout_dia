@@ -1,0 +1,130 @@
+@use '../../utils/mixins' as *;
+
+.send-a-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+
+  width: 280px;
+  margin: 0 auto;
+
+  @include tablet {
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+    gap: 48px;
+
+    width: 362px;
+    height: auto;
+    padding: 0;
+    padding-top: 180px;
+  }
+
+  @include s-desktop {
+    grid-row: 1 / 1;
+    width: 370px;
+    padding: 0;
+  }
+
+  @include desktop-1600 {
+    width: 460px;
+  }
+
+  &__title {
+    padding-bottom: 8px;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &__input {
+    width: 100%;
+    height: 41px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+    text-align: left;
+    letter-spacing: 3px;
+
+    background-color: transparent;
+    &::placeholder {
+      color: rgba(255, 255, 255, 1);
+      transition: color 0.3s ease;
+    }
+
+    &:hover::placeholder {
+      color: rgba(32, 96, 246, 1);
+    }
+
+    &:focus,
+    &:active {
+      border-bottom-color: rgba(20, 78, 212, 1);
+      outline: none;
+    }
+  }
+
+  &__textarea {
+    @include tablet {
+      resize: vertical;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 56px;
+    border: none;
+    border-radius: 8px;
+
+    background-color: rgba(20, 78, 212, 1);
+
+    @include desktop-1600 {
+      width: 264px;
+    }
+  }
+}
+
+label.visually-hidden {
+  @include visually-hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid rgba(32, 96, 246, 1);
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0 1000px rgba(32, 96, 246, 1) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+//  <button type="submit" for="form-sent"
+//           class="send-a-msg__button button-text">Send</button> reload strony
+
+// <label for="form-sent" class="send-a-msg__buttonbutton-text">Send</label>  czysci ale nie przewija
+// #form-sent:checked ~ .send-a-msg {
+// .send-a-msg__input {
+// color: transparent;
+// background-color: transparent;
+// }}
+
+// <a href="#home"></a>  przewija ale nie czyści, proba mixu z labelem porazka
+// .send-a-msg__link {
+// display: inline-block;
+// background-color: transparent;
+// text-decoration: none;
+// position: relative;
+// top: -105px;
+// }
