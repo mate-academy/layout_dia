@@ -1,0 +1,67 @@
+.services {
+  @include on-small-desktop {
+    margin-top: calc(var(--card-height-md) / 2);
+  }
+
+  &__content {
+    @include grid;
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    margin-bottom: $space-12;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: $space-14;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-6;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+      gap: $space-5;
+    }
+
+    @include on-big-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    counter-increment: service-card;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 1;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__sub-heading {
+    margin-bottom: $space-4;
+    color: var(--color-text-muted);
+  }
+
+  &__heading {
+    margin-bottom: $space-6;
+    color: var(--color-text-headings);
+  }
+}

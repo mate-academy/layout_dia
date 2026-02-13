@@ -1,0 +1,51 @@
+@use 'sass:list';
+
+.card-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include on-small-desktop {
+    width: 214px;
+  }
+
+  @include on-big-desktop {
+    width: 264px;
+  }
+
+  &__img {
+    aspect-ratio: 1 / 1;
+    width: 166px;
+    margin-bottom: $space-8;
+    border-radius: var(--border-radius-img);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition: transform $trans-duration-base;
+
+    @include on-small-desktop {
+      margin-bottom: $space-10;
+    }
+
+    @for $n from 1 through 3 {
+      &--#{$n} {
+        background-image: #{list.nth($image-card-benefit, $n)};
+      }
+    }
+
+    @include hover {
+      transform: scale($scale-small);
+    }
+  }
+
+  &__heading {
+    margin-bottom: $space-4;
+    text-align: center;
+  }
+
+  &__paragraph {
+    text-align: center;
+  }
+}

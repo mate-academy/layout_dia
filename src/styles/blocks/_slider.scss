@@ -1,0 +1,91 @@
+.slider {
+  position: relative;
+
+  &__image {
+    position: absolute;
+    inset: 0 calc(50% - 50vw);
+
+    height: 100%;
+    border-radius: var(--border-radius-slider);
+
+    opacity: 0;
+    background-position: center;
+    background-size: cover;
+
+    transition:
+      border-radius $trans-duration-base,
+      opacity $trans-duration-long;
+
+    @include on-small-desktop {
+      right: calc((100vw - 100%) / -2);
+      left: 0;
+    }
+
+    @for $n from 1 through 3 {
+      &--#{$n} {
+        background-image: var(--image-slider-#{$n});
+      }
+    }
+
+    &--1 {
+      background-position: right center;
+    }
+
+    &--2 {
+      background-position: left center;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: $z-slider-controls;
+    bottom: $space-6;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    @include on-tablet {
+      bottom: $space-8;
+    }
+
+    @include on-small-desktop {
+      bottom: $space-12;
+      left: $space-20;
+
+      flex-direction: row;
+      gap: $space-5;
+      align-items: center;
+    }
+
+    @include on-big-desktop {
+      left: $space-12;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: $space-4;
+  }
+
+  &__arrow {
+    border-radius: $border-radius-circle;
+    background-color: $color-bg-secondary;
+    transition: transform $trans-duration-base;
+
+    @include hover {
+      transform: scale($scale-lg);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+}

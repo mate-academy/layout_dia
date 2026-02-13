@@ -1,0 +1,65 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+
+  -webkit-text-fill-color: var(--color-text-primary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-10;
+  caret-color: auto;
+
+  @include on-tablet {
+    gap: $space-20;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: $space-10;
+
+    @include on-tablet {
+      gap: $space-12;
+    }
+  }
+
+  &__input {
+    scrollbar-color: var(--color-accent-main-100) transparent;
+    scrollbar-width: thin;
+
+    width: 100%;
+    padding-bottom: $space-4;
+    border-bottom: 2px solid $color-white;
+
+    color: var(--color-text-primary);
+
+    background-color: transparent;
+
+    transition: border-color $trans-duration-base;
+
+    &::placeholder {
+      color: var(--color-text-primary-alpha70);
+      transition: color $trans-duration-base;
+    }
+
+    @include hover {
+      &::placeholder {
+        color: var(--color-accent-main-100);
+      }
+    }
+
+    &:focus {
+      border-color: var(--color-accent-main-200);
+    }
+  }
+}

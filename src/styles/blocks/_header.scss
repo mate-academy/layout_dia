@@ -1,0 +1,121 @@
+.header {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: var(--border-radius-header);
+
+  background-color: var(--color-bg-primary);
+
+  transition:
+    background-color $trans-duration-base,
+    border-radius $trans-duration-base;
+
+  @include on-small-desktop {
+    min-height: 100vh;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: $z-mobile-menu;
+    inset: 0;
+
+    opacity: 0;
+
+    &--opened {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex: 1;
+  }
+
+  &__content {
+    @include grid;
+
+    grid-template-rows: auto auto auto 1fr;
+    flex: 1;
+  }
+
+  &__heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-top: $space-7;
+
+    @include on-tablet {
+      margin-top: $space-10;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+      margin-top: $space-37;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: $space-8;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-top: $space-6;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+      margin-top: $space-8;
+    }
+
+    @include on-big-desktop {
+      grid-column: 1 / 5;
+    }
+
+    @include on-large-desktop {
+      margin-top: $space-10;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: $space-18;
+    margin-bottom: $space-12;
+
+    @include on-tablet {
+      grid-column: 1 / span 4;
+      margin-top: $space-14;
+      margin-bottom: $space-37;
+    }
+
+    @include on-small-desktop {
+      margin-top: $space-20;
+      margin-bottom: 0;
+    }
+
+    @include on-big-desktop {
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    height: 390px;
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+      grid-row: 1 / -1;
+      height: auto;
+    }
+
+    @include on-big-desktop {
+      grid-column: 8 / -1;
+    }
+  }
+}
