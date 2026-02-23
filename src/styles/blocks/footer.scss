@@ -1,0 +1,147 @@
+.footer {
+  border-radius: 30px 30px 0 0;
+  background: $main-bg-color;
+
+  &__top {
+    padding: 180px 0 120px;
+
+    @include bp(mobile) {
+      padding-block: 80px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+
+    @include bp(tablet) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__col {
+    &--form {
+      grid-column: 1 / 6;
+
+      @include bp(tablet) {
+        grid-column: span 4;
+        padding-bottom: 120px;
+      }
+
+      @include bp(mobile) {
+        padding-bottom: 80px;
+      }
+    }
+
+    &--contacts {
+      grid-column: 8 / 12;
+
+      @include bp(tablet) {
+        grid-column: span 4;
+      }
+    }
+  }
+
+  &__form {
+    display: grid;
+    row-gap: 48px;
+  }
+
+  &__input {
+    display: block;
+
+    width: 100%;
+    padding-bottom: 16px;
+    border: 0;
+    border-bottom: 1px solid $color-white;
+
+    font: 15px/1 $ff-heading;
+    color: $text-on-dark;
+
+    background: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: $text-on-dark;
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-bottom-color: $accent-color;
+    }
+
+    &--textarea {
+      resize: none;
+      overflow: hidden;
+      padding-bottom: 8px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 56px;
+    font-size: $fs-title-s;
+    color: $text-on-dark;
+  }
+
+  &__contacts {
+    display: grid;
+    row-gap: 48px;
+  }
+
+  &__contact {
+    font-size: 24px;
+    font-weight: $fw-600;
+  }
+
+  &__meta {
+    padding-bottom: 8px;
+    color: $text-on-dark;
+    opacity: 0.5;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    padding: 8px 0 0;
+    list-style: none;
+  }
+
+  &__link,
+  &__address {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+
+    @include hover(transform, translateY(2px));
+  }
+
+  &__icon {
+    color: #fff;
+
+    @include hover(color, $accent-color);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 80px;
+
+    @include bp(tablet) {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+  }
+}
+
+.footer__input:-webkit-autofill,
+.footer__input:-webkit-autofill:hover,
+.footer__input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px #2c2c2c inset;
+  caret-color: #fff;
+
+  -webkit-text-fill-color: #fff;
+}

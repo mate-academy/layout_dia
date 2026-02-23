@@ -1,0 +1,84 @@
+.header {
+  position: relative;
+  width: 100vw;
+  height: 800px;
+
+  @include bp(tablet) {
+    height: 893px;
+  }
+
+  &__hero {
+    width: 362px;
+
+    @include bp(mobile) {
+      width: 280px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding-top: 164px;
+
+    font-size: 64px;
+    line-height: 68px;
+    color: $text-on-dark;
+    letter-spacing: -2px;
+
+    @include bp(tablet) {
+      padding-top: 56px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding: 32px 0 83px;
+    font-size: 18px;
+    color: $text-on-dark;
+
+    @include bp(tablet) {
+      padding: 24px 0 56px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 687px;
+    height: 680px;
+
+    @include bp(desktop) {
+      width: 620px;
+    }
+
+    @include bp(small-desktop) {
+      width: 502px;
+    }
+
+    @include bp(tablet) {
+      width: 100%;
+      height: 390px;
+    }
+  }
+
+  &__nav {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 52px;
+
+    @include bp(tablet) {
+      padding-top: 20px;
+    }
+  }
+}
+
+@media (min-width: #{$container-max + 1px}) {
+  .header__slider {
+    width: calc(687px + (100vw - #{$container-max}) / 2);
+  }
+}

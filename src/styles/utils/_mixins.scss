@@ -1,6 +1,37 @@
+@use 'sass:map';
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-speed;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin bp($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin container {
+  box-sizing: border-box;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: $container-padding-design;
+
+  @include bp(desktop) {
+    padding-inline: $container-padding-desktop;
+  }
+
+  @include bp(small-desktop) {
+    padding-inline: $container-padding-small-desktop;
+  }
+
+  @include bp(tablet) {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include bp(mobile) {
+    padding-inline: $container-padding-mobile;
   }
 }

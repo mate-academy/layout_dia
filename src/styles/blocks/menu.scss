@@ -1,0 +1,89 @@
+.menu {
+  pointer-events: none;
+
+  position: fixed;
+  inset: 0;
+
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  transition: opacity $transition-speed;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    transform: translateX(-100%);
+
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+
+    background: $main-bg-color;
+
+    transition: transform $transition-speed;
+
+    @include bp(mobile) {
+      width: 130px;
+    }
+  }
+
+  & .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 80px;
+  }
+
+  &:target {
+    pointer-events: auto;
+    opacity: 1;
+
+    & .menu__content {
+      transform: translateX(0);
+    }
+  }
+}
+
+.icon {
+  display: block;
+  background-position: center;
+  background-size: cover;
+
+  &--menu {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background-image: url(/src/images/menu-icons/menu-icon.svg);
+
+    @include hover(transform, scale(1.15));
+  }
+
+  &--close {
+    align-self: center;
+
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: url(/src/images/menu-icons/close-icon.png);
+
+    @include hover(transform, scale(1.1));
+  }
+}
+
+@include bp(tablet) {
+  .header__nav .nav {
+    display: none;
+  }
+
+  .icon--menu {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    display: flex;
+  }
+}

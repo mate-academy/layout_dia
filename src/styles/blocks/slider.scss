@@ -1,0 +1,108 @@
+.slider {
+  height: 680px;
+
+  @include bp(tablet) {
+    height: 390px;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-top: 38px;
+    border-radius: 30px 0;
+
+    opacity: 0;
+    object-fit: cover;
+
+    transition: opacity $transition-speed ease;
+
+    @include bp(tablet) {
+      padding: 0;
+      border-radius: 30px;
+    }
+  }
+
+  &__image.active {
+    opacity: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+
+    padding: 48px;
+
+    @include bp(small-desktop) {
+      justify-content: center;
+    }
+
+    @include bp(tablet) {
+      display: block;
+      padding: 41px 32px;
+    }
+
+    @include bp(tablet) {
+      display: block;
+      padding: 20px 24px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+
+    @include bp(tablet) {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+
+    color: $title-color;
+
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:active {
+      box-shadow: 0 0 0 3px $accent-color;
+    }
+  }
+
+  &__label {
+    padding-bottom: 8px;
+    color: $color-white;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-white;
+  }
+}
