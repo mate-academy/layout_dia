@@ -1,3 +1,4 @@
+import '../styles/base/styles.scss';
 'use strict';
 
 const viewport = document.querySelector('.slider__viewport');
