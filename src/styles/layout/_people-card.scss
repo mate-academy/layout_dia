@@ -1,0 +1,118 @@
+.people-card {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-height: 456px;
+  max-height: 494px;
+  padding: 32px 42px;
+  border-radius: 16px;
+
+  background-color: #fff;
+
+  @include on-tablet {
+    padding: 32px;
+  }
+
+  @include on-desktop {
+    padding: 48px 42px;
+  }
+
+  &__avatar-container {
+    position: relative;
+    display: flex;
+    aspect-ratio: 1 / 1;
+    max-width: 196px;
+
+    @include on-tablet {
+      max-width: 250px;
+    }
+  }
+
+  &__background {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  &__rectangle {
+    width: 100%;
+    fill: $c-main-acent-dark;
+
+    &--second {
+      align-self: end;
+    }
+  }
+
+  &--001 {
+    .people-card__rectangle {
+      [data-theme='light'] & {
+        fill: var(--bgc-001-light);
+      }
+    }
+  }
+
+  &--002 {
+    .people-card__rectangle {
+      [data-theme='light'] & {
+        fill: var(--bgc-002-light);
+      }
+    }
+  }
+
+  &--003 {
+    .people-card__rectangle {
+      [data-theme='light'] & {
+        fill: var(--bgc-003-light);
+      }
+    }
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    aspect-ratio: 1 / 1;
+    max-width: 110px;
+    border-radius: 50%;
+
+    object-fit: cover;
+    object-position: 50% 5%;
+
+    @include on-tablet {
+      max-width: 140px;
+    }
+  }
+
+  &__quotes {
+    width: 20px;
+    margin-top: 24px;
+    fill: $c-main-acent-dark;
+  }
+
+  &__typo {
+    max-width: 362px;
+    margin: 0;
+    margin-top: 18px;
+    color: $c-typo-main;
+  }
+
+  &__name {
+    @extend %h-people;
+
+    margin: 0;
+    margin-top: 32px;
+    color: $c-h-people;
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-top: 4px;
+    color: $c-h-secondary;
+  }
+}

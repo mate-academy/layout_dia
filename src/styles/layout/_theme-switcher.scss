@@ -1,0 +1,62 @@
+.theme-switcher {
+  --switch-width: 60px;
+  --switch-height: 30px;
+  --circle-size: 24px;
+  --offset: 3px;
+
+  cursor: pointer;
+
+  &__input {
+    display: none;
+  }
+
+  &--is-active {
+    transform: translateY(0);
+    opacity: 1;
+
+    @include on-desktop {
+      transform: translateY(33px);
+
+    }
+  }
+
+  &__slider {
+    position: relative;
+
+    width: var(--switch-width);
+    height: var(--switch-height);
+    border-radius: 50px;
+
+    background-color: $c-main-acent-dark;
+
+    transition: background-color 0.4s ease;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: 2;
+      top: var(--offset);
+      left: var(--offset);
+
+      width: var(--circle-size);
+      height: var(--circle-size);
+      border-radius: 50%;
+
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+  }
+
+  &__input:checked + &__slider {
+    background-color: $c-main-acent-light;
+
+    &::before {
+      transform: translateX(
+        calc(var(--switch-width) - var(--circle-size) - (var(--offset) * 2))
+      );
+    }
+  }
+}

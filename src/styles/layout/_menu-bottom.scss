@@ -1,0 +1,74 @@
+.menu-bottom {
+  @extend %h4;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  width: 100%;
+
+  @include menu;
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    justify-content: space-between;
+
+    width: 100%;
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__logo {
+    @include logo;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    margin-top: 48px;
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+      grid-row: 1;
+      margin: 0;
+    }
+  }
+
+  &__list {
+    @include on-desktop {
+      display: flex;
+
+      // gap: 64px;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__link {
+    display: block;
+
+    width: 100%;
+    margin-top: 24px;
+
+    text-align: start;
+    white-space: nowrap;
+
+    @include on-desktop {
+      margin: 0;
+    }
+
+    @include hover(scale, 1.05);
+  }
+
+  &__theme-switcher {
+    transform: translateY(0);
+  }
+}

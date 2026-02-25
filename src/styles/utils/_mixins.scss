@@ -1,6 +1,145 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media (min-width: $wide-screen) {
+    @content;
+  }
+}
+
+@mixin make-container($max-w: 1280px, $padding: 20px, $display: block) {
+  display: $display;
+
+  width: 100%;
+  max-width: $max-w;
+  margin: 0 auto;
+  padding-right: $padding;
+  padding-left: $padding;
+
+  @include on-tablet {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  @include on-desktop {
+    padding-right: 54px;
+    padding-left: 54px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin p-contacts {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin h2-large {
+  font-family: Poppins, sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 150%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@mixin button {
+  cursor: pointer;
+
+  display: block;
+
+  height: 56px;
+  border-radius: 40px;
+
+  transition: box-shadow 0.3s;
+
+  @include reset-form;
+  @include button-typo;
+  &:hover {
+    box-shadow: 1px 4px 16px 0 #e8e8f066;
+  }
+
+  &:focus {
+    box-shadow: 1px 4px 16px 0 #e8e8f0a3;
+  }
+}
+
+@mixin logo {
+  display: block;
+  width: 46px;
+  height: 28px;
+  background-image: url(../../images/icons/logo.svg);
+
+  @include hover(scale, 1.05);
+}
+
+@mixin menu {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    color: $c-header-footer-typo;
+    text-decoration: none;
+  }
+}
+
+@mixin reset-form {
+  @extend %h5;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+
+  color: $c-header-footer-typo;
+
+  appearance: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-shadow-box: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+}
+
+@mixin placeholder-style {
+  &::placeholder {
+    color: var(--placeholder-color);
+    transition: all $transition-time ease-in-out;
+  }
+  &:hover {
+    &::placeholder {
+      color: $c-header-footer-typo;
+    }
+  }
+  &:focus {
+    &::placeholder {
+      color: var(--placeholder-color);
+      opacity: 0;
+    }
   }
 }

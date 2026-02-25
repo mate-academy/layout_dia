@@ -1,0 +1,200 @@
+.contacts {
+  position: relative;
+
+  border-radius: var(--footer-radius);
+
+  color: $c-header-footer-typo;
+
+  background-color: var(--bg-color);
+
+  transition: border-radius $transition-time ease-in-out;
+
+  &__container {
+    @include make-container($max-w: 1146px);
+
+    padding-top: 72px;
+    padding-bottom: 80px;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, auto);
+      column-gap: 20px;
+
+      padding-top: 180px;
+    }
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      grid-row: 1;
+    }
+  }
+
+  &__form-title {
+    width: 100%;
+    margin: 0;
+
+    @include on-desktop {
+      text-align: start;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    width: 100%;
+    height: 41px;
+    margin: 0;
+    margin-top: 48px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: var(--placeholder-color);
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:nth-child(2) {
+      margin-top: 40px;
+    }
+    &:nth-child(3) {
+      margin-top: 40px;
+    }
+
+    &:hover::after {
+      background-color: var(--main-acent);
+    }
+  }
+
+  &__input {
+    resize: none;
+    width: 100%;
+    padding: 66px;
+    text-align: start;
+
+    @include reset-form;
+    @include placeholder-style;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    @include reset-form;
+
+    width: 280px;
+    height: 56px;
+    margin-top: 56px;
+    border-radius: var(--btn-radius);
+
+    background-color: var(--main-acent);
+
+    @include hover(scale, 1.05);
+
+    transition: all $transition-time ease-in-out;
+
+    @include on-desktop {
+      align-self: flex-start;
+    }
+  }
+
+  &__typo-group {
+    @include on-desktop {
+      grid-column: 7 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__typo-title {
+    margin: 0;
+    margin-top: 80px;
+
+    @include on-desktop {
+      justify-self: start;
+      margin: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0;
+  }
+
+  &__item {
+    @extend %h6;
+
+    margin-top: 40px;
+    color: var(--placeholder-color);
+    &:nth-child(1) {
+      margin-top: 48px;
+    }
+  }
+
+  &__value {
+    margin: 0;
+    margin-top: 8px;
+
+    @include hover(scale, 1.05);
+  }
+
+  &__value-social {
+    margin: 0;
+    margin-top: 8px;
+  }
+
+  &__link {
+    @extend %p-contacts;
+
+    font-style: normal;
+    color: $c-header-footer-typo;
+    text-align: start;
+    text-decoration: none;
+  }
+
+  &__social-group {
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+  }
+
+  &__social-svg {
+    width: 24px;
+    height: 24px;
+    fill: $c-header-footer-typo;
+
+    &:hover {
+      @include hover(scale, 1.2);
+
+      fill: var(--social-hover-color);
+    }
+  }
+
+  &__menu-bottom {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    margin-top: 80px;
+  }
+}
