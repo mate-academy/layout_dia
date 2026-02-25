@@ -1,0 +1,253 @@
+.header {
+  position: relative;
+
+  width: 100%;
+  min-height: 893px;
+  border-radius: var(--header-radius);
+
+  background-color: var(--bg-color);
+
+  transition: border-radius $transition-time ease-in-out;
+
+  @include on-tablet {
+    min-height: 893px;
+  }
+
+  @include on-desktop {
+    min-height: 800px;
+  }
+
+  &__wrapper {
+    display: block;
+
+    max-width: 1280px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: min-content auto;
+      column-gap: 20px;
+
+      padding-inline: 40px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      padding-inline: 54px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    position: relative;
+    z-index: 101;
+
+    align-self: center;
+
+    width: 18px;
+    height: 8px;
+    border: none;
+
+    background: none;
+
+    @include hover(scale, 1.05);
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: $c-header-footer-typo;
+
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      top: 6px;
+    }
+
+    &::after {
+      bottom: 6px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__logo-container {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+
+    &--is-active {
+      .header__burger {
+        &::before {
+          top: 3px;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          bottom: 3px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 101;
+
+    @include logo;
+  }
+
+  &__theme-switcher {
+    position: absolute;
+    z-index: 101;
+    top: 15px;
+    right: 20px;
+    transform: translateY(-60px);
+
+    display: inline-block;
+
+    opacity: 0;
+
+    transition: all 0.4s ease;
+
+    @include on-tablet {
+      right: 40px;
+    }
+
+    @include on-desktop {
+      right: 15%;
+    }
+
+    @include wide-screen {
+      right: 2%;
+    }
+  }
+
+  &__hire-link {
+    @extend %h6;
+
+    display: block;
+    line-height: 1;
+    color: $c-header-footer-typo;
+    text-decoration: none;
+
+    @include hover(scale, 1.05);
+
+    &::after {
+      content: '';
+
+      position: relative;
+      bottom: -8px;
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: var(--main-acent);
+    }
+  }
+
+  &__title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 48px;
+
+    color: $c-header-footer-typo;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+    }
+
+    @include on-desktop {
+      align-self: center;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 52px;
+
+    @include on-tablet {
+      font-size: 64px;
+    }
+  }
+
+  &__intro {
+    margin: 0;
+    margin-top: 32px;
+    text-align: start;
+  }
+
+  &__learn-btn {
+    @extend %h5;
+
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 50px;
+    margin-top: 72px;
+    border-radius: var(--btn-radius);
+
+    color: $c-header-footer-typo;
+    text-decoration: none;
+
+    background-color: var(--main-acent);
+
+    @include on-tablet {
+      align-self: flex-start;
+      width: 264px;
+    }
+
+    @include hover(scale, 1.05);
+
+    transition: all $transition-time ease-in-out;
+  }
+
+  &__promo {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    max-height: 390px;
+
+    @include on-desktop {
+      right: 0;
+      width: 50%;
+      max-height: 680px;
+    }
+  }
+}

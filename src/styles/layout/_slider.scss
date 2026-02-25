@@ -1,0 +1,136 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  @include on-desktop {
+    grid-column: 7 / -1;
+    align-self: start;
+    height: 680px;
+  }
+
+  &__viewport {
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+
+    overflow-x: auto;
+
+    width: 100%;
+    border-radius: var(--slider-on-mob-radius);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      margin: 0;
+      border-radius: var(--slider-on-desk-radius);
+      transition: border-radius $transition-time ease-in-out;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+
+  &__slide {
+    scroll-snap-align: center;
+
+    overflow: hidden;
+    display: none;
+    flex: 0 0 100%;
+
+    margin-right: 5px;
+
+    &--dark {
+      display: block;
+
+      [data-theme='light'] & {
+        display: none;
+      }
+    }
+
+    &--light {
+      display: none;
+
+      [data-theme='light'] & {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-height: 390px;
+
+    object-fit: cover;
+
+    @include on-tablet {
+      max-height: 390px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      max-height: 680px;
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    bottom: 32px;
+    left: 40px;
+
+    @include on-desktop {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+  }
+
+  &__control {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+
+    background-color: $c-header-footer-typo;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--prev {
+      background-image: url(../../images/icons/arrow-left.svg);
+    }
+
+    &--next {
+      background-image: url(../../images/icons/arrow-right.svg);
+    }
+
+    @include hover(scale, 1.1);
+  }
+
+  &__subtitle {
+    margin: 0;
+    margin-top: 16px;
+    color: $c-header-footer-typo;
+  }
+
+  &__typo {
+    margin: 0;
+    margin-top: 8px;
+    color: $c-header-footer-typo;
+    text-align: start;
+  }
+}
