@@ -6,7 +6,7 @@
   width: 280px;
   margin-bottom: 24px;
   border-radius: 16px;
-  
+
   background-color: $special-background-color;
 
   @include on-tablet {
@@ -17,19 +17,32 @@
   }
 
   &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
     box-shadow: 0 9px 18px 0 #25293108;
   }
 
   &--right {
     @include on-tablet {
-      transform: translateY(-50%);
+      position: relative;
+       transform:translateY(-50%);
       grid-column: 2;
     }
+
+    &:hover {
+    transform: translateY(-50%) scale(1.1);
+    transition: 0.3s;
+  }
   }
 
   &--left {
     @include on-tablet {
       grid-column: 1;
     }
+
+    &:hover {
+    @include hover(transform, scale(1.1));
+  }
+
   }
 }
