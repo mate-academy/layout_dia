@@ -1,0 +1,99 @@
+.work {
+  padding-block: 72px;
+  border-radius: 30px;
+  background-color: $white;
+
+  @include on-tablet {
+    padding-block: 128px;
+  }
+
+  @include on-small-desktop {
+    padding-bottom: 134px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 56px;
+    justify-items: center;
+
+    @include on-tablet {
+      row-gap: 72px;
+    }
+  }
+
+  &__photo {
+    display: block;
+
+    width: 184px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 32px;
+    margin-inline: auto;
+    border-radius: 16px;
+
+    object-fit: cover;
+
+    transition: transform $effectDuration ease-in-out;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+      max-width: 214px;
+    }
+
+    @include on-desktop {
+      max-width: 264px;
+    }
+
+    &:hover {
+      .work__photo {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 56px;
+
+    font-family: $font-heading;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $title-color;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      font-size: 52px;
+      line-height: 1.5;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 16px;
+
+    font-family: $font-heading;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: $title-color;
+    text-align: center;
+  }
+
+  &__item-text {
+    text-align: center;
+  }
+}
