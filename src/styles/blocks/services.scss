@@ -1,0 +1,125 @@
+.services {
+  @include on-small-desktop {
+    padding-top: 148px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 24px;
+
+    @include on-tablet {
+      row-gap: 30px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-bottom: 26px;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__text {
+    &-first {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+    min-height: 264px;
+    padding: 32px;
+    border-radius: 16px;
+
+    background-color: $white;
+
+    &-number {
+      width: 46px;
+      height: 24px;
+      padding: 6px 12px;
+      border-radius: 23px;
+
+      font-family: $font-heading;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+      color: $blue;
+      text-transform: uppercase;
+
+      background-color: rgba($blue, 0.1);
+    }
+
+    &-text {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    &-link {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      font-family: $font-heading;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+      color: $color-link;
+      text-decoration: none;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      color: white;
+
+      background-color: $blue;
+    }
+
+    &:nth-child(odd) {
+      @include on-tablet {
+        transform: translateY(-50%);
+        grid-column: 4 / -1;
+      }
+
+      @include on-small-desktop {
+        grid-column: 10 / -1;
+      }
+    }
+
+    &:nth-child(even) {
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include on-small-desktop {
+        grid-column: 7 / -4;
+      }
+    }
+
+    @include hover(box-shadow, 0 9px 18px rgba(37, 41, 49, 0.03));
+
+    @include hover-child('.services__card-icon', transform, scale(1.2));
+  }
+}

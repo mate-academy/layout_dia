@@ -1,0 +1,72 @@
+.nav {
+  display: none;
+
+  &__list {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+
+    &--menu-list {
+      flex-direction: column;
+      row-gap: 24px;
+      align-items: normal;
+    }
+
+    &--footer-list {
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    list-style: none;
+  }
+
+  &__link {
+    padding-block: 20px;
+
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: $white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      transform-origin: left;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+
+      background-color: #2060f6;
+
+      transition: transform $effectDuration ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &--menu {
+    display: flex;
+  }
+
+  @include on-small-desktop {
+    display: flex;
+  }
+}
