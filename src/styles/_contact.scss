@@ -1,0 +1,146 @@
+.contact {
+  padding: 72px 0 120px;
+  background: $c-hero;
+  border-top-left-radius: $radius-lg;
+  border-top-right-radius: $radius-lg;
+
+  @include on-small-desktop {
+    padding-top: 180px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 80px;
+
+    @include on-small-desktop {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: space-between;
+      gap: 98px;
+    }
+  }
+
+  &__column {
+    min-width: 0;
+  }
+
+  &__info {
+    display: grid;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  &__label {
+    margin-bottom: 8px;
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-text;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $c-white;
+    @include interactive-transition;
+    @include focus-ring;
+
+    &:hover {
+      color: $c-blue;
+    }
+  }
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+
+  &__label {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__label-text {
+    @extend %visually-hidden;
+  }
+
+  &__field {
+    width: 100%;
+    min-height: 56px;
+    padding: 16px 0;
+    color: $c-white;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    @include interactive-transition;
+    @include focus-ring;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:focus {
+      border-color: $c-blue;
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      border-color: #f25656;
+    }
+
+    &--textarea {
+      min-height: 128px;
+      resize: vertical;
+    }
+  }
+
+  &__button {
+    margin-top: 8px;
+  }
+}
+
+.form__field:-webkit-autofill,
+.form__field:-webkit-autofill:hover,
+.form__field:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px $c-hero inset;
+  -webkit-text-fill-color: $c-white;
+  border-bottom-color: $c-blue;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: $c-white;
+    @include interactive-transition;
+    @include focus-ring;
+
+    &:hover {
+      color: $c-blue;
+      border-color: $c-blue;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -1,0 +1,110 @@
+.header {
+  padding: 20px 0;
+
+  @include on-small-desktop {
+    padding: 32px 0 24px;
+  }
+
+  &__container,
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__logo,
+  &__cta,
+  &__link,
+  &__menu-button {
+    @include focus-ring;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__logo-image {
+    width: 49px;
+    height: 25px;
+  }
+
+  &__nav {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 24px;
+
+    @include on-small-desktop {
+      gap: 48px;
+    }
+  }
+
+  &__menu-button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    @include interactive-transition;
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  &__menu-line {
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: $c-white;
+  }
+
+  &__list {
+    display: none;
+    gap: 32px;
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__link,
+  &__cta {
+    position: relative;
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+  }
+
+  &__link::after,
+  &__cta::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: $c-blue;
+    opacity: 0;
+    @include interactive-transition;
+  }
+
+  &__link:hover::after,
+  &__cta:hover::after {
+    opacity: 1;
+  }
+}
