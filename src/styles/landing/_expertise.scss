@@ -1,0 +1,88 @@
+@use '../utils/mixins' as *;
+@use '../utils/vars' as *;
+
+.expertise {
+  max-width: 1600px;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: $color-white;
+
+  @include on-tablet {
+    margin-bottom: 96px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 0;
+  }
+}
+
+.expertise__grid {
+  display: grid;
+  gap: 48px;
+  justify-items: center;
+  margin-top: 64px;
+
+  @include on-desktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  @include on-wide {
+    gap: 48px;
+  }
+}
+
+.expertise-card {
+  max-width: 264px;
+  text-align: center;
+  transition: transform $transition-medium;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}
+
+.expertise-card__media {
+  overflow: hidden;
+
+  aspect-ratio: 1;
+  width: 166px;
+  margin: 0 auto 24px;
+  border-radius: 22px;
+
+  background-color: $color-surface;
+
+  transition: box-shadow $transition-medium;
+}
+
+.expertise-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-medium;
+}
+
+.expertise-card__title {
+  margin-bottom: 12px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  transition: color $transition-medium;
+}
+
+.expertise-card__description {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: $color-muted;
+}
+
+.expertise-card:hover .expertise-card__media {
+  box-shadow: $shadow-card;
+}
+
+.expertise-card:hover .expertise-card__image {
+  transform: scale(1.04);
+}
+
+.expertise-card:hover .expertise-card__title {
+  color: $color-primary;
+}

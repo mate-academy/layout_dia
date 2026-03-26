@@ -1,0 +1,143 @@
+@use '../utils/mixins' as *;
+@use '../utils/vars' as *;
+
+.contact {
+  padding: 72px 0 40px;
+
+  @include on-tablet {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  @include on-desktop {
+    padding-top: 88px;
+    padding-bottom: 44px;
+  }
+}
+
+.contact__grid {
+  display: grid;
+  gap: 56px;
+
+  @include on-tablet {
+    grid-template-columns: minmax(0, 460px) minmax(220px, 1fr);
+    gap: 72px;
+  }
+
+  @include on-wide {
+    gap: 96px;
+  }
+}
+
+.contact__title {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: $color-white;
+
+  @include on-tablet {
+    font-size: 2rem;
+  }
+}
+
+.contact__form,
+.contact__info-list {
+  display: grid;
+  gap: 24px;
+}
+
+.contact__form {
+  gap: 48px;
+}
+
+.contact__field {
+  width: 100%;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: $color-white;
+
+  background-color: transparent;
+
+  transition: border-color $transition-medium;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  &:focus {
+    border-bottom-color: $color-primary;
+    outline: none;
+  }
+}
+
+.contact__field--textarea {
+  resize: none;
+  height: 41px;
+}
+
+.contact__submit {
+  width: 100%;
+  max-width: 264px;
+  height: 41px;
+  padding-inline: 0;
+
+  font-size: 0.81rem;
+}
+
+.contact__info-item {
+  display: grid;
+  gap: 8px;
+}
+
+.contact__link {
+  font-size: 1.13rem;
+  line-height: 1.5;
+  color: $color-white;
+  transition: color $transition-medium;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.contact__link--address {
+  font-size: 1.5rem;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 16px;
+}
+
+.contact__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  color: $color-hero-muted;
+
+  transition:
+    color $transition-medium,
+    background-color $transition-medium,
+    transform $transition-medium;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.contact__social-icon {
+  width: 24px;
+  height: 21px;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

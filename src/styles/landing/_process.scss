@@ -1,0 +1,171 @@
+@use '../utils/mixins' as *;
+@use '../utils/vars' as *;
+
+.process__layout {
+  display: grid;
+  gap: 56px;
+
+  @include on-desktop {
+    grid-template-columns: minmax(260px, 360px) minmax(0, 560px);
+    gap: 138px;
+    align-items: center;
+  }
+}
+
+.process {
+  padding-top: 24px;
+  padding-bottom: 48px;
+
+  @include on-tablet {
+    padding-top: 16px;
+    padding-bottom: 72px;
+  }
+
+  @include on-desktop {
+    padding-top: 148px;
+    padding-bottom: 148px;
+  }
+}
+
+.process__content {
+  max-width: 300px;
+}
+
+.process__title {
+  max-width: 320px;
+  margin-top: 16px;
+  font-size: 32px;
+}
+
+.process__copy {
+  margin-top: 24px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: $color-muted;
+}
+
+.process__cards {
+  display: grid;
+  gap: 24px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    margin-top: -120px;
+  }
+
+  @include on-desktop {
+    margin-top: 0;
+  }
+}
+
+.service-card {
+  --card-offset: 0px;
+
+  padding: 32px;
+  border: 1px solid rgba(37, 55, 87, 0.03);
+  border-radius: 16px;
+
+  background-color: $color-white;
+  box-shadow: 0 9px 18px rgba(37, 55, 87, 0.06);
+
+  transition:
+    transform $transition-medium,
+    box-shadow $transition-medium;
+
+  @include on-tablet {
+    transform: translateY(var(--card-offset));
+  }
+
+  &:hover {
+    box-shadow: $shadow-card-hover;
+
+    @include on-tablet {
+      transform: translateY(calc(var(--card-offset) - 6px));
+    }
+  }
+}
+
+.service-card--lower {
+  @include on-tablet {
+    --card-offset: 50%;
+  }
+}
+
+.service-card__index {
+  display: inline-block;
+
+  margin-bottom: 24px;
+  padding: 5px 12px;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-primary;
+
+  background-color: rgba(32, 96, 246, 0.1);
+}
+
+.service-card__title {
+  margin: 24px 0 16px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.service-card__list {
+  display: grid;
+  gap: 6px;
+
+  margin: 0 0 32px;
+  padding: 0;
+
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: $color-muted;
+  list-style: none;
+}
+
+.service-card__link {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.service-card__link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  color: $color-white;
+
+  background-color: $color-primary;
+
+  transition:
+    transform $transition-medium,
+    background-color $transition-medium;
+}
+
+.service-card__link-copy {
+  transition: color $transition-medium;
+}
+
+.service-card__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.service-card:hover .service-card__link-icon {
+  transform: scale(1.06);
+  background-color: $color-primary-dark;
+}
+
+.service-card:hover .service-card__link-copy {
+  color: $color-primary-dark;
+}

@@ -1,0 +1,145 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.container {
+  width: min(calc(100% - 40px), 1140px);
+  margin: 0 auto;
+
+  @include on-tablet {
+    width: min(calc(100% - 80px), 1140px);
+  }
+
+  @include on-desktop {
+    width: min(calc(100% - 108px), 1140px);
+  }
+}
+
+.container--wide {
+  width: min(calc(100% - 40px), 1600px);
+
+  @include on-tablet {
+    width: min(calc(100% - 80px), 1600px);
+  }
+
+  @include on-desktop {
+    width: min(calc(100% - 108px), 1600px);
+  }
+}
+
+.container--narrow {
+  max-width: 760px;
+}
+
+.section {
+  position: relative;
+  padding: 72px 0;
+
+  @include on-tablet {
+    padding: 96px 0;
+  }
+
+  @include on-desktop {
+    padding: 128px 0;
+  }
+}
+
+.section--light {
+  background-color: $color-background;
+}
+
+.section--surface {
+  background-color: $color-surface;
+}
+
+.section__content--centered {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+
+  @include on-tablet {
+    font-size: 2.75rem;
+  }
+
+  @include on-desktop {
+    font-size: 3.25rem;
+  }
+}
+
+.section-title--large {
+  @include on-tablet {
+    font-size: 3.25rem;
+  }
+
+  @include on-desktop {
+    font-size: 3.75rem;
+  }
+}
+
+.section-title--centered {
+  text-align: center;
+}
+
+.section-copy {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: $color-muted;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+}
+
+.eyebrow--light {
+  color: $color-hero-subtle;
+}
+
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 50px;
+  padding: 13px 32px;
+  border-radius: 8px;
+
+  font-family: $font-display;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  transition:
+    background-color $transition-medium,
+    border-color $transition-medium,
+    color $transition-medium,
+    opacity $transition-medium,
+    transform $transition-medium;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.button--primary {
+  color: $color-white;
+  background-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.button--pill {
+  padding-inline: 40px;
+}
