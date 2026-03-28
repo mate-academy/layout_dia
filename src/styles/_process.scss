@@ -1,0 +1,139 @@
+.process {
+  padding: 120px 0;
+
+  @include on-mobile-small {
+    padding-block: 96px;
+  }
+
+  @include on-tablet {
+    padding-block: 148px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 56px;
+
+    @include on-mobile-small {
+      gap: 40px;
+    }
+
+    @include on-small-desktop {
+      grid-template-columns: minmax(280px, 362px) minmax(0, 558px);
+      justify-content: space-between;
+      align-items: start;
+      gap: 96px;
+    }
+  }
+
+  &__intro {
+    display: grid;
+    gap: 24px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+    }
+  }
+}
+
+.process-card {
+  --process-card-offset: 0;
+  display: grid;
+  gap: 24px;
+  padding: 32px;
+  background: $c-surface;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+  transform: translateY(var(--process-card-offset)) scale(1);
+  @include interactive-transition;
+
+  @include on-mobile-small {
+    gap: 20px;
+    padding: 24px;
+  }
+
+  @include on-tablet {
+    min-height: 264px;
+  }
+
+  &--up {
+    @include on-small-desktop {
+      --process-card-offset: -50%;
+    }
+  }
+
+  &:hover {
+    transform: translateY(var(--process-card-offset)) scale(1.03);
+    box-shadow: $shadow-card-hover;
+  }
+
+  &__number {
+    justify-self: start;
+    padding: 2px 12px;
+    border-radius: $radius-pill;
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: $c-blue;
+    background: $c-blue-soft;
+  }
+
+  &__list {
+    display: grid;
+    gap: 6px;
+    color: $c-text;
+  }
+
+  &__item {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    justify-self: start;
+    color: $c-title;
+    @include focus-ring;
+  }
+
+  &__icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $c-blue;
+    @include interactive-transition;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 18px;
+      line-height: 1;
+      color: $c-white;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__link-text {
+    font-family: $font-heading;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    @include interactive-transition;
+  }
+
+  &__link:hover &__icon,
+  &__link:hover &__link-text {
+    transform: scale(1.05);
+  }
+}

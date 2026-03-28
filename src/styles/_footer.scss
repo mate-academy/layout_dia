@@ -1,0 +1,67 @@
+.footer {
+  padding: 48px 0 80px;
+  background: $c-hero;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-small-desktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo,
+  &__link {
+    @include focus-ring;
+  }
+
+  &__logo-image {
+    width: 49px;
+    height: 25px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-white;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: $c-blue;
+      opacity: 0;
+      @include interactive-transition;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}

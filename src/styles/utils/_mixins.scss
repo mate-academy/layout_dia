@@ -1,6 +1,52 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin on-tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin on-mobile-small {
+  @media (max-width: 359px) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $bp-small-desktop) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $bp-design) {
+    @content;
+  }
+}
+
+@mixin on-large {
+  @media (min-width: $bp-large) {
+    @content;
+  }
+}
+
+@mixin interactive-transition {
+  transition:
+    transform $duration ease,
+    box-shadow $duration ease,
+    background-color $duration ease,
+    color $duration ease,
+    border-color $duration ease,
+    opacity $duration ease;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $c-blue;
+    outline-offset: 4px;
   }
 }
