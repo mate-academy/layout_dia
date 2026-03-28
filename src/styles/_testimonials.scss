@@ -1,6 +1,10 @@
 .testimonials {
   padding: 0 0 120px;
 
+  @include on-mobile-small {
+    padding-bottom: 96px;
+  }
+
   @include on-tablet {
     padding-bottom: 148px;
   }
@@ -11,8 +15,18 @@
     gap: 24px;
     margin-top: 40px;
 
+    @include on-mobile-small {
+      margin-top: 32px;
+    }
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px 24px;
+    }
+
     @include on-small-desktop {
-      flex-direction: row;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       align-items: stretch;
       gap: 24px;
     }
@@ -29,8 +43,15 @@
   text-align: center;
   @include interactive-transition;
 
+  @include on-mobile-small {
+    padding: 64px 24px 24px;
+  }
+
   @include on-small-desktop {
-    flex: 0 0 calc((100% - 48px) / 3);
+    max-width: none;
+  }
+
+  @include on-tablet {
     max-width: none;
   }
 
@@ -39,10 +60,28 @@
     box-shadow: $shadow-card-hover;
   }
 
+  &:last-child {
+    @include on-tablet {
+      grid-column: 1 / -1;
+      max-width: 362px;
+      margin-inline: auto;
+    }
+
+    @include on-small-desktop {
+      grid-column: auto;
+      max-width: none;
+      margin-inline: 0;
+    }
+  }
+
   &__photo-box {
     position: relative;
     width: max-content;
     margin: 0 auto 68px;
+
+    @include on-mobile-small {
+      margin-bottom: 52px;
+    }
 
     &::before,
     &::after {
@@ -53,6 +92,11 @@
       border-radius: 12px;
       background: $c-blue;
       transform: rotate(-60deg);
+
+      @include on-mobile-small {
+        width: 92px;
+        height: 38px;
+      }
     }
 
     &::before {
@@ -82,6 +126,11 @@
     border-radius: 50%;
     object-fit: cover;
     @include interactive-transition;
+
+    @include on-mobile-small {
+      width: 96px;
+      height: 96px;
+    }
 
     @include on-tablet {
       width: 140px;

@@ -3,18 +3,49 @@
   padding: 24px 0 32px;
   overflow: hidden;
 
+  @include on-mobile-small {
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+
+  @include on-tablet {
+    padding-bottom: 0;
+  }
+
   @include on-small-desktop {
     min-height: calc(100vh - 104px);
-    padding: 0 0 48px;
+    padding: 0;
+  }
+
+  @include on-desktop {
+    min-height: 679px;
+  }
+
+  @include on-design {
+    min-height: 680px;
   }
 
   &__container {
     position: relative;
 
     @include on-small-desktop {
+      position: static;
       min-height: calc(100vh - 136px);
       padding-top: 56px;
-      padding-bottom: 48px;
+      padding-bottom: 0;
+      padding-right: calc(min(48vw, 687px) + 48px);
+    }
+
+    @include on-desktop {
+      min-height: 679px;
+      padding-top: 0;
+      padding-right: calc(min(48vw, 687px) + 40px);
+    }
+
+    @include on-design {
+      min-height: 680px;
+      padding-top: 0;
+      padding-right: 784px;
     }
   }
 
@@ -22,16 +53,40 @@
     max-width: 362px;
     padding-bottom: 48px;
 
+    @include on-mobile-small {
+      padding-bottom: 32px;
+    }
+
+    @include on-tablet {
+      padding-bottom: 32px;
+    }
+
     @include on-small-desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 136px);
       padding-bottom: 0;
+    }
+
+    @include on-desktop {
+      min-height: 679px;
+    }
+
+    @include on-design {
+      min-height: 680px;
     }
   }
 
   &__button {
     margin-top: 40px;
+
+    @include on-mobile-small {
+      margin-top: 32px;
+    }
   }
 
-  &__slider {
+  &__slider.slider {
     margin-inline: -20px;
 
     @include on-tablet {
@@ -42,9 +97,17 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      width: min(48%, 687px);
-      height: 100%;
+      width: min(48vw, 687px);
+      max-width: calc(100% - 40px);
+      height: auto;
+      aspect-ratio: 687 / 680;
       margin-inline: 0;
+    }
+
+    @include on-design {
+      width: 687px;
+      height: 680px;
+      max-width: 687px;
     }
   }
 }
@@ -58,7 +121,15 @@
   box-shadow: $shadow-card;
 
   @include on-small-desktop {
-    min-height: 100%;
+    min-height: 0;
+  }
+
+  @include on-mobile-small {
+    min-height: 320px;
+  }
+
+  @include on-design {
+    border-radius: $radius-lg 0 $radius-lg 0;
   }
 
   &__slides,
@@ -115,14 +186,28 @@
     min-height: 390px;
     padding: 24px 20px;
 
+    @include on-mobile-small {
+      min-height: 320px;
+      padding: 20px 16px;
+    }
+
     @include on-tablet {
       padding: 32px;
     }
 
     @include on-small-desktop {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 24px;
+      row-gap: 16px;
+      align-content: end;
       min-height: inherit;
       height: 100%;
-      padding: 32px 48px;
+      padding: 40px 40px 32px;
+    }
+
+    @include on-design {
+      padding: 36px 48px 32px 40px;
     }
   }
 
@@ -130,6 +215,18 @@
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
+
+    @include on-mobile-small {
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      align-self: end;
+      margin-bottom: 0;
+    }
   }
 
   &__control,
@@ -146,6 +243,7 @@
     height: 32px;
     border-radius: 50%;
     background: $c-white;
+    overflow: hidden;
 
     &:hover {
       transform: scale(1.05);
@@ -153,12 +251,27 @@
   }
 
   &__control-icon {
-    width: 16px;
-    height: 16px;
+    display: block;
+    width: auto;
+    height: 14px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(91%) saturate(2148%)
+      hue-rotate(219deg) brightness(98%) contrast(96%);
   }
 
   &__copy {
     max-width: 320px;
+
+    @include on-mobile-small {
+      max-width: 240px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: end;
+      max-width: 228px;
+    }
   }
 
   &__title {
@@ -176,12 +289,24 @@
     font-size: 14px;
     line-height: 1.45;
     color: $c-white;
+
+    @include on-mobile-small {
+      font-size: 13px;
+    }
   }
 
   &__pagination {
     display: flex;
     gap: 8px;
     margin-top: 24px;
+
+    @include on-mobile-small {
+      margin-top: 20px;
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
   }
 
   &__dot {

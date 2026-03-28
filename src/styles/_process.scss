@@ -1,6 +1,10 @@
 .process {
   padding: 120px 0;
 
+  @include on-mobile-small {
+    padding-block: 96px;
+  }
+
   @include on-tablet {
     padding-block: 148px;
   }
@@ -8,6 +12,10 @@
   &__container {
     display: grid;
     gap: 56px;
+
+    @include on-mobile-small {
+      gap: 40px;
+    }
 
     @include on-small-desktop {
       grid-template-columns: minmax(280px, 362px) minmax(0, 558px);
@@ -44,12 +52,17 @@
   transform: translateY(var(--process-card-offset)) scale(1);
   @include interactive-transition;
 
+  @include on-mobile-small {
+    gap: 20px;
+    padding: 24px;
+  }
+
   @include on-tablet {
     min-height: 264px;
   }
 
   &--up {
-    @include on-tablet {
+    @include on-small-desktop {
       --process-card-offset: -50%;
     }
   }

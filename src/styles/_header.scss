@@ -12,6 +12,7 @@
   }
 
   &__container {
+    position: relative;
     justify-content: space-between;
     gap: 24px;
   }
@@ -37,12 +38,17 @@
     justify-content: flex-end;
     gap: 24px;
 
+    @include on-mobile-small {
+      gap: 16px;
+    }
+
     @include on-small-desktop {
       gap: 48px;
     }
   }
 
   &__menu-button {
+    order: 2;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -74,6 +80,10 @@
     @include on-small-desktop {
       display: flex;
       align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -87,6 +97,15 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: $c-white;
+
+    @include on-mobile-small {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__cta {
+    order: 1;
   }
 
   &__link::after,
@@ -103,8 +122,11 @@
     @include interactive-transition;
   }
 
-  &__link:hover::after,
-  &__cta:hover::after {
+  &__cta::after {
+    opacity: 1;
+  }
+
+  &__link:hover::after {
     opacity: 1;
   }
 }

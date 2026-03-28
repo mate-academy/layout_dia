@@ -19,6 +19,16 @@
     min-height: 100vh;
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(8px);
+
+    @include on-mobile-small {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    @include on-tablet {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   &__container {
@@ -29,6 +39,22 @@
     flex-direction: column;
     gap: 48px;
     background: $c-hero;
+
+    @include on-mobile-small {
+      width: 60vw;
+      max-width: none;
+      margin-inline: 0 auto;
+      padding-inline: 20px;
+      gap: 40px;
+      padding-bottom: 32px;
+    }
+
+    @include on-tablet {
+      width: 50vw;
+      max-width: none;
+      margin-inline: auto 0;
+      padding-inline: 40px;
+    }
   }
 
   &__top,
@@ -86,6 +112,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+
+    @include on-mobile-small {
+      gap: 20px;
+    }
   }
 
   &__link,
@@ -97,6 +127,11 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: $c-white;
+
+    @include on-mobile-small {
+      font-size: 18px;
+      letter-spacing: 1.5px;
+    }
   }
 
   &__button {

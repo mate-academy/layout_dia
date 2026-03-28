@@ -3,19 +3,36 @@
   background: $c-surface;
   border-radius: $radius-lg;
 
+  @include on-mobile-small {
+    padding-block: 56px;
+  }
+
   @include on-tablet {
     padding-block: 96px;
   }
 
   &__title {
     margin-bottom: 56px;
+
+    @include on-mobile-small {
+      margin-bottom: 40px;
+    }
   }
 
   &__grid {
     display: grid;
     gap: 56px;
 
+    @include on-mobile-small {
+      gap: 40px;
+    }
+
     @include on-tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px 24px;
+    }
+
+    @include on-small-desktop {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
@@ -27,8 +44,29 @@
   text-align: center;
   @include interactive-transition;
 
+  @include on-mobile-small {
+    padding-inline: 0;
+  }
+
+  @include on-tablet {
+    padding-inline: 0;
+  }
+
   &:hover {
     transform: translateY(-8px);
+  }
+
+  &:last-child {
+    @include on-tablet {
+      grid-column: 1 / -1;
+      max-width: 362px;
+      margin-inline: auto;
+    }
+
+    @include on-small-desktop {
+      grid-column: auto;
+      max-width: none;
+    }
   }
 
   &__image {
@@ -39,6 +77,12 @@
     object-fit: cover;
     box-shadow: $shadow-card;
     @include interactive-transition;
+
+    @include on-mobile-small {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 24px;
+    }
   }
 
   &:hover &__image {
@@ -52,6 +96,11 @@
     font-weight: 600;
     line-height: 1.4;
     color: $c-title;
+
+    @include on-mobile-small {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
   }
 
   &__text {
