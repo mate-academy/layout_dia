@@ -1,0 +1,89 @@
+.card-services {
+  display: grid;
+  gap: 24px;
+
+  @include on-tablet {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  &__card {
+    box-sizing: border-box;
+    height: 264px;
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 16px;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 1;
+
+      &:nth-child(2n) {
+        transform: translateY(-50%);
+      }
+    }
+
+    &:hover {
+      outline: 1px solid #2060f6;
+    }
+  }
+  &__number {
+    width: 46px;
+    height: 24px;
+
+    @include flex-center;
+
+    font-family: $poppins;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #2060f6;
+
+    background-color: #d5e2ff;
+    border-radius: 23px;
+
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    margin-bottom: 32px;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list-item {
+    font-family: $open-sans;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  &__button {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    will-change: transform;
+
+    @include hover(transform, translateX(-10%) scale(1.03));
+  }
+
+  &__icon {
+    background-color: #2060f6;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    @include flex-center;
+  }
+
+  &__text-link {
+    font-family: $poppins;
+    font-weight: 600;
+    font-size: 15px;
+    color: #334563;
+  }
+}
