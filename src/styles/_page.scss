@@ -1,0 +1,177 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    background: $c-gray;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    opacity: 0;
+    background-color: #c2c2c2;
+
+    transition: all 0.3s;
+
+    &:target {
+      pointer-events: all;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.container {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-large-desktop {
+    padding-inline: 227px;
+  }
+
+  @include on-xxl-desktop {
+    padding-inline: 707px;
+  }
+}
+
+.menu {
+  overflow: auto;
+
+  box-sizing: border-box;
+  height: 100vh;
+
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &__lists {
+    text-align: center;
+  }
+
+  &__top {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+
+    margin-bottom: 48px;
+
+    background-color: #c2c2c2;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-size: cover;
+
+  &--menu {
+    background-image: url(../images/icons/menu.svg);
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--close {
+    background-image: url(../images/icons/icon-close.svg);
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.text {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 0;
+  margin-bottom: 16px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #c0cdd7;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.button {
+  display: block;
+  grid-column: 1 / -1; // на мобілці на всю ширину
+
+  width: 100%; // ← дозволяє розтягуватися в гріді
+  max-width: 280px;
+  height: 50px;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 8px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 100%;
+  color: $white;
+  text-align: center;
+
+  background-color: #2060f6;
+
+  @include on-tablet {
+    grid-column: 1 / 4;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 5;
+  }
+
+  @include on-large-desktop {
+    grid-column: 1 / 4;
+  }
+}
+
+.main {
+  margin-top: -30px;
+  background-color: #f2f6fa;
+
+  &__content {
+    display: grid;
+  }
+
+  @include on-desktop {
+    margin-top: -20px;
+  }
+
+  @include on-large-desktop {
+    margin-top: -30px;
+  }
+}
+
+.services {
+  padding: 126px 0;
+
+  @include on-tablet {
+    padding-top: 155px;
+    padding-bottom: 154px;
+  }
+}
+
+.footer {
+  background-color: #fff;
+}
