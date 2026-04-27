@@ -1,0 +1,161 @@
+.header {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  &__nav {
+    @extend %container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  &__start {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    @include on-tablet {
+      position: relative;
+      z-index: 300;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+
+    img {
+      width: auto;
+      height: 28px;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    span {
+      display: block;
+
+      height: 2px;
+      border-radius: 2px;
+
+      background: $c-white;
+
+      transition:
+        transform $transition,
+        opacity $transition;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 40px;
+
+    @include on-small-desktop {
+      gap: 24px;
+    }
+
+    @include on-tablet {
+      position: fixed;
+      z-index: 200;
+      inset: 0;
+
+      display: none;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+
+      background: $c-primary;
+    }
+  }
+
+  &__link {
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    color: $c-white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include on-tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__hire {
+    position: relative;
+
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    color: $c-white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    transition: opacity $transition;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+
+      height: 2px;
+      border-radius: 4px;
+
+      background: $c-accent;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &--open &__list {
+    display: flex;
+  }
+
+  &--open &__burger {
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}

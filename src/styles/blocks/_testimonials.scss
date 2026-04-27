@@ -1,0 +1,176 @@
+.testimonials {
+  padding: 120px 0;
+  background: $c-light;
+
+  @include on-tablet {
+    padding: 80px 0;
+  }
+
+  &__inner {
+    @extend %container;
+  }
+
+  &__header {
+    margin-bottom: 48px;
+  }
+
+  &__label {
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    color: #c0cdd7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__title {
+    @extend %h2;
+  }
+
+  &__list {
+    display: flex;
+    gap: 32px;
+
+    @include on-small-desktop {
+      gap: 16px;
+    }
+
+    @include on-tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    flex: 0 0 360px;
+
+    border-radius: 24px;
+
+    background: $c-white;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+    transition:
+      transform $transition,
+      box-shadow $transition;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(37, 41, 49, 0.12);
+    }
+
+    &--1 {
+      --item-color: #56ccf2;
+    }
+    &--2 {
+      --item-color: #fcc91d;
+    }
+    &--3 {
+      --item-color: #f25656;
+    }
+
+    @include on-desktop {
+      flex: 1;
+    }
+
+    @include on-tablet {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+
+    overflow: hidden;
+
+    height: 250px;
+    border-radius: 12px;
+
+    background: $c-white;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 0;
+      transform: rotate(-60deg);
+
+      width: 139px;
+      height: 56px;
+      border-radius: 16px;
+
+      background: var(--item-color);
+    }
+
+    &::before {
+      top: 50px;
+      left: calc(50% - 120px);
+    }
+
+    &::after {
+      top: 143px;
+      left: calc(50% - 24px);
+    }
+  }
+
+  &__avatar {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 24px 32px 32px;
+    text-align: center;
+  }
+
+  &__quote-icon {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 16px;
+
+    color: var(--item-color);
+  }
+
+  &__quote {
+    margin-bottom: 16px;
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: $c-text;
+    text-align: center;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $c-dark;
+  }
+
+  &__role {
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    color: #c0cdd7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
