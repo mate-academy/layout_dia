@@ -1,0 +1,35 @@
+.text-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
+  width: fit-content;
+
+  transition:
+    color $transitions,
+    transform $transitions;
+
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    left: 0;
+    bottom: -8px;
+    height: 2px;
+    background-color: $accent-blue;
+
+    transition: transform $transitions;
+    transform: scale(0);
+  }
+
+  &:hover {
+    color: $accent-blue;
+    transform: scale(1.03);
+
+    &::after {
+      transform: scale(1);
+    }
+  }
+}
