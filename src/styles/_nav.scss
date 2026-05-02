@@ -1,0 +1,68 @@
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-laptop {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 0;
+      padding: 0;
+
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      list-style: none;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    font-size: 22px;
+    line-height: 22px;
+    color: #1d1d1d;
+    text-decoration: none;
+    letter-spacing: 2px;
+
+    @include on-laptop {
+      color: $white;
+      text-decoration: none;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      transform-origin: left;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: #1d1d1d;
+
+      transition: transform $effectDuration;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
