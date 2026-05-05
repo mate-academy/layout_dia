@@ -1,0 +1,110 @@
+.top-bar {
+  background-color: $header-bg-color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding-block: 20px;
+  box-sizing: border-box;
+
+  grid-column: span 2;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+
+  @include on-small-desktop {
+    height: 120px;
+    padding-block: 52px;
+
+    grid-column: span 12;
+  }
+
+  &__block {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__hire-us {
+    position: relative;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $main-blue;
+      border-radius: 4px;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__items {
+    display: none;
+    margin: 0;
+    padding: 0;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 48px;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $white;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $main-blue;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+      transform-origin: left;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
