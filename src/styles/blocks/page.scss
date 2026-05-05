@@ -1,0 +1,36 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $color-bgr-gray-light;
+    min-width: 320px;
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+  }
+
+  &__menu {
+    position: fixed;
+    inset: 0;
+
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__menu:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__menu:target ~ .page__overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

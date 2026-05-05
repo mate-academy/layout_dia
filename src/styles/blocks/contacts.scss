@@ -1,0 +1,142 @@
+.contacts {
+  background-color: $color-bgr-gray-dark;
+  border-radius: 30px 30px 0 0;
+
+  padding-top: 72px;
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-top: 180px;
+    padding-bottom: 139px;
+  }
+
+  @include on-small-desktop {
+    padding-bottom: 104px;
+  }
+
+  &__container {
+    @include content-padding-inline;
+    @include page-grid;
+
+    row-gap: 80px;
+
+    @include on-tablet {
+      row-gap: 120px;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    line-height: 130%;
+    color: $color-txt-on-dark;
+    margin-bottom: 48px;
+  }
+
+  &__form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__input {
+    @extend %input-text;
+
+    width: 100%;
+    height: 41px;
+
+    outline: none;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $color-txt-on-dark;
+    padding-bottom: 16px;
+
+    &--textarea {
+      min-height: 80px;
+      resize: vertical;
+      overflow: hidden;
+
+      margin-bottom: 16px;
+    }
+
+    &:hover {
+      border-bottom-color: $color-txt-number-subtitles;
+    }
+
+    &:active,
+    &:focus {
+      border-bottom-color: $color-txt-number-subtitles;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -2;
+    }
+
+    @include on-the-design {
+      grid-column: 8 / -2;
+    }
+  }
+
+  &__info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__block-name {
+    @extend %subtitle-base;
+
+    margin-bottom: 8px;
+  }
+
+  &__block-name--socials {
+    margin-bottom: 16px;
+  }
+
+  &__block-info {
+    @extend %p;
+
+    display: block;
+    color: $color-txt-on-dark;
+    font-weight: 600;
+    font-size: 24px;
+
+    @include hover-simple(color, $color-icon-on-hover);
+  }
+
+  &__socials-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    gap: 32px;
+  }
+
+  &__socials-link {
+    display: inline-block;
+    color: $color-icon-on-dark;
+
+    @include hover-simple(color, $color-icon-on-hover);
+  }
+}

@@ -1,0 +1,62 @@
+.menu {
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+  max-width: 360px;
+  background-color: $color-bgr-gray-light;
+
+  &__content {
+    @include content-padding-inline;
+    @extend %subtitle-base;
+
+    color: $color-txt-body;
+  }
+
+  &__nav {
+    margin-bottom: 32px;
+  }
+
+  &__navList {
+    gap: 16px;
+  }
+
+  &__phone-number {
+    display: block;
+    padding-bottom: 7px;
+
+    @include hover-simple(color, $color-icon-on-hover);
+  }
+
+  &__hire-us {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 16px;
+
+    @include hover-simple(color, $color-icon-on-hover);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+
+      height: 1px;
+      width: 100%;
+      background-color: $color-txt-body;
+
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    &:not(:hover)::after {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+  }
+}

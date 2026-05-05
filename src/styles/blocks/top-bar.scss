@@ -1,0 +1,91 @@
+.top-bar {
+  @include content-padding-inline;
+
+  padding-top: 20px;
+  padding-bottom: 48px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding-bottom: 56px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 48px;
+    padding-bottom: 0;
+  }
+
+  &__logo {
+    display: flex;
+
+    @include hover-simple(opacity, 0.8);
+  }
+
+  &__left {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__menuIcon {
+    display: inline-block;
+    color: $color-icon-on-dark;
+
+    @include hover-simple(color, $color-icon-on-hover);
+  }
+
+  &__closeIcon {
+    display: inline-block;
+    color: $color-icon-on-light;
+
+    @include hover-simple(color, $color-icon-on-hover);
+  }
+
+  &__nav {
+    @extend %subtitle-base;
+
+    color: $color-txt-on-dark;
+  }
+
+  &__navList {
+    gap: 48px;
+  }
+
+  &__cta {
+    @extend %subtitle-base;
+
+    position: relative;
+    color: $color-txt-on-dark;
+    text-align: center;
+    line-height: 150%;
+
+    @include hover-simple(color, $color-icon-on-hover);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+
+      height: 2px;
+      width: 100%;
+      background-color: $color-bgr-gray-blue;
+
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    &:not(:hover)::after {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+  }
+}
