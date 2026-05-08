@@ -1,0 +1,84 @@
+.slider {
+  position: relative;
+  height: 390px;
+  background-color: $headfoot-menu-bg-color;
+
+  @include on-s-desktop {
+    position: absolute;
+    height: auto;
+  }
+
+  &__img {
+    position: absolute;
+
+    width: 100%;
+    height: 390px;
+
+    opacity: 0;
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+      opacity 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
+
+    @include on-s-desktop {
+      height: 100%;
+    }
+
+    &--active {
+      position: relative;
+      opacity: 1;
+    }
+  }
+
+  &__interaction {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      bottom: 32px;
+      left: 40px;
+    }
+
+    @include on-s-desktop {
+      bottom: 48px;
+      left: 72px;
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    @include on-m-desktop {
+      left: 48px;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__description {
+    font-family: $second-font;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+    text-align: left;
+  }
+}
