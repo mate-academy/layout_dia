@@ -1,0 +1,109 @@
+.menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  height: 680px;
+  width: 100vw;
+  background-color: $color-bg-blue;
+  opacity: 0;
+  pointer-events: none;
+  scroll-behavior: smooth;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__top {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      padding: 20px 40px;
+    }
+  }
+
+  &__burger-menu {
+    display: block;
+    background: none;
+    border: none;
+    cursor: $custom-cursor, pointer;
+    transition: transform $effectDuration ease;
+
+    @include hover(transform, scale(1.2));
+
+    &--line {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: $color-white;
+      margin: 4px 0;
+      transition: transform $effectDuration ease;
+    }
+
+    &.is-active {
+      .menu__burger-menu--line:nth-child(1) {
+        transform: translateY(3px) rotate(45deg);
+      }
+
+      .menu__burger-menu--line:nth-child(2) {
+        transform: translateY(-3px) rotate(-45deg);
+      }
+    }
+  }
+
+  &__logo-link {
+    height: 28px;
+    width: 46px;
+    margin-right: 32px;
+    cursor: $custom-cursor, pointer;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__nav {
+    padding: 20px;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+
+    @include on-tablet {
+      padding: 40px;
+    }
+  }
+
+  &__list {
+    all: unset;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 38px;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    text-decoration: none;
+    color: $color-white;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity $effectDuration;
+    cursor: $custom-cursor, pointer;
+
+    @include hover(transform, scale(1.2));
+  }
+}
