@@ -1,0 +1,65 @@
+.services {
+  &__container {
+    @include content-padding-inline;
+    @include page-grid;
+
+    row-gap: 24px;
+
+    @include on-tablet {
+      grid-template-areas:
+        'h h h . . .'
+        'h h h c2 c2 c2'
+        'c1 c1 c1 c2 c2 c2'
+        'c1 c1 c1 c4 c4 c4'
+        'c3 c3 c3 c4 c4 c4'
+        'c3 c3 c3 . . .';
+      row-gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-template-areas:
+        '. . . . . . . . . c2 c2 c2'
+        'h h h h . . c1 c1 c1 c2 c2 c2'
+        'h h h h . . c1 c1 c1 c3 c3 c3'
+        'h h h h . . c4 c4 c4 c3 c3 c3'
+        '. . . . . . c4 c4 c4 . . .';
+      row-gap: 20px;
+    }
+
+    @include on-desktop {
+      row-gap: 30px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      grid-area: h;
+    }
+  }
+
+  &__label {
+    color: $color-txt-subtitles;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 32px;
+    line-height: 130%;
+    color: $color-txt-heading;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-txt-body;
+  }
+}

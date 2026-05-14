@@ -1,0 +1,28 @@
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    min-width: 320px;
+    background: $color-bgr-gray-light;
+  }
+
+  &__menu {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__menu:target {
+    pointer-events: all;
+    opacity: 1;
+  }
+}

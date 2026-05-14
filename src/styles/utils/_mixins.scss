@@ -1,6 +1,105 @@
-@mixin hover($_property, $_toValue) {
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: $smallDesktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $Desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-the-design {
+  @media (min-width: $theDesign-min-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: $largeScreen-min-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-desktop {
+    padding-inline: 150px;
+  }
+
+  @include on-the-design {
+    padding-inline: 227px;
+  }
+
+  @include on-large-screen {
+    padding-inline: 707px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-small-desktop {
+    --columns: 12;
+
+    column-gap: 20px;
+  }
+
+  @include on-large-screen {
+    column-gap: 30px;
+  }
+}
+
+@mixin hover-simple($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin hover-after($_property, $_toValue) {
+  &::after {
+    transition: #{$_property} 0.3s;
+  }
+
+  &:hover::after {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hover-elevation($y: -6px, $shadow: 0 16px 32px rgba(0, 0, 0, 0.15)) {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY($y);
+    box-shadow: $shadow;
   }
 }
