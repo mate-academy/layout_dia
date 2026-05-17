@@ -1,0 +1,162 @@
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  padding: 32px 42px;
+  border-radius: 16px;
+
+  background: #fff;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  transition:
+    scale $duration-effect-time ease-in-out,
+    box-shadow $duration-effect-time ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+    box-shadow: 0 9px 18px rgba(37, 41, 49, 0.1);
+  }
+
+  @include on-tablet {
+    padding: 32px 96px;
+  }
+
+  @include on-s-desktop {
+    flex: 1;
+    padding: 32px 48px;
+  }
+
+  @include on-m-desktop {
+    padding: 32px 56px;
+  }
+
+  &__image-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 196px;
+    height: 196px;
+    margin-bottom: 8px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-s-desktop {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-m-desktop {
+      width: 250px;
+      height: 250px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 0;
+      transform: matrix(0.5, -0.87, 0.87, 0.5, 0, 0);
+
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+
+      background-color: $c-blue;
+
+      @include on-tablet {
+        width: 139px;
+        height: 56px;
+      }
+
+      @include on-s-desktop {
+        width: 109px;
+        height: 44px;
+      }
+
+      @include on-m-desktop {
+        width: 139px;
+        height: 56px;
+      }
+    }
+
+    &::before {
+      top: 50px;
+      left: 0;
+    }
+
+    &::after {
+      right: 3px;
+      bottom: 38px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-s-desktop {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include on-m-desktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__quote {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__comment {
+    font-family: $second-font;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $second-text-color;
+    text-align: center;
+  }
+
+  &__person {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__name {
+    font-family: $second-font;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $text-100;
+    text-align: center;
+  }
+
+  &__company {
+    color: #c0cdd7;
+    text-align: center;
+  }
+}
