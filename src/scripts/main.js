@@ -6,6 +6,7 @@ const navMenu = document.querySelector('#nav-menu');
 const noScroll = document.body;
 const menuLinks = document.querySelectorAll('.nav__link');
 const footerLinks = document.querySelectorAll('.footer__link');
+const hireUsBtn = document.querySelector('.header__hire-us');
 
 const sliderImages = [
   'src/images/slider/slide-img-1.jpg',
@@ -92,6 +93,27 @@ menuLinks.forEach(link => {
     }
   });
 });
+
+if (hireUsBtn) {
+  hireUsBtn.addEventListener('click', (e) => {
+    const href = hireUsBtn.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+}
 
 footerLinks.forEach(link => {
   link.addEventListener('click', (e) => {

@@ -26,7 +26,6 @@
     position: static;
 
     height: auto;
-    margin-left: auto;
     padding-block: 0;
     padding-inline: 0;
 
@@ -63,8 +62,9 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: $spacing-2xl;
     align-items: center;
+
+    gap: $spacing-2xl;
 
     @include desktop {
       flex-direction: row;
@@ -92,20 +92,25 @@
     &--hire {
       position: relative;
 
+      @include desktop {
+        display: none;
+      }
+
       &::after {
         content: '';
 
         position: absolute;
         bottom: -8px;
         left: 0;
-        transform-origin: left;
-        transform: scaleX(0);
 
         width: 100%;
         height: 2px;
-        border-radius: $radius-sm;
 
         background-color: $color-blue;
+        border-radius: $radius-sm;
+
+        transform: scaleX(0);
+        transform-origin: left;
 
         transition: transform $transition-base ease;
       }
