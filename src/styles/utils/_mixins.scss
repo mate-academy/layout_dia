@@ -1,6 +1,81 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-base ease;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+// ================
+// RESPONSIVE BREAKPOINTS (MOBILE-FIRST)
+// ================
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: $bp-small-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin design {
+  @media (min-width: $bp-design) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: $bp-large) {
+    @content;
+  }
+}
+
+// ================
+// UTILITY MIXINS
+// ================
+
+@mixin padd-inl {
+  padding-inline: $spacing-lg;
+
+  @include tablet {
+    padding-inline: $spacing-xl;
+  }
+
+  @include desktop {
+    padding-inline: $spacing-5xl;
+  }
+
+  @include design {
+    padding-inline: $spacing-6xl;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// ================
+// GRID LAYOUT
+// ================
+
+@mixin grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $spacing-md;
 }
