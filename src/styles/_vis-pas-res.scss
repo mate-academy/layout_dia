@@ -1,0 +1,86 @@
+.vis-pas-res {
+  padding-block: $spacing-3xl;
+
+  background-image: url(../images/Shapes.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include padd-inl;
+
+  @include desktop {
+    padding-block: 96px;
+  }
+
+  &__rubric {
+    @extend %rubric;
+
+    margin-block: 0 $spacing-sm;
+    color: $color-white;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    margin-block: 0 $spacing-xl;
+    color: $color-white;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+
+    padding: $spacing-2xl;
+    border-radius: $radius-md;
+
+    background-color: rgba(17, 17, 17, 0.8);
+
+    transition:
+      transform $transition-base ease,
+      background-color $transition-base ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      background-color: rgba(17, 17, 17, 0.9);
+    }
+  }
+
+  &__card-title {
+    @extend %h3;
+
+    margin-block: 0 $spacing-sm;
+    font-size: 24px;
+    line-height: 130%;
+    color: $color-white;
+  }
+
+  &__card-text {
+    @extend %text;
+
+    margin-block: 0 $spacing-xl;
+    font-size: 14px;
+    color: $color-white;
+  }
+
+  &__card-btn {
+    @extend %btn;
+
+    min-width: 120px;
+    color: $color-black;
+    background-color: $color-white;
+
+    &:hover {
+      color: $color-black;
+      background-color: $color-gray-light;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.strategic {
+  padding-block: $spacing-3xl;
+
+  @include desktop {
+    padding-block: 64px 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    @include desktop {
+      grid-column: span 6;
+      grid-template-columns: repeat(12, 1fr);
+      padding-inline: $spacing-6xl;
+    }
+  }
+
+  &__content {
+    grid-column: span 6;
+    padding-inline: $spacing-lg;
+
+    @include tablet {
+      padding-inline: $spacing-xl;
+    }
+
+    @include desktop {
+      grid-column: 1 / 7;
+      padding-bottom: 128px;
+      padding-inline: 0;
+    }
+
+    @include design {
+      grid-column: 1 / 7;
+      padding-bottom: 180px;
+    }
+  }
+
+  &__rubric {
+    @extend %rubric;
+
+    margin-block: 0 $spacing-sm;
+    color: $color-gray-dark;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    max-width: 440px;
+    margin-block: 0 $spacing-lg;
+  }
+
+  &__text {
+    @extend %text;
+
+    max-width: 440px;
+    margin-block: 0 $spacing-xl;
+    color: $color-gray-dark;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__btn {
+    @extend %btn;
+
+    min-width: 160px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__btn--hire {
+    color: $color-black;
+    background-color: $color-white;
+
+    &:hover {
+      background-color: $color-gray-light;
+    }
+  }
+}

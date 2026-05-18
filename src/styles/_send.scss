@@ -1,0 +1,110 @@
+.send {
+  padding-block: $spacing-3xl;
+
+  @include padd-inl;
+
+  @include desktop {
+    padding-block: 96px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+
+    @include desktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__content {
+    @include desktop {
+      grid-column: 1 / 5;
+      padding-right: $spacing-2xl;
+    }
+  }
+
+  &__rubric {
+    @extend %rubric;
+
+    margin-block: 0 $spacing-sm;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    margin-block: 0 $spacing-lg;
+  }
+
+  &__text {
+    @extend %text;
+
+    margin-block: 0 $spacing-xl;
+    color: $color-gray-dark;
+  }
+
+  &__form-container {
+    @include desktop {
+      grid-column: 5 / 13;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    padding: $spacing-2xl;
+    border-radius: $radius-md;
+
+    background-color: $color-white;
+  }
+
+  &__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__input-label {
+    font-family: $font-open-sans;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-black;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-md;
+    border: 1px solid $color-gray-light;
+    border-radius: $radius-sm;
+
+    font-family: $font-open-sans;
+    font-size: 14px;
+
+    transition: border-color $transition-base ease;
+
+    &:focus {
+      border-color: $color-blue;
+      outline: none;
+    }
+
+    &:hover {
+      border-color: $color-gray;
+    }
+  }
+
+  &__input--text {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  &__btn {
+    @extend %btn;
+
+    align-self: flex-start;
+    min-width: 160px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
