@@ -1,0 +1,97 @@
+.testimonials {
+  padding-block: $spacing-3xl;
+
+  @include padd-inl;
+
+  @include desktop {
+    padding-block: 96px;
+  }
+
+  &__rubric {
+    @extend %rubric;
+
+    margin-block: 0 $spacing-sm;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    margin-block: 0 $spacing-xl;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @include tablet {
+      flex-flow: row wrap;
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+
+    flex: 1;
+
+    min-width: 280px;
+    padding: $spacing-xl;
+    border-radius: $radius-md;
+
+    background-color: $color-white;
+
+    transition:
+      transform $transition-base ease,
+      box-shadow $transition-base ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__card-avatar {
+    overflow: hidden;
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__card-name {
+    font-family: $font-open-sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 130%;
+    color: $color-black;
+  }
+
+  &__card-role {
+    font-family: $font-open-sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    color: $color-gray;
+  }
+
+  &__card-text {
+    @extend %text;
+
+    font-size: 14px;
+    color: $color-gray-dark;
+  }
+}

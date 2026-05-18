@@ -1,0 +1,134 @@
+.process {
+  padding-block: $spacing-3xl;
+
+  @include padd-inl;
+
+  @include desktop {
+    padding-block: 96px 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+
+    @include desktop {
+      grid-template-columns: repeat(12, 1fr);
+      padding-bottom: 128px;
+    }
+
+    @include design {
+      padding-bottom: 180px;
+    }
+  }
+
+  &__content {
+    @include desktop {
+      grid-column: 1 / 5;
+      padding-right: $spacing-2xl;
+    }
+  }
+
+  &__rubric {
+    @extend %rubric;
+
+    margin-block: 0 $spacing-sm;
+  }
+
+  &__title {
+    @extend %section-title;
+
+    margin-block: 0 $spacing-lg;
+  }
+
+  &__text {
+    @extend %text;
+
+    margin-block: 0 $spacing-xl;
+    color: $color-gray-dark;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop {
+      transform: translateY(-50%);
+      grid-column: 5 / 13;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__card {
+    cursor: pointer;
+
+    padding: $spacing-lg;
+    border-radius: $radius-md;
+
+    background-color: $color-white;
+
+    transition:
+      transform $transition-base ease,
+      box-shadow $transition-base ease;
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__card-number {
+    margin-bottom: $spacing-sm;
+
+    font-family: $font-open-sans;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $color-blue;
+  }
+
+  &__card-title {
+    margin-block: 0 $spacing-sm;
+
+    font-family: $font-open-sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $color-black;
+  }
+
+  &__card-link {
+    cursor: pointer;
+
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+
+    font-family: $font-open-sans;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-blue;
+
+    transition: opacity $transition-base ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      transition: transform $transition-base ease;
+
+      .process__card-link:hover & {
+        transform: translateX(4px);
+      }
+    }
+  }
+}

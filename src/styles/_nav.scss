@@ -1,0 +1,126 @@
+.nav {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  padding-block: 64px;
+  padding-inline: $spacing-xl;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: $color-black;
+
+  transition:
+    opacity $transition-base ease,
+    visibility $transition-base ease;
+
+  &--open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include desktop {
+    position: static;
+
+    height: auto;
+    margin-left: auto;
+    padding-block: 0;
+    padding-inline: 0;
+
+    visibility: visible;
+    opacity: 1;
+    background: none;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    transition: opacity $transition-base ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+    align-items: center;
+
+    @include desktop {
+      flex-direction: row;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__link {
+    font-family: $font-open-sans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 130%;
+    color: $color-white;
+
+    transition: color $transition-base ease;
+
+    &:hover {
+      color: $color-blue;
+    }
+
+    @include desktop {
+      font-size: 14px;
+    }
+
+    &--hire {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        transform-origin: left;
+        transform: scaleX(0);
+
+        width: 100%;
+        height: 2px;
+        border-radius: $radius-sm;
+
+        background-color: $color-blue;
+
+        transition: transform $transition-base ease;
+      }
+
+      &:hover {
+        color: $color-blue;
+
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
