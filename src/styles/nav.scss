@@ -1,0 +1,74 @@
+@use './index' as *;
+
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  &__link {
+    list-style: none;
+  }
+
+  &__item {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 150%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+}
+
+.header__nav {
+  position: fixed;
+  top: 96px;
+  left: -200%;
+  width: 100%;
+  height: calc(100vh - 96px);
+  background-color: $color-bl;
+  z-index: 100;
+  transition: left 0.3s ease-in-out;
+
+  @include padd-inl;
+
+  .nav__list {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+
+  &.nav--open {
+    left: 0;
+  }
+
+  @include desktop {
+    position: static;
+    display: flex;
+    width: auto;
+    height: auto;
+    transition: none;
+    padding: 0;
+
+    .nav__list {
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+}

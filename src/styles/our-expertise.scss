@@ -1,0 +1,97 @@
+@use './index' as *;
+
+.our-expertise {
+  @include padd-inl;
+
+  padding-block: 72px;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+
+  margin-block: -30px;
+  border-radius: 30px;
+  background-color: $color-white;
+
+  @include grid;
+
+  @include tablet {
+    padding-block: 128px;
+    gap: 72px;
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 120%;
+
+    @include tablet {
+      line-height: 150%;
+      font-size: 52px;
+      margin-bottom: -8px;
+      grid-column: span 6;
+    }
+
+    @include desktop {
+      grid-column: span 12;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    @include tablet {
+      grid-column: 2/6;
+    }
+
+    @include desktop {
+      grid-column: span 4;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    &-img {
+      display: block;
+      width: 184px;
+      height: 166px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 140%;
+      color: $color-violet;
+
+      margin-block: 32px 16px;
+    }
+
+    &-text {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      color: $color-grey;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $color-blue;
+        text-shadow: 2px 2px 4px;
+      }
+    }
+  }
+}

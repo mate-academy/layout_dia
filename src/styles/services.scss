@@ -1,0 +1,179 @@
+@use './index' as *;
+
+.services {
+  @include padd-inl;
+
+  position: relative;
+  z-index: 1;
+  margin-top: -30px;
+  padding-block: 150px 120px;
+  background-color: $color-white2;
+  display: block;
+
+  @include grid;
+
+  @include tablet {
+    gap: 30px;
+    padding-block: 178px 148px;
+  }
+
+  @include desktop {
+    gap: 20px;
+    padding-block: 178px 300px;
+  }
+
+  @include design {
+    gap: 30px;
+    padding-block: 178px 300px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+    color: $color-violet;
+    margin-block: 16px 24px;
+  }
+
+  &__text {
+    @include open-sans;
+
+    font-weight: 400;
+    line-height: 150%;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  &-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    margin-top: 24px;
+    max-height: 264px;
+    max-width: 100%;
+    background-color: $color-white;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-6%) scale(1.05);
+      box-shadow: 2px 2px 10px $color-blue;
+    }
+
+    @include tablet {
+      margin-top: 0;
+      grid-column: span 3;
+    }
+
+    &__num {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin: 0;
+      height: 24px;
+      width: 46px;
+      border-radius: 23px;
+      background-color: rgba(242, 246, 250, 1);
+      font-size: 13px;
+      line-height: 100%;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $color-blue;
+    }
+
+    &__text {
+      margin-block: 24px 32px;
+      font-weight: 600;
+      line-height: 150%;
+
+      @include open-sans;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 16px;
+      color: rgba(51, 69, 99, 1);
+
+      @include poppins;
+    }
+  }
+
+  &__container {
+    padding-bottom: 26px;
+
+    @include tablet {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    }
+
+    @include desktop {
+      position: relative;
+      top: 103px;
+      row-gap: 20px;
+      grid-column: 1 / span 4;
+      grid-row: 1;
+    }
+  }
+
+  @include tablet {
+    &-card:nth-child(2) {
+      grid-row: 2 / span 1;
+      grid-column: 1 / span 3;
+    }
+
+    &-card:nth-child(3) {
+      position: relative;
+      top: 210px;
+      grid-column: 4 / span 3;
+      grid-row: 1 / span 1;
+      margin-top: 26px;
+    }
+
+    &-card:nth-child(4) {
+      grid-row: 3 / span 1;
+      grid-column: span 3;
+    }
+
+    &-card:nth-child(5) {
+      position: relative;
+      top: 210px;
+      grid-row: 2;
+      grid-column: span 3;
+    }
+  }
+
+  @include desktop {
+    &-card:nth-child(2) {
+      grid-column: 7 / span 3;
+      grid-row: 1;
+      top: 139px;
+      position: relative;
+    }
+
+    &-card:nth-child(3) {
+      grid-column: 10 / span 3;
+      grid-row: 1;
+      margin-top: 0;
+      top: 0;
+    }
+
+    &-card:nth-child(4) {
+      grid-column: 7 / span 3;
+      grid-row: 2;
+      top: 139px;
+      position: relative;
+    }
+
+    &-card:nth-child(5) {
+      grid-column: 10 / span 3;
+      grid-row: 2;
+      top: 0;
+    }
+  }
+}

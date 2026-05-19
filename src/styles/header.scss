@@ -1,0 +1,71 @@
+@use './index' as *;
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-block: 20px 48px;
+  background-color: $color-bl;
+
+  @include padd-inl;
+
+  @include tablet {
+    padding-block: 20px 56px;
+  }
+
+  @include desktop {
+    padding-block: 48px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    width: 46px;
+    height: 28px;
+  }
+
+  &__menu {
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 8px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @include desktop {
+      display: none;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &-hire-us {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      height: 2px;
+      width: 100%;
+      background-color: $color-blue;
+      border-radius: 4px;
+    }
+  }
+}

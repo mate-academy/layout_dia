@@ -1,0 +1,75 @@
+@use '../vars' as *;
+
+@mixin tablet() {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin design() {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin large() {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin padd-inl() {
+  padding-inline: 20px;
+
+  @include tablet {
+    padding-inline: 41px;
+  }
+
+  @include desktop {
+    padding-inline: 54px;
+  }
+
+  @include design {
+    padding-inline: 227px;
+  }
+
+  @include large {
+    padding-inline: 707px;
+  }
+}
+
+@mixin open-sans() {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: $color-grey;
+}
+
+@mixin poppins() {
+  font-size: 15px;
+  line-height: 100%;
+  font-weight: 600;
+}
+
+@mixin grid() {
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include design {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
