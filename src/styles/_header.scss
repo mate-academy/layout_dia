@@ -1,0 +1,125 @@
+.header {
+  position: relative;
+  background-color: $background-dark;
+  padding-inline: 21px;
+  height: 893px;
+  display: flex;
+  flex-direction: column;
+  color: $white-color;
+  border-radius: 0 0 $border-radius $border-radius;
+  @include page-padding;
+
+  @media (min-width: $desktop) {
+    height: 800px;
+  }
+
+  &__top {
+    align-items: center;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__burger {
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  &__icon {
+    transition: $transition-def;
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  & nav {
+    @media (max-width: $desktop) {
+      display: none;
+    }
+  }
+
+  &__hire-link {
+    display: inline-flex;
+    flex-direction: column;
+    color: inherit;
+    
+    @include uppercase-label;
+    
+    &::after {
+      margin-top: 8px;
+      display: block;
+      content: '';
+      height: 2px;
+      border-radius: 4px;
+      background-color: $blue-color;
+      width: 67px;
+      transition: $transition-def;
+    }
+
+    &:hover::after {
+    transform: scale(1.02);
+    background-color: coral;
+    opacity: 0.8;
+    }
+  }
+
+  &__content {
+    margin-top: 48px;
+
+    @media (min-width: $desktop) {
+      max-width: 45%;
+      margin-top: 164px;
+    }
+  }
+
+  &__title {
+    font-weight: $weight-bold;
+    font-size: $font-size-large;
+    line-height: 120%;
+    font-family: $font-title;
+    letter-spacing: $letter-spacing-title;
+  }
+
+  &__description {
+    font-weight: $weight-small;
+    font-size: $font-size-small-l;
+    line-height: 150%;
+    margin-top: 32px;
+  }
+
+  &__button {
+    margin-top: 72px;
+  }
+
+  &__slider {
+    border-radius: $border-radius;
+    overflow: hidden;
+    height: 390px;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @media (min-width: $desktop) {
+      width: 50%;
+      height: 680px;
+      border-radius: $border-radius 0 $border-radius 0;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}

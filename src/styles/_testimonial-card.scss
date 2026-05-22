@@ -1,0 +1,123 @@
+.testimonial-card {
+  background-color: $white-color;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-radius: 16px;
+  gap: 24px;
+  text-align: center;
+  width: 100%;
+
+  transition: $transition-def;
+
+  &:hover {
+    transform: scale(0.98);
+    box-shadow: inset 0 2px 12px #afafaf;
+  }
+
+  @media (min-width: 350px) {
+    padding-inline: 48px;
+  }
+
+  @media (min-width: $desktop) {
+    min-height: 456px;
+  }
+
+  @media (min-width: $desktop-wide) {
+    max-width: 350px;
+    min-height: 494px;
+  }
+
+  &__top {
+    position: relative;
+  }
+
+  &__photo-wrap {
+    position: relative;
+    width: 196px;
+    height: 196px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: $blue-color;
+      z-index: 0;
+
+      transform: rotate(-60deg);
+      right: 5px;
+      bottom: 40px;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+
+      width: 109px;
+      height: 44px;
+      border-radius: 12px;
+
+      background-color: $blue-color;
+      z-index: 0;
+      transform: rotate(-60deg);
+      top: 40px;
+      left: 5px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 1;
+
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: $font-size-tiny;
+    font-weight: $weight-bold;
+    line-height: 150%;
+  }
+
+  &__quote {
+    display: block;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__comment {
+    margin-top: 8px;
+    text-align: center;
+    color: $text-color-light;
+  }
+
+  &__name {
+    margin-top: 16px;
+    color: $text-color-dark;
+  }
+
+  &__job {
+    margin-top: 8px;
+    line-height: 100%;
+    color: $text-color-grey;
+    white-space: nowrap;
+
+    @include uppercase-label;
+  }
+}

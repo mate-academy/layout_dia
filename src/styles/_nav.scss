@@ -1,0 +1,41 @@
+.nav {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    flex-direction: column;
+    color: $white-color;
+
+    @include uppercase-label;
+
+    &::after {
+      border-radius: 5px;
+      transform-origin: center;
+      margin-top: 5px;
+      transform: scaleX(0);
+      content: '';
+      height: 2px;
+      width: 100%;
+      display: block;
+      background-color: $white-color;
+      opacity: 0.8;
+      transition: $transition-def;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
