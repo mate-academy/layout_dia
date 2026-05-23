@@ -1,0 +1,157 @@
+.slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 390px;
+  border-radius: $slider-radius;
+
+  background-color: #000;
+
+  @include on-small-desktop {
+    top: 120px;
+    bottom: auto;
+
+    width: 502px;
+    height: 680px;
+    border-radius: $slider-radius 0 $slider-radius 0;
+  }
+
+  @include on-design {
+    width: 687px;
+  }
+
+  @include on-large-screens {
+    width: 1167px;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+
+    visibility: hidden;
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition:
+      opacity $transition-base,
+      visibility $transition-base;
+
+    &:nth-child(1) {
+      background-image: url(/src/images/slider/slider-photo-1.png);
+    }
+    &:nth-child(2) {
+      background-image: url(/src/images/slider/slider-photo-2.png);
+    }
+    &:nth-child(3) {
+      background-image: url(/src/images/slider/slider-photo-3.png);
+    }
+
+    &:first-child {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:target {
+      z-index: 1;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:has(:target) &__slide:first-child:not(:target) {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__bottom {
+    position: absolute;
+    z-index: 3;
+    right: $slider-padding;
+    bottom: $slider-padding;
+    left: $slider-padding;
+
+    display: flex;
+    flex-direction: column;
+    gap: $text-gap;
+
+    @include on-small-desktop {
+      bottom: 48px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include on-design {
+      justify-content: flex-start;
+      padding-left: 48px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: $arrow-size;
+    height: $arrow-size;
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    transition: background-color 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $c-white;
+      outline-offset: 2px;
+    }
+
+    img {
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    color: $c-white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  &__description {
+    max-width: 280px;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: $c-white;
+  }
+}

@@ -1,0 +1,63 @@
+.services {
+  &__container {
+    @include page-grid;
+    @include content-padding-inline;
+
+    row-gap: 24px;
+
+    @include on-tablet {
+      grid-template-areas:
+        'h  h  h  .  .  .'
+        'h  h  h  c2 c2 c2'
+        'c1 c1 c1 c2 c2 c2'
+        'c1 c1 c1 c4 c4 c4'
+        'c3 c3 c3 c4 c4 c4'
+        'c3 c3 c3 .  .  .';
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-template-areas:
+        '.  .  .  .  .  .  .  .  .  c2 c2 c2'
+        'h  h  h  h  .  .  c1 c1 c1 c2 c2 c2'
+        'h  h  h  h  .  .  c1 c1 c1 c3 c3 c3'
+        'h  h  h  h  .  .  c4 c4 c4 c3 c3 c3'
+        '.  .  .  .  .  .  c4 c4 c4 .  .  .';
+      gap: 20px;
+    }
+
+    @include on-design {
+      gap: 30px;
+    }
+  }
+
+  &__header {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-area: h;
+    }
+  }
+
+  &__label {
+    margin-block: 0 16px;
+
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $c-text-label;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__title--align--left {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: $c-text-body;
+  }
+}
