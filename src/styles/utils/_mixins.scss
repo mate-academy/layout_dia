@@ -4,3 +4,62 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin page-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap:20px;
+
+  @include on-tablet{
+    grid-template-columns: repeat(6, 1fr);
+    column-gap:30px;
+  }
+
+    @include on-s-desktop{
+      grid-template-columns: repeat(12, 1fr);
+      column-gap:20px;
+  }
+    @include on-m-desktop{
+      grid-template-columns: repeat(12, 1fr);
+      column-gap:30px;
+  }
+    @include on-l-desktop{
+      grid-template-columns: repeat(12, 1fr);
+      column-gap:30px;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-s-desktop {
+  @media (min-width: $s-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-m-desktop {
+  @media (min-width: $m-desktop-min-width) {
+    @content;
+  }
+}
+@mixin on-l-desktop {
+  @media (min-width: $l-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin title-text($_style, $_color) {
+  font-family: 'Poppins', sans-serif;
+  font-weight: #{$_style};
+  color: #{$_color};
+}
+
+@mixin description-text($_style, $_color) {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: #{$_style};
+  color: #{$_color};
+}
