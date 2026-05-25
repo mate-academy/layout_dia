@@ -1,0 +1,76 @@
+.services {
+  &__content {
+  display: grid;
+  gap: 48px;
+  justify-content: center;
+  }
+
+  &__text {
+    justify-self: center;
+    max-width: 280px;
+
+    @include on-tablet {
+      grid-area: text;
+    }
+
+    @include on-s-desktop{
+      grid-column: 1 / 5;
+      grid-row: 2 / 4;
+      max-width: 360px ;
+    }
+  }
+
+  &__eye-brown {
+    @include title-text(700, $grey-eye-brown);
+
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__title {
+    @include title-text(600, $blue-title);
+
+    margin: 0;
+    padding: 16px 0 24px;
+
+    font-size: 32px;
+    line-height: 130%;
+    letter-spacing: 0;
+  }
+
+  &__description {
+    @include description-text(400, $grey-description);
+
+    margin: 0;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__cards{
+    display: grid;
+    gap: 20px;
+
+    @include on-tablet {
+    grid-template: repeat(6, 1fr) / repeat(2, 264px);
+    grid-template-areas:
+      'text .'
+      'text card-2'
+      'card-1 card-2'
+      'card-1 card-4'
+      'card-3 card-4'
+      'card-3 .';
+    margin: 0;
+    }
+
+    @include on-s-desktop{
+      grid-template: repeat(5, 1fr) / repeat(12, 1fr);
+      grid-template-areas:none;
+    }
+  }
+
+
+}
