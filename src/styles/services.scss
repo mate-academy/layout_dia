@@ -1,49 +1,53 @@
 .services {
   &__content {
   display: grid;
-  justify-content: center;
   gap: 48px;
+  justify-content: center;
   }
 
   &__text {
-    max-width: 280px;
     justify-self: center;
+    max-width: 280px;
+
     @include on-tablet {
       grid-area: text;
     }
+
     @include on-s-desktop{
-      max-width: 360px ;
-      grid-row: 2 / 4;
       grid-column: 1 / 5;
+      grid-row: 2 / 4;
+      max-width: 360px ;
     }
   }
 
   &__eye-brown {
     @include title-text(700, $grey-eye-brown);
 
+    margin: 0;
+
     font-size: 13px;
     line-height: 100%;
-    letter-spacing: 3px;
     text-transform: uppercase;
-    margin: 0;
+    letter-spacing: 3px;
   }
 
   &__title {
     @include title-text(600, $blue-title);
-    font-size: 32px;
-    line-height: 130%;
-    letter-spacing: 0;
 
     margin: 0;
     padding: 16px 0 24px;
+
+    font-size: 32px;
+    line-height: 130%;
+    letter-spacing: 0;
   }
 
   &__description {
     @include description-text(400, $grey-description);
-    font-size: 14px;
-    line-height: 150%;
 
     margin: 0;
+    font-size: 14px;
+    line-height: 150%;
   }
 
   &__cards{
@@ -51,9 +55,7 @@
     gap: 20px;
 
     @include on-tablet {
-    margin: 0;
-    grid-template-columns: repeat(2, 264px);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template: repeat(6, 1fr) / repeat(2, 264px);
     grid-template-areas:
       'text .'
       'text card-2'
@@ -61,12 +63,12 @@
       'card-1 card-4'
       'card-3 card-4'
       'card-3 .';
+    margin: 0;
     }
 
     @include on-s-desktop{
-      grid-template-areas:none ;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template: repeat(5, 1fr) / repeat(12, 1fr);
+      grid-template-areas:none;
     }
   }
 
