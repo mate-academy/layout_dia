@@ -1,0 +1,130 @@
+@use '../utils/vars';
+@use '../utils/mixins';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$color-black;
+
+  @include mixins.on-small-desktop {
+    height: 100vh;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+
+    @include mixins.on-small-desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__content {
+    flex-shrink: 0;
+    margin: vars.$main-inline-padding;
+
+    @include mixins.on-tablet {
+      margin-left: vars.$main-inline-padding-table;
+    }
+
+    @include mixins.on-small-desktop {
+      max-width: calc(
+        (100% - #{vars.$main-inline-padding-small-desktop}) / 12 * 6
+      );
+      margin-left: vars.$main-inline-padding-small-desktop;
+    }
+
+    @include mixins.on-desktop {
+      max-width: calc((#{vars.$width-desktop} / 12) * 7);
+      margin-left: max(
+        #{vars.$main-inline-padding-small-desktop},
+        calc((100% - #{vars.$width-desktop}) / 2)
+      );
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    margin-block: 48px 32px;
+    font-size: 52px;
+    line-height: 120%;
+    color: vars.$color-light;
+
+    @include mixins.on-tablet {
+      margin-block: 56px 24px;
+      font-size: 64px;
+      line-height: 68px;
+    }
+
+    @include mixins.on-small-desktop {
+      width: calc((100% / 7) * 4);
+      margin-block: 240px 32px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 150%;
+    color: vars.$color-light;
+
+    @include mixins.on-tablet {
+      width: calc((100% - #{vars.$main-inline-padding-small-desktop}) / 6 * 4);
+    }
+
+    @include mixins.on-small-desktop {
+      width: calc((100% - #{vars.$main-inline-padding-small-desktop}) / 6 * 5);
+    }
+
+    @include mixins.on-desktop {
+      width: calc((100% / 7) * 4);
+    }
+  }
+
+  &__link {
+    @include mixins.btn-main(50px);
+
+    margin-block: 72px 48px;
+
+    @include mixins.on-tablet {
+      width: calc((100% - #{vars.$main-inline-padding-small-desktop}) / 6 * 3);
+      margin-block: 56px 147px;
+    }
+
+    @include mixins.on-small-desktop {
+      width: 264px;
+      margin-top: 83px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    overflow: hidden;
+    height: 390px;
+
+    @include mixins.on-small-desktop {
+      flex: 1;
+      height: auto;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 50%;
+
+      background-color: vars.$bg-main;
+    }
+  }
+}

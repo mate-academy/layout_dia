@@ -1,6 +1,64 @@
+@use 'vars';
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $time-animation;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin btn-main($_height) {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: $_height;
+  padding: 0;
+  border-radius: 8px;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 100%;
+  color: vars.$color-light;
+  text-decoration: none;
+
+  background-color: vars.$color-accent;
+
+  transition: background-color vars.$time-animation linear;
+
+  &:hover {
+    background-color: vars.$color-accent-hover;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: vars.$width-desktop) {
+    @content;
+  }
+}
+
+@mixin on-big-desktop {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on-large {
+  @media (min-width: 2560px) {
+    @content;
   }
 }

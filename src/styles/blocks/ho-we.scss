@@ -1,0 +1,62 @@
+@use '../utils/vars';
+@use '../utils/mixins';
+
+.ho-we {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include mixins.on-tablet {
+    --columns: 6;
+  }
+
+  @include mixins.on-small-desktop {
+    --columns: 12;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-column: 1 / -1;
+    justify-content: center;
+
+    padding-block: 120px;
+
+    text-align: center;
+
+    @include mixins.on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include mixins.on-small-desktop {
+      grid-column: 2 / 12;
+    }
+
+    @include mixins.on-desktop {
+      grid-column: 3 / 11;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 150%;
+
+    @include mixins.on-tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    line-height: 150%;
+    color: vars.$color-description;
+
+    @include mixins.on-tablet {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use '../utils/vars';
+@use '../utils/mixins';
+
+.page {
+  scroll-behavior: smooth;
+
+  &:has(.top-bar__nav:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    overflow-x: hidden;
+
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+
+    background: vars.$bg-main;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: vars.$main-inline-padding;
+
+  @include on-tablet {
+    padding-inline: vars.$main-inline-padding-table;
+  }
+
+  @include on-small-desktop {
+    padding-inline: vars.$main-inline-padding-small-desktop;
+  }
+
+  @include on-desktop {
+    max-width: vars.$width-desktop;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,272 @@
+@use '../utils/vars';
+@use '../utils/mixins';
+
+.contacts {
+  position: relative;
+
+  padding-block: 72px 80px;
+  border-radius: vars.$border-radius-block vars.$border-radius-block 0 0;
+
+  color: vars.$color-light;
+
+  background-color: vars.$color-black;
+
+  @include mixins.on-tablet {
+    padding-block: 180px 80px;
+  }
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: vars.$color-light;
+  }
+
+  &__wrap {
+    --columns: 2;
+
+    @include mixins.on-tablet {
+      --columns: 6;
+    }
+
+    @include mixins.on-small-desktop {
+      --columns: 12;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+  }
+
+  &__title {
+    padding-bottom: 48px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%;
+
+    @include mixins.on-tablet {
+      padding-bottom: 56px;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    @include mixins.on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include mixins.on-small-desktop {
+      grid-column: 1 / 6;
+    }
+
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+    }
+
+    &-input {
+      position: relative;
+
+      box-sizing: border-box;
+      padding-bottom: 16px;
+      border: none;
+
+      font-size: 15px;
+      font-weight: 600;
+      color: vars.$color-light;
+
+      background-color: vars.$color-black;
+      outline: none;
+      box-shadow: 0 1px vars.$color-light;
+
+      transition: box-shadow vars.$time-animation linear;
+
+      &::placeholder {
+        color: vars.$color-light-opacity;
+      }
+
+      &:focus {
+        box-shadow: 0 2px vars.$color-accent;
+      }
+
+      &:-webkit-autofill,
+      &:autofill,
+      &:-webkit-autofill:hover,
+      &:autofill:hover,
+      &:-webkit-autofill:focus,
+      &:autofill:focus {
+        box-shadow:
+          0 0 0 1000px vars.$color-black inset,
+          0 1px vars.$color-light !important;
+        transition: background-color 5000s ease-in-out 0s;
+
+        -webkit-text-fill-color: vars.$color-light !important;
+      }
+    }
+
+    &-btn {
+      width: 100%;
+      margin-top: 56px;
+      border: none;
+
+      @include mixins.btn-main(56px);
+
+      @include mixins.on-tablet {
+        width: 264px;
+      }
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    margin-top: 80px;
+
+    @include mixins.on-tablet {
+      margin-top: 120px;
+    }
+
+    @include mixins.on-small-desktop {
+      grid-column: 7 / -1;
+      margin-top: 0;
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+
+      @include mixins.on-tablet {
+        row-gap: 48px;
+      }
+
+      @include mixins.on-small-desktop {
+        margin-top: 0;
+      }
+    }
+
+    &-item {
+      &-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: vars.$color-light-opacity-05;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      &-data {
+        margin-top: 8px;
+
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 150%;
+        color: vars.$color-light;
+        text-decoration: none;
+
+        transition: color vars.$time-animation linear;
+
+        &:hover {
+          color: vars.$color-accent;
+        }
+      }
+
+      &-icons {
+        display: flex;
+        column-gap: 32px;
+        margin-top: 16px;
+      }
+
+      &-icon {
+        width: 32px;
+        height: 32px;
+        color: vars.$color-light;
+        transition: color vars.$time-animation linear;
+
+        &:hover {
+          color: vars.$color-accent;
+        }
+
+        svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    margin-top: 80px;
+
+    @include mixins.on-tablet {
+      margin-top: 139px;
+    }
+
+    @include mixins.on-small-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 104px;
+    }
+
+    &-logo {
+      display: flex;
+      width: 46px;
+      height: 28px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+
+      margin-top: 48px;
+      padding: 0;
+
+      @include mixins.on-tablet {
+        flex-direction: row;
+        gap: 0 40px;
+        margin-top: 24px;
+      }
+
+      @include mixins.on-small-desktop {
+        column-gap: 64px;
+        align-items: center;
+        margin-block: auto;
+      }
+    }
+
+    &-item {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &-link {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 150%;
+      color: vars.$color-light;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+
+      transition: color vars.$time-animation linear;
+
+      &:hover {
+        color: vars.$color-accent;
+      }
+    }
+  }
+}
