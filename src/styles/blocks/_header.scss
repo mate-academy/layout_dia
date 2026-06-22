@@ -1,0 +1,387 @@
+.header {
+  border-bottom-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+  background-color: var(--bg-color);
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+
+  @include on-desktop {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    height: 800px;
+  }
+
+  &__container {
+    @include content-padding-inline;
+
+    @include on-desktop {
+      grid-column: 1/6;
+    }
+
+    @include on-design {
+      padding-right: 0;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 48px;
+
+    @include on-tablet {
+      padding-bottom: 56px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 48px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__logo {
+    margin-right: 32px;
+
+    @include on-desktop {
+      margin-right: 0;
+    }
+
+    &-img {
+      width: 46px;
+      height: 28px;
+
+      &:hover {
+        color: rgb(224, 220, 220);
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    &-list {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 0;
+      padding-left: 100px;
+      padding-right: 28px;
+
+      white-space: nowrap;
+
+      @include on-desktop {
+        padding-right: 40px;
+      }
+    }
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      @extend %cta-link;
+
+      &:hover {
+        color: rgb(224, 220, 220);
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__switch {
+    cursor: pointer;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding: 0;
+    background: var(--bg-button);
+
+    @include on-desktop {
+      padding: 0;
+      margin-right: 35px;
+    }
+
+    @include on-design {
+      margin-right: 229px;
+    }
+
+    &--slider {
+      position: absolute;
+      top: 4px;
+      left: 6px;
+
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+
+      background: white;
+
+      transition: 0.3s;
+    }
+  }
+
+  &__cta {
+    display: block;
+    align-items: center;
+    white-space: nowrap;
+    &-link {
+      @extend %cta-link;
+
+      position: relative;
+      text-decoration: none;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        top: 83%;
+        left: 0;
+
+        width: 67px;
+        height: 2px;
+        margin-top: 8px;
+
+        background-color: var(--button-color);
+      }
+    }
+  }
+
+  &__bottom {
+    @include on-desktop {
+      max-width: 490px;
+    }
+
+    &-title {
+      @extend %h-1;
+
+      max-width: 280px;
+      margin: 0;
+      padding-bottom: 32px;
+
+      @include on-tablet {
+        min-width: 558px;
+        padding-bottom: 24px;
+      }
+
+      @include on-desktop {
+        min-width: 490px;
+        padding-block: 112px 32px;
+      }
+    }
+
+    &-subtitle {
+      @extend %subtitle;
+
+      display: inline-block;
+      max-width: 280px;
+
+      @include on-tablet {
+        max-width: 362px;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 72px;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-top: 56px;
+      margin-bottom: 147px;
+    }
+
+    @include on-desktop {
+      margin-top: 83px;
+      margin-bottom: 207px;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    z-index: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 390px;
+
+    @include on-desktop {
+      grid-column: 8/13;
+      align-self: end;
+
+      width: 100%;
+      height: 680px;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    @include on-design {
+      width: 100%;
+    }
+
+    &-wrapper {
+      position: relative;
+
+      display: flex;
+
+      width: 100%;
+      height: 390px;
+
+      transition: transform 0.3s ease-out;
+
+      @include on-desktop {
+        height: 100%;
+      }
+    }
+
+    &-slide {
+      flex: 0 0 100%;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 30px;
+
+      @include on-desktop {
+        position: relative;
+        z-index: 0;
+        border-radius: 0;
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+      }
+    }
+  }
+
+  &__intro {
+    position: absolute;
+    z-index: 1000;
+    right: 60px;
+    bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+
+    padding-left: 24px;
+
+    @include on-tablet {
+      left: 0;
+      padding-inline: 41px;
+    }
+
+    @include on-desktop {
+      right: 54px;
+      bottom: 60px;
+      left: 182px;
+      padding-left: 24px;
+    }
+
+    &-title {
+      @extend %intro-title;
+
+      padding-top: 16px;
+      text-align: end;
+    }
+
+    &-text {
+      @extend %intro-text;
+
+      text-align: start;
+
+      @include on-tablet {
+        max-width: 260px;
+      }
+
+      @include on-desktop {
+        min-width: 266px;
+      }
+    }
+  }
+
+  &__swiper-controls {
+    position: absolute;
+    z-index: 1000;
+    bottom: 60px;
+    left: 60px;
+    transform: translateY(-94px);
+
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+
+    @include on-tablet {
+      bottom: 40px;
+      left: 71px;
+      transform: translateY(-114px);
+    }
+
+    @include on-desktop {
+      bottom: 60px;
+      left: 146px;
+      transform: translateY(-30px);
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+
+    background: none;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .swiper-button-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

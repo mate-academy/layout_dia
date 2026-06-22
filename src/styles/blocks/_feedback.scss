@@ -1,0 +1,177 @@
+.feedback {
+  @include content-padding-inline;
+
+  margin-block: 120px;
+
+  @include on-tablet {
+    margin-top: 148px;
+  }
+
+  &__name {
+    @extend %feedback-name;
+
+    padding-bottom: 4px;
+  }
+
+  &__title {
+    @extend %feedback-title;
+
+    margin-top: 16px;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 100%;
+    height: 456px;
+    border-radius: 16px;
+
+    text-align: center;
+
+    background-color: $white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: hsl(0deg, 0%, 99%);
+      transform: scale(1.03);
+    }
+    @include on-tablet {
+      width: 558px;
+      height: auto;
+    }
+
+    @include on-desktop {
+      width: 292px;
+      height: 456px;
+    }
+    &-first {
+      grid-column: 1 / 5;
+    }
+
+    &-second {
+      grid-column: 5/9;
+    }
+
+    &-third {
+      grid-column: 9/13;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    width: 196px;
+    height: 196px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include on-tablet {
+      width: 196px;
+      height: 196px;
+    }
+
+    @include on-design {
+      width: 196px;
+      height: 196px;
+    }
+
+    &-first {
+      background-image: url(../images/feedback/Photo1-b.png);
+    }
+
+    &-second {
+      background-image: url(../images/feedback/Photo2-b.png);
+    }
+
+    &-third {
+      background-image: url(../images/feedback/Photo3-b.png);
+    }
+
+    body.dark-theme & {
+      &-first {
+        background-image: url(../images/feedback/Photo1-w.png);
+      }
+      &-second {
+        background-image: url(../images/feedback/Photo2-w.png);
+      }
+      &-third {
+        background-image: url(../images/feedback/Photo3-w.png);
+      }
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    &-first {
+      background-image: url(../images/icon/icon-feedback.png);
+    }
+    &-second {
+      background-image: url(../images/icon/icon-feedback.png);
+    }
+    &-third {
+      background-image: url(../images/icon/icon-feedback.png);
+    }
+
+    body.dark-theme &-first {
+      background-image: url(../images/icon/Group-w-blue.png);
+    }
+    body.dark-theme &-second {
+      background-image: url(../images/icon/Group-w-yellow.png);
+    }
+    body.dark-theme &-third {
+      background-image: url(../images/icon/Group-w-red.png);
+    }
+  }
+
+  &__description {
+    @extend %feedback-description;
+
+    max-width: 196px;
+    padding-top: 8px;
+    padding-bottom: 16px;
+
+    @include on-tablet {
+      padding-top: 16px;
+      max-width: 362px;
+    }
+  }
+
+  &__job {
+    @extend %feedback-job;
+
+    padding-bottom: 32px;
+  }
+}

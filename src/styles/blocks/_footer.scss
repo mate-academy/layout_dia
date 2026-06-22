@@ -1,0 +1,246 @@
+.footer {
+  @include content-padding-inline;
+
+  height: auto;
+  margin-top: 120px;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 16px;
+
+  background-color: var(--bg-color);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  @include on-tablet {
+    margin: 0;
+  }
+
+  &__container {
+    padding-top: 72px;
+
+    @include on-tablet {
+      padding-top: 120px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      padding-top: 180px;
+    }
+  }
+
+  &__top {
+    @include on-desktop {
+      grid-column: 1/7;
+    }
+
+    &-title {
+      @extend %footer-h3;
+
+      margin: 0;
+
+      @include on-tablet {
+        max-width: 320px;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 48px;
+
+    &-input,
+    &-textarea {
+      resize: none;
+      overflow: hidden;
+
+      padding-bottom: 16px;
+      border: none;
+      border-bottom: 1px solid #fff;
+
+      background-color: var(--text-color);
+      outline: none;
+      color: #fff;
+
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        @extend %footer-form-text;
+
+        color: #fff;
+      }
+
+      &:focus {
+        border-bottom-color: #144ed4;
+        font-size: 16px;
+        color: #fff;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px var(--text-color) inset !important;
+      -webkit-text-fill-color: #fff !important;
+      border-bottom: 1px solid #fff !important;
+      transition: background-color 50000s ease-in-out 0s;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 80px;
+
+    @include on-tablet {
+      padding-top: 120px;
+    }
+
+    @include on-desktop {
+      grid-column: 8/13;
+      padding-top: 0;
+    }
+
+    &-title {
+      @extend %footer-contact-title;
+
+      margin: 0;
+      padding-bottom: 48px;
+
+      @include on-tablet {
+        padding-bottom: 56px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-bottom: 40px;
+
+      @include on-tablet {
+        padding-bottom: 48px;
+      }
+    }
+
+    &-label {
+      @extend %footer-contact-label;
+
+      margin: 0;
+    }
+
+    &-address {
+      max-width: 200px;
+
+      @include on-tablet {
+        max-width: 362px;
+      }
+    }
+
+    &-phone,
+    &-link {
+      @extend %footer-contact-link;
+    }
+  }
+
+  &__social {
+    &-title {
+      @extend %footer-socials;
+
+      color: #969696;
+      margin: 0;
+      padding-bottom: 16px;
+    }
+
+    &-icon {
+      display: flex;
+      gap: 32px;
+    }
+  }
+
+  &__bottom {
+    padding-block: 80px;
+
+    @include on-tablet {
+      padding-block: 139px 80px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 1 / 13;
+      grid-template-columns: repeat(12, 1fr);
+      align-items: center;
+
+      padding-block: 104px 80px;
+    }
+  }
+
+  &__logo {
+    width: 46px;
+    height: 28px;
+    object-fit: contain;
+
+    @include on-desktop {
+      grid-column: 1 / 3;
+    }
+
+    &-img {
+      width: 100%;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__nav {
+    padding-top: 48px;
+
+    @include on-tablet {
+      padding-top: 24px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 13;
+      padding: 0;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: start;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      @include on-desktop {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+
+    &-link {
+      @extend %footer-navigation;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

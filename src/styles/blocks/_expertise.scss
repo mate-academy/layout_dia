@@ -1,0 +1,100 @@
+.expertise {
+  @include content-padding-inline;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  margin-top: 192px;
+  border-radius: 30px;
+
+  background-color: $white;
+
+  @include on-tablet {
+    margin-top: 148px;
+  }
+
+  &__title {
+    @extend %expertise-title;
+
+    max-width: 280px;
+    margin: 0;
+    padding-top: 72px;
+
+    @include on-tablet {
+      max-width: 558;
+      padding-top: 128px;
+    }
+  }
+
+  &__container {
+    padding-top: 56px;
+
+    @include on-tablet {
+      padding-block: 64px 128px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 137px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+    padding-bottom: 56px;
+
+    text-align: center;
+
+    @include on-tablet {
+      padding-bottom: 72px;
+    }
+  }
+
+  &__image {
+    width: 166px;
+    height: 166px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    &--branding {
+      background-image: url(../images/expertise/branding-img.png);
+    }
+
+    &--communication {
+      background-image: url(../images/expertise/communication-img.png);
+    }
+
+    &--strategy {
+      background-image: url(../images/expertise/strategy-img.png);
+    }
+  }
+
+  &__name {
+    @extend %expertise-name;
+
+    padding-top: 32px;
+  }
+
+  &__description {
+    @extend %expertise-text;
+
+    margin: 0;
+    padding-top: 16px;
+
+    @include on-tablet {
+      max-width: 362px;
+      padding-bottom: 0;
+    }
+  }
+}
