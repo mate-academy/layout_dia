@@ -1,0 +1,121 @@
+.contacts {
+  display: grid;
+  grid-column: 1 / -1;
+  color: $header-text-color;
+
+  @include on-tablet {
+    grid-column: 1 / 6;
+  }
+
+  @include on-small-desktop {
+    grid-column: 7 / 12;
+  }
+
+  @include on-design {
+    grid-column: 8 / 12;
+  }
+
+  &__call {
+    margin-bottom: 48px;
+  }
+
+  &__visit {
+    margin-bottom: 48px;
+  }
+
+  &__name {
+    margin: 0;
+    padding-bottom: 8px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    opacity: 50%;
+
+    &-M {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+
+    &--link {
+      position: relative;
+      color: $header-text-color;
+      text-decoration: none;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -8px;
+        transform-origin: left;
+        transform: scale(0);
+
+        display: block;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $header-text-color;
+
+        transition: transform 0.3s;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+      transform-origin: left;
+      transform: scale(0);
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $header-text-color;
+
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__link:hover &__icon {
+    filter: invert(70%) sepia(80%) saturate(4214%) hue-rotate(223deg)
+      brightness(98%) contrast(97%);
+  }
+}

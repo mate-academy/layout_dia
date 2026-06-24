@@ -1,0 +1,34 @@
+.testimonials {
+  --columns: 2;
+
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  &__content {
+    @include on-tablet {
+      max-width: 200px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-column: 1 / -1;
+    row-gap: 24px;
+
+    @include on-tablet {
+      grid-column: 1 / 6;
+      row-gap: 30px;
+      justify-content: center;
+    }
+
+    @include on-small-desktop {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+    }
+
+    @include on-design {
+      column-gap: 30px;
+    }
+  }
+}
