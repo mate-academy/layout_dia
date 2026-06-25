@@ -1,0 +1,37 @@
+@use '../variables/color-vars' as c;
+@use '../variables/animation-vars' as a;
+
+@mixin reset-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  appearance: none;
+  background: transparent;
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} a.$duration-base;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin icon-mask($name) {
+  $path: '../images/icons/#{$name}.svg';
+
+  -webkit-mask-image: url($path);
+  mask-image: url($path);
+}
+
+@mixin icon-img($name) {
+  $path: '../images/icons/#{$name}.svg';
+
+  background-image: url($path);
+}

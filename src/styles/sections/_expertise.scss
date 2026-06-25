@@ -1,0 +1,44 @@
+@use '../abstracts' as a;
+
+.expertise {
+  --section-padding-block: 72px;
+
+  position: relative;
+
+  @include a.respond-to('md') {
+    --section-padding-block: 128px;
+  }
+
+  @include a.respond-to('lg') {
+    --section-padding-block: 148px;
+  }
+
+  padding-block: var(--section-padding-block);
+  text-align: center;
+  background-color: a.$clr-white;
+
+  &__title {
+    margin-block: 0 56px;
+
+    @include a.heading-xl;
+
+    color: a.$clr-blue-dark;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
+
+    @include a.respond-to('md') {
+      gap: 72px;
+    }
+
+    @include a.respond-to('lg') {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@use '../../abstracts' as a;
+
+.testimonial-card {
+  --x-padding: 37px;
+  --size-wrapper: 196px;
+  --width-decor: 109px;
+  --height-decor: 44px;
+  --avatar-width: 110px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 280px;
+  margin-block: 0 24px;
+  padding-block: 32px;
+  padding-inline: var(--x-padding);
+  border-radius: 16px;
+
+  text-align: center;
+
+  background-color: a.$clr-white;
+
+  &__top {
+    flex-grow: 1;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    width: var(--size-wrapper);
+    height: var(--size-wrapper);
+    margin: 0 auto;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      width: var(--width-decor);
+      height: var(--height-decor);
+      border-radius: 12px;
+
+      background-color: a.$clr-blue-accent;
+    }
+
+    &::before {
+      top: 40px;
+      left: 5px;
+      transform: rotate(-60deg);
+    }
+
+    &::after {
+      right: 5px;
+      bottom: 40px;
+      transform: rotate(-60deg);
+    }
+  }
+
+  &__avatar {
+    width: var(--avatar-width);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  &__quote {
+    position: relative;
+
+    margin: 0;
+    margin-block: 24px 0;
+    padding-top: 32px;
+
+    @include a.body-xs;
+
+    color: a.$clr-blue-muted;
+    text-align: center;
+  }
+
+  &__quote::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 24px;
+    height: 24px;
+
+    background: url(../images/icons/“.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &__autor {
+    margin-top: 32px;
+
+    @include a.heading-sm;
+
+    color: a.$clr-blue-dark;
+  }
+
+  &__company {
+    margin-top: 4px;
+
+    @include a.text-overline;
+
+    white-space: nowrap;
+  }
+
+  @include a.hover(transform, scale(1.05));
+
+  @include a.respond-to('md') {
+    --x-padding: 98px;
+    --size-wrapper: 250px;
+    --width-decor: 139px;
+    --height-decor: 56px;
+    --avatar-width: 140px;
+
+    width: 558px;
+  }
+
+  @include a.respond-to('lg') {
+    --x-padding: 45px;
+    --size-wrapper: 196px;
+    --width-decor: 109px;
+    --height-decor: 44px;
+    --avatar-width: 110px;
+
+    width: 292px;
+    margin-block: 0;
+  }
+
+  @include a.respond-to('xl') {
+    --x-padding: 56px;
+    --size-wrapper: 250px;
+    --width-decor: 139px;
+    --height-decor: 56px;
+    --avatar-width: 140px;
+
+    width: 362px;
+  }
+}

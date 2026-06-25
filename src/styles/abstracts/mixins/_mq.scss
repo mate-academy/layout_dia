@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../variables/grid-vars' as g;
+
+// prettier-ignore
+@mixin respond-to($name) {
+  @if map.has-key(g.$breakpoints, $name) {
+    @media (min-width: map.get(g.$breakpoints, $name)) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown breakpoint: #{$name}. Check the name in _variables.scss';
+  }
+}

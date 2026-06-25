@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use 'mq' as *;
+@use '../variables/grid-vars' as g;
+
+@mixin container-setup($grid-config) {
+  width: 100%;
+  margin-inline: auto;
+
+  @each $bp-name, $bp-params in $grid-config {
+    @include respond-to($bp-name) {
+      $current-offset: map.get($bp-params, 'offset');
+      $bp-limit-width: map.get(g.$breakpoints, $bp-name);
+
+      max-width: $bp-limit-width;
+      padding-inline: $current-offset;
+    }
+  }
+}
+
+@mixin set-grid-layout($grid-config) {
+  @each $bp-name, $bp-params in $grid-config {
+    @include respond-to($bp-name) {
+      $cols: map.get($bp-params, 'cols');
+      $gutter: map.get($bp-params, 'gutter');
+
+      display: grid;
+      grid-template-columns: repeat($cols, 1fr);
+      column-gap: $gutter;
+    }
+  }
+}

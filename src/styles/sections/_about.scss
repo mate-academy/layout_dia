@@ -1,0 +1,49 @@
+@use '../abstracts' as a;
+
+.about {
+  --column-title: 1 / -1;
+  --column-description: 1 / -1;
+  --margin-top-description: 24px;
+  --section-padding-block: 120px;
+
+  position: relative;
+
+  padding-block: var(--section-padding-block);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  background-color: inherit;
+
+  &__title {
+    grid-column: var(--column-title);
+    margin: 0;
+
+    @include a.heading-lg-tight;
+
+    color: a.$clr-blue-dark;
+    text-align: center;
+  }
+
+  &__description {
+    grid-column: var(--column-description);
+    margin-top: var(--margin-top-description);
+
+    @include a.body-xl;
+
+    color: a.$clr-blue-muted;
+    text-align: center;
+  }
+
+  @include a.respond-to('md') {
+    --section-padding-block: 148px;
+    --margin-top-description: 16px;
+  }
+
+  @include a.respond-to('lg') {
+    --column-description: 2 / 11;
+  }
+
+  @include a.respond-to('xl') {
+    --column-description: 3 / 11;
+  }
+}

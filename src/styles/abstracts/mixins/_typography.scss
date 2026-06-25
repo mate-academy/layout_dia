@@ -1,0 +1,170 @@
+//  1. FONT MIXINS (base layers)
+@use '../variables/typo-vars' as t;
+@use '../variables/color-vars' as c;
+@use 'mq';
+
+// 1. Primitives
+
+@mixin poppins-semi {
+  font-family: t.$ff-accent;
+  font-weight: t.$fw-semibold;
+}
+
+@mixin poppins-bold {
+  font-family: t.$ff-accent;
+  font-weight: t.$fw-bold;
+}
+
+@mixin open-sans-semi {
+  font-family: t.$ff-main;
+  font-weight: t.$fw-semibold;
+}
+
+@mixin open-sans-regular {
+  font-family: t.$ff-main;
+  font-weight: t.$fw-regular;
+}
+
+@mixin text-accent-uppercase {
+  @include poppins-bold;
+
+  font-size: 13px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+// 2. Typography tokens
+// 2.1 headings
+
+@mixin heading-hero {
+  @include poppins-semi;
+
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: -2px;
+
+  @include mq.respond-to('md') {
+    font-size: 64px;
+    line-height: 68px;
+  }
+}
+
+@mixin heading-xl {
+  @include poppins-semi;
+
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: 0;
+
+  @include mq.respond-to('md') {
+    font-size: 52px;
+    line-height: 1.2;
+  }
+
+  @include mq.respond-to('lg') {
+    line-height: 1.5;
+  }
+}
+
+@mixin heading-lg-tight {
+  @include poppins-semi;
+
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@mixin heading-lg {
+  @include poppins-semi;
+
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+@mixin heading-md {
+  @include poppins-semi;
+
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+@mixin heading-sm {
+  @include poppins-semi;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+// 2.2 body text
+
+@mixin body-xl {
+  @include open-sans-semi;
+
+  font-size: 22px;
+  line-height: 1.5;
+  letter-spacing: 0;
+
+  @include mq.respond-to('md') {
+    font-size: 24px;
+  }
+}
+
+@mixin body-lg {
+  @include open-sans-regular;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@mixin body-md {
+  @include poppins-semi;
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+@mixin body-sm {
+  @include open-sans-regular;
+
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@mixin body-xs {
+  @include open-sans-semi;
+
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+// 2.3 ui typography
+
+@mixin nav-text {
+  @include poppins-bold;
+
+  font-size: 13px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@mixin button-text {
+  @include poppins-semi;
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+@mixin text-overline {
+  @include poppins-bold;
+
+  font-size: 13px;
+  line-height: 1;
+  color: c.$clr-blue-gray;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}

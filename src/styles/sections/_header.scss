@@ -1,0 +1,67 @@
+@use '../abstracts' as a;
+
+.header {
+  --display-nav: none;
+  --display-btn: block;
+  --padding-block: 18px 48px;
+
+  position: relative;
+  z-index: 5;
+
+  // padding-top: var(--padding-top-header);
+  padding-block: var(--padding-block);
+
+  color: a.$clr-white;
+
+  background-color: a.$clr-gray-dark;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 35px;
+  }
+
+  &__menu-icon {
+    display: var(--display-btn);
+    margin-top: 5px;
+
+    @include a.hover(background-color, a.$clr-blue-accent);
+  }
+
+  &__nav {
+    display: var(--display-nav);
+
+    @include a.nav-text;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav-item {
+    @include a.hover(color, a.$clr-blue-accent);
+  }
+
+  &__nav-link {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    padding-inline: 20px;
+  }
+
+  &__left {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  @include a.respond-to('lg') {
+    --padding-block: 52px 48px;
+    --display-nav: block;
+    --display-btn: none;
+  }
+}

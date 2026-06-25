@@ -1,0 +1,35 @@
+@use '../abstracts' as a;
+
+.page {
+  scroll-behavior: smooth;
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition:
+      transform a.$duration-base,
+      opacity a.$duration-base;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__body {
+    background-color: a.$clr-white;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

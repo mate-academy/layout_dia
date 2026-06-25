@@ -1,0 +1,123 @@
+@use '../abstracts' as a;
+
+.hero {
+  --slider-max-width: 100%;
+  --top: -440px;
+  --margin-bottom: 365px;
+
+  position: sticky;
+  top: var(--top);
+
+  margin-bottom: var(--margin-bottom);
+  border-bottom-right-radius: a.$br-main;
+  border-bottom-left-radius: a.$br-main;
+
+  color: a.$clr-white;
+
+  background-color: a.$clr-gray-dark;
+
+  &__wrapper {
+    position: relative;
+    max-width: 2560px;
+    margin-inline: auto;
+    padding-block: 0 98px;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin: 0;
+
+    @include a.heading-hero;
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-top: 32px;
+
+    @include a.body-lg;
+
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 72px;
+  }
+
+  &__slider {
+    position: absolute;
+    bottom: -345px;
+    max-width: var(--slider-max-width);
+    height: 390px;
+  }
+
+  @include a.respond-to('md') {
+    --top: -470px;
+
+    &__content {
+      padding-block: 56px 183px;
+    }
+
+    &__title {
+      grid-column: 1/-1;
+    }
+
+    &__description {
+      grid-column: 1/5;
+      margin-top: 24px;
+    }
+
+    &__btn {
+      width: 264px;
+      margin-top: 56px;
+    }
+  }
+
+  @include a.respond-to('lg') {
+    --margin-bottom: 0;
+    --slider-max-width: 502px;
+
+    &__title {
+      width: 490px;
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      height: 680px;
+      padding-block: 168px 205px;
+    }
+
+    &__slider {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 680px;
+    }
+
+    &__description {
+      grid-column: 1/6;
+      width: 362px;
+      margin-top: 32px;
+    }
+
+    &__btn {
+      grid-column: 1/5;
+      width: 264px;
+      margin-top: 83px;
+    }
+  }
+
+  @include a.respond-to('xl') {
+    --slider-max-width: 687px;
+  }
+
+  @include a.respond-to('2xl') {
+    --slider-max-width: 1167px;
+
+    &__slider {
+      background: a.$clr-gray-dark;
+    }
+  }
+}

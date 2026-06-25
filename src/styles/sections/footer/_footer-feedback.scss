@@ -1,0 +1,47 @@
+@use '../../abstracts/' as a;
+
+.feedback {
+  --max-width-title: 280px;
+  --max-width-form: 362px;
+  --gap-form: 40px;
+  --margin-top-submit: 16px;
+
+  flex-grow: 1;
+
+  &__title {
+    max-width: var(--max-width-title);
+    margin: 0;
+
+    @include a.heading-lg-tight;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-form);
+
+    width: 100%;
+    max-width: var(--max-width-form);
+    margin-top: 48px;
+  }
+
+  &__submit {
+    width: 100%;
+    max-width: 264px;
+    margin-top: var(--margin-top-submit);
+  }
+
+  @include a.respond-to('md') {
+    --gap-form: 48px;
+    --margin-top-submit: 32px;
+  }
+
+  @include a.respond-to('lg') {
+    --max-width-title: 100%;
+    --max-width-form: 370px;
+  }
+
+  @include a.respond-to('xl') {
+    --max-width-form: 460px;
+  }
+}

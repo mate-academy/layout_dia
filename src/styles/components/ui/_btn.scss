@@ -1,0 +1,47 @@
+@use '../../abstracts/' as a;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  @include a.button-text;
+
+  &--reset {
+    @include a.reset-button;
+  }
+
+  &--primary {
+    height: 56px;
+    border-radius: 8px;
+    color: white;
+    background-color: a.$clr-blue-accent;
+
+    @include a.hover(background-color, a.$clr-btn-hover);
+  }
+
+  &--cta {
+    position: relative;
+
+    height: 30px;
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    @include a.hover(color, a.$clr-blue-accent);
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -2px;
+
+      width: 100%;
+      height: 2px;
+      margin-left: -1.5px;
+
+      background-color: a.$clr-blue-accent;
+    }
+  }
+}

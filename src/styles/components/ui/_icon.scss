@@ -1,0 +1,69 @@
+@use '../../abstracts/' as a;
+
+.circle-arrow-icon {
+  @extend %icon-setup;
+
+  display: inline-flex;
+
+  width: 40px;
+  height: 40px;
+  border-radius: a.$br-main;
+
+  background-color: a.$clr-blue-accent;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include a.icon-img('arrow');
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &--menu {
+    @extend %icon-setup;
+
+    background-color: a.$clr-white;
+
+    @include a.icon-mask('menu');
+  }
+
+  &--close {
+    @include a.icon-img('close');
+  }
+}
+
+.social-icon {
+  @extend %icon-setup;
+
+  width: 32px;
+  height: 32px;
+  background-color: a.$clr-white;
+
+  &--facebook {
+    @include a.icon-mask('facebook');
+  }
+  &--twitter {
+    @include a.icon-mask('twitter');
+  }
+  &--instagram {
+    @include a.icon-mask('instagram');
+  }
+}
+
+%icon-setup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color a.$duration-base ease;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}

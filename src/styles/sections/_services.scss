@@ -1,0 +1,94 @@
+@use '../abstracts' as a;
+
+.services {
+  --column-header: 1/-1;
+  --column-list: 1/-1;
+  --gap: 24px;
+  --translate-y-cards-even: 0;
+  --padding-top-section: 120px;
+  --column-odd: 1/4;
+  --column-even: 4/-1;
+
+  position: relative;
+  padding-top: var(--padding-top-section);
+  background-color: inherit;
+
+  &__header {
+    position: relative;
+    grid-column: var(--column-header);
+    margin-bottom: 48px;
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 16px;
+
+    @include a.heading-lg;
+
+    color: a.$clr-blue-dark;
+  }
+
+  &__text {
+    margin-top: 24px;
+
+    @include a.body-sm;
+  }
+
+  &__list {
+    display: flex;
+    grid-column: var(--column-list);
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+
+  &__item {
+    width: 100%;
+
+    &:nth-child(odd) {
+      grid-column: var(--column-odd);
+    }
+
+    &:nth-child(even) {
+      transform: translateY(var(--translate-y-cards-even));
+      grid-column: var(--column-even);
+    }
+  }
+
+  @include a.respond-to('md') {
+    --padding-top-section: 148px;
+    --column-header: 1/4;
+    --column-list: 1/7;
+    --gap: 30px;
+    --translate-y-cards-even: -110px;
+
+    &__list {
+      display: grid;
+    }
+  }
+
+  @include a.respond-to('lg') {
+    --padding-top-section: 296px;
+    --column-header: 1/5;
+    --column-list: 7/-1;
+    --translate-y-cards-even: -150px;
+    --gap: 20px;
+    --column-odd: 1/7;
+    --column-even: 7/-1;
+
+    &__title {
+      width: 292px;
+    }
+
+    &__list {
+      display: grid;
+    }
+  }
+
+  @include a.respond-to('xl') {
+    --gap: 30px;
+  }
+}

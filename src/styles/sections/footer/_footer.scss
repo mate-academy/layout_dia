@@ -1,0 +1,83 @@
+@use '../../abstracts/' as a;
+
+.footer {
+  --gap-footer: 80px;
+  --margin-top-nav: 0;
+  --gap-nav: 24px;
+
+  padding-block: 72px 80px;
+  border-top-left-radius: a.$br-main;
+  border-top-right-radius: a.$br-main;
+
+  color: a.$clr-white;
+
+  background-color: a.$clr-gray-dark;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-footer);
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-footer);
+  }
+
+  &__social-list {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-nav);
+    margin-top: var(--margin-top-nav);
+
+    @include a.text-accent-uppercase;
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-nav);
+  }
+
+  &__nav-item {
+    @include a.hover(color, a.$clr-blue-accent);
+  }
+
+  @include a.respond-to('md') {
+    --gap-footer: 120px;
+    --margin-top-nav: 19px;
+
+    &__nav-list {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @include a.respond-to('lg') {
+    --gap-footer: 104px;
+
+    position: sticky;
+    bottom: 0;
+
+    &__inner-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__nav {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__nav-list {
+      flex-basis: 637px;
+    }
+  }
+}

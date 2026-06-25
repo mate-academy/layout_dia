@@ -1,0 +1,67 @@
+@use '../../abstracts/' as a;
+
+.contacts {
+  --gap-group: 40px;
+  --margin-top-socials: 40px;
+
+  &__title {
+    margin: 0;
+
+    @include a.heading-lg-tight;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-group);
+    margin-top: 56px;
+
+    @include a.body-xl;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    @include a.text-accent-uppercase;
+
+    color: a.$clr-blue-muted;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: var(--margin-top-socials);
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform a.$duration-base,
+      background-color a.$duration-base;
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.3);
+
+      .social-icon {
+        background-color: a.$clr-blue-accent;
+      }
+    }
+  }
+
+  @include a.respond-to('sm') {
+    --gap-group: 48px;
+    --margin-top-socials: 48px;
+  }
+}
