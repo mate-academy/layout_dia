@@ -1,0 +1,129 @@
+.slider {
+  &__slides {
+    display: grid;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    pointer-events: none;
+
+    grid-area: 1 / 1;
+
+    width: 100%;
+    height: 100%;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      opacity 0.6s ease,
+      visibility 0.6s ease;
+
+    &--active {
+      pointer-events: auto;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .slider__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include on-tablet {
+    .slider__image {
+      transform: translateY(-20%);
+      height: 100%;
+    }
+  }
+
+  @include on-small-desktop {
+    .slider__image {
+      transform: none;
+      height: 100%;
+    }
+  }
+
+  .slider__content {
+    position: absolute;
+    z-index: 2;
+    bottom: clamp(1rem, 4vh, 3rem);
+    left: 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 2.5vh, 1rem);
+
+    @include on-small-desktop {
+      flex-direction: row;
+      gap: 1.5rem;
+      align-items: center;
+    }
+  }
+
+  .slider__controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    width: clamp(1.75rem, 5vh, 2rem);
+    height: clamp(1.75rem, 5vh, 2rem);
+    border: none;
+    border-radius: 50%;
+
+    background-color: $c-white-bg;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.38rem 0.63rem;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--prev {
+      background-image: url('../images/slider/arrow-left.svg');
+    }
+
+    &--next {
+      background-image: url('../images/slider/arrow-right.svg');
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.38rem, 1.5vh, 0.5rem);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    &--hidden {
+      transform: translateY(0.38rem);
+      opacity: 0;
+    }
+  }
+
+  &__title {
+    @extend %label-white;
+
+    font-size: clamp(0.69rem, 2vh, 0.81rem);
+  }
+
+  &__text {
+    @extend %text-14-regular;
+
+    max-width: 17.5rem;
+    height: clamp(2rem, 5vh, 2.5rem);
+    font-size: clamp(0.75rem, 2.2vh, 0.88rem);
+    color: $c-text-white;
+  }
+}

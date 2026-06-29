@@ -1,0 +1,82 @@
+.process-card {
+  box-sizing: border-box;
+  height: 264px;
+  padding: 31px;
+  border-radius: 16px;
+
+  background-color: $c-white-bg;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &--2,
+  &--4 {
+    @include on-tablet {
+      transform: translateY(-50%);
+
+      &:hover {
+        transform: translateY(-50%) scale(1.03);
+      }
+    }
+  }
+
+  &__number {
+    @extend %badge-text;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 46px;
+    height: 24px;
+    margin: 0 0 24px;
+    border-radius: 23px;
+
+    background-color: rgba(32, 96, 246, 0.1);
+  }
+
+  &__list {
+    margin: 0 0 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    @extend %section-text;
+
+    font-size: 13px;
+    color: $c-text-secondary;
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: $c-blue;
+    background-image: url('../images/process/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__link-text {
+    @extend %link-text;
+  }
+}
