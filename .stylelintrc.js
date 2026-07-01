@@ -3,5 +3,9 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
-  rules: {}
+  rules: {
+    "order/order": null,
+    "order/properties-order": null,
+    "scss/dollar-variable-empty-line-before": null,
+  }
 };

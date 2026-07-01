@@ -1,0 +1,56 @@
+@use '../utils/extends' as *;
+@use '../utils/vars' as *;
+
+.footer {
+  // Bottom navigation row below the contact form.
+  padding-block: 0 72px;
+
+  @media (max-width: 639px) {
+    padding-bottom: 40px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    color: $color-white;
+    font-size: 22px;
+    line-height: 1;
+    transition: transform $transition-time;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 64px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &__link {
+    @extend %uppercase-label;
+
+    color: $color-white;
+    transition: color $transition-time;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use '../utils/vars' as *;
+
+.expertise {
+  // White rounded section with three equal service cards.
+  min-height: 800px;
+  padding-block: 142px 120px;
+  border-radius: 30px;
+  background-color: $color-white;
+
+  @media (max-width: 1023px) {
+    min-height: auto;
+  }
+
+  @media (max-width: 639px) {
+    padding-block: 72px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 264px);
+    gap: 56px 0;
+    justify-content: space-between;
+    max-width: 920px;
+    margin: 64px auto 0;
+
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+}
+
+.expertise-card {
+  width: 264px;
+  text-align: center;
+  transition: transform $transition-time;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  &__image {
+    width: 166px;
+    height: 166px;
+    margin: 0 auto;
+    border-radius: 18px;
+    object-fit: cover;
+    transition:
+      transform $transition-time,
+      box-shadow $transition-time;
+  }
+
+  &:hover &__image {
+    transform: scale(1.04);
+    box-shadow: 0 16px 32px rgba($color-blue, 0.18);
+  }
+
+  &__title {
+    margin-top: 40px;
+    color: $color-title;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &__text {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

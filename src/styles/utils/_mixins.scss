@@ -1,6 +1,35 @@
+@use 'vars' as *;
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition-time;
+
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+// Responsive side padding used by every page container.
+@mixin content-padding {
+  padding-inline: $padding-mobile;
+
+  @media (min-width: 640px) {
+    padding-inline: $padding-tablet;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: $padding-desktop;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: $padding-wide;
+  }
+}
+
+// Centers content and keeps it aligned to the Figma desktop grid.
+@mixin page-container {
+  @include content-padding;
+
+  width: 100%;
+  max-width: calc($container-width + ($padding-wide * 2));
+  margin-inline: auto;
 }

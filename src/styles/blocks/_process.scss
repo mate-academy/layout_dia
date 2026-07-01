@@ -1,0 +1,137 @@
+@use '../utils/vars' as *;
+
+.process {
+  // Two-column desktop layout: text on the left, cards on the right.
+  padding-block: 0 148px;
+
+  @media (max-width: 1023px) {
+    padding-block: 120px;
+  }
+
+  @media (max-width: 639px) {
+    padding-block: 80px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    min-height: 690px;
+
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+  }
+
+  &__title {
+    max-width: 360px;
+    margin-top: 16px;
+  }
+
+  &__text {
+    max-width: 360px;
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(214px, 264px));
+    gap: 30px;
+    justify-content: end;
+
+    @media (max-width: 639px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.process-card {
+  min-height: 264px;
+  padding: 32px;
+  border-radius: 16px;
+  background-color: $color-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  transition:
+    transform $transition-time,
+    box-shadow $transition-time;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 36px rgba(37, 41, 49, 0.12);
+  }
+
+  &--shifted {
+    // Matches the staggered card layout from the design.
+    transform: translateY(-50%);
+
+    &:hover {
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    @media (max-width: 639px) {
+      transform: none;
+
+      &:hover {
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  &__number {
+    display: inline-flex;
+    padding: 2px 12px;
+    border-radius: 23px;
+    background-color: $color-blue-light;
+    color: $color-blue;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__text {
+    margin-top: 24px;
+    color: $color-text;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 32px;
+    color: $color-title;
+    font-size: 15px;
+    font-weight: 700;
+    transition: color $transition-time;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $color-blue;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid $color-white;
+      border-right: 2px solid $color-white;
+      transform: translate(-65%, -50%) rotate(45deg);
+    }
+  }
+}

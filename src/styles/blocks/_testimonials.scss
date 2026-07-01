@@ -1,0 +1,141 @@
+@use '../utils/extends' as *;
+@use '../utils/vars' as *;
+
+.testimonials {
+  // The card row is fixed to the Figma width: 3 * 362px + 2 * 30px.
+  height: 711px;
+  padding-block: 0;
+
+  @media (max-width: 1023px) {
+    height: auto;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: 639px) {
+    padding-bottom: 80px;
+  }
+
+  & > .container {
+    max-width: calc(1146px + ($padding-wide * 2));
+  }
+
+  &__title {
+    max-width: 250px;
+    margin-top: 16px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 362px);
+    gap: 30px;
+    justify-content: center;
+    width: $container-width;
+    margin-inline: auto;
+    margin-top: 85px;
+
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      align-items: center;
+      width: 100%;
+      margin-top: 48px;
+    }
+  }
+}
+
+.testimonial-card {
+  width: 362px;
+  height: 494px;
+  padding: 32px 56px;
+  border-radius: 16px;
+  background-color: $color-white;
+  text-align: center;
+  transition:
+    transform $transition-time,
+    box-shadow $transition-time;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 36px rgba(37, 41, 49, 0.12);
+  }
+
+  &__photo {
+    // 250x250 composition: two blue rotated shapes behind a circular photo.
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 265px;
+    height: 200px;
+    margin: 0 auto;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 139px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: $color-blue;
+      transform: rotate(-60deg);
+    }
+
+    &::before {
+      top: 28px;
+      left: 12px;
+    }
+
+    &::after {
+      top: 120px;
+      left: 112px;
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform $transition-time;
+  }
+
+  &:hover &__avatar {
+    transform: scale(1.06);
+  }
+
+  &__quote {
+    width: 250px;
+    margin: 31px auto 0;
+    color: $color-text;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &__quote-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 12px;
+  }
+
+  &__name {
+    margin-top: 16px;
+    color: $color-title;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__position {
+    @extend %uppercase-label;
+
+    margin-top: 4px;
+    color: $color-muted;
+  }
+}
