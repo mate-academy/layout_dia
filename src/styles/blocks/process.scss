@@ -1,0 +1,203 @@
+.process {
+  &__content {
+    @include page-grid;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 56px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      margin-top: 103px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: block;
+
+    width: fit-content;
+    margin: 0;
+    margin-bottom: 16px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $process-label-color;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__description {
+    width: 100%;
+    max-width: 280px;
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $section-text-color;
+  }
+
+  &__description-paragraph {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 21px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 264px);
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      grid-template-columns: repeat(2, 214px);
+      gap: 20px;
+      margin-top: 142px;
+    }
+
+    @include on-large-desktop {
+      grid-template-columns: repeat(2, 264px);
+      gap: 30px;
+      margin-top: 132px;
+    }
+  }
+
+  &__card--left {
+    @include on-tablet {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__card--right {
+    @include on-tablet {
+      transform: translateY(-50%);
+      grid-column: 2 / 3;
+    }
+  }
+}
+
+.process-card {
+  box-sizing: border-box;
+  height: 264px;
+  padding: 32px;
+  border-radius: 16px;
+
+  background-color: $section-bg-color;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  @include hover(box-shadow, 4px 4px 9px rgba(37, 41, 49, 0.8));
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+    padding: 2px 12px;
+    border-radius: 23px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 100%;
+    color: $card-number-color;
+    text-align: center;
+    text-transform: uppercase;
+
+    background-image: url(../images/process/number-bg.png);
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__list {
+    margin: 0;
+    margin-bottom: 32px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $section-text-color;
+  }
+
+  &__link {
+    cursor: pointer;
+
+    display: flex;
+    gap: 16px;
+
+    width: fit-content;
+
+    text-decoration: none;
+  }
+
+  &__link-icon {
+    display: block;
+
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: $card-link-bg-color;
+    background-image: url(../images/icon/arrow-card-process.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include hover(transform, scale(1.05));
+
+    &:hover {
+      background-color: $button-bg-hover-color;
+      box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+    }
+
+    &:focus-within {
+      background-color: $button-bg-hover-color;
+      box-shadow: 1px 4px 16px rgba(80, 90, 110, 0.4);
+    }
+
+    &:active {
+      background-color: $button-bg-active-color;
+      box-shadow: 1px 4px 16px rgba(95, 105, 150, 0.64);
+    }
+  }
+
+  &__link-text {
+    display: flex;
+    align-items: center;
+
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 100%;
+    color: $card-link-text-color;
+    text-align: center;
+  }
+}

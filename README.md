@@ -1,5 +1,31 @@
 # Dia landing page
-Implement landing page according to [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35) - Use BEM and SCSS
+
+Single-page landing page for a strtegic agency.
+
+## Technologies
+
+- HTML5
+- SCSS/SASS
+- CSS Flexbox
+- CSS Grid
+- CSS Transformations & Animations
+- JavaScript
+
+## Links
+
+- [Figma design](https://www.figma.com/file/7qwsWggv9BAxMi2VPhBuPr/Air-(formerly-Dia)?node-id=9138%3A35)
+- [DEMO LINK](https://aiz-777.github.io/layout_dia/)
+
+## How to Run
+
+- Clone the repository
+- Run npm install to install dependencies
+- Run npm start to start the development server
+- Open http://localhost:8080 in your browser
+
+
+
+### Implement landing page according to  - Use BEM and SCSS
 
 Adapt the page to the following screens:
 - Large screens 2560px
@@ -26,7 +52,7 @@ Adapt the page to the following screens:
 10. Implement `Contact us` block.
 11. Implement the footer.
 
-## Checklist for preparing a portfolio project for HR review
+### Checklist for preparing a portfolio project for HR review
 
 1. Don’t forget to add the title “Air” for the whole web page
 2. A landing page is implemented strictly according to the design in Figma
@@ -51,7 +77,7 @@ Adapt the page to the following screens:
 22. OPTIONAL: After everything is done, you can implement the slider on the hero page (you can find images for it on Unsplash)
 
 
-## Github flow
+### Github flow
 1. **Fork** the repo.
 2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
 3. Run `npm install` (or just `npm i`).

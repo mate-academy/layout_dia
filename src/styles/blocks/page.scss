@@ -1,0 +1,87 @@
+.page {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  color: $main-text-page;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    overflow-x: hidden;
+    min-width: $mobile-min-width;
+    margin: 0;
+    background-color: $page-bg-color;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden auto;
+
+    width: 100dvw;
+
+    visibility: hidden;
+    background-color: $menu-bg-color;
+
+    transition: visibility 0s $effectDuration;
+
+    &:target {
+      pointer-events: all;
+      visibility: visible;
+      transition: none;
+    }
+  }
+
+  &__scroll-top {
+    pointer-events: none;
+    cursor: pointer;
+
+    position: fixed;
+    z-index: 2;
+    right: 20px;
+    bottom: 80px;
+    transform: translateY(20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid $section-title-color;
+    border-radius: 50%;
+
+    opacity: 0;
+    background-color: $section-bg-color;
+
+    transition:
+      opacity $effectDuration,
+      transform $effectDuration;
+
+    @include on-tablet {
+      bottom: 120px;
+    }
+
+    @include on-desktop {
+      right: 40px;
+    }
+
+    &--visible {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__scroll-top-icon {
+    transform: rotate(-90deg);
+  }
+}

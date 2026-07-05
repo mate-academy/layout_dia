@@ -1,0 +1,280 @@
+.testimonials {
+  &__content {
+    @include page-grid;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+  }
+
+  &__title-break {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__label {
+    display: block;
+
+    width: fit-content;
+    margin: 0;
+    margin-bottom: 16px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $testimonials-label-color;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__cards {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      gap: 30px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @include on-large-desktop {
+      gap: 30px;
+    }
+  }
+}
+
+.testimonials-card {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  min-height: 456px;
+  padding-block: 32px;
+  border-radius: 16px;
+
+  background-color: $section-bg-color;
+  box-shadow: 0 9px 18px 0 rgba(37, 41, 49, 0.03);
+
+  @include hover-effects {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 9px rgba(37, 41, 49, 0.8);
+  }
+
+  @include on-tablet {
+    min-height: 478px;
+  }
+
+  @include on-desktop {
+    min-height: 456px;
+  }
+
+  @include on-large-desktop {
+    min-height: 494px;
+  }
+
+  &__photo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1;
+    width: 196px;
+    margin-bottom: 24px;
+    margin-inline: auto;
+
+    @include on-tablet {
+      width: 250px;
+    }
+
+    @include on-desktop {
+      width: 196px;
+    }
+
+    @include on-large-desktop {
+      width: 250px;
+    }
+  }
+
+  &__photo-wrapper {
+    position: relative;
+    aspect-ratio: 1;
+    width: 110px;
+
+    @include on-tablet {
+      width: 140px;
+    }
+
+    @include on-desktop {
+      width: 110px;
+    }
+
+    @include on-large-desktop {
+      width: 140px;
+    }
+  }
+
+  &__photo-wrapper::before,
+  &__photo-wrapper::after {
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    transform: rotate(-60deg);
+
+    width: 109px;
+    height: 44px;
+    border-radius: 12px;
+
+    background-color: $button-bg-color;
+
+    @include on-tablet {
+      width: 139px;
+      height: 56px;
+    }
+
+    @include on-desktop {
+      width: 109px;
+      height: 44px;
+    }
+
+    @include on-large-desktop {
+      width: 139px;
+      height: 56px;
+    }
+  }
+
+  &__photo-wrapper::before {
+    top: 0;
+    left: -30px;
+
+    @include on-tablet {
+      left: -38px;
+    }
+
+    @include on-desktop {
+      left: -30px;
+    }
+
+    @include on-large-desktop {
+      left: -38px;
+    }
+  }
+
+  &__photo-wrapper::after {
+    right: -30px;
+    bottom: 0;
+
+    @include on-tablet {
+      right: -38px;
+    }
+
+    @include on-desktop {
+      right: -30px;
+    }
+
+    @include on-large-desktop {
+      right: -38px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__description {
+    max-width: 196px;
+    margin: 0 auto 16px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $section-text-color;
+    text-align: center;
+
+    @include on-tablet {
+      max-width: 362px;
+    }
+
+    @include on-desktop {
+      max-width: 196px;
+    }
+
+    @include on-large-desktop {
+      max-width: 250px;
+    }
+  }
+
+  &__description::before {
+    content: '';
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 8px;
+
+    background-image: url(../images/icon/icon-quote.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__person {
+    margin-top: auto;
+  }
+
+  &__name {
+    width: fit-content;
+    margin: 0 auto 4px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $section-title-color;
+    text-align: center;
+  }
+
+  &__position {
+    width: fit-content;
+    margin: 0 auto;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $testimonials-label-color;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
