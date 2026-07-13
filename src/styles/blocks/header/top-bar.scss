@@ -1,0 +1,68 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    &__logo {
+      height: 28px;
+
+      @include hover(1.09);
+    }
+
+    &__menu-icon {
+      width: 24px;
+      height: 24px;
+
+      background-image: url(../images/icons/menu.svg);
+      transform: translateY(10%);
+
+      @include hover(1.09);
+    }
+  }
+
+  &__center {
+    display: none;
+  }
+
+  &__right {
+    // hire us container
+    height: 30px;
+    box-sizing: border-box;
+
+    text-wrap: nowrap;
+
+    @include hover(1.09);
+
+    &:hover {
+      cursor: pointer;
+      border-bottom: 2px solid $main-blue-color;
+    }
+
+    &__hire-us {
+      // hire us text
+      letter-spacing: 3px;
+      text-transform: uppercase;
+
+      @include poppins-font(13px, 700, 150%);
+    }
+  }
+}
+
+@media (min-width: $tablet-horizontal-min-width) {
+  .top-bar {
+    &__left {
+      &__menu-icon {
+        display: none;
+      }
+    }
+
+    &__center {
+      display: block;
+    }
+  }
+}

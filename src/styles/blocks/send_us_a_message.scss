@@ -1,0 +1,127 @@
+.send-us-a-message {
+  padding: 0 $padding-mobile 80px;
+  color: $main-white-color;
+
+  &__title {
+    padding: 72px 0 48px;
+
+    @include poppins-font(32px, 600, 130%);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    width: 280px;
+    height: 41px;
+    padding-bottom: 16px;
+    margin-bottom: 40px;
+
+    box-sizing: border-box;
+
+    color: rgba($main-white-color, 0.7);
+
+    background-color: $header-background-color;
+    border: none;
+    border-bottom: 1px solid rgba($main-white-color, 0.7);
+    outline: none;
+
+    @include poppins-font(15px, 600, 100%);
+
+    &:hover {
+      border-bottom: 1px solid $hover-blue-color;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $hover-blue-color;
+    }
+
+    &:-webkit-autofill {
+      background-color: $header-background-color;
+
+      @include reset-autofill;
+    }
+  }
+
+  &__textarea {
+    padding-bottom: 16px;
+    margin-bottom: 56px;
+    resize: none;
+  }
+
+  &__button {
+    justify-self: center;
+    width: 280px;
+    height: 56px;
+
+    box-sizing: border-box;
+
+    color: $main-white-color;
+
+    background-color: $main-blue-color;
+    border: none;
+    border-radius: 8px;
+
+    @include poppins-font(15px, 600, 100%);
+
+    &:hover {
+      cursor: pointer;
+      background-color: $hover-blue-color;
+    }
+  }
+}
+
+@media (min-width: $tablet-vertical-min-width) {
+  .send-us-a-message {
+    padding: 180px $padding-tablet-vertical 120px;
+
+    @include tablet-vertical-screen;
+
+    &__title {
+      padding: 0 0 56px;
+      grid-column: 1 / -1;
+      line-height: 150%;
+    }
+
+    &__form {
+      padding: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .form {
+    display: contents;
+
+    &__input {
+      width: 100%;
+      grid-column: 1 / 5;
+      margin-bottom: 46px;
+    }
+
+    &__textarea {
+      margin-bottom: 80px;
+    }
+
+    &__button {
+      grid-column: 1 / -1;
+      justify-self: start;
+      width: 264px;
+    }
+  }
+}
+
+@media (min-width: $tablet-horizontal-min-width) {
+  .send-us-a-message {
+    padding: 180px 0 100px;
+  }
+}
+
+@media (min-width: $pc-min-width) {
+  .form {
+    &__input {
+      grid-column: 1 / 6;
+    }
+  }
+}

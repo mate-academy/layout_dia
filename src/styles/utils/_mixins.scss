@@ -1,6 +1,63 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($_toValue) {
+  transition: all 0.3s ease-in-out;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale($_toValue);
   }
+}
+
+@mixin mobile-screen {
+  display: grid;
+  column-gap: $low-gap;
+
+  grid-template-columns: repeat(2, $mobile-grid-col-width);
+}
+
+@mixin tablet-vertical-screen {
+  display: grid;
+  column-gap: $high-gap;
+
+  grid-template-columns: repeat(6, $high-grid-col-width);
+}
+
+@mixin tablet-horizontal-screen {
+  display: grid;
+  column-gap: $low-gap;
+
+  grid-template-columns: repeat(12, $low-grid-col-width);
+}
+
+@mixin pc-screen {
+  display: grid;
+  column-gap: $high-gap;
+
+  grid-template-columns: repeat(12, $high-grid-col-width);
+}
+
+@mixin poppins-font($size, $weight, $line-height) {
+  font-family: Poppins, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin open-sans-font($size, $weight, $line-height) {
+  font-family: 'Open Sans', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin pre-titles {
+  color: $pre-title-color;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  @include poppins-font(13px, 700, 100%);
+}
+
+@mixin reset-autofill {
+  box-shadow: 0 0 0 1000px $header-background-color inset;
+
+  -webkit-text-fill-color: rgba($main-white-color, 0.7);
 }

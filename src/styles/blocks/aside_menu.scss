@@ -1,0 +1,55 @@
+.menu {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  overflow: auto;
+  color: $main-white-color;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  box-sizing: border-box;
+  background-color: $header-background-color;
+  transition: all $animation-time ease-in-out;
+  transform: translateX(100%);
+  opacity: 1;
+
+  @include poppins-font(13px, 700, 150%);
+
+  &:target {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  &__top-bar {
+    position: sticky; // to keep cross always visible
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-mobile;
+  }
+
+  &__content {
+    padding: $padding-mobile;
+  }
+
+  &-nav {
+    &__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+}
+
+@media (min-width: $tablet-horizontal-min-width) {
+  .menu {
+    display: none;
+
+    &__top-logo {
+      // menu logo
+      height: 56px;
+    }
+  }
+}

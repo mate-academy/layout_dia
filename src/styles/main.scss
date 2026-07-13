@@ -1,7 +1,42 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'blocks';
 
-body {
-  background: $c-gray;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+  background-color: $main-background-color;
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  &__menu:target {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden; // not to scroll the page
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
