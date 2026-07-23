@@ -4,3 +4,99 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on($screen-type) {
+  @each $width, $type in $screen-sizes {
+    @if $type == $screen-type {
+      @media (min-width: #{$width}px) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+
+  @include on('tablet') {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+
+  @include on('small') {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include on('design') {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+
+@mixin poppins-bold-13-uppercase {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@mixin poppins-semibold-15 {
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 600px;
+  line-height: auto;
+  letter-spacing: 0;
+}
+
+@mixin poppins-semibold-20 {
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0;
+}
+
+@mixin poppins-semibold-32 {
+  font-family: Poppins, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+@mixin poppins-semibold-52 {
+  font-family: Poppins, sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+@mixin opensans-semibold-13 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+@mixin opensans-semibold-24 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0;
+}
+
+@mixin opensans-regular-14 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0;
+}

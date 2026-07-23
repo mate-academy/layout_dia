@@ -1,0 +1,181 @@
+.header {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  height: auto;
+  border-radius: 0 0 30px 30px;
+
+  background-color: $color-1;
+
+  @include on('tablet') {
+    gap: 147px;
+  }
+
+  @include on('small') {
+    gap: 0;
+  }
+
+  &__content {
+    @include grid;
+
+    position: relative;
+
+    @include on('small') {
+      min-height: 800px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+
+    @include on('small') {
+      grid-column: span 7;
+    }
+
+    @include on('design') {
+      grid-column: span 8;
+    }
+  }
+
+  &__title {
+    max-width: max-content;
+    margin-top: 25px;
+    margin-bottom: 32px;
+
+    font-size: 52px;
+    line-height: 120%;
+    letter-spacing: -2px;
+
+    @include on('tablet') {
+      max-width: min-content;
+      margin-top: 35px;
+      line-height: 68px;
+    }
+
+    @include on('small') {
+      max-width: min-content;
+      margin-top: 120px;
+      font-size: 64px;
+    }
+  }
+
+  &__text {
+    max-width: 360px;
+    font-size: 18px;
+  }
+
+  &__button {
+    justify-self: center;
+    width: 280px;
+    margin-top: 72px;
+
+    @include on('tablet') {
+      justify-self: start;
+      width: 264px;
+      margin-top: 56px;
+    }
+
+    @include on('small') {
+      width: 264px;
+      margin-top: 83px;
+    }
+  }
+  &__slider {
+    display: flex;
+    align-items: end;
+
+    width: 100%;
+    height: 390px;
+    border-radius: 30px;
+    
+    background-position: center;
+    background-size: cover;
+
+    @include on('small') {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      width: 45%;
+      height: 100%;
+      border-radius: 30px 0;
+    }
+  }
+
+  &__slider-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: start;
+
+    padding-block: 24px;
+    padding-inline: 20px;
+
+    @include on('tablet') {
+      padding-block: 32px;
+      padding-inline: 41px;
+    }
+
+    @include on('small') {
+      flex-direction: row;
+      align-items: center;
+      padding-inline: 78px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    display: block;
+
+    width: 32px;
+    height: 32px;
+    border: 0;
+
+    background-position: center;
+    background-size: contain;
+
+    transition: transform $transition-time;
+    &--left {
+      background: url('../images/slider/arrow-left.svg');
+    }
+    &--right {
+      background: url('../images/slider/arrow-right.svg');
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__slider-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__slider-title {
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__slider-text {
+    @include opensans-regular-14;
+
+    max-width: 280px;
+    color: $color-7;
+  }
+}

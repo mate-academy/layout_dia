@@ -1,0 +1,168 @@
+.services {
+  &__content {
+    @include grid;
+
+    padding-block: 120px;
+
+    @include on('tablet') {
+      padding-block: 148px;
+    }
+
+    @include on('small') {
+      padding-block: 250px;
+    }
+  }
+
+  &__info {
+    grid-column: 1 / -1;
+    grid-row: span 2;
+
+    @include on('tablet') {
+      grid-column: span 3;
+    }
+
+    @include on('small') {
+      grid-column: span 4;
+    }
+  }
+
+  &__separator {
+    grid-row: span 2;
+
+    @include on('tablet') {
+      grid-column: span 3;
+    }
+
+    @include on('small') {
+      grid-column: span 2;
+    }
+  }
+
+  &__title {
+    @include poppins-bold-13-uppercase;
+
+    margin-bottom: 16px;
+    color: $color-9;
+  }
+
+  &__sub-title {
+    margin-bottom: 24px;
+
+    font-family: Poppins, serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%;
+    color: $color-5;
+  }
+
+  &__text {
+    @include opensans-regular-14;
+
+    color: $color-6;
+  }
+
+  &__column {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @include on('tablet') {
+      grid-column: span 3;
+      row-gap: 30px;
+    }
+
+    @include on('small') {
+      row-gap: 20px;
+    }
+
+    @include on('design') {
+      row-gap: 30px;
+    }
+
+    &--first {
+      @include on('tablet') {
+        margin-top: 30px;
+      }
+    }
+
+    &--second {
+      @include on('tablet') {
+        margin-top: -100px;
+      }
+    }
+  }
+  &__card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    max-width: 100%;
+    height: 264px;
+    padding: 32px;
+    border-radius: 16px;
+
+    background-color: $color-7;
+  }
+
+  &__number {
+    @include poppins-semibold-15;
+
+    width: min-content;
+    margin-bottom: 24px;
+    padding: 7px 12px;
+    border-radius: 23px;
+
+    font-size: 13px;
+    color: $color-4;
+
+    background-color: #2060f61a;
+  }
+
+  &__list {
+    @include opensans-semibold-13;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+    margin-bottom: 32px;
+
+    color: $color-6;
+  }
+
+  &__link {
+    @include poppins-semibold-15;
+
+    cursor: pointer;
+
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    border: none;
+
+    color: $color-10;
+
+    background: none;
+
+    &::before {
+      content: '';
+
+      display: block;
+
+      width: 40px;
+      height: 40px;
+
+      background: url('../images/arrow.svg');
+
+      transition: transform $transition-time;
+    }
+    &:hover {
+      &::before {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
