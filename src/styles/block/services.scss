@@ -1,0 +1,206 @@
+.services {
+  @include laptop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--padding {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @include tablet {
+      padding-top: 148px;
+      padding-bottom: 148px;
+    }
+
+    @include laptop {
+      padding-top: 251px;
+      padding-bottom: 121px;
+    }
+
+    @include desktop {
+      padding-bottom: 118px;
+    }
+  }
+
+  &__content {
+    @include tablet {
+      max-width: 264px;
+    }
+
+    @include laptop {
+      max-width: 294px;
+    }
+
+    @include desktop {
+      max-width: 364px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $c-light-gray;
+  }
+
+  &__subtitle {
+    font-size: 32px;
+    line-height: 130%;
+    letter-spacing: 0;
+
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      gap: 30px;
+    }
+
+    &--margin-top {
+      margin-top: 48px;
+
+      @include tablet {
+        margin-top: 56px;
+      }
+
+      @include laptop {
+        margin-top: 36px;
+      }
+
+      @include desktop {
+        margin-top: 29px;
+      }
+    }
+  }
+
+  &__card-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
+}
+
+.service-card {
+  min-height: 264px;
+  padding: 32px;
+
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+
+  background-color: $c-white;
+
+  @include tablet {
+    min-width: 264px;
+  }
+
+  @include laptop {
+    min-width: 214px;
+  }
+
+  @include desktop {
+    min-width: 264px;
+  }
+
+  &--transform {
+    @include tablet {
+      transform: translateY(-132px);
+    }
+
+    @include laptop {
+      transform: translateY(-139px);
+    }
+
+    @include desktop {
+      transform: translateY(-132px);
+    }
+  }
+
+  &__count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 46px;
+    height: 24px;
+    color: $c-blue;
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-weight: 600;
+    font-size: 13px;
+
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  &__box-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+
+  &__learn-more {
+    position: absolute;
+    left: 40px;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity $delay ease,
+      left $delay ease,
+      visibility $delay ease;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: $c-blue;
+    background-image: url(../images/services/button-arrow.svg);
+    background-position: center;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+
+    @include hover(transform, scale(1.2));
+
+    &:hover + .service-card__learn-more {
+      left: 56px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
