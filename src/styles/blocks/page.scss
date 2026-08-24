@@ -1,0 +1,47 @@
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+  &:has(.page__menu:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+
+  &__body {
+    overflow-x: hidden;
+
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+    color: $c-white;
+
+    background-color: #f2f6fa;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    transition: all $effectDuration;
+
+    &:target {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

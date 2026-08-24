@@ -1,0 +1,155 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desk {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desk {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on-large-screen {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin header-padding-y {
+  padding-top: 20px;
+
+  @include on-small-desk {
+    padding-top: 52px;
+  }
+}
+
+@mixin icons-style {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin button-style {
+  cursor: pointer;
+
+  display: block;
+
+  box-sizing: border-box;
+  width: 280px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-size: 15px;
+  line-height: 48px;
+  color: $c-white;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0;
+
+  background-color: $c-blue;
+
+  transition:
+    background-color $effectDuration,
+    color $effectDuration,
+    border $effectDuration;
+
+  @include on-tablet {
+    width: 264px;
+  }
+
+  &:hover {
+    border: 1px solid $c-blue;
+    color: $c-blue;
+    background-color: $c-white;
+  }
+}
+
+@mixin list-style {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin section-name-gray {
+  margin-bottom: 16px;
+
+  font-size: 13px;
+  font-weight: $font-bold;
+  line-height: 100%;
+  color: #c0cdd7;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@mixin blocks-styling-shadow {
+  border-radius: 16px;
+  box-shadow: 0 9px 18px 0 #25293108;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+@mixin link-underline-style {
+  position: relative;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -8px;
+    transform: scale(0);
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: $c-white;
+
+    transition: transform $effectDuration;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+}

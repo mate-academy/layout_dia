@@ -1,0 +1,150 @@
+.services {
+  @include on-tablet {
+    padding-block: 0 120px;
+  }
+
+  @include on-small-desk {
+    padding-block: 148px;
+  }
+
+  &__wrapper-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+
+    @include on-tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text-content {
+    @include on-tablet {
+      transform: translateY(50%);
+      grid-column: 1 / 2;
+    }
+
+    @include on-small-desk {
+      transform: translateY(0);
+    }
+  }
+
+  &__categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @include on-small-desk {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__category {
+    padding: 32px;
+    background-color: $c-white;
+
+    @include blocks-styling-shadow;
+
+    @include on-tablet {
+      &:nth-child(1) {
+        transform: translateY(50%);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(50%);
+      }
+    }
+  }
+
+  &__name {
+    @include section-name-gray;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    font-size: 32px;
+    font-weight: $font-half-bold;
+    line-height: 130%;
+    color: $c-title;
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: $font-normal;
+    line-height: 150%;
+    color: $c-text;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__category-num {
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 2px 12px;
+    border-radius: 23px;
+
+    font-size: 13px;
+    font-weight: $font-half-bold;
+    color: $c-blue;
+
+    background-color: rgba($color: $c-blue, $alpha: 0.1);
+  }
+
+  &__categories-list {
+    @include list-style;
+
+    margin-bottom: 32px;
+  }
+
+  &__category-link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: $font-half-bold;
+    color: $c-text;
+    text-decoration: none;
+  }
+
+  &__go-further-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__go-further-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    border-radius: 50%;
+
+    color: $c-white;
+    text-decoration: none;
+
+    background-color: $c-blue;
+
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__go-further-text {
+    font-weight: $font-half-bold;
+    color: #334563;
+    text-decoration: none;
+  }
+}

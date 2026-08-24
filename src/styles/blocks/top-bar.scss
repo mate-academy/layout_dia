@@ -1,0 +1,60 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__start {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__logo-img {
+    display: block;
+    width: 46px;
+    height: 28px;
+  }
+
+  &__burger-button {
+    background-image: url(../images/icons/dia-menu.png);
+
+    @include icons-style;
+
+    @include on-small-desk {
+      display: none;
+    }
+  }
+
+  &__action {
+    position: relative;
+
+    font-size: 13px;
+    font-weight: $font-bold;
+    line-height: 150%;
+    color: $c-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -8px;
+
+      display: block;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $c-blue;
+
+      transition: background-color 0.3s;
+    }
+
+    &:hover::after {
+      background-color: $c-white;
+    }
+  }
+}
