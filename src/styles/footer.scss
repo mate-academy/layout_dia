@@ -1,19 +1,41 @@
 .footer {
   display: block;
-
-  width: 320px;
-  height: 1439px;
-
+  width: 100%;
+  height: 100%;
   padding-top: 80px;
-
   border-radius: 30px 30px 0 0;
-
   background-color: $c-background2;
   color: $c-text6;
 
+  @include on-tablet {
+    transform: translateY(-60px);
+    margin-bottom: -60px;
+  }
+
+  &__items {
+    @include on-small-desktop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 124px;
+      padding-inline: 54px;
+    }
+
+    @include on-design {
+      padding-inline: 225px;
+    }
+  }
+
   &__contact {
-    margin: 20px;
+    padding-inline: 20px;
     margin-top: 76px;
+
+    @include on-tablet {
+      padding-inline: 41px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 0;
+    }
   }
 
   &__title {
@@ -44,9 +66,7 @@
 
   &__link {
     display: block;
-
     margin: 0;
-
     font-size: 20px;
     font-weight: 400;
     line-height: 150%;
@@ -74,20 +94,72 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 32px;
     height: 32px;
 
-    transition: transform 0.3s;
+    color: $c-text6;
+    transition: transform 0.3s ease;
 
     &:hover {
+      color: $c-button1;
       transform: scale(1.2);
     }
 
     img {
+      display: block;
       width: 32px;
       height: 32px;
-      display: block;
+
+      transition: filter 0.3s ease;
+    }
+
+    &:hover img {
+      filter: brightness(0) saturate(100%) invert(35%) sepia(97%)
+        saturate(2500%) hue-rotate(210deg) brightness(98%) contrast(98%);
+    }
+  }
+
+  &__menu {
+    @include on-tablet {
+      margin-top: 120px;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 54px;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__top-bar {
+    @include on-small-desktop {
+      justify-content: flex-start;
+      padding: 0;
+      padding-inline: 54px;
+    }
+
+    @include on-design {
+      padding-inline: 225px;
+    }
+  }
+
+  &__nav-list {
+    @include on-tablet {
+      flex-direction: row;
+      margin: 0;
+      justify-content: space-between;
+    }
+
+    @include on-small-desktop {
+      white-space: nowrap;
+      padding-bottom: 0;
+      padding-inline: 54px;
+    }
+
+    @include on-design {
+      padding-inline: 225px;
     }
   }
 }

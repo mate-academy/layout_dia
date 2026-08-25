@@ -23,8 +23,10 @@ function Slider(container, nav) {
 }
 
 Slider.prototype.transition = function() {
+  const imgWidth = this.imgs[0].getBoundingClientRect().width;
+
   this.container.animate({
-    'margin-left': -(this.current * this.imgWidth)
+    'margin-left': -(this.current * imgWidth),
   });
 };
 

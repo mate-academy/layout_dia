@@ -1,15 +1,33 @@
 .testimonials {
   display: block;
-
-  width: 280px;
-
+  min-width: 280px;
   margin: 20px;
   padding-top: 80px;
-
   text-align: left;
+
+  @include on-tablet {
+    margin: 0;
+    padding-inline: 41px;
+  }
+
+  @include on-small-desktop {
+    padding-inline: 54px;
+  }
+
+  @include on-design {
+    padding-inline: 225px;
+  }
 
   &__title {
     padding-bottom: 30px;
+  }
+
+  &__cards {
+    @include on-small-desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
   }
 
   &__card {
@@ -17,16 +35,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    width: 280px;
+    min-width: 280px;
     height: 456px;
-
     margin-top: 20px;
-
     border-radius: 16px;
-
     background-color: $c-background3;
-
     text-align: center;
 
     transition:
@@ -40,52 +53,45 @@
 
     &-images {
       display: block;
-
       width: 196px;
       height: 196px;
     }
 
     &-image1 {
       display: block;
-
       width: 24px;
       height: 24px;
-
       margin: 0 auto;
-
       align-items: center;
       justify-content: center;
     }
 
     &-image2 {
       display: block;
-
       width: 196px;
       height: 196px;
-
       margin-bottom: 20px;
-
       align-items: center;
       justify-content: center;
     }
 
     &-text {
       margin: 60px 42px 0;
-
       text-align: center;
-
       font-size: 13px;
       font-weight: 600;
       line-height: 150%;
 
       color: $c-text2;
+
+      @include on-tablet {
+        max-width: 362px;
+      }
     }
 
     &-author {
       margin-top: 20px;
-
       text-align: center;
-
       font-size: 13px;
       font-weight: 600;
       line-height: 150%;
@@ -95,7 +101,6 @@
 
     &-position {
       margin: 0;
-
       text-align: center;
       text-transform: uppercase;
     }

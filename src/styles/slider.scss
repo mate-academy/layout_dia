@@ -1,139 +1,126 @@
 .slider-container {
-  width: 320px;
-  max-width: 100%;
-  height: 390px;
-
+  width: 100%;
+  min-height: 390px;
   margin: 0 auto;
-
   position: relative;
-
   border-radius: 30px;
-
   overflow: hidden;
-
   z-index: 2;
-
   transform: translateY(30px);
+
+  @include on-small-desktop {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: calc(100%);
+    min-height: 0;
+
+    margin: 0;
+    transform: none;
+    border-radius: 30px 0;
+  }
 }
 
 .slider {
-  width: 320px;
-  height: 390px;
-
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-
   position: relative;
-
   border-radius: 30px;
-}
 
-.slider ul {
-  width: 1280px;
-  height: 390px;
+  @include on-small-desktop {
+    border-radius: 30px 0;
+  }
 
-  margin: 0;
-  padding: 0;
+  ul {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-  list-style: none;
-}
+  li {
+    flex: 0 0 25%;
+    width: 25%;
+    height: 100%;
+  }
 
-.slider li {
-  width: 320px;
-  height: 390px;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-  float: left;
+  &__nav {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    bottom: 110px;
+    z-index: 10;
+    gap: 20px;
+
+    @include on-tablet {
+      left: 41px;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin: 0;
+
+      border: none;
+      border-radius: 50%;
+      background: $c-button2;
+      color: $c-background2;
+      cursor: pointer;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    position: absolute;
+    left: 26px;
+    bottom: 140px;
+    gap: 20px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: $c-button2;
+    cursor: pointer;
+
+    img {
+      display: block;
+
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 .slides {
   position: relative;
-
-  width: 320px;
-  height: 390px;
-}
-
-.slider img {
-  display: block;
-
-  width: 320px;
-  height: 390px;
-
-  object-fit: cover;
-}
-
-.slider__nav {
-  display: flex;
-
-  position: absolute;
-
-  left: 20px;
-  bottom: 110px;
-
-  z-index: 10;
-
-  gap: 20px;
-}
-
-.slider__buttons {
-  display: flex;
-
-  position: absolute;
-
-  left: 26px;
-  bottom: 140px;
-
-  gap: 20px;
-}
-
-.slider__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 40px;
-  height: 40px;
-
-  padding: 0;
-
-  border: none;
-  border-radius: 50%;
-
-  background: $c-button2;
-
-  cursor: pointer;
-
-  img {
-    display: block;
-
-    width: 16px;
-    height: 16px;
-  }
-}
-
-.slider__nav button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 40px;
-  height: 40px;
-
-  padding: 0;
-  margin: 0;
-
-  border: none;
-  border-radius: 50%;
-
-  background: $c-button2;
-
-  color: #222;
-
-  cursor: pointer;
-
-  opacity: 1;
-}
-
-.slider__nav button:hover {
-  opacity: 0.8;
+  width: 100%;
+  height: 100%;
 }
 
 .slider__button--prev,
@@ -146,50 +133,46 @@
 
   left: 20px;
   bottom: 20px;
-
-  width: 280px;
+  width: calc(100% - 40px);
   height: 90px;
 
   padding: 0;
   background: transparent;
-}
 
-.slider-text h4 {
-  position: absolute;
+  @include on-tablet {
+    left: 41px;
+  }
 
-  left: 0;
-  top: 20px;
+  h4 {
+    position: absolute;
 
-  width: 280px;
-  height: 48px;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
 
-  margin: 0;
-  padding: 0;
+    color: $c-text6;
+  }
 
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 100%;
-  letter-spacing: 3px;
+  p {
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    height: 68px;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
 
-  color: $c-text6;
-}
-
-.slider-text p {
-  position: absolute;
-
-  left: 0;
-  top: 48px;
-
-  width: 280px;
-  height: 68px;
-
-  margin: 0;
-  padding: 0;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 140%;
-  letter-spacing: 0;
-
-  color: $c-text6;
+    color: $c-text6;
+  }
 }
