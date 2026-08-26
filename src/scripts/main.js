@@ -45,3 +45,11 @@ Slider.prototype.setCurrent = function(dir) {
     this.current = 0;
   }
 };
+
+const form = document.querySelector('.contact-form');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  form.reset();
+});
