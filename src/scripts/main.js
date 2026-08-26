@@ -1,50 +1,49 @@
 'use strict';
 
-(function() {
-  var container = $('div.slider')
-    .css('overflow', 'hidden')
-    .children('ul');
+const slider = document.querySelector('.slider');
+const sliderList = slider.querySelector('ul');
+const slides = slider.querySelectorAll('li');
+const prevButton = document.querySelector('#prev');
+const nextButton = document.querySelector('#next');
 
-  var slider = new Slider(container, $('#slider-nav'));
+let current = 0;
 
-  slider.nav.find('button').on('click', function() {
-    slider.setCurrent($(this).data('dir'));
-    slider.transition();
-  });
-})();
+function updateSlider() {
+  const slideWidth = slider.clientWidth;
 
-function Slider(container, nav) {
-  this.container = container;
-  this.nav = nav.show();
-  this.imgs = this.container.find('img');
-  this.imgWidth = this.imgs[0].getBoundingClientRect().width;
-  this.imgsLen = this.imgs.length;
-  this.current = 0;
+  sliderList.style.transform = `translateX(-${current * slideWidth}px)`;
 }
 
-Slider.prototype.transition = function() {
-  const imgWidth = this.imgs[0].getBoundingClientRect().width;
+function setCurrent(direction) {
+  if (direction === 'next') {
+    current++;
 
-  this.container.animate({
-    'margin-left': -(this.current * imgWidth),
-  });
-};
-
-Slider.prototype.setCurrent = function(dir) {
-  if (dir === 'next') {
-    this.current++;
+    if (current >= slides.length) {
+      current = 0;
+    }
   } else {
-    this.current--;
+    current--;
+
+    if (current < 0) {
+      current = slides.length - 1;
+    }
   }
 
-  if (this.current < 0) {
-    this.current = this.imgsLen - 1;
-  }
+  updateSlider();
+}
 
-  if (this.current >= this.imgsLen) {
-    this.current = 0;
-  }
-};
+nextButton.addEventListener('click', () => {
+  setCurrent('next');
+});
+
+prevButton.addEventListener('click', () => {
+  setCurrent('prev');
+});
+
+window.addEventListener('resize', updateSlider);
+
+
+// FORM
 
 const form = document.querySelector('.contact-form');
 
