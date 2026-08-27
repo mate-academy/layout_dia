@@ -1,0 +1,103 @@
+.our-expertise {
+  transform: translateY(0) scale(1);
+
+  display: block;
+
+  border-radius: 30px;
+
+  opacity: 1;
+  background-color: #fff;
+
+  &__content {
+    display: grid;
+    row-gap: 56px;
+    padding-block: 72px;
+
+    @include on-tablet {
+      row-gap: 64px;
+      padding-block: 128px;
+    }
+  }
+
+  &__title {
+    @extend %fm-poppins-w-600-fs-44-lh-120-c-253757;
+
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 52px;
+      line-height: 150%;
+    }
+  }
+
+  &__cards-content {
+    --columns: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 56px 20px;
+    opacity: 1;
+
+    @include on-tablet {
+      --columns: 6;
+
+      gap: 72px 30px;
+    }
+
+    @include on-desktop-small {
+      --columns: 12;
+
+      column-gap: 40px;
+      justify-content: space-between;
+    }
+  }
+
+  &__card {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: center;
+
+    transition: transform 0.3s ease-in-out;
+
+    &.reveal.is-visible:hover,
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    @include on-desktop-small {
+      grid-column: span 4;
+    }
+  }
+
+  &__card-photo {
+    aspect-ratio: 1 / 1;
+    width: 166px;
+    border-radius: 30px;
+  }
+
+  &__card-title {
+    @extend %fm-poppins-w-600-fs-20-lh-140-c-253757;
+
+    margin-top: 32px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  &__card-text {
+    @extend %fm-opensans-w-400-fs-14-lh-150-c-6c788b;
+
+    width: 100%;
+    max-width: 280px;
+    margin-inline: auto;
+    text-align: center;
+
+    @include on-tablet {
+      max-width: 364px;
+    }
+
+    @include on-desktop-small {
+      max-width: 380px;
+    }
+  }
+}

@@ -1,0 +1,224 @@
+.testimonials {
+  @include page-grid;
+  @include padding-block-section-bigger;
+
+  overflow-x: clip;
+
+  &__top {
+    grid-column: 1 / -1;
+  }
+
+  &__sub-title {
+    @extend %fm-poppins-w-700-fs-13-lh-100-c-c0cdd7;
+
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    @extend %fm-poppins-w-600-fs-32-lh-150-c-253757;
+
+    margin: 0;
+
+    @include on-tablet {
+      width: 200px;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-column: 1 / -1;
+    row-gap: 24px;
+    justify-items: center;
+
+    margin-top: 48px;
+  }
+
+  &__card {
+    overflow: visible;
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    justify-self: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 30px;
+
+    text-align: center;
+
+    background-color: $card-bg-color;
+
+    transition: transform 0.3s ease-in-out;
+
+    &.reveal.is-visible:hover,
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    @include on-tablet {
+      max-width: 558px;
+    }
+  }
+
+  &__quotes-img {
+    display: block;
+  }
+
+  @include on-tablet {
+    &__content {
+      gap: 30px;
+      margin-top: 56px;
+    }
+  }
+
+  @include on-desktop-small {
+    &__content {
+      grid-template-columns: repeat(3, minmax(0, 296px));
+      gap: 0 20px;
+      justify-content: center;
+      justify-items: stretch;
+
+      margin-top: 85px;
+    }
+
+    &__card {
+      grid-column: auto;
+      width: 100%;
+      max-width: 296px;
+      padding-inline: 44px;
+    }
+  }
+
+  @include on-desktop {
+    &__content {
+      grid-template-columns: repeat(3, minmax(0, 362px));
+    }
+
+    &__card {
+      max-width: 362px;
+    }
+  }
+
+  &__card-text {
+    @extend %fm-opensans-w-600-fs-13-lh-150-c-6c788bf;
+
+    width: 196px;
+    margin: 0;
+    margin-inline: auto;
+
+    @include on-tablet {
+      width: 362px;
+    }
+
+    @include on-desktop-small {
+      width: 196px;
+      min-height: 96px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+    }
+  }
+
+  &__card-name {
+    @extend %fm-opensans-w-600-fs-13-lh-150-c-253757;
+
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__card-profesion {
+    @extend %fm-poppins-w-700-fs-13-lh-100-c-c0cdd7;
+
+    margin: 4px 0 32px;
+  }
+
+  &__quotes {
+    display: block;
+
+    aspect-ratio: 1 / 1;
+    width: 21px;
+    margin-top: 0;
+    margin-bottom: 11px;
+    margin-inline: auto;
+  }
+
+  &__card-photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+  }
+
+  &__card-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__photo-holder {
+    position: relative;
+
+    width: max-content;
+    margin-top: 32px;
+    margin-bottom: 68px;
+    margin-inline: auto;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 0;
+
+      width: 100%;
+      height: 44px;
+      border-radius: 12px;
+
+      background-color: $button-bg-color;
+    }
+
+    &::before {
+      top: 12%;
+      left: 0;
+      transform: translate(-28%, -35%) rotate(-60deg);
+    }
+
+    &::after {
+      right: 0;
+      bottom: 12%;
+      transform: translate(28%, 35%) rotate(-60deg);
+    }
+  }
+
+  &__photo {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-desktop-small {
+      width: 110px;
+      height: 110px;
+    }
+
+    @include on-desktop {
+      width: 140px;
+      height: 140px;
+    }
+  }
+}

@@ -23,7 +23,7 @@ Adapt the page to the following screens:
 8. Implement `Vision, Passion, Results` block.
     - use https://github.com/mate-academy/layout_dia/blob/master/src/images/Shapes.png as background picture
 9. Implement `Send us  a message` block.
-10. Implement `Contact us` block.
+10. Implement `Contact us us` block.
 11. Implement the footer.
 
 ## Checklist for preparing a portfolio project for HR review
@@ -39,10 +39,10 @@ Adapt the page to the following screens:
 10. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
 11. The form shouldn’t submit empty
 12. The "Learn more" button should lead to the closest block (Our expertise)
-13. The "Hire Us" button in the header menu should lead to the contact form
+13. The "Hire Us" button in the header menu should lead to the Contact us form
 14. In the PROCESS section add a hover effect to cards (for example, let them increase in size a little)
 15. Inside the cards in PROCESS sections, make a link out of the "Learn More" text, so that it hovers simultaneously with the arrow button on the left
-16. In the Vision, Passion, Results section, the “Apply” button also should lead to the contact form
+16. In the Vision, Passion, Results section, the “Apply” button also should lead to the Contact us form
 17. In the Testimonials and Our expertise section add hover effects for each review
 18. After clicking the menu buttons, the landing page will scroll exactly to the beginning of the desired block (exactly where its section begins)
 19. The arrows at the bottom of the first block should not respond slowly to pressing (this is possible if the pictures are too large)
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://itNepes.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.

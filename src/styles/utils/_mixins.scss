@@ -2,5 +2,104 @@
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+    cursor: pointer;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin on-desktop-small {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin on-large {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+
+    column-gap: 30px;
+  }
+
+  @include on-desktop-small {
+    --columns: 12;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 40px;
+  }
+
+  @include on-desktop {
+    padding-inline: 55px;
+  }
+}
+
+@mixin padding-block-section-bigger {
+  padding-block: 120px;
+
+  @include on-tablet {
+    padding-block: 148px;
+  }
+}
+
+@mixin padding-block-section-smaller {
+  padding-block: 72px;
+
+  @include on-tablet {
+    padding-block: 128px;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flower-reveal {
+  from {
+    transform: translateY(40px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
 }

@@ -1,0 +1,131 @@
+.contact-us {
+  @include padding-block-section-bigger;
+
+  border-radius: 20px 20px 0 0;
+  background-color: $hd-cs-ft-bg-color;
+
+  &__container {
+    @include page-grid;
+
+    row-gap: 80px;
+
+    @include on-tablet {
+      row-gap: 120px;
+    }
+
+    @include on-desktop-small {
+      row-gap: 0;
+    }
+  }
+
+  &__side {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      &--top,
+      &--bottom {
+        grid-column: span 4;
+      }
+    }
+
+    @include on-desktop-small {
+      &--top {
+        grid-column: 1 / 6;
+      }
+
+      &--bottom {
+        grid-column: 8 / -1;
+      }
+    }
+  }
+
+  &__title {
+    @extend %fm-poppins-w-600-fs-32-lh-130-c-ffffff;
+  }
+
+  &__side--bottom &__title {
+    margin-bottom: 56px;
+  }
+
+  &__block-item-text {
+    @extend %fm-poppins-w-700-fs-13-lh-100-c-c0cdd7;
+  }
+
+  &__block-item + &__block-item {
+    margin-top: 48px;
+  }
+
+  &__block-item-data {
+    @extend %fm-opensans-w-600-fs-24-lh-150-c-ffffff;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+    padding-inline: 20px;
+
+    @include on-desktop-small {
+      padding-inline: 0;
+    }
+  }
+
+  &__form-input {
+    @extend %input;
+
+    resize: none;
+  }
+
+  &__form-input + &__form-input {
+    margin-top: 40px;
+  }
+
+  &__form-button {
+    @extend %button;
+
+    margin-top: 56px;
+  }
+
+  .icon {
+    display: block;
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+      hue-rotate(347deg) brightness(105%) contrast(102%);
+
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      filter: brightness(0) saturate(100%) invert(34%) sepia(96%)
+        saturate(1911%) hue-rotate(214deg) brightness(100%) contrast(94%);
+    }
+  }
+
+  .icon--facebook {
+    background-image: url(../images/social-icons/facebook.png);
+  }
+
+  .icon--twitter {
+    background-image: url(../images/social-icons/twitter.png);
+  }
+
+  .icon--instagram {
+    background-image: url(../images/social-icons/instagram.png);
+  }
+}

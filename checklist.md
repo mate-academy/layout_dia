@@ -27,6 +27,6 @@
 5. Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
 6. Make sure everything looks neat on mobile and without horizontal scrolling
 7. The "Learn more" button should lead to the closest block (Our expertise)
-8. The "Hire Us" button in the header menu should lead to the contact form
-9. In the `Vision`, `Passion`, `Results` sections, the “Apply” button also should lead to the contact form
+8. The "Hire Us" button in the header menu should lead to the Contact us form
+9. In the `Vision`, `Passion`, `Results` sections, the “Apply” button also should lead to the Contact us form
 10. All the social icons in the footer should be clickable and open the social networks in a new tab
