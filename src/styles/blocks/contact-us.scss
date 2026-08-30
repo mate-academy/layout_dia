@@ -1,0 +1,271 @@
+.contact-us {
+  position: relative;
+
+  margin-top: -30px;
+  padding-top: 210px;
+  border-radius: 30px 30px 0 0;
+
+  color: #fff;
+
+  background-color: $background-color;
+
+  &__container {
+    max-width: 1146px;
+    margin-inline: auto;
+
+    @include page-grid;
+  }
+
+  &__form-wrapper {
+    grid-column: 1 / 6;
+  }
+
+  &__details-wrapper {
+    grid-column: 8 / -2;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__form-title,
+  &__details-title {
+    margin: 0 0 56px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    margin-bottom: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 41px;
+    padding: 0 0 16px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 150%;
+    color: #fff;
+
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: #fff;
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-bottom: 2px solid $accent-color;
+    }
+
+    &--textarea {
+      resize: none;
+      overflow: hidden;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 264px;
+    height: 56px;
+    margin-top: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+
+    background-color: $accent-color;
+
+    transition:
+      transform $effect-duration,
+      background-color $effect-duration;
+
+    &:hover {
+      transform: translateY(-3px);
+      background-color: #144ed4;
+    }
+
+    &:active {
+      transform: scale(0.98);
+      background-color: #144ed4;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+  }
+
+  &__details-label {
+    margin: 0 0 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  &__details-link {
+    display: block;
+
+    margin-bottom: 48px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 150%;
+    color: #fff;
+    text-decoration: none;
+
+    transition: color $effect-duration;
+
+    &:hover {
+      color: $accent-color;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent-color;
+      outline-offset: 4px;
+    }
+  }
+
+  &__address {
+    margin: 0;
+    font-style: normal;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+
+    margin: 16px 0 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__social-link {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    transition: transform $effect-duration;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent-color;
+      outline-offset: 4px;
+    }
+  }
+
+  &__social-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+
+  @include on-small-desktop {
+    &__container {
+      max-width: 800px;
+    }
+
+    &__details-wrapper {
+      grid-column: 7 / -1;
+    }
+  }
+
+  @include on-tablet {
+    padding-top: 210px;
+
+    &__container {
+      max-width: none;
+      padding-inline: 41px;
+    }
+
+    &__form-wrapper,
+    &__details-wrapper {
+      grid-column: 1 / 5;
+    }
+
+    &__details-wrapper {
+      margin-top: 120px;
+    }
+  }
+
+  @include on-mobile {
+    padding-top: 102px;
+
+    &__container {
+      padding-inline: 20px;
+    }
+
+    &__form-wrapper,
+    &__details-wrapper {
+      grid-column: 1 / -1;
+    }
+
+    &__form-title,
+    &__details-title {
+      margin-bottom: 48px;
+    }
+
+    &__details-wrapper {
+      margin-top: 80px;
+    }
+
+    &__button {
+      width: 100%;
+    }
+  }
+
+  &__social-link img {
+    filter: brightness(0) invert(1);
+    transition: filter $effect-duration;
+  }
+
+  &__social-link:hover img,
+  &__social-link:active img,
+  &__social-link:focus-visible img {
+    filter: $accent-icon-filter;
+  }
+}
