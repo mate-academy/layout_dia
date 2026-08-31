@@ -1,0 +1,164 @@
+.contact {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-self: start;
+    row-gap: 88px;
+
+    @include tablet {
+      row-gap: 120px;
+    }
+
+    @include small-desktop {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 98px;
+    }
+
+    @include desktop {
+      column-gap: 226px;
+    }
+  }
+
+  // ---------- Send us a message --------------
+  &__title {
+    line-height: 130%;
+    color: $c-white;
+    margin: 0;
+    padding-bottom: 48px;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  &__form-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    width: 100%;
+    height: 40px;
+
+    padding: 0 0 17px;
+
+    border-bottom: 2px solid $c-white;
+
+    color: $c-white;
+
+    box-sizing: border-box;
+    transition: border-color $tr;
+
+    &::placeholder {
+      color: rgba($c-white, 0.7);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px $c-bg-dark inset;
+      -webkit-text-fill-color: $c-white;
+      caret-color: $c-white;
+      transition: background-color 9999s ease;
+    }
+
+    &:focus {
+      border-bottom-color: $c-blue;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border-bottom-color: $c-red;
+    }
+  }
+
+  &__btn {
+    color: $c-white;
+    background-color: $c-blue;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    padding: 17px 0;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 120%;
+    transition: background-color $tr;
+    display: block;
+
+    @include hover(background-color, darken($c-blue, 20%));
+
+    @include tablet {
+      width: 264px;
+    }
+  }
+}
+
+// ---------- Contact us --------------
+.contact__info {
+  &-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  &-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 8px;
+  }
+
+  &-item:has(.contact__info-socials) {
+    gap: 16px;
+  }
+
+  &-label {
+    font-family: $ff-main;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba($c-white, 0.5);
+  }
+
+  &-value {
+    font-family: $ff-second;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    word-wrap: break-word;
+  }
+
+  .mobile-break {
+    display: block;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  // ---------- Socials --------------
+  &-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  &-social {
+    color: $c-white;
+
+    &:hover {
+      color: $c-blue;
+    }
+  }
+}

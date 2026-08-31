@@ -1,0 +1,225 @@
+// ----------- Services -----------
+.services {
+  @include tablet {
+    padding: 148px 0;
+  }
+
+  @include small-desktop {
+    padding: 148px 0;
+  }
+
+  &__container {
+    @extend %container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    @include small-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      padding: 0 53px;
+    }
+
+    @include the-design {
+      column-gap: 30px;
+    }
+  }
+
+  &__content {
+    margin-bottom: 48px;
+
+    @include small-desktop {
+      grid-column: 1 / 5;
+      grid-row: 1 / span 2;
+      margin-bottom: 0;
+      margin-top: 100px;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #c0cdd7;
+    font-family: $ff-main;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+    color: $c-text-dark;
+    font-family: $ff-main;
+    margin: 0 0 24px;
+    line-height: 130%;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $c-text-gray-light;
+    font-family: $ff-second;
+    line-height: 150%;
+    margin: 0 0 30px;
+    font-weight: 400;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // ----------- Services card -----------
+  .services-card {
+    background-color: $c-white;
+    border-radius: 16px;
+    box-shadow: 0 9px 18px rgba(37, 40, 49, 0.03);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    height: 264px;
+    transition:
+      transform $tr,
+      box-shadow $tr;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(37, 40, 49, 0.1);
+    }
+
+    @include tablet {
+      &:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      &:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+        transform: translateY(-50%);
+      }
+      &:nth-child(4) {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      &:nth-child(5) {
+        grid-column: 2;
+        grid-row: 3;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include small-desktop {
+      @include small-desktop {
+        max-width: 214px;
+
+        &:nth-child(3) {
+          margin-top: 0;
+        }
+        &:nth-child(5) {
+          margin-top: 0;
+        }
+      }
+
+      @include the-design {
+        max-width: 264px;
+      }
+
+      &:nth-child(2) {
+        grid-column: 7 / 10;
+        grid-row: 1;
+        margin-top: 139px;
+      }
+      &:nth-child(3) {
+        grid-column: 10 / 13;
+        grid-row: 1;
+        transform: none;
+      }
+
+      &:nth-child(4) {
+        grid-column: 7 / 10;
+        grid-row: 2;
+        margin-top: 0;
+      }
+
+      &:nth-child(5) {
+        grid-column: 10 /13;
+        grid-row: 2;
+      }
+    }
+
+    &__number {
+      display: inline-block;
+      background-color: rgba($c-blue, 0.1);
+      border-radius: 23px;
+      color: $c-blue;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      font-family: $ff-main;
+      padding: 2px 10px;
+      align-self: flex-start;
+    }
+
+    &__list {
+      padding: 0;
+      margin: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    &__item {
+      font-size: 13px;
+      font-weight: 600;
+      color: $c-text-gray-light;
+      line-height: 150%;
+      font-family: $ff-second;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      transition: opacity $tr;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+      background-color: $c-blue;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &__button-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: $c-text-gray;
+      font-family: $ff-main;
+    }
+  }
+}
