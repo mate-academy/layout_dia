@@ -1,0 +1,120 @@
+.service {
+  box-sizing: border-box;
+  height: 264px;
+  padding: 32px;
+  border-radius: 16px;
+
+  background-color: $color-white;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 28px rgba(37, 41, 49, 0.1);
+  }
+
+  @include desktop-small {
+    padding: 32px 24px;
+  }
+
+  @include desktop {
+    padding: 32px;
+  }
+
+  &__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    min-width: 46px;
+    height: 24px;
+    border-radius: 12px;
+
+    font-family: $font-title;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 13px;
+    color: $color-blue;
+    vertical-align: top;
+
+    background-color: $color-badge;
+  }
+
+  &__rows {
+    margin: 24px 0 0;
+    padding: 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $color-muted;
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    margin-top: 32px;
+
+    font-family: $font-title;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 15px;
+    color: $color-card-link;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: $color-blue;
+
+    transition: transform 0.3s;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 16px;
+      height: 2px;
+
+      background-color: $color-white;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      width: 8px;
+      height: 8px;
+      margin-left: 2px;
+      border-top: 2px solid $color-white;
+      border-right: 2px solid $color-white;
+    }
+  }
+
+  &__link:hover &__icon {
+    transform: scale(1.2);
+  }
+}

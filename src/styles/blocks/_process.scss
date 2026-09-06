@@ -1,0 +1,111 @@
+$cards-shift: 132px;
+$cards-shift-small: 139px;
+
+.process {
+  padding-top: 64px;
+
+  @include tablet {
+    padding-top: 96px;
+  }
+
+  @include desktop-small {
+    padding-top: 148px;
+  }
+
+  &__content {
+    @include desktop-small {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    @include desktop-small {
+      flex-shrink: 0;
+      width: 292px;
+      padding-top: 106px;
+    }
+
+    @include desktop {
+      width: 362px;
+    }
+  }
+
+  &__label {
+    @extend %label;
+
+    margin: 0 0 20px;
+    line-height: 13px;
+    color: $color-label;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+
+    font-family: $font-title;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    color: $color-heading;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $color-muted;
+
+    &:not(:last-child) {
+      margin-bottom: 21px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    margin: 51px 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 264px);
+      gap: 30px;
+      margin-top: 32px;
+      padding-bottom: $cards-shift;
+    }
+
+    @include desktop-small {
+      grid-template-columns: repeat(2, 214px);
+      gap: 20px;
+      margin-top: 0;
+      padding-bottom: $cards-shift-small;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(2, 264px);
+      gap: 30px;
+      padding-bottom: $cards-shift;
+    }
+  }
+
+  &__item {
+    &:nth-child(odd) {
+      @include tablet {
+        transform: translateY($cards-shift);
+      }
+
+      @include desktop-small {
+        transform: translateY($cards-shift-small);
+      }
+
+      @include desktop {
+        transform: translateY($cards-shift);
+      }
+    }
+  }
+}
