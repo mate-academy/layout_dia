@@ -1,45 +1,43 @@
 // ----------- Services -----------
 .services {
-  @include tablet {
-    padding: 148px 0;
-  }
-
-  @include small-desktop {
-    padding: 148px 0;
-  }
-
   &__container {
     @extend %container;
+    @include grid;
 
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    row-gap: 24px;
 
     @include tablet {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: start;
+      row-gap: 30px;
+      padding: 0 41px;
     }
 
     @include small-desktop {
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 20px;
       padding: 0 53px;
     }
 
     @include the-design {
       column-gap: 30px;
     }
+
+    @include the-design {
+      max-width: 1600px;
+      padding: 0 100px;
+    }
   }
 
   &__content {
-    margin-bottom: 48px;
+    grid-column: 1 / -1;
+
+    @include tablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+      align-self: start;
+    }
 
     @include small-desktop {
       grid-column: 1 / 5;
-      grid-row: 1 / span 2;
-      margin-bottom: 0;
+      grid-row: 1 / 3;
+      align-self: start;
       margin-top: 100px;
     }
   }
@@ -60,7 +58,7 @@
     font-weight: 600;
     color: $c-text-dark;
     font-family: $ff-main;
-    margin: 0 0 24px;
+    margin-top: 24px;
     line-height: 130%;
   }
 
@@ -77,14 +75,16 @@
     }
   }
 
-  // ----------- Services card -----------
+  // ----------- Services cards -----------
   .services-card {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+
     background-color: $c-white;
     border-radius: 16px;
     box-shadow: 0 9px 18px rgba(37, 40, 49, 0.03);
     padding: 32px;
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
     min-width: 0;
     width: 100%;
@@ -94,40 +94,72 @@
       box-shadow $tr;
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(37, 40, 49, 0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
     }
 
     @include tablet {
       &:nth-child(2) {
-        grid-column: 1;
-        grid-row: 2;
+        grid-column: 1 / 4;
+        grid-row: 3;
+        justify-self: center;
       }
       &:nth-child(3) {
-        grid-column: 2;
-        grid-row: 2;
+        grid-column: 4 / 7;
+        grid-row: 3;
+        justify-self: center;
         transform: translateY(-50%);
       }
+
       &:nth-child(4) {
-        grid-column: 1;
-        grid-row: 3;
+        grid-column: 1 / 4;
+        grid-row: 4;
+        justify-self: center;
       }
+
       &:nth-child(5) {
-        grid-column: 2;
-        grid-row: 3;
+        grid-column: 4 / 7;
+        grid-row: 4;
+        justify-self: center;
         transform: translateY(-50%);
+      }
+
+      &:nth-child(3):hover,
+      &:nth-child(5):hover {
+        transform: translateY(calc(-50% - 10px));
       }
     }
 
     @include small-desktop {
-      max-width: 214px;
+      &:nth-child(2) {
+        grid-column: 7 / 10;
+        grid-row: 2;
+        justify-self: center;
+      }
 
       &:nth-child(3) {
-        margin-top: 0;
+        grid-column: 10 / 13;
+        grid-row: 2;
+        justify-self: center;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(4) {
+        grid-column: 7 / 10;
+        grid-row: 3;
+        justify-self: center;
       }
 
       &:nth-child(5) {
-        margin-top: 0;
+        grid-column: 10 / 13;
+        grid-row: 3;
+        justify-self: center;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3):hover,
+      &:nth-child(5):hover {
+        transform: translateY(calc(-50% - 10px));
       }
     }
 
@@ -199,14 +231,14 @@
     }
 
     &__icon {
-      width: 40px;
-      height: 40px;
-      background-color: $c-blue;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 40px;
+      height: 40px;
       flex-shrink: 0;
+      background-color: $c-blue;
+      border-radius: 50%;
 
       img {
         width: 16px;

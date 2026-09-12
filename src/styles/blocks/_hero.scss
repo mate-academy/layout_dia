@@ -19,52 +19,54 @@
     overflow: hidden;
 
     @include small-desktop {
+      @include grid;
+
       height: 680px;
       position: relative;
-      flex-direction: row;
       align-items: center;
-      padding: 0 55px;
+      padding-left: 55px;
+      overflow: visible;
     }
 
     @include the-design {
       max-width: 1600px;
       margin: 0 auto;
       padding-left: 100px;
-      padding-right: 0;
     }
   }
 
   &__content {
-    padding: 40px 20px 32px;
     width: 100%;
+    padding: 40px 20px 32px;
 
     @include tablet {
+      @include grid;
+
       padding: 60px 32px 32px;
     }
 
     @include small-desktop {
-      max-width: 540px;
+      @include grid;
+
+      grid-column: 1 / 5;
       padding: 0;
       position: relative;
       z-index: 5;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 
   &__title {
+    @extend %h1;
+
     color: $c-white;
-    font-size: 52px;
-    font-weight: 600;
-    font-family: $ff-main;
-    line-height: 1.2;
-    letter-spacing: -2px;
     margin: 0 0 32px;
 
     @include tablet {
       font-size: 64px;
+    }
+
+    @include small-desktop {
+      font-size: 68px;
     }
   }
 
@@ -72,9 +74,11 @@
     color: $c-white;
     font-size: 18px;
     font-weight: 400;
-    font-family: $ff-main;
-    line-height: 1.5;
     margin: 0 0 32px;
+
+    @include tablet {
+      grid-column: 1 / 4;
+    }
   }
 
   &__btn {
@@ -83,20 +87,17 @@
     text-align: center;
     background-color: $c-blue;
     color: $c-white;
-    text-decoration: none;
     font-size: 15px;
-    font-weight: 600;
     font-family: $ff-main;
     border-radius: 8px;
     padding: 18px 0;
-    transition: background-color 0.3s;
+    transition: background-color $tr;
 
     @include hover(background-color, darken($c-blue, 10%));
 
-    @include small-desktop {
-      display: inline-block;
-      width: auto;
-      padding: 16px 40px;
+    @include tablet {
+      grid-column: 1 / 4;
+      width: 264px;
     }
   }
 }
@@ -104,7 +105,6 @@
 // ----------- Slider -----------
 .slider {
   position: relative;
-
   width: 100%;
   height: 390px;
   overflow: hidden;
@@ -113,21 +113,18 @@
 
   @include small-desktop {
     position: absolute;
-    inset: 0 0 0 auto;
-    width: 502px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 50vw;
     height: 100%;
-    border-radius: 30px 0;
-  }
-
-  @include the-design {
-    width: 50%;
     border-radius: 30px 0;
   }
 
   &__track {
+    position: relative;
     width: 100%;
     height: 100%;
-    position: relative;
   }
 
   &__slide {
@@ -139,8 +136,8 @@
     opacity: 0;
     visibility: hidden;
     transition:
-      opacity 0.6s ease,
-      visibility 0.6s ease;
+      opacity $tr,
+      visibility $tr;
 
     &--active {
       opacity: 1;
@@ -156,64 +153,104 @@
     object-position: center;
   }
 
-  &__controls {
+  &__slide:nth-child(1) &__image {
+    object-position: center center;
+  }
+
+  &__slide:nth-child(2) &__image {
+    object-position: center center;
+  }
+
+  &__slide:nth-child(3) &__image {
+    object-position: center center;
+  }
+
+  &__bottom {
     position: absolute;
-    bottom: 108px;
+    right: 20px;
+    bottom: 24px;
     left: 20px;
-    display: flex;
-    gap: 16px;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto;
+    gap: 16px;
+
+    @include tablet {
+      right: 41px;
+      bottom: 32px;
+      left: 41px;
+      gap: 24px;
+    }
 
     @include small-desktop {
-      left: auto;
-      right: 24px;
-      bottom: 24px;
+      right: auto;
+      bottom: 48px;
+      left: 78px;
+
+      flex-direction: row;
+      align-items: center;
     }
   }
 
+  &__controls {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    order: 1;
+  }
+
   &__btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    background-color: $c-white;
-    color: $c-bg-dark;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: $c-white;
+    color: $c-bg-dark;
+
+    cursor: pointer;
+
+    transition:
+      background-color $tr,
+      color $tr;
 
     &:hover {
       background-color: $c-blue;
       color: $c-white;
     }
   }
-}
 
-.slide__info {
-  position: absolute;
-  bottom: 24px;
-  left: 20px;
-  z-index: 5;
-  color: $c-white;
+  &__info {
+    position: static;
+    order: 2;
+    width: auto;
+    max-width: 280px;
+    color: $c-white;
+  }
 
-  max-width: 75%;
-
-  .subtitle {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: $c-blue;
+  &__subtitle {
     display: block;
     margin-bottom: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 3px;
     text-transform: uppercase;
   }
 
-  .slide__description {
-    font-size: 14px;
-    line-height: 140%;
+  &__description {
+    font-family: serif;
     font-weight: 400;
+    line-height: 140%;
     margin: 0;
     color: $c-white;
   }

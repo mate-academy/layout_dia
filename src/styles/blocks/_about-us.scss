@@ -1,25 +1,33 @@
 .about-us {
-  padding: 120px 0;
-
   &__container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+    @extend %container;
+    @include grid;
+
+    @include tablet {
+      padding: 0 41px;
+    }
+
+    @include small-desktop {
+      padding: 0 55px;
+    }
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    grid-column: 1 / -1;
+    display: grid;
     text-align: center;
-    margin: 0 auto;
+    gap: 16px;
 
-    @include small-desktop {
-      width: 716px;
+    @include tablet {
+      grid-column: 1 / -1;
     }
 
-    @include the-design {
-      width: 754px;
+    @include small-desktop {
+      grid-column: 2 / 12;
+    }
+
+    @include desktop {
+      grid-column: 3 / 11;
     }
   }
 
@@ -28,12 +36,8 @@
     font-size: 32px;
     color: $c-text-dark;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin: 0;
     line-height: 150%;
-
-    @include tablet {
-      margin-bottom: 16px;
-    }
   }
 
   &__text {

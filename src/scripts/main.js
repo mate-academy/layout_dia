@@ -5,7 +5,7 @@ const burger = document.querySelector('.header__burger');
 const mobileNav = document.querySelector('.header__mobile-nav');
 
 if (burger && mobileNav) {
-  constmobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
+  const mobileLinks = mobileNav.querySelectorAll('.mobile-nav__link');
 
   const closeMenu = () => {
     mobileNav.classList.remove('is-open');
@@ -202,6 +202,28 @@ if (contactForm) {
 
     contactForm.reset();
 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+
     alert('Thank you! Your message has been sent.');
+  });
+}
+
+/* -------------- Theme Toggle -------------------- */
+const themeToggle = document.querySelector('.theme-toggle');
+
+console.log('Theme button:', themeToggle);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    console.log('Theme button clicked');
+
+    const isBlue = document.body.classList.toggle('theme-blue');
+
+    console.log('Blue theme:', isBlue);
+
+    themeToggle.setAttribute('aria-pressed', String(isBlue));
   });
 }
