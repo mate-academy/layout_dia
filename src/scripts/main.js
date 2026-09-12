@@ -2,6 +2,7 @@
 
 // ------------------ Burger Menu --------------- //
 const burger = document.querySelector('.header__burger');
+const closeButton = document.querySelector('.mobile-nav__close');
 const mobileNav = document.querySelector('.header__mobile-nav');
 
 if (burger && mobileNav) {
@@ -9,6 +10,7 @@ if (burger && mobileNav) {
 
   const closeMenu = () => {
     mobileNav.classList.remove('is-open');
+    burger.classList.remove('is-open');
 
     burger.setAttribute('aria-expanded', 'false');
     mobileNav.setAttribute('aria-hidden', 'true');
@@ -16,6 +18,7 @@ if (burger && mobileNav) {
 
   const openMenu = () => {
     mobileNav.classList.add('is-open');
+    burger.classList.add('is-open');
 
     burger.setAttribute('aria-expanded', 'true');
     mobileNav.setAttribute('aria-hidden', 'false');
@@ -31,9 +34,12 @@ if (burger && mobileNav) {
     }
   });
 
+  closeButton?.addEventListener('click', closeMenu);
+
   mobileLinks.forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
+
   document.addEventListener('click', (event) => {
     const target = event.target;
 
@@ -67,11 +73,12 @@ if (slider) {
   const AUTOPLAY_DELAY = 5000;
 
   const showSlide = (index) => {
+    if (!slides.length) {
+      return;
+    }
     slides.forEach((slide, slideIndex) => {
       const isActive = slideIndex === index;
-
       slide.classList.toggle('slider__slide--active', isActive);
-
       slide.setAttribute('aria-hidden', String(!isActive));
     });
 
@@ -120,6 +127,7 @@ if (slider) {
     slider.addEventListener('mouseleave', startAutoplay);
 
     slider.addEventListener('focusin', stopAutoplay);
+
     slider.addEventListener('focusout', startAutoplay);
 
     document.addEventListener('keydown', (event) => {
@@ -186,19 +194,13 @@ if (contactForm) {
 
     const messageInput = contactForm.querySelector('textarea[name="message"]');
 
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
     const email = emailInput.value.trim();
     const name = nameInput.value.trim();
     const message = messageInput.value.trim();
-
-    if (!email || !name || !message) {
-      return;
-    }
-
-    console.log('Form submitted:', {
-      email,
-      name,
-      message,
-    });
 
     contactForm.reset();
 

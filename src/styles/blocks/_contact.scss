@@ -1,7 +1,9 @@
 .contact {
+  grid-column: 1 / -1;
+
   &__inner {
-    display: grid;
-    grid-template-columns: 1fr;
+    @include grid;
+
     align-self: start;
     row-gap: 88px;
 
@@ -20,6 +22,14 @@
   }
 
   // ---------- Send us a message --------------
+  &__form-wrapper {
+    grid-column: 1 / -1;
+
+    @include small-desktop {
+      grid-column: auto;
+    }
+  }
+
   &__title {
     line-height: 130%;
     color: $c-white;
@@ -51,7 +61,7 @@
 
     padding: 0 0 17px;
 
-    border-bottom: 2px solid $c-white;
+    border-bottom: 1px solid $c-white;
 
     color: $c-white;
 
@@ -64,14 +74,13 @@
       -webkit-box-shadow: 0 0 0 1000px $c-bg-dark inset;
       -webkit-text-fill-color: $c-white;
       caret-color: $c-white;
-      transition: background-color 9999s ease;
     }
 
     &:focus {
-      border-bottom-color: $c-blue;
+      border-bottom: 2px solid $c-blue;
     }
 
-    &:invalid:not(:focus) {
+    &:invalid:not(:placeholder-shown, :focus) {
       border-bottom-color: $c-red;
     }
   }
@@ -101,6 +110,12 @@
 
 // ---------- Contact us --------------
 .contact__info {
+  grid-column: 1 / -1;
+
+  @include small-desktop {
+    grid-column: auto;
+  }
+
   &-items {
     display: grid;
     grid-template-columns: 1fr;
