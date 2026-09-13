@@ -14,6 +14,8 @@ if (burger && mobileNav) {
 
     burger.setAttribute('aria-expanded', 'false');
     mobileNav.setAttribute('aria-hidden', 'true');
+
+    document.body.classList.remove('menu-open');
   };
 
   const openMenu = () => {
@@ -22,6 +24,8 @@ if (burger && mobileNav) {
 
     burger.setAttribute('aria-expanded', 'true');
     mobileNav.setAttribute('aria-hidden', 'false');
+
+    document.body.classList.add('menu-open');
   };
 
   burger.addEventListener('click', () => {
