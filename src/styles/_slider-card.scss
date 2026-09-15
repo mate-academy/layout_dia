@@ -1,0 +1,148 @@
+.slider-card {
+  position: absolute;
+  right: 0;
+  bottom: env(save-area-inset-bottom, 0);
+  width: 100%;
+  height: clamp(120px, 40dvh, 43%);
+
+  @include on-small-desktop {
+    height: 87%;
+    width: 50%;
+  }
+
+  overflow: hidden;
+  border-radius: 30px;
+
+  @include on-small-desktop {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__slides {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__window {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__inner {
+    display: flex;
+    width: 300%;
+    height: 100%;
+
+    transition: transform 0.3s ease-out;
+  }
+
+  &__slide {
+    flex: 0 0 33.33%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--1 {
+      background-image: var(--slider-photo-1);
+    }
+
+    &--2 {
+      background-image: var(--slider-photo-2);
+    }
+
+    &--3 {
+      background-image: var(--slider-photo-3);
+    }
+  }
+}
+
+.slider-card__input--1:checked ~ .slider-card__slides .slider-card__inner {
+  transform: translateX(0%);
+}
+
+.slider-card__input--2:checked ~ .slider-card__slides .slider-card__inner {
+  transform: translateX(-33.33%);
+}
+
+.slider-card__input--3:checked ~ .slider-card__slides .slider-card__inner {
+  transform: translateX(-66.66%);
+}
+
+.slider-card__input--1:checked ~ .slider-card__slides .arrows--1 {
+  display: flex;
+}
+
+.slider-card__input--2:checked ~ .slider-card__slides .arrows--2 {
+  display: flex;
+}
+
+.slider-card__input--3:checked ~ .slider-card__slides .arrows--3 {
+  display: flex;
+}
+
+.slider-info {
+  height: auto;
+  position: absolute;
+  bottom: 24px;
+
+  @include content-padding-inline;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1px;
+
+  z-index: 10;
+
+  &__title {
+    margin: 0;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__describe {
+    margin: 0;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
+
+.arrows {
+  display: none;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+
+  transform: translateY(-50%);
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+  }
+}
