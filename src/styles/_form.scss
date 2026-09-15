@@ -1,0 +1,88 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-top: 48px;
+
+  @include on-tablet {
+    margin-top: 56px;
+  }
+
+  &__group {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: var(--link-decoration-color);
+    }
+  }
+
+  &__item {
+    background-color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 0;
+    height: 41px;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: $header-text-color;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $header-text-color;
+      -webkit-box-shadow: 0 0 0 1000px var(--header-background) inset;
+    }
+
+    &::placeholder {
+      font-family: poppins, sans-serif;
+      color: var(--placeholder-text-color);
+      opacity: 0.7;
+    }
+    &:hover::placeholder {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--message {
+      width: 100%;
+      border-radius: 16px;
+      resize: none;
+      overflow: hidden;
+    }
+  }
+  &__button {
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: var(--button-color);
+    color: $header-text-color;
+    border: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    text-align: center;
+    margin-top: 56px;
+
+    @include on-tablet {
+      width: 80%;
+      margin-top: 80px;
+    }
+
+    &:hover {
+      box-shadow: 1px 4px 16px 0 #e8e8f066;
+    }
+    &:active {
+      box-shadow: 1px 4px 16px 0 #e8e8f0a3;
+    }
+  }
+}
