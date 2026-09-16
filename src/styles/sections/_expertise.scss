@@ -1,0 +1,85 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// EXPERTISE SECTION
+// ==========================================================================
+
+.expertise {
+  @extend %theme-white;
+
+  border-radius: $radius-slider-image;
+
+  &__container {
+    padding-block: 72px;
+
+    @include respond-to(tablet) {
+      padding-block: 128px;
+    }
+
+    @include respond-to(desktop) {
+      padding-block: 128px 134px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 56px;
+    text-align: center;
+
+    @include respond-to(desktop) {
+      margin-bottom: 64px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+
+    @include respond-to(tablet) {
+      row-gap: 72px;
+    }
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 137px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 362px;
+    margin-inline: auto;
+
+    text-align: center;
+
+    @include card-lift(8px, $t-duration-slow);
+  }
+
+  &__card-image {
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 166px;
+    margin-bottom: 32px;
+    border-radius: $radius-card;
+  }
+}
+
+// ==========================================================================
+// CARD COMPONENT (Move to components/_card.scss if shared across blocks)
+// ==========================================================================
+
+.card {
+  &__title {
+    @extend %card-title;
+
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    @extend %card-text;
+  }
+}

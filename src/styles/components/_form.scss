@@ -1,0 +1,76 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// FORM COMPONENT
+// ==========================================================================
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include respond-to(tablet) {
+    gap: 48px;
+  }
+
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__input {
+    @extend %btn-text-secondary;
+
+    width: 100%;
+    padding-block: 10px;
+    border: none;
+    border-bottom: 1px solid rgba($c-text-light-primary, 0.3);
+
+    color: $c-text-light-primary;
+
+    background: transparent;
+    outline: none;
+
+    transition: border-color $transition;
+
+    &:focus {
+      border-bottom-color: $c-primary-hover;
+    }
+  }
+
+  &__label {
+    pointer-events: none;
+
+    transform-origin: left top;
+    transform: translateY(26px);
+
+    display: block;
+
+    font-family: $ff-secondary;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba($c-text-light-primary, 0.4);
+
+    transition:
+      transform $transition,
+      color $transition;
+
+    .form__input:focus + &,
+    .form__input:not(:placeholder-shown) + & {
+      transform: translateY(0) scale(0.85);
+    }
+
+    .form__input:focus + & {
+      color: $c-primary-hover;
+    }
+  }
+
+  &__submit {
+    margin-top: 16px;
+
+    @include respond-to(tablet) {
+      margin-top: 32px;
+    }
+  }
+}

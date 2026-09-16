@@ -1,0 +1,139 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// SLIDER COMPONENT
+// ==========================================================================
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__viewport {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: $radius-slider-image;
+
+    @include respond-to(desktop) {
+      border-radius: 30px 0; // Asymmetric corner cut matching Figma design
+    }
+  }
+
+  &__track {
+    display: flex;
+    width: 300%; // Layout width for 3 slides (300% = 3 * 100% viewport)
+    height: 100%;
+    transition: transform $t-duration-slow $t-timing-main;
+  }
+
+  &__slide {
+    position: relative;
+    flex-shrink: 0; // Prevents slide compression in flex calculations
+    width: calc(100% / 3); // Equal width (1/3) relative to the track
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    z-index: 2;
+    bottom: 80px; // Safe spacing above navigation controls on mobile
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include respond-to(tablet) {
+      left: 40px;
+    }
+
+    @include respond-to(desktop) {
+      bottom: 24px;
+      left: 150px; // Offset to clear space for left-aligned controls
+    }
+  }
+
+  &__label {
+    @extend %section-subtitle;
+
+    color: $c-text-light-primary;
+  }
+
+  &__text {
+    @extend %small-text;
+
+    max-width: 280px;
+    color: $c-text-light-primary;
+  }
+
+  &__footer {
+    position: absolute;
+    z-index: 3; // Positioned above slides to ensure button clickability
+    bottom: 24px;
+    left: 20px;
+
+    @include respond-to(tablet) {
+      bottom: 32px;
+      left: 40px;
+    }
+
+    @include respond-to(desktop) {
+      bottom: 24px;
+      left: 40px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__arrow {
+    @include flex-center;
+
+    cursor: pointer;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background-color: $c-bg-white;
+
+    transition:
+      background-color $transition,
+      transform $transition;
+
+    @include hover(background-color, $c-primary-hover);
+    @include click-press(0.98);
+    @include focus-ring;
+
+    img {
+      width: 16px;
+      height: 16px;
+      transition: filter $transition;
+    }
+
+    &:hover {
+      transform: translateY(-0.5px);
+
+      img {
+        filter: brightness(0) invert(1); // Recolors dark SVG icon to white without asset swap
+      }
+    }
+  }
+}

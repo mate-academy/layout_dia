@@ -1,0 +1,108 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// SERVICES SECTION LAYOUT
+// ==========================================================================
+
+.services {
+  @extend %theme-light;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    width: 100%;
+    max-width: $container-max-width;
+    margin-inline: auto;
+
+    @include respond-to(desktop) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      max-width: 260px;
+    }
+
+    @include respond-to(desktop) {
+      position: sticky;
+      top: 40px;
+      max-width: 360px;
+    }
+  }
+
+  &__subtitle {
+    @extend %section-subtitle;
+
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @extend %section-title-h3;
+
+    margin-bottom: 24px;
+    color: $c-text-dark-primary;
+  }
+
+  &__text {
+    @extend %small-text;
+
+    margin-bottom: 24px;
+    color: $c-text-dark-secondary;
+  }
+
+  &__subtext {
+    @extend %small-text;
+
+    color: $c-text-dark-secondary;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: $grid-gap-mobile;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      gap: 30px;
+
+      // Compensating top gap due to left column translateY(132px)
+      margin-top: -124px;
+      margin-bottom: 132px;
+    }
+
+    @include respond-to(desktop) {
+      // Fixed width for 2 columns + gap (214px * 2 + 30px)
+      max-width: calc(214px * 2 + 30px);
+      margin-top: 0;
+      margin-bottom: 132px;
+    }
+  }
+
+  &__col {
+    // Mobile-first default: dissolves wrapper so global card ordering (1..4) works
+    display: contents;
+
+    @include respond-to(tablet) {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: calc(50% - 15px);
+    }
+
+    &--left {
+      @include respond-to(tablet) {
+        transform: translateY(132px); // Offsets left column by 50% card height
+      }
+    }
+  }
+}

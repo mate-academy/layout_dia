@@ -1,0 +1,51 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+// ==========================================================================
+// GRID MIXINS
+// Reusable CSS Grid utilities for BEM blocks without HTML class pollution.
+// ==========================================================================
+
+// Base grid container with responsive gaps
+@mixin grid-base {
+  display: grid;
+  gap: $grid-gap-mobile;
+
+  @include respond-to(tablet) {
+    gap: $grid-gap-tablet;
+  }
+
+  @include respond-to(desktop) {
+    gap: $grid-gap-desktop;
+  }
+
+  @include respond-to(desktop-xl) {
+    gap: $grid-gap-desktop-xl;
+  }
+}
+
+// Sets the number of equal-width columns
+@mixin grid-columns($count) {
+  grid-template-columns: repeat($count, 1fr);
+}
+
+// Dynamic column spanning for specific breakpoints
+@mixin grid-span($breakpoint, $span) {
+  @include respond-to($breakpoint) {
+    grid-column: span $span;
+  }
+}
+
+// Main page layout wrapper for vertical section rhythm (<main>)
+@mixin grid-page-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: $grid-main-gap-mobile;
+
+  max-width: 1600px;
+  margin-inline: auto;
+
+  @include respond-to(tablet) {
+    row-gap: $grid-main-gap-tablet;
+  }
+}

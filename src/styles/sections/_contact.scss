@@ -1,0 +1,155 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// CONTACT US SECTION LAYOUT
+// ==========================================================================
+
+.contact {
+  @extend %theme-dark;
+
+  padding-block: 72px 80px;
+  border-radius: $radius-slider-image $radius-slider-image 0 0;
+
+  // Seamless gap compensation for parent layout
+  @include respond-to(tablet) {
+    margin-top: calc(-1 * $grid-main-gap-tablet);
+    padding-block: 180px 80px;
+  }
+
+  &__container {
+    display: grid;
+    gap: 80px;
+
+    width: 100%;
+    max-width: $container-max-width;
+    margin-inline: auto;
+
+    @include respond-to(tablet) {
+      @include grid-columns(6);
+
+      gap: 120px 30px;
+    }
+
+    @include respond-to(desktop) {
+      @include grid-columns(12);
+
+      align-items: start;
+    }
+  }
+
+  // Feedback form column
+  &__form-wrapper {
+    width: 100%;
+
+    @include grid-span(tablet, 6);
+    @include grid-span(desktop, 5);
+  }
+
+  &__form-title {
+    @extend %section-title-h3;
+
+    margin-bottom: 48px;
+    line-height: 1.3;
+
+    @include respond-to(tablet) {
+      margin-bottom: 56px;
+      line-height: $lh-section-title-h3;
+    }
+  }
+
+  // Contact details column
+  &__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      @include grid-span(tablet, 6);
+
+      gap: 48px;
+    }
+
+    @include respond-to(desktop) {
+      grid-column: 7 / span 5;
+      margin-top: 30px;
+    }
+
+    @include respond-to(desktop-xl) {
+      grid-column: 8 / span 5;
+    }
+  }
+
+  &__info-title {
+    @extend %section-subtitle;
+
+    margin-bottom: 8px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &:last-child {
+      gap: 16px;
+    }
+  }
+
+  &__label {
+    @extend %section-subtitle;
+
+    color: rgba($c-text-light-primary, 0.5);
+  }
+
+  // Interactive link values (phone, email)
+  &__value {
+    @extend %body-large;
+
+    width: fit-content;
+    text-decoration: none;
+
+    @include hover(color, $c-primary);
+    @include click-press(0.98);
+    @include focus-ring;
+  }
+
+  // Social icons group
+  &__socials {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__social-link {
+    @include flex-center;
+
+    width: 32px;
+    height: 32px;
+    color: $c-bg-white;
+
+    @include hover(color, $c-primary);
+    @include click-press(0.92);
+    @include focus-ring;
+  }
+
+  &__social-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  // Section footer area
+  &__footer {
+    width: 100%;
+
+    @include grid-span(tablet, 6);
+
+    @include respond-to(tablet) {
+      margin-top: 20px;
+    }
+
+    @include respond-to(desktop) {
+      grid-column: 1 / -1;
+      margin-top: 0;
+    }
+  }
+}

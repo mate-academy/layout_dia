@@ -1,0 +1,94 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// HERO SECTION (Mobile-First)
+// ==========================================================================
+
+.hero {
+  @extend %theme-dark;
+
+  border-radius: 0 0 30px 30px;
+
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(desktop) {
+      display: block;
+      min-height: 680px; // Synchronized hero height
+    }
+
+    @include respond-to(desktop-xl) {
+      min-height: 800px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding-block: 28px;
+
+    @include respond-to(tablet) {
+      padding-block: 36px;
+    }
+
+    @include respond-to(desktop) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      max-width: 385px;
+      min-height: 680px;
+      padding-block: 0;
+    }
+  }
+
+  &__title {
+    @extend %hero-title;
+
+    margin-bottom: 24px;
+
+    @include respond-to(desktop) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    @extend %hero-text;
+
+    margin-bottom: 40px;
+
+    @include respond-to(tablet) {
+      max-width: 65%;
+      margin-bottom: 56px;
+    }
+
+    @include respond-to(desktop) {
+      max-width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__slider {
+    height: 390px;
+    margin-top: 24px;
+
+    @include respond-to(desktop) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      // Responsive width calculation: (687px / 1600px) * 100vw = 42.93vw (~43vw)
+      width: clamp(502px, 43vw, 687px);
+      height: 680px;
+      margin-top: 0;
+    }
+
+    @include respond-to(desktop-xl) {
+      width: 687px;
+      height: 800px;
+    }
+  }
+}
