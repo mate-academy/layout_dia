@@ -1,4 +1,173 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+@use 'vars' as *;
+@use 'mixins' as *;
+
+// ==========================================================================
+// TYPOGRAPHY PLACEHOLDERS (Mobile-First)
+// Note: Colors are left undefined for elements that adapt to light/dark themes.
+// Explicit colors are defined only for fixed-theme components (e.g., Hero).
+// ==========================================================================
+
+%hero-title {
+  font-family: $ff-primary;
+  font-size: $fs-hero-title;
+  font-weight: $fw-hero-title;
+  line-height: $lh-hero-title;
+  color: $c-text-light-primary;
+  letter-spacing: $ls-hero-title;
+
+  @include respond-to(tablet) {
+    font-size: $fs-hero-title-tab;
+  }
+
+  @include respond-to(desktop) {
+    font-size: $fs-hero-title-desktop;
+  }
+}
+
+%hero-text {
+  font-family: $ff-secondary;
+  font-size: $fs-hero-text;
+  font-weight: $fw-hero-text;
+  line-height: $lh-hero-text;
+  color: $c-text-light-primary;
+}
+
+%section-title {
+  font-family: $ff-primary;
+  font-size: $fs-section-title;
+  font-weight: $fw-section-title;
+  line-height: $lh-section-title;
+
+  @include respond-to(tablet) {
+    font-size: $fs-section-title-desktop;
+    line-height: $lh-section-title-desktop;
+  }
+}
+
+%section-title-h3 {
+  font-family: $ff-primary;
+  font-size: $fs-section-title-h3;
+  font-weight: $fw-section-title-h3;
+  line-height: $lh-section-title-h3;
+}
+
+%section-subtitle {
+  font-family: $ff-primary;
+  font-size: $fs-subtitle;
+  font-weight: $fw-subtitle;
+  line-height: $lh-subtitle;
+  color: $c-text-dark-muted;
+  text-transform: $tt-subtitle;
+  letter-spacing: $ls-subtitle;
+}
+
+%card-title {
+  font-family: $ff-primary;
+  font-size: $fs-card-title;
+  font-weight: $fw-card-title;
+  line-height: $lh-card-title;
+  color: $c-text-dark-primary;
+}
+
+%card-text {
+  font-family: $ff-secondary;
+  font-size: $fs-card-text;
+  font-weight: $fw-card-text;
+  line-height: $lh-card-text;
+  color: $c-text-dark-secondary;
+}
+
+%body-text {
+  font-family: $ff-secondary;
+  font-size: $fs-body;
+  font-weight: $fw-body;
+  line-height: $lh-body;
+}
+
+%body-middle {
+  font-family: $ff-secondary;
+  font-size: $fs-body-middle;
+  font-weight: $fw-body-middle;
+  line-height: $lh-body-middle;
+  color: $c-text-dark-secondary;
+
+  @include respond-to(tablet) {
+    font-size: $fs-body-large;
+    line-height: $lh-body-large;
+  }
+}
+
+%body-large {
+  font-family: $ff-secondary;
+  font-size: $fs-body-large;
+  font-weight: $fw-body-large;
+  line-height: $lh-body-large;
+  color: $c-text-light-primary;
+}
+
+%nav-link {
+  font-family: $ff-primary;
+  font-size: $fs-nav;
+  font-weight: $fw-nav;
+  line-height: $lh-nav;
+  color: $c-text-light-primary;
+  text-transform: $tt-nav;
+  letter-spacing: $ls-nav;
+  white-space: nowrap;
+}
+
+%btn-text {
+  font-family: $ff-primary;
+  font-size: $fs-btn;
+  font-weight: $fw-btn;
+  line-height: $lh-btn;
+  color: $c-text-light-primary;
+  text-decoration: none;
+  text-transform: $tt-btn;
+  letter-spacing: $ls-btn;
+}
+
+%btn-text-secondary {
+  font-family: $ff-secondary;
+  font-size: $fs-btn-secondary;
+  font-weight: $fw-btn-secondary;
+  line-height: $lh-btn-secondary;
+  text-decoration: none;
+  letter-spacing: $ls-btn-secondary;
+}
+
+%small-text {
+  font-family: $ff-secondary;
+  font-size: $fs-small;
+  font-weight: $fw-small;
+  line-height: $lh-small;
+  letter-spacing: $ls-small;
+}
+
+// Interactive underline effect
+%animated-underline {
+  position: relative;
+  padding-bottom: 8px;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+
+    background-color: $c-primary;
+
+    transition: transform $transition;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }

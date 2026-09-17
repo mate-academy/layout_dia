@@ -1,0 +1,58 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// BASE STYLES
+// Core application layout, media defaults, and accessiblity utilities
+// ==========================================================================
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: $header-height;
+}
+
+body {
+  overflow-x: hidden;
+
+  min-width: $bp-mobile;
+
+  font-family: $ff-secondary;
+  font-size: $fs-body;
+  font-weight: $fw-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: $lh-body;
+  color: $c-text-dark-primary;
+
+  background-color: $c-bg-light;
+}
+
+// Responsive media elements
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Global page structural grid
+.page-layout {
+  @include grid-page-layout;
+}
+
+// Accessible screen-reader-only utility
+.visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
+}

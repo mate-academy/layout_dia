@@ -1,0 +1,277 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// TESTIMONIALS SECTION LAYOUT
+// ==========================================================================
+
+.testimonials {
+  @extend %theme-light;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    width: 100%;
+    max-width: $container-max-width;
+    margin-inline: auto;
+
+    @include respond-to(tablet) {
+      gap: 56px;
+    }
+
+    @include respond-to(desktop) {
+      gap: 85px;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(tablet) {
+      max-width: 200px;
+    }
+  }
+
+  &__subtitle {
+    @extend %section-subtitle;
+
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @extend %section-title-h3;
+
+    color: $c-text-dark-primary;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    @include respond-to(desktop) {
+      flex-direction: row;
+      gap: 20px;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+
+    @include respond-to(desktop-xl) {
+      gap: 30px;
+    }
+  }
+}
+
+// ==========================================================================
+// TESTIMONIAL CARD COMPONENT
+// ==========================================================================
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 280px;
+  padding: 36px;
+  border-radius: $radius-card;
+
+  text-align: center;
+
+  background-color: $c-bg-white;
+  box-shadow: 0 9px 18px $c-shadow-card;
+
+  transition:
+    transform $transition,
+    box-shadow $transition;
+
+  // Avatar wrapper with decorative rotated capsule pseudo-elements
+  &__avatar-wrap {
+    @include flex-center;
+
+    position: relative;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 56px;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 1;
+      transform: rotate(30deg);
+
+      width: 44px;
+      height: 109px;
+      border-radius: 12px;
+
+      background-color: $c-primary;
+    }
+
+    &::before {
+      top: 6px;
+      left: 35px;
+    }
+
+    &::after {
+      right: 35px;
+      bottom: 10px;
+    }
+
+    @include respond-to(tablet) {
+      width: 250px;
+      height: 250px;
+
+      &::before,
+      &::after {
+        width: 56px;
+        height: 139px;
+      }
+
+      &::before {
+        top: 8px;
+        left: 45px;
+      }
+
+      &::after {
+        right: 45px;
+        bottom: 10px;
+      }
+    }
+
+    @include respond-to(desktop) {
+      width: 196px;
+      height: 196px;
+
+      &::before,
+      &::after {
+        width: 44px;
+        height: 109px;
+      }
+
+      &::before {
+        top: 10px;
+        left: 35px;
+      }
+
+      &::after {
+        right: 40px;
+        bottom: 5px;
+      }
+    }
+
+    @include respond-to(desktop-xl) {
+      width: 250px;
+      height: 250px;
+
+      &::before,
+      &::after {
+        width: 56px;
+        height: 139px;
+      }
+
+      &::before {
+        top: 10px;
+        left: 45px;
+      }
+
+      &::after {
+        right: 45px;
+        bottom: 5px;
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+    z-index: 2;
+
+    width: 110px;
+    border-radius: 50%;
+
+    object-fit: cover;
+    background-color: $c-bg-light;
+
+    @include respond-to(tablet) {
+      width: 140px;
+    }
+
+    @include respond-to(desktop) {
+      width: 110px;
+    }
+
+    @include respond-to(desktop-xl) {
+      width: 140px;
+    }
+  }
+
+  &__quote-icon {
+    transform: rotate(180deg);
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+    font-size: 58px;
+    font-weight: bold;
+    line-height: 0;
+    color: $c-primary;
+    letter-spacing: -4px;
+  }
+
+  &__text {
+    @extend %card-text;
+
+    flex-grow: 1;
+    margin: 0 0 32px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-style: normal;
+  }
+
+  &__name {
+    @extend %card-text;
+
+    font-style: normal;
+    color: $c-text-dark-primary;
+  }
+
+  &__company {
+    @extend %section-subtitle;
+  }
+
+  // Hover state wrapped in media query to protect touch devices
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px $c-shadow-card-hover;
+    }
+  }
+
+  @include respond-to(tablet) {
+    max-width: 558px;
+    padding: 36px 95px;
+  }
+
+  @include respond-to(desktop) {
+    max-width: 292px;
+    padding: 32px 42px;
+  }
+
+  @include respond-to(desktop-xl) {
+    max-width: 362px;
+    padding: 33px 56px;
+  }
+}

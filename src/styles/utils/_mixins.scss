@@ -1,6 +1,95 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'vars' as *;
+/* stylelint-disable at-rule-empty-line-before */
+
+// ==========================================================================
+// RESPONSIVE BREAKPOINTS (Mobile-First)
+// ==========================================================================
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: ($bp-tablet - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $bp-desktop) {
+      // 1024px
+      @content;
+    }
+  } @else if $breakpoint == desktop-xl {
+    @media (min-width: $bp-desktop-xl) {
+      // 1600px
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint: #{$breakpoint}. Use mobile, tablet, desktop, or desktop-xl.";
   }
+}
+
+// ==========================================================================
+// INTERACTION & ANIMATION HELPERS
+// ==========================================================================
+
+// Smooth card elevation effect with touch device protection
+@mixin card-lift($amount: 5px, $duration: $t-duration-slow) {
+  transition: transform $duration $t-timing-main;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-$amount);
+    }
+  }
+}
+
+// Safe hover state helper with touch device fallback
+@mixin hover($property, $value, $duration: $t-duration-fast) {
+  transition: #{$property} $duration $t-timing-main;
+
+  &:active {
+    #{$property}: #{$value};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+// Tactile press response for active click/touch events
+@mixin click-press($scale: 0.94) {
+  &:active {
+    transform: scale($scale);
+    transition-duration: $t-duration-instant;
+  }
+}
+
+// Accessible outline style (WCAG) for keyboard navigation
+@mixin focus-ring($color: $c-primary, $offset: 2px) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: $offset;
+  }
+}
+
+// ==========================================================================
+// LAYOUT HELPERS
+// ==========================================================================
+
+// Centering shortcut using Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Absolute centering shortcut
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

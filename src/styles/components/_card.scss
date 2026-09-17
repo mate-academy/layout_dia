@@ -1,0 +1,108 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// SERVICE CARD COMPONENT
+// ==========================================================================
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 30px;
+  border-radius: $radius-card;
+
+  background-color: $c-bg-white;
+  box-shadow: 0 9px 18px $c-shadow-card;
+
+  transition:
+    transform $transition,
+    box-shadow $transition;
+
+  // Strict visual order on mobile viewports (< 640px)
+  @for $i from 1 through 4 {
+    &--0#{$i} {
+      order: $i;
+    }
+  }
+
+  // Fixed card height for tablet and desktop viewports
+  @include respond-to(tablet) {
+    justify-content: space-between;
+    height: 264px;
+  }
+
+  // Card elevation on hover
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px $c-shadow-card-hover;
+  }
+
+  &__number {
+    @extend %card-text;
+
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 4px 12px;
+    border-radius: 23px;
+
+    color: $c-primary;
+
+    background-color: rgba($c-primary, 0.1);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 0 32px;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__item {
+    @extend %card-text;
+  }
+
+  &__arrow {
+    @include flex-center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: $c-primary;
+
+    transition:
+      background-color $transition,
+      transform $transition;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__link {
+    @extend %btn-text-secondary;
+
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+
+    margin-top: auto;
+
+    color: $c-text-dark-lite;
+    text-decoration: none;
+
+    @include click-press(0.98);
+    @include focus-ring;
+
+    // Triggers arrow animation when hovering over the link text
+    &:hover .service-card__arrow {
+      transform: translateX(4px);
+      background-color: $c-primary-hover;
+    }
+  }
+}

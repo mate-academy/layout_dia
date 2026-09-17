@@ -1,0 +1,35 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// PRIMARY BUTTON COMPONENT
+// ==========================================================================
+
+.btn {
+  @extend %btn-text-secondary;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 50px;
+  padding-inline: 24px;
+  border-radius: $radius-button;
+
+  color: $c-text-light-primary;
+
+  background-color: $c-primary;
+
+  // Background smooth color transition
+  @include hover(background-color, $c-primary-hover);
+
+  // Tactile press state for clicks and touches
+  @include click-press(0.98);
+
+  // Outline style for keyboard (Tab) navigation
+  @include focus-ring;
+
+  @include respond-to(tablet) {
+    width: 264px;
+  }
+}

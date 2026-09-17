@@ -1,0 +1,201 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// HEADER COMPONENT
+// ==========================================================================
+.header {
+  position: relative;
+  z-index: $z-header;
+  padding-block: 20px;
+
+  @include respond-to(desktop) {
+    padding-block: 40px;
+  }
+
+  &__container {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to(desktop) {
+      gap: 48px;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    z-index: $z-modal + 1; // Всегда выше открытого оверлея
+    display: flex;
+    align-items: center;
+
+    @include hover(color, $c-primary);
+    @include click-press(0.96);
+    @include focus-ring;
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond-to(desktop) {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__link {
+    @extend %nav-link;
+    @extend %animated-underline;
+  }
+
+  &__hire-btn {
+    @extend %btn-text;
+    @extend %animated-underline;
+
+    position: relative;
+    z-index: $z-modal + 1;
+
+    display: inline-flex; // 1. Делаем флексом, чтобы текст центрировался внутри
+    align-items: center;
+
+    margin-inline-start: auto;
+    padding-bottom: 0; // 2. Убираем нижний отступ, ломавший вертикальную ось
+
+    white-space: nowrap;
+
+    @include respond-to(desktop) {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+// ==========================================================================
+// BURGER BUTTON COMPONENT
+// ==========================================================================
+.burger {
+  cursor: pointer;
+
+  position: relative;
+  z-index: $z-modal + 1; // Всегда сверху оверлея
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 28px;
+  height: 14px;
+  padding: 0;
+  border: none;
+
+  background: transparent;
+
+  @include focus-ring;
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+
+  .burger__line {
+    transform-origin: center;
+
+    display: block;
+
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+
+    background-color: $c-text-light-primary;
+
+    transition:
+      transform $transition,
+      background-color $transition;
+
+    &:first-child {
+      transform: translateY(0) rotate(0);
+    }
+
+    &:last-child {
+      transform: translateY(0) rotate(0);
+    }
+  }
+
+  &:hover .burger__line {
+    background-color: $c-primary;
+  }
+
+  // Состояние крестика при клике
+  &.is-active {
+    .burger__line {
+      background-color: $c-text-light-primary;
+
+      &:first-child {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      &:last-child {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// MOBILE NAVIGATION OVERLAY
+// ==========================================================================
+.mobile-nav {
+  position: fixed;
+  z-index: $z-modal;
+  inset: 0; // top: 0, right: 0, bottom: 0, left: 0
+
+  // Анимация съезда сверху
+  transform: translateY(-100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $c-bg-dark;
+
+  transition: transform $t-duration-slow $t-timing-main;
+
+  &.is-active {
+    transform: translateY(0);
+  }
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__link {
+    @extend %nav-link;
+
+    font-size: $fs-body-large;
+    transition: color $transition;
+
+    &:hover {
+      color: $c-primary;
+    }
+  }
+}
