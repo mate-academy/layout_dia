@@ -1,0 +1,94 @@
+$process-card-size: 264px;
+
+.process {
+  padding-top: $section-gap;
+
+  &__container {
+    @include on-desktop-sm {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      width: 266px;
+    }
+
+    @include on-desktop-sm {
+      width: 292px;
+      margin-top: 103px;
+    }
+
+    @include on-desktop {
+      width: 362px;
+    }
+  }
+
+  &__eyebrow {
+    @extend %caps;
+
+    margin: 0;
+    color: $c-text-muted;
+  }
+
+  &__title {
+    margin: 16px 0 0;
+
+    font-family: $ff-heading;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 130%;
+    color: $c-text-heading;
+  }
+
+  &__description {
+    margin: 24px 0 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $c-text-body;
+
+    & + & {
+      margin-top: 21px;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    gap: 30px;
+
+    margin: 48px 0 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, $process-card-size);
+      margin-top: 56px;
+    }
+
+    @include on-desktop-sm {
+      grid-template-columns: repeat(2, 214px);
+      gap: 20px;
+      margin: 132px 0 0;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(2, $process-card-size);
+      gap: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+
+    @include on-tablet {
+      &:nth-child(even) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

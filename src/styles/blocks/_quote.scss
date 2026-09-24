@@ -1,0 +1,123 @@
+.quote {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 32px;
+  border-radius: $radius-card;
+
+  text-align: center;
+
+  background-color: $c-surface;
+  box-shadow: 0 9px 18px rgba(37, 40, 48, 0.03);
+
+  @include hover(transform, scale(1.05));
+
+  &__photo {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1;
+    width: 196px;
+    margin: 0 auto;
+
+    @include on-tablet {
+      width: 250px;
+    }
+
+    @include on-desktop-sm {
+      width: 196px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      transform: translate(-50%, -50%) rotate(30deg);
+
+      width: 21.4%;
+      height: 53.4%;
+      border-radius: 12px;
+
+      background-color: $c-primary;
+    }
+
+    &::before {
+      top: 31.6%;
+      left: 31.6%;
+    }
+
+    &::after {
+      top: 68.4%;
+      left: 68.4%;
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    z-index: 1;
+
+    aspect-ratio: 1;
+    width: 56%;
+    border-radius: 50%;
+
+    object-fit: cover;
+  }
+
+  &__icon {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    margin: 24px auto 0;
+
+    color: $c-primary;
+  }
+
+  &__text {
+    max-width: 196px;
+    margin: 8px auto 0;
+
+    @include on-tablet {
+      max-width: 362px;
+      margin-top: 16px;
+    }
+
+    @include on-desktop-sm {
+      max-width: 196px;
+      margin-top: 8px;
+    }
+
+    @include on-desktop {
+      max-width: 250px;
+    }
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $c-text-body;
+  }
+
+  &__name {
+    margin: 16px 0 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $c-text-heading;
+  }
+
+  &__company {
+    @extend %caps;
+
+    margin: 4px 0 0;
+    color: $c-text-muted;
+  }
+}
