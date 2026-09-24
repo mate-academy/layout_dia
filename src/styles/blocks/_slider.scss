@@ -1,0 +1,125 @@
+.slider {
+  overflow: hidden;
+  border-radius: $radius-lg;
+
+  @include on-desktop-sm {
+    border-radius: $radius-lg 0;
+  }
+
+  &::after {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    inset: 55% 0 0;
+
+    background: linear-gradient(transparent, rgba($c-bg-dark, 0.55));
+  }
+
+  &__slides {
+    position: relative;
+    height: 100%;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    opacity: 0;
+
+    transition: opacity $transition;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__panel {
+    position: absolute;
+    z-index: 1;
+    bottom: $gutter-mobile;
+    left: $gutter-mobile;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+
+    @include on-tablet {
+      bottom: $gutter-tablet;
+      left: calc(50% - 279px);
+    }
+
+    @include on-desktop-sm {
+      right: calc(100% - 448px);
+      bottom: 48px;
+      left: auto;
+
+      flex-direction: row;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      right: auto;
+      left: 48px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+  }
+
+  &__arrow {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    color: $c-primary;
+
+    background-color: $c-surface;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__arrow-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__description {
+    max-width: 264px;
+    color: $c-text-inverse;
+  }
+
+  &__label {
+    @extend %caps;
+
+    margin: 0;
+  }
+
+  &__text {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
