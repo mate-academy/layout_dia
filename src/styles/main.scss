@@ -21,6 +21,7 @@ button {
 
 .header {
   background-color: $header-background-color;
+  border-radius: 0 0 30px 30px;
 
   .header-top {
     display: flex;
@@ -57,11 +58,12 @@ button {
   }
 
   .header-bottom {
-    padding: 48px 20px 80px;
+    position: relative;
+    padding: 48px 20px calc(48px + $slider-height);
     color: $header-text-color;
 
     @media (min-width: 640px) {
-      padding: 56px 40px 147px;
+      padding: 56px 40px calc(115px + $slider-height);
     }
 
     &__title-box {
@@ -119,14 +121,21 @@ button {
 }
 
 .slider {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: $slider-height;
+
+  display: flex;
+  align-items: flex-end;
+
   padding: 0 20px;
   background: url('/src/images/slider-background.png');
   background-size: cover;
   background-position: center;
   border-radius: 30px;
-
-  position: relative;
-  margin-top: -32px;
 
   @media (min-width: 640px) {
     padding: 0 40px;
@@ -137,7 +146,6 @@ button {
     flex-direction: column;
     gap: 16px;
 
-    padding-top: 250px;
     padding-bottom: 24px;
 
     &__buttons {
