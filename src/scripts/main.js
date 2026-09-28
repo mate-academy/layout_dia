@@ -30,8 +30,6 @@ rightButton.addEventListener('click', (event) => {
     currentImage = 0;
   }
 
-  console.log(currentImage);
-
   slider.style.backgroundImage = sliderImages[currentImage];
 });
 
@@ -45,8 +43,6 @@ leftButton.addEventListener('click', (event) => {
   if (currentImage < 0) {
     currentImage = 2;
   }
-
-  console.log(currentImage);
 
   slider.style.backgroundImage = sliderImages[currentImage];
 });
