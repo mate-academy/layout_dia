@@ -1,5 +1,9 @@
 'use strict';
 
+import slide1 from '../images/what-we-do/what-we-do-1.jpg';
+import slide2 from '../images/what-we-do/what-we-do-2.jpg';
+import slide3 from '../images/what-we-do/what-we-do-3.jpg';
+
 const burger = document.querySelector('.header-top__logo-box__burger');
 const navigation = document.querySelector('.header-top__nav');
 const desktop = window.matchMedia('(min-width: 1024px)');
@@ -35,10 +39,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-  if (
-    !burger.contains(event.target) &&
-    !navigation.contains(event.target)
-  ) {
+  if (!burger.contains(event.target) && !navigation.contains(event.target)) {
     setMenuOpen(false);
   }
 });
@@ -54,9 +55,9 @@ const leftButton = document.querySelector('a[aria-label="previous"]');
 const rightButton = document.querySelector('a[aria-label="next"]');
 
 const sliderImages = [
-  'url(/src/images/what-we-do/what-we-do-1.jpg)',
-  'url(/src/images/what-we-do/what-we-do-2.jpg)',
-  'url(/src/images/what-we-do/what-we-do-3.jpg)',
+  `url("${slide1}")`,
+  `url("${slide2}")`,
+  `url("${slide3}")`,
 ];
 
 let currentImage = 0;
