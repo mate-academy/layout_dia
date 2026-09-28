@@ -6,6 +6,7 @@ const desktop = window.matchMedia('(min-width: 1024px)');
 
 function setMenuOpen(isOpen) {
   navigation.classList.toggle('is-open', isOpen);
+  document.body.classList.toggle('menu-open', isOpen);
   burger.setAttribute('aria-expanded', String(isOpen));
   burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
 }
