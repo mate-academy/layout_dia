@@ -25,6 +25,8 @@ textarea {
   border-radius: 0 0 30px 30px;
 
   .header-top {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,6 +59,13 @@ textarea {
       gap: 32px;
 
       &__burger {
+        cursor: pointer;
+
+        padding: 10px;
+        border: 0;
+
+        background: transparent;
+
         @media (min-width: 1024px) {
           display: none;
         }
@@ -65,6 +74,33 @@ textarea {
 
     &__nav {
       display: none;
+
+      @media (max-width: 1023.98px) {
+        position: absolute;
+        z-index: 10;
+        top: 100%;
+        right: 0;
+        left: 0;
+
+        flex-direction: column;
+        gap: 24px;
+
+        padding: 24px 20px;
+
+        background-color: $header-background-color;
+
+        border-bottom: 2px solid $button-color;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+
+        @media (min-width: 640px) {
+          padding: 56px 41px;
+        }
+
+        &.is-open {
+          display: flex;
+        }
+      }
 
       @media (min-width: 1024px) {
         display: flex;

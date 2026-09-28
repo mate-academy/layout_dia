@@ -1,5 +1,51 @@
 'use strict';
 
+const burger = document.querySelector('.header-top__logo-box__burger');
+const navigation = document.querySelector('.header-top__nav');
+const desktop = window.matchMedia('(min-width: 1024px)');
+
+function setMenuOpen(isOpen) {
+  navigation.classList.toggle('is-open', isOpen);
+  burger.setAttribute('aria-expanded', String(isOpen));
+  burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+}
+
+burger.addEventListener('click', () => {
+  const isOpen = burger.getAttribute('aria-expanded') === 'true';
+
+  setMenuOpen(!isOpen);
+});
+
+navigation.addEventListener('click', (event) => {
+  if (event.target.closest('a') && !desktop.matches) {
+    burger.focus();
+    setMenuOpen(false);
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (
+    event.key === 'Escape' &&
+    burger.getAttribute('aria-expanded') === 'true'
+  ) {
+    burger.focus();
+    setMenuOpen(false);
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (
+    !burger.contains(event.target) &&
+    !navigation.contains(event.target)
+  ) {
+    setMenuOpen(false);
+  }
+});
+
+desktop.addEventListener('change', () => {
+  setMenuOpen(false);
+});
+
 const form = document.querySelector('.footer__form-box__form');
 const slider = document.querySelector('.slider');
 
