@@ -17,11 +17,6 @@ let currentImage = 0;
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   event.target.reset();
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
 });
 
 rightButton.addEventListener('click', (event) => {
