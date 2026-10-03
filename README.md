@@ -7,17 +7,17 @@ Adapt the page to the following screens:
 - Desktop 1280px
 - Small desktop 1024px
 - Tablet 640px
-- Mobile (> 320px)
+- Mobile (320px and up)
 
 1. Implement the header with `nav`.
 1. Implement `Strategic agency` block.
-1. Implement slider (You may start with a single picture).
+1. Implement the three-slide hero slider with manual controls and automatic playback.
     - implement slider block as absolutely positioned element with `right: 0` and `bottom: 0` position inside the black container
-    - on large screens limit the width of black container to 1600px, so that left outer space have a standart grey background color
+    - on large screens keep the hero background full-width and center the content within its responsive container
 3. Implement `Who we are` block.
 4. Implement `Our expertise` block with the card reused 3 times.
 5. Implement `Process` block with 4 process cards.
-    - use `trasnlateY(-50%)` to move cards up
+    - use `translateY(-50%)` to move cards up
 6. Implement `Testimonials` block.
      - each card should have a fixed width and on the small screens the whole block should switch to column layout
 8. Implement `Vision, Passion, Results` block.
@@ -65,7 +65,7 @@ Adapt the page to the following screens:
 11. `git push origin develop` - to send you code for PR.
 12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
 13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_dia/).
+  [DEMO LINK](https://serezatkacik8-boop.github.io/layout_dia/).
 14. Copy `DEMO LINK` to the PR description.
 
 > To update you PR repeat steps 7-11.
