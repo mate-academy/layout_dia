@@ -1,0 +1,177 @@
+.header {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: transparent;
+
+  &__inner {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    max-width: $container-width;
+    height: 96px;
+    margin-inline: auto;
+    padding-inline: 20px;
+
+    @include min($bp-tablet) {
+      padding-inline: 40px;
+    }
+
+    @include min($bp-desktop) {
+      padding-inline: 14.19%;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+
+    font-family: $font-heading;
+    font-size: 24px;
+    font-weight: 700;
+    color: $c-white;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    @include hover(opacity, 0.7);
+  }
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 8px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    @include min($bp-small-desktop) {
+      display: none;
+    }
+  }
+
+  &__burger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+
+    border-radius: 2px;
+    background-color: $c-white;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 96px;
+    right: 0;
+    left: 0;
+
+    display: none;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+
+    padding: 32px 20px;
+
+    font-family: Poppins, sans-serif;
+
+    background-color: $c-dark;
+
+    &.is-open {
+      display: flex;
+    }
+
+    @include min($bp-small-desktop) {
+      position: static;
+
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-left: 32px;
+      padding: 0;
+
+      background-color: transparent;
+    }
+
+    @include min($bp-desktop) {
+      margin-left: 48px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @include min($bp-small-desktop) {
+      flex-direction: row;
+      gap: 28px;
+    }
+
+    @include min($bp-desktop) {
+      gap: 48px;
+    }
+  }
+
+  &__link {
+    flex-shrink: 0;
+
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 150%;
+    color: $c-white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    @include hover(color, rgba(255, 255, 255, 0.6));
+
+    &--cta {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        right: 0;
+        bottom: -8px;
+        left: 0;
+
+        height: 2px;
+
+        border-radius: 4px;
+        background-color: $c-primary;
+
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1.15);
+      }
+    }
+  }
+}
