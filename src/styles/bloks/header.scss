@@ -1,0 +1,252 @@
+.header {
+  position: relative;
+
+  overflow: hidden;
+
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-bottom: 390px;
+  border-radius: 0 0 30px 30px;
+
+  color: $color-white;
+
+  background-color: $color-dark;
+
+  @include on-small-desktop {
+    min-height: 800px;
+    padding-bottom: 0;
+  }
+
+  &__container {
+    max-width: 1146px;
+    margin-inline: auto;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      padding-inline: 40px;
+    }
+
+    @include on-small-desktop {
+      padding-inline: 54px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    padding-top: 18px;
+
+    @include on-small-desktop {
+      gap: 24px;
+      justify-content: space-between;
+      padding-top: 48px;
+    }
+  }
+
+  &__menu-button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+
+    color: $color-white;
+
+    background: transparent;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__menu-icon {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 8px;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+
+      background-color: currentColor;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__hire-us {
+    position: relative;
+
+    flex-shrink: 0;
+
+    margin-left: auto;
+    padding-block: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    transition: color 0.3s;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 2px;
+      border-radius: 4px;
+
+      background-color: $color-primary;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    @include on-small-desktop {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    padding-block: 48px;
+
+    @include on-tablet {
+      padding-block: 56px 147px;
+    }
+
+    @include on-small-desktop {
+      width: 362px;
+      padding-block: 164px 80px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 62px;
+    letter-spacing: -2px;
+
+    @include on-tablet {
+      font-size: 64px;
+      line-height: 68px;
+    }
+  }
+
+  &__description {
+    max-width: 362px;
+    margin: 32px 0 0;
+    font-size: 18px;
+    line-height: 27px;
+
+    @include on-tablet {
+      margin-top: 24px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 32px;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 72px;
+
+    @include on-tablet {
+      width: 264px;
+      margin-top: 56px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 83px;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 390px;
+
+    @include on-small-desktop {
+      width: calc(50% - 12px);
+      height: calc(100% - 120px);
+    }
+
+    @include on-desktop {
+      width: calc(50% - 114px);
+    }
+  }
+
+  @media (max-width: ($small-desktop-min-width - 1px)) {
+    .header__nav {
+      position: absolute;
+      z-index: 10;
+      top: 70px;
+      right: 20px;
+      left: 20px;
+
+      padding: 24px;
+      border: 1px solid $color-muted;
+      border-radius: 16px;
+
+      background-color: $color-dark;
+
+      &--open {
+        display: block;
+      }
+
+      .nav__list {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+    }
+  }
+}
