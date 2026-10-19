@@ -1,3 +1,56 @@
 @import 'utils/vars';
 @import 'utils/mixins';
 @import 'utils/extends';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .expertise-card,
+  .process-card,
+  .testimonials-card {
+    transition: transform 0.35s ease;
+  }
+
+  .expertise-card:hover,
+  .process-card:hover,
+  .testimonials-card:hover {
+    transform: translateY(-12px);
+  }
+
+  .main img:not(.hero-image) {
+    transition: transform 0.35s ease;
+  }
+
+  .main img:not(.hero-image):hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
