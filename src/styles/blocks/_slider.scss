@@ -1,0 +1,99 @@
+.slider {
+  position: relative;
+
+  &__img {
+    @extend %bg-center;
+
+    display: block;
+
+    height: 390px;
+    border-radius: $radius-block;
+
+    background-image: url('../images/slider/apple-watch.jpg');
+    background-size: cover;
+
+    @include on-dekstop {
+      height: 100%;
+      border-radius: $radius-block 0 $radius-block 0;
+      background-size: 1167px auto;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    color: $c-white;
+
+    @include on-tablet {
+      bottom: 40px;
+      left: 40px;
+    }
+
+    @include on-dekstop {
+      bottom: 48px;
+      left: 78px;
+
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 18px;
+      align-items: center;
+    }
+
+    @include on-design {
+      left: 48px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include on-dekstop {
+      grid-row: span 2;
+      margin-bottom: 0;
+    }
+  }
+
+  &__arrow {
+    @extend %bg-center;
+
+    cursor: pointer;
+
+    @include size(32px);
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: $c-white;
+    background-size: 6px 9px;
+
+    &--prev {
+      @include hover-scale;
+
+      background-image: url('../images/slider/arrow-left.svg');
+    }
+
+    &--next {
+      @include hover-scale;
+
+      background-image: url('../images/slider/arrow-right.svg');
+    }
+  }
+
+  &__label {
+    @extend %label;
+
+    margin: 0 0 8px;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-family: $font-secondary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}

@@ -1,0 +1,93 @@
+.vision {
+  margin-bottom: 120px;
+  padding: 72px 0;
+  text-align: center;
+  background-color: $c-white;
+
+  @include on-tablet {
+    margin-bottom: 0;
+    padding: 200px 0;
+  }
+
+  @include on-tablet-only {
+    position: relative;
+    z-index: 0;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+
+      width: 320px;
+
+      background-image: url('../images/Shapes.png'), url('../images/Shapes.png');
+      background-repeat: no-repeat;
+      background-size: 1292px auto;
+    }
+
+    &::before {
+      left: 0;
+      background-position: -224px 95px, -459px 161px;
+    }
+
+    &::after {
+      right: 0;
+      background-position: -544px 95px, -779px 161px;
+    }
+  }
+
+  @include on-dekstop {
+    padding: 199px 0;
+
+    background-image: url('../images/Shapes.png');
+    background-repeat: no-repeat;
+    background-position: center 81px;
+    background-size: 1304px auto;
+  }
+
+  @include on-design {
+    background-position: center;
+    background-size: contain;
+  }
+
+  &__title {
+    @extend %title-large;
+
+    margin: 0 0 $title-margin;
+
+    @include on-dekstop {
+      line-height: 150%;
+    }
+  }
+
+  &__text {
+    @extend %text;
+
+    margin: 0 auto 56px;
+    font-size: 22px;
+    font-weight: 600;
+
+    @include on-tablet {
+      margin-bottom: 64px;
+      font-size: 24px;
+    }
+
+    @include on-dekstop {
+      max-width: 754px;
+    }
+  }
+
+  &__button {
+    @extend %button;
+
+    @include hover-scale;
+
+    height: 56px;
+    margin: 0 auto;
+    background-color: $c-blue;
+  }
+}

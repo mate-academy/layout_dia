@@ -1,0 +1,121 @@
+.testimonial-card {
+  padding: 75px 32px 32px;
+  border-radius: $radius-card;
+  text-align: center;
+  background-color: $c-white;
+
+  @include hover(translate, 0 -8px);
+
+  @include on-tablet-and-design {
+    padding-top: 87px;
+  }
+
+  &__photo {
+    position: relative;
+
+    @include size(110px);
+
+    margin: 0 auto 68px;
+
+    @include on-tablet-and-design {
+      @include size(140px);
+
+      margin: 0 auto 79px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      transform: rotate(-60deg);
+
+      border-radius: 12px;
+
+      background-color: $c-blue;
+
+      @include size(109px, 44px);
+
+      @include on-tablet-and-design {
+        @include size(139px, 56px);
+      }
+    }
+
+    &::before {
+      z-index: 0;
+      top: -6px;
+      left: -36px;
+
+      @include on-tablet-and-design {
+        top: -3px;
+        left: -46px;
+      }
+    }
+
+    &::after {
+      z-index: 0;
+      bottom: 0;
+      left: 36px;
+
+      @include on-tablet-and-design {
+        bottom: -3px;
+        left: 46px;
+      }
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    z-index: 1;
+    display: block;
+    border-radius: 50%;
+
+    @include size(100%);
+  }
+
+  &__quote {
+    display: block;
+    margin: 0 auto 8px;
+
+    @include on-tablet-and-design {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    @extend %text;
+
+    margin: 0 auto 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    @include on-tablet-only {
+      max-width: 362px;
+    }
+
+    @include on-dekstop {
+      max-width: 192px;
+    }
+
+    @include on-design {
+      max-width: 250px;
+    }
+  }
+
+  &__name {
+    margin: 0 0 4px;
+
+    font-family: $font-secondary;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $c-pr-nx;
+  }
+
+  &__company {
+    @extend %label-gray;
+
+    margin: 0;
+  }
+}

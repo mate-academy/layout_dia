@@ -1,7 +1,64 @@
 @import 'utils';
-@import 'fonts';
-@import 'typography';
+
+@import 'blocks/header';
+@import 'blocks/menu';
+@import 'blocks/slider';
+@import 'blocks/hero';
+@import 'blocks/about';
+@import 'blocks/container';
+@import 'blocks/expertise';
+@import 'blocks/card';
+@import 'blocks/process';
+@import 'blocks/process-card';
+@import 'blocks/testimonials';
+@import 'blocks/testimonial-card';
+@import 'blocks/vision';
+@import 'blocks/message';
+@import 'blocks/contacts';
+@import 'blocks/footer';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background-color: $c-gray;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+.main {
+  background: linear-gradient(
+    $c-gray 100px,
+    $c-bg-wt 0 calc(100% - 100px),
+    $c-gray 0
+  );
+
+  &__contact-area {
+    border-radius: $radius-block $radius-block 0 0;
+    background-color: $c-gray;
+
+    @include on-dekstop {
+      display: flex;
+      padding: 0 calc((100% - #{$dekstop}) / 2);
+    }
+
+    @include on-design {
+      padding: 0 calc((100% - #{$design}) / 2);
+    }
+
+    @include on-large {
+      padding: 0;
+    }
+  }
 }

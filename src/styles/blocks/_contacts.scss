@@ -1,0 +1,105 @@
+.contacts {
+  padding-bottom: 80px;
+
+  @include on-tablet {
+    padding-bottom: 140px;
+  }
+
+  @include on-dekstop {
+    padding: 180px 0 120px;
+  }
+
+  &__container {
+    @include on-dekstop {
+      padding-left: 98px;
+    }
+
+    @include on-design {
+      padding-left: 226px;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    margin: 0 0 48px;
+    color: $c-white;
+
+    @include on-tablet {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__item {
+    @extend %flex-column;
+
+    gap: 8px;
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__label {
+    @extend %label;
+
+    margin: 0 0 8px;
+    color: $c-label;
+  }
+
+  &__link {
+    cursor: pointer;
+
+    transform-origin: left;
+
+    font-family: $font-secondary;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    color: $c-white;
+    text-decoration: none;
+
+    @include hover-scale(1.05);
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+  }
+
+  &__social {
+    @include size(24px);
+
+    will-change: transform;
+
+    background-color: $c-white;
+
+    transition: transform 0.3s, background-color 0.3s;
+
+    mask-position: center;
+    mask-repeat: no-repeat;
+
+    &:hover {
+      transform: scale($scale-hover);
+      background-color: $c-blue;
+    }
+
+    &--facebook {
+      mask-image: url('../images/icons/facebook.svg');
+    }
+
+    &--twitter {
+      mask-image: url('../images/icons/twitter.svg');
+    }
+
+    &--instagram {
+      mask-image: url('../images/icons/instagram.svg');
+    }
+  }
+}

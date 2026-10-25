@@ -4,3 +4,48 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin hover-scale($scale: $scale-hover) {
+  @include hover(transform, scale($scale));
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin on-tablet-only {
+  @media (min-width: $tablet) and (max-width: $dekstop - 1px) {
+    @content;
+  }
+}
+
+@mixin on-dekstop {
+  @media (min-width: $dekstop) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design) {
+    @content;
+  }
+}
+
+@mixin on-tablet-and-design {
+  @media (min-width: $tablet) and (max-width: $dekstop - 1px), (min-width: $design) {
+    @content;
+  }
+}
+
+@mixin on-large {
+  @media (min-width: $large) {
+    @content;
+  }
+}

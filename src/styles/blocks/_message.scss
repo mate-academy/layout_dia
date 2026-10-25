@@ -1,0 +1,109 @@
+.message {
+  padding: 72px 0 80px;
+
+  @include on-tablet {
+    padding: 180px 0 120px;
+  }
+
+  &__container {
+    @include on-dekstop {
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    @extend %title;
+
+    margin: 0 0 48px;
+    line-height: 130%;
+    color: $c-white;
+
+    @include on-tablet {
+      line-height: 150%;
+    }
+  }
+
+  &__form {
+    @extend %flex-column;
+
+    gap: 40px;
+
+    @include on-tablet {
+      gap: 48px;
+    }
+  }
+
+  &__field {
+    box-sizing: border-box;
+    padding: 0 0 16px;
+    border: none;
+    border-bottom: 1px solid $c-white;
+    border-radius: 0;
+
+    color: $c-white;
+
+    appearance: none;
+    background: transparent;
+
+    @include on-tablet {
+      max-width: 364px;
+    }
+
+    @include on-dekstop {
+      width: 370px;
+      max-width: none;
+    }
+
+    @include on-design {
+      width: 460px;
+    }
+
+    &::placeholder {
+      color: $c-placeholder;
+    }
+
+    &:focus {
+      padding-bottom: 15px;
+      border-bottom: 2px solid $c-bord;
+      outline: none;
+    }
+
+    &--textarea {
+      resize: none;
+
+      overflow: hidden;
+
+      height: 41px;
+
+      line-height: 24px;
+
+      transition: height 0.3s;
+
+      &:focus {
+        height: 90px;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $c-gray inset;
+      caret-color: $c-white;
+
+      -webkit-text-fill-color: $c-white;
+    }
+  }
+
+  &__button {
+    @extend %button;
+
+    @include hover-scale;
+
+    height: 56px;
+    margin-top: 16px;
+    padding: 0;
+    background-color: $c-bord;
+
+    @include on-tablet {
+      margin-top: 32px;
+    }
+  }
+}

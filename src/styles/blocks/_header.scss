@@ -1,0 +1,98 @@
+.header {
+  padding: 20px 0;
+
+  @include on-dekstop {
+    padding: 49px 0;
+  }
+
+  &__content {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+
+    @include hover-scale;
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include size(24px);
+    @include hover-scale;
+
+    @include on-dekstop {
+      display: none;
+    }
+
+    &-icon {
+      @include size(18px, 8px);
+    }
+  }
+  
+  &__button {
+    @extend %nav-link;
+
+    @include hover-scale;
+
+    margin-left: auto;
+    padding-bottom: 8px;
+    border-bottom: 2px solid $c-blue;
+
+    @include on-dekstop {
+      position: relative;
+      top: 7px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-dekstop {
+      display: block;
+      margin-left: 101px;
+    }
+
+    @include on-design {
+      margin-left: 216px;
+    }
+  }
+
+  &__list {
+    @extend %list-reset;
+
+    display: flex;
+    gap: 48px;
+  }
+
+  &__link {
+    @extend %nav-link;
+
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      left: 0;
+      transform: scaleX(0);
+
+      height: 2px;
+
+      background-color: $c-blue;
+
+      transition: transform 0.3s;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
