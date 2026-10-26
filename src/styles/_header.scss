@@ -1,0 +1,97 @@
+@use './utils';
+@use './utils/extends';
+
+.header {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  margin: 0;
+  height: calc(100% + 120px);
+  width: 100%;
+
+  margin-inline: auto;
+
+  background-color: utils.$dark-bg;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  min-height: 800px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__container {
+    @include utils.page-grid;
+
+    max-width: 1146px;
+    margin-inline: auto;
+
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+    max-width: 845px;
+
+    @include utils.content-padding;
+
+    margin-bottom: 48px;
+    grid-column: 1 / -1;
+
+    @include utils.on-tablets {
+      align-items: flex-start;
+      grid-column: span -3;
+      margin-bottom: 147px;
+    }
+
+    @include utils.on-desktops {
+      grid-column: span 6;
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-size: 52px;
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: 120%;
+    color: utils.$white;
+
+    @extend %h1 !optional;
+
+    @include utils.on-tablets {
+      font-size: 64px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__button {
+    display: flex;
+    width: 280px;
+    height: 50px;
+    background-color: utils.$main-blue;
+    border-radius: 8px;
+
+    justify-content: center;
+    align-items: center;
+
+    @include utils.on-tablets {
+      width: 264px;
+    }
+
+    @include utils.hover-overlay;
+  }
+}

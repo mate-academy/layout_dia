@@ -1,0 +1,128 @@
+@use './utils';
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: none;
+
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  @include utils.on-tablets {
+    grid-row: 3;
+  }
+
+  @include utils.on-desktops {
+    position: absolute;
+    top: 120px;
+    z-index: 2;
+
+    right: 0;
+    bottom: 0;
+
+    width: 52%;
+    height: 680px;
+
+    overflow: hidden;
+    border-top-right-radius: 0%;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.3s ease;
+    border: none;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+
+    margin-bottom: 8px;
+  }
+
+  &__content {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include utils.on-tablets {
+      left: 40px;
+      right: 40px;
+      bottom: 32px;
+    }
+
+    @include utils.on-desktops {
+      left: 78px;
+      bottom: 48px;
+    }
+
+    @include utils.on-desktops-large {
+      left: 48px;
+    }
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: #fff;
+
+    cursor: pointer;
+
+    &-img {
+      display: block;
+    }
+  }
+
+  &__title {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  &__text {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 140%;
+  }
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+
+  height: 390px;
+  border-radius: 30px;
+  overflow: hidden;
+
+  @include utils.on-desktops {
+    height: 680px;
+    border-top-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+
+  &__img {
+    width: 100%;
+    height: calc(100% + 2px);
+
+    display: block;
+    object-fit: cover;
+  }
+}

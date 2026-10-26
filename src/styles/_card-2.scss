@@ -1,0 +1,133 @@
+@use './utils';
+
+.card-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+
+  background-color: utils.$white;
+  box-shadow: 0 9px 18px 0 #25293108;
+  border-radius: 16px;
+
+  padding: 32px;
+
+  grid-column: 1 / -1;
+
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
+  @include utils.hover(box-shadow, 0 12px 32px rgba(0, 0, 0, 0.12));
+
+  &--1 {
+    @include utils.on-tablets {
+      grid-column: 1 / 4;
+    }
+
+    @include utils.on-desktops {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &--2 {
+    @include utils.on-tablets {
+      grid-column: 4 / -1;
+      transform: translateY(-50%);
+    }
+
+    @include utils.on-desktops {
+      grid-column: 10 / -1;
+    }
+  }
+
+  &--3 {
+    @include utils.on-tablets {
+      grid-column: 1 / 4;
+    }
+
+    @include utils.on-desktops {
+      grid-column: 7 / 10;
+    }
+  }
+
+  &--4 {
+    @include utils.on-tablets {
+      grid-column: 4 / -1;
+      transform: translateY(-50%);
+    }
+
+    @include utils.on-desktops {
+      grid-column: 10 / -1;
+    }
+  }
+
+  &__number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: utils.$main-blue;
+
+    padding: 6px 12px;
+
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+
+    width: fit-content;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+
+    width: fit-content;
+  }
+
+  &__text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    color: utils.$text-gray;
+
+    margin: 0;
+    padding: 0;
+
+    width: fit-content;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    text-decoration: none;
+    width: fit-content;
+
+    &-img {
+      width: 45px;
+      height: 45px;
+      @include utils.hover(transform, scale(1.1));
+    }
+
+    &-text {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 100%;
+      text-align: center;
+
+      color: utils.$text-200;
+      width: fit-content;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@use './utils';
+
+.nav {
+  &-mobile {
+    display: none;
+  }
+
+  &__footer {
+    display: flex;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include utils.on-tablets {
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    @include utils.on-desktops {
+      gap: 64px;
+    }
+  }
+
+  &__list li {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: #fff;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 20px;
+
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -8px;
+      background-color: utils.$main-blue;
+      transform-origin: left center;
+      transition: 0.3s ease;
+    }
+
+    &:hover::after,
+    &--active::after {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: utils.$desktop-min-width) {
+  .nav-mobile,
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .nav__item--active {
+    align-self: flex-start;
+  }
+}

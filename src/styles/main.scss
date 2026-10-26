@@ -1,7 +1,73 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@use './utils/vars' as *;
+@use './utils/mixins' as *;
+
+@use './utils';
+@use './fonts' as *;
+@use './typography';
+@use './header';
+@use './top-bar';
+@use './nav';
+@use './menu';
+@use './icon';
+@use './slider';
+@use './about-us';
+@use './about-us-extn';
+@use './section';
+@use './services';
+@use './card';
+@use './card-2';
+@use './card-3';
+@use './testimonials';
+@use './apply';
+@use './text';
+@use './contact-us';
+@use './footer';
+@use './container';
+@use './socials';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  background: utils.$c-gray;
+  margin: 0;
+  max-width: 100vw;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.page {
+  background-color: utils.$main-light-bg;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 2000px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.main-page {
+  width: 100%;
+  overflow: hidden;
+
+  @include utils.on-tablets {
+    row-gap: 150px;
+    padding-block: 0;
+  }
+}
+
+.tablet-break {
+  display: none;
+
+  @include utils.on-tablets {
+    display: block;
+  }
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
