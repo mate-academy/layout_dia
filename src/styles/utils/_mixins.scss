@@ -4,3 +4,33 @@
     #{$_property}: $_toValue;
   }
 }
+
+// обгортка для media query
+@mixin on($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// спільний стиль для посилань меню
+@mixin link-accent {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: underline transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  transition:
+    opacity 0.3s ease-in-out,
+    text-decoration-color 0.3s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-color: #2060f6;
+    opacity: 0.7;
+  }
+}
