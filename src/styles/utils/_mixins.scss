@@ -1,6 +1,36 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@use "sass:list";
+
+@mixin hover($properties, $values, $duration: 0.3s) {
+  $transitions: ();
+
+  @for $i from 1 through list.length($properties) {
+    $property: list.nth($properties, $i);
+    $transitions: list.append($transitions, #{$property} $duration, comma);
+  }
+
+  transition: $transitions;
+
   &:hover {
-    #{$_property}: $_toValue;
+    @for $i from 1 through list.length($properties) {
+      #{list.nth($properties, $i)}: list.nth($values, $i);
+    }
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: 640px) {
+    @content
+  }
+};
+
+@mixin on-small-desktop {
+  @media (min-width: 1024px) {
+    @content
+  }
+};
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content
+  }
+};
