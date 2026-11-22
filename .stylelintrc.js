@@ -3,5 +3,11 @@ module.exports = {
   plugins: [
     "stylelint-scss"
   ],
+  ignoreFiles: [
+    "**/*.css",
+    "**/*.css.map",
+    "dist/**",
+    "build/**"
+  ],
   rules: {}
 };
