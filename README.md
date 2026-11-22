@@ -4,7 +4,7 @@ A responsive landing page for the full-service creative agency **Air**, built fr
 
 ## Links
 
-- **Live Preview:** [DEMO LINK](https://Makson-Tyrchun>.github.io/layout_dia/)
+- **Live Preview:** [DEMO LINK](https://Makson-Tyrchun.github.io/layout_dia/)
 - **Design Mockup:** [Figma Design](https://www.figma.com/design/7qwsWggv9BAxMi2VPhBuPr/Air--formerly-Dia--?node-id=22904-1525&t=emLflarmNcJT6W9x-0)
 
 ## Technologies Used
@@ -13,7 +13,7 @@ A responsive landing page for the full-service creative agency **Air**, built fr
 - **SCSS / Sass** (mixins, variables, modular architecture)
 - **CSS Grid & Flexbox** (responsive design from `320px` to `2560px`)
 - **BEM** (Block Element Modifier methodology)
-- **JavaScript** (navigation menu & interactive UI elements)
+- **JavaScript** (navigation menu, slider & interactive UI elements)
 - **Parcel / Gulp & Linters** (Stylelint, HTMLHint, ESLint)
 
 ## Key Features
