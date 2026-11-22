@@ -1,0 +1,85 @@
+@use 'utils' as *;
+
+.process-card {
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  transition: transform $transition-duration ease;
+
+  // fixing text blurriness when zooming in
+
+  backface-visibility: hidden;
+  will-change: transform;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  @include on-tablet {
+    &:nth-child(even):hover {
+      transform: translateY(-50%) scale(1.03);
+    }
+  }
+
+  &__number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 24px;
+    margin-bottom: 24px;
+
+    font-family: $pop-font;
+    font-weight: $font-weight-semibold;
+    font-size: 13px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $button-back-color;
+
+    background-color: rgba(32, 96, 246, 0.1);
+    border-radius: 23px;
+  }
+
+  &__text {
+    margin: 0 0 32px;
+    font-family: $open-sans-font;
+    font-weight: $font-weight-semibold;
+    font-size: 13px;
+    line-height: $font-line-height-1;
+    color: $text-color;
+  }
+
+  &__link-text {
+    font-family: $pop-font;
+    font-weight: $font-weight-semibold;
+    font-size: 15px;
+    line-height: 100%;
+    color: #334563;
+    transition: color $transition-duration ease;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+
+    &:hover .process-card__link-text {
+      color: $button-back-color;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+
+    background-color: $button-back-color;
+    border-radius: 50%;
+    transition: background-color $transition-duration ease transform
+      $transition-duration ease;
+  }
+}

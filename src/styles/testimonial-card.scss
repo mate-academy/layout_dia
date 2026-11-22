@@ -1,0 +1,158 @@
+@use 'utils' as *;
+
+.testimonial-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 32px 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 9px 18px rgba(37, 41, 49, 0.03);
+  transition:
+    transform $transition-duration ease,
+    box-shadow $transition-duration ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 32px rgba(37, 41, 49, 0.08);
+  }
+
+  @include on-tablet {
+    padding: 32px 98px;
+  }
+
+  @include on-small-desktop {
+    padding: 32px 40px;
+  }
+
+  &__photo-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 196px;
+    height: 196px;
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      width: 250px;
+      height: 250px;
+    }
+
+    @include on-small-desktop {
+      width: 196px;
+      height: 196px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 44px;
+      height: 110px;
+      background-color: $button-back-color;
+      border-radius: 12px;
+      transform: rotate(30deg);
+
+      @include on-tablet {
+        width: 56px;
+        height: 140px;
+      }
+
+      @include on-small-desktop {
+        width: 44px;
+        height: 110px;
+      }
+    }
+
+    &::before {
+      top: 14px;
+      left: 34px;
+
+      @include on-tablet {
+        top: 18px;
+        left: 34px;
+      }
+
+      @include on-small-desktop {
+        top: 14px;
+        left: 34px;
+      }
+    }
+
+    &::after {
+      bottom: 14px;
+      right: 34px;
+
+      @include on-tablet {
+        bottom: 18px;
+        right: 44px;
+      }
+
+      @include on-small-desktop {
+        bottom: 14px;
+        right: 34px;
+      }
+    }
+  }
+
+  &__img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @include on-tablet {
+      width: 140px;
+      height: 140px;
+    }
+
+    @include on-small-desktop {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  &__quote-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+    background-image: url(../images/quote-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &__text {
+    font-family: $open-sans-font;
+    font-weight: $font-weight-semibold;
+    font-size: 13px;
+    line-height: $font-line-height-1;
+    color: $text-color;
+  }
+
+  &__name {
+    margin: auto 0 4px;
+    font-family: $open-sans-font;
+    font-weight: $font-weight-semibold;
+    font-size: 13px;
+    line-height: $font-line-height-1;
+    color: $title-color;
+  }
+
+  &__role {
+    margin: 0;
+    font-family: $pop-font;
+    font-weight: $font-weight-bold;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $section-subtitle-color;
+  }
+}

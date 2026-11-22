@@ -1,0 +1,93 @@
+@use 'utils' as *;
+
+.process {
+  padding-top: 120px;
+
+  @include on-tablet {
+    padding-top: 148px;
+  }
+
+  @include on-small-desktop {
+    padding-top: 250px;
+  }
+
+  &__content {
+    @include on-small-desktop {
+      @include page-grid;
+
+      align-items: start;
+    }
+  }
+
+  &__info {
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      max-width: 362px;
+      margin-bottom: 168px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 5;
+      max-width: none;
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 16px;
+    font-family: $pop-font;
+    font-weight: $font-weight-bold;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    color: $section-subtitle-color;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-family: $pop-font;
+    font-weight: $font-weight-semibold;
+    font-size: 32px;
+    line-height: 130%;
+    color: $title-color;
+  }
+
+  &__description {
+    font-family: $open-sans-font;
+    font-weight: $font-weight-regular;
+    font-size: 14px;
+    line-height: $font-line-height-1;
+    color: $text-color;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 6 / 13;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+    }
+  }
+
+  &__card {
+    @include on-tablet {
+      &:nth-child(even) {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
