@@ -1,0 +1,130 @@
+@use 'utils' as *;
+
+.slider {
+  position: relative;
+  margin-top: 48px;
+
+  @include on-tablet {
+    margin-top: 147px;
+  }
+
+  @include on-small-desktop {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    width: 49%;
+    height: 680px;
+  }
+
+  @include on-desktop {
+    width: 43%;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+
+    border-radius: 30px;
+    object-position: 35% center;
+
+    @include on-small-desktop {
+      height: 100%;
+      border-radius: 30px 0 0;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 1px;
+    margin-inline: 20px;
+    color: #fff;
+
+    @include on-tablet {
+      margin-inline: 41px;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      bottom: 48px;
+      margin-inline: 78px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @include on-small-desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    color: $text-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 8px;
+    font-family: $pop-font;
+    font-weight: $font-weight-bold;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__text {
+    margin: 0 0 24px;
+    font-family: $open-sans-font;
+    font-weight: $font-weight-regular;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+
+    @include on-tablet {
+      margin: 0 0 32px;
+    }
+
+    @include on-small-desktop {
+      margin: 0;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.6s ease,
+      visibility 0.6s ease;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
