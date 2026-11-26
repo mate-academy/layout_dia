@@ -269,12 +269,39 @@
       border-color: $color-blue;
       outline: none;
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      border-bottom-color: $color-white;
+
+      -webkit-text-fill-color: $color-white;
+      box-shadow: 0 0 0 1000px $color-dark inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   &__textarea {
     resize: none;
+    scrollbar-width: thin;
+    scrollbar-color: color.adjust($color-white, $alpha: -0.65) transparent;
+
     height: 96px;
     padding-top: 12px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background-color: color.adjust($color-white, $alpha: -0.65);
+    }
   }
 
   &__btn {

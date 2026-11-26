@@ -1,6 +1,90 @@
 @charset "UTF-8";
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+.menu {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  padding: 18px 20px 32px;
+  pointer-events: none;
+  visibility: hidden;
+  background-color: #2c2c2c;
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+.menu:target {
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu__top {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu__link {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.menu__link:hover {
+  color: #2060f6;
+}
+@media (min-width: 1024px) {
+  .menu {
+    display: none;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.icon--close {
+  width: 32px;
+  height: 32px;
+  font-family: 'Poppins', sans-serif, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #fff;
 }
 
 @font-face {
@@ -121,6 +205,7 @@ html {
 }
 
 .main {
+  position: relative;
   width: 100%;
   background-color: #2c2c2c;
 }
@@ -141,6 +226,7 @@ html {
 }
 
 .hero-section {
+  position: relative;
   width: 100%;
   background-color: #f2f6fa;
 }
@@ -282,7 +368,7 @@ html {
   z-index: 2;
   overflow: hidden;
   height: 390px;
-  border-radius: 30px;
+  border-radius: 30px 0 0 30px;
   background-image: url('../images/background/Photo_watches.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -292,9 +378,7 @@ html {
   .watches__image {
     width: 100%;
     height: 100%;
-    border-radius: 0;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius: 30px 0 0 30px;
   }
 }
 .watches__content {
@@ -325,8 +409,8 @@ html {
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: none;
   cursor: pointer;
+  border: none;
   border-radius: 50%;
   background-color: #2c2c2c;
 }
@@ -341,8 +425,8 @@ html {
   font-weight: 700;
   line-height: normal;
   color: #fff;
-  letter-spacing: 3px;
   text-transform: uppercase;
+  letter-spacing: 3px;
 }
 .watches__text {
   max-width: 240px;
@@ -359,17 +443,16 @@ html {
     z-index: 2;
     top: 120px;
     right: 0;
-    bottom: 0;
     width: 50%;
     height: 680px;
     padding-top: 0;
     background-color: transparent;
   }
 }
-@media (min-width: 1024px) and (min-width: 1600px) {
+@media (min-width: 1600px) {
   .watches {
+    top: 120px;
     right: 0;
-    bottom: 0;
     width: 52%;
     height: 680px;
   }
@@ -1242,10 +1325,32 @@ html {
   border-color: #2060f6;
   outline: none;
 }
+.contact-form__input:-webkit-autofill,
+.contact-form__input:-webkit-autofill:hover,
+.contact-form__input:-webkit-autofill:focus,
+.contact-form__input:-webkit-autofill:active {
+  border-bottom-color: #fff;
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0 1000px #2c2c2c inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .contact-form__textarea {
   resize: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
   height: 96px;
   padding-top: 12px;
+}
+.contact-form__textarea::-webkit-scrollbar {
+  width: 6px;
+}
+.contact-form__textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+.contact-form__textarea::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.35);
 }
 .contact-form__btn {
   width: 100%;
